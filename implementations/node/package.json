@@ -1,0 +1,13 @@
+{
+  "name": "webweavex",
+  "version": "1.0.0",
+  "description": "Universal web intelligence library",
+  "main": "lib/client.js",
+  "type": "module",
+  "scripts": {
+    "test": "node validate.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

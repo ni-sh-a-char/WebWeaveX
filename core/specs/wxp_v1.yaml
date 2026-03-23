@@ -1,0 +1,182 @@
+# WebWeaveX Protocol Specification v1.0
+# Canonical specification for all language implementations
+
+version: "1.0"
+name: "WebWeaveX"
+description: "Universal installable library for web intelligence"
+
+# Pipeline stages in execution order
+pipeline:
+  stages:
+    - fetch
+    - parse
+    - clean
+    - chunk
+    - entities
+    - graph
+  strict_order: true
+
+# Fetch configuration
+fetch:
+  timeout: 10  # seconds
+  retries: 3
+  retry_delay: 1  # seconds
+  user_agent: "WebWeaveX/1.0"
+  accept_language: "en-US,en;q=0.9"
+  accept_encoding: "gzip, deflate"
+  follow_redirects: true
+  max_redirects: 5
+
+# Parser configuration
+parse:
+  extract_visible_text: true
+  remove_scripts: true
+  remove_styles: true
+  remove_comments: true
+  remove_hidden: true
+
+# Cleaning configuration
+clean:
+  normalize_whitespace: true
+  strip: true
+  remove_empty_lines: true
+  lowercase: false  # preserve case for entity extraction
+
+# Chunking configuration
+chunking:
+  size: 500  # characters
+  overlap: 50  # characters
+  method: "sliding_window"
+  preserve_words: true
+
+# Entity extraction patterns
+entity_patterns:
+  email:
+    regex: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+    type: "email"
+  
+  url:
+    regex: 'https?://[^\\s<>"]+'
+    type: "url"
+  
+  number:
+    regex: "\\b\\d+(?:\\.\\d+)?\\b"
+    type: "number"
+  
+  capitalized:
+    regex: "\\b[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*\\b"
+    type: "capitalized"
+  
+  phone:
+    regex: "\\+?[0-9]{1,4}?[-.\\s]?\\(?[0-9]{1,4}\\)?[-.\\s]?[0-9]{1,4}[-.\\s]?[0-9]{1,9}"
+    type: "phone"
+
+# Graph configuration
+graph:
+  edge_rule: "cooccurrence"
+  node_types: ["email", "url", "number", "capitalized", "phone"]
+  min_occurrence: 1
+  directed: false
+
+# Sorting and determinism
+sorting:
+  deterministic: true
+  sort_keys: true
+  stable_sort: true
+
+# AI Provider configuration
+ai:
+  providers:
+    openai:
+      endpoint: "https://api.openai.com/v1/chat/completions"
+      model: "gpt-3.5-turbo"
+      max_tokens: 1000
+      temperature: 0.0  # deterministic
+    
+    openrouter:
+      endpoint: "https://openrouter.ai/api/v1/chat/completions"
+      model: "openai/gpt-3.5-turbo"
+      max_tokens: 1000
+      temperature: 0.0
+    
+    groq:
+      endpoint: "https://api.groq.com/openai/v1/chat/completions"
+      model: "llama-3.1-8b-instant"
+      max_tokens: 1000
+      temperature: 0.0
+    
+    ollama:
+      endpoint: "http://localhost:11434/api/chat"
+      model: "llama3.2"
+      max_tokens: 1000
+      temperature: 0.0
+
+# Agent tools
+agent_tools:
+  - name: "crawl"
+    description: "Fetch and process a URL"
+    params: ["url"]
+  
+  - name: "rag"
+    description: "Retrieve relevant chunks for a query"
+    params: ["url", "query"]
+  
+  - name: "graph"
+    description: "Generate entity graph from text"
+    params: ["text"]
+  
+  - name: "compare"
+    description: "Compare content from multiple URLs"
+    params: ["urls"]
+  
+  - name: "weave"
+    description: "Combine content from multiple URLs"
+    params: ["urls"]
+  
+  - name: "diff"
+    description: "Show differences between URLs"
+    params: ["url1", "url2"]
+
+# Response schemas
+schemas:
+  crawl_result:
+    type: "object"
+    properties:
+      - url
+      - text
+      - chunks
+      - entities
+      - graph
+      - metadata
+    required: ["url", "text"]
+
+  entity_result:
+    type: "object"
+    properties:
+      - type
+      - value
+    required: ["type", "value"]
+
+  graph_result:
+    type: "object"
+    properties:
+      - nodes
+      - edges
+    required: ["nodes", "edges"]
+
+# Metadata fields
+metadata:
+  include_timestamp: false
+  include_version: true
+  include_url: true
+
+# Caching (optional, in-memory)
+cache:
+  enabled: false
+  max_size: 1000
+  ttl: 3600  # seconds
+
+# Async support
+async:
+  enabled: true
+  explicit_only: true

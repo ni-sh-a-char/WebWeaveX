@@ -1,0 +1,26 @@
+[
+  {
+    "name": "basic",
+    "input": "Contact test@example.com 555-1234"
+  },
+  {
+    "name": "url_email",
+    "input": "Visit https://example.com or mail me@test.com"
+  },
+  {
+    "name": "empty",
+    "input": ""
+  },
+  {
+    "name": "short",
+    "input": "Hi"
+  },
+  {
+    "name": "numbers_only",
+    "input": "12345"
+  },
+  {
+    "name": "complex",
+    "input": "Email john@company.com or call +1-555-123-4567. Visit https://web.example.org for more."
+  }
+]

@@ -1,66 +1,50 @@
-﻿# OS
-.DS_Store
-Thumbs.db
-
-# Python
+# Dependencies
+node_modules/
+dist/
+build/
+*.egg-info/
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
 *.pyd
-*.egg-info/
-.venv/
-.venv-*/
-venv/
-.env
+.Python
 
-# Node
-node_modules/
-.npm/
-.pnpm-store/
-.yarn/
-.yarn-cache/
-.yarnrc.yml
-pnpm-debug.log*
-npm-debug.log*
-
-# Java/Kotlin/Gradle
-.gradle/
-build/
+# Build artifacts
+target/
 *.class
 *.jar
 *.war
 *.ear
 
-# Maven
-target/
-
-# Dart/Flutter
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-build/
-
 # IDE
-.idea/
 .vscode/
-*.iml
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
 
-# Coverage
-coverage/
-htmlcov/
+# Test outputs
+test_output/
+core/test_output/
 
-# Test artifacts
-.pytest_cache/
-
-# Terraform or infra
-*.tfstate
-*.tfstate.backup
-
-# Misc
+# Temporary
 *.tmp
-*.swp
+temp_*
+debug_*
+
+# Pub/Dart
+.dart_tool/
+pubspec.lock
+
+# Gradle
+.gradle/
+
+# Validation
+validation.txt
