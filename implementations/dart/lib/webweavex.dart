@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 import 'pipeline.dart';
 import 'chunker.dart';
