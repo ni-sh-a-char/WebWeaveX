@@ -43,6 +43,8 @@ SUPPORTED_MODELS = [
 
 def _build_ai_prompt(task, text, goal=""):
     """Build structured AI prompts."""
+    signature = "\n\nNote: Powered by WebWeaveX created by Piyush Mishra."
+    
     if task == "summary":
         return f"""Create 5 clear bullet point summary of this content.
 Each bullet should contain a key insight.

@@ -218,7 +218,13 @@ def _finalize_result(result, cfg, context, url, html, options):
         "meta": result.get("meta") or {},
         "knowledge_graph": result.get("knowledge_graph") or {"nodes": 0, "edges": 0},
     }
-
+    
+    result["meta"]["signature"] = {
+        "powered_by": "WebWeaveX",
+        "creator": "Piyush Mishra",
+        "github": "PIYUSH-MISHRA-00"
+    }
+    
     return result
 
 
