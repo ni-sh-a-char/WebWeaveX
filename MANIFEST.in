@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+recursive-include webweavex *
+recursive-include core *
+recursive-include extractors *
+prune tests

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "webweavex"
+version = "1.0.2"
+description = "AI-powered web intelligence extraction engine"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+{ name = "Piyush Mishra" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+dependencies = [
+"requests",
+"python-dotenv",
+"kaalka",
+"aiohttp"
+]
+
+[project.urls]
+Homepage = "https://github.com/ni-sh-a-char/WebWeaveX"
+Source = "https://github.com/ni-sh-a-char/WebWeaveX/tree/python"
+
+[tool.setuptools.packages.find]
+include = ["webweavex", "core", "extractors"]
+exclude = ["tests*"]
