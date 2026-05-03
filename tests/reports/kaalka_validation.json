@@ -1,7 +1,0 @@
-{
-  "byte_level_match": true,
-  "determinism": true,
-  "kaalka_used": true,
-  "fallback_used": false,
-  "overall_pass": true
-}

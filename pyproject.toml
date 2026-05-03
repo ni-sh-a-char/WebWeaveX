@@ -4,27 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "webweavex"
-version = "1.0.3"
+version = "1.0.5"
 description = "AI-powered web intelligence extraction engine"
 readme = "README.md"
 requires-python = ">=3.8"
-authors = [
-{ name = "Piyush Mishra" }
-]
+authors = [{name = "WebWeaveX Team"}]
 license = "MIT"
-license-files = ["LICENSE"]
 
 dependencies = [
-"requests",
-"python-dotenv",
-"kaalka",
-"aiohttp"
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
 ]
 
 [project.urls]
-Homepage = "https://github.com/ni-sh-a-char/WebWeaveX"
-Source = "https://github.com/ni-sh-a-char/WebWeaveX/tree/python"
+Homepage = "https://github.com/webweavex/webweavex"
+Repository = "https://github.com/webweavex/webweavex"
 
 [tool.setuptools.packages.find]
-include = ["webweavex", "core", "extractors"]
-exclude = ["tests*"]
+include = ["webweavex*", "core*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

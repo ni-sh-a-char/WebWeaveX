@@ -1,65 +1,30 @@
 # 🚀 WebWeaveX
 
-> **The Intelligence Layer of the Internet**
-> Transform any website into structured, AI-ready data — instantly.
+> **AI-powered web intelligence extraction engine**
+
+Transform web content into structured, AI-ready data with a deterministic pipeline.
 
 ---
 
-## 🌍 Why WebWeaveX Exists
+## ✨ What WebWeaveX Does
 
-The internet is built for humans to read, not for machines to understand.
+WebWeaveX extracts structured data from web sources:
 
-Every website is:
-
-* messy
-* unstructured
-* inconsistent
-
-WebWeaveX changes that.
-
-It converts raw web content into:
-
-* clean text
-* structured data
-* knowledge graphs
-* AI insights
-
-👉 So developers and AI agents can actually use the internet, not just browse it.
+- **Clean text** from HTML
+- **Code blocks** from repositories  
+- **Knowledge** from documentation
+- **Results** from search engines
 
 ---
 
-## ⚡ What You Get
+## ⚡ Features
 
-* 🧠 **Intelligent Extraction Engine** — understands content, not just parses HTML
-* 🔗 **Automatic Knowledge Graphs** — entities + relationships
-* 🤖 **AI Integration (Groq / OpenAI / Local)** — summaries, scoring, reasoning
-* ♻️ **Deterministic Mode** — reproducible outputs for CI/CD
-* 🔐 **Secure Context Layer** — powered by time-based encryption
-* 📦 **Strict Schema Output** — always predictable
-* ⚙️ **Parallel Extraction** — fast + scalable
-* 🧬 **Self-Evolving Ready** — designed for autonomous AI systems
-
----
-
-## 🧬 Built for the Future (AI + Agents)
-
-WebWeaveX is not just a scraper.
-
-It is designed for:
-
-* AI agents
-* autonomous systems
-* self-evolving applications
-
-It enables systems that can:
-
-* read the web
-* understand it
-* extract meaning
-* build knowledge
-* improve over time
-
-👉 This is the foundation for apps that can become anything.
+- **8-Stage Pipeline** — intent → extraction → ranking → output
+- **Schema-Locked Output** — always 7 predictable keys
+- **Multi-Source** — GitHub, StackOverflow, web search
+- **Adaptive Extraction** — recovers from weak pages
+- **Deterministic** — same input → same output
+- **Agent-Friendly** — structured_data and ui_schema for AI
 
 ---
 
@@ -73,197 +38,115 @@ pip install webweavex
 
 ## 🚀 Quick Start
 
-### Basic Extraction
-
 ```python
-from webweavex import extract
+from webweavex import run
 
-result = extract("https://example.com")
-print(result["content"]["text"])
+# Basic usage
+result = run({"input": "calculator app python"})
+
+print(result["human_readable"])
+print(result["structured_data"])
+print(result["confidence"])
 ```
 
----
-
-### With AI Intelligence
-
-```python
-from webweavex import extract
-
-result = extract(
-    "https://docs.python.org/3/",
-    options={
-        "deterministic_mode": False,
-        "ai": {
-            "enabled": True,
-            "provider": "groq",
-            "api_key": "YOUR_API_KEY"
-        }
-    }
-)
-
-print(result["ai"]["result"]["summary"])
-print(result["ai"]["result"]["entities"])
-print(result["ai"]["result"]["score"])
-```
-
----
-
-## 🧠 Output Schema (Guaranteed)
-
-```python
-{
-  "content": {
-    "text": str,
-    "code": list,
-    "structured": dict
-  },
-  "intelligence": {},
-  "knowledge": {
-    "entities": list,
-    "relations": list
-  },
-  "ai": {
-    "mode": str,
-    "result": {
-      "summary": str,
-      "entities": list,
-      "score": float
-    }
-  },
-  "meta": {
-    "signature": {
-      "powered_by": "WebWeaveX",
-      "creator": "Piyush Mishra",
-      "github": "PIYUSH-MISHRA-00"
-    }
-  },
-  "knowledge_graph": {
-    "nodes": int,
-    "edges": int
-  }
-}
-```
-
----
-
-## 🔐 Security — Powered by Kaalka
-
-WebWeaveX uses the **[Kaalka Encryption Algorithm](https://github.com/PIYUSH-MISHRA-00/Kaalka-Encryption-Algorithm)**.
-
-A time-based encryption system where:
-
-* ⏱️ Time acts as the key
-* 🔄 Same data + different time → different encryption
-* 🔐 Built for AI-native secure systems
-
-👉 Designed for future autonomous intelligence systems.
-
----
-
-## ⚙️ Configuration
-
-| Option               | Type | Description               |
-| -------------------- | ---- | ------------------------- |
-| `deterministic_mode` | bool | Reproducible outputs      |
-| `ai.enabled`         | bool | Enable AI                 |
-| `ai.provider`        | str  | "groq", "openai", "local" |
-| `ai.api_key`         | str  | API key                   |
-| `max_depth`          | int  | Crawl depth               |
-| `max_links_per_page` | int  | Link limit                |
-
----
-
-## 🧪 Example Use Cases
-
-* 🤖 AI agents reading the web
-* 📊 Data pipelines from websites
-* 🧠 Knowledge graph generation
-* 🔍 Research automation
-* 📚 Documentation summarization
-* 🧬 Self-evolving applications
-
----
-
-## 🧠 Core Principles
-
-* Deterministic when needed
-* Intelligent when enabled
-* Secure by design
-* Schema locked
-* No hidden behavior
-
----
-
-## 🧑‍💻 Creator Signature
-
-Every output carries a traceable identity:
-
+**Output:**
 ```json
 {
-  "powered_by": "WebWeaveX",
-  "creator": "Piyush Mishra",
-  "github": "PIYUSH-MISHRA-00"
+  "human_readable": "Repository search results - GitHub...",
+  "structured_data": {"query_source": "github", "has_content": true},
+  "ui_schema": {"type": "ui_render", "components": [...]},
+  "confidence": 0.9,
+  "source": "github",
+  "reconstructed_project": [],
+  "version": "v1_phase_14"
 }
 ```
 
 ---
 
-## 🌍 Built for Humanity
+## 📋 Output Schema (Always 7 Keys)
 
-WebWeaveX is a contribution toward:
-
-* open intelligence
-* accessible AI infrastructure
-* systems that can learn and evolve
-
-**Philosophy:**
-
-* Free intelligence layer for the internet
-* Built for humans and AI systems
-* Secure by design
-* Designed for the future
+| Key | Type | Description |
+|-----|------|-------------|
+| `human_readable` | str | Human-friendly summary |
+| `structured_data` | dict | Machine-usable data |
+| `ui_schema` | dict | UI-ready components |
+| `confidence` | float | 0.0-1.0 confidence |
+| `source` | str | Data source (github, web, etc.) |
+| `reconstructed_project` | list | Code files if extracted |
+| `version` | str | Engine version |
 
 ---
 
-## ☕ Support the Project
+## 🎯 Use Cases
 
-If this helps you:
+```python
+# Calculator app
+result = run({"input": "calculator app python"})
 
-👉 Consider supporting:
+# Weather dashboard
+result = run({"input": "weather dashboard India"})
 
-* 🍵Buy Me a Coffee
-* ⭐ Star the repo
+# ML pipeline
+result = run({"input": "machine learning pipeline"})
+
+# Todo app
+result = run({"input": "todo app with login"})
+```
+
+---
+
+## 🔧 For Developers
+
+```python
+# Import the API
+from webweavex import run, validate_request, validate_response, ENGINE_VERSION
+
+# Validate input
+validated = validate_request({"input": "my query"})
+print(validated)  # {"input": "my query", "mode": "normal"}
+
+# Run with strict mode
+result = run({"input": "calculator app", "mode": "strict"})
+```
+
+---
+
+## 🏗️ Architecture
+
+```
+User Input → Intent Resolution → Source Planning → Query Building
+    → Fetch Engine → Adaptive Extraction → Ranking → Execution
+    → Output Engine → Structured Result (7 keys)
+```
+
+---
+
+## ⚠️ Limitations
+
+- **Web Dependent** — requires internet connection
+- **Rate Limits** — may be affected by source websites
+- **Not Deterministic** — web content changes; outputs may vary over time
 
 ---
 
 ## 📄 License
 
-MIT License © 2026 Piyush Mishra
-
-Use it. Build on it. Ship products with it.
+MIT License
 
 ---
 
-## 🚀 Final Thought
+## 🤝 Contributing
 
-> The internet was built for humans.
-> WebWeaveX makes it usable for intelligence.
-
----
-
-## ⭐ If You Like This
-
-* Star the repo
-* Share it
-* Build something crazy with it
+Contributions welcome! Open an issue or PR on GitHub.
 
 ---
 
-## 🔥 Built by
+## 🔗 Links
 
-**Piyush Mishra :-**
-[PIYUSH-MISHRA-00](https://github.com/PIYUSH-MISHRA-00)
+- GitHub: https://github.com/webweavex/webweavex
+- PyPI: https://pypi.org/project/webweavex/
 
-<a href="https://buymeacoffee.com/piyushmishra00" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" height="41" width="170">
-</a>
+---
+
+⭐ Star us if you find this useful!

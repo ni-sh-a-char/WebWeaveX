@@ -1,6 +1,6 @@
 import re
 
-from core.extractor_engine import BaseExtractor
+from core.extraction_engine import BaseExtractor
 
 
 class GitHubExtractor(BaseExtractor):
