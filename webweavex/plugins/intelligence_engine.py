@@ -118,10 +118,18 @@ def enhanced_task_runner(data: Dict[str, Any], task: str, provider: Optional[str
     if config is None:
         config = {}
 
+    def _run_rule_task() -> Dict[str, Any]:
+        task_map = {
+            "summarize": lambda d: {"summary": d.get("human_readable", "")[:200]},
+            "explain": lambda d: {"explanation": "Content analyzed based on structure"},
+            "analyze": lambda d: {"analysis": "Rule-based analysis complete"},
+        }
+        fn = task_map.get(task, lambda d: {"result": "completed"})
+        return fn(data)
+
     # If no provider, use rule-based
     if not provider:
-        from webweavex.plugins import run_task
-        return run_task(data, task)
+        return _run_rule_task()
 
     # Try AI task
     try:
@@ -129,5 +137,4 @@ def enhanced_task_runner(data: Dict[str, Any], task: str, provider: Optional[str
     except Exception as e:
         logger.warning(f"AI execution failed: {e}")
         # Fallback to rule-based
-        from webweavex.plugins import run_task
-        return run_task(data, task)
+        return _run_rule_task()

@@ -1,0 +1,14 @@
+{
+  "source": "runtime_simulation",
+  "evaluation_criteria": "runtime_simulation",
+  "cases": [
+    {
+      "id": "abc_chain",
+      "transitions": [
+        {"from": "a", "to": "b"},
+        {"from": "b", "to": "c"}
+      ],
+      "expected_final": "c"
+    }
+  ]
+}

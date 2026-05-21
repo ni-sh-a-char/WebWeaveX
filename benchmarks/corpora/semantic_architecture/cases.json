@@ -1,0 +1,16 @@
+{
+  "source": "semantic_architecture",
+  "evaluation_criteria": "semantic_architecture",
+  "cases": [
+    {
+      "id": "single_import",
+      "repository_irs": [
+        {
+          "path": "a.py",
+          "semantic_ast": {"imports": [{"module": "os"}]}
+        }
+      ],
+      "expected_edge_count": 1
+    }
+  ]
+}

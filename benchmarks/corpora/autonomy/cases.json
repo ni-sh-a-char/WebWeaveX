@@ -1,0 +1,16 @@
+{
+  "source": "autonomy",
+  "evaluation_criteria": "autonomy_goal_resolution",
+  "cases": [
+    {
+      "id": "goal_resolved",
+      "payload": {"goal": "analyze repository"},
+      "expected_resolved": true
+    },
+    {
+      "id": "goal_empty",
+      "payload": {"goal": ""},
+      "expected_resolved": false
+    }
+  ]
+}

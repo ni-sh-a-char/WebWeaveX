@@ -1,0 +1,16 @@
+{
+  "source": "execution_reality_contention",
+  "evaluation_criteria": "runtime_contention",
+  "cases": [
+    {
+      "id": "api_hotspot",
+      "runtime_ir": {
+        "distributed_topology": {
+          "edges": [{"to": "api"}, {"to": "api"}]
+        }
+      },
+      "target": "api",
+      "expected_contention": 2
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "source": "python_import_patterns",
+  "evaluation_criteria": "import_graph",
+  "cases": [
+    {"id": "r1", "input": {"source": "import os\nimport sys\n", "path": "main.py"}, "expected": {"min_imports": 2}},
+    {"id": "r2", "input": {"source": "def f():\n    pass\n", "path": "t.py"}, "expected": {"min_imports": 0}},
+    {"id": "r3", "input": {"source": "from pathlib import Path\n", "path": "u.py"}, "expected": {"min_imports": 1}}
+  ]
+}

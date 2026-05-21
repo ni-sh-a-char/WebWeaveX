@@ -1,0 +1,8 @@
+{
+  "source": "tutorial_chain_patterns",
+  "evaluation_criteria": "document_ir",
+  "cases": [
+    {"id": "dir1", "input": {"text": "# Install\n\n## Configure\n\n## Run"}, "expected": {"min_chain": 1}},
+    {"id": "dir2", "input": {"text": "no structure"}, "expected": {"min_chain": 0}}
+  ]
+}

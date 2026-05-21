@@ -1,0 +1,16 @@
+{
+  "source": "execution_reality_conflicts",
+  "evaluation_criteria": "runtime_conflicts",
+  "cases": [
+    {
+      "id": "duplicate_transition",
+      "runtime_ir": {
+        "transitions": [
+          {"from": "a", "to": "b"},
+          {"from": "a", "to": "b"}
+        ]
+      },
+      "expected_conflict_count": 1
+    }
+  ]
+}

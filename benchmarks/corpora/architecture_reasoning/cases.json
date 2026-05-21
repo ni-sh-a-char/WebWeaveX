@@ -1,0 +1,8 @@
+{
+  "source": "service_boundary_patterns",
+  "evaluation_criteria": "service_boundaries",
+  "cases": [
+    {"id": "ar1", "input": {"files": ["docker-compose.yml", "k8s/deployment.yaml"]}, "expected": {"min_signals": 1}},
+    {"id": "ar2", "input": {"files": ["README.md"]}, "expected": {"min_signals": 0}}
+  ]
+}

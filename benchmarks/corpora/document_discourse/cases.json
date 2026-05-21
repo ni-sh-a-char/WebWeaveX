@@ -1,0 +1,11 @@
+{
+  "source": "markdown_discourse_patterns",
+  "evaluation_criteria": "rhetorical_units",
+  "cases": [
+    {"id": "d1", "input": {"text": "# Intro\n\n## Setup\n\nBody."}, "expected": {"min_units": 2}},
+    {"id": "d2", "input": {"text": "Plain text only."}, "expected": {"min_units": 0}},
+    {"id": "d4", "input": {"text": "#### Deep\n\n##### Deeper\n\n###### Deepest"}, "expected": {"min_units": 3}},
+    {"id": "d5", "input": {"text": ""}, "expected": {"min_units": 0}},
+    {"id": "d3", "input": {"text": "# A\n\n# B\n"}, "expected": {"min_units": 2}}
+  ]
+}

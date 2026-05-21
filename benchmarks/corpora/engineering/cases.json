@@ -1,0 +1,16 @@
+{
+  "source": "engineering",
+  "evaluation_criteria": "engineering_graph",
+  "cases": [
+    {
+      "id": "single_node",
+      "runtime_ir": {
+        "distributed_topology": {
+          "nodes": [{"id": "api"}],
+          "edges": []
+        }
+      },
+      "expected_graph_size": 1
+    }
+  ]
+}

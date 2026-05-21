@@ -1,0 +1,13 @@
+{
+  "source": "engineering_diagnostics",
+  "evaluation_criteria": "engineering_diagnostics",
+  "cases": [
+    {
+      "id": "small_graph_db",
+      "runtime_ir": {
+        "graph_database": {"nodes": 1}
+      },
+      "expected_healthy": true
+    }
+  ]
+}

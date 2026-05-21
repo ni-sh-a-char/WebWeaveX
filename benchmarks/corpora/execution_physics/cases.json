@@ -1,0 +1,14 @@
+{
+  "source": "execution_physics",
+  "evaluation_criteria": "execution_physics",
+  "cases": [
+    {
+      "id": "stable_low_pressure",
+      "runtime_ir": {
+        "transitions": [],
+        "events": []
+      },
+      "expected_state": "stable"
+    }
+  ]
+}

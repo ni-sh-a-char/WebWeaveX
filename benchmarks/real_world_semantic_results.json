@@ -1,0 +1,5 @@
+{
+  "status": "fixture_only",
+  "note": "Run with WEBWEAVEX_RUN_NETWORK_TESTS=1 for live targets",
+  "targets": ["torvalds/linux", "vercel/next.js", "langchain-ai/langchain", "kubernetes/kubernetes", "docs.python.org"]
+}

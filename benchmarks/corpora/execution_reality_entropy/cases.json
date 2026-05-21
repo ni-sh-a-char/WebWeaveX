@@ -1,0 +1,16 @@
+{
+  "source": "execution_reality_entropy",
+  "evaluation_criteria": "runtime_entropy",
+  "cases": [
+    {
+      "id": "three_states",
+      "runtime_ir": {
+        "transitions": [
+          {"from": "a", "to": "b"},
+          {"from": "b", "to": "c"}
+        ]
+      },
+      "expected_entropy": 3
+    }
+  ]
+}

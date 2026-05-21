@@ -1,0 +1,12 @@
+{
+  "source": "topology_real",
+  "evaluation_criteria": "topology_traversal",
+  "cases": [
+    {
+      "id": "linear_graph",
+      "adjacency": {"a": ["b"], "b": ["c"]},
+      "start": "a",
+      "expected_order": ["a", "b", "c"]
+    }
+  ]
+}

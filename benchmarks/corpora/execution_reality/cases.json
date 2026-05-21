@@ -1,0 +1,14 @@
+{
+  "source": "execution_reality",
+  "evaluation_criteria": "execution_pressure",
+  "cases": [
+    {
+      "id": "pressure_two",
+      "runtime_ir": {
+        "transitions": [{"from": "a", "to": "b"}],
+        "event_stream": {"events": [{"id": "e1"}]}
+      },
+      "expected_pressure": 2
+    }
+  ]
+}

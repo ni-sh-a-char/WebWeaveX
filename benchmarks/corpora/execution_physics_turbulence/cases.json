@@ -1,0 +1,13 @@
+{
+  "source": "execution_physics_turbulence",
+  "evaluation_criteria": "runtime_turbulence",
+  "cases": [
+    {
+      "id": "low_entropy",
+      "runtime_ir": {
+        "runtime_entropy": {"entropy_score": 10}
+      },
+      "expected_turbulence": "low"
+    }
+  ]
+}

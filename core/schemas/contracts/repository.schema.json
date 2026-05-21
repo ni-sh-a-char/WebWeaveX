@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebWeaveX Repository",
+  "type": "object",
+  "properties": {
+    "topology": {"type": "object"},
+    "dependencies": {"type": "object"},
+    "api_surface": {"type": "object"},
+    "architecture": {"type": "object"}
+  },
+  "additionalProperties": true,
+  "x-schema-version": "v19.0.0"
+}

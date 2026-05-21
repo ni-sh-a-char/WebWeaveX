@@ -1,0 +1,13 @@
+{
+  "source": "causal_failure_lineage",
+  "evaluation_criteria": "failure_lineage",
+  "cases": [
+    {
+      "id": "one_conflict",
+      "runtime_ir": {
+        "runtime_conflicts": {"conflicts": [["a", "b"]]}
+      },
+      "expected_lineage_count": 1
+    }
+  ]
+}

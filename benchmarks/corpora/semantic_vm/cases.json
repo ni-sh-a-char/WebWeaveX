@@ -1,0 +1,16 @@
+{
+  "source": "semantic_vm",
+  "evaluation_criteria": "semantic_vm",
+  "cases": [
+    {
+      "id": "link_one",
+      "edges": [
+        {
+          "from": "a",
+          "to": "b"
+        }
+      ],
+      "expected": 1
+    }
+  ]
+}

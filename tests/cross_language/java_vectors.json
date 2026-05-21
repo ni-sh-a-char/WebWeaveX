@@ -1,0 +1,30 @@
+{
+  "vectors": [
+    {
+      "name": "a",
+      "payload": {
+        "x": 1,
+        "y": [
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "name": "b",
+      "payload": {
+        "nodes": [
+          {
+            "id": "n1"
+          }
+        ],
+        "edges": [
+          {
+            "from": "n1",
+            "to": "n1"
+          }
+        ]
+      }
+    }
+  ]
+}

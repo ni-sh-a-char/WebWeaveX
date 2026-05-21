@@ -1,0 +1,11 @@
+{
+  "source": "autonomy_decomposition",
+  "evaluation_criteria": "autonomy_decomposition",
+  "cases": [
+    {
+      "id": "three_words",
+      "task": {"goal": "a b c"},
+      "expected_count": 3
+    }
+  ]
+}

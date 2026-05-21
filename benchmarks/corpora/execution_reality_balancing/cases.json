@@ -1,0 +1,16 @@
+{
+  "source": "execution_reality_balancing",
+  "evaluation_criteria": "load_balancing",
+  "cases": [
+    {
+      "id": "two_workers",
+      "runtime_ir": {
+        "distributed_workers": [
+          {"worker": "w1"},
+          {"worker": "w2"}
+        ]
+      },
+      "expected_workers": 2
+    }
+  ]
+}

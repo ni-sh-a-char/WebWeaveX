@@ -1,0 +1,9 @@
+{
+  "source": "contradiction_lattice_patterns",
+  "evaluation_criteria": "contradiction_count",
+  "cases": [
+    {"id": "c1", "input": {"pairs": []}, "expected": {"count": 0}},
+    {"id": "c2", "input": {"pairs": [["a", "b"]]}, "expected": {"count": 1}},
+    {"id": "c3", "input": {"pairs": [["x", "y"], ["y", "z"]]}, "expected": {"count": 2}}
+  ]
+}

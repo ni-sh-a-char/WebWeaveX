@@ -1,0 +1,8 @@
+{
+  "source": "adversarial_topology",
+  "evaluation_criteria": "cycle_detection",
+  "cases": [
+    {"id": "cy1", "input": {"nodes": [{"id": "a", "kind": "n"}, {"id": "b", "kind": "n"}], "edges": [{"from": "a", "to": "b"}, {"from": "b", "to": "a"}]}, "expected": {"has_cycle": true}},
+    {"id": "cy2", "input": {"nodes": [{"id": "x", "kind": "n"}], "edges": []}, "expected": {"has_cycle": false}}
+  ]
+}

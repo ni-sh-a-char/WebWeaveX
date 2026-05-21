@@ -1,0 +1,13 @@
+{
+  "source": "execution_physics_waves",
+  "evaluation_criteria": "execution_waves",
+  "cases": [
+    {
+      "id": "single_event",
+      "runtime_ir": {
+        "events": [{"id": "e1"}]
+      },
+      "expected_wave_count": 1
+    }
+  ]
+}

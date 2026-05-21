@@ -1,0 +1,8 @@
+{
+  "source": "semantic_evolution_patterns",
+  "evaluation_criteria": "semantic_dependency",
+  "cases": [
+    {"id": "sc1", "input": {"from_keys": ["a"], "to_keys": ["b"], "evidence": ["e1"]}, "expected": {"derivable": true}},
+    {"id": "sc2", "input": {"from_keys": [], "to_keys": ["b"], "evidence": []}, "expected": {"derivable": false}}
+  ]
+}

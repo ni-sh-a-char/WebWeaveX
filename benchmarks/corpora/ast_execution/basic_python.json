@@ -1,0 +1,14 @@
+{
+  "source": "ast_execution",
+  "evaluation_criteria": "symbol_resolution",
+  "cases": [
+    {
+      "code": "def run(x): return x",
+      "expected_symbols": 1
+    },
+    {
+      "code": "class A: pass",
+      "expected_symbols": 1
+    }
+  ]
+}

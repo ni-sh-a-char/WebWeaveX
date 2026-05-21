@@ -1,0 +1,15 @@
+{
+  "source": "execution_physics_energy",
+  "evaluation_criteria": "energy_propagation",
+  "cases": [
+    {
+      "id": "one_edge",
+      "runtime_ir": {
+        "distributed_topology": {
+          "edges": [{"from": "a", "to": "b"}]
+        }
+      },
+      "expected_propagation_count": 1
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "source": "distributed_semantic",
+  "evaluation_criteria": "distributed_semantic",
+  "cases": [
+    {
+      "id": "route_one",
+      "tasks": [
+        {
+          "id": "t1"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "n1"
+        }
+      ]
+    }
+  ]
+}

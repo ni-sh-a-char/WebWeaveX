@@ -1,0 +1,12 @@
+{
+  "source": "evolution_drift",
+  "evaluation_criteria": "evolution_drift",
+  "cases": [
+    {
+      "id": "key_added",
+      "baseline": {"a": 1},
+      "current": {"a": 1, "b": 2},
+      "expected_drift": true
+    }
+  ]
+}

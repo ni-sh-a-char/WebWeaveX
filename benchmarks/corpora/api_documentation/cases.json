@@ -1,0 +1,8 @@
+{
+  "source": "openapi_path_patterns",
+  "evaluation_criteria": "api_paths",
+  "cases": [
+    {"id": "a1", "input": {"spec": {"paths": {"/users": {"get": {}}, "/items": {"post": {}}}}}, "expected": {"min_paths": 2}},
+    {"id": "a2", "input": {"spec": {"paths": {}}}, "expected": {"min_paths": 0}}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "source": "causal_timing",
+  "evaluation_criteria": "timing_semantics",
+  "cases": [
+    {
+      "id": "ordered_events",
+      "runtime_ir": {
+        "event_stream": {
+          "events": [
+            {"id": "second", "timestamp": 2},
+            {"id": "first", "timestamp": 1}
+          ]
+        }
+      },
+      "expected_first_event": "first"
+    }
+  ]
+}

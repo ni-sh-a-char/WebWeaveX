@@ -1,0 +1,13 @@
+{
+  "source": "evolution_simulation",
+  "evaluation_criteria": "evolution_simulation",
+  "cases": [
+    {
+      "id": "one_edge",
+      "repository_ir": {
+        "edges": [{"from": "a", "to": "b"}]
+      },
+      "expected_steps": 1
+    }
+  ]
+}

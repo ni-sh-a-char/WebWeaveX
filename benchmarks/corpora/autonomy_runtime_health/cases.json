@@ -1,0 +1,16 @@
+{
+  "source": "autonomy_runtime_health",
+  "evaluation_criteria": "autonomy_runtime_health",
+  "cases": [
+    {
+      "id": "non_empty",
+      "runtime": {"state": "active"},
+      "expected_healthy": true
+    },
+    {
+      "id": "empty",
+      "runtime": {},
+      "expected_healthy": false
+    }
+  ]
+}

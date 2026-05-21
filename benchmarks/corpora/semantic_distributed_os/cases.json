@@ -1,0 +1,17 @@
+{
+  "source": "semantic_distributed_os",
+  "evaluation_criteria": "semantic_distributed_os",
+  "cases": [
+    {
+      "id": "stable_consensus",
+      "votes": [
+        {
+          "value": "stable"
+        },
+        {
+          "value": "stable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "source": "semantic_scale",
+  "evaluation_criteria": "semantic_scale",
+  "cases": [
+    {
+      "id": "linear_three",
+      "graph": {
+        "edges": [
+          {
+            "from": "a",
+            "to": "b"
+          },
+          {
+            "from": "b",
+            "to": "c"
+          }
+        ]
+      },
+      "expected_count": 3
+    }
+  ]
+}

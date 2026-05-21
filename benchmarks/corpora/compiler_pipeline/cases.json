@@ -1,0 +1,14 @@
+{
+  "source": "compiler_pipeline",
+  "evaluation_criteria": "compiler_pipeline",
+  "cases": [
+    {
+      "id": "dedup_edges",
+      "edges": [
+        {"from": "a", "to": "b"},
+        {"from": "a", "to": "b"}
+      ],
+      "expected_steps": 1
+    }
+  ]
+}

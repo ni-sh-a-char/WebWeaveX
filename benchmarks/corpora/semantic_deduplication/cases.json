@@ -1,0 +1,8 @@
+{
+  "source": "merge_rigor_patterns",
+  "evaluation_criteria": "merge_rigor",
+  "cases": [
+    {"id": "m1", "input": {"sources": [{"evidence": ["a"]}, {"evidence": ["b"]}]}, "expected": {"merged": true}},
+    {"id": "m2", "input": {"sources": [{"evidence": []}]}, "expected": {"merged": false}}
+  ]
+}

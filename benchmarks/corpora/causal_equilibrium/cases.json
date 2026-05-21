@@ -1,0 +1,13 @@
+{
+  "source": "causal_equilibrium",
+  "evaluation_criteria": "causal_equilibrium",
+  "cases": [
+    {
+      "id": "low_entropy",
+      "runtime_ir": {
+        "runtime_entropy": {"entropy_score": 5}
+      },
+      "expected_equilibrium": "stable"
+    }
+  ]
+}

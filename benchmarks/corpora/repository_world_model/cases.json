@@ -1,0 +1,14 @@
+{
+  "source": "repository_world_model",
+  "evaluation_criteria": "repository_world_model",
+  "cases": [
+    {
+      "id": "two_files",
+      "repository_irs": [
+        {"path": "a.py", "semantic_ast": {"symbols": [], "imports": []}},
+        {"path": "b.py", "semantic_ast": {"symbols": [], "imports": []}}
+      ],
+      "expected_file_count": 2
+    }
+  ]
+}

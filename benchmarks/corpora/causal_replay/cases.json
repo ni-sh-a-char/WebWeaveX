@@ -1,0 +1,13 @@
+{
+  "source": "causal_replay",
+  "evaluation_criteria": "causal_replay",
+  "cases": [
+    {
+      "id": "one_entry",
+      "runtime_ir": {
+        "journal": {"entries": [{"event": "compile"}]}
+      },
+      "expected_replay_count": 1
+    }
+  ]
+}

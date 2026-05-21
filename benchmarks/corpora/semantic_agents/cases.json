@@ -1,0 +1,14 @@
+{
+  "source": "semantic_agents",
+  "evaluation_criteria": "semantic_agents",
+  "cases": [
+    {
+      "id": "route_execute",
+      "capability": "execute",
+      "agents": [
+        {"id": "runtime", "capabilities": ["execute"]}
+      ],
+      "expected_selected": "runtime"
+    }
+  ]
+}

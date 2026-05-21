@@ -1,0 +1,11 @@
+{
+  "source": "evolution_consistency",
+  "evaluation_criteria": "evolution_consistency",
+  "cases": [
+    {
+      "id": "valid_nodes",
+      "graph": {"nodes": [{"id": "a"}]},
+      "expected_consistent": true
+    }
+  ]
+}

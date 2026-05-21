@@ -1,0 +1,13 @@
+{
+  "source": "execution_reality_collapse",
+  "evaluation_criteria": "collapse_forecast",
+  "cases": [
+    {
+      "id": "high_pressure",
+      "runtime_ir": {
+        "execution_pressure": {"pressure_score": 20000}
+      },
+      "expected_risk": "high"
+    }
+  ]
+}

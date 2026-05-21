@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebWeaveX Document",
+  "type": "object",
+  "properties": {
+    "sections": {"type": "array"},
+    "references": {"type": "object"},
+    "tutorial": {"type": "object"},
+    "api_contracts": {"type": "object"}
+  },
+  "additionalProperties": true,
+  "x-schema-version": "v19.0.0"
+}

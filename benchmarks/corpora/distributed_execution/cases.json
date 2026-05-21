@@ -1,0 +1,12 @@
+{
+  "source": "distributed_execution",
+  "evaluation_criteria": "distributed_execution",
+  "cases": [
+    {
+      "id": "schedule_one",
+      "tasks": [{"id": "t1"}],
+      "nodes": ["a", "b"],
+      "expected_scheduled": 1
+    }
+  ]
+}

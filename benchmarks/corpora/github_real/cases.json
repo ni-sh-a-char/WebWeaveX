@@ -1,0 +1,18 @@
+{
+  "source": "github_real",
+  "evaluation_criteria": "runtime_events",
+  "cases": [
+    {
+      "id": "django_deps",
+      "dependencies": ["django", "celery", "redis"],
+      "parser_evidence": ["requirements.txt:django", "requirements.txt:celery"],
+      "expected_events": ["celery"]
+    },
+    {
+      "id": "fastapi_minimal",
+      "dependencies": ["fastapi", "uvicorn"],
+      "parser_evidence": ["pyproject.toml:fastapi"],
+      "expected_events": []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "source": "graph_topology_patterns",
+  "evaluation_criteria": "topology_proof",
+  "cases": [
+    {"id": "g1", "input": {"nodes": [{"id": "a", "kind": "n"}, {"id": "b", "kind": "n"}], "edges": [{"from": "a", "to": "b", "evidence": ["e"]}]}, "expected": {"proved": true}},
+    {"id": "g2", "input": {"nodes": [], "edges": []}, "expected": {"proved": true, "max_degree": 0}}
+  ]
+}

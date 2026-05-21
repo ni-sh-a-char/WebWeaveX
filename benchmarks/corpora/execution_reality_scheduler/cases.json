@@ -1,0 +1,16 @@
+{
+  "source": "execution_reality_scheduler",
+  "evaluation_criteria": "scheduler_intelligence",
+  "cases": [
+    {
+      "id": "priority_order",
+      "runtime_ir": {
+        "tasks": [
+          {"id": "low", "priority": 1},
+          {"id": "high", "priority": 5}
+        ]
+      },
+      "expected_first_task": "low"
+    }
+  ]
+}

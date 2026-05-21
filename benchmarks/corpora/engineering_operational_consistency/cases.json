@@ -1,0 +1,13 @@
+{
+  "source": "engineering_operational_consistency",
+  "evaluation_criteria": "engineering_operational_consistency",
+  "cases": [
+    {
+      "id": "valid_topology",
+      "runtime_ir": {
+        "distributed_topology": {}
+      },
+      "expected_consistent": true
+    }
+  ]
+}

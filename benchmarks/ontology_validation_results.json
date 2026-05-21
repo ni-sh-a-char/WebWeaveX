@@ -1,0 +1,4 @@
+{
+  "corpora": ["ontology_resolution", "ontology_conflicts"],
+  "note": "See benchmark_results.json and ontology_accuracy_report.json"
+}

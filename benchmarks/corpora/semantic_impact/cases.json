@@ -1,0 +1,16 @@
+{
+  "source": "semantic_impact",
+  "evaluation_criteria": "semantic_impact",
+  "cases": [
+    {
+      "id": "upstream_dependent",
+      "target": "b.py",
+      "graph": {
+        "edges": [
+          {"from": "a.py", "to": "b.py"}
+        ]
+      },
+      "expected_impact_size": 1
+    }
+  ]
+}

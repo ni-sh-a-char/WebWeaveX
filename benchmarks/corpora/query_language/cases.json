@@ -1,0 +1,11 @@
+{
+  "source": "query_language",
+  "evaluation_criteria": "query_language",
+  "cases": [
+    {
+      "id": "limit_five",
+      "query": "SELECT id WHERE type = service LIMIT 5",
+      "expected_limit": 5
+    }
+  ]
+}

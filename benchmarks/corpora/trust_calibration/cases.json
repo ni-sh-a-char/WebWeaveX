@@ -1,0 +1,8 @@
+{
+  "source": "trust_calibration_patterns",
+  "evaluation_criteria": "trust_calibrated",
+  "cases": [
+    {"id": "t1", "input": {"url": "https://docs.python.org/3/", "corroboration": 2}, "expected": {"calibrated": true, "min_score": 0.3}},
+    {"id": "t2", "input": {"url": "http://unknown.example/x", "corroboration": 0}, "expected": {"calibrated": true, "max_score": 0.9}}
+  ]
+}

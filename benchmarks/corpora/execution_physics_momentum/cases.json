@@ -1,0 +1,13 @@
+{
+  "source": "execution_physics_momentum",
+  "evaluation_criteria": "momentum",
+  "cases": [
+    {
+      "id": "two_transitions",
+      "runtime_ir": {
+        "transitions": [{}, {}]
+      },
+      "expected_momentum": 2
+    }
+  ]
+}
