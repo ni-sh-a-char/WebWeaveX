@@ -30,6 +30,7 @@ coverage.xml
 .env.*
 .venv/
 venv/
+testenv/
 
 # IDE, editor, and local tooling
 .cursor/

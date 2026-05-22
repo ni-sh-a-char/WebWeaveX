@@ -7,9 +7,9 @@
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square" alt="PyPI"/></a>
-  <img src="https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square" alt="Python 3.10+"/>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2ea44f?style=flat-square" alt="Apache 2.0"/></a>
+  <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square&logo=pypi&logoColor=white" alt="PyPI version"/></a>
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+"/>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/></a>
   <img src="https://img.shields.io/badge/tests-760%2B%20passing-22c55e?style=flat-square" alt="Tests passing"/>
   <img src="https://img.shields.io/badge/coverage-90%25%2B%20scoped-6366f1?style=flat-square" alt="Coverage 90%+"/>
   <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build passing"/>

@@ -9,7 +9,7 @@ description = "Deterministic universal runtime extraction infrastructure with re
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "Piyush Mishra"}]
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
 keywords = [
     "extraction",
     "web-scraping",
@@ -21,7 +21,6 @@ keywords = [
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -63,10 +62,10 @@ full = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/PIYUSH-MISHRA-00/webweavex"
-Repository = "https://github.com/PIYUSH-MISHRA-00/webweavex"
-Documentation = "https://github.com/PIYUSH-MISHRA-00/webweavex#readme"
-Issues = "https://github.com/PIYUSH-MISHRA-00/webweavex/issues"
+Homepage = "https://pypi.org/project/webweavex/"
+Repository = "https://github.com/ni-sh-a-char/WebWeaveX"
+Documentation = "https://github.com/ni-sh-a-char/WebWeaveX#readme"
+Issues = "https://github.com/ni-sh-a-char/WebWeaveX/issues"
 
 [tool.setuptools.packages.find]
 include = ["webweavex*", "core*", "extractors*"]
