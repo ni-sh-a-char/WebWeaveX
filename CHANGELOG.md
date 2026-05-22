@@ -16,12 +16,12 @@ All notable changes to WebWeaveX are documented here.
 ### Changed
 - Version bumped to **2.0.0** across package and public API
 - Repository sanitized — removed audit markdown spam and 450+ generated JSON dumps
-- Test suite consolidated — **671 tests passing**
+- Test suite consolidated — **760+ tests passing**, scoped coverage **≥ 90%**
 - `pyproject.toml` production extras: `[browser]`, `[full]`, classifiers, keywords
 
 ### Removed
-- Internal audit reports, phase dumps, and `scripts/**` JSON matrix artifacts
-- Archive directories (`docs/archive`, `tests/archive`)
+- Internal audit reports, phase dumps, and stale generated JSON matrix artifacts
+- Legacy V7 orchestrators, dead modules, and duplicate validation markdown at repository root
 
 ### Security
 - Kaalka-mandatory persistence for operational checkpoints

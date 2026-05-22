@@ -22,7 +22,9 @@ def build_runtime_memory(
     )
     memory_id = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:32]
 
-    return {
+    from core.memory.stable_memory_hash import stable_memory_hash
+
+    result = {
         "memory_id": memory_id,
         "runtime_history": sorted(
             runtime_history,
@@ -47,3 +49,5 @@ def build_runtime_memory(
         ),
         "bounded": True,
     }
+    result["stable_hash"] = stable_memory_hash(result)
+    return result

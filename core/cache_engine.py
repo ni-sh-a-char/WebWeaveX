@@ -178,7 +178,10 @@ def validate_cache_engine() -> bool:
     save_cache(key, test_data)
     loaded = load_cache(key)
 
-    if loaded != test_data:
+    if not loaded:
+        raise RuntimeError("Cache mismatch")
+    check = {k: v for k, v in loaded.items() if k != "_signature"}
+    if check != test_data:
         raise RuntimeError("Cache mismatch")
 
     clear_cache(key)

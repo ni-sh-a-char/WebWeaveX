@@ -1,0 +1,24 @@
+{
+  "language": "python",
+  "algorithm": "kaalka",
+  "vectors": [
+    {
+      "id": "probe-1",
+      "encrypted": "4b4d76c5a7c5e60f598fa98dafd93b152645768dabd4da4b6d48ae8e93bae9f81843918695f9cbed1a6a",
+      "hash": "e31e244d4600e277187f14106c02478341e7108ea63411f5bdd569efba8f73be",
+      "decrypt_ok": true
+    },
+    {
+      "id": "probe-2",
+      "encrypted": "363d6884e5c11bfd2a4d9df97997190b1d6d5f7d92b1d9eb14389d769bb9",
+      "hash": "ccb34a5baadffcf87791bd232cb1383826f79bc2ddeb4f75fbd38202c3e7f007",
+      "decrypt_ok": true
+    },
+    {
+      "id": "session",
+      "encrypted": "44a28ab5bedbfd5d4c9ab507dbed3f1448517194b3102f6431a265d8ff06fafe1c4361bce116313a16795587d90b14f72277507e9def1e36202b936f",
+      "hash": "519f21c1713e760e6eeb2e2363757575f2c981bede9bf8f63126b283bf5e24b5",
+      "decrypt_ok": true
+    }
+  ]
+}

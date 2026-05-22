@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from core.parsers.parser_registry import parse_source
 from core.repository.runtime_dependency_engine import resolve_runtime_dependencies
 from core.repository.execution_flow_engine import reconstruct_execution_flow
 from core.repository.service_interaction_engine import infer_service_interactions
@@ -13,7 +12,11 @@ def build_repository_semantic_ir(
     path: str = "",
     files: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
-    parsed = parse_source(source, path=path) if source else {}
+    parsed = {}
+    if source:
+        from core.parsers.parser_registry import parse_source
+
+        parsed = parse_source(source, path=path)
     return {
         "language": parsed.get("language", "text"),
         "symbols": parsed.get("symbols", {}),

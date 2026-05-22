@@ -157,11 +157,15 @@ from core.reconstruction import (
     clone_runtime_environment,
     validate_reconstructed_runtime,
 )
-from core.kernel import RuntimeKernel, get_runtime_kernel
+from core.kernel import RuntimeKernel, get_runtime_kernel, run_canonical_pipeline
+from core.contracts.runtime_contracts import UniversalInput
+from core.determinism import compute_global_runtime_fingerprint
+from core.replay import validate_replay_equivalence
 from core.ir.unified_runtime_ir import compile_unified_runtime_ir
 import asyncio
 
 __version__ = "2.0.0"
+version = __version__  # PEP 440 public version alias
 
 
 def analyze(input_data, edges=None):
@@ -359,6 +363,11 @@ __all__ = [
     "validate_reconstructed_runtime",
     "RuntimeKernel",
     "get_runtime_kernel",
+    "run_canonical_pipeline",
+    "UniversalInput",
+    "compute_global_runtime_fingerprint",
+    "validate_replay_equivalence",
     "compile_unified_runtime_ir",
     "__version__",
+    "version",
 ]

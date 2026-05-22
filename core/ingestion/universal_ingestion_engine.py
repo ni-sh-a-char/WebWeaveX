@@ -25,6 +25,8 @@ SUPPORTED_EXTENSIONS = {
 
 
 def detect_input_type(path: str) -> str:
+    if path.startswith("http://") or path.startswith("https://"):
+        return "url"
     ext = Path(path).suffix.lower()
     return SUPPORTED_EXTENSIONS.get(ext, "unknown")
 

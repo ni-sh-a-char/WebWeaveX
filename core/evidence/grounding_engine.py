@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional
 
 from core.evidence.semantic_conservatism_engine import apply_semantic_conservatism
-from core.semantic.semantic_uncertainty_engine import apply_semantic_uncertainty
 from core.evidence.semantic_integrity_engine import build_semantic_integrity_object
 
 
@@ -66,4 +65,6 @@ def structure_cognition(
             {"stage": "reconcile", "inputs": sorted(inferred.keys()), "outputs": sorted(reconciled.keys())},
         ],
     )
+    from core.semantic.semantic_uncertainty_engine import apply_semantic_uncertainty
+
     return apply_semantic_uncertainty(apply_semantic_conservatism(bundle))

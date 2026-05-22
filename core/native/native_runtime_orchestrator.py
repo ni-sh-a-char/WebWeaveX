@@ -91,10 +91,45 @@ def run_native_cognition(
     interactions = list(interactions or [])
     snap = dict(snapshot or _fixture_for_application(application or "desktop"))
 
+    import sys
+
+    platform_probe: Dict[str, Any] = {"bounded": True}
+    if sys.platform == "win32":
+        from core.native.platform.windows_uia_runtime import extract_windows_uia_snapshot
+
+        platform_probe = extract_windows_uia_snapshot(snap)
+    elif sys.platform == "darwin":
+        from core.native.platform.macos_ax_runtime import extract_macos_ax_snapshot
+
+        platform_probe = extract_macos_ax_snapshot(snap)
+    elif sys.platform == "linux":
+        from core.native.platform.linux_atspi_runtime import extract_linux_atspi_snapshot
+
+        platform_probe = extract_linux_atspi_snapshot(snap)
+
     windows = extract_native_windows(snap)
     accessibility = extract_accessibility_tree(snap)
     desktop = build_desktop_runtime(windows, accessibility, snap)
     electron = extract_electron_runtime(application, snap)
+    if runtime == "electron":
+        from core.native.electron import (
+            extract_electron_cdp,
+            extract_electron_ipc,
+            extract_electron_routes,
+            extract_electron_storage,
+        )
+
+        from core.native.electron.electron_hash_engine import stable_electron_runtime_hash
+
+        electron = {
+            **electron,
+            "cdp": extract_electron_cdp(target_url=f"electron://{application}"),
+            "storage": extract_electron_storage(snap),
+            "routes": extract_electron_routes(snap.get("routes")),
+            "ipc": extract_electron_ipc(snap.get("ipc_channels")),
+            "bounded": True,
+        }
+        electron["runtime_hash"] = stable_electron_runtime_hash(electron)
     terminal = capture_terminal_runtime(snapshot=snap)
     vm = extract_vm_runtime(snapshot=snap.get("vm"))
     remote = extract_remote_runtime(
@@ -145,6 +180,7 @@ def run_native_cognition(
     cognition_payload = {
         "runtime": runtime,
         "application": application,
+        "platform_probe": platform_probe,
         "windows": windows,
         "accessibility": accessibility,
         "desktop": desktop,

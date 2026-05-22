@@ -143,7 +143,8 @@ def run_autonomous_extraction(
 
         semantics = run_semantic_for_extraction(
             semantic_runtime=True,
-            text=" ".join(
+            url=str(tasks[0].get("url", "")) if tasks else "",
+            html=" ".join(
                 str(task.get("objective", task.get("url", "")))
                 for task in tasks[:100]
             ),

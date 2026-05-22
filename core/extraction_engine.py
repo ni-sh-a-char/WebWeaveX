@@ -157,6 +157,18 @@ def validate_extraction_engine() -> bool:
     return True
 
 
+class BaseExtractor:
+    """Minimal extractor contract for site-specific extractors."""
+
+    priority = 0
+
+    def can_handle(self, url: str, html: str, metadata: Dict[str, Any]) -> bool:
+        return False
+
+    def extract(self, url: str, html: str, metadata: Dict[str, Any]) -> Dict[str, Any] | None:
+        raise NotImplementedError
+
+
 if __name__ == "__main__":
     ok = validate_extraction_engine()
     print("EXTRACTION ENGINE VALIDATION:", "PASS" if ok else "FAIL")

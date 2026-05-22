@@ -1,29 +1,66 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
-build/
-dist/
+*.pyo
+*.pyd
+.Python
 *.egg-info/
 .eggs/
+*.egg
+
+# Build and packaging
+build/
+dist/
+*.whl
+*.tar.gz
+
+# Tests and coverage
 .pytest_cache/
 .mypy_cache/
 .coverage
+.coverage.*
 htmlcov/
+coverage.json
+coverage.xml
+
+# Environments
 .env
 .env.*
-.vscode/
+.venv/
+venv/
+
+# IDE, editor, and local tooling
+.cursor/
 .idea/
+.vscode/
+*.swp
+*.tmp
 *.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime dumps and caches
 tmp/
 temp/
 artifacts/
 cache_store/
-*.whl
-*.tar.gz
+
+# Stale validation / benchmark outputs
 *_report.json
+validation_metrics.json
+temp*.json
+debug*.json
+benchmark*.json
 discourse_accuracy_report.json
 execution_reasoning_report.json
 ontology_accuracy_report.json
 runtime_reconstruction_report.json
 semantic_*_report.json
+
+# Playwright (local)
+playwright-report/
+test-results/

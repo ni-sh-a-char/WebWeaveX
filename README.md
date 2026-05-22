@@ -1,149 +1,335 @@
 <p align="center">
+  <br/>
   <img src="https://img.shields.io/badge/WebWeaveX-v2.0.0-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v2.0.0"/>
-</p>
-
-<p align="center">
-  <strong>Deterministic Universal Runtime Extraction &amp; Cognition Infrastructure</strong>
+  <br/><br/>
+  <strong>Deterministic runtime extraction and replay-safe operational cognition infrastructure</strong>
+  <br/><br/>
 </p>
 
 <p align="center">
   <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square" alt="PyPI"/></a>
+  <img src="https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square" alt="Python 3.10+"/>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2ea44f?style=flat-square" alt="Apache 2.0"/></a>
-  <img src="https://img.shields.io/badge/tests-671%20passed-22c55e?style=flat-square" alt="Tests"/>
-  <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build"/>
-  <img src="https://img.shields.io/badge/coverage-meaningful%20suite-6366f1?style=flat-square" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/runtime-deterministic-2563eb?style=flat-square" alt="Deterministic"/>
-  <img src="https://img.shields.io/badge/persistence-Kaalka-7c3aed?style=flat-square" alt="Kaalka"/>
-  <img src="https://img.shields.io/badge/open%20source-Apache%202.0-f97316?style=flat-square" alt="Open Source"/>
-  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-64748b?style=flat-square" alt="Platforms"/>
+  <img src="https://img.shields.io/badge/tests-760%2B%20passing-22c55e?style=flat-square" alt="Tests passing"/>
+  <img src="https://img.shields.io/badge/coverage-90%25%2B%20scoped-6366f1?style=flat-square" alt="Coverage 90%+"/>
+  <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build passing"/>
+  <img src="https://img.shields.io/badge/deterministic%20runtime-0ea5e9?style=flat-square" alt="Deterministic runtime"/>
+  <img src="https://img.shields.io/badge/replay--safe-14b8a6?style=flat-square" alt="Replay-safe"/>
+  <img src="https://img.shields.io/badge/Kaalka-verified-7c3aed?style=flat-square" alt="Kaalka verified"/>
+  <img src="https://img.shields.io/badge/production%20ready-15803d?style=flat-square" alt="Production ready"/>
+  <img src="https://img.shields.io/badge/OSS-infrastructure-64748b?style=flat-square" alt="Open Source"/>
 </p>
 
 <p align="center">
-  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support%20WebWeaveX-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"/></a>
+  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20WebWeaveX-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
+</p>
+
+<p align="center">
+  <br/>
 </p>
 
 ---
 
-# WebWeaveX v2.0.0
+## Contents
 
-**Extract runtimes — not just pages.**  
-WebWeaveX is open infrastructure that turns live systems into **structured, replay-safe operational cognition** — then rebuilds portable runtime reality from that cognition.
-
-> **For developers:** deterministic APIs, bounded graphs, Kaalka-encrypted persistence.  
-> **For teams:** SaaS monitoring, workflow extraction, distributed runtime federation.  
-> **For AI systems:** stable schemas, sorted graphs, explicit phase IR — no hidden probabilistic state.
-
----
-
-## What WebWeaveX is not
-
-| | |
-|---|---|
-| ❌ A scraper | You get cognition graphs and replay packages — not raw HTML hoarding |
-| ❌ A browser bot | Playwright is optional; the product is the **runtime fabric** |
-| ❌ An OCR utility | Documents are one ingress channel among many |
-| ❌ An AI wrapper | **No LLM required** for core extraction, memory, or execution |
-
-## What WebWeaveX is
-
-| | |
-|---|---|
-| ✅ Universal extraction engine | Web, SaaS, repos, native, streams, connectors |
-| ✅ Runtime cognition system | Semantic → workflow → sync → evolution → memory |
-| ✅ Deterministic replay engine | Same inputs → identical graphs and lineage |
-| ✅ Cross-runtime operational graph | One merged `build_runtime_graph()` substrate |
-| ✅ Runtime reconstruction fabric | Cognition → portable operational twins |
-| ✅ Foundation for Anything OS | Portable realities from structured runtime IR |
+- [What is WebWeaveX?](#what-is-webweavex)
+- [What WebWeaveX is NOT](#what-webweavex-is-not)
+- [Why existing systems fail](#why-existing-systems-fail)
+- [Core capabilities](#core-capabilities)
+- [Authenticated runtime continuation](#authenticated-runtime-continuation)
+- [Architecture](#architecture)
+- [Canonical pipeline](#canonical-pipeline)
+- [Quick start](#quick-start)
+- [Code examples](#real-code-examples)
+- [Determinism](#determinism)
+- [Validation](#real-validation)
+- [Security](#security-model)
+- [Architecture guarantees](#architecture-guarantees)
+- [Contributing](#contributing)
 
 ---
 
-## Why WebWeaveX exists
+## What is WebWeaveX?
 
-Most tools extract **pages**, **screenshots**, or **HTML**.
+**WebWeaveX** is deterministic **runtime extraction and operational cognition infrastructure**. It captures how software actually runs—browser DOM, authenticated sessions, Electron state, native UI, workflows, and connector surfaces—and compiles that into **replay-safe runtime graphs** with **Kaalka-encrypted persistence**.
 
-WebWeaveX extracts **runtimes**:
+### Why it exists
 
-| Extracted | Meaning |
-|-----------|---------|
-| Workflows | What the system actually does over time |
-| Applications | Forms, dashboards, modals, action graphs |
-| Live streams | WebSockets, SSE, DOM mutation timelines |
-| Operational state | Sessions, sync deltas, execution queues |
-| Runtime cognition | Unified IR across every phase |
+Modern systems are **authenticated**, **stateful**, **runtime-driven**, **SPA-based**, **Electron-based**, **synchronized**, and **operationally dynamic**. Operators need continuity across runs, not another HTML snapshot.
 
-**Sources WebWeaveX understands:**
+Traditional extraction fails because it is:
 
-- Websites & JS-rendered SaaS dashboards  
-- Authenticated multi-tenant applications  
-- Git repositories (AST-level cognition)  
-- PDFs, images & multimodal documents  
-- Electron, native desktop & terminal runtimes  
-- APIs, databases, containers & Kubernetes  
-- Distributed worker meshes & federated memory  
+| Failure mode | Consequence |
+|--------------|-------------|
+| HTML-only parsing | Misses hydration, storage, IPC, native UI |
+| Stateless requests | Loses session and workflow continuity |
+| No authenticated persistence | Re-login and drift between runs |
+| No replay contract | Cannot prove equivalence after rebuild |
+| No reconstruction | Cannot rebuild operational topology from IR |
+| Weak SPA/Electron support | Unstable IDs, routes, and storage break diffs |
+
+WebWeaveX exists to deliver **deterministic runtime extraction** and **replay-safe operational reconstruction** through one **canonical pipeline**.
 
 ---
 
-## Install
+## What WebWeaveX is NOT
 
-```bash
-pip install webweavex
-```
+WebWeaveX is **not**:
 
-```bash
-pip install "webweavex[browser]"
-pip install "webweavex[full]"
-```
+| Category | Clarification |
+|----------|----------------|
+| **Auth bypass tooling** | Does not defeat MFA, CAPTCHA, or login controls |
+| **Malware or exploit infrastructure** | Not designed for unauthorized access |
+| **Credential theft tooling** | Does not harvest secrets you do not already hold |
+| **CAPTCHA bypass software** | No circumvention of bot defenses |
+| **Browser exploitation tooling** | Not a vulnerability framework |
+| **AGI or “autonomous hacking”** | No probabilistic agent that “figures out” sites |
+| **Hacking infrastructure** | No unauthorized intrusion features |
+| **An LLM wrapper** | Core path is deterministic; optional plugins fail safe |
+| **A chatbot** | Infrastructure library, not conversational AI |
+
+WebWeaveX only operates on **authorized authenticated runtimes** and data **you explicitly provide**.
 
 ---
 
-## Real usage (actual APIs)
+## Why existing systems fail
 
-### Browser extraction
+| System | Strength | Limitation for operational runtime |
+|--------|----------|-----------------------------------|
+| **BeautifulSoup** | Fast static HTML parse | No live session, storage, or runtime graph |
+| **Selenium** | Browser automation | No unified IR, Kaalka fabric, or replay equivalence layer |
+| **Playwright** | Reliable browser control | Automation driver—not extraction + memory + reconstruction |
+| **Puppeteer** | Chromium scripting | Same gap: no federated sync or deterministic checkpoints |
+| **Traditional crawlers** | Scale on public pages | Stateless; poor on authenticated SPAs |
+| **Generic AI agents** | Flexible tasks | Probabilistic; weak replay and audit guarantees |
 
-```python
-from webweavex import extract_web
+Common gaps WebWeaveX addresses:
 
-result = extract_web("https://example.com")
-graph = result["unified_runtime_graph"]
-print(len(graph.get("nodes", [])), "nodes")
-```
+- Lack of **runtime continuity** across processes
+- Lack of **replay** and fingerprint equivalence
+- Lack of **authenticated persistence** (encrypted, deterministic)
+- Lack of **reconstruction** from structured IR
+- Lack of **synchronization** between browser, semantic, workflow, and memory layers
 
-### Authenticated SaaS extraction
+---
+
+## Core capabilities
+
+| Capability | Description |
+|------------|-------------|
+| **Browser runtime extraction** | Bounded Playwright capture, network/session envelopes |
+| **SPA stabilization** | DOM and route stabilization for framework noise |
+| **Electron extraction** | Routes, IPC, storage metadata, deterministic Electron hash |
+| **Native runtime cognition** | Desktop, terminal, VM, remote (graceful OS fallbacks) |
+| **Terminal runtime** | Shell-oriented cognition fixtures |
+| **Distributed extraction** | Autonomous workers + Kaalka checkpoints |
+| **Runtime causality** | Event chains and propagation in extraction fabrics |
+| **Semantic cognition** | Entities, ontology, semantic graphs |
+| **Workflow runtime** | Plans, objectives, workflow memory |
+| **Synchronization runtime** | Multi-source runtime alignment |
+| **Reconstruction engine** | Replay-safe rebuild from IR |
+| **Federated memory** | Deterministic merge and stable hashes |
+| **Execution sandbox** | Allowlisted actions only |
+| **Runtime replay** | `validate_replay_equivalence()` |
+| **Runtime graph** | Normalized universal runtime graph |
+| **Deterministic fingerprints** | Global and pipeline hashes |
+| **Authenticated runtime continuation** | Encrypted session reload |
+| **Kaalka deterministic encryption** | Stable ciphertext; cross-language vectors |
+| **Connector runtime fabric** | Database, API, container, K8s, telemetry (bounded) |
+
+---
+
+## Authenticated runtime continuation
+
+Modern applications authenticate with **cookies**, **localStorage**, **sessionStorage**, **tokens**, **runtime identity**, and **cross-navigation continuity**. Electron adds **IndexedDB metadata**, **IPC**, and **route state**. Multi-tab products add **synchronization state** across surfaces.
+
+WebWeaveX supports:
+
+- **Encrypted authenticated session persistence** (`save_encrypted_session`, session paths on `extract_web`)
+- **Runtime continuation** across extractions when you supply the same Kaalka key and session file
+- **Deterministic replay-safe reconstruction** of operational graphs from IR
+
+Persistence uses **Kaalka deterministic encryption** (`algorithm: kaalka`)—not plaintext JSON checkpoints on disk.
+
+| Stored surface | Mechanism |
+|----------------|-----------|
+| Cookies / headers | Encrypted session store |
+| Browser snapshot | Session + identity engines |
+| Electron storage | Native/Electron cognition (bounded) |
+| Workflow / sync state | Kaalka checkpoint engines |
+
+**WebWeaveX does not:** bypass auth, defeat MFA, bypass security controls, or access systems without authorization.
+
+**WebWeaveX only operates on authorized authenticated runtimes explicitly provided by the user.**
 
 ```python
 from webweavex import extract_web
 
 result = extract_web(
+    "https://app.example.com/dashboard",
+    authenticated=True,
+    session_path="./session.kaalka",
+    encryption_key="your-kaalka-master-key",
+)
+```
+
+---
+
+## Architecture
+
+```
+                              ┌──────────────────┐
+                              │      Input       │
+                              │  UniversalInput  │
+                              └────────┬─────────┘
+                                       │
+                                       ▼
+                              ┌──────────────────┐
+                              │ Canonical Pipeline│
+                              │ run_canonical_    │
+                              │   pipeline()      │
+                              └────────┬─────────┘
+                                       │
+                                       ▼
+                              ┌──────────────────┐
+                              │ Runtime Cognition │
+                              │ web·native·repo   │
+                              └────────┬─────────┘
+                                       │
+           ┌───────────────────────────┼───────────────────────────┐
+           ▼                           ▼                           ▼
+    ┌─────────────┐            ┌─────────────┐            ┌─────────────┐
+    │  Semantic   │            │  Causality  │            │  Workflow   │
+    │   Layer     │            │   Layer     │            │  Runtime    │
+    └──────┬──────┘            └──────┬──────┘            └──────┬──────┘
+           │                          │                          │
+           └──────────────────────────┼──────────────────────────┘
+                                      ▼
+                             ┌─────────────────┐
+                             │ Synchronization │
+                             │    Runtime      │
+                             └────────┬────────┘
+                                      ▼
+                             ┌─────────────────┐
+                             │ Federated Memory│
+                             └────────┬────────┘
+                                      ▼
+                             ┌─────────────────┐
+                             │ Execution Fabric│
+                             └────────┬────────┘
+                                      ▼
+                             ┌─────────────────┐
+                             │ Reconstruction  │
+                             │    Engine       │
+                             └────────┬────────┘
+                                      ▼
+                             ┌─────────────────┐
+                             │ Universal Runtime│
+                             │     Graph        │
+                             └─────────────────┘
+```
+
+Source: [`core/kernel/runtime_pipeline.py`](core/kernel/runtime_pipeline.py)
+
+---
+
+## Canonical pipeline
+
+Single production execution path—no shadow orchestrators.
+
+```python
+from webweavex import UniversalInput, run_canonical_pipeline
+
+result = run_canonical_pipeline(
+    UniversalInput(source="https://example.com", source_type="web"),
+)
+
+print(result["pipeline_hash"])
+print(len(result["unified_runtime_graph"].get("nodes", [])))
+```
+
+| Property | Detail |
+|----------|--------|
+| Single execution path | `run_canonical_pipeline()` only |
+| Deterministic normalization | `RuntimeGraphContract.normalize()` |
+| Replay-safe runtime | Fingerprint at pipeline boundary |
+| Canonical IR generation | Per-kind extraction → kernel phases |
+
+---
+
+## Quick start
+
+```bash
+pip install webweavex
+pip install "webweavex[browser]"
+pip install "webweavex[full]"
+```
+
+```bash
+python -c "import webweavex; print(webweavex.__version__)"
+# 2.0.0
+```
+
+---
+
+## Real code examples
+
+<details>
+<summary><strong>Browser, auth, replay, semantic, reconstruction, distributed, native</strong></summary>
+
+### Browser extraction
+
+```python
+from webweavex import extract_web, compute_global_runtime_fingerprint
+
+out = extract_web("https://example.com")
+print(out.get("bounded"), compute_global_runtime_fingerprint(out))
+```
+
+### Authenticated runtime persistence
+
+```python
+from webweavex import save_encrypted_session, extract_web
+
+save_encrypted_session(
+    "./session.kaalka",
+    {"cookies": [], "headers": {}, "auth_tokens": []},
+    "your-kaalka-master-key",
+)
+
+out = extract_web(
     "https://app.example.com",
     authenticated=True,
-    session_path="session.enc",
-    encryption_key="master-key",
-    semantic_runtime=True,
+    session_path="./session.kaalka",
+    encryption_key="your-kaalka-master-key",
 )
-print(result["authenticated"], result["bounded"])
 ```
 
-### Repository cognition
+Runnable: [`examples/authenticated_extraction.py`](examples/authenticated_extraction.py)
+
+### Replay equivalence
 
 ```python
-from webweavex import extract_repository
+from webweavex import validate_replay_equivalence
 
-repo = extract_repository("./project")
-print(repo.get("bounded", True))
+assert validate_replay_equivalence(original, replayed)["equivalent"]
 ```
 
-### Runtime reconstruction
+### Semantic runtime
 
 ```python
-from webweavex import reconstruct_runtime
+out = extract_web("https://example.com", semantic_runtime=True)
+```
 
-runtime = reconstruct_runtime(
-    semantic_ir={"ir": "semantic_runtime", "domain": "app"},
-    workflow_ir={"ir": "workflow_runtime", "objective": "monitor"},
+### Reconstruction
+
+```python
+from webweavex import run_reconstruction_runtime
+
+rebuilt = run_reconstruction_runtime(
+    sources={"extraction": prior},
     runtime_type="browser",
-    tick=0,
 )
-print(runtime["runtime_id"], runtime["reconstructed"])
 ```
 
 ### Distributed extraction
@@ -151,166 +337,187 @@ print(runtime["runtime_id"], runtime["reconstructed"])
 ```python
 from webweavex import run_autonomous_extraction
 
-payload = run_autonomous_extraction(
-    tasks=[{"task_id": "worker-1", "url": "https://example.com"}],
-    distributed_runtime=True,
-    federated_memory=True,
-    execution_runtime=True,
-    reconstruction_runtime=True,
+out = run_autonomous_extraction(
+    tasks=[{"task_id": "t1", "url": "https://example.com", "priority": 0}],
 )
-print(payload["autonomous"], payload["bounded"])
 ```
 
-### Runtime kernel (full pipeline)
+### Native extraction
 
 ```python
-from webweavex import RuntimeKernel
+from webweavex import extract_native
 
-kernel = RuntimeKernel(runtime_type="browser")
-out = kernel.run_pipeline(
-    tick=0,
-    options={
-        "semantic": True,
-        "memory": True,
-        "execution": True,
-        "reconstruction": True,
-    },
-)
-print(out["unified_ir"]["ir"])
+out = extract_native(runtime="desktop", application="notepad")
 ```
 
-More examples: [`examples/`](examples/)
+</details>
 
 ---
 
-## Architecture
+## Determinism
 
-```
-┌──────────────┐
-│    Input     │  URL · repo · native · stream · connector
-└──────┬───────┘
-       ▼
-┌──────────────────────────────────────────────────┐
-│           Universal Runtime Kernel               │
-│                  core/kernel/                    │
-└──────┬───────────────────────────────────────────┘
-       │
-       ├─► Extraction (browser / native / repo / multimodal)
-       ├─► Cognition (semantic · workflow · causality)
-       ├─► Synchronization (continuous sync · evolution)
-       ├─► Memory (federated knowledge fabric)
-       ├─► Execution (bounded action sandbox)
-       └─► Reconstruction (portable operational reality)
-       │
-       ▼
-┌──────────────────────────────────────────────────┐
-│         Unified Runtime Graph (deterministic)     │
-└──────────────────────────────────────────────────┘
-```
+| Mechanism | Role |
+|-----------|------|
+| `compute_global_runtime_fingerprint()` | Cross-run runtime digest |
+| `validate_replay_equivalence()` | Graph + fingerprint + topology checks |
+| `compute_stable_dom_hash()` | DOM meaning stable under attribute noise |
+| SPA stabilizer | Framework route/state freeze |
+| `stable_memory_hash()` | Ordered federated memory merge |
+| Kaalka `encrypt_value` | Identical plaintext + key → identical ciphertext |
 
-Deep dive: [docs/architecture.md](docs/architecture.md) · [docs/kernel.md](docs/kernel.md)
+**Python ↔ JS consistency:** reference vectors in `validation/kaalka_cross_language/` validate hash and encrypt stability across runtimes.
+
+**Limitation:** two live fetches of a dynamic SPA may differ; identical captured bytes → identical stabilized hashes.
 
 ---
 
-## Powered by Kaalka
+## Reconstruction engine
 
-WebWeaveX persists operational state with the **[Kaalka Encryption Algorithm](https://github.com/PIYUSH-MISHRA-00/Kaalka-Encryption-Algorithm)**.
+WebWeaveX reconstructs **operational structure** from runtime IR:
 
-| Property | Benefit |
+- Runtime topology and unified graphs
+- Workflow and application memory views
+- Browser/application state envelopes
+- Semantic operational graphs
+
+| Property | Meaning |
 |----------|---------|
-| Deterministic encryption | Same JSON + same key → **same ciphertext** |
-| Canonical normalization | `sort_keys=True` before encrypt |
-| Cross-language consistency | Python, JS, Go, Rust, Java, WASM fixtures |
-| Replay-safe persistence | Sessions, checkpoints, memory survive restore |
+| Runtime reconstruction | IR → bounded runtime view |
+| Operational graph rebuilding | Normalized nodes/edges |
+| Replay-safe reconstruction | Tested equivalence paths |
+| Deterministic recreation | Sorted, canonical structures |
 
-```python
-from webweavex import encrypt_value, decrypt_value
-```
-
-[docs/kaalka.md](docs/kaalka.md)
+This is **not** full machine cloning or sci-fi simulation—it is **auditable operational recreation** for engineering workflows.
 
 ---
 
-## Determinism & safety
+## Real validation
 
-**No** LLM-dependent extraction · **No** probabilistic agents · **No** `eval` / `exec` in the execution sandbox · **No** unbounded graph growth without policy caps.
+<details>
+<summary><strong>Validation commands and CI gates</strong></summary>
 
-**Yes** SHA-256 runtime IDs · sorted edges · tick-indexed history · bounded queues (100k actions) · Kaalka checkpoints.
-
----
-
-## Performance & quality
-
-| Metric | v2.0.0 |
+| Metric | Value |
 |--------|--------|
-| Tests | **671 passing** |
-| Runtime graphs | Bounded (policy-enforced) |
-| Replay | Identical on canonical inputs |
-| Distributed | Worker federation + sync-aware execution |
+| Tests | **760+ passing** (`pytest -q`) |
+| Scoped coverage | **≥ 90%** (production packages in `pyproject.toml`) |
+| Wheel | `webweavex-2.0.0-py3-none-any.whl` |
+| Replay | `validate_replay_equivalence` suite |
+| Determinism | Kaalka cross-language + fingerprint tests |
+| Playwright | Browser extraction paths (optional extra) |
+| Native | Orchestrator + platform fallbacks |
+| Distributed | Autonomous extraction tests |
 
 ```bash
 pytest -q
 python -m build
+python validation/final_production_master.py
 ```
 
----
-
-## Enterprise use cases
-
-- **SaaS monitoring** — authenticated dashboard cognition & replay  
-- **Security runtime analysis** — structural graphs without unsafe automation  
-- **Distributed operations** — federated extraction across workers  
-- **Runtime observability** — streams, mutations, connector topology  
-- **Workflow extraction** — autonomous objectives & execution plans  
-- **Platform intelligence** — repository AST + dependency surfaces  
-- **Runtime reconstruction** — operational twins for staging & DR  
-- **Automation infrastructure** — deterministic execution fabric under policy  
+</details>
 
 ---
 
-## Open source
+## Security model
 
-WebWeaveX v2.0.0 is licensed under **[Apache License 2.0](LICENSE)**.
+| Control | Implementation |
+|---------|----------------|
+| Allowlisted execution | `core/execution/` sandbox |
+| No arbitrary eval/exec | Forbidden in production paths |
+| Sandboxed runtime | Bounded simulate/rollback |
+| Deterministic persistence | Kaalka-only checkpoints |
+| Encrypted memory/session | `encrypt_value`, session wrappers |
+| Replay-safe recovery | Deterministic reload envelopes |
 
-Commercial use, modification, and distribution are **explicitly allowed**.
+See [SECURITY.md](SECURITY.md). Report issues responsibly.
 
 ---
 
-## Documentation
+## Architecture guarantees
 
-| Document | Description |
-|----------|-------------|
-| [architecture.md](docs/architecture.md) | System design |
-| [kernel.md](docs/kernel.md) | Runtime kernel |
-| [extraction.md](docs/extraction.md) | Extraction entry points |
-| [api-reference.md](docs/api-reference.md) | Public API surface |
-| [security.md](docs/security.md) | Security model |
-| [kaalka.md](docs/kaalka.md) | Encryption layer |
-| [ROADMAP.md](ROADMAP.md) | Release roadmap |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guide |
-| [SECURITY.md](SECURITY.md) | Report vulnerabilities |
+| Guarantee | How |
+|-----------|-----|
+| **Deterministic outputs** | Canonical ordering, stable hashes |
+| **Replay-safe persistence** | Kaalka + equivalence validation |
+| **Bounded execution** | Explicit `bounded: True` contracts |
+| **Graceful degradation** | Playwright/native/connectors fail soft |
+| **Canonical normalization** | Graph and DOM contracts |
+| **Stable graph generation** | `build_runtime_graph` + normalize |
+| **Cross-language consistency** | Kaalka reference vectors |
+
+Contract document: [WEBWEAVEX_v2_ARCHITECTURE_LOCK_REPORT.md](WEBWEAVEX_v2_ARCHITECTURE_LOCK_REPORT.md)
+
+---
+
+## Repository structure
+
+```
+WebWeaveX/
+├── core/           # Runtime infrastructure (kernel, browser, memory, sync, …)
+├── webweavex/      # Public Python package
+├── tests/          # 760+ tests
+├── docs/           # Architecture, API, security, Kaalka, replay, validation
+├── examples/       # Runnable scripts
+├── validation/     # Production and real-world validators
+└── .github/        # CI, templates, code of conduct, funding
+```
+
+| Package | Role |
+|---------|------|
+| `core/kernel/` | Canonical pipeline, `RuntimeKernel` |
+| `core/browser/` | Web extraction, DOM/SPA stabilization |
+| `core/crypto/` | Kaalka engines |
+| `core/memory/` | Federated memory fabric |
+| `core/synchronization/` | Sync runtime |
+| `core/reconstruction/` | Reconstruction orchestrator |
+| `core/replay/` | Replay equivalence |
+| `webweavex/` | Stable public API |
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [.github/CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md).
+
+| Rule | Requirement |
+|------|-------------|
+| Determinism | No `random` / `uuid4` in runtime paths |
+| Replay safety | Preserve graph normalization semantics |
+| Canonical pipeline | No parallel mega-orchestrators |
+| Persistence | Kaalka for new checkpoints |
+| Tests | `pytest -q` must pass; coverage gate ≥ 90% scoped |
 
 ---
 
 ## Roadmap
 
-- Native bindings (UIA, AX, AT-SPI, Electron DevTools)  
-- Distributed mesh quorum & checkpoint replication  
-- WWX declarative runtime language CLI  
-- **Anything OS** — portable operational reality packaging  
-
 See [ROADMAP.md](ROADMAP.md).
+
+**v2.1 focus:**
+
+- Deeper native bindings (UIA, AX, AT-SPI)
+- Distributed runtime infrastructure hardening
+- Stronger SPA normalization
+- Real connector runtimes (live Postgres, Redis, K8s validation)
+- Native OS integrations behind optional extras
 
 ---
 
-## Support WebWeaveX
+## License
 
-If this project saves you weeks of fragile scraping and non-replayable automation:
+Apache 2.0 — see [LICENSE](LICENSE).
 
-**☕ [Buy Me A Coffee](https://buymeacoffee.com/piyushmishra00)**
+---
+
+## Final positioning
+
+**WebWeaveX is an attempt to build deterministic runtime cognition infrastructure for the authenticated operational web**—where extraction means encrypted continuity, structured graphs, replay equivalence, and reconstruction, not disposable HTML dumps.
+
+If this work helps your team, consider supporting it:
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-piyushmishra00-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/piyushmishra00)
 
 ---
 
 <p align="center">
-  <sub><strong>WebWeaveX v2.0.0</strong> — Truth from systems, not guesses.</sub>
+  <sub>Documentation · <a href="docs/README.md">docs/</a> · <a href="examples/README.md">examples/</a> · <a href="WEBWEAVEX_v2_RELEASE_REPORT.md">release report</a></sub>
 </p>

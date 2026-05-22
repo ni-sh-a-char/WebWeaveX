@@ -1,0 +1,3 @@
+# FINAL REPLAY EQUIVALENCE REPORT
+
+**equivalent:** True

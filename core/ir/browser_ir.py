@@ -39,15 +39,53 @@ def compile_browser_ir(
     token_count = len(session.get("auth_tokens", []))
     csrf_detected = len(csrf.get("tokens", [])) > 0
 
+    dom_stab = runtime.get("dom_stabilization", {})
+    spa = runtime.get("spa_stabilization", {})
+    requests = network.get("requests", []) if isinstance(network, dict) else []
+    network_fingerprint = compute_kaalka_hash_payload(
+        {
+            "count": len(requests),
+            "types": sorted(
+                {str(r.get("resource_type", "")) for r in requests if isinstance(r, dict)}
+            ),
+        }
+    )
+    extraction_fp = compute_kaalka_hash_payload(
+        {
+            "links": extraction.get("links", [])[:100]
+            if isinstance(extraction.get("links"), list)
+            else [],
+            "headings": extraction.get("headings", [])[:50]
+            if isinstance(extraction.get("headings"), list)
+            else [],
+        }
+    )
     runtime_identity = compute_kaalka_hash_payload({
         "url": runtime.get("url", ""),
         "title": runtime.get("title", ""),
         "authenticated": authenticated,
+        "dom_hash": dom_stab.get("stabilized_hash", spa.get("stable_dom_hash", "")),
+        "spa_fingerprint": spa.get("spa_fingerprint", ""),
+        "network_fingerprint": network_fingerprint,
+        "extraction_fingerprint": extraction_fp,
     })
+    runtime_snapshot = {
+        "url": runtime.get("url", ""),
+        "title": runtime.get("title", ""),
+        "authenticated": authenticated,
+        "dom_stabilization": dom_stab,
+        "spa_stabilization": {
+            "spa_fingerprint": spa.get("spa_fingerprint", ""),
+            "frameworks": spa.get("spa_convergence", {}).get("frameworks", []),
+        },
+        "network_fingerprint": network_fingerprint,
+        "bounded": True,
+    }
 
     return {
         "ir": "browser",
-        "runtime": runtime,
+        "runtime": runtime_snapshot,
+        "runtime_full": runtime,
         "dom": dom,
         "extraction": extraction,
         "network": network,

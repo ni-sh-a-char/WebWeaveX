@@ -105,8 +105,10 @@ def run_runtime_memory(
         entities=knowledge.get("entities", []),
         workflows=[{"id": sources.get("workflow", {}).get("objective", "operate")}],
         graphs=[graph],
-        streams=list(sources.get("live", {}).get("streams", {}).get("streams", [])),
-        connectors=[sources.get("live", {})],
+        streams=list(
+            ((sources.get("live") or {}).get("streams") or {}).get("streams", [])
+        ),
+        connectors=[sources.get("live") or {}],
     )
 
     replication = replicate_runtime_memory(runtime, nodes)

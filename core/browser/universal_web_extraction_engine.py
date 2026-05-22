@@ -5,6 +5,8 @@ from typing import Any, Dict, List, Optional
 from core.auth.authentication_runtime_engine import rotate_authenticated_session
 from core.browser.playwright_runtime import render_page
 from core.dom.dom_reconstruction_engine import reconstruct_dom
+from core.browser.dom_stabilization_engine import stabilize_extraction_payload
+from core.browser.spa_runtime_stabilizer import apply_spa_stabilization_to_runtime
 from core.extraction.semantic_content_extraction_engine import (
     extract_semantic_content,
 )
@@ -335,7 +337,9 @@ def extract_web(
             "bounded": True,
         }
 
+    runtime = apply_spa_stabilization_to_runtime(runtime)
     html = runtime.get("html", "")
+    dom_stabilization = runtime.get("dom_stabilization", {})
     page = _InteractivePage(html=html, url=url)
 
     stream_state = {
@@ -439,7 +443,7 @@ def extract_web(
         persisted = True
 
     dom = reconstruct_dom(html)
-    extraction = extract_semantic_content(html)
+    extraction = stabilize_extraction_payload(extract_semantic_content(html))
 
     adaptive_result = {"bounded": True}
     adaptive_ir = {"ir": "adaptive_runtime", "bounded": True}
@@ -788,6 +792,14 @@ def extract_web(
 
     unified_graph = build_runtime_graph(runtime_irs)
 
+    from core.determinism.global_runtime_fingerprint import (
+        compute_global_runtime_fingerprint,
+    )
+
+    global_fingerprint = compute_global_runtime_fingerprint(
+        {"unified_runtime_graph": unified_graph, "browser_ir": browser_ir},
+    )
+
     return {
         "url": url,
         "session": active_session,
@@ -851,5 +863,6 @@ def extract_web(
         "reconstruction_runtime": reconstruction_result,
         "reconstruction_ir": reconstruction_ir,
         "reconstruction_persisted": reconstruction_persisted,
+        "global_runtime_fingerprint": global_fingerprint,
         "bounded": True,
     }

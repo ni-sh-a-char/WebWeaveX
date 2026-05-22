@@ -10,10 +10,11 @@ def run_sync_phase(
 ) -> Dict[str, Any]:
     from core.synchronization.runtime_sync_orchestrator import run_sync_for_extraction
 
+    extraction = (sources or {}).get("extraction", {})
     return run_sync_for_extraction(
         synchronized_runtime=True,
-        sources=sources,
         tick=tick,
+        browser=extraction.get("browser_ir") or extraction.get("runtime"),
         merge_graph=False,
         **{k: v for k, v in kwargs.items() if k in ("memory_path", "memory_key")},
     )
