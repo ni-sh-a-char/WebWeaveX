@@ -1,9 +1,9 @@
 {
   "name": "webweavex",
   "version": "2.0.0",
-  "description": "Deterministic runtime extraction and replay infrastructure for authenticated operational systems. Native TypeScript, Kaalka 5.0.0, cross-language parity spec.",
+  "description": "Deterministic runtime extraction and replay infrastructure for authenticated operational systems.",
   "license": "Apache-2.0",
-  "author": "Piyush Mishra",
+  "author": "Piyush Mishra <piyushmishra00@users.noreply.github.com>",
   "type": "module",
   "sideEffects": false,
   "engines": {
@@ -31,10 +31,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ni-sh-a-char/WebWeaveX.git",
+    "url": "git+https://github.com/ni-sh-a-char/WebWeaveX.git",
     "directory": "javascript"
   },
-  "homepage": "https://github.com/ni-sh-a-char/WebWeaveX",
+  "homepage": "https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript#readme",
   "bugs": {
     "url": "https://github.com/ni-sh-a-char/WebWeaveX/issues"
   },
@@ -48,9 +48,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
-    "validate": "tsx validation/runRealWorldValidation.ts",
-    "validate:kaalka": "tsx validation/validateKaalkaParity.ts",
-    "validate:parity": "tsx validation/parity/runParityValidation.ts",
+    "validate:parity": "tsx validation/validateParity.ts",
+    "validate:production": "tsx validation/validateProduction.ts",
+    "validate": "npm run validate:parity && npm run validate:production",
     "reports:final": "tsx validation/generateFinalReports.ts",
     "prepublishOnly": "npm run build && npm run test && npm run validate:parity"
   },
@@ -74,28 +74,19 @@
   },
   "keywords": [
     "webweavex",
-    "web-scraping",
-    "playwright",
-    "runtime",
     "deterministic",
+    "runtime",
     "replay",
-    "browser",
-    "crawler",
-    "automation",
-    "graph",
-    "reconstruction",
-    "semantic",
-    "workflow",
-    "runtime-memory",
-    "authenticated-runtime",
-    "runtime-cognition",
-    "extraction",
+    "playwright",
+    "browser-automation",
     "runtime-graph",
-    "kaalka",
-    "determinism",
+    "dom-stabilization",
+    "authenticated-session",
     "operational-cognition",
-    "session-continuity",
-    "playwright-automation",
-    "cross-language-parity"
+    "kaalka",
+    "typescript",
+    "extraction",
+    "reconstruction",
+    "runtime-memory"
   ]
 }

@@ -6,7 +6,7 @@ import { decryptValue, encryptValue } from "../../src/crypto/kaalkaRuntime.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const vectors = JSON.parse(
-  readFileSync(join(root, "validation/kaalka/js_vectors.json"), "utf-8"),
+  readFileSync(join(root, "validation/parity/js_vectors.json"), "utf-8"),
 ) as { vectors: Array<{ id: string; encrypted: string; key?: string; plaintext?: string }> };
 
 describe("Kaalka via npm + WebWeaveX normalization", () => {

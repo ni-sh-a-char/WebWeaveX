@@ -1,3 +1,4 @@
+# Source and dev tooling
 src/
 tests/
 validation/
@@ -5,12 +6,28 @@ examples/
 scripts/
 benchmarks/
 .github/
-*.test.ts
+
+# Config (consumers use published dist only)
 tsconfig.json
 tsup.config.ts
 vitest.config.ts
 eslint.config.js
 .prettierrc
 .editorconfig
+
+# Docs not shipped on npm (README + LICENSE are in package.json files)
+docs/
+*.md
+!README.md
+
+# Coverage and artifacts
 coverage/
 node_modules/
+*.log
+*.tgz
+*.tar.gz
+*.tsbuildinfo
+
+# Playwright local outputs
+playwright-report/
+test-results/

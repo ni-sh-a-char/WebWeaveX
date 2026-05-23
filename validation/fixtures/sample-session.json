@@ -1,0 +1,4 @@
+{
+  "cookies": [],
+  "headers": { "authorization": "Bearer <user-supplied-token>" }
+}

@@ -1,5 +1,34 @@
-# FINAL_REPOSITORY_STRUCTURE_REPORT.md
+# FINAL REPOSITORY STRUCTURE REPORT
 
-Archived 29 root markdown files
+## Root files
 
-Generated 2026-05-22T12:03:34Z
+- `.editorconfig`
+- `.gitignore`
+- `.npmignore`
+- `.prettierrc`
+- `AUTHORS`
+- `CHANGELOG.md`
+- `CITATION.cff`
+- `CODE_OF_CONDUCT.md`
+- `CONTRIBUTING.md`
+- `LICENSE`
+- `NOTICE`
+- `README.md`
+- `ROADMAP.md`
+- `SECURITY.md`
+- `eslint.config.js`
+- `package-lock.json`
+- `package.json`
+- `tsconfig.json`
+- `tsup.config.ts`
+- `vitest.config.ts`
+
+## Intended layout
+
+```text
+README.md · LICENSE · SECURITY.md · CONTRIBUTING.md · CHANGELOG.md · ROADMAP.md
+package.json · tsconfig.json · tsup.config.ts · vitest.config.ts · eslint.config.js
+src/ · tests/ · docs/ · examples/ · validation/ · .github/
+```
+
+All `FINAL_*.md` engineering reports live under `docs/archive/`.

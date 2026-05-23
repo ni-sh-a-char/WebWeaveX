@@ -2,7 +2,7 @@
 
 **Algorithm:** `webweavex-formula+kaalka@5.0.0`
 **Kaalka npm:** `5.0.0`
-**Generated:** 2026-05-23T09:31:13.563Z
+**Generated:** 2026-05-23T09:52:00.069Z
 
 ## JavaScript self-consistency
 
@@ -10,7 +10,7 @@
 
 ## Python lockstep
 
-⏳ **PENDING** — `python_vectors.json` seeded from JS. Python branch must implement [CROSS_LANGUAGE_PARITY.md](../../docs/architecture/CROSS_LANGUAGE_PARITY.md) and regenerate.
+✅ **PASS** — hash and ciphertext match reference vectors
 
 ## Honest limitations
 
@@ -22,83 +22,83 @@
 ```json
 {
   "selfOk": true,
-  "needsReseed": true,
+  "needsReseed": false,
   "crossLangMatch": true,
   "results": [
     {
       "id": "probe-1",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "probe-2",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "unicode",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "emoji",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "crlf",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "session",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "nested-object",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "graph",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "array",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "dom",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "memory-graph",
-      "hash_match": "pending_reseed",
-      "encrypt_match": "pending_reseed",
+      "hash_match": true,
+      "encrypt_match": true,
       "decrypt_ok": true,
       "deterministic": true
     }

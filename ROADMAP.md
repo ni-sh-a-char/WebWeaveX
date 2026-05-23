@@ -1,16 +1,27 @@
-# Roadmap
+# Roadmap — JavaScript branch (`webweavex` npm)
+
+## v2.0.x (current)
+
+- [x] Native TypeScript runtime on `javascript` branch
+- [x] `kaalka@5.0.0` registry integration + parity spec
+- [x] npm publish-ready packaging (ESM/CJS, `sideEffects: false`)
+- [ ] npm publish `webweavex@2.0.0` (when release approved)
+- [ ] Python branch ciphertext alignment with [`CROSS_LANGUAGE_PARITY.md`](docs/architecture/CROSS_LANGUAGE_PARITY.md)
 
 ## v2.1
-- Kaalka migration for remaining plaintext stores
-- Lazy `core/ir` imports to reduce cold-start
-- Physical native bindings (UIA, AX, AT-SPI) behind `[native]` extra
-- Cross-language Kaalka fixture CI matrix
 
-## v1.3
-- Distributed worker mesh deployment guides
-- Anything OS portable runtime packaging
-- WWX language LSP and CLI
+- Optional `playwright` peer dependency split
+- Connector plugins (REST, streaming) as documented modules
+- Coverage expansion for browser edge paths
+- Cross-language CI matrix (JS vectors ↔ Python vectors)
 
-## v2.0
-- Full streaming federation with Playwright hooks
-- Repository AST via tree-sitter for all Tier-1 languages
+## Future language branches
+
+- **Rust** — performance-critical extraction workers
+- **Go** — deployment-side runtime agents
+- **Portal (`main`)** — language-neutral docs only (no mixed runtimes)
+
+## Non-goals
+
+- Auth bypass, CAPTCHA defeat, or credential cracking features
+- Local forks of Kaalka published as npm packages from this repo

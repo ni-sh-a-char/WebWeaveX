@@ -1,7 +1,12 @@
-# FINAL REAL WORLD VALIDATION (JavaScript)
+# FINAL REAL WORLD VALIDATION REPORT
 
-- Kaalka encrypt deterministic: **true**
-- Replay equivalence: **true**
-- extractWeb bounded: **true**
+**Generated:** 2026-05-23T08:37:24.515Z
 
-Generated: 2026-05-23T06:39:01.037Z
+| Check | Result |
+|-------|--------|
+| Kaalka deterministic encrypt | true |
+| Replay equivalence | true |
+| Global fingerprint | 4a1959735f672b8d… |
+| Reconstruction runtime_id | 558e9dee4fdc8172… |
+| Memory stable_hash | true |
+| extractWeb (example.com) | true (2 nodes) |

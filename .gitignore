@@ -1,17 +1,21 @@
-# Python
+# Python (portal branch artifacts — ignore if present)
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
-*.pyo
-*.pyd
 .Python
 *.egg-info/
 .eggs/
 *.egg
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
 
 # Node.js
 node_modules/
+.npm/
 coverage/
 .turbo/
 .next/
@@ -19,22 +23,13 @@ coverage/
 *.tsbuildinfo
 vitest.config.ts.timestamp-*
 
-# Build and packaging
+# Build
 build/
 dist/
 *.whl
 *.tar.gz
 *.tgz
 webweavex-*.tgz
-
-# Tests and coverage
-.pytest_cache/
-.mypy_cache/
-.coverage
-.coverage.*
-htmlcov/
-coverage.json
-coverage.xml
 
 # Environments
 .env
@@ -43,7 +38,7 @@ coverage.xml
 venv/
 testenv/
 
-# IDE, editor, and local tooling
+# IDE
 .cursor/
 .idea/
 .vscode/
@@ -55,28 +50,19 @@ testenv/
 .DS_Store
 Thumbs.db
 
-# Runtime dumps and caches
+# Runtime dumps
 tmp/
 temp/
 artifacts/
 cache_store/
 
-# Stale validation / benchmark outputs
+# Playwright
+playwright-report/
+test-results/
+
+# Stale generated metrics (not committed)
 *_report.json
 validation_metrics.json
 temp*.json
 debug*.json
 benchmark*.json
-discourse_accuracy_report.json
-execution_reasoning_report.json
-ontology_accuracy_report.json
-runtime_reconstruction_report.json
-semantic_*_report.json
-
-# Playwright (local)
-playwright-report/
-test-results/
-
-# Package artifacts
-*.tgz
-webweavex-*.tgz

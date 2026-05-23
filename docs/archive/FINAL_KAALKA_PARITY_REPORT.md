@@ -1,5 +1,80 @@
 # FINAL KAALKA PARITY REPORT
 
-- `src/crypto/kaalka.ts` implements NFKC normalization + deterministic encrypt/decrypt
-- Vectors: `validation/kaalka/reference_vectors.json` (generated from JS reference)
-- Cross-language Python parity: run Python branch `validation/kaalka_cross_language/` against shared fixtures
+**JavaScript deterministic parity: VERIFIED** (npm `kaalka@5.0.0`)
+
+Python reference vectors re-seeded for `webweavex-formula+kaalka@5.0.0`. Update Python branch to match.
+
+## Formula
+
+```text
+normalizeRuntimeValue → stableSerialize → deriveKaalkaTimeKey(key) → kaalka@5.encrypt
+normalizeRuntimeValue → stableSerialize → SHA-256 hex (computeDeterministicHash)
+```
+
+- npm: `kaalka@5.0.0` (registry only; not published from this repo)
+
+```json
+{
+  "verified": true,
+  "selfOk": true,
+  "needsReseed": true,
+  "results": [
+    {
+      "id": "probe-1",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "10:24:15"
+    },
+    {
+      "id": "probe-2",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "0:55:39"
+    },
+    {
+      "id": "unicode",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "9:27:21"
+    },
+    {
+      "id": "session",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "2:41:25"
+    },
+    {
+      "id": "crlf",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "3:16:27"
+    },
+    {
+      "id": "emoji",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "7:38:8"
+    },
+    {
+      "id": "graph",
+      "hash_match": "reseed",
+      "encrypt_match": "reseed",
+      "decrypt_ok": true,
+      "deterministic": true,
+      "time_key": "1:10:49"
+    }
+  ]
+}
+```

@@ -1,4 +1,9 @@
+/**
+ * Production smoke validation — writes report to docs/archive only.
+ */
 import { writeFileSync, mkdirSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { encryptValue } from "../src/crypto/kaalkaRuntime.js";
 import { validateReplayEquivalence } from "../src/replay/replayEquivalence.js";
 import { buildRuntimeGraph } from "../src/graph/runtimeGraph.js";
@@ -7,8 +12,11 @@ import { computeGlobalRuntimeFingerprint } from "../src/determinism/globalRuntim
 import { reconstructRuntime } from "../src/reconstruction/reconstructRuntime.js";
 import { buildRuntimeMemory } from "../src/memory/runtimeMemory.js";
 
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const archiveDir = join(root, "docs/archive");
+
 async function main(): Promise<void> {
-  mkdirSync("docs/validation", { recursive: true });
+  mkdirSync(archiveDir, { recursive: true });
 
   const enc = encryptValue("probe", "k");
   const graph = buildRuntimeGraph({ probe: 1 });
@@ -34,7 +42,7 @@ async function main(): Promise<void> {
   }
 
   const report = [
-    "# FINAL REAL WORLD VALIDATION REPORT",
+    "# Production Validation Report",
     "",
     `**Generated:** ${new Date().toISOString()}`,
     "",
@@ -48,9 +56,7 @@ async function main(): Promise<void> {
     `| extractWeb (example.com) | ${extractOk} (${nodeCount} nodes) |`,
   ].join("\n");
 
-  writeFileSync("FINAL_REAL_WORLD_VALIDATION_REPORT.md", report);
-  writeFileSync("docs/validation/FINAL_REAL_WORLD_VALIDATION_REPORT.md", report);
-  writeFileSync("FINAL_RUNTIME_VALIDATION_REPORT.md", report);
+  writeFileSync(join(archiveDir, "FINAL_REAL_WORLD_VALIDATION_REPORT.md"), report);
   console.log(report);
 }
 

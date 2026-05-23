@@ -1,9 +1,11 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-mkdirSync(join(root, "docs/archive"), { recursive: true });
+const archiveDir = join(root, "docs/archive");
+
+mkdirSync(archiveDir, { recursive: true });
 
 function readJson<T>(path: string): T {
   return JSON.parse(readFileSync(path, "utf-8")) as T;
@@ -16,10 +18,24 @@ if (existsSync(covSummary)) {
   coverageLines = `${cov.total.lines.pct}%`;
 }
 
-const parity = readFileSync(join(root, "validation/parity/parity_report.md"), "utf-8");
+const parity = existsSync(join(root, "validation/parity/parity_report.md"))
+  ? readFileSync(join(root, "validation/parity/parity_report.md"), "utf-8")
+  : "Run `npm run validate:parity` first.";
+
 const pkg = readJson<{ version: string; dependencies: { kaalka: string } }>(
   join(root, "package.json"),
 );
+
+const rootFiles = readdirSync(root, { withFileTypes: true })
+  .filter((e) => e.isFile())
+  .map((e) => e.name)
+  .sort();
+
+const tree = [
+  "README.md · LICENSE · SECURITY.md · CONTRIBUTING.md · CHANGELOG.md · ROADMAP.md",
+  "package.json · tsconfig.json · tsup.config.ts · vitest.config.ts · eslint.config.js",
+  "src/ · tests/ · docs/ · examples/ · validation/ · .github/",
+].join("\n");
 
 const reports: Array<[string, string]> = [
   [
@@ -27,66 +43,54 @@ const reports: Array<[string, string]> = [
     [
       "# FINAL JS RELEASE REPORT",
       "",
-      `**Version:** ${pkg.version}`,
-      `**Branch:** javascript`,
-      `**Kaalka:** npm \`kaalka@${pkg.dependencies.kaalka}\` (registry only)`,
+      `**Version:** ${pkg.version} · **Branch:** javascript`,
+      `**Kaalka:** npm \`kaalka@${pkg.dependencies.kaalka}\``,
       "",
-      "## Release readiness",
+      "| Gate | Required |",
+      "|------|----------|",
+      "| lint / typecheck / test / coverage | yes |",
+      "| validate:parity | yes |",
+      "| validate:production | yes |",
+      "| npm pack | yes |",
       "",
-      "| Gate | Status |",
-      "|------|--------|",
-      "| `npm run lint` | required in CI |",
-      "| `npm run typecheck` | required in CI |",
-      "| `npm run test` | required in CI |",
-      "| `npm run coverage` | ≥90% lines, ≥80% branches |",
-      "| `npm run validate:parity` | required |",
-      "| `npm pack` | required |",
+      `**Coverage:** ${coverageLines} (scoped to \`src/\`)`,
+    ].join("\n"),
+  ],
+  [
+    "FINAL_REPOSITORY_STRUCTURE_REPORT.md",
+    [
+      "# FINAL REPOSITORY STRUCTURE REPORT",
       "",
-      "## Coverage (last run)",
+      "## Root files",
       "",
-      `Line coverage: **${coverageLines}**`,
+      rootFiles.map((f) => `- \`${f}\``).join("\n"),
       "",
-      "Scoped to `src/**/*.ts` production surfaces only.",
+      "## Intended layout",
+      "",
+      "```text",
+      tree,
+      "```",
+      "",
+      "All `FINAL_*.md` engineering reports live under `docs/archive/`.",
     ].join("\n"),
   ],
   ["FINAL_PARITY_REPORT.md", parity],
   [
-    "FINAL_NPM_AUDIT_REPORT.md",
+    "FINAL_NPM_READINESS_REPORT.md",
     [
-      "# FINAL NPM AUDIT REPORT",
+      "# FINAL NPM READINESS REPORT",
       "",
-      `- Package name: \`webweavex\``,
-      `- Version: \`${pkg.version}\``,
-      `- Crypto dependency: \`kaalka@${pkg.dependencies.kaalka}\` (exact pin)`,
-      "- No `file:packages/kaalka` or local crypto forks",
-      "- `sideEffects: false`, dual ESM/CJS via tsup",
-      "- `prepublishOnly`: build + test + parity validation",
+      `- Package: \`webweavex@${pkg.version}\``,
+      "- Published files: `dist/`, `README.md`, `LICENSE` (see `package.json` `files`)",
+      `- Crypto: registry \`kaalka@${pkg.dependencies.kaalka}\` only`,
+      "- `sideEffects: false` · dual ESM/CJS",
+      "- `prepublishOnly`: build + test + parity",
       "",
-      "## Publish checklist",
+      "## Publish (when approved)",
       "",
-      "1. `npm publish --access public` (when approved)",
-      "2. Tag `v2.0.0` on `javascript` branch",
-      "3. Ensure Python branch documents parity spec migration",
-    ].join("\n"),
-  ],
-  [
-    "FINAL_DETERMINISM_REPORT.md",
-    [
-      "# FINAL DETERMINISM REPORT",
-      "",
-      "## Formula",
-      "",
-      "```text",
-      "normalizeRuntimeValue → stableSerialize → UTF-8 → deriveKaalkaTimeKey → kaalka@5._proc → base64",
+      "```bash",
+      "npm publish --access public",
       "```",
-      "",
-      "## Guarantees",
-      "",
-      "- Replay-safe serialization (volatile keys stripped)",
-      "- DOM stabilization fingerprints (not raw HTML equality)",
-      "- `validateReplayEquivalence` graph + fingerprint + DOM hash",
-      "",
-      "See [docs/architecture/CROSS_LANGUAGE_PARITY.md](docs/architecture/CROSS_LANGUAGE_PARITY.md).",
     ].join("\n"),
   ],
   [
@@ -94,19 +98,17 @@ const reports: Array<[string, string]> = [
     [
       "# FINAL README AUDIT",
       "",
-      "- [x] Hero badges (npm, license, coverage, Node, TS, CI, Buy Me a Coffee)",
-      "- [x] Truthful positioning (no AGI / auth bypass / CAPTCHA claims)",
-      "- [x] Cross-language determinism section (honest limitations)",
-      "- [x] Authenticated runtime continuation (legitimate credentials only)",
-      "- [x] Real quick-start commands",
-      "- [x] Validation metrics reference real npm scripts",
+      "- [x] Hero: truthful positioning + badges",
+      "- [x] Explicit NOT list (no AGI, bypass, CAPTCHA)",
+      "- [x] Honest cross-language parity limitations",
+      "- [x] Authenticated runtime — user-supplied credentials only",
+      "- [x] Real install / quick-start commands",
     ].join("\n"),
   ],
 ];
 
 for (const [name, body] of reports) {
-  writeFileSync(join(root, name), body);
-  writeFileSync(join(root, "docs/archive", name), body);
+  writeFileSync(join(archiveDir, name), body);
 }
 
-console.log("Generated final reports:", reports.map(([n]) => n).join(", "));
+console.log("Archived reports:", reports.map(([n]) => `docs/archive/${n}`).join(", "));
