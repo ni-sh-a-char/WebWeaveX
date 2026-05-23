@@ -2,7 +2,23 @@
 
 All notable changes to WebWeaveX are documented here.
 
-## [2.0.0] — 2026-05-21 — Official open-source release
+## [2.0.0] — 2026-05-23 — npm (JavaScript) public release
+
+### Added
+- Deterministic runtime cognition infrastructure for **humans and AI agents**
+- Browser-native extraction (`extractWeb`), Playwright rendering, DOM stabilization
+- Authenticated runtime continuation, replay equivalence, reconstruction, runtime memory
+- Cross-language parity with Python via `kaalka@5.0.0` + canonical normalization pipeline
+- Production validation gates (`validate:parity`, `validate:production`)
+
+### Changed
+- **Kaalka v5** from npm registry only (`kaalka@5.0.0`); byte `_proc` + base64 ciphertext
+- ESM/CJS dual publish via `tsup`; `sideEffects: false`
+
+### Security
+- No auth bypass, CAPTCHA defeat, or credential cracking — authorized session material only
+
+## [2.0.0] — 2026-05-21 — Ecosystem open-source release
 
 ### Added
 - Universal **Runtime Kernel** (`core/kernel/`) — single orchestration substrate
