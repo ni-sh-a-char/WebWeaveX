@@ -76,9 +76,13 @@ Kaalka-only encrypted persistence. Replay via `validate_replay_equivalence()`.
 |------|--------|
 | Version | **2.0.0** |
 | License | Apache 2.0 |
-| Git tag | `v2.0.0` |
+| Git tag | `v2.0.0` → commit `2c165f8` |
 | Commit message | `Finalize WebWeaveX v2.0.0 public release` |
+| Branch `main` | Force-updated to v2.0.0 release commit |
+| Branch `python` | Pushed with release commit |
+| Remote | `https://github.com/ni-sh-a-char/WebWeaveX.git` |
 | GitHub Release title | WebWeaveX v2.0.0 — Deterministic Runtime Extraction Infrastructure |
+| GitHub Release page | Create manually: [Releases/new](https://github.com/ni-sh-a-char/WebWeaveX/releases/new?tag=v2.0.0) — use `docs/validation/GITHUB_RELEASE_v2.0.0.md` as notes (`gh` CLI not available in this environment) |
 
 ---
 

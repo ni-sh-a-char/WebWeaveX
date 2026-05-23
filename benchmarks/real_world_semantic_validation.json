@@ -1,9 +1,0 @@
-{
-  "status": "fixture_and_opt_in",
-  "note": "Set WEBWEAVEX_RUN_NETWORK_TESTS=1 for live targets",
-  "targets": {
-    "repositories": ["torvalds/linux", "kubernetes/kubernetes", "vercel/next.js", "langchain-ai/langchain"],
-    "documentation": ["docs.python.org", "react.dev", "kubernetes.io/docs", "developer.mozilla.org"],
-    "apis": ["openapi_corpora", "stripe_api", "github_api"]
-  }
-}

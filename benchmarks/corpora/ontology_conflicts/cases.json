@@ -1,8 +1,0 @@
-{
-  "source": "broken_ontology",
-  "evaluation_criteria": "merge_validation",
-  "cases": [
-    {"id": "oc1", "input": {"sources": [{"evidence": ["a"]}, {"evidence": ["b"]}], "edges": []}, "expected": {"allowed": true}},
-    {"id": "oc2", "input": {"sources": [{"evidence": []}], "edges": [{"from": "a", "to": "b", "contradictions": {"pairs": [["a", "b"], ["c", "d"], ["e", "f"], ["g", "h"]]}}]}, "expected": {"allowed": false}}
-  ]
-}

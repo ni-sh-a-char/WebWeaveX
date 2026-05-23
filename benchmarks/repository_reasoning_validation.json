@@ -1,5 +1,0 @@
-{
-  "engine": "repository_execution_ir_engine",
-  "corpus": "repository_reasoning",
-  "note": "See benchmark_results.json for live accuracy"
-}

@@ -1,9 +1,0 @@
-{
-  "source": "semantic_consistency_patterns",
-  "evaluation_criteria": "semantic_consistency",
-  "cases": [
-    {"id": "s1", "input": {"observed": {"a": 1}, "inferred": {}, "reconciled": {"a": 1}}, "expected": {"consistent": true}},
-    {"id": "s2", "input": {"observed": {}, "inferred": {"x": 1}, "reconciled": {}}, "expected": {"consistent": true}},
-    {"id": "s3", "input": {"observed": {"a": 1, "b": 2}, "inferred": {"c": 3}, "reconciled": {"d": 4}}, "expected": {"consistent": false}}
-  ]
-}

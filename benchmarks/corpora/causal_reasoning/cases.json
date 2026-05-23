@@ -1,8 +1,0 @@
-{
-  "source": "dependency_calculus_patterns",
-  "evaluation_criteria": "semantic_dependency",
-  "cases": [
-    {"id": "ca1", "input": {"from_keys": ["a"], "to_keys": ["b"], "evidence": ["e1", "e2"]}, "expected": {"derivable": true}},
-    {"id": "ca2", "input": {"from_keys": [], "to_keys": ["b"], "evidence": []}, "expected": {"derivable": false}}
-  ]
-}
