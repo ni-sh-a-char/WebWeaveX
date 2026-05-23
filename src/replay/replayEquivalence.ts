@@ -75,6 +75,22 @@ export function validateReplayEquivalence(
     ok: origFp === replayFp && graphHash(origGraph) === graphHash(replayGraph),
   });
 
+  const origMem = (original as Record<string, unknown>).runtime_memory;
+  const replayMem = (replayed as Record<string, unknown>).runtime_memory;
+  if (
+    origMem &&
+    replayMem &&
+    typeof origMem === "object" &&
+    typeof replayMem === "object"
+  ) {
+    checks.push({
+      name: "memory_stable_hash",
+      ok:
+        (origMem as Record<string, unknown>).stable_hash ===
+        (replayMem as Record<string, unknown>).stable_hash,
+    });
+  }
+
   return {
     equivalent: checks.every((c) => c.ok),
     checks,

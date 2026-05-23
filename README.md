@@ -80,6 +80,102 @@ WebWeaveX addresses extraction, stabilization, hashing, encryption, and replay i
 | **Engineers** | Debug SPAs, stabilize DOM, audit authenticated flows |
 | **Browser AI agents** | Deterministic Playwright continuity, replay-safe memory, operational graphs |
 
+Same APIs, same determinism contract, same honesty about authorization.
+
+---
+
+## Runtime cognition
+
+**Runtime cognition** means treating the live operational environment (DOM, session, graph, memory) as a **bounded, hashable, replayable** artifact—not a one-off screenshot. WebWeaveX compiles that artifact through a single canonical pipeline so humans and agents can **continue**, **audit**, and **prove equivalence** across ticks.
+
+---
+
+## Why AI agents need deterministic runtime infrastructure
+
+| Problem | Without substrate | With WebWeaveX |
+|---------|-------------------|----------------|
+| Auth loss | Re-login every step | `saveAuthenticatedRuntime` / `loadAuthenticatedRuntime` |
+| State drift | Cookies/storage diverge | Kaalka-sealed session blobs |
+| DOM instability | Framework IDs break diffs | `stabilizeDomHtml` + `computeStableDomHash` |
+| Replay inconsistency | Same prompt, different hash | `validateReplayEquivalence` (graph + fingerprint + DOM + memory) |
+| Ephemeral memory | No operational graph | `buildRuntimeMemory` / `queryRuntimeMemory` |
+
+### AI agent memory
+
+```ts
+import { buildRuntimeGraph, buildRuntimeMemory, queryRuntimeMemory } from "webweavex";
+
+const graph = buildRuntimeGraph({ step: "login", next: "dashboard" });
+const runtime = buildRuntimeMemory(graph, [{ step: "login" }]);
+const memory = queryRuntimeMemory(runtime, "graph");
+```
+
+### Replay equivalence
+
+```ts
+import { validateReplayEquivalence } from "webweavex";
+
+const a = await runCanonicalPipeline({ source: "https://example.com", sourceType: "web" });
+const b = structuredClone(a);
+const replay = validateReplayEquivalence(a, b);
+console.log(replay.equivalent, replay.checks);
+```
+
+### Runtime reconstruction
+
+```ts
+import { reconstructRuntime, rebuildExecutionGraph } from "webweavex";
+
+const rebuilt = reconstructRuntime({ extraction: pipeline });
+const graph = rebuildExecutionGraph(pipeline);
+console.log(rebuilt.runtime, graph.nodes.length);
+```
+
+### Human workflows
+
+```ts
+import { extractWeb, validateReplayEquivalence, buildRuntimeGraph } from "webweavex";
+
+const extraction = await extractWeb("https://app.example.com");
+const graph = buildRuntimeGraph(extraction);
+console.log(validateReplayEquivalence(extraction, structuredClone(extraction)).equivalent);
+```
+
+---
+
+## Runtime memory
+
+Runtime memory is a **bounded graph + history fabric** with deterministic `stable_hash` for replay continuity.
+
+| API | Role |
+|-----|------|
+| `buildRuntimeMemory` | Compile graph + history into memory envelope |
+| `stableMemoryHash` | Deterministic memory fingerprint |
+| `mergeRuntimeMemories` | Federate bounded histories |
+| `queryRuntimeMemory` | Keyed lookup for agents (`graph`, `runtime_history`, …) |
+
+---
+
+## Replay equivalence
+
+Replay is not string diff. WebWeaveX checks **graph fingerprint**, **global runtime fingerprint**, **stabilized DOM hash**, **semantic fingerprint**, and **memory stable hash** when present.
+
+```ts
+validateReplayEquivalence(original, candidate);
+```
+
+---
+
+## Runtime reconstruction
+
+Reconstruction rebuilds **runtime identity**, **normalized graph**, and **bounded** flags from unified extraction IR—deterministic across identical inputs.
+
+```ts
+reconstructRuntime({ extraction });
+replayRuntime(extraction);
+rebuildExecutionGraph(extraction);
+```
+
 ---
 
 ## Why browser AI agents fail today
@@ -329,6 +425,8 @@ Full specification: [`docs/architecture/CROSS_LANGUAGE_PARITY.md`](docs/architec
 | `npm run coverage` | ≥90% lines, ≥80% branches on `src/` |
 | `npm run validate:parity` | Cross-language vector harness |
 | `npm run validate:production` | Production smoke checks |
+| `npm run validate:ecosystem` | Replay · graph · memory · reconstruction gates |
+| `npm run validate:replay` | Replay equivalence vectors |
 | `npm pack --dry-run` | Publish tarball audit |
 
 CI runs on every push to `javascript` (lint, typecheck, coverage, parity, build, pack).
@@ -359,10 +457,14 @@ WebWeaveX/                    # javascript branch
 │   └── archive/              # Engineering reports (not shipped on npm)
 ├── examples/                 # Runnable samples
 ├── validation/
-│   ├── parity/               # Active parity vectors
-│   ├── fixtures/             # Sample JSON fixtures
+│   ├── parity/               # Cross-language vectors
+│   ├── replay/               # Replay equivalence gates
+│   ├── runtime_graph/        # Graph + fingerprint gates
+│   ├── runtime_memory/       # Memory fabric gates
+│   ├── reconstruction/       # Reconstruction gates
 │   ├── validateParity.ts
-│   └── validateProduction.ts
+│   ├── validateProduction.ts
+│   └── validateEcosystem.ts
 └── .github/                  # CI, templates, funding
 ```
 

@@ -50,7 +50,9 @@
     "coverage": "vitest run --coverage",
     "validate:parity": "tsx validation/validateParity.ts",
     "validate:production": "tsx validation/validateProduction.ts",
-    "validate": "npm run validate:parity && npm run validate:production",
+    "validate:replay": "tsx validation/replay/validateReplay.ts",
+    "validate:ecosystem": "tsx validation/validateEcosystem.ts",
+    "validate": "npm run validate:ecosystem",
     "reports:final": "tsx validation/generateFinalReports.ts",
     "prepublishOnly": "npm run build && npm run test && npm run validate:parity"
   },

@@ -32,7 +32,13 @@ export {
 export { runExecutionRuntime } from "./execution/executionRuntime.js";
 
 export { buildUnifiedRuntimeIR, compileRuntimeIR } from "./ir/unifiedIr.js";
-export { buildRuntimeGraph, queryRuntimeGraph, graphFingerprint } from "./graph/runtimeGraph.js";
+export {
+  buildRuntimeGraph,
+  queryRuntimeGraph,
+  graphFingerprint,
+  computeRuntimeFingerprint,
+  validateRuntimeGraph,
+} from "./graph/runtimeGraph.js";
 
 export {
   encryptValue,

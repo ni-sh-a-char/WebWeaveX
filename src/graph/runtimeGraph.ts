@@ -34,3 +34,16 @@ export function queryRuntimeGraph(graph: RuntimeGraph, nodeType?: string): Runti
 export function graphFingerprint(graph: RuntimeGraph): string {
   return computeKaalkaHashPayload(RuntimeGraphContract.normalize(graph));
 }
+
+export const computeRuntimeFingerprint = graphFingerprint;
+
+export function validateRuntimeGraph(graph: RuntimeGraph): Record<string, unknown> {
+  const normalized = RuntimeGraphContract.normalize(graph);
+  return {
+    valid: normalized.bounded === true,
+    fingerprint: graphFingerprint(normalized),
+    node_count: normalized.nodes.length,
+    edge_count: normalized.edges.length,
+    bounded: true,
+  };
+}

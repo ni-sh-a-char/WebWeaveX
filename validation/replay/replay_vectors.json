@@ -1,0 +1,11 @@
+{
+  "algorithm": "webweavex-replay-v2.0.0",
+  "vectors": [
+    {
+      "replay_match": true,
+      "graph_match": true,
+      "memory_match": true,
+      "reconstruction_match": true
+    }
+  ]
+}
