@@ -20,6 +20,8 @@ build/
 dist/
 *.whl
 *.tar.gz
+*.tgz
+webweavex-*.tgz
 
 # Tests and coverage
 .pytest_cache/

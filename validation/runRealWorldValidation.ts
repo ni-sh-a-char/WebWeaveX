@@ -8,7 +8,6 @@ import { reconstructRuntime } from "../src/reconstruction/reconstructRuntime.js"
 import { buildRuntimeMemory } from "../src/memory/runtimeMemory.js";
 
 async function main(): Promise<void> {
-  const root = process.cwd();
   mkdirSync("docs/validation", { recursive: true });
 
   const enc = encryptValue("probe", "k");
