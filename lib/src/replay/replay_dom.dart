@@ -1,4 +1,10 @@
 import '../determinism/dom_stabilization.dart';
 
-bool replayDomEquivalent(String originalHtml, String replayedHtml) =>
-    computeStableDomHash(originalHtml) == computeStableDomHash(replayedHtml);
+Map<String, dynamic> replayDomSnapshot(String html) => {
+      'stabilized': stabilizeDomHtml(html),
+      'hash': computeStableDomHash(html),
+      'bounded': true,
+    };
+
+bool validateDomReplayEquivalence(String a, String b) =>
+    computeStableDomHash(a) == computeStableDomHash(b);

@@ -21,6 +21,7 @@ Future<void> main() async {
     'validation/runtime_memory/validate_runtime_memory.dart',
     'validation/reconstruction/validate_reconstruction.dart',
     'validation/browser/validate_browser.dart',
+    'validation/connectors/validate_connectors.dart',
   ]) {
     final r = await Process.run('dart', ['run', script]);
     stdout.write(r.stdout);

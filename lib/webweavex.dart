@@ -37,5 +37,10 @@ export 'src/replay/replay_fingerprint.dart';
 export 'src/replay/replay_graph.dart';
 export 'src/replay/replay_memory.dart';
 export 'src/replay/replay_runtime.dart';
+export 'src/connectors/connectors_impl.dart';
+export 'src/connectors/postgres_connector.dart';
+export 'src/distributed/distributed_extraction_orchestrator.dart';
+export 'src/orchestration/orchestration_engine.dart';
+export 'src/semantic/semantic_memory.dart';
 
 const version = '2.0.0';
