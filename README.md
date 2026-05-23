@@ -2,7 +2,9 @@
   <br/>
   <img src="https://img.shields.io/badge/WebWeaveX-v2.0.0-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v2.0.0"/>
   <br/><br/>
-  <strong>Deterministic runtime extraction and replay-safe operational cognition infrastructure</strong>
+  <strong>Production-grade deterministic runtime cognition infrastructure<br/>for humans and AI agents</strong>
+  <br/>
+  <em>Operational runtime substrate · PyPI · replay-safe · Kaalka v5 parity</em>
   <br/><br/>
 </p>
 
@@ -33,6 +35,8 @@
 ## Contents
 
 - [What is WebWeaveX?](#what-is-webweavex)
+- [Humans and AI agents](#humans-and-ai-agents)
+- [Why AI agents need this](#why-ai-agents-need-deterministic-runtime-infrastructure)
 - [What WebWeaveX is NOT](#what-webweavex-is-not)
 - [Why existing systems fail](#why-existing-systems-fail)
 - [Core capabilities](#core-capabilities)
@@ -51,7 +55,11 @@
 
 ## What is WebWeaveX?
 
-**WebWeaveX** is deterministic **runtime extraction and operational cognition infrastructure**. It captures how software actually runs—browser DOM, authenticated sessions, Electron state, native UI, workflows, and connector surfaces—and compiles that into **replay-safe runtime graphs** with **Kaalka-encrypted persistence**.
+**WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI agents** operating on authenticated software. It captures how systems actually run—browser DOM, sessions, Electron, native UI, workflows, connectors—and compiles **replay-safe runtime graphs** with **Kaalka-encrypted persistence** (`webweavex-formula+kaalka@5.0.0`).
+
+This is **not** a scraping library or LLM wrapper. It is an **operational runtime substrate** for extraction, memory, execution, reconstruction, and replay equivalence.
+
+Ecosystem portal: [`main`](https://github.com/ni-sh-a-char/WebWeaveX) · npm sibling: [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript)
 
 ### Why it exists
 
@@ -69,6 +77,33 @@ Traditional extraction fails because it is:
 | Weak SPA/Electron support | Unstable IDs, routes, and storage break diffs |
 
 WebWeaveX exists to deliver **deterministic runtime extraction** and **replay-safe operational reconstruction** through one **canonical pipeline**.
+
+---
+
+## Humans and AI agents
+
+**WebWeaveX is designed for both humans and AI agents.**
+
+| Audience | Use |
+|----------|-----|
+| **Engineers** | Inspect authenticated systems, preserve workflows, audit runtime behavior |
+| **AI agents** | Maintain continuity, deterministic state, replay-safe memory, environment reconstruction |
+
+Same APIs, same determinism contract, same honesty about authorization.
+
+---
+
+## Why AI agents need deterministic runtime infrastructure
+
+| Problem | Without substrate | With WebWeaveX |
+|---------|-------------------|----------------|
+| LLMs lose state | Re-plan from scratch each turn | Stable runtime memory + graph identity |
+| Browser agents lose auth | Re-login drift | Authorized session continuation (Kaalka) |
+| Workflows go nondeterministic | Unauditable actions | Replay equivalence + fingerprints |
+| Operational systems are opaque | HTML-only views | Runtime cognition IR + reconstruction |
+| Cross-run reasoning breaks | Ephemeral DOM | Stabilized hashes + parity-validated crypto |
+
+WebWeaveX provides the **deterministic operational runtime layer** agents and teams share—not autonomous superintelligence.
 
 ---
 
@@ -100,8 +135,8 @@ WebWeaveX only operates on **authorized authenticated runtimes** and data **you 
 | **Selenium** | Browser automation | No unified IR, Kaalka fabric, or replay equivalence layer |
 | **Playwright** | Reliable browser control | Automation driver—not extraction + memory + reconstruction |
 | **Puppeteer** | Chromium scripting | Same gap: no federated sync or deterministic checkpoints |
-| **Traditional crawlers** | Scale on public pages | Stateless; poor on authenticated SPAs |
-| **Generic AI agents** | Flexible tasks | Probabilistic; weak replay and audit guarantees |
+| **Stateless crawlers** | Scale on public pages | Poor on authenticated operational systems |
+| **Probabilistic-only agents** | Flexible tasks | Weak replay, memory, and audit guarantees |
 
 Common gaps WebWeaveX addresses:
 
@@ -514,7 +549,7 @@ Apache 2.0 — see [LICENSE](LICENSE).
 
 ## Final positioning
 
-**WebWeaveX is an attempt to build deterministic runtime cognition infrastructure for the authenticated operational web**—where extraction means encrypted continuity, structured graphs, replay equivalence, and reconstruction, not disposable HTML dumps.
+**WebWeaveX is deterministic runtime cognition infrastructure for humans and AI agents**—operational runtime substrate for the authenticated web, not a crawler, not an LLM wrapper, not AGI hype.
 
 If this work helps your team, consider supporting it:
 
