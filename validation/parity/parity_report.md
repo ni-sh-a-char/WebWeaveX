@@ -1,7 +1,7 @@
 # Cross-Language Parity Report (Dart)
 
 **Algorithm:** `webweavex-formula+kaalka@5.0.0`
-**Generated:** 2026-05-23T14:08:11.495554Z
+**Generated:** 2026-05-23T15:35:24.656865Z
 
 ✅ **PASS** — Dart matches JavaScript reference vectors
 

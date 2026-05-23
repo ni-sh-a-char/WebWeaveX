@@ -1,5 +1,5 @@
 /// WebWeaveX — deterministic runtime cognition infrastructure (Dart).
-library webweavex;
+library;
 
 export 'src/browser/authenticated_runtime.dart';
 export 'src/browser/capture_runtime.dart';
@@ -12,8 +12,10 @@ export 'src/determinism/normalization.dart';
 export 'src/determinism/stable_serialize.dart';
 export 'src/graph/runtime_graph.dart';
 export 'src/kernel/runtime_pipeline.dart';
+export 'src/memory/query_memory.dart';
 export 'src/memory/runtime_memory.dart';
 export 'src/reconstruction/reconstruct_runtime.dart';
+export 'src/replay/replay_dom.dart';
 export 'src/replay/replay_equivalence.dart';
 
 const version = '2.0.0';

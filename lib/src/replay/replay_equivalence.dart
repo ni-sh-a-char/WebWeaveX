@@ -86,6 +86,15 @@ Map<String, dynamic> validateReplayEquivalence(
         origFp == replayFp && _graphHash(origGraph) == _graphHash(replayGraph),
   });
 
+  final origMem = original['runtime_memory'];
+  final replayMem = replayed['runtime_memory'];
+  if (origMem is Map<String, dynamic> && replayMem is Map<String, dynamic>) {
+    checks.add({
+      'name': 'memory_stable_hash',
+      'ok': origMem['stable_hash'] == replayMem['stable_hash'],
+    });
+  }
+
   return {
     'equivalent': checks.every((c) => c['ok'] == true),
     'checks': checks,

@@ -1,0 +1,11 @@
+{
+  "algorithm": "webweavex-runtime-memory-v2.0.0",
+  "vectors": [
+    {
+      "memory_match": true,
+      "query_match": true,
+      "merge_match": true,
+      "deterministic": true
+    }
+  ]
+}

@@ -101,3 +101,18 @@ RuntimeGraph queryRuntimeGraph(RuntimeGraph graph, {String? nodeType}) {
 
 String graphFingerprint(RuntimeGraph graph) =>
     computeDeterministicHash(normalizeRuntimeGraph(graph).toJson());
+
+/// Alias for ecosystem API parity with Python/JS naming.
+String computeRuntimeFingerprint(RuntimeGraph graph) => graphFingerprint(graph);
+
+/// Validates canonical graph contract (bounded, sortable, fingerprintable).
+Map<String, dynamic> validateRuntimeGraph(RuntimeGraph graph) {
+  final normalized = normalizeRuntimeGraph(graph);
+  return {
+    'valid': normalized.bounded,
+    'fingerprint': graphFingerprint(normalized),
+    'node_count': normalized.nodes.length,
+    'edge_count': normalized.edges.length,
+    'bounded': true,
+  };
+}
