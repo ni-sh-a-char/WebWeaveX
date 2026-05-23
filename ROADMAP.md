@@ -1,16 +1,29 @@
-# Roadmap
+# WebWeaveX Ecosystem Roadmap
 
-## v2.1
-- Kaalka migration for remaining plaintext stores
-- Lazy `core/ir` imports to reduce cold-start
-- Physical native bindings (UIA, AX, AT-SPI) behind `[native]` extra
-- Cross-language Kaalka fixture CI matrix
+**Vision:** deterministic runtime cognition infrastructure for humans and AI agents across languages.
 
-## v1.3
-- Distributed worker mesh deployment guides
-- Anything OS portable runtime packaging
-- WWX language LSP and CLI
+## Near term
 
-## v2.0
-- Full streaming federation with Playwright hooks
-- Repository AST via tree-sitter for all Tier-1 languages
+- [x] Python PyPI v2.0.0 with Kaalka v5 cross-language parity
+- [x] JavaScript npm v2.0.0 with parity vectors
+- [ ] Unified agent integration guides (humans + AI agents)
+- [ ] Parity CI matrix on every release tag
+
+## Language ports
+
+| Language | Branch | Goal |
+|----------|--------|------|
+| Rust | `rust` (planned) | High-performance extraction workers |
+| Go | `go` (planned) | Sidecar deployment agents |
+
+## Runtime cognition
+
+- Deeper connector fabric (API, DB, K8s, telemetry)
+- Expanded replay equivalence surfaces
+- Agent-oriented runtime memory APIs (deterministic only)
+
+## Non-goals
+
+- Auth bypass, CAPTCHA defeat, credential theft
+- AGI / superintelligence marketing
+- LLM wrapper SaaS positioning

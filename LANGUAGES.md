@@ -1,30 +1,31 @@
 # WebWeaveX Language Implementations
 
-WebWeaveX is a **multi-language deterministic runtime extraction ecosystem**. Each language has its own branch and package—no mixed implementations on a single branch.
+WebWeaveX is **deterministic runtime cognition infrastructure for humans and AI agents**, implemented **natively per language** on isolated branches.
 
-| Language | Branch | Package | Status |
-|----------|--------|---------|--------|
-| Python | [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | [`webweavex` on PyPI](https://pypi.org/project/webweavex/) | **Stable** (v2.0.0) |
-| JavaScript / TypeScript | [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | [`webweavex` on npm](https://www.npmjs.com/package/webweavex) | **In development** |
-| Rust | `rust` | planned | Planned |
-| Go | `go` | planned | Planned |
-| Java | `java` | planned | Planned |
+| Branch | Purpose | Package | Status |
+|--------|---------|---------|--------|
+| [`main`](https://github.com/ni-sh-a-char/WebWeaveX) | Language-neutral architecture and ecosystem portal | — | Active |
+| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | Production-grade Python runtime | [PyPI `webweavex`](https://pypi.org/project/webweavex/) | **Stable** (v2.0.0) |
+| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | Production-grade Node/TypeScript runtime | [npm `webweavex`](https://www.npmjs.com/package/webweavex) | **Stable** (v2.0.0) |
+| `rust` | Performance workers (planned) | planned | Planned |
+| `go` | Deployment agents (planned) | planned | Planned |
 
 ## Choosing an implementation
 
 | Use case | Branch |
 |----------|--------|
-| Production Python services, PyPI install | `python` |
-| Node.js, browser automation, npm / ESM / CJS | `javascript` |
-| Architecture, security policy, roadmap | `main` (this portal) |
+| PyPI services, notebooks, enterprise Python | [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) |
+| Node.js, Playwright, browser AI agents, npm/ESM/CJS | [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) |
+| Architecture, security, ecosystem vision | [`main`](https://github.com/ni-sh-a-char/WebWeaveX) |
 
-## Cross-language guarantees
+## Shared pillars (all implementations)
 
-All implementations share:
-
-- **Kaalka** deterministic encryption and hashing (parity-validated vectors)
-- **Canonical pipeline** single execution path
-- **Replay-safe** runtime graphs and fingerprints
-- **Authorized-only** authenticated runtime continuation (no auth bypass)
-
-See `docs/` on each branch for language-specific guides.
+1. Runtime cognition  
+2. Deterministic extraction  
+3. Replay equivalence  
+4. Reconstruction  
+5. Runtime memory  
+6. Runtime execution  
+7. Authenticated continuity (authorized only)  
+8. Cross-language parity ([`kaalka@5.0.0`](https://www.npmjs.com/package/kaalka) formula)  
+9. Runtime graph identity  
