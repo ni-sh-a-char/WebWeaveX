@@ -1,0 +1,11 @@
+test/
+coverage/
+validation/
+docs/archive/
+example/
+.github/
+analysis_options.yaml
+*.md
+!README.md
+.dart_tool/
+build/

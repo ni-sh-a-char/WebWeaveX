@@ -1,67 +1,33 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.egg-info/
-.eggs/
-*.egg
-
-# Build and packaging
+# Dart
+.dart_tool/
+.packages
 build/
-dist/
-*.whl
-*.tar.gz
+pubspec.lock
+*.g.dart
 
-# Tests and coverage
-.pytest_cache/
-.mypy_cache/
-.coverage
-.coverage.*
-htmlcov/
-coverage.json
-coverage.xml
+# Coverage
+coverage/
 
-# Environments
-.env
-.env.*
-.venv/
-venv/
-testenv/
-
-# IDE, editor, and local tooling
-.cursor/
+# IDE
 .idea/
 .vscode/
 *.swp
-*.tmp
-*.log
+.cursor/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Runtime dumps and caches
+# Runtime dumps
 tmp/
 temp/
 artifacts/
-cache_store/
+*.log
 
-# Stale validation / benchmark outputs
-*_report.json
-validation_metrics.json
-temp*.json
-debug*.json
-benchmark*.json
-discourse_accuracy_report.json
-execution_reasoning_report.json
-ontology_accuracy_report.json
-runtime_reconstruction_report.json
-semantic_*_report.json
-
-# Playwright (local)
-playwright-report/
-test-results/
+# Node/Python (must not appear on dart branch)
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+dist/
+coverage/

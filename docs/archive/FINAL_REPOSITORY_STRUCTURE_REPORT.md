@@ -1,5 +1,12 @@
-# FINAL_REPOSITORY_STRUCTURE_REPORT.md
+# Final Repository Structure Report (Dart branch)
 
-Archived 29 root markdown files
+```
+lib/           # Production Dart runtime
+test/          # Vitest-style dart tests
+example/       # Runnable samples
+validation/    # Parity harness (not published)
+docs/          # Architecture + archive reports
+.github/       # CI, templates, funding
+```
 
-Generated 2026-05-22T12:03:34Z
+Root: OSS essentials only — no Python/JS implementation artifacts.

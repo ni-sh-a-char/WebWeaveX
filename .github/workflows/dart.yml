@@ -1,0 +1,25 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [dart]
+  pull_request:
+    branches: [dart]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: dart pub get
+      - run: dart format --set-exit-if-changed .
+      - run: dart analyze
+      - run: dart test
+      - run: dart run validation/validate_parity.dart
+      - run: dart pub publish --dry-run

@@ -1,0 +1,10 @@
+import 'package:test/test.dart';
+import 'package:webweavex/webweavex.dart';
+
+void main() {
+  test('buildRuntimeGraph is bounded', () {
+    final g = buildRuntimeGraph({'nodes': [], 'edges': []});
+    expect(g.bounded, isTrue);
+    expect(graphFingerprint(g), isNotEmpty);
+  });
+}
