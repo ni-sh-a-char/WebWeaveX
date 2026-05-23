@@ -1,11 +1,25 @@
 test/
 coverage/
 validation/
-docs/archive/
+docs/
 example/
 .github/
+tool/
 analysis_options.yaml
 *.md
 !README.md
+!CHANGELOG.md
 .dart_tool/
 build/
+# Cross-branch artifacts (never publish)
+node_modules/
+core/
+tests/
+benchmarks/
+packages/
+webweavex/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+dist/
+pubspec.lock

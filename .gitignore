@@ -24,10 +24,22 @@ temp/
 artifacts/
 *.log
 
-# Node/Python (must not appear on dart branch)
+# Node/Python/JS (must not appear on dart branch — local checkout artifacts)
 node_modules/
+package-lock.json
 __pycache__/
 *.pyc
+*.py[cod]
 .venv/
+.pytest_cache/
 dist/
 coverage/
+core/
+tests/
+testenv/
+benchmarks/
+packages/
+webweavex/
+*.egg-info/
+pubspec.lock
+tool/debug_*.dart

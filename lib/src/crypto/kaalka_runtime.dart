@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:kaalka/kaalka.dart';
 
-import '../determinism/normalization.dart';
 import '../determinism/stable_serialize.dart';
 import 'hashing.dart';
 import 'kaalka_v5_proc.dart';
