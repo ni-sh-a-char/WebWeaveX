@@ -1,0 +1,16 @@
+src/
+tests/
+validation/
+examples/
+scripts/
+benchmarks/
+.github/
+*.test.ts
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+eslint.config.js
+.prettierrc
+.editorconfig
+coverage/
+node_modules/

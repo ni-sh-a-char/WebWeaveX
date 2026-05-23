@@ -10,6 +10,11 @@ __pycache__/
 .eggs/
 *.egg
 
+# Node.js
+node_modules/
+coverage/
+*.tsbuildinfo
+
 # Build and packaging
 build/
 dist/

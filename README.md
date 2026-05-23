@@ -1,108 +1,68 @@
 <p align="center">
-  <br/>
-  <img src="https://img.shields.io/badge/WebWeaveX-Multi--Language-0f172a?style=for-the-badge" alt="WebWeaveX"/>
-  <br/><br/>
-  <strong>Deterministic runtime extraction and replay-safe operational cognition infrastructure</strong>
-  <br/><br/>
-  <em>Language-neutral architecture portal</em>
-  <br/><br/>
+  <strong>WebWeaveX — Native TypeScript Runtime Infrastructure</strong><br/>
+  <em>Deterministic extraction · replay-safe graphs · Kaalka persistence</em>
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square" alt="PyPI Python"/></a>
-  <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/v/webweavex?style=flat-square" alt="npm JavaScript"/></a>
+  <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/v/webweavex?style=flat-square" alt="npm"/></a>
+  <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Node-18+-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node 18+"/>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/>
-  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
+  <img src="https://img.shields.io/badge/coverage-88%25%2B-6366f1?style=flat-square" alt="Coverage"/>
+  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee" alt="Buy Me a Coffee"/></a>
 </p>
 
----
+> **Branch:** `javascript` — native implementation only. Architecture portal: [`main`](https://github.com/ni-sh-a-char/WebWeaveX). Python: [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python).
 
 ## What is WebWeaveX?
 
-**WebWeaveX** is infrastructure for **deterministic runtime extraction** and **replay-safe operational reconstruction** of modern authenticated software: SPAs, Electron apps, synchronized multi-surface systems, and operational workflows.
+Native **deterministic runtime extraction** and **replay-safe operational cognition** for authenticated SPAs, Electron surfaces, and synchronized runtimes. **Zero Python dependency.**
 
-This repository uses **branch-per-language isolation**. The `main` branch documents architecture and governance only. Implementations live on dedicated branches.
+## What it is NOT
 
-| Branch | Contents |
-|--------|----------|
-| **`main`** (you are here) | Architecture portal, OSS policy, language map |
-| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | Native Python runtime — PyPI `webweavex` |
-| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | Native TypeScript runtime — npm `webweavex` |
+Not auth bypass, malware, CAPTCHA defeat, AGI agents, or subprocess bridges to other languages.
 
-See **[LANGUAGES.md](LANGUAGES.md)** for the full matrix.
+## Quick start
 
----
+```bash
+npm install webweavex
+npm install playwright   # browser extraction
+```
 
-## What WebWeaveX is NOT
+```typescript
+import { extractWeb, runCanonicalPipeline, validateReplayEquivalence } from "webweavex";
 
-- Not auth bypass, MFA defeat, or CAPTCHA circumvention tooling  
-- Not malware, exploit infrastructure, or credential theft  
-- Not an LLM wrapper, chatbot, or “autonomous hacking” agent  
-- Not a subprocess bridge between languages on one branch  
+const out = await extractWeb("https://example.com");
+console.log(out.bounded, out.global_runtime_fingerprint);
 
-Each implementation is **native** to its language with **Kaalka parity** across runtimes.
+const pipe = await runCanonicalPipeline({ source: "https://example.com", sourceType: "web" });
+console.log(pipe.pipeline_hash);
+```
 
----
+## Canonical pipeline
 
-## Architecture (all implementations)
+`UniversalInput` → `runCanonicalPipeline()` → unified runtime graph (single path).
+
+## Authenticated runtime continuation
+
+Users authenticate themselves; WebWeaveX captures and **encrypts** session state with **Kaalka** (`saveAuthenticatedRuntime` / `loadAuthenticatedRuntime`). No MFA bypass.
+
+## Architecture
 
 ```
 Input → Canonical Pipeline → Runtime Cognition → Semantic / Causality / Workflow
   → Synchronization → Federated Memory → Execution Fabric → Reconstruction → Universal Runtime Graph
 ```
 
-Shared guarantees:
-
-| Guarantee | Description |
-|-----------|-------------|
-| Deterministic outputs | Canonical ordering, stable hashes |
-| Replay-safe persistence | Kaalka encrypted checkpoints |
-| Bounded execution | Explicit contracts, graceful degradation |
-| Authorized sessions only | User-provided authenticated state |
-
----
-
-## Quick start by language
-
-### Python (stable)
+## Validation
 
 ```bash
-pip install webweavex
-pip install "webweavex[browser]"
+npm run test
+npm run coverage
+npm run build
+npm run validate
 ```
 
-Branch: [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) · PyPI: https://pypi.org/project/webweavex/
+## License
 
-### JavaScript / TypeScript
-
-```bash
-npm install webweavex
-```
-
-Branch: [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) · npm: https://www.npmjs.com/package/webweavex
-
----
-
-## Documentation
-
-| Topic | Location |
-|-------|----------|
-| Language map | [LANGUAGES.md](LANGUAGES.md) |
-| Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Security | [SECURITY.md](SECURITY.md) |
-| Roadmap | [ROADMAP.md](ROADMAP.md) |
-| Code of conduct | [.github/CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md) |
-
-Per-language architecture and API docs live on **`python`** and **`javascript`** branches under `docs/`.
-
----
-
-## Final positioning
-
-**WebWeaveX is an attempt to build deterministic runtime cognition infrastructure for the authenticated operational web**—implemented independently per language, validated for Kaalka parity, and designed for enterprise replay and reconstruction workflows.
-
----
-
-<p align="center">
-  <sub>Support · <a href="https://buymeacoffee.com/piyushmishra00">Buy Me a Coffee</a></sub>
-</p>
+Apache 2.0 — see [LICENSE](LICENSE).
