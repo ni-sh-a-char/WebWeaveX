@@ -24,31 +24,12 @@
 |------|--------|
 | Validation gates | **COMPLETE** |
 | `npm pack` + local ESM/CJS install | **COMPLETE** |
-| Git commit + push (`javascript`) | **COMPLETE** — `d39dd16` |
-| `npm publish --access public` | **BLOCKED** — npm auth |
+| Git commit + push (`javascript`) | **COMPLETE** |
+| `npm publish --access public` | **COMPLETE** — **2.0.0 LIVE** |
+| Live registry install | **COMPLETE** — ESM + CJS verified |
 
-**Auth diagnostics:**
-
-- `npm whoami` → `401 Unauthorized`
-- `npm publish` → `404` (npm returns 404 when the token cannot publish to `webweavex`; package maintainer is `piyush-mishra-00`)
-
-**To complete publish (maintainer action):**
-
-```bash
-git checkout javascript
-npm login
-# authenticate as npm user: piyush-mishra-00
-npm whoami
-npm publish --access public
-npm view webweavex version
-```
-
-Optional: use a granular **Automation** token with publish scope:
-
-```bash
-npm config set //registry.npmjs.org/:_authToken=YOUR_TOKEN
-npm publish --access public
-```
+**Published:** https://www.npmjs.com/package/webweavex  
+**Version:** `2.0.0` (`latest` tag)
 
 ---
 
