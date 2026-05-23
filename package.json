@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Deterministic runtime extraction and replay infrastructure for authenticated operational systems.",
   "license": "Apache-2.0",
-  "author": "Piyush Mishra <piyushmishra00@users.noreply.github.com>",
+  "author": "Piyush Mishra <piyushmishra.professional@gmail.com>",
   "type": "module",
   "sideEffects": false,
   "engines": {
