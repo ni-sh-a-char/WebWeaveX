@@ -398,5 +398,5 @@ Apache License 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE).
 <p align="center">
   <strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable web scraper.</strong>
   <br/><br/>
-  <a href="https://buymeacoffee.com/piyushmishra00">☕ Buy Me a Coffee</a>
+  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20WebWeaveX-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
 </p>
