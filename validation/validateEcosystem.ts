@@ -16,6 +16,10 @@ for (const cmd of [
   "tsx validation/runtime_memory/validateRuntimeMemory.ts",
   "tsx validation/reconstruction/validateReconstruction.ts",
   "tsx validation/browser/validateBrowser.ts",
+  "tsx validation/connectors/validateConnectors.ts",
+  "tsx validation/orchestration/validateOrchestration.ts",
+  "tsx validation/semantics/validateSemantics.ts",
+  "tsx validation/distributed/validateDistributed.ts",
 ]) {
   execSync(cmd, { stdio: "inherit" });
 }

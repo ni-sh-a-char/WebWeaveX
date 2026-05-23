@@ -17,6 +17,14 @@ export { buildBrowserIdentity, identityFromExtraction, compareBrowserIdentity } 
 export { detectSpaFramework, stabilizeSpaDom } from "./browser/spaStabilizer.js";
 export { continueAuthenticatedRuntime, extractWithSession } from "./browser/runtimeContinuation.js";
 
+export * from "./connectors/index.js";
+export { runDistributedExtraction } from "./distributed/distributedExtractionOrchestrator.js";
+export { orchestrate } from "./orchestration/orchestrationEngine.js";
+export { SemanticMemory, buildSemanticMemory } from "./semantic/semanticMemory.js";
+export { runSemanticRuntime } from "./semantic/semanticRuntime.js";
+export { replayDomSnapshot, validateDomReplayEquivalence } from "./replay/replayDom.js";
+export { buildRuntimeGraphLineage } from "./graph/runtimeGraphLineage.js";
+
 export { runCanonicalPipeline } from "./kernel/runtimePipeline.js";
 
 export { computeGlobalRuntimeFingerprint } from "./determinism/globalRuntimeFingerprint.js";
