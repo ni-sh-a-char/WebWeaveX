@@ -1,81 +1,91 @@
+"""
+WebWeaveX → Kaalka v5 adapter (cross-language contract).
+
+normalize_runtime_value → stable_serialize → UTF-8 → derive_kaalka_time_key → kaalka._proc → base64
+"""
 from __future__ import annotations
 
-import unicodedata
-from typing import Any, Dict
+import base64
+import hashlib
+from typing import Any
 
-from core.crypto.kaalka_engine import kaalka_encrypt_bytes
+from core.crypto.kaalka_v5_proc import (
+    KAALKA_FALLBACK_TIME_KEY,
+    kaalka_time_key_round_trips,
+    kaalka_v5_proc,
+)
+from core.determinism.normalization import normalize_runtime_value, stable_serialize
 
+KAALKA_ALGORITHM = "webweavex-formula+kaalka@5.0.0"
+KAALKA_NPM_VERSION = "5.0.0"
 MAX_VALUE_BYTES = 10_000_000
-MAX_KEY_BYTES = 4096
 
 
-def normalize_runtime_value(value: str) -> str:
-    normalized = unicodedata.normalize("NFKC", value)
-    normalized = normalized.replace("\r\n", "\n").replace("\r", "\n")
-    return normalized.rstrip()
+def derive_kaalka_time_key(encryption_key: str) -> str:
+    digest = hashlib.sha256(normalize_runtime_value(encryption_key).encode("utf-8")).digest()
+    for i in range(len(digest) - 2):
+        candidate = f"{digest[i] % 12}:{digest[i + 1] % 60}:{digest[i + 2] % 60}"
+        if kaalka_time_key_round_trips(candidate):
+            return candidate
+    if kaalka_time_key_round_trips(KAALKA_FALLBACK_TIME_KEY):
+        return KAALKA_FALLBACK_TIME_KEY
+    return "12:34:56"
 
 
-def _derive_token(key: str) -> bytes:
-    return normalize_runtime_value(key).encode("utf-8")[:MAX_KEY_BYTES]
+def compute_deterministic_hash(value: Any) -> str:
+    payload = stable_serialize(value)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def _kaalka_decrypt_bytes(data: bytes, token: bytes) -> bytes:
-    decrypted = []
-    ln_mod = len(data) % 251
-
-    for i, n in enumerate(data):
-        tk = token[i % len(token)] if token else 0
-        plain = (n - (i * 31) - ln_mod) % 256
-        decrypted.append(plain ^ tk)
-
-    return bytes(decrypted)
+def compute_deterministic_hash_payload(payload: Any) -> str:
+    return compute_deterministic_hash(payload)
 
 
-def encrypt_bytes(data: bytes, key: str) -> Dict[str, Any]:
+compute_kaalka_hash = compute_deterministic_hash
+compute_kaalka_hash_payload = compute_deterministic_hash_payload
+
+
+def encrypt_bytes(data: bytes, key: str) -> dict[str, Any]:
     bounded = data[:MAX_VALUE_BYTES]
-    token = _derive_token(key)
-    encrypted = kaalka_encrypt_bytes(bounded, token)
-
+    time_key = derive_kaalka_time_key(key)
+    enc = kaalka_v5_proc(bounded, True, time_key)
     return {
-        "encrypted": encrypted.hex(),
-        "algorithm": "kaalka",
+        "encrypted": base64.b64encode(enc).decode("ascii"),
+        "algorithm": KAALKA_ALGORITHM,
         "deterministic": True,
         "bounded": True,
     }
 
 
-def decrypt_bytes(data: bytes, key: str) -> Dict[str, Any]:
-    token = _derive_token(key)
-    decrypted = _kaalka_decrypt_bytes(data[:MAX_VALUE_BYTES], token)
-
+def decrypt_bytes(data: bytes, key: str) -> dict[str, Any]:
+    time_key = derive_kaalka_time_key(key)
+    dec = kaalka_v5_proc(data[:MAX_VALUE_BYTES], False, time_key)
     return {
-        "decrypted": decrypted,
-        "algorithm": "kaalka",
+        "decrypted": dec,
+        "algorithm": KAALKA_ALGORITHM,
         "deterministic": True,
         "bounded": True,
     }
 
 
-def encrypt_value(value: str, key: str) -> Dict[str, Any]:
-    normalized = normalize_runtime_value(value)
-    payload = encrypt_bytes(normalized.encode("utf-8"), key)
-
+def encrypt_value(value: Any, key: str) -> dict[str, Any]:
+    payload = stable_serialize(value)
+    raw = payload.encode("utf-8")[:MAX_VALUE_BYTES]
+    result = encrypt_bytes(raw, key)
     return {
-        "encrypted": payload["encrypted"],
-        "algorithm": "kaalka",
+        "encrypted": result["encrypted"],
+        "algorithm": KAALKA_ALGORITHM,
         "deterministic": True,
         "bounded": True,
     }
 
 
-def decrypt_value(ciphertext: str, key: str) -> Dict[str, Any]:
-    raw = bytes.fromhex(ciphertext)
+def decrypt_value(ciphertext: str, key: str) -> dict[str, Any]:
+    raw = base64.b64decode(ciphertext.encode("ascii"))
     result = decrypt_bytes(raw, key)
-    decrypted_bytes = result["decrypted"]
-
     return {
-        "decrypted": decrypted_bytes.decode("utf-8", errors="strict"),
-        "algorithm": "kaalka",
+        "decrypted": result["decrypted"].decode("utf-8"),
+        "algorithm": KAALKA_ALGORITHM,
         "deterministic": True,
         "bounded": True,
     }

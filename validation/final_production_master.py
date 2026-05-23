@@ -41,7 +41,7 @@ def main() -> int:
         ("Purification", "scripts/final_repository_purification.py"),
         ("Import stability", "scripts/final_import_stability.py"),
         ("Import graph", "scripts/audit_import_graph.py"),
-        ("Kaalka cross-lang", "validation/kaalka_cross_language/validate_cross_language.py"),
+        ("Kaalka cross-lang", "validation/validate_cross_language_parity.py"),
         ("Real-world", "validation/run_real_world_validation.py"),
         ("Enterprise", "validation/final_enterprise_validation.py"),
         ("Reconstruction", "validation/reconstruction_validation.py"),

@@ -1,3 +1,13 @@
-from core.determinism.global_runtime_fingerprint import compute_global_runtime_fingerprint
+from core.determinism.normalization import (
+    VOLATILE_RUNTIME_KEYS,
+    normalize_runtime_value,
+    stable_serialize,
+    stable_sort_keys,
+)
 
-__all__ = ["compute_global_runtime_fingerprint"]
+__all__ = [
+    "VOLATILE_RUNTIME_KEYS",
+    "normalize_runtime_value",
+    "stable_serialize",
+    "stable_sort_keys",
+]

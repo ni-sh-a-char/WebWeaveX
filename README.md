@@ -134,7 +134,7 @@ Common gaps WebWeaveX addresses:
 | **Runtime graph** | Normalized universal runtime graph |
 | **Deterministic fingerprints** | Global and pipeline hashes |
 | **Authenticated runtime continuation** | Encrypted session reload |
-| **Kaalka deterministic encryption** | Stable ciphertext; cross-language vectors |
+| **Kaalka v5 crypto (cross-language)** | `webweavex-formula+kaalka@5.0.0` — verified vs `javascript` branch |
 | **Connector runtime fabric** | Database, API, container, K8s, telemetry (bounded) |
 
 ---
@@ -149,7 +149,7 @@ WebWeaveX supports:
 - **Runtime continuation** across extractions when you supply the same Kaalka key and session file
 - **Deterministic replay-safe reconstruction** of operational graphs from IR
 
-Persistence uses **Kaalka deterministic encryption** (`algorithm: kaalka`)—not plaintext JSON checkpoints on disk.
+Persistence uses **Kaalka v5 deterministic encryption** (`algorithm: webweavex-formula+kaalka@5.0.0`)—not plaintext JSON checkpoints on disk.
 
 | Stored surface | Mechanism |
 |----------------|-----------|
@@ -363,11 +363,15 @@ out = extract_native(runtime="desktop", application="notepad")
 | `compute_stable_dom_hash()` | DOM meaning stable under attribute noise |
 | SPA stabilizer | Framework route/state freeze |
 | `stable_memory_hash()` | Ordered federated memory merge |
-| Kaalka `encrypt_value` | Identical plaintext + key → identical ciphertext |
+| Kaalka `encrypt_value` | UTF-8 → `derive_kaalka_time_key` → Kaalka v5 `_proc` → base64 |
 
-**Python ↔ JS consistency:** reference vectors in `validation/kaalka_cross_language/` validate hash and encrypt stability across runtimes.
+**Cross-language parity (verified):** `validation/parity/javascript_vectors.json` vs Python output — normalization, serialization, SHA-256 hash, and ciphertext **match** the `javascript` branch. Spec: [`docs/architecture/CROSS_LANGUAGE_PARITY.md`](docs/architecture/CROSS_LANGUAGE_PARITY.md).
 
-**Limitation:** two live fetches of a dynamic SPA may differ; identical captured bytes → identical stabilized hashes.
+```bash
+PYTHONPATH=. python validation/validate_cross_language_parity.py
+```
+
+**Honest limitations:** live SPA fetches may differ run-to-run; parity applies to the **canonical formula**, not wall-clock Kaalka CLI encryption without a fixed derived time key.
 
 ---
 

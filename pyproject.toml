@@ -8,7 +8,7 @@ version = "2.0.0"
 description = "Deterministic universal runtime extraction infrastructure with replay-safe graphs and Kaalka persistence"
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{name = "Piyush Mishra"}]
+authors = [{name = "Piyush Mishra", email = "piyushmishra.professional@gmail.com"}]
 license = "Apache-2.0"
 keywords = [
     "extraction",

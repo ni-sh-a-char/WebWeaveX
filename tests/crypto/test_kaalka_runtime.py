@@ -17,7 +17,7 @@ def test_deterministic_encryption():
 
     assert first["encrypted"] == second["encrypted"]
     assert first["deterministic"] is True
-    assert first["algorithm"] == "kaalka"
+    assert first["algorithm"] == "webweavex-formula+kaalka@5.0.0"
 
 
 def test_round_trip():
