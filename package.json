@@ -51,6 +51,7 @@
     "validate:parity": "tsx validation/validateParity.ts",
     "validate:production": "tsx validation/validateProduction.ts",
     "validate:replay": "tsx validation/replay/validateReplay.ts",
+    "validate:browser": "tsx validation/browser/validateBrowser.ts",
     "validate:ecosystem": "tsx validation/validateEcosystem.ts",
     "validate": "npm run validate:ecosystem",
     "reports:final": "tsx validation/generateFinalReports.ts",
