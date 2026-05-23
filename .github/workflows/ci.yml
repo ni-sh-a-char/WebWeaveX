@@ -20,7 +20,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run coverage
-      - run: npm run validate:kaalka
+      - run: npm run validate:parity
       - run: npm run build
       - run: npm run validate
       - run: npm pack

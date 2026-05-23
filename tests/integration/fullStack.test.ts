@@ -3,7 +3,7 @@ import {
   computeDeterministicHash,
   computeDeterministicHashPayload,
   normalizeRuntimeValue,
-} from "kaalka";
+} from "../../src/crypto/kaalkaRuntime.js";
 import {
   buildUnifiedRuntimeIR,
   compileRuntimeIR,

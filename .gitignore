@@ -13,7 +13,11 @@ __pycache__/
 # Node.js
 node_modules/
 coverage/
+.turbo/
+.next/
+.cache/
 *.tsbuildinfo
+vitest.config.ts.timestamp-*
 
 # Build and packaging
 build/
@@ -72,3 +76,7 @@ semantic_*_report.json
 # Playwright (local)
 playwright-report/
 test-results/
+
+# Package artifacts
+*.tgz
+webweavex-*.tgz

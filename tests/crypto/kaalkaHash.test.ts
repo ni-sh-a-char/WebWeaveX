@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { computeDeterministicHash, computeDeterministicHashPayload } from "kaalka";
+import {
+  computeDeterministicHash,
+  computeDeterministicHashPayload,
+} from "../../src/crypto/kaalkaRuntime.js";
 
 describe("kaalka hash", () => {
   it("stable hash", () => {

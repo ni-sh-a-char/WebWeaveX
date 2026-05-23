@@ -1,7 +1,7 @@
 {
   "name": "webweavex",
   "version": "2.0.0",
-  "description": "Deterministic runtime extraction and replay-safe operational cognition infrastructure for Node.js",
+  "description": "Deterministic runtime extraction and replay infrastructure for authenticated operational systems. Native TypeScript, Kaalka 5.0.0, cross-language parity spec.",
   "license": "Apache-2.0",
   "author": "Piyush Mishra",
   "type": "module",
@@ -24,13 +24,17 @@
       }
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ni-sh-a-char/WebWeaveX.git",
     "directory": "javascript"
   },
-  "homepage": "https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript",
+  "homepage": "https://github.com/ni-sh-a-char/WebWeaveX",
   "bugs": {
     "url": "https://github.com/ni-sh-a-char/WebWeaveX/issues"
   },
@@ -39,21 +43,21 @@
     "url": "https://buymeacoffee.com/piyushmishra00"
   },
   "scripts": {
-    "build:kaalka": "cd packages/kaalka && npx tsup src/index.ts --format esm,cjs --dts --clean",
-    "prepare": "npm run build:kaalka",
-    "build": "npm run build:kaalka && tsup",
+    "build": "tsup",
     "lint": "eslint src tests validation --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "validate": "tsx validation/runRealWorldValidation.ts",
     "validate:kaalka": "tsx validation/validateKaalkaParity.ts",
-    "prepublishOnly": "npm run build && npm run test && npm run validate:kaalka"
+    "validate:parity": "tsx validation/parity/runParityValidation.ts",
+    "reports:final": "tsx validation/generateFinalReports.ts",
+    "prepublishOnly": "npm run build && npm run test && npm run validate:parity"
   },
   "dependencies": {
     "fast-deep-equal": "^3.1.3",
     "fast-json-stable-stringify": "^2.1.0",
-    "kaalka": "file:packages/kaalka",
+    "kaalka": "5.0.0",
     "playwright": "^1.49.0",
     "zod": "^3.24.0"
   },
@@ -73,20 +77,25 @@
     "web-scraping",
     "playwright",
     "runtime",
-    "reconstruction",
-    "replay",
-    "browser-automation",
     "deterministic",
-    "graph",
-    "crawler",
-    "runtime-cognition",
-    "extraction",
+    "replay",
     "browser",
+    "crawler",
     "automation",
+    "graph",
+    "reconstruction",
     "semantic",
     "workflow",
-    "memory",
+    "runtime-memory",
+    "authenticated-runtime",
+    "runtime-cognition",
+    "extraction",
     "runtime-graph",
-    "kaalka"
+    "kaalka",
+    "determinism",
+    "operational-cognition",
+    "session-continuity",
+    "playwright-automation",
+    "cross-language-parity"
   ]
 }

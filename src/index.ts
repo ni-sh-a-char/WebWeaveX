@@ -10,7 +10,7 @@ export {
 export { runCanonicalPipeline } from "./kernel/runtimePipeline.js";
 
 export { computeGlobalRuntimeFingerprint } from "./determinism/globalRuntimeFingerprint.js";
-export { computeStableDomHash, stabilizeDomHtml } from "./determinism/domStabilization.js";
+export { computeStableDomHash, computeSpaFingerprint, stabilizeDomHtml } from "./determinism/domStabilization.js";
 export { normalizeRuntimeState, normalizeRuntimeGraph } from "./determinism/normalizeRuntime.js";
 
 export { validateReplayEquivalence } from "./replay/replayEquivalence.js";
@@ -37,12 +37,17 @@ export { buildRuntimeGraph, queryRuntimeGraph, graphFingerprint } from "./graph/
 export {
   encryptValue,
   decryptValue,
+  deriveKaalkaTimeKey,
   normalizeRuntimeValue,
+  stableSerialize,
   computeDeterministicHash,
   computeDeterministicHashPayload,
   computeKaalkaHash,
   computeKaalkaHashPayload,
+  KAALKA_ALGORITHM,
+  KAALKA_NPM_VERSION,
 } from "./crypto/kaalkaRuntime.js";
+export { VOLATILE_RUNTIME_KEYS } from "./determinism/normalization.js";
 
 export type { UniversalInput, PipelineOptions, ExtractionEnvelope } from "./contracts/runtimeContracts.js";
 export type { RuntimeGraph } from "./contracts/graphContracts.js";

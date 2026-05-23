@@ -1,23 +1,6 @@
-# FINAL KAALKA PARITY REPORT
-
-**JavaScript deterministic parity: VERIFIED** (npm `kaalka@5.0.0`)
-
-Python reference vectors re-seeded for `webweavex-formula+kaalka@5.0.0`. Update Python branch to match.
-
-## Formula
-
-```text
-normalizeRuntimeValue → stableSerialize → deriveKaalkaTimeKey(key) → kaalka@5.encrypt
-normalizeRuntimeValue → stableSerialize → SHA-256 hex (computeDeterministicHash)
-```
-
-- npm: `kaalka@5.0.0` (registry only; not published from this repo)
-
-```json
 {
   "verified": true,
-  "selfOk": true,
-  "needsReseed": true,
+  "algorithm": "webweavex-formula+kaalka@5.0.0",
   "results": [
     {
       "id": "probe-1",
@@ -77,4 +60,3 @@ normalizeRuntimeValue → stableSerialize → SHA-256 hex (computeDeterministicH
     }
   ]
 }
-```

@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { normalizeRuntimeGraph, normalizeRuntimeState } from "../../src/determinism/normalizeRuntime.js";
+import {
+  normalizeRuntimeGraph,
+  normalizeRuntimeState,
+} from "../../src/determinism/normalization.js";
 
 describe("normalizeRuntime", () => {
   it("strips volatile keys", () => {

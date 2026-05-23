@@ -2,213 +2,251 @@
   <br/>
   <img src="https://img.shields.io/badge/WebWeaveX-v2.0.0-0f172a?style=for-the-badge&logo=javascript&logoColor=white" alt="WebWeaveX"/>
   <br/><br/>
-  <strong>Deterministic runtime extraction and replay-safe operational cognition infrastructure</strong>
+  <strong>Deterministic runtime extraction and replay infrastructure for authenticated operational systems</strong>
   <br/>
-  <em>Native TypeScript · npm · zero Python dependency</em>
+  <em>Native TypeScript · Node.js 18+ · <a href="https://www.npmjs.com/package/kaalka">kaalka@5.0.0</a></em>
   <br/><br/>
 </p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/v/webweavex?style=flat-square&logo=npm" alt="npm version"/></a>
-  <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/dm/webweavex?style=flat-square&logo=npm" alt="npm downloads"/></a>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/>
-  <img src="https://img.shields.io/badge/coverage-92%25%2B-22c55e?style=flat-square" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/CI-passing-22c55e?style=flat-square" alt="CI"/>
+  <img src="https://img.shields.io/badge/coverage-90%25%2B-22c55e?style=flat-square" alt="Coverage"/>
   <img src="https://img.shields.io/badge/Node-18+-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node 18+"/>
-  <img src="https://img.shields.io/badge/deterministic-replay--safe-0ea5e9?style=flat-square" alt="Deterministic"/>
+  <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/CI-passing-22c55e?style=flat-square" alt="CI"/>
   <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
 </p>
 
 ---
 
-## What is WebWeaveX?
+## 1. What is WebWeaveX?
 
-**WebWeaveX** is the **JavaScript/TypeScript** implementation of deterministic **runtime extraction** and **operational cognition infrastructure**. It captures how applications actually run—DOM, network, storage, workflows—and compiles **replay-safe runtime graphs** with **Kaalka** encrypted persistence.
+**WebWeaveX** is **deterministic runtime extraction and replay infrastructure** for authenticated operational systems. It captures how web applications actually run—DOM, graphs, memory, workflows—and produces **replay-safe, auditable runtime artifacts** with cryptographic continuity via **[Kaalka](https://www.npmjs.com/package/kaalka)**.
 
-Branch: `javascript` · Portal: [`main`](https://github.com/ni-sh-a-char/WebWeaveX) · Python: [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python)
+| Branch | Role |
+|--------|------|
+| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | Native npm package (this branch) |
+| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | PyPI implementation |
+| [`main`](https://github.com/ni-sh-a-char/WebWeaveX) | Language-neutral portal |
 
-## What WebWeaveX is NOT
+---
+
+## 2. What WebWeaveX is NOT
 
 | Not | Why |
 |-----|-----|
-| Auth bypass / MFA defeat | Only **authorized** sessions you provide |
-| Malware or exploit tooling | Engineering infrastructure only |
-| CAPTCHA bypass | No circumvention of bot defenses |
-| Python adapter / subprocess bridge | **100% native Node** |
-| AGI / autonomous hacking | Deterministic, bounded pipelines |
+| AGI or autonomous hacking | Bounded, deterministic pipelines only |
+| CAPTCHA bypass | No bot-defense circumvention |
+| Credential cracking | No password/MFA attacks |
+| Auth bypass tooling | No login-wall breaking |
+| Malware / botnets | Engineering infrastructure for authorized use |
+| “Magic” universal extraction | Requires legitimate session material you supply |
 
-## Why existing systems fail
+---
 
-| System | Gap |
-|--------|-----|
-| HTML-only parsers | No runtime continuity |
-| Raw Playwright/Puppeteer | No unified IR, replay, or Kaalka fabric |
-| Stateless crawlers | Lose authenticated sessions |
-| Generic AI agents | Probabilistic; weak replay guarantees |
+## 3. Why existing systems fail
 
-## Runtime cognition architecture
+| Approach | Failure mode |
+|----------|----------------|
+| HTML-only parsers | No live runtime state |
+| Stateless crawlers | Auth discontinuity after login |
+| Raw Playwright/Puppeteer | No unified IR, replay proofs, or crypto fabric |
+| Probabilistic AI agents | Non-reproducible runs |
+| Unstabilized SPAs | DOM/hash drift breaks replay |
 
-WebWeaveX models **operational cognition**: extraction → semantic/causality/workflow layers → synchronization → federated memory → execution → reconstruction → **universal runtime graph**.
+---
 
-## Deterministic runtime extraction
+## 4. Core features
 
-- Canonical DOM stabilization and SPA noise reduction  
-- Stable network ordering and graph normalization  
-- `computeGlobalRuntimeFingerprint()` for cross-run digests  
+- **Authenticated runtime continuation** — encrypt and reload session state you authorize  
+- **Deterministic replay** — graph + fingerprint + stabilized DOM equivalence  
+- **DOM stabilization** — strip framework noise, nonces, volatile scripts  
+- **Runtime graphs** — canonical node/edge ordering  
+- **Reconstruction** — bounded topology rebuild from IR  
+- **Runtime memory fabric** — merge and hash federated memories  
+- **Execution runtime** — allowlisted action sandbox  
+- **Cross-language formula** — documented in [`docs/architecture/CROSS_LANGUAGE_PARITY.md`](docs/architecture/CROSS_LANGUAGE_PARITY.md)
 
-## Authenticated runtime continuation
+---
 
-WebWeaveX enables **deterministic authenticated runtime continuation after legitimate user authentication**.
+## 5. Authenticated runtime continuation
 
-- `saveAuthenticatedRuntime()` / `loadAuthenticatedRuntime()`  
-- Kaalka-encrypted session files only  
-- **No** auth bypass, login hacking, or breaking security walls  
-
-## Kaalka deterministic cryptography
-
-Depends on the **`kaalka`** package (`packages/kaalka` — runtime deterministic crypto):
+WebWeaveX can **continue authenticated sessions only when valid user-authorized credentials, cookies, tokens, or session state are supplied** by you.
 
 ```ts
-import { encryptValue, decryptValue, computeDeterministicHash, normalizeRuntimeValue } from "kaalka";
+import { saveAuthenticatedRuntime, loadAuthenticatedRuntime, extractWeb } from "webweavex";
+
+saveAuthenticatedRuntime("./session.kaalka", { cookies: [], headers: {} }, "your-encryption-key");
+
+const result = await extractWeb("https://app.example.com", {
+  authenticated: true,
+  sessionPath: "./session.kaalka",
+  encryptionKey: "your-encryption-key",
+});
 ```
 
-## Cross-language parity
+**Explicit:** no auth bypass · no credential cracking · no CAPTCHA solving claims.
 
-`npm run validate:kaalka` verifies deterministic encrypt/decrypt/hash vectors. Python `core/crypto/kaalka_runtime_engine.py` must mirror `packages/kaalka` for full lockstep.
+---
 
-## Reconstruction engine
+## 6. Cross-language determinism
 
-`reconstructRuntime()` rebuilds bounded operational topology from IR—auditable recreation, not sci-fi simulation.
+WebWeaveX **owns normalization**. [Kaalka `5.0.0`](https://www.npmjs.com/package/kaalka) is **only** the crypto substrate from npm.
 
-## Replay equivalence
+```text
+normalizeRuntimeValue
+  → stableSerialize
+  → UTF-8 (Buffer.from(..., "utf8"))
+  → deriveKaalkaTimeKey(key)   # pure SHA-256, no system clock
+  → kaalka@5._proc(bytes)
+  → base64
+```
 
-`validateReplayEquivalence()` checks graph hash, global fingerprint, and browser identity.
+**Honest parity statement:** identical ciphertext across Python and JavaScript requires **the same formula** on both branches. Legacy Python `kaalka_runtime_engine` (v2 byte-XOR + hex) does **not** match until migrated to this spec. See `npm run validate:parity`.
 
-## Runtime memory fabric
+---
 
-`buildRuntimeMemory()`, `mergeRuntimeMemories()`, `stableMemoryHash()` — deterministic federated merge.
+## 7. Architecture
 
-## Unified runtime IR
+```
+┌─────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│   Browser   │────▶│ Canonical Pipeline│────▶│  Runtime Graph  │
+│ (Playwright)│     │  + DOM stabilize  │     │  + Fingerprints │
+└─────────────┘     └────────┬─────────┘     └────────┬────────┘
+                             │                        │
+                    ┌────────▼────────┐        ┌───────▼────────┐
+                    │ Memory / Replay │        │ Reconstruction │
+                    │ + Execution IR  │        │ + Kaalka crypto│
+                    └─────────────────┘        └────────────────┘
+```
 
-`buildUnifiedRuntimeIR()` / `compileRuntimeIR()` merge extraction, memory, and reconstruction views.
+---
 
-## Canonical pipeline
+## 8. Quick start
 
-**Single path:** `runCanonicalPipeline(UniversalInput)` — no shadow orchestrators.
-
-## Quick start
+```bash
+git clone https://github.com/ni-sh-a-char/WebWeaveX.git
+git checkout javascript
+npm ci
+npx playwright install chromium
+npm run build
+npm test
+```
 
 ```bash
 npm install webweavex
-npx playwright install chromium
 ```
 
 ```ts
-import { extractWeb, runCanonicalPipeline } from "webweavex";
+import { extractWeb, computeDeterministicHash } from "webweavex";
 
 const out = await extractWeb("https://example.com");
 console.log(out.bounded, out.global_runtime_fingerprint);
+console.log(computeDeterministicHash({ ok: true }));
 ```
 
-## Installation
+---
 
-```bash
-npm install webweavex
-# optional browser extraction
-npm install playwright
-```
-
-## Real examples
+## 9. Real examples
 
 <details>
-<summary>Browser, pipeline, auth, replay</summary>
+<summary>Replay validation</summary>
 
 ```ts
-import {
-  extractWeb,
-  runCanonicalPipeline,
-  saveAuthenticatedRuntime,
-  validateReplayEquivalence,
-  encryptValue,
-} from "webweavex";
+import { runCanonicalPipeline, validateReplayEquivalence } from "webweavex";
 
-await saveAuthenticatedRuntime("./session.kaalka", { cookies: [], headers: {} }, "your-key");
-
-const authenticated = await extractWeb("https://app.example.com", {
-  authenticated: true,
-  sessionPath: "./session.kaalka",
-  encryptionKey: "your-key",
-});
-
-const pipe = await runCanonicalPipeline({
-  source: "https://example.com",
-  sourceType: "web",
-});
-
+const pipe = await runCanonicalPipeline({ source: "https://example.com", sourceType: "web" });
 console.log(validateReplayEquivalence(pipe, structuredClone(pipe)).equivalent);
-console.log(encryptValue("probe", "k").algorithm); // kaalka
 ```
 
 </details>
 
-## Architecture diagram
+<details>
+<summary>Deterministic hashing & Kaalka encrypt</summary>
 
-```
-Input → Canonical Pipeline → Runtime Cognition → Semantic / Causality / Workflow
-  → Synchronization → Federated Memory → Execution Fabric → Reconstruction → Universal Runtime Graph
-```
+```ts
+import { encryptValue, decryptValue, deriveKaalkaTimeKey } from "webweavex";
 
-## Validation metrics
-
-| Metric | Value |
-|--------|--------|
-| Tests | 27 files, 35+ cases |
-| Coverage | **≥ 92%** lines (`npm run coverage`) |
-| Kaalka parity | `npm run validate:kaalka` |
-| Real-world | `npm run validate` |
-
-## Security model
-
-- Allowlisted execution sandbox (`runExecutionRuntime`)  
-- No `eval` / arbitrary shell in production paths  
-- Kaalka-only encrypted persistence  
-
-## Performance
-
-Bounded Playwright extraction with graceful degradation when browser unavailable. See `benchmarks/` for future harnesses.
-
-## Coverage
-
-```bash
-npm run coverage
+const enc = encryptValue({ probe: 1 }, "my-key");
+console.log(deriveKaalkaTimeKey("my-key")); // H:MM:SS — deterministic
+console.log(decryptValue(enc.encrypted, "my-key").decrypted);
 ```
 
-## Repository structure
+</details>
+
+<details>
+<summary>Runtime memory</summary>
+
+```ts
+import { buildRuntimeMemory, stableMemoryHash } from "webweavex";
+
+const mem = buildRuntimeMemory({ events: [{ type: "navigate" }] });
+console.log(stableMemoryHash(mem));
+```
+
+</details>
+
+---
+
+## 10. Validation
+
+| Command | Purpose |
+|---------|---------|
+| `npm test` | Vitest unit + integration suites |
+| `npm run coverage` | ≥90% lines, ≥80% branches on `src/` |
+| `npm run validate:parity` | Cross-language vector harness |
+| `npm run validate` | Real-world smoke validation |
+| `npm pack --dry-run` | npm publish readiness |
+
+Reports: `validation/parity/parity_report.md`, `FINAL_*_REPORT.md` (generated via `npm run reports:final`).
+
+---
+
+## 11. Security model
+
+- **No arbitrary `eval`** in production paths  
+- **Allowlisted** execution actions (`runExecutionRuntime`)  
+- **Kaalka-encrypted** session files when persistence is enabled  
+- **Deterministic, bounded** pipelines — failures degrade safely  
+
+See [SECURITY.md](SECURITY.md).
+
+---
+
+## 12. OSS & governance
+
+| Document | Link |
+|----------|------|
+| License | [Apache 2.0](LICENSE) |
+| Contributing | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Code of conduct | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
+| Security | [SECURITY.md](SECURITY.md) |
+| Roadmap | [ROADMAP.md](ROADMAP.md) |
+| Funding | [Buy Me a Coffee](https://buymeacoffee.com/piyushmishra00) |
+
+---
+
+## 13. Repository structure
 
 ```
-src/          # Native runtime (kernel, browser, replay, memory, …)
-packages/kaalka/  # Kaalka deterministic crypto (npm dependency)
-tests/        # Vitest suites
-validation/   # Parity + real-world validators
-examples/     # Runnable scripts
-docs/         # Reports and archive
-.github/      # CI, templates, funding
+src/                 # Production runtime (kernel, browser, crypto, replay, …)
+docs/architecture/   # Cross-language parity spec
+validation/parity/   # JS/Python vector harness
+tests/               # Vitest (scoped coverage on src/)
+examples/            # Runnable samples
+.github/             # CI, issue/PR templates, FUNDING.yml
 ```
 
-## Contributing
+**Not included:** local `packages/kaalka` clones — only registry `kaalka@5.0.0`.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Determinism and replay safety are mandatory.
+---
 
-## Roadmap
+## 14. Final positioning
 
-See [ROADMAP.md](ROADMAP.md). v2.1: deeper connectors, distributed workers, published `kaalka` runtime on npm registry.
+**WebWeaveX is deterministic runtime cognition infrastructure — not a disposable web scraper.**
 
-## License
-
-Apache 2.0 — [LICENSE](LICENSE)
-
-## Final positioning
-
-**WebWeaveX is the npm-native deterministic runtime cognition implementation for the authenticated operational web**—replay-safe extraction, Kaalka continuity, and reconstruction without Python.
+It gives engineering teams **replay-safe operational continuity** across authenticated systems, with cryptographic persistence and honest cross-language contracts.
 
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-piyushmishra00-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/piyushmishra00)

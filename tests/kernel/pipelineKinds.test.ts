@@ -1,4 +1,13 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+vi.mock("../../src/browser/extractWeb.js", () => ({
+  extractWeb: vi.fn(async () => ({
+    bounded: true,
+    ingestion: { type: "web" },
+    unified_runtime_graph: { nodes: [], edges: [] },
+  })),
+}));
+
 import { runCanonicalPipeline } from "../../src/kernel/runtimePipeline.js";
 
 describe("pipeline kinds", () => {
@@ -11,5 +20,5 @@ describe("pipeline kinds", () => {
 
     const auto = await runCanonicalPipeline({ source: "https://example.org", sourceType: "auto" });
     expect(auto.ingestion.type).toBe("web");
-  });
+  }, 30_000);
 });

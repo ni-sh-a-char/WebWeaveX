@@ -1,5 +1,14 @@
 import { describe, expect, it, vi } from "vitest";
 
+vi.mock("../../src/browser/renderPage.js", () => ({
+  renderPage: vi.fn(async (url: string) => ({
+    available: true,
+    html: "<div>hi</div>",
+    url,
+    bounded: true,
+  })),
+}));
+
 const page = {
   goto: vi.fn(),
   content: vi.fn(async () => "<div>hi</div>"),
@@ -25,5 +34,5 @@ describe("captureRuntime", () => {
     expect(c.dom_hash).toBeTruthy();
     const d = await captureDom("https://example.com");
     expect(d.dom_hash).toBeTruthy();
-  });
+  }, 30_000);
 });

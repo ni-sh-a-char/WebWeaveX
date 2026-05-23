@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { reconstructRuntime, replayRuntime } from "../../src/reconstruction/reconstructRuntime.js";
+import {
+  reconstructRuntime,
+  replayRuntime,
+  rebuildExecutionGraph,
+} from "../../src/reconstruction/reconstructRuntime.js";
 import { buildRuntimeGraph } from "../../src/graph/runtimeGraph.js";
 
 describe("reconstruction", () => {
@@ -15,5 +19,11 @@ describe("reconstruction", () => {
   it("replay clone", () => {
     const ex = { bounded: true, pipeline_hash: "x" };
     expect(replayRuntime(ex)).toEqual(ex);
+  });
+
+  it("empty extraction graph", () => {
+    const r = reconstructRuntime({}, "native", 2);
+    expect(r.bounded).toBe(true);
+    expect(rebuildExecutionGraph({ bounded: true })).toEqual({ nodes: [], edges: [], bounded: true });
   });
 });
