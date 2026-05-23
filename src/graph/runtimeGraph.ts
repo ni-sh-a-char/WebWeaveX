@@ -1,5 +1,5 @@
 import { RuntimeGraphContract, type RuntimeGraph } from "../contracts/graphContracts.js";
-import { computeKaalkaHashPayload } from "../crypto/kaalkaHash.js";
+import { computeKaalkaHashPayload } from "../crypto/kaalkaRuntime.js";
 
 export function buildRuntimeGraph(sources: Record<string, unknown>): RuntimeGraph {
   const nodes: RuntimeGraph["nodes"] = [];

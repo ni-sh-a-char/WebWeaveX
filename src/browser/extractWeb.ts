@@ -1,7 +1,7 @@
 import { computeGlobalRuntimeFingerprint } from "../determinism/globalRuntimeFingerprint.js";
 import { computeStableDomHash } from "../determinism/domStabilization.js";
 import { buildRuntimeGraph } from "../graph/runtimeGraph.js";
-import { computeKaalkaHashPayload } from "../crypto/kaalkaHash.js";
+import { computeKaalkaHashPayload } from "../crypto/kaalkaRuntime.js";
 import { captureRuntime } from "./captureRuntime.js";
 import { loadAuthenticatedRuntime } from "./authenticatedRuntime.js";
 import type { ExtractionEnvelope } from "../contracts/runtimeContracts.js";

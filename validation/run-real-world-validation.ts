@@ -1,5 +1,5 @@
 import { writeFileSync, mkdirSync } from "node:fs";
-import { encryptValue } from "../src/crypto/kaalka.js";
+import { encryptValue } from "kaalka";
 import { validateReplayEquivalence } from "../src/replay/replayEquivalence.js";
 import { buildRuntimeGraph } from "../src/graph/runtimeGraph.js";
 import { extractWeb } from "../src/browser/extractWeb.js";

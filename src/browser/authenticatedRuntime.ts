@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { encryptValue, decryptValue } from "../crypto/kaalka.js";
+import { encryptValue, decryptValue } from "../crypto/kaalkaRuntime.js";
 import stringify from "fast-json-stable-stringify";
 
 export type SessionState = {

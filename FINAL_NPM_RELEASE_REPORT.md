@@ -1,11 +1,10 @@
 # FINAL NPM RELEASE REPORT
 
-Package: `webweavex@2.0.0` (native TypeScript)
+Package: `webweavex@2.0.0`  
+Artifacts: `dist/index.js`, `dist/index.cjs`, `dist/index.d.ts`  
+Size: ~27 kB packed  
 
 ```bash
-npm run build    # dist/index.js, dist/index.cjs, dist/index.d.ts
-npm pack         # verify tarball
-# npm publish    # when ready (requires npm token)
+npm pack
+npm publish --dry-run
 ```
-
-Zero Python runtime dependency.

@@ -1,6 +1,6 @@
 import stringify from "fast-json-stable-stringify";
 import { RuntimeGraphContract } from "../contracts/graphContracts.js";
-import { computeKaalkaHash } from "../crypto/kaalkaHash.js";
+import { computeKaalkaHash } from "../crypto/kaalkaRuntime.js";
 import { computeGlobalRuntimeFingerprint } from "../determinism/globalRuntimeFingerprint.js";
 import type { ExtractionEnvelope } from "../contracts/runtimeContracts.js";
 import type { RuntimeGraph } from "../contracts/graphContracts.js";

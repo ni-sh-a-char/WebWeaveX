@@ -34,8 +34,15 @@ export { runExecutionRuntime } from "./execution/executionRuntime.js";
 export { buildUnifiedRuntimeIR, compileRuntimeIR } from "./ir/unifiedIr.js";
 export { buildRuntimeGraph, queryRuntimeGraph, graphFingerprint } from "./graph/runtimeGraph.js";
 
-export { encryptValue, decryptValue, normalizeRuntimeValue } from "./crypto/kaalka.js";
-export { computeKaalkaHash, computeKaalkaHashPayload } from "./crypto/kaalkaHash.js";
+export {
+  encryptValue,
+  decryptValue,
+  normalizeRuntimeValue,
+  computeDeterministicHash,
+  computeDeterministicHashPayload,
+  computeKaalkaHash,
+  computeKaalkaHashPayload,
+} from "./crypto/kaalkaRuntime.js";
 
 export type { UniversalInput, PipelineOptions, ExtractionEnvelope } from "./contracts/runtimeContracts.js";
 export type { RuntimeGraph } from "./contracts/graphContracts.js";

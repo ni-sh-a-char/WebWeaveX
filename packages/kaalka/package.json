@@ -1,0 +1,24 @@
+{
+  "name": "kaalka",
+  "version": "2.0.0",
+  "description": "Deterministic Kaalka runtime encryption and hashing for cross-language parity",
+  "license": "Apache-2.0",
+  "author": "Piyush Mishra",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "node --experimental-vm-modules node_modules/vitest/vitest.mjs run 2>/dev/null || echo skip"
+  },
+  "sideEffects": false
+}

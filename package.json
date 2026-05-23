@@ -1,18 +1,9 @@
 {
   "name": "webweavex",
   "version": "2.0.0",
-  "description": "Deterministic runtime extraction infrastructure with replay-safe graphs and Kaalka persistence (native TypeScript)",
+  "description": "Deterministic runtime extraction and replay-safe operational cognition infrastructure for Node.js",
   "license": "Apache-2.0",
   "author": "Piyush Mishra",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ni-sh-a-char/WebWeaveX.git",
-    "directory": "javascript"
-  },
-  "homepage": "https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript",
-  "bugs": {
-    "url": "https://github.com/ni-sh-a-char/WebWeaveX/issues"
-  },
   "type": "module",
   "sideEffects": false,
   "engines": {
@@ -34,18 +25,35 @@
     }
   },
   "files": ["dist", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ni-sh-a-char/WebWeaveX.git",
+    "directory": "javascript"
+  },
+  "homepage": "https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript",
+  "bugs": {
+    "url": "https://github.com/ni-sh-a-char/WebWeaveX/issues"
+  },
+  "funding": {
+    "type": "buy_me_a_coffee",
+    "url": "https://buymeacoffee.com/piyushmishra00"
+  },
   "scripts": {
-    "build": "tsup",
+    "build:kaalka": "cd packages/kaalka && npx tsup src/index.ts --format esm,cjs --dts --clean",
+    "prepare": "npm run build:kaalka",
+    "build": "npm run build:kaalka && tsup",
     "lint": "eslint src tests validation --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
-    "validate": "tsx validation/run-real-world-validation.ts",
-    "prepublishOnly": "npm run build && npm run test"
+    "validate": "tsx validation/runRealWorldValidation.ts",
+    "validate:kaalka": "tsx validation/validateKaalkaParity.ts",
+    "prepublishOnly": "npm run build && npm run test && npm run validate:kaalka"
   },
   "dependencies": {
     "fast-deep-equal": "^3.1.3",
     "fast-json-stable-stringify": "^2.1.0",
+    "kaalka": "file:packages/kaalka",
     "playwright": "^1.49.0",
     "zod": "^3.24.0"
   },
@@ -62,10 +70,23 @@
   },
   "keywords": [
     "webweavex",
-    "runtime-extraction",
-    "deterministic",
+    "web-scraping",
     "playwright",
+    "runtime",
+    "reconstruction",
     "replay",
+    "browser-automation",
+    "deterministic",
+    "graph",
+    "crawler",
+    "runtime-cognition",
+    "extraction",
+    "browser",
+    "automation",
+    "semantic",
+    "workflow",
+    "memory",
+    "runtime-graph",
     "kaalka"
   ]
 }

@@ -1,4 +1,4 @@
-import { computeKaalkaHashPayload } from "../crypto/kaalkaHash.js";
+import { computeKaalkaHashPayload } from "../crypto/kaalkaRuntime.js";
 import { RuntimeGraphContract, type RuntimeGraph } from "../contracts/graphContracts.js";
 import type { ExtractionEnvelope } from "../contracts/runtimeContracts.js";
 

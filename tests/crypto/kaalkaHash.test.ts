@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { computeKaalkaHash, computeKaalkaHashPayload } from "../../src/crypto/kaalkaHash.js";
+import { computeDeterministicHash, computeDeterministicHashPayload } from "kaalka";
 
 describe("kaalka hash", () => {
   it("stable hash", () => {
-    expect(computeKaalkaHash("x")).toBe(computeKaalkaHash("x"));
-    expect(computeKaalkaHashPayload({ a: 1 })).toHaveLength(64);
+    expect(computeDeterministicHash("x")).toBe(computeDeterministicHash("x"));
+    expect(computeDeterministicHashPayload({ a: 1 })).toHaveLength(64);
   });
 });

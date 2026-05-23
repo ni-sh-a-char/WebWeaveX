@@ -1,5 +1,5 @@
 import { writeFileSync } from "node:fs";
-import { encryptValue } from "../src/crypto/kaalka.js";
+import { encryptValue } from "kaalka";
 
 const vectors = [
   { id: "probe-1", plaintext: "probe", key: "k" },

@@ -9,4 +9,5 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   target: "node18",
+  external: ["kaalka", "playwright"],
 });
