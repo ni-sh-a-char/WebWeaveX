@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>Deterministic runtime extraction and replay infrastructure<br/>for authenticated operational systems</strong>
+  <strong>Deterministic runtime cognition infrastructure<br/>for humans and AI agents · browser &amp; Playwright native</strong>
 </p>
 
 <p align="center">
@@ -30,7 +30,9 @@
 
 ## What is WebWeaveX?
 
-**WebWeaveX** is **deterministic runtime cognition infrastructure** for the modern web. It captures how applications actually behave—DOM, graphs, memory, workflows—and produces **replay-safe** artifacts you can audit, hash, and continue across sessions.
+**WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI agents** on the operational web. It captures browser runtime behavior—DOM, graphs, memory, workflows—and produces **replay-safe** artifacts you can audit, hash, and continue across authenticated sessions.
+
+This npm package is **not** a crawler toolkit or LLM wrapper. It is **browser-native operational runtime infrastructure** with Playwright integration.
 
 | Capability | Description |
 |------------|-------------|
@@ -47,7 +49,7 @@
 
 Modern operational systems fail when:
 
-- scrapers are **stateless** after login  
+- tools are **stateless** after login  
 - SPAs change DOM on every render  
 - replay cannot prove **equivalence** across runs  
 - teams lack a **single canonical pipeline** for runtime IR  
@@ -65,13 +67,44 @@ WebWeaveX addresses extraction, stabilization, hashing, encryption, and replay i
 | Auth bypass | No credential cracking or MFA defeat |
 | Malware / spyware | OSS infrastructure for authorized engineering |
 | Browser exploitation | Playwright-based extraction you control |
-| “Magic” universal extract | Requires legitimate session material |
+| “Magic” universal extraction | Requires legitimate session material |
+
+---
+
+## Humans and AI agents
+
+**WebWeaveX is designed for both humans and AI agents.**
+
+| Audience | Use |
+|----------|-----|
+| **Engineers** | Debug SPAs, stabilize DOM, audit authenticated flows |
+| **Browser AI agents** | Deterministic Playwright continuity, replay-safe memory, operational graphs |
+
+---
+
+## Why browser AI agents fail today
+
+| Failure | Symptom |
+|---------|---------|
+| Auth loss | Agent re-authenticates unpredictably |
+| State drift | Cookies/storage diverge across steps |
+| DOM instability | Framework IDs break comparisons |
+| Replay inconsistency | Same prompt, different runtime hash |
+| Ephemeral memory | No federated runtime graph |
+
+**WebWeaveX introduces:**
+
+- stabilized runtime identity (`computeStableDomHash`, `stabilizeDomHtml`)  
+- deterministic DOM normalization  
+- replay equivalence (`validateReplayEquivalence`)  
+- authenticated runtime continuation (authorized credentials only)  
+- runtime memory fabric (`buildRuntimeMemory`, `stableMemoryHash`)  
 
 ---
 
 ## Why existing systems fail
 
-| Problem | Traditional scrapers | WebWeaveX |
+| Problem | Raw automation / agents | WebWeaveX |
 |---------|---------------------|-----------|
 | Auth continuity | ❌ Lost after login | ✅ Encrypted session continuation |
 | Replay determinism | ❌ Brittle snapshots | ✅ Graph + fingerprint equivalence |
