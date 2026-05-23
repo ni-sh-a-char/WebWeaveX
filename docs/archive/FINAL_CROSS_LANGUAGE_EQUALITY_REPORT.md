@@ -14,8 +14,8 @@
 | Canonical replay contract | ✅ | ✅ (≥ Python) | ✅ |
 | Canonical graph/memory/reconstruct API | ✅ | ✅ | ✅ |
 | Production multi-engine packages | ✅ full | — | — |
-| Validation ecosystem gates | ✅ master | ✅ added | ✅ added |
-| README ecosystem structure | ✅ | ✅ expanded | ✅ expanded |
+| Validation ecosystem gates | ✅ master | ✅ verified | ✅ verified |
+| README ecosystem structure | ✅ | ✅ verified | ✅ verified |
 
 **Truth:** Python remains the **deepest production runtime**. JavaScript and Dart reach **operational equivalence on the canonical contract** documented in [CANONICAL_RUNTIME_SPEC.md](../architecture/CANONICAL_RUNTIME_SPEC.md).
 
