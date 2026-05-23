@@ -1,0 +1,10 @@
+{
+  "algorithm": "webweavex-reconstruction-v2.0.0",
+  "vectors": [
+    {
+      "reconstruction_match": true,
+      "reconstructed": true,
+      "bounded": true
+    }
+  ]
+}

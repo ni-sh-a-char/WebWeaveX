@@ -43,3 +43,6 @@ webweavex/
 *.egg-info/
 pubspec.lock
 tool/debug_*.dart
+
+validation/browser/.session-test.kaalka
+

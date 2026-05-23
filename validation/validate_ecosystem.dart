@@ -20,6 +20,7 @@ Future<void> main() async {
     'validation/runtime_graph/validate_runtime_graph.dart',
     'validation/runtime_memory/validate_runtime_memory.dart',
     'validation/reconstruction/validate_reconstruction.dart',
+    'validation/browser/validate_browser.dart',
   ]) {
     final r = await Process.run('dart', ['run', script]);
     stdout.write(r.stdout);
@@ -45,7 +46,7 @@ Future<void> main() async {
         )['runtime_id'] !=
         null,
     'agent_memory_query': queryRuntimeMemory(mem, 'graph') != null,
-    'agent_decrypt': dec is Map && dec['agent'] == 'continuity',
+    'agent_decrypt': dec is Map<String, dynamic> && dec['agent'] == 'continuity',
   };
 
   final allOk = summary.values.every((v) => v == true);
