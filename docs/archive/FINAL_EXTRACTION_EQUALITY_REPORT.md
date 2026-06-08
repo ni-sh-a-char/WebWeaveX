@@ -1,6 +1,6 @@
 # FINAL EXTRACTION EQUALITY REPORT
 
-**Measured:** 2026-06-08T14:12:29.589Z
+**Measured:** 2026-06-08T15:11:09.672Z
 
 **Status:** PASS
 
