@@ -5,18 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "webweavex"
 version = "2.0.1"
-description = "Deterministic universal runtime extraction infrastructure with replay-safe graphs and Kaalka persistence"
+description = "Deterministic runtime cognition infrastructure for humans and AI agents"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "Piyush Mishra", email = "piyushmishra.professional@gmail.com"}]
 license = "Apache-2.0"
 keywords = [
-    "extraction",
-    "web-scraping",
-    "semantic-analysis",
     "runtime-cognition",
+    "runtime-memory",
     "deterministic",
+    "replay",
+    "runtime-graph",
     "browser-automation",
+    "web-extraction",
+    "agent-memory",
+    "reconstruction",
+    "playwright",
+    "semantic-analysis",
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -62,10 +67,11 @@ full = [
 ]
 
 [project.urls]
-Homepage = "https://pypi.org/project/webweavex/"
+Homepage = "https://github.com/ni-sh-a-char/WebWeaveX"
 Repository = "https://github.com/ni-sh-a-char/WebWeaveX"
 Documentation = "https://github.com/ni-sh-a-char/WebWeaveX#readme"
 Issues = "https://github.com/ni-sh-a-char/WebWeaveX/issues"
+Changelog = "https://github.com/ni-sh-a-char/WebWeaveX/blob/python/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 include = ["webweavex*", "core*", "extractors*"]

@@ -65,3 +65,11 @@ semantic_*_report.json
 # Playwright (local)
 playwright-report/
 test-results/
+
+# Local artifacts (python release hardening)
+coverage/
+.claude/
+*.kaalka
+_pycov/
+.venv/
+lib/
