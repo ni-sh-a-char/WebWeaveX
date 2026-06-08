@@ -30,6 +30,10 @@
 
 ## What is WebWeaveX?
 
+> **WebWeaveX is to browser runtime state what Git is to source code: deterministic, replayable, reconstructable, and auditable.**
+>
+> Modern operational systems generate runtime state that is typically lost, difficult to reproduce, and impossible to validate. WebWeaveX transforms that runtime state into deterministic artifacts that humans and AI agents can continue, reconstruct, replay, and verify.
+
 **WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI agents** on the operational web. It captures browser runtime behavior—DOM, graphs, memory, workflows—and produces **replay-safe** artifacts you can audit, hash, and continue across authenticated sessions.
 
 This npm package is **not** a crawler toolkit or LLM wrapper. It is **browser-native operational runtime infrastructure** with Playwright integration.
@@ -58,6 +62,37 @@ WebWeaveX addresses extraction, stabilization, hashing, encryption, and replay i
 
 ---
 
+## Universal Runtime Extraction
+
+WebWeaveX is not merely a browser extraction library — it is a **runtime extraction and cognition substrate**. It transforms heterogeneous operational sources into deterministic runtime representations through one canonical pipeline.
+
+| Source | Runtime Representation |
+|--------|------------------------|
+| Websites | Runtime graph |
+| SPAs | Stabilized runtime state |
+| Browser sessions | Replay-safe artifacts |
+| APIs | Operational topology |
+| Documents | Unified IR |
+| Repositories | Dependency intelligence |
+| Runtime systems | Memory fabric |
+
+```text
+   Websites · SPAs · Sessions · APIs · Documents · Repositories · Runtime systems
+                                   │
+                                   ▼
+                    ┌──────────────────────────────┐
+                    │   Canonical runtime pipeline   │
+                    │  capture → normalize → hash    │
+                    └──────────────────────────────┘
+                                   │
+                                   ▼
+        Runtime graph · Unified IR · Memory fabric · Replay-safe artifacts
+```
+
+Every source converges on the same bounded, hashable, replayable runtime IR.
+
+---
+
 ## What WebWeaveX is NOT
 
 | Not | Reality |
@@ -81,6 +116,22 @@ WebWeaveX addresses extraction, stabilization, hashing, encryption, and replay i
 | **Browser AI agents** | Deterministic Playwright continuity, replay-safe memory, operational graphs |
 
 Same APIs, same determinism contract, same honesty about authorization.
+
+---
+
+## Why WebWeaveX Exists
+
+Operational runtime state is the most valuable and least durable artifact in modern systems. It **disappears** the moment a process ends, browser state **drifts** between renders, replay **cannot be proven** equivalent, agents **lose memory** across steps, and workflows **cannot be reconstructed** after the fact. Teams rebuild the same fragile capture logic again and again with no canonical contract.
+
+| Operational Problem | Traditional Tools | WebWeaveX |
+|---------------------|-------------------|-----------|
+| Runtime state disappears | One-off HTML / screenshots | Deterministic, persistable runtime IR |
+| Browser state drifts | Re-scrape per render | DOM/SPA stabilization before hashing |
+| Replay cannot be proven | Manual diffing | Replay equivalence by hash + fingerprint |
+| Agents lose memory | Re-login each step | Encrypted runtime continuation + memory fabric |
+| Workflows cannot be reconstructed | Lost on failure | Bounded reconstruction from unified IR |
+
+WebWeaveX provides the missing canonical layer so runtime state becomes a first-class, verifiable artifact.
 
 ---
 
@@ -211,6 +262,22 @@ rebuildExecutionGraph(extraction);
 
 ---
 
+## How WebWeaveX Differs
+
+| Tool | Primary Focus |
+|------|---------------|
+| Playwright | Browser automation |
+| Puppeteer | Browser scripting |
+| Scrapy | Crawling |
+| Firecrawl | Extraction |
+| LangChain | LLM orchestration |
+| CrewAI | Agent orchestration |
+| WebWeaveX | Deterministic runtime cognition infrastructure |
+
+WebWeaveX does not replace these systems. It provides deterministic runtime infrastructure that can sit beneath them.
+
+---
+
 ## Core capabilities
 
 - `extractWeb()` — bounded browser extraction  
@@ -266,6 +333,30 @@ normalizeRuntimeValue → stableSerialize → UTF-8 → deriveKaalkaTimeKey → 
 ```bash
 npm run validate:parity
 ```
+
+---
+
+## Runtime Lifecycle
+
+```text
+Capture
+  ↓
+Normalize
+  ↓
+Fingerprint
+  ↓
+Graph
+  ↓
+Memory
+  ↓
+Replay Validation
+  ↓
+Reconstruction
+  ↓
+Continuation
+```
+
+Every WebWeaveX runtime moves through this bounded lifecycle: captured state is normalized and fingerprinted, compiled into a runtime graph and memory fabric, validated for replay equivalence, then reconstructed and continued.
 
 ---
 
@@ -345,6 +436,19 @@ console.log(
 
 console.log(computeDeterministicHash({ status: "ok" }));
 ```
+
+---
+
+## Real-World Use Cases
+
+| Use Case | Benefit |
+|----------|---------|
+| Authenticated SaaS workflows | Runtime continuation |
+| Browser AI agents | Persistent operational memory |
+| Runtime auditing | Replay-safe validation |
+| Workflow reconstruction | Deterministic recovery |
+| Engineering observability | Runtime graph analysis |
+| Session portability | Encrypted continuation |
 
 ---
 
@@ -546,6 +650,22 @@ We welcome focused PRs that preserve **determinism and replay safety**. Read [CO
 ```bash
 npm run lint && npm run typecheck && npm run coverage && npm run validate:parity
 ```
+
+---
+
+## Long-Term Vision
+
+WebWeaveX aims to be a **deterministic runtime substrate** — a shared operational layer that runtime state can be captured into, reasoned over, and continued from. The goal is a common foundation for:
+
+| Consumer | Substrate role |
+|----------|----------------|
+| Humans | Audit, debug, and resume operational runtime state |
+| AI agents | Persistent, replay-safe operational memory |
+| Workflows | Deterministic reconstruction and recovery |
+| Operational systems | Hashable runtime graphs and topology |
+| Distributed cognition systems | Synchronized, verifiable runtime fabric |
+
+It is infrastructure, not an application: the same deterministic contract serves every consumer above.
 
 ---
 
