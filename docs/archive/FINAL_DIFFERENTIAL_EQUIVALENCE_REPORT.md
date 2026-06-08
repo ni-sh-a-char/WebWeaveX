@@ -1,6 +1,6 @@
 # FINAL DIFFERENTIAL EQUIVALENCE REPORT
 
-**Measured:** 2026-06-08T15:13:33.380Z
+**Measured:** 2026-06-08T15:27:21.348Z
 
 | Metric | Count |
 |--------|-------|
