@@ -3,7 +3,7 @@ import * as wwx from "../../src/index.js";
 
 describe("public exports", () => {
   it("VERSION and core APIs", () => {
-    expect(wwx.VERSION).toBe("2.0.0");
+    expect(wwx.VERSION).toBe("2.0.1");
     expect(typeof wwx.extractWeb).toBe("function");
     expect(typeof wwx.runCanonicalPipeline).toBe("function");
     expect(typeof wwx.validateReplayEquivalence).toBe("function");

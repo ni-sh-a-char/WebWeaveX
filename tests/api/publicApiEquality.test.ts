@@ -73,6 +73,6 @@ describe("RULE 15 — public API equality (Python __all__ ⇄ JS exports)", () =
     expect(typeof a).toBe("object");
     const cd = (webweavex.compileDocument as (t: string) => Record<string, unknown>)("hello world");
     expect(cd && typeof cd).toBe("object");
-    expect((webweavex.version as string)).toBe("2.0.0");
+    expect((webweavex.version as string)).toBe("2.0.1");
   });
 });

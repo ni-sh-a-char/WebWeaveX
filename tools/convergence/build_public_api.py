@@ -203,7 +203,7 @@ def main() -> int:
         "",
         "/* ---- package-level convenience API (ported from webweavex/__init__.py) ---- */",
         "",
-        'export const version = "2.0.0";',
+        'export const version = "2.0.1";',
         "",
         "export function universalExtract(path: string): Record<string, unknown> {",
         "  const info = ingestInput(path) as Record<string, unknown>;",

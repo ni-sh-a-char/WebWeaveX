@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/WebWeaveX-2.0.0-0f172a?style=for-the-badge&labelColor=1e293b" alt="WebWeaveX"/>
+  <img src="https://img.shields.io/badge/WebWeaveX-2.0.1-0f172a?style=for-the-badge&labelColor=1e293b" alt="WebWeaveX"/>
 </p>
 
 <p align="center">

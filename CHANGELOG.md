@@ -2,6 +2,29 @@
 
 All notable changes to WebWeaveX are documented here.
 
+## [2.0.1] — 2026-06-08 — convergence & independent-product certification
+
+### Fixed
+- **Python product import chain** — `core.determinism` now re-exports
+  `compute_global_runtime_fingerprint` (PEP 562 lazy `__getattr__`, cycle-safe),
+  repairing `import webweavex` for the pip product.
+
+### Changed
+- **Public API surface** — the JavaScript package now exposes a
+  specification-conforming surface mirroring the Python `__all__` (128/128
+  names); `buildRuntimeGraph`/`queryRuntimeGraph` resolve to the spec
+  list-of-IRs engines.
+- Generated runtime regenerated end-to-end; full `tsc` strict typing
+  (`@ts-nocheck = 0`).
+
+### Certification (measured from fresh execution)
+- Implementation equality matrix **1724/1724 EQUAL**; API parity **128/128**.
+- JavaScript: **399 tests**, coverage 99.17 / 99.65 / 95.45 / 99.17.
+- Python: **772 tests**, `twine check` passed, installs in a clean venv.
+- Determinism **100/100, 0 drift**; real-world **1200 URLs, 100% match, 0% drift**.
+- Runtime independence: JS Python-free, Python Node-free.
+- `specification/` is the sole authority; both products conform.
+
 ## [2.0.0] — 2026-05-23 — npm (JavaScript) public release
 
 ### Added
