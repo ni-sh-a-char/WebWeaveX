@@ -1,7 +1,7 @@
 {
   "lines_pct": 99.17,
   "functions_pct": 99.65,
-  "branches_pct": 95.45,
+  "branches_pct": 95.44,
   "statements_pct": 99.17,
   "exit_code": 0,
   "threshold_met": true

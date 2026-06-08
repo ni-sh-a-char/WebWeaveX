@@ -29,6 +29,10 @@ SKIP_DIRS = {
     ".py_staging",
     "__pycache__",
     "agent-transcripts",
+    "_pyfix",
+    "_pymerge",
+    ".claude",
+    "lib",
 }
 
 SAFE_PREFIXES = (

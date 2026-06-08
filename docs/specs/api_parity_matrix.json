@@ -1,6 +1,6 @@
 {
-  "measured_at": "2026-06-08T07:49:01.760824+00:00",
-  "authority": "specification/ (both conform; neither canonical)",
+  "measured_at": "2026-06-08T08:54:34.190047+00:00",
+  "authority": "specification/",
   "python_total": 128,
   "js_covered": 128,
   "missing": 0,
@@ -12,7 +12,6 @@
   ],
   "duplicate_ownership": 0,
   "conflicting_ownership": 0,
-  "coverage_pct": 100.0,
   "all_mapped": true,
   "mappings": [
     {

@@ -1,6 +1,6 @@
 # FINAL FORENSIC EQUALITY REPORT
 
-**Measured:** 2026-06-08T08:01:56.064354+00:00
+**Measured:** 2026-06-08T08:48:58.809291+00:00
 
 **STATUS: ISSUED** (every mapped pair EQUAL with execution evidence)
 

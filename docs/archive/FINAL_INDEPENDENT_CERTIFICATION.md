@@ -11,11 +11,11 @@
 | Product | Verdict | Basis |
 |---------|---------|-------|
 | **JavaScript (npm)** | **PASS — all gates green** | measured this session |
-| **Python (pip)** | **PASS — all gates green** (branch `python-cert-fix`) | measured this session |
+| **Python (pip)** | **PASS — all gates green** (merged into `python`) | measured this session |
 
 Both products are independent, standalone, specification-conforming, and certified from fresh execution evidence. The previously-blocking Python import defect has been **fixed at the architecturally correct layer** and the Python product now builds, installs in a clean venv outside the repository, imports cleanly, and passes its entire test suite.
 
-> The Python fix lives on local branch `python-cert-fix` (worktree off `origin/python`). It is **not yet committed/pushed to `origin/python`** — until merged there, the published Python product remains broken. This is the one outstanding action; the fix itself is implemented and certified.
+> The Python fix has been **merged into the `python` branch** (fast-forward of commit `6f056d9`) and re-certified there; the temporary `python-cert-fix` branch is removed. `git branch --contains 6f056d9` includes `python`.
 
 ---
 
@@ -23,7 +23,7 @@ Both products are independent, standalone, specification-conforming, and certifi
 
 **JavaScript (this `javascript` branch):** clean install, build, type safety, tests, coverage, equivalence (vs `specification/vectors`), real-world parity, packaging, fresh-install, runtime Python-independence, determinism, public-API parity.
 
-**Python (`python-cert-fix` off `origin/python`):** import-chain fix, clean-venv build+install, full import-symbol audit, public-API certification, **full pytest suite**, sdist+wheel build, and install-outside-repo verification.
+**Python (`python` branch, post-merge):** import-chain fix, clean-venv build+install, full import-symbol audit, public-API certification, **full pytest suite (772 passed)**, sdist+wheel build, and install-outside-repo verification.
 
 **Cross-cutting:** API parity (with byte-identical cross-language behavioral spot-checks), specification authority, runtime purity (both directions), determinism, implementation equality.
 
@@ -74,7 +74,7 @@ Both products are independent, standalone, specification-conforming, and certifi
 - **Cross-platform Linux/macOS:** only **Windows** executed. Linux/macOS gates **UNMEASURED**; reproduction command matrix in §5.
 - **Python optional-dependency test families:** the full suite (772 passing) covers the installed surface; **playwright browser-automation** and **OCR (pytesseract)** suites require external binaries and were not separately exercised beyond what the suite collected. Where present in the suite they ran; no dedicated browser-binary run was performed. (No Python test **failed**; 1 skipped.)
 - **PyPI/npm publish + `twine check`/registry upload:** not performed (no publish in scope).
-- **The Python fix is not yet on `origin/python`** — verified on `python-cert-fix` only.
+- The Python fix is merged into `python` and pushed to `origin/python`; verified post-merge on the `python` branch.
 
 No gate above is claimed PASS by inference. Unmeasured is labelled UNMEASURED.
 
@@ -103,7 +103,7 @@ python tools/convergence/matrix_runner.py --workers 8 --fresh
 python tools/omega_final/forensic_equality.py
 python tools/convergence/certify_public_api.py
 
-# Python (worktree python-cert-fix)
+# Python (python branch, post-merge)
 python -m venv .venv && .venv/Scripts/python -m pip install .
 .venv/Scripts/python -W error -c "import webweavex"
 .venv/Scripts/python -m pytest tests/ -o addopts=""
@@ -129,11 +129,11 @@ python3 -m venv .venv && . .venv/bin/activate && pip install . && python -W erro
 
 ## 7. Has the original vision been achieved?
 
-**YES — for both products, with one un-pushed commit standing between the fix and the shipped Python package.**
+**YES — for both products. The Python fix is merged into `python` and pushed; both products are independently certified.**
 
 - **Specification authority:** YES. `specification/vectors` is the read authority; neither implementation is treated as canonical (verified by scan + harness wiring). ✅
 - **JavaScript independent product:** YES. npm-installable, Python-free, deterministic, spec-conformant, 1724/1724 equality, 399 tests, coverage above target. ✅
-- **Python independent product:** YES (on `python-cert-fix`). pip-installable in a clean venv outside the repo, Node-free, imports cleanly, 772 tests pass, public API works. ✅ — **pending the commit to `origin/python`.**
+- **Python independent product:** YES (merged into `python`). pip-installable in a clean venv outside the repo, Node-free, imports cleanly, 772 tests pass, public API works. ✅
 - **Neither invokes/ships/requires the other:** YES, verified both directions. ✅
 - **All certification claims backed by fresh execution evidence; no hardcoded verdicts:** YES. ✅
 
