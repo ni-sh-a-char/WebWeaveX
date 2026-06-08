@@ -1,0 +1,38 @@
+{
+  "measured_at": "2026-06-08T12:48:18.944869+00:00",
+  "functions_compared": 5,
+  "equal": 5,
+  "all_equal": true,
+  "comparisons": [
+    {
+      "function": "compute_kaalka_hash",
+      "equal": true,
+      "python": "6ca13d52ca70c883e0f0",
+      "javascript": "6ca13d52ca70c883e0f0"
+    },
+    {
+      "function": "fingerprint",
+      "equal": true,
+      "python": "1c2c45a9d9f3",
+      "javascript": "1c2c45a9d9f3"
+    },
+    {
+      "function": "compute_global_runtime_fingerprint",
+      "equal": true,
+      "python": "0308a63f9da530778169",
+      "javascript": "0308a63f9da530778169"
+    },
+    {
+      "function": "encrypt_value",
+      "equal": true,
+      "python": "ynKydI2FgXi5epO1joiO",
+      "javascript": "ynKydI2FgXi5epO1joiO"
+    },
+    {
+      "function": "build_runtime_graph",
+      "equal": true,
+      "python": "2n/1e",
+      "javascript": "2n/1e"
+    }
+  ]
+}

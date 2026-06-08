@@ -130,9 +130,11 @@ describe("coverage 90% branch push", () => {
 });
 
 describe("browser branch push", () => {
+  // spawns the Playwright bridge (node subprocess); allow a generous budget
+  // so it does not false-fail on slow/loaded CI runners (normally ~3.6s).
   it("runtime continuation without cookies or storage", async () => {
     const session = createRuntimeSession({});
     const out = await extractWithSession("https://example.com", session, 0);
     expect(out.bounded).toBe(true);
-  });
+  }, 120000);
 });
