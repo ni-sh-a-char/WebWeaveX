@@ -58,11 +58,11 @@ export function runDistributedExtraction(
     queue,
     workers: workerList,
     runtime_graph: distributedGraph,
-    identities: (identityRoutes.routes as unknown[]) ?? [],
+    identities: identityRoutes.routes as unknown[],
     adaptive_memory: adaptiveSync,
     stream_runtime: streamFederation,
     tick: tick + 1,
-    assignments: (assignments.assignments as unknown[]) ?? [],
+    assignments: assignments.assignments as unknown[],
     bounded: true,
   };
 

@@ -1,9 +1,9 @@
 import {
-  buildRuntimeGraph,
   computeRuntimeFingerprint,
   graphFingerprint,
   validateRuntimeGraph,
 } from "../../src/index.js";
+import { buildRuntimeGraph } from "../../src/graph/runtimeGraph.js";
 
 const graph = buildRuntimeGraph({
   nodes: [{ id: "b" }, { id: "a" }],

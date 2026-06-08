@@ -1,0 +1,4806 @@
+{
+  "version": 1,
+  "count": 1200,
+  "urls": [
+    {
+      "category": "news",
+      "url": "https://www.bbc.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bbc.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.reuters.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://apnews.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.theguardian.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nytimes.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.washingtonpost.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.npr.org/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.aljazeera.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.ft.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.economist.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cnn.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.bloomberg.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.politico.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.cbsnews.com/guides"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/about"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/news"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/blog"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/docs"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/api"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/products"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/contact"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/help"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/support"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/pricing"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/features"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/learn"
+    },
+    {
+      "category": "news",
+      "url": "https://www.nbcnews.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.cloudflare.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://engineering.fb.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://netflixtechblog.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://stripe.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://github.blog/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://aws.amazon.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://martinfowler.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://blog.google/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://openai.com/guides"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/about"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/news"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/blog"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/docs"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/api"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/products"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/contact"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/help"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/support"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/pricing"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/features"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/learn"
+    },
+    {
+      "category": "blogs",
+      "url": "https://www.docker.com/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.usa.gov/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.uk/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/about"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/news"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/api"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/products"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/help"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/support"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/features"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://europa.eu/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.canada.ca/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.gov.au/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.data.gov/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nih.gov/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.cdc.gov/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.nasa.gov/guides"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/about"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/news"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/blog"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/docs"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/api"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/products"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/contact"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/help"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/support"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/pricing"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/features"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/learn"
+    },
+    {
+      "category": "government",
+      "url": "https://www.sec.gov/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://arxiv.org/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://web.mit.edu/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.stanford.edu/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.harvard.edu/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.berkeley.edu/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cam.ac.uk/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.ox.ac.uk/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.cmu.edu/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.caltech.edu/guides"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/about"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/news"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/blog"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/docs"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/api"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/products"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/contact"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/help"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/support"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/pricing"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/features"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/learn"
+    },
+    {
+      "category": "academic",
+      "url": "https://www.yale.edu/guides"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Web_scraping"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/World_Wide_Web"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Graph_theory"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Semantic_Web"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Ontology"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Machine_learning"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Distributed_computing"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Workflow"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Memory"
+    },
+    {
+      "category": "wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Runtime_system"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://developer.mozilla.org/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://nodejs.org/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.python.org/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.typescriptlang.org/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://react.dev/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://kubernetes.io/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.docker.com/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://www.rust-lang.org/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://go.dev/guides"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/about"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/news"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/blog"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/docs"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/api"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/products"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/contact"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/help"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/support"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/pricing"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/features"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/learn"
+    },
+    {
+      "category": "documentation",
+      "url": "https://docs.microsoft.com/guides"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/about"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/news"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/blog"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/docs"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/api"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/products"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/contact"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/help"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/support"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/pricing"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/features"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/learn"
+    },
+    {
+      "category": "forums",
+      "url": "https://news.ycombinator.com/guides"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/about"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/news"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/blog"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/docs"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/api"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/products"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/contact"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/help"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/support"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/pricing"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/features"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/learn"
+    },
+    {
+      "category": "forums",
+      "url": "https://stackoverflow.com/guides"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/about"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/news"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/blog"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/docs"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/api"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/products"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/contact"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/help"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/support"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/pricing"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/features"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/learn"
+    },
+    {
+      "category": "forums",
+      "url": "https://www.reddit.com/guides"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/about"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/news"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/blog"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/docs"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/api"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/products"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/contact"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/help"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/support"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/pricing"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/features"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/learn"
+    },
+    {
+      "category": "forums",
+      "url": "https://discourse.org/guides"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/about"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/news"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/blog"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/docs"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/api"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/products"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/contact"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/help"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/support"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/pricing"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/features"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/learn"
+    },
+    {
+      "category": "forums",
+      "url": "https://meta.stackexchange.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.amazon.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.etsy.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.shopify.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.ebay.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.walmart.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.target.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.bestbuy.com/guides"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/about"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/news"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/blog"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/docs"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/api"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/products"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/contact"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/help"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/support"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/pricing"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/features"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/learn"
+    },
+    {
+      "category": "ecommerce",
+      "url": "https://www.alibaba.com/guides"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/about"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/news"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/blog"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/docs"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/api"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/products"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/contact"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/help"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/support"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/pricing"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/features"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/learn"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.law.cornell.edu/guides"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/about"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/news"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/blog"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/docs"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/api"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/products"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/contact"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/help"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/support"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/pricing"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/features"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/learn"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.supremecourt.gov/guides"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/about"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/news"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/blog"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/docs"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/api"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/products"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/contact"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/help"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/support"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/pricing"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/features"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/learn"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.legislation.gov.uk/guides"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/about"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/news"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/blog"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/docs"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/api"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/products"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/contact"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/help"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/support"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/pricing"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/features"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/learn"
+    },
+    {
+      "category": "legal",
+      "url": "https://www.justice.gov/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nature.com/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.science.org/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://journals.plos.org/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.springer.com/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.sciencedirect.com/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.cell.com/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.thelancet.com/guides"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/about"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/news"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/blog"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/docs"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/api"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/products"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/contact"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/help"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/support"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/pricing"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/features"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/learn"
+    },
+    {
+      "category": "scientific",
+      "url": "https://www.nejm.org/guides"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/about"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/news"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/blog"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/docs"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/api"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/products"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/contact"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/help"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/support"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/pricing"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/features"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/learn"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://github.com/guides"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/about"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/news"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/blog"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/docs"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/api"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/products"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/contact"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/help"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/support"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/pricing"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/features"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/learn"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://gitlab.com/guides"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/about"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/news"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/blog"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/docs"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/api"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/products"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/contact"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/help"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/support"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/pricing"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/features"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/learn"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.atlassian.com/guides"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/about"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/news"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/blog"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/docs"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/api"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/products"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/contact"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/help"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/support"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/pricing"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/features"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/learn"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://www.salesforce.com/guides"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/about"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/news"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/blog"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/docs"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/api"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/products"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/contact"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/help"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/support"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/pricing"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/features"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/learn"
+    },
+    {
+      "category": "enterprise_saas",
+      "url": "https://slack.com/guides"
+    }
+  ]
+}

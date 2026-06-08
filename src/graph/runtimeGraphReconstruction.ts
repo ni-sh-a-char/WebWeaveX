@@ -12,7 +12,7 @@ export function reconstructGraphFromIr(sources: Record<string, unknown>): {
 }
 
 export function rebuildGraphFromPartial(partial: RuntimeGraph): RuntimeGraph {
-  const normalized = RuntimeGraphContract.normalize(partial);
+  const normalized = RuntimeGraphContract.normalize(partial) as RuntimeGraph;
   const nodes = normalized.nodes.map((n, i) => ({
     ...n,
     id: n.id ?? `rebuilt:${i}`,

@@ -1,0 +1,23 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 0"
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - run: npm run build
+      - name: Vitest duration
+        run: npm run test 2>&1 | tee benchmark.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-log
+          path: benchmark.log

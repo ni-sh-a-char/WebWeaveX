@@ -2,9 +2,9 @@ import { extractWeb } from "../browser/extractWeb.js";
 import { buildRuntimeGraph } from "../graph/runtimeGraph.js";
 import { computeKaalkaHashPayload } from "../crypto/kaalkaRuntime.js";
 import { computeGlobalRuntimeFingerprint } from "../determinism/globalRuntimeFingerprint.js";
-import type { UniversalInput, PipelineOptions, ExtractionEnvelope } from "../contracts/runtimeContracts.js";
+import type { UniversalInputLike, PipelineOptions, ExtractionEnvelope } from "../contracts/runtimeContracts.js";
 
-function detectKind(inp: UniversalInput): string {
+function detectKind(inp: UniversalInputLike): string {
   if (inp.sourceType && inp.sourceType !== "auto") return inp.sourceType;
   const src = inp.url ?? inp.path ?? inp.source;
   if (src.startsWith("http://") || src.startsWith("https://")) return "web";
@@ -13,7 +13,7 @@ function detectKind(inp: UniversalInput): string {
 }
 
 export async function runCanonicalPipeline(
-  inp: UniversalInput,
+  inp: UniversalInputLike,
   options: PipelineOptions = {},
 ): Promise<ExtractionEnvelope & { ingestion: Record<string, unknown> }> {
   const kind = detectKind(inp);

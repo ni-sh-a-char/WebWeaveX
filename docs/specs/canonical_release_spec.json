@@ -1,0 +1,14 @@
+{
+  "npm": {
+    "package": "webweavex",
+    "formats": [
+      "esm",
+      "cjs"
+    ],
+    "publishDir": "dist"
+  },
+  "python": {
+    "package": "webweavex",
+    "build": "pyproject.toml"
+  }
+}

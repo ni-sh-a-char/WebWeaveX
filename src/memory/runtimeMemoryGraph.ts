@@ -1,4 +1,9 @@
-import { RuntimeGraphContract, type RuntimeGraph } from "../contracts/graphContracts.js";
+import {
+  RuntimeGraphContract,
+  type RuntimeGraph,
+  type RuntimeNode,
+  type RuntimeEdge,
+} from "../contracts/graphContracts.js";
 import { computeKaalkaHashPayload } from "../crypto/kaalkaRuntime.js";
 
 export type MemoryGraphEntity = { id: string; type: string; relations: string[] };
@@ -13,15 +18,18 @@ export function buildRuntimeMemoryGraph(
   graph: RuntimeGraph,
   history: unknown[] = [],
 ): RuntimeMemoryGraph {
-  const normalized = RuntimeGraphContract.normalize(graph);
-  const entities: MemoryGraphEntity[] = normalized.nodes.map((n) => ({
+  const normalized = RuntimeGraphContract.normalize(graph) as {
+    nodes: RuntimeNode[];
+    edges: RuntimeEdge[];
+  };
+  const entities: MemoryGraphEntity[] = normalized.nodes.map((n: RuntimeNode) => ({
     id: String(n.id),
     type: String(n.type ?? "node"),
     relations: normalized.edges
-      .filter((e) => e.source === n.id || e.from === n.id)
-      .map((e) => String(e.target ?? e.to)),
+      .filter((e: RuntimeEdge) => e.source === n.id || e.from === n.id)
+      .map((e: RuntimeEdge) => String(e.target ?? e.to)),
   }));
-  const relations = normalized.edges.map((e) => ({
+  const relations = normalized.edges.map((e: RuntimeEdge) => ({
     from: String(e.source ?? e.from),
     to: String(e.target ?? e.to),
     type: String(e.type ?? "link"),

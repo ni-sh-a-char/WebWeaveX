@@ -1,0 +1,23 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test
+      - run: npm run coverage
+      - run: python tools/runtime_vectors/generate_canonical_vectors.py
+      - run: npm run validate:differential
+        continue-on-error: true
+      - run: python tools/convergence/forensic_equality_audit.py

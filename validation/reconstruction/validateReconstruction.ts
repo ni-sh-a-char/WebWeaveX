@@ -1,4 +1,5 @@
-import { buildRuntimeGraph, reconstructRuntime } from "../../src/index.js";
+import { reconstructRuntime } from "../../src/index.js";
+import { buildRuntimeGraph } from "../../src/graph/runtimeGraph.js";
 
 const graph = buildRuntimeGraph({ a: 1 });
 const extraction = { unified_runtime_graph: graph, graph };

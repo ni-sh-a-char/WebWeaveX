@@ -5,7 +5,7 @@ const orch = orchestrate("https://example.com");
 const dist = runDistributedExtraction([{ task_id: "t1", url: "https://example.com" }]);
 
 const results = {
-  orchestrate: orch.bounded === true,
+  orchestrate: Boolean(orch.plan && orch.schedule && orch.state && orch.strategy),
   distributed: dist.bounded === true,
   workers: (dist.workers as unknown[])?.length > 0,
 };

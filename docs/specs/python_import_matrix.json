@@ -1,0 +1,906 @@
+{
+  "measured_at_note": "2026-06-08T06:54:11.240429+00:00",
+  "package": "webweavex",
+  "total": 128,
+  "passed": 128,
+  "failed": 0,
+  "all_pass": true,
+  "symbols": [
+    {
+      "symbol": "RuntimeKernel",
+      "status": "PASS",
+      "module": "core.kernel.runtime_kernel",
+      "error": null,
+      "kind": "class"
+    },
+    {
+      "symbol": "UniversalInput",
+      "status": "PASS",
+      "module": "core.contracts.runtime_contracts",
+      "error": null,
+      "kind": "class"
+    },
+    {
+      "symbol": "__version__",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "str"
+    },
+    {
+      "symbol": "analyze",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "authenticate_runtime",
+      "status": "PASS",
+      "module": "core.auth.authentication_runtime_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_browser_identity",
+      "status": "PASS",
+      "module": "core.identity.browser_identity_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_interaction_graph",
+      "status": "PASS",
+      "module": "core.interaction.interaction_graph_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_runtime_delta",
+      "status": "PASS",
+      "module": "core.synchronization.runtime_delta_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_runtime_evolution",
+      "status": "PASS",
+      "module": "core.evolution_runtime.runtime_evolution_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_runtime_graph",
+      "status": "PASS",
+      "module": "core.runtime_graph.runtime_graph_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_runtime_memory",
+      "status": "PASS",
+      "module": "core.memory.runtime_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_runtime_objective",
+      "status": "PASS",
+      "module": "core.workflows.objective_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_runtime_sandbox",
+      "status": "PASS",
+      "module": "core.execution.runtime_sandbox_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_stream_timeline",
+      "status": "PASS",
+      "module": "core.streaming.stream_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "build_workflow_plan",
+      "status": "PASS",
+      "module": "core.workflows.workflow_planner_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "capture_dom_mutations",
+      "status": "PASS",
+      "module": "core.streaming.dom_mutation_stream_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "capture_websocket_frames",
+      "status": "PASS",
+      "module": "core.streaming.websocket_runtime_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "clone_runtime_environment",
+      "status": "PASS",
+      "module": "core.reconstruction.runtime_clone_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "compile_document",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "compile_repository",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "compile_unified_runtime_ir",
+      "status": "PASS",
+      "module": "core.ir.unified_runtime_ir",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "compute_global_runtime_fingerprint",
+      "status": "PASS",
+      "module": "core.determinism.global_runtime_fingerprint",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "compute_kaalka_hash",
+      "status": "PASS",
+      "module": "core.crypto.kaalka_runtime_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "crawl",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "crawl_async",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "decrypt_session_state",
+      "status": "PASS",
+      "module": "core.crypto.kaalka_session_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "decrypt_value",
+      "status": "PASS",
+      "module": "core.crypto.kaalka_runtime_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "encrypt_session_state",
+      "status": "PASS",
+      "module": "core.crypto.kaalka_session_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "encrypt_value",
+      "status": "PASS",
+      "module": "core.crypto.kaalka_runtime_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "evolve_selector_runtime",
+      "status": "PASS",
+      "module": "core.evolution_runtime.selector_evolution_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "execute_runtime_action",
+      "status": "PASS",
+      "module": "core.execution.runtime_execution_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "execute_runtime_objective",
+      "status": "PASS",
+      "module": "core.application.objective_execution_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract",
+      "status": "PASS",
+      "module": "core.extract.pipeline",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_api_runtime",
+      "status": "PASS",
+      "module": "core.connectors.api_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_async",
+      "status": "PASS",
+      "module": "core.extract.pipeline",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_container_runtime",
+      "status": "PASS",
+      "module": "core.connectors.container_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_database_runtime",
+      "status": "PASS",
+      "module": "core.connectors.database_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_docs",
+      "status": "PASS",
+      "module": "core.extract.pipeline",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_document_runtime",
+      "status": "PASS",
+      "module": "core.documents.universal_document_extraction_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_ide_runtime",
+      "status": "PASS",
+      "module": "core.connectors.ide_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_infinite_scroll",
+      "status": "PASS",
+      "module": "core.interaction.infinite_scroll_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_kubernetes_runtime",
+      "status": "PASS",
+      "module": "core.connectors.kubernetes_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_multimodal",
+      "status": "PASS",
+      "module": "core.multimodal.universal_multimodal_extraction_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_native",
+      "status": "PASS",
+      "module": "core.native.native_runtime_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_paginated_content",
+      "status": "PASS",
+      "module": "core.interaction.pagination_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_recursive",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_repo",
+      "status": "PASS",
+      "module": "core.extract.pipeline",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_repository",
+      "status": "PASS",
+      "module": "core.repository.universal_repository_extraction_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_runtime_streams",
+      "status": "PASS",
+      "module": "core.connectors.runtime_stream_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_telemetry_runtime",
+      "status": "PASS",
+      "module": "core.connectors.telemetry_connector_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "extract_web",
+      "status": "PASS",
+      "module": "core.browser.universal_web_extraction_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "fabricate_runtime_reality",
+      "status": "PASS",
+      "module": "core.reconstruction.runtime_fabrication_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "fingerprint",
+      "status": "PASS",
+      "module": "core.crypto.kaalka_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "get_runtime_kernel",
+      "status": "PASS",
+      "module": "core.kernel.runtime_kernel",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "heal_selector",
+      "status": "PASS",
+      "module": "core.adaptive.selector_healing_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "ingest_input",
+      "status": "PASS",
+      "module": "core.ingestion.universal_ingestion_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_adaptive_memory",
+      "status": "PASS",
+      "module": "core.adaptive.extraction_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_application_memory",
+      "status": "PASS",
+      "module": "core.application.application_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_browser_identity",
+      "status": "PASS",
+      "module": "core.identity.fingerprint_persistence_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_causal_memory",
+      "status": "PASS",
+      "module": "core.causality.causal_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_distributed_checkpoint",
+      "status": "PASS",
+      "module": "core.distributed_extraction.distributed_checkpoint_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_encrypted_session",
+      "status": "PASS",
+      "module": "core.session.encrypted_session_store",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_evolution_runtime",
+      "status": "PASS",
+      "module": "core.evolution_runtime.runtime_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_live_runtime",
+      "status": "PASS",
+      "module": "core.connectors.live_runtime_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_native_runtime",
+      "status": "PASS",
+      "module": "core.native.native_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_runtime_memory",
+      "status": "PASS",
+      "module": "core.memory.runtime_memory_persistence_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_semantic_memory",
+      "status": "PASS",
+      "module": "core.semantic.semantic_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_sync_memory",
+      "status": "PASS",
+      "module": "core.synchronization.runtime_sync_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "load_workflow_memory",
+      "status": "PASS",
+      "module": "core.workflows.workflow_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_documents",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_graph",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_knowledge",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_repo",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_repository",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_runtime_graph",
+      "status": "PASS",
+      "module": "core.runtime_graph.runtime_graph_query_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_runtime_memory",
+      "status": "PASS",
+      "module": "core.memory.runtime_query_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "query_semantics",
+      "status": "PASS",
+      "module": "core.query.semantic_query_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "reason_semantically",
+      "status": "PASS",
+      "module": "core.reasoning.semantic_reasoning_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "reconstruct_runtime",
+      "status": "PASS",
+      "module": "core.reconstruction.runtime_reconstruction_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "recover_modal_runtime",
+      "status": "PASS",
+      "module": "core.adaptive.modal_recovery_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_causal_runtime",
+      "status": "PASS",
+      "module": "core.causality.causal_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_interactions",
+      "status": "PASS",
+      "module": "core.interaction.interaction_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_runtime_execution",
+      "status": "PASS",
+      "module": "core.execution.runtime_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_semantic_runtime",
+      "status": "PASS",
+      "module": "core.semantic.semantic_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_stream_events",
+      "status": "PASS",
+      "module": "core.streaming.stream_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_synchronized_runtime",
+      "status": "PASS",
+      "module": "core.synchronization.runtime_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "replay_workflow_runtime",
+      "status": "PASS",
+      "module": "core.workflows.workflow_replay_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_application_cognition",
+      "status": "PASS",
+      "module": "core.application.application_cognition_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_autonomous_extraction",
+      "status": "PASS",
+      "module": "core.distributed_extraction.autonomous_extraction_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_autonomous_workflow",
+      "status": "PASS",
+      "module": "core.workflows.workflow_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_canonical_pipeline",
+      "status": "PASS",
+      "module": "core.kernel.runtime_pipeline",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_causality_for_extraction",
+      "status": "PASS",
+      "module": "core.causality.causality_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_causality_runtime",
+      "status": "PASS",
+      "module": "core.causality.causality_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_evolution_for_extraction",
+      "status": "PASS",
+      "module": "core.evolution_runtime.runtime_evolution_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_evolution_runtime",
+      "status": "PASS",
+      "module": "core.evolution_runtime.runtime_evolution_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_execution_for_extraction",
+      "status": "PASS",
+      "module": "core.execution.runtime_execution_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_execution_runtime",
+      "status": "PASS",
+      "module": "core.execution.runtime_execution_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_live_runtime",
+      "status": "PASS",
+      "module": "core.connectors.live_runtime_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_memory_for_extraction",
+      "status": "PASS",
+      "module": "core.memory.runtime_memory_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_native_cognition",
+      "status": "PASS",
+      "module": "core.native.native_runtime_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_reconstruction_for_extraction",
+      "status": "PASS",
+      "module": "core.reconstruction.runtime_reconstruction_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_reconstruction_runtime",
+      "status": "PASS",
+      "module": "core.reconstruction.runtime_reconstruction_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_runtime_memory",
+      "status": "PASS",
+      "module": "core.memory.runtime_memory_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_semantic_for_extraction",
+      "status": "PASS",
+      "module": "core.semantic.semantic_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_semantic_runtime",
+      "status": "PASS",
+      "module": "core.semantic.semantic_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_sync_for_extraction",
+      "status": "PASS",
+      "module": "core.synchronization.runtime_sync_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_synchronized_runtime",
+      "status": "PASS",
+      "module": "core.synchronization.runtime_sync_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "run_workflow_for_extraction",
+      "status": "PASS",
+      "module": "core.workflows.workflow_orchestrator",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_adaptive_memory",
+      "status": "PASS",
+      "module": "core.adaptive.extraction_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_application_memory",
+      "status": "PASS",
+      "module": "core.application.application_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_browser_identity",
+      "status": "PASS",
+      "module": "core.identity.fingerprint_persistence_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_causal_memory",
+      "status": "PASS",
+      "module": "core.causality.causal_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_distributed_checkpoint",
+      "status": "PASS",
+      "module": "core.distributed_extraction.distributed_checkpoint_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_encrypted_session",
+      "status": "PASS",
+      "module": "core.session.encrypted_session_store",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_evolution_runtime",
+      "status": "PASS",
+      "module": "core.evolution_runtime.runtime_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_live_runtime",
+      "status": "PASS",
+      "module": "core.connectors.live_runtime_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_native_runtime",
+      "status": "PASS",
+      "module": "core.native.native_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_runtime_memory",
+      "status": "PASS",
+      "module": "core.memory.runtime_memory_persistence_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_semantic_memory",
+      "status": "PASS",
+      "module": "core.semantic.semantic_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_sync_memory",
+      "status": "PASS",
+      "module": "core.synchronization.runtime_sync_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "save_workflow_memory",
+      "status": "PASS",
+      "module": "core.workflows.workflow_memory_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "search_runtime_memory",
+      "status": "PASS",
+      "module": "core.memory.runtime_search_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "simulate_runtime_execution",
+      "status": "PASS",
+      "module": "core.execution.runtime_simulation_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "stream_extract",
+      "status": "PASS",
+      "module": "core.streaming.streaming_pipeline",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "universal_extract",
+      "status": "PASS",
+      "module": "webweavex.universal_extract",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "validate_reconstructed_runtime",
+      "status": "PASS",
+      "module": "core.reconstruction.runtime_validation_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "validate_replay_equivalence",
+      "status": "PASS",
+      "module": "core.replay.replay_equivalence_engine",
+      "error": null,
+      "kind": "function"
+    },
+    {
+      "symbol": "version",
+      "status": "PASS",
+      "module": "webweavex",
+      "error": null,
+      "kind": "str"
+    }
+  ]
+}

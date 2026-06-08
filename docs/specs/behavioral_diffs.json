@@ -1,0 +1,58 @@
+[
+ {
+  "module": "core/browser/playwright_runtime.py",
+  "probe": "launch_authenticated_browser",
+  "kind": "diff",
+  "path": "$.available",
+  "py": "True",
+  "js": "False"
+ },
+ {
+  "module": "core/browser/universal_web_extraction_engine.py",
+  "probe": "extract_web",
+  "kind": "diff",
+  "path": "$.adaptation_persisted",
+  "py": "False",
+  "js": "<missing>"
+ },
+ {
+  "module": "core/connectors/live_runtime_orchestrator.py",
+  "probe": "run_live_runtime",
+  "kind": "diff",
+  "path": "$.memory.snapshots.memory.snapshots.memory.snapshots.live_ir.filesystem.topology",
+  "py": "\"['.claude\\\\\\\\scheduled_tasks.lock', '.editorconfig', '.git\\\\\\\\AUTO_MERGE', '.git\\\\\\\\COMMIT_EDITMSG', '.git\\\\\\\\config', ",
+  "js": "\"['.claude\\\\\\\\scheduled_tasks.lock', '.editorconfig', '.git\\\\\\\\AUTO_MERGE', '.git\\\\\\\\COMMIT_EDITMSG', '.git\\\\\\\\config', "
+ },
+ {
+  "module": "core/extract/pipeline.py",
+  "probe": "extract",
+  "kind": "diff",
+  "path": "$.content.repository.semantic_v16.ast.languages.length",
+  "py": 1,
+  "js": 0
+ },
+ {
+  "module": "core/ir/runtime_ir.py",
+  "probe": "compile_runtime_ir",
+  "kind": "diff",
+  "path": "$.persistence.bytes",
+  "py": "940",
+  "js": "938"
+ },
+ {
+  "module": "core/kernel/runtime_connector_bridge.py",
+  "probe": "run_connector_phase",
+  "kind": "diff",
+  "path": "$.live.memory.snapshots.memory.snapshots.memory.snapshots.filesystem.topology",
+  "py": "\"['.claude\\\\\\\\scheduled_tasks.lock', '.editorconfig', '.git\\\\\\\\AUTO_MERGE', '.git\\\\\\\\COMMIT_EDITMSG', '.git\\\\\\\\config', ",
+  "js": "\"['.claude\\\\\\\\scheduled_tasks.lock', '.editorconfig', '.git\\\\\\\\AUTO_MERGE', '.git\\\\\\\\COMMIT_EDITMSG', '.git\\\\\\\\config', "
+ },
+ {
+  "module": "core/streaming/streaming_pipeline.py",
+  "probe": "stream_extract",
+  "kind": "diff",
+  "path": "$.content.repository.semantic_v16.ast.languages.length",
+  "py": 1,
+  "js": 0
+ }
+]

@@ -22,7 +22,7 @@ export function buildRuntimeGraph(sources: Record<string, unknown>): RuntimeGrap
 }
 
 export function queryRuntimeGraph(graph: RuntimeGraph, nodeType?: string): RuntimeGraph {
-  const g = RuntimeGraphContract.normalize(graph);
+  const g = RuntimeGraphContract.normalize(graph) as RuntimeGraph;
   if (!nodeType) return g;
   return RuntimeGraphContract.normalize({
     nodes: g.nodes.filter((n) => n.type === nodeType),

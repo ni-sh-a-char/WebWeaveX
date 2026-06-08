@@ -1,0 +1,36 @@
+{
+  "family": "vm_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "origin/python",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "vm-semantic-link",
+      "input": {
+        "instructions": [
+          {
+            "opcode": "LINK",
+            "operand": {
+              "from": "a",
+              "to": "b"
+            }
+          },
+          {
+            "opcode": "NOP",
+            "operand": {}
+          }
+        ]
+      },
+      "canonical_output": {
+        "executed": 2,
+        "memory": {
+          "a->b": true
+        },
+        "bounded": true
+      },
+      "runtime_hash": "bc1ffcc13a645a0b0a1166574671f583448697d52e70a284ba11085ad95430ad",
+      "deterministic_fingerprint": "52e293d0b4b6a6665b97157810122bfa7305ead00c2f63eceb8516f0db69b854",
+      "vm_hash": "bc1ffcc13a645a0b0a1166574671f583448697d52e70a284ba11085ad95430ad"
+    }
+  ]
+}

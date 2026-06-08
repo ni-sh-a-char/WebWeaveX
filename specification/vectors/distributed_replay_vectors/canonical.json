@@ -1,0 +1,220 @@
+{
+  "family": "distributed_replay_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "webweavex-spec",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "distributed-replay",
+      "input": {
+        "tasks": [
+          {
+            "task_id": "r1",
+            "url": "https://replay.test"
+          }
+        ]
+      },
+      "canonical_output": {
+        "workers": [
+          {
+            "worker_id": "worker_0",
+            "runtime_state": {},
+            "identity": {
+              "profile_id": "default",
+              "fingerprint_hash": "fp0"
+            },
+            "adaptive_runtime": {
+              "memory": {
+                "healed_selectors": {}
+              }
+            },
+            "stream_runtime": {
+              "events": []
+            },
+            "status": "idle",
+            "bounded": true
+          }
+        ],
+        "queue": [
+          {
+            "task_id": "r1",
+            "url": "https://replay.test",
+            "priority": 0,
+            "order": 0,
+            "bounded": true
+          }
+        ],
+        "schedule": {
+          "scheduled": [
+            {
+              "task_id": "r1",
+              "url": "https://replay.test",
+              "priority": 0,
+              "run_at": 0,
+              "retries": 0,
+              "bounded": true
+            }
+          ],
+          "tick": 0,
+          "bounded": true
+        },
+        "assignments": {
+          "assignments": [
+            {
+              "task_id": "r1",
+              "worker_id": "worker_0",
+              "partition": 0
+            }
+          ],
+          "bounded": true
+        },
+        "session_routes": {
+          "routes": [
+            {
+              "worker_id": "worker_0",
+              "session_fingerprint": "worker_0",
+              "isolated": true
+            }
+          ],
+          "bounded": true
+        },
+        "identity_routes": {
+          "routes": [
+            {
+              "worker_id": "worker_0",
+              "profile_id": "default",
+              "fingerprint_hash": "fp0"
+            }
+          ],
+          "bounded": true
+        },
+        "adaptive_sync": {
+          "healed_selectors": {},
+          "pagination_patterns": [],
+          "modal_solutions": [],
+          "stable_schema_fields": [],
+          "bounded": true
+        },
+        "stream_federation": {
+          "events": [],
+          "stream_count": 1,
+          "bounded": true
+        },
+        "topology": {
+          "topology": {
+            "ir": "unified_runtime_graph",
+            "nodes": [],
+            "edges": [],
+            "bounded": true
+          },
+          "runtime_count": 0,
+          "bounded": true
+        },
+        "distributed_graph": {
+          "ir": "distributed_runtime_graph",
+          "nodes": [
+            {
+              "id": "worker_0",
+              "type": "worker",
+              "status": "idle"
+            }
+          ],
+          "edges": [],
+          "bounded": true
+        },
+        "monitoring": {
+          "worker_statuses": {
+            "idle": 1
+          },
+          "queue_depth": 1,
+          "active_workers": 1,
+          "bounded": true
+        },
+        "cluster": {
+          "worker_count": 1,
+          "queue_depth": 1,
+          "worker_ids": [
+            "worker_0"
+          ],
+          "bounded": true
+        },
+        "checkpoint": {
+          "queue": [
+            {
+              "task_id": "r1",
+              "url": "https://replay.test",
+              "priority": 0,
+              "order": 0,
+              "bounded": true
+            }
+          ],
+          "workers": [
+            {
+              "worker_id": "worker_0",
+              "runtime_state": {},
+              "identity": {
+                "profile_id": "default",
+                "fingerprint_hash": "fp0"
+              },
+              "adaptive_runtime": {
+                "memory": {
+                  "healed_selectors": {}
+                }
+              },
+              "stream_runtime": {
+                "events": []
+              },
+              "status": "idle",
+              "bounded": true
+            }
+          ],
+          "runtime_graph": {
+            "ir": "distributed_runtime_graph",
+            "nodes": [
+              {
+                "id": "worker_0",
+                "type": "worker",
+                "status": "idle"
+              }
+            ],
+            "edges": [],
+            "bounded": true
+          },
+          "identities": [
+            {
+              "worker_id": "worker_0",
+              "profile_id": "default",
+              "fingerprint_hash": "fp0"
+            }
+          ],
+          "adaptive_memory": {
+            "healed_selectors": {},
+            "pagination_patterns": [],
+            "modal_solutions": [],
+            "stable_schema_fields": [],
+            "bounded": true
+          },
+          "stream_runtime": {
+            "events": [],
+            "stream_count": 1,
+            "bounded": true
+          },
+          "tick": 1,
+          "assignments": [
+            {
+              "task_id": "r1",
+              "worker_id": "worker_0",
+              "partition": 0
+            }
+          ],
+          "bounded": true
+        },
+        "bounded": true,
+        "replay_hash": "37c431fe7d87aa651dcfc65628acbbb24db04b173118268c79e7da2031514754"
+      },
+      "runtime_hash": "9f10986a8e0102fc816d509e32162db3b644dcb6af5665f026ae67c7667a6880",
+      "deterministic_fingerprint": "9025feb57156110b1abb985898edaf3d6b28fb981d736da7e7afc4525e7dd437"
+    }
+  ],
+  "spec_synced_at": "2026-06-08T04:15:51.542224+00:00"
+}

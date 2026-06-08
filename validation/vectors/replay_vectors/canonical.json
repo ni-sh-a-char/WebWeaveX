@@ -1,0 +1,56 @@
+{
+  "family": "replay_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "origin/python",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "replay-envelope",
+      "input": {
+        "envelope": {
+          "bounded": true,
+          "unified_runtime_graph": {
+            "nodes": [
+              {
+                "id": "node:step:0",
+                "type": "step",
+                "payload": "login"
+              }
+            ],
+            "edges": [],
+            "bounded": true
+          },
+          "browser_ir": {
+            "runtime_identity": "replay-probe"
+          }
+        }
+      },
+      "canonical_output": {
+        "equivalent": true,
+        "checks": [
+          {
+            "name": "graph_hash",
+            "ok": true,
+            "original": "1385c25841afe35e",
+            "replay": "1385c25841afe35e"
+          },
+          {
+            "name": "global_fingerprint",
+            "ok": true,
+            "original": "42009690f886d2b4",
+            "replay": "42009690f886d2b4"
+          },
+          {
+            "name": "browser_identity",
+            "ok": true
+          }
+        ],
+        "bounded": true
+      },
+      "runtime_hash": "1f2061eda477037af950638de1da4d7a46d5733c1740e12d3e3f1fe578490a90",
+      "deterministic_fingerprint": "6f64a2559f99bf91bea3c6a586e79c9bdba69d9451e98b3e1bd86bccacd93d9b",
+      "graph_hash": "1385c25841afe35ee543e62d0e5c01d05584a002ce80d1caf00ec4584bf5a414",
+      "replay_hash": "1f2061eda477037af950638de1da4d7a46d5733c1740e12d3e3f1fe578490a90"
+    }
+  ]
+}

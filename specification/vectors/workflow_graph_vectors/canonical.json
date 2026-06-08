@@ -1,0 +1,70 @@
+{
+  "family": "workflow_graph_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "webweavex-spec",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "workflow-graph",
+      "input": {
+        "plan": {
+          "objective": "graph-probe",
+          "steps": [
+            {
+              "id": "s1",
+              "action": "extract"
+            }
+          ]
+        },
+        "tick": 1
+      },
+      "canonical_output": {
+        "execution": {
+          "objective": "graph-probe",
+          "executed": [
+            {
+              "step_id": "s1",
+              "action": "extract",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 1,
+              "replay_index": 0
+            }
+          ],
+          "completed_count": 1,
+          "bounded": true
+        },
+        "graph": {
+          "nodes": [
+            {
+              "id": "node:workflow:0",
+              "type": "workflow",
+              "payload": {
+                "objective": "graph-probe",
+                "executed": [
+                  {
+                    "step_id": "s1",
+                    "action": "extract",
+                    "runtime": "browser",
+                    "completed": true,
+                    "tick": 1,
+                    "replay_index": 0
+                  }
+                ],
+                "completed_count": 1,
+                "bounded": true
+              }
+            }
+          ],
+          "edges": [],
+          "bounded": true
+        },
+        "bounded": true
+      },
+      "runtime_hash": "0cb7c30c8a9291b2aa4f5eebd745948de1c0af78258bab2c41f822599d64727d",
+      "deterministic_fingerprint": "d2f47af3fcea6bf778b71faf4c19a1cc2b88fc8be6af1e423bc562f01a99fdaf",
+      "graph_hash": "d4feeb9f0f064115f13d3432673c7e349efd48e6b6f423aeaae7bbe5f87aaf89"
+    }
+  ],
+  "spec_synced_at": "2026-06-08T04:15:51.906171+00:00"
+}

@@ -11,6 +11,7 @@
 - `CITATION.cff`
 - `CODE_OF_CONDUCT.md`
 - `CONTRIBUTING.md`
+- `FINAL_TRUE_PARITY_REPORT.md`
 - `LICENSE`
 - `NOTICE`
 - `README.md`
@@ -19,6 +20,7 @@
 - `eslint.config.js`
 - `package-lock.json`
 - `package.json`
+- `pubspec.lock`
 - `tsconfig.json`
 - `tsup.config.ts`
 - `vitest.config.ts`

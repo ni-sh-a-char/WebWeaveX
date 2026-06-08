@@ -1,10 +1,10 @@
 import {
-  buildRuntimeGraph,
   buildRuntimeMemory,
   mergeRuntimeMemories,
   queryRuntimeMemory,
   stableMemoryHash,
 } from "../../src/index.js";
+import { buildRuntimeGraph } from "../../src/graph/runtimeGraph.js";
 
 const graph = buildRuntimeGraph({ session: { ok: true } });
 const mem = buildRuntimeMemory(graph, [{ step: 1, kind: "workflow" }]);

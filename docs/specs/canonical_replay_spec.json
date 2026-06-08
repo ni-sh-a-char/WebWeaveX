@@ -1,0 +1,26 @@
+{
+  "modules": [
+    "core/reconstruction/__init__.py",
+    "core/reconstruction/application_reconstruction_engine.py",
+    "core/reconstruction/browser_reconstruction_engine.py",
+    "core/reconstruction/runtime_checkpoint_reconstruction.py",
+    "core/reconstruction/runtime_clone_engine.py",
+    "core/reconstruction/runtime_connector_reconstruction.py",
+    "core/reconstruction/runtime_environment_engine.py",
+    "core/reconstruction/runtime_fabrication_engine.py",
+    "core/reconstruction/runtime_identity_reconstruction.py",
+    "core/reconstruction/runtime_memory_reconstruction.py",
+    "core/reconstruction/runtime_reconstruction_engine.py",
+    "core/reconstruction/runtime_reconstruction_orchestrator.py",
+    "core/reconstruction/runtime_recovery_reconstruction.py",
+    "core/reconstruction/runtime_replay_builder.py",
+    "core/reconstruction/runtime_snapshot_engine.py",
+    "core/reconstruction/runtime_state_rebuilder.py",
+    "core/reconstruction/runtime_timeline_engine.py",
+    "core/reconstruction/runtime_topology_reconstruction.py",
+    "core/reconstruction/runtime_validation_engine.py",
+    "core/reconstruction/session_reconstruction_engine.py",
+    "core/replay/__init__.py",
+    "core/replay/replay_equivalence_engine.py"
+  ]
+}

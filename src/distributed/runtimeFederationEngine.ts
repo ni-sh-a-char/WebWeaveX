@@ -15,6 +15,6 @@ export function federateExtractionRuntimes(
   const topology =
     graphs.length > 0
       ? buildRuntimeGraph(sources)
-      : { nodes: [], edges: [], bounded: true };
+      : { ir: "unified_runtime_graph", nodes: [], edges: [], bounded: true };
   return { topology, runtime_count: runtimes.length, bounded: true };
 }

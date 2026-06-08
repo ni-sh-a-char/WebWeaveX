@@ -1,0 +1,11 @@
+/**
+ * Converted from Python: core/evidence/recursive_independence_decay_engine.py
+ * @generated — WebWeaveX python→javascript library port
+ */
+
+import * as py from "../runtime/pyCompat.js";
+
+export function resistIndependenceDecay(independent: any, depth: any): any {
+  var decay: any = py.and2((depth >= 5), () => (!py.truthy(independent)));
+  return {"decay_risk": decay, "resist": true};
+}

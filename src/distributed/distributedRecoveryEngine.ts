@@ -1,11 +1,10 @@
-export function recoverDistributedRuntime(
-  checkpoint: Record<string, unknown> = {},
-): Record<string, unknown> {
-  return {
-    recovered: true,
-    queue: checkpoint.queue ?? [],
-    workers: checkpoint.workers ?? [],
-    tick: Number(checkpoint.tick ?? 0),
-    bounded: true,
-  };
+/**
+ * Converted from Python: core/distributed/distributed_recovery_engine.py
+ * @generated — WebWeaveX python→javascript library port
+ */
+
+import * as py from "../runtime/pyCompat.js";
+
+export function recoverDistributedRuntime(checkpoint: any): any {
+  return {"recovered": true, "state": py.get(checkpoint, "state", {})};
 }

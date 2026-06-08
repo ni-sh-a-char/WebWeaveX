@@ -1,0 +1,20 @@
+{
+  "family": "parser_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "webweavex-spec",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "parser-registry",
+      "input": {},
+      "canonical_output": {
+        "registry": [],
+        "bounded": true,
+        "parser_count": 0
+      },
+      "runtime_hash": "85dc60598b0c409ee00a08f39b9b2cf12184dd66a9a7f8f57d60cfd0b25363df",
+      "deterministic_fingerprint": "1af93849299d978c3097cceb887433e237b7d4dfa7c2576538a4e07225fc5627"
+    }
+  ],
+  "spec_synced_at": "2026-06-08T04:15:51.698182+00:00"
+}

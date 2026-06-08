@@ -1,0 +1,13 @@
+{
+  "files": [
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "ROADMAP.md",
+    "LICENSE",
+    "GOVERNANCE.md",
+    "MAINTAINERS.md",
+    "SUPPORT.md",
+    "RELEASE.md",
+    "CODEOWNERS"
+  ]
+}

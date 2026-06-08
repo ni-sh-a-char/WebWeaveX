@@ -11,11 +11,12 @@ import {
   graphFingerprint,
   normalizeRuntimeGraph,
   normalizeRuntimeState,
-  queryRuntimeGraph,
   runExecutionRuntime,
   VERSION,
 } from "../../src/index.js";
-import { buildRuntimeGraph } from "../../src/graph/runtimeGraph.js";
+// dict-based internal helpers (graph/runtimeGraph) — the public barrel now
+// exposes the spec list-based build/query (core.runtime_graph) instead.
+import { buildRuntimeGraph, queryRuntimeGraph } from "../../src/graph/runtimeGraph.js";
 
 describe("integration exports", () => {
   it("kaalka + determinism + graph utilities", () => {

@@ -1,0 +1,39 @@
+{
+  "family": "distributed_memory_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "webweavex-spec",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "distributed-memory",
+      "input": {
+        "states": [
+          {
+            "memory": {
+              "healed_selectors": {
+                "#x": "ok"
+              },
+              "pagination_patterns": [
+                "p"
+              ]
+            }
+          }
+        ]
+      },
+      "canonical_output": {
+        "healed_selectors": {
+          "#x": "ok"
+        },
+        "pagination_patterns": [
+          "p"
+        ],
+        "modal_solutions": [],
+        "stable_schema_fields": [],
+        "bounded": true
+      },
+      "runtime_hash": "88c902c5a726440a4d46d56ac6b6531114b4ef55f0f806d0d287f9e972bef9aa",
+      "deterministic_fingerprint": "75fe326901972a98db9f8040ccdcdb5f1886273661157d001f751a3409302a28"
+    }
+  ],
+  "spec_synced_at": "2026-06-08T04:15:51.519180+00:00"
+}

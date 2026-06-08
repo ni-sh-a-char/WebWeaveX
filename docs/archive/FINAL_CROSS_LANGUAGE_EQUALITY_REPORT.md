@@ -1,7 +1,7 @@
 # Final Cross-Language Equality Report
 
 **Date:** 2026-05-19  
-**Canonical reference:** `python` branch (unchanged architecture)  
+**Authority:** `specification/` (sole). Both `origin/python` (pip) and the `javascript` (npm) products conform to it; neither is canonical.
 **Aligned implementations:** `javascript`, `dart`
 
 ---

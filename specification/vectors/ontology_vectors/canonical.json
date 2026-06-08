@@ -1,0 +1,87 @@
+{
+  "family": "ontology_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "webweavex-spec",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "ontology-classes",
+      "input": {
+        "entities": [
+          {
+            "type": "Entity"
+          },
+          {
+            "type": "Process"
+          }
+        ],
+        "domain": "operations"
+      },
+      "canonical_output": {
+        "entity_taxonomy": [
+          "Entity",
+          "Process"
+        ],
+        "runtime_ontology": [
+          "browser",
+          "native",
+          "distributed",
+          "application"
+        ],
+        "workflow_ontology": [
+          "transition",
+          "submit",
+          "navigate",
+          "objective"
+        ],
+        "ui_ontology": [
+          "form",
+          "dashboard",
+          "navigation",
+          "authentication"
+        ],
+        "infrastructure_ontology": [
+          "service",
+          "api",
+          "deployment",
+          "monitoring"
+        ],
+        "primary_domain": "operations",
+        "taxonomy": {
+          "entity": [
+            "Entity",
+            "Process"
+          ],
+          "runtime": [
+            "browser",
+            "native",
+            "distributed",
+            "application"
+          ],
+          "workflow": [
+            "transition",
+            "submit",
+            "navigate",
+            "objective"
+          ],
+          "ui": [
+            "form",
+            "dashboard",
+            "navigation",
+            "authentication"
+          ],
+          "infrastructure": [
+            "service",
+            "api",
+            "deployment",
+            "monitoring"
+          ]
+        },
+        "bounded": true
+      },
+      "runtime_hash": "41d09ee5c7a7962fbfa82b842215fb1d7754f3df778f78256f7b04f6056cbc6e",
+      "deterministic_fingerprint": "0bdcbccef8df757ce8109ba88af4c1ab5ce86382d73ee3b685afc505589911b8"
+    }
+  ],
+  "spec_synced_at": "2026-06-08T04:15:51.639226+00:00"
+}

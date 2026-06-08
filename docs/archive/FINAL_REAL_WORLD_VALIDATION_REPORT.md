@@ -1,12 +1,8 @@
-# Production Validation Report
+# FINAL REAL-WORLD VALIDATION REPORT
 
-**Generated:** 2026-05-23T15:39:51.279Z
+**Status: PASS**
 
-| Check | Result |
-|-------|--------|
-| Kaalka deterministic encrypt | true |
-| Replay equivalence | true |
-| Global fingerprint | 4a1959735f672b8d… |
-| Reconstruction runtime_id | 558e9dee4fdc8172… |
-| Memory stable_hash | true |
-| extractWeb (example.com) | true (2 nodes) |
+Evidence: 1200 URLs, match 100%, drift 0% (≤5%), measured 2026-06-08T07:03:44.915Z
+
+Source artifact: `docs/specs/real_world_probe.json` (written by `validation/real_world/validateRealWorld.ts`).
+See `docs/archive/FINAL_REAL_WORLD_CERTIFICATION.md` for the full metric table.

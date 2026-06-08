@@ -8,6 +8,8 @@ export type SessionState = {
   auth_tokens?: unknown[];
   localStorage?: Record<string, string>;
   sessionStorage?: Record<string, string>;
+  // Python session state is an open dict (session_id, created_at_tick, …)
+  [key: string]: unknown;
 };
 
 export function saveAuthenticatedRuntime(

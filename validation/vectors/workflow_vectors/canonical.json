@@ -1,0 +1,54 @@
+{
+  "family": "workflow_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "origin/python",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "workflow-execute",
+      "input": {
+        "plan": {
+          "objective": "probe",
+          "steps": [
+            {
+              "id": "s1",
+              "action": "extract",
+              "runtime": "browser"
+            },
+            {
+              "id": "s2",
+              "action": "replay",
+              "runtime": "browser"
+            }
+          ]
+        },
+        "tick": 0
+      },
+      "canonical_output": {
+        "objective": "probe",
+        "executed": [
+          {
+            "step_id": "s1",
+            "action": "extract",
+            "runtime": "browser",
+            "completed": true,
+            "tick": 0,
+            "replay_index": 0
+          },
+          {
+            "step_id": "s2",
+            "action": "replay",
+            "runtime": "browser",
+            "completed": true,
+            "tick": 1,
+            "replay_index": 1
+          }
+        ],
+        "completed_count": 2,
+        "bounded": true
+      },
+      "runtime_hash": "ffa618bd58e2a9b199371ee47306dcf13cc9ea3e14f28d5045033e52fb6ff150",
+      "deterministic_fingerprint": "d3efb18056eb45cbb026c3275b46402f049535f05312f3385f77f003a970f9ec"
+    }
+  ]
+}

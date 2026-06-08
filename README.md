@@ -402,6 +402,23 @@ console.log(rebuilt.runtime);
 
 ---
 
+## Tier D — semantic cognition & runtime VM (bounded)
+
+JavaScript implements **bounded operational Tier D** ports aligned with Python (`origin/python`):
+
+| Area | Modules |
+|------|---------|
+| Semantic depth | ontology runtime, contradiction analysis, reasoning, orchestration, lineage, graph cognition |
+| Parser cognition | registry, orchestration, recovery |
+| Graph intelligence | topology reasoning, diff, reconciliation, contradiction analysis |
+| Distributed cognition | semantic synchronization, federation |
+| Runtime VM | semantic VM, cognition/replay/distributed/continuation/orchestration executors |
+| World modeling | compile, runtime, semantic world graph, operational topology |
+
+**Honest limit:** Python ships ~1,700+ `core/` modules; this npm package implements the **operational surface** with validators — not a file-for-file clone. See `docs/archive/FINAL_TRUE_EQUALITY_REPORT.md`.
+
+---
+
 ## Determinism model
 
 | Layer | Mechanism |
@@ -422,10 +439,14 @@ Full specification: [`docs/architecture/CROSS_LANGUAGE_PARITY.md`](docs/architec
 | Command | Purpose |
 |---------|---------|
 | `npm test` | Vitest (40+ cases) |
-| `npm run coverage` | ≥90% lines, ≥80% branches on `src/` |
+| `npm run coverage` | ≥95% lines, ≥97% functions, ≥85% branches on `src/` |
 | `npm run validate:parity` | Cross-language vector harness |
 | `npm run validate:production` | Production smoke checks |
-| `npm run validate:ecosystem` | Replay · graph · memory · reconstruction gates |
+| `npm run validate:ecosystem` | Full validator matrix (Tier A–D gates) |
+| `npm run validate:cognition` | Runtime cognition · recovery · semantic replay VM |
+| `npm run validate:parsers` | Parser fleet orchestration |
+| `npm run validate:graph` | Graph intelligence · topology · reconciliation |
+| `npm run validate:vm` | Semantic / cognition / replay / distributed VM fleet |
 | `npm run validate:replay` | Replay equivalence vectors |
 | `npm pack --dry-run` | Publish tarball audit |
 
@@ -467,6 +488,54 @@ WebWeaveX/                    # javascript branch
 │   └── validateEcosystem.ts
 └── .github/                  # CI, templates, funding
 ```
+
+---
+
+## Semantic systems
+
+WebWeaveX maintains a **bounded semantic fabric**: ontology classes, lineage, reconciliation, and graph cognition. Protected modules (`src/semantic/*`, `src/worldModel/*`) mirror Python `core/semantic` and `core/world_model` with deterministic serializers (`pythonSemanticSerializer.ts`). Cross-language probes run via `npm run validate:differential` against canonical vectors from `origin/python`.
+
+---
+
+## Graph systems
+
+Runtime graphs use **canonical node/edge ordering** (`RuntimeGraphContract`, `parityGraphHash`) so Python `json.dumps` spacing and JavaScript exports produce identical fingerprints. Graph reconstruction, replay graph hashes, and distributed runtime graphs share the same IR: `unified_runtime_graph`.
+
+---
+
+## VM systems
+
+The **semantic VM** (`src/vm/*`) executes bounded instruction streams (LINK, NOP, orchestration opcodes) with deterministic hashes aligned to Python `core/vm`. VM equivalence is validated through `validation/vectors/vm_vectors` and `npm run validate:vm`.
+
+---
+
+## Workflow execution
+
+`executeWorkflowPlan` mirrors Python `execute_workflow_plan` (step ordering, tick, replay_index). Autonomous workflows compose runtime graphs for multi-step extraction. Workflow vectors live under `validation/vectors/workflow_vectors` and `workflow_graph_vectors`.
+
+---
+
+## Distributed cognition
+
+Distributed extraction orchestrates workers, queues, adaptive memory sync, stream federation, and identity routing. Protected engines in `src/distributed/*` are hand-authored overrides (not generated ports). Probes: `distributed_vectors`, `distributed_replay_vectors`, `distributed_memory_vectors`.
+
+---
+
+## Browser cognition
+
+Browser modules (`src/browser/*`) handle capture, SPA stabilization, authenticated continuation, snapshots, and session envelopes. Browser equivalence uses Playwright/fetch paths with graceful degradation; vectors in `validation/vectors/browser_vectors`.
+
+---
+
+## Convergence architecture
+
+Convergence is **specification-anchored**: `specification/` is the sole authority; both the `origin/python` (pip) and `javascript` (npm) products conform to it and are proven equivalent through live probes against `specification/vectors`—not file-count parity, and neither implementation defines the other. Tooling: `tools/runtime_vectors/`, `tools/convergence/`, `validation/differential/`, protected module list (`tools/convergence/protected_js.txt`). Reports land in `docs/archive/`.
+
+---
+
+## Governance and OSS
+
+Governance files (`SECURITY.md`, `GOVERNANCE.md`, `CODEOWNERS`, `RELEASE.md`, `SUPPORT.md`) and workflows (`ci`, `release`, `publish`, `security`, `nightly`, `benchmark`, `provenance`) mirror the Python branch OSS surface. **True equality certification** (`FINAL_TRUE_EQUALITY_CERTIFICATION.md`) is issued only when forensic audit passes all executable gates—including generated-port execution proof and coverage thresholds.
 
 ---
 

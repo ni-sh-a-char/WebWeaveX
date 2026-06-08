@@ -1,0 +1,11 @@
+{
+  "python_validators": [
+    "validation/kaalka_cross_language/validate_cross_language.py",
+    "validation/reconstruction/validate_reconstruction.py",
+    "validation/replay/validate_replay.py",
+    "validation/runtime_graph/validate_runtime_graph.py",
+    "validation/runtime_memory/validate_runtime_memory.py",
+    "validation/validate_cross_language_parity.py",
+    "validation/validate_ecosystem.py"
+  ]
+}

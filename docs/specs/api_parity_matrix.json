@@ -1,0 +1,915 @@
+{
+  "measured_at": "2026-06-08T07:49:01.760824+00:00",
+  "authority": "specification/ (both conform; neither canonical)",
+  "python_total": 128,
+  "js_covered": 128,
+  "missing": 0,
+  "behavioral_spotchecks_equal": [
+    "build_runtime_graph",
+    "compute_global_runtime_fingerprint",
+    "compute_kaalka_hash",
+    "fingerprint"
+  ],
+  "duplicate_ownership": 0,
+  "conflicting_ownership": 0,
+  "coverage_pct": 100.0,
+  "all_mapped": true,
+  "mappings": [
+    {
+      "python_name": "RuntimeKernel",
+      "js_name": "RuntimeKernel",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "UniversalInput",
+      "js_name": "UniversalInput",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "__version__",
+      "js_name": "VERSION",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "analyze",
+      "js_name": "analyze",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "authenticate_runtime",
+      "js_name": "authenticateRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_browser_identity",
+      "js_name": "buildBrowserIdentity",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_interaction_graph",
+      "js_name": "buildInteractionGraph",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_runtime_delta",
+      "js_name": "buildRuntimeDelta",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_runtime_evolution",
+      "js_name": "buildRuntimeEvolution",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_runtime_graph",
+      "js_name": "buildRuntimeGraph",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "EQUAL (byte-identical, measured)"
+    },
+    {
+      "python_name": "build_runtime_memory",
+      "js_name": "buildRuntimeMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_runtime_objective",
+      "js_name": "buildRuntimeObjective",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_runtime_sandbox",
+      "js_name": "buildRuntimeSandbox",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_stream_timeline",
+      "js_name": "buildStreamTimeline",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "build_workflow_plan",
+      "js_name": "buildWorkflowPlan",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "capture_dom_mutations",
+      "js_name": "captureDomMutations",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "capture_websocket_frames",
+      "js_name": "captureWebsocketFrames",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "clone_runtime_environment",
+      "js_name": "cloneRuntimeEnvironment",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "compile_document",
+      "js_name": "compileDocument",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "compile_repository",
+      "js_name": "compileRepository",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "compile_unified_runtime_ir",
+      "js_name": "compileUnifiedRuntimeIr",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "compute_global_runtime_fingerprint",
+      "js_name": "computeGlobalRuntimeFingerprint",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "EQUAL (byte-identical, measured)"
+    },
+    {
+      "python_name": "compute_kaalka_hash",
+      "js_name": "computeKaalkaHash",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "EQUAL (byte-identical, measured)"
+    },
+    {
+      "python_name": "crawl",
+      "js_name": "crawl",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "crawl_async",
+      "js_name": "crawlAsync",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "decrypt_session_state",
+      "js_name": "decryptSessionState",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "decrypt_value",
+      "js_name": "decryptValue",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "encrypt_session_state",
+      "js_name": "encryptSessionState",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "encrypt_value",
+      "js_name": "encryptValue",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "evolve_selector_runtime",
+      "js_name": "evolveSelectorRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "execute_runtime_action",
+      "js_name": "executeRuntimeAction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "execute_runtime_objective",
+      "js_name": "executeRuntimeObjective",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract",
+      "js_name": "extract",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_api_runtime",
+      "js_name": "extractApiRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_async",
+      "js_name": "extractAsync",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_container_runtime",
+      "js_name": "extractContainerRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_database_runtime",
+      "js_name": "extractDatabaseRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_docs",
+      "js_name": "extractDocs",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_document_runtime",
+      "js_name": "extractDocumentRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_ide_runtime",
+      "js_name": "extractIdeRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_infinite_scroll",
+      "js_name": "extractInfiniteScroll",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_kubernetes_runtime",
+      "js_name": "extractKubernetesRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_multimodal",
+      "js_name": "extractMultimodal",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_native",
+      "js_name": "extractNative",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_paginated_content",
+      "js_name": "extractPaginatedContent",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_recursive",
+      "js_name": "extractRecursive",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_repo",
+      "js_name": "extractRepo",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_repository",
+      "js_name": "extractRepository",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_runtime_streams",
+      "js_name": "extractRuntimeStreams",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_telemetry_runtime",
+      "js_name": "extractTelemetryRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "extract_web",
+      "js_name": "extractWeb",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "fabricate_runtime_reality",
+      "js_name": "fabricateRuntimeReality",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "fingerprint",
+      "js_name": "fingerprint",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "EQUAL (byte-identical, measured)"
+    },
+    {
+      "python_name": "get_runtime_kernel",
+      "js_name": "getRuntimeKernel",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "heal_selector",
+      "js_name": "healSelector",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "ingest_input",
+      "js_name": "ingestInput",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_adaptive_memory",
+      "js_name": "loadAdaptiveMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_application_memory",
+      "js_name": "loadApplicationMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_browser_identity",
+      "js_name": "loadBrowserIdentity",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_causal_memory",
+      "js_name": "loadCausalMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_distributed_checkpoint",
+      "js_name": "loadDistributedCheckpoint",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_encrypted_session",
+      "js_name": "loadEncryptedSession",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_evolution_runtime",
+      "js_name": "loadEvolutionRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_live_runtime",
+      "js_name": "loadLiveRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_native_runtime",
+      "js_name": "loadNativeRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_runtime_memory",
+      "js_name": "loadRuntimeMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_semantic_memory",
+      "js_name": "loadSemanticMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_sync_memory",
+      "js_name": "loadSyncMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "load_workflow_memory",
+      "js_name": "loadWorkflowMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_documents",
+      "js_name": "queryDocuments",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_graph",
+      "js_name": "queryGraph",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_knowledge",
+      "js_name": "queryKnowledge",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_repo",
+      "js_name": "queryRepo",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_repository",
+      "js_name": "queryRepository",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_runtime_graph",
+      "js_name": "queryRuntimeGraph",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_runtime_memory",
+      "js_name": "queryRuntimeMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "query_semantics",
+      "js_name": "querySemantics",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "reason_semantically",
+      "js_name": "reasonSemantically",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "reconstruct_runtime",
+      "js_name": "reconstructRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "recover_modal_runtime",
+      "js_name": "recoverModalRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_causal_runtime",
+      "js_name": "replayCausalRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_interactions",
+      "js_name": "replayInteractions",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_runtime_execution",
+      "js_name": "replayRuntimeExecution",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_semantic_runtime",
+      "js_name": "replaySemanticRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_stream_events",
+      "js_name": "replayStreamEvents",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_synchronized_runtime",
+      "js_name": "replaySynchronizedRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "replay_workflow_runtime",
+      "js_name": "replayWorkflowRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_application_cognition",
+      "js_name": "runApplicationCognition",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_autonomous_extraction",
+      "js_name": "runAutonomousExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_autonomous_workflow",
+      "js_name": "runAutonomousWorkflow",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_canonical_pipeline",
+      "js_name": "runCanonicalPipeline",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_causality_for_extraction",
+      "js_name": "runCausalityForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_causality_runtime",
+      "js_name": "runCausalityRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_evolution_for_extraction",
+      "js_name": "runEvolutionForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_evolution_runtime",
+      "js_name": "runEvolutionRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_execution_for_extraction",
+      "js_name": "runExecutionForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_execution_runtime",
+      "js_name": "runExecutionRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_live_runtime",
+      "js_name": "runLiveRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_memory_for_extraction",
+      "js_name": "runMemoryForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_native_cognition",
+      "js_name": "runNativeCognition",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_reconstruction_for_extraction",
+      "js_name": "runReconstructionForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_reconstruction_runtime",
+      "js_name": "runReconstructionRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_runtime_memory",
+      "js_name": "runRuntimeMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_semantic_for_extraction",
+      "js_name": "runSemanticForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_semantic_runtime",
+      "js_name": "runSemanticRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_sync_for_extraction",
+      "js_name": "runSyncForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_synchronized_runtime",
+      "js_name": "runSynchronizedRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "run_workflow_for_extraction",
+      "js_name": "runWorkflowForExtraction",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_adaptive_memory",
+      "js_name": "saveAdaptiveMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_application_memory",
+      "js_name": "saveApplicationMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_browser_identity",
+      "js_name": "saveBrowserIdentity",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_causal_memory",
+      "js_name": "saveCausalMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_distributed_checkpoint",
+      "js_name": "saveDistributedCheckpoint",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_encrypted_session",
+      "js_name": "saveEncryptedSession",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_evolution_runtime",
+      "js_name": "saveEvolutionRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_live_runtime",
+      "js_name": "saveLiveRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_native_runtime",
+      "js_name": "saveNativeRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_runtime_memory",
+      "js_name": "saveRuntimeMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_semantic_memory",
+      "js_name": "saveSemanticMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_sync_memory",
+      "js_name": "saveSyncMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "save_workflow_memory",
+      "js_name": "saveWorkflowMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "search_runtime_memory",
+      "js_name": "searchRuntimeMemory",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "simulate_runtime_execution",
+      "js_name": "simulateRuntimeExecution",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "stream_extract",
+      "js_name": "streamExtract",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "universal_extract",
+      "js_name": "universalExtract",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "validate_reconstructed_runtime",
+      "js_name": "validateReconstructedRuntime",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "validate_replay_equivalence",
+      "js_name": "validateReplayEquivalence",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    },
+    {
+      "python_name": "version",
+      "js_name": "version",
+      "exists_python": true,
+      "exists_js": true,
+      "behavior_match": "covered_by_equivalence_harness"
+    }
+  ]
+}

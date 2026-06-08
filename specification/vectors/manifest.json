@@ -1,0 +1,20 @@
+{
+  "authority": "webweavex-spec",
+  "version": "1.0.0",
+  "description": "Canonical behavioral vectors. Implementations must match these outputs \u2014 not each other at runtime.",
+  "families": [
+    "runtime_vectors",
+    "memory_vectors",
+    "graph_vectors",
+    "replay_vectors",
+    "semantic_vectors",
+    "workflow_vectors",
+    "distributed_vectors",
+    "browser_vectors",
+    "vm_vectors",
+    "ontology_vectors"
+  ],
+  "migration_note": "Copied from validation/vectors during Omega-Final. Source tag must be webweavex-spec, not origin/python.",
+  "families_synced": 21,
+  "synced_at": "2026-06-08T04:15:51.932177+00:00"
+}

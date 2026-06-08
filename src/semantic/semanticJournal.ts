@@ -22,3 +22,18 @@ export function replaySemanticJournal(journal: Record<string, unknown>[]): Recor
     bounded: journal.length <= MAX_EVENTS,
   };
 }
+
+export function createSemanticJournal(): {
+  record: (event: Record<string, unknown>) => void;
+  replay: () => { count: number; events: Record<string, unknown>[] };
+} {
+  const events: Record<string, unknown>[] = [];
+  return {
+    record(event) {
+      events.push({ ...event, event_id: computeDeterministicHash(event) });
+    },
+    replay() {
+      return { count: events.length, events: [...events] };
+    },
+  };
+}

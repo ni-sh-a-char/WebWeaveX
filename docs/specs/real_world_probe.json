@@ -1,0 +1,13 @@
+{
+  "measured_at": "2026-06-08T07:39:06.079Z",
+  "urls_total": 1200,
+  "urls_executed": 1200,
+  "match_count": 1200,
+  "fail_count": 0,
+  "drift_count": 0,
+  "match_pct": 100,
+  "fail_pct": 0,
+  "drift_pct": 0,
+  "drift_threshold_pct": 5,
+  "pass": true
+}

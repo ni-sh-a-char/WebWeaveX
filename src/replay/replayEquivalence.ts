@@ -1,99 +1,21 @@
-import stringify from "fast-json-stable-stringify";
-import { RuntimeGraphContract } from "../contracts/graphContracts.js";
-import { computeKaalkaHash } from "../crypto/kaalkaRuntime.js";
-import { computeStableDomHash } from "../determinism/domStabilization.js";
-import { computeGlobalRuntimeFingerprint } from "../determinism/globalRuntimeFingerprint.js";
+/**
+ * Replay equivalence — typed facade over the certified engine
+ * (see specification/replay for the authoritative contract).
+ *
+ * The specification defines exactly three replay checks: graph_hash,
+ * global_fingerprint and browser_identity. Earlier hand-written revisions
+ * added extra checks (dom/semantic/memory) — removed as spec drift.
+ */
+import { validateReplayEquivalence as engineValidate } from "./replayEquivalenceEngine.js";
 import type { ExtractionEnvelope } from "../contracts/runtimeContracts.js";
-import type { RuntimeGraph } from "../contracts/graphContracts.js";
-
-function graphHash(graph: RuntimeGraph): string {
-  const normalized = RuntimeGraphContract.normalize(graph);
-  return computeKaalkaHash(
-    stringify({ nodes: normalized.nodes, edges: normalized.edges }),
-  );
-}
-
-function domSnapshotHash(envelope: ExtractionEnvelope): string | null {
-  const raw =
-    (envelope as Record<string, unknown>).dom_snapshot ??
-    (envelope as Record<string, unknown>).dom_html ??
-    (envelope.browser_ir as Record<string, unknown> | undefined)?.dom_html;
-  if (typeof raw !== "string" || raw.length === 0) return null;
-  return computeStableDomHash(raw);
-}
 
 export function validateReplayEquivalence(
   original: ExtractionEnvelope,
   replayed: ExtractionEnvelope,
 ): { equivalent: boolean; checks: Array<Record<string, unknown>>; bounded: boolean } {
-  const origGraph = (original.unified_runtime_graph ?? original.graph ?? {
-    nodes: [],
-    edges: [],
-  }) as RuntimeGraph;
-  const replayGraph = (replayed.unified_runtime_graph ?? replayed.graph ?? {
-    nodes: [],
-    edges: [],
-  }) as RuntimeGraph;
-
-  const origFp = computeGlobalRuntimeFingerprint(original, origGraph);
-  const replayFp = computeGlobalRuntimeFingerprint(replayed, replayGraph);
-  const origDom = domSnapshotHash(original);
-  const replayDom = domSnapshotHash(replayed);
-
-  const checks: Array<Record<string, unknown>> = [
-    {
-      name: "graph_hash",
-      ok: graphHash(origGraph) === graphHash(replayGraph),
-      original: graphHash(origGraph).slice(0, 16),
-      replay: graphHash(replayGraph).slice(0, 16),
-    },
-    {
-      name: "global_fingerprint",
-      ok: origFp === replayFp,
-      original: origFp.slice(0, 16),
-      replay: replayFp.slice(0, 16),
-    },
-    {
-      name: "browser_identity",
-      ok:
-        (original.browser_ir as Record<string, unknown> | undefined)?.runtime_identity ===
-        (replayed.browser_ir as Record<string, unknown> | undefined)?.runtime_identity,
-    },
-  ];
-
-  if (origDom !== null && replayDom !== null) {
-    checks.push({
-      name: "dom_stabilized_hash",
-      ok: origDom === replayDom,
-      original: origDom.slice(0, 16),
-      replay: replayDom.slice(0, 16),
-    });
-  }
-
-  checks.push({
-    name: "semantic_fingerprint",
-    ok: origFp === replayFp && graphHash(origGraph) === graphHash(replayGraph),
-  });
-
-  const origMem = (original as Record<string, unknown>).runtime_memory;
-  const replayMem = (replayed as Record<string, unknown>).runtime_memory;
-  if (
-    origMem &&
-    replayMem &&
-    typeof origMem === "object" &&
-    typeof replayMem === "object"
-  ) {
-    checks.push({
-      name: "memory_stable_hash",
-      ok:
-        (origMem as Record<string, unknown>).stable_hash ===
-        (replayMem as Record<string, unknown>).stable_hash,
-    });
-  }
-
-  return {
-    equivalent: checks.every((c) => c.ok),
-    checks,
-    bounded: true,
+  return engineValidate(original, replayed) as {
+    equivalent: boolean;
+    checks: Array<Record<string, unknown>>;
+    bounded: boolean;
   };
 }

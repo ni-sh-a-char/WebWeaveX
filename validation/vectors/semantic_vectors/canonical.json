@@ -1,0 +1,89 @@
+{
+  "family": "semantic_vectors",
+  "generated_at": "2026-06-07T18:46:14.894614+00:00",
+  "source": "origin/python",
+  "algorithm": "webweavex-canonical-probes@2.0.0",
+  "vectors": [
+    {
+      "id": "semantic-ontology",
+      "input": {
+        "entities": [
+          {
+            "type": "Person"
+          },
+          {
+            "type": "Organization"
+          },
+          {
+            "type": "Person"
+          }
+        ],
+        "domain": "operations"
+      },
+      "canonical_output": {
+        "entity_taxonomy": [
+          "Organization",
+          "Person"
+        ],
+        "runtime_ontology": [
+          "browser",
+          "native",
+          "distributed",
+          "application"
+        ],
+        "workflow_ontology": [
+          "transition",
+          "submit",
+          "navigate",
+          "objective"
+        ],
+        "ui_ontology": [
+          "form",
+          "dashboard",
+          "navigation",
+          "authentication"
+        ],
+        "infrastructure_ontology": [
+          "service",
+          "api",
+          "deployment",
+          "monitoring"
+        ],
+        "primary_domain": "operations",
+        "taxonomy": {
+          "entity": [
+            "Organization",
+            "Person"
+          ],
+          "runtime": [
+            "browser",
+            "native",
+            "distributed",
+            "application"
+          ],
+          "workflow": [
+            "transition",
+            "submit",
+            "navigate",
+            "objective"
+          ],
+          "ui": [
+            "form",
+            "dashboard",
+            "navigation",
+            "authentication"
+          ],
+          "infrastructure": [
+            "service",
+            "api",
+            "deployment",
+            "monitoring"
+          ]
+        },
+        "bounded": true
+      },
+      "runtime_hash": "7da1104b1dd8d40fb1c23442f35d47342b749247a6be47cf387ed9817f1fc1e2",
+      "deterministic_fingerprint": "ceba62da5896ce93b9b004dedb0d228a76d18b77d9dba87c1d2399f55ee67aa6"
+    }
+  ]
+}

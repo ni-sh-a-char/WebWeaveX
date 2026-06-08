@@ -1,6 +1,5 @@
 import { execSync } from "node:child_process";
 import {
-  buildRuntimeGraph,
   buildRuntimeMemory,
   decryptValue,
   encryptValue,
@@ -8,9 +7,11 @@ import {
   queryRuntimeMemory,
   reconstructRuntime,
 } from "../src/index.js";
+import { buildRuntimeGraph } from "../src/graph/runtimeGraph.js";
 
 for (const cmd of [
   "npm run validate:parity",
+  "tsx validation/kaalka_cross_language/validateCrossLanguage.ts",
   "tsx validation/replay/validateReplay.ts",
   "tsx validation/runtime_graph/validateRuntimeGraph.ts",
   "tsx validation/runtime_memory/validateRuntimeMemory.ts",
@@ -20,6 +21,21 @@ for (const cmd of [
   "tsx validation/orchestration/validateOrchestration.ts",
   "tsx validation/semantics/validateSemantics.ts",
   "tsx validation/distributed/validateDistributed.ts",
+  "tsx validation/repository/validateRepository.ts",
+  "tsx validation/documents/validateDocuments.ts",
+  "tsx validation/evidence/validateEvidence.ts",
+  "tsx validation/streaming/validateStreaming.ts",
+  "tsx validation/adaptive/validateAdaptive.ts",
+  "tsx validation/workflows/validateWorkflows.ts",
+  "tsx validation/cognition/validateCognition.ts",
+  "tsx validation/parsers/validateParsers.ts",
+  "tsx validation/graph/validateGraph.ts",
+  "tsx validation/vm/validateVm.ts",
+  "tsx validation/differential/runAllDifferential.ts",
+  "npm run validate:replay-equivalence",
+  "tsx validation/enterprise/validateEnterprise.ts",
+  "tsx validation/production/validateProductionMaster.ts",
+  "tsx validation/realworld/validateRealWorld.ts",
 ]) {
   execSync(cmd, { stdio: "inherit" });
 }
