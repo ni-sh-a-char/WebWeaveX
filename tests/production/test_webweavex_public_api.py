@@ -4,7 +4,7 @@ import webweavex
 
 
 def test_version_alias():
-    assert webweavex.version == "2.0.0"
+    assert webweavex.version == "2.0.1"
 
 
 def test_compute_global_fingerprint_export():

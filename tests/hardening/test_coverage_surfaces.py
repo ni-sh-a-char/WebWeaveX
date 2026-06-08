@@ -24,7 +24,7 @@ def test_workflow_queue_roundtrip():
 def test_webweavex_api_imports():
     import webweavex
 
-    assert webweavex.__version__ == "2.0.0"
+    assert webweavex.__version__ == "2.0.1"
     assert callable(webweavex.extract_web)
     assert callable(webweavex.run_canonical_pipeline)
 
