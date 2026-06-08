@@ -93,6 +93,34 @@ Every source converges on the same bounded, hashable, replayable runtime IR.
 
 ---
 
+## Web Extraction Without Fragility
+
+Most extraction systems focus on collecting content.
+
+WebWeaveX focuses on preserving runtime state.
+
+Traditional scraping often breaks when:
+
+* authentication expires
+* SPA frameworks re-render
+* runtime identifiers change
+* workflows span multiple sessions
+* replay must be validated later
+
+WebWeaveX performs extraction through a deterministic runtime pipeline that stabilizes, fingerprints, reconstructs, and validates operational state.
+
+| Extraction Challenge | Traditional Approach | WebWeaveX |
+|----------------------|----------------------|-----------|
+| SPA instability | Re-scrape repeatedly | Runtime stabilization |
+| Authenticated workflows | Start over | Runtime continuation |
+| Session portability | Manual export | Encrypted runtime persistence |
+| Validation | Manual inspection | Replay equivalence |
+| Recovery | Re-run workflow | Runtime reconstruction |
+
+The result is extraction that can be continued, replayed, reconstructed, and verified.
+
+---
+
 ## What WebWeaveX is NOT
 
 | Not | Reality |
@@ -116,6 +144,25 @@ Every source converges on the same bounded, hashable, replayable runtime IR.
 | **Browser AI agents** | Deterministic Playwright continuity, replay-safe memory, operational graphs |
 
 Same APIs, same determinism contract, same honesty about authorization.
+
+---
+
+## Why AI Agents Need WebWeaveX
+
+Browser agents interact with operational systems that change continuously.
+
+Without deterministic runtime infrastructure, agents frequently lose context between actions.
+
+| Agent Failure Mode | Operational Impact | WebWeaveX Capability |
+|--------------------|--------------------|----------------------|
+| Lost browser state | Re-authentication | Runtime continuation |
+| Lost workflow context | Restart execution | Runtime memory fabric |
+| DOM instability | Broken selectors | DOM stabilization |
+| Replay drift | Non-repeatable behavior | Replay equivalence |
+| Session expiration | Lost progress | Encrypted persistence |
+| Workflow interruption | Incomplete execution | Runtime reconstruction |
+
+WebWeaveX provides a deterministic runtime layer beneath browser agents so operational state becomes persistent, replayable, and auditable.
 
 ---
 
@@ -278,6 +325,25 @@ WebWeaveX does not replace these systems. It provides deterministic runtime infr
 
 ---
 
+## Runtime Cognition Infrastructure
+
+WebWeaveX introduces a category beyond traditional scraping, browser automation, or agent orchestration.
+
+The project defines **Runtime Cognition Infrastructure**:
+
+> Infrastructure that captures, stabilizes, fingerprints, reconstructs, and continues operational runtime state through deterministic contracts.
+
+| Category | Focus |
+|----------|-------|
+| Browser automation | Execute actions |
+| Web scraping | Extract content |
+| Agent orchestration | Coordinate reasoning |
+| Runtime cognition infrastructure | Preserve operational runtime state |
+
+WebWeaveX can work alongside existing ecosystems rather than replacing them.
+
+---
+
 ## Core capabilities
 
 - `extractWeb()` — bounded browser extraction  
@@ -436,6 +502,69 @@ console.log(
 
 console.log(computeDeterministicHash({ status: "ok" }));
 ```
+
+---
+
+## Authenticated Runtime Continuation Example
+
+A common operational workflow spans multiple sessions.
+
+Day 1:
+
+```text
+login
+  ↓
+dashboard
+  ↓
+reports
+```
+
+Day 2:
+
+```text
+load runtime
+  ↓
+restore session
+  ↓
+continue workflow
+```
+
+Example:
+
+```ts
+import {
+  saveAuthenticatedRuntime,
+  loadAuthenticatedRuntime,
+  extractWeb,
+} from "webweavex";
+
+const key = process.env.WWX_SESSION_KEY!;
+
+await saveAuthenticatedRuntime(
+  "./runtime.kaalka",
+  {
+    cookies: [],
+    headers: {},
+  },
+  key,
+);
+
+const runtime = await loadAuthenticatedRuntime(
+  "./runtime.kaalka",
+  key,
+);
+
+await extractWeb(
+  "https://app.example.com/reports",
+  {
+    authenticated: true,
+    sessionPath: "./runtime.kaalka",
+    encryptionKey: key,
+  },
+);
+```
+
+Runtime continuation is available only when user-authorized session material is supplied.
 
 ---
 
@@ -666,6 +795,25 @@ WebWeaveX aims to be a **deterministic runtime substrate** — a shared operatio
 | Distributed cognition systems | Synchronized, verifiable runtime fabric |
 
 It is infrastructure, not an application: the same deterministic contract serves every consumer above.
+
+---
+
+## Future Direction
+
+WebWeaveX is evolving toward a shared runtime substrate where operational state can move between humans, workflows, services, and AI agents without losing determinism.
+
+Future areas include:
+
+* broader language parity
+* deeper runtime graph intelligence
+* expanded connector ecosystems
+* stronger replay guarantees
+* larger runtime memory fabrics
+* distributed operational cognition
+
+The guiding principle remains unchanged:
+
+> Runtime state should be as reproducible, portable, and verifiable as source code.
 
 ---
 
