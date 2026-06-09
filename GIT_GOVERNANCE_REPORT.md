@@ -1,7 +1,26 @@
 # GIT_GOVERNANCE_REPORT.md
 
-> Phase 13 governance record for the Wave 3 validation + parity session (2026-06-10).
+> Phase 13 governance record for the Wave 3 + Wave 4 sessions (2026-06-10).
 > All work validated before commit; pushed to `origin/dart`. No force pushes, no history rewrites.
+
+## Wave 4 commits (parity proof + reality audit)
+
+| Commit | Type | Summary |
+|--------|------|---------|
+| `8d765ae` | feat | Port `replay_interactions` to native Dart (Deferred → Partial), 6 deep-equality vectors vs Python 2.0.1 |
+| `1f16fbd` | test | Three-way parity validator (Python ≡ JavaScript ≡ Dart) |
+| `7e36eac` | docs | Phase-1 `DART_REALITY_AUDIT` + Phase-12 `FINAL_TRUE_PARITY_REPORT` + `proof_coverage.py` + metric sync |
+| `<this>` | docs | Governance report update |
+
+Wave 4 base `3bd9cf7` → head `7e36eac` (pushed). Final metrics: **802 tests, 97.26% coverage,
+88 Complete · 25 Partial · 15 Deferred · 0 Missing**, three-way deterministic-core parity proven.
+Key Phase-3 result: all 88 Complete APIs are exercised by executed tests (`tools/proof_coverage.py`);
+foundational core proven three-way; signature-divergent Complete APIs disclosed honestly in
+`FINAL_TRUE_PARITY_REPORT.md`.
+
+---
+
+## Wave 3 commits (original record)
 
 ## Commits created (this session)
 
