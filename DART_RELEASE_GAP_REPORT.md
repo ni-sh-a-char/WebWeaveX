@@ -12,7 +12,7 @@ Gap between the current Dart runtime and first-class parity with Python (2.0.1) 
 | Coverage | ✅ 97.23% (target 90%) |
 | `dart pub publish --dry-run` | ✅ 0 warnings (benign version hint) |
 | OSS files | ✅ all present |
-| CI gates | 🟡 workflows exist; coverage + publish-dry-run gates to be confirmed green |
+| CI gates | ✅ `.github/workflows/dart.yml` runs format + analyze + test + coverage(≥90% gate) + parity + publish-dry-run on push/PR to `dart` |
 
 The existing surface is already release-quality. The gap is **API breadth**, not packaging.
 

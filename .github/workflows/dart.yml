@@ -21,5 +21,15 @@ jobs:
       - run: dart format --set-exit-if-changed .
       - run: dart analyze
       - run: dart test
+      - name: Coverage (gate 90%)
+        run: |
+          dart pub global activate coverage
+          dart test --coverage=coverage
+          dart pub global run coverage:format_coverage --lcov \
+            --in=coverage --out=coverage/lcov.info --report-on=lib \
+            --packages=.dart_tool/package_config.json
+          pct=$(awk -F: '/^LF:/{lf+=$2} /^LH:/{lh+=$2} END{printf "%.2f", 100*lh/lf}' coverage/lcov.info)
+          echo "Line coverage: ${pct}%"
+          awk -F: '/^LF:/{lf+=$2} /^LH:/{lh+=$2} END{exit !(100*lh/lf >= 90)}' coverage/lcov.info
       - run: dart run validation/validate_parity.dart
       - run: dart pub publish --dry-run
