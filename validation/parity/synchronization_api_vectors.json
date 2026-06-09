@@ -1,0 +1,299 @@
+[
+  {
+    "api": "build_runtime_delta",
+    "input": {
+      "previous": {
+        "a": 1,
+        "semantic": {
+          "x": 1
+        },
+        "dom_root": {
+          "d": 1
+        },
+        "state_x": 1
+      },
+      "current": {
+        "a": 2,
+        "workflow": {
+          "y": 2
+        },
+        "dom_root": {
+          "d": 2
+        },
+        "state_x": 1
+      },
+      "tick": 3
+    },
+    "det_hash": "5424fab22b46054d953c326a1a932fa9ac140081335701e31fdbc78027443fb7"
+  },
+  {
+    "api": "build_runtime_delta",
+    "input": {
+      "previous": {},
+      "current": {},
+      "tick": 0
+    },
+    "det_hash": "37b11bd6c253d5d57aa194282e909e15087ee9e242905be7577071c237298a70"
+  },
+  {
+    "api": "build_runtime_delta",
+    "input": {
+      "previous": {
+        "ui_panel": {
+          "open": false
+        }
+      },
+      "current": {
+        "ui_panel": {
+          "open": true
+        }
+      },
+      "tick": 7
+    },
+    "det_hash": "57295e85eabb06d669daf6e58a8dc379ea8011aaba583abca02e0bff7a8d618d"
+  },
+  {
+    "api": "replay_synchronized_runtime",
+    "input": {
+      "memory": {
+        "history": {
+          "deltas": [
+            {
+              "delta_id": "d1",
+              "timestamp": 1,
+              "changes": []
+            }
+          ],
+          "length": 1
+        },
+        "deltas": [
+          {
+            "delta_id": "d1",
+            "timestamp": 1,
+            "changes": []
+          }
+        ],
+        "timeline": {
+          "timeline": [
+            {
+              "tick": 1,
+              "delta_id": "d1",
+              "change_count": 0
+            }
+          ]
+        },
+        "realities": [
+          {
+            "reality_id": "primary",
+            "tick": 1
+          }
+        ],
+        "convergence": {
+          "converged": true,
+          "reality_count": 1
+        }
+      }
+    },
+    "det_hash": "768472838ea7cc095cb64c48fdbfb77cc4586697932a0b7da6da3daed54c8070"
+  },
+  {
+    "api": "replay_synchronized_runtime",
+    "input": {
+      "memory": {}
+    },
+    "det_hash": "4e766f75b2174cf7426e614a031620a9136cfbd81c839ecd84ef5da67c0d3006"
+  },
+  {
+    "api": "run_synchronized_runtime",
+    "input": {
+      "tick": 5,
+      "browser": {
+        "dom": {
+          "title": "Home",
+          "nodes": [
+            1,
+            2
+          ]
+        },
+        "runtime": {
+          "engine": "chromium"
+        }
+      },
+      "native": {
+        "process": {
+          "pid": 100
+        }
+      },
+      "semantic_result": {
+        "semantic": {
+          "entities": [
+            "a",
+            "b"
+          ]
+        }
+      },
+      "workflow_result": {
+        "workflow": {
+          "steps": [
+            "login",
+            "search"
+          ]
+        }
+      },
+      "causality_result": {
+        "causality": {
+          "edges": [
+            [
+              "a",
+              "b"
+            ]
+          ]
+        }
+      },
+      "distributed_result": {
+        "workers": [
+          {
+            "worker_id": "w1"
+          },
+          {
+            "id": "w2"
+          }
+        ]
+      },
+      "session": {
+        "session_id": "s1",
+        "cookies": {
+          "sid": "abc"
+        }
+      },
+      "identity": {
+        "fingerprint": "fp1"
+      },
+      "memory": {
+        "last_view": {
+          "dom": {
+            "title": "Old"
+          },
+          "semantic": {},
+          "workflow": {},
+          "runtime": {},
+          "causality": {}
+        },
+        "deltas": [
+          {
+            "delta_id": "old",
+            "timestamp": 0,
+            "changes": []
+          }
+        ],
+        "checkpoints": [
+          {
+            "cp": 1
+          }
+        ],
+        "checkpoint": {
+          "cp": 1
+        },
+        "continuity": {
+          "continuous": true
+        }
+      }
+    },
+    "det_hash": "069b80e02df36e57d9ea8d895f62c55ff9c392a48b4eff10e680c6ab3c955bb5"
+  },
+  {
+    "api": "run_synchronized_runtime",
+    "input": {
+      "tick": 0
+    },
+    "det_hash": "3374387c1b03d683cbbdd855a66b5950673aa2755084b71b7e6b6c88b217205b"
+  },
+  {
+    "api": "run_synchronized_runtime",
+    "input": {
+      "tick": 2,
+      "browser": {
+        "dom": {
+          "k": 1
+        },
+        "runtime": {
+          "r": 1
+        }
+      },
+      "semantic_result": {
+        "semantic": {
+          "s": 1
+        }
+      },
+      "workflow_result": {
+        "workflow": {
+          "w": 1
+        }
+      },
+      "workers": [
+        {
+          "worker_id": "wa"
+        },
+        {
+          "worker_id": "wb"
+        }
+      ]
+    },
+    "det_hash": "63d2c1b8c0a4978f0c81c5904755ef19514c0e6ab000160e82716ab6d3b03734"
+  },
+  {
+    "api": "run_sync_for_extraction",
+    "input": {
+      "synchronized_runtime": false
+    },
+    "det_hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+  },
+  {
+    "api": "run_sync_for_extraction",
+    "input": {
+      "synchronized_runtime": true,
+      "tick": 4,
+      "browser": {
+        "dom": {
+          "t": "p"
+        },
+        "runtime": {
+          "e": "c"
+        }
+      },
+      "semantic_result": {
+        "semantic": {
+          "e": 1
+        }
+      },
+      "workflow_result": {
+        "workflow": {
+          "w": 1
+        }
+      },
+      "distributed_result": {
+        "workers": [
+          {
+            "worker_id": "w1"
+          }
+        ]
+      },
+      "merge_graph": true
+    },
+    "det_hash": "e3ab7aac2b7834d2631ee5d9f1a30f3de2c2dfecd2bd6b6bdaf7eee7c49f60d7"
+  },
+  {
+    "api": "run_sync_for_extraction",
+    "input": {
+      "synchronized_runtime": true,
+      "tick": 1,
+      "browser": {
+        "dom": {
+          "t": "q"
+        }
+      },
+      "merge_graph": false
+    },
+    "det_hash": "de7bae9cf67f6b6ce3ab85b01dec82bf052015a35274595e344440a603ebcdbb"
+  }
+]

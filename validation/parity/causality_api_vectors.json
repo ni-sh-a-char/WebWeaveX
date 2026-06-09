@@ -1,0 +1,74 @@
+[
+  {
+    "api": "run_causality_runtime",
+    "input": {
+      "interactions": [
+        { "action": "click", "selector": "#a" },
+        { "action": "type", "selector": "#b" }
+      ]
+    },
+    "det_hash": "7dedcf79f48add3f504b2fb9ad2749f63612b74f9da3a126b536051d00929131"
+  },
+  {
+    "api": "run_causality_runtime",
+    "input": {},
+    "det_hash": "fef7c6ce0534b1d5e99f295fb6394830ba5e0da17cae29d1c42dee310bd90c68"
+  },
+  {
+    "api": "run_causality_runtime",
+    "input": {
+      "interactions": [{ "action": "click", "selector": "#x" }],
+      "native_cognition": {
+        "runtime": "desktop",
+        "interactions": [{ "action": "open" }],
+        "terminal": { "output": ["line1", "line2"] },
+        "electron": { "routes": ["/home"] },
+        "desktop": { "notifications": [{ "id": "n1", "interaction": true }] },
+        "processes": { "processes": [{ "name": "proc1", "parent": "init" }] }
+      }
+    },
+    "det_hash": "a0b98d995bdf015bd05cbb1f1bd30f56b96974c544f06a763246d3741469bb60"
+  },
+  {
+    "api": "run_causality_for_extraction",
+    "input": {
+      "interactions": [
+        { "action": "click", "selector": "#a" },
+        { "action": "type", "selector": "#b" }
+      ],
+      "merge_graph": false
+    },
+    "det_hash": "5adc9ed0ae080f02a6181e4fce18880ad8e4045584d838a77fb57172e5c23ee7"
+  },
+  {
+    "api": "run_causality_for_extraction",
+    "input": {
+      "interactions": [{ "action": "click", "selector": "#a" }],
+      "merge_graph": true
+    },
+    "det_hash": "b1a7ba911955a0940137aa3f3da010dfa6d7c3ed802d2b1e3c20ef6d5833ea75"
+  },
+  {
+    "api": "run_causality_for_extraction",
+    "input": { "causality_runtime": false },
+    "det_hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+  },
+  {
+    "api": "replay_causal_runtime",
+    "input": {
+      "memory": {
+        "runtime_propagation": { "a": 1 },
+        "event_chains": { "b": 2 },
+        "synchronization_state": { "c": 3 },
+        "causal_graphs": { "d": 4 },
+        "alignment": { "e": 5 }
+      }
+    },
+    "det_hash": "6d99b0b5eec5a3f5f2bf840322637b496997f8c5fbe50cdf671863b2042b7421"
+  },
+  {
+    "api": "replay_causal_runtime",
+    "input": { "memory": {} },
+    "det_hash": "ee9cd4810cd75bb59f19d2866d59e24f2e98adf9de2fe18e25fc0a7b5d4cc130"
+  }
+]

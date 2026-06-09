@@ -1,0 +1,323 @@
+[
+  {
+    "api": "build_runtime_sandbox",
+    "input": {
+      "runtime": "browser"
+    },
+    "det_hash": "f7abd6e9523da44187023208e56acc165839c93226bea24edad8bcf2ee5368f9"
+  },
+  {
+    "api": "build_runtime_sandbox",
+    "input": {
+      "runtime": "terminal"
+    },
+    "det_hash": "75e313c16eda7766e38bd3cfdbdacb2909488fe874ba6a1b502d9ec4a49416b3"
+  },
+  {
+    "api": "build_runtime_sandbox",
+    "input": {
+      "runtime": "native"
+    },
+    "det_hash": "836d25abc05ec83a7aad8f278f9c96d9f3a9aac64db22760a22664308ae03ab4"
+  },
+  {
+    "api": "build_runtime_sandbox",
+    "input": {
+      "runtime": "vm"
+    },
+    "det_hash": "1028bb7a32e80eb86a2c7156cbd033551db4d4b5d1739de4351a28b4957e692b"
+  },
+  {
+    "api": "build_runtime_sandbox",
+    "input": {
+      "runtime": "browser",
+      "allowed_actions": [
+        "z_action",
+        "a_action"
+      ],
+      "max_actions": 5,
+      "timeout_ticks": 42,
+      "replay_policy": "lenient",
+      "rollback_enabled": false
+    },
+    "det_hash": "92c100019952757c08bbe4084c7f7789ebde1db4f1c5c82791d1c15f291d8bee"
+  },
+  {
+    "api": "execute_runtime_action",
+    "input": {
+      "raw_action": {
+        "type": "browser_click",
+        "selector": "#submit"
+      },
+      "sandbox": "browser",
+      "tick": 7
+    },
+    "det_hash": "635d728f26d4426087e87a89f7ccb7b7053393e62c482f14a5ac3c187c6ce2ab"
+  },
+  {
+    "api": "execute_runtime_action",
+    "input": {
+      "raw_action": {
+        "type": "terminal_command",
+        "command": "pwd"
+      },
+      "sandbox": "browser",
+      "tick": 0
+    },
+    "det_hash": "8ae90125595a059fd1948f099c0293a8945957c2891d6979e4d43b4056e3dade"
+  },
+  {
+    "api": "execute_runtime_action",
+    "input": {
+      "raw_action": {
+        "type": "browser_click",
+        "selector": ""
+      },
+      "sandbox": "browser",
+      "tick": 0
+    },
+    "det_hash": "64ca1e6a32564d74117dd56158761b3ac2cf7fe7a5ea370638768c45a8d369f9"
+  },
+  {
+    "api": "execute_runtime_action",
+    "input": {
+      "raw_action": {
+        "type": "terminal_command",
+        "command": "rm -rf /"
+      },
+      "sandbox": "terminal",
+      "tick": 0
+    },
+    "det_hash": "52ebabe8e0d52e6c1317ef0ec08e3371448d1e4d12769d8a35f1ae470c121541"
+  },
+  {
+    "api": "execute_runtime_action",
+    "input": {
+      "raw_action": {
+        "type": "terminal_command",
+        "command": "pwd"
+      },
+      "sandbox": "terminal",
+      "tick": 3
+    },
+    "det_hash": "2dfc2cf49dfbc0b02ca1649d7d5c0a5985fcc41dbbf5ce124aa99c7ce36d8800"
+  },
+  {
+    "api": "execute_runtime_action",
+    "input": {
+      "raw_action": {
+        "type": "browser_click",
+        "selector": "#x"
+      },
+      "sandbox": "browser",
+      "permissions": [
+        "native"
+      ],
+      "tick": 0
+    },
+    "det_hash": "c5153546aad18896277b4e6de598f2dd3343eebc869dd3070e353ea570582145"
+  },
+  {
+    "api": "simulate_runtime_execution",
+    "input": {
+      "actions": [
+        {
+          "type": "browser_click",
+          "selector": "#submit"
+        },
+        {
+          "type": "browser_click",
+          "selector": "#cancel"
+        }
+      ],
+      "tick": 0
+    },
+    "det_hash": "fc829cac08e693e1b99c0e9bc184485ab86e2720a8c30c99b51635e80bad27dc"
+  },
+  {
+    "api": "simulate_runtime_execution",
+    "input": {
+      "actions": [
+        {
+          "type": "browser_click",
+          "selector": "#submit"
+        },
+        {
+          "type": "browser_click",
+          "selector": "#cancel"
+        }
+      ],
+      "tick": 5
+    },
+    "det_hash": "e86b95529e2733c5808911fee29af271d490b20db80ba5520a270a7a703a5ca2"
+  },
+  {
+    "api": "simulate_runtime_execution",
+    "input": {
+      "actions": [
+        {
+          "type": "browser_click",
+          "selector": "#a"
+        },
+        {
+          "type": "terminal_command",
+          "command": "pwd"
+        }
+      ],
+      "sandbox": "browser",
+      "tick": 0
+    },
+    "det_hash": "925e8f32584ebe7100172b62e508b6e75269023d6e26f18c098e3f1acdb2381b"
+  },
+  {
+    "api": "replay_runtime_execution",
+    "input": {
+      "actions": [
+        {
+          "id": "zzz"
+        },
+        {
+          "id": "aaa"
+        },
+        {
+          "id": "mmm"
+        }
+      ],
+      "transactions": [
+        {
+          "transaction_id": "t2"
+        },
+        {
+          "transaction_id": "t1"
+        }
+      ],
+      "mutations": [
+        {
+          "kind": "dom",
+          "tick": 2,
+          "ordered_index": 0
+        },
+        {
+          "kind": "native",
+          "tick": 1,
+          "ordered_index": 1
+        }
+      ],
+      "tick": 9
+    },
+    "det_hash": "dd53cf5509cbb7f61936a0a4d055dc3c7b3dcb75a93798f1448a758045b97852"
+  },
+  {
+    "api": "replay_runtime_execution",
+    "input": {
+      "actions": [],
+      "tick": 0
+    },
+    "det_hash": "21e3b1469357747cca49316314e783ddc5aa837d09b23e597b01955f6a75ad73"
+  },
+  {
+    "api": "run_execution_runtime",
+    "input": {
+      "runtime": "browser",
+      "tick": 0
+    },
+    "det_hash": "1cb572c5bf4d2e467f8dcc42b0688badad94d1ed0bd964bc8e0ed376a3f26455"
+  },
+  {
+    "api": "run_execution_runtime",
+    "input": {
+      "runtime": "terminal",
+      "tick": 2
+    },
+    "det_hash": "51edd5b355fbf70dcfe39e6230f8cd5bbf7a473cd8c1ea985cdb191115492f92"
+  },
+  {
+    "api": "run_execution_runtime",
+    "input": {
+      "runtime": "native",
+      "tick": 0
+    },
+    "det_hash": "ea29543b6f54de8902dd86359621cc202248eb52bfdaf9c73690755053a76b49"
+  },
+  {
+    "api": "run_execution_runtime",
+    "input": {
+      "simulate": true,
+      "runtime": "browser",
+      "tick": 0
+    },
+    "det_hash": "2d10f53fce5fe309176d2c433fef402ff442ed416a0d0c1da4eee9c2e2766c00"
+  },
+  {
+    "api": "run_execution_runtime",
+    "input": {
+      "sources": {
+        "actions": [
+          {
+            "type": "browser_click",
+            "selector": "#go"
+          }
+        ],
+        "workflow": {
+          "name": "wf"
+        },
+        "sync": {
+          "state": "ok"
+        }
+      },
+      "runtime": "browser",
+      "tick": 1,
+      "rollback_enabled": false
+    },
+    "det_hash": "feb649d2a2d739f2fc2692d9b0766e082786dc33e2dc4cda28472bfaea9539fe"
+  },
+  {
+    "api": "run_execution_for_extraction",
+    "input": {
+      "execution_runtime": false
+    },
+    "det_hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+  },
+  {
+    "api": "run_execution_for_extraction",
+    "input": {
+      "runtime": "browser",
+      "tick": 0,
+      "merge_graph": true
+    },
+    "det_hash": "56dac6d222bd5a7d0f1bef87361bc50799bdee4dee9b28ac8d7b3ad7472b1e5c"
+  },
+  {
+    "api": "run_execution_for_extraction",
+    "input": {
+      "runtime": "terminal",
+      "tick": 0,
+      "merge_graph": false
+    },
+    "det_hash": "223358752b9e1c518b9d383ab1e93d5cea7627491058e4d6190ebe995d2f7d01"
+  },
+  {
+    "api": "run_execution_for_extraction",
+    "input": {
+      "sources": {
+        "actions": [
+          {
+            "type": "browser_click",
+            "selector": "#go"
+          }
+        ],
+        "workflow": {
+          "name": "wf"
+        },
+        "sync": {
+          "state": "ok"
+        }
+      },
+      "runtime": "browser",
+      "tick": 1,
+      "merge_graph": true,
+      "simulate_execution": false
+    },
+    "det_hash": "0c50a6ee0cb651f11b4c36b6854eb7f719e8cafea9aca37b45f5ed1f93d38f90"
+  }
+]
