@@ -44,7 +44,6 @@ DEFERRED_APIS = {
     "recover_modal_runtime",
     "extract_infinite_scroll", "extract_paginated_content",
     "capture_websocket_frames", "capture_dom_mutations",
-    "replay_interactions",
 }
 
 # APIs whose Python behaviour requires live network / browser rendering.
@@ -131,6 +130,10 @@ FORCE_PARTIAL = {
     # BeautifulSoup for well-formed content but bounds deeply nested inline
     # markup. Honest Partial, not Complete. See selector_healing_parity_test.
     "heal_selector",
+    # replay_interactions: the returned structure is a full-fidelity port
+    # (proven by 6 deep-equality vectors vs Python 2.0.1); the live-page action
+    # dispatch (_ACTION_DISPATCH) drives a real browser and is the bounded edge.
+    "replay_interactions",
 }
 
 

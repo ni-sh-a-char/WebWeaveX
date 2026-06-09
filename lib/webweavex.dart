@@ -12,6 +12,8 @@ export 'src/browser/runtime_snapshot.dart';
 export 'src/browser/spa_stabilizer.dart';
 export 'src/adaptive/selector_healing.dart'
     show healSelector, buildSemanticAnchor;
+export 'src/interaction/interaction_replay.dart'
+    show replayInteractions, recordInteraction;
 export 'src/crypto/kaalka_runtime.dart';
 export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';

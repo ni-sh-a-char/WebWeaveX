@@ -1,0 +1,201 @@
+[
+  {
+    "id": "click-type",
+    "api": "replay_interactions",
+    "input": {
+      "interaction_log": [
+        {
+          "action": "click",
+          "selector": "#btn",
+          "metadata": {
+            "x": 1
+          }
+        },
+        {
+          "type": "input",
+          "selector": "#f",
+          "metadata": {}
+        }
+      ]
+    },
+    "expected": {
+      "replay": [
+        {
+          "step": 0,
+          "action": {
+            "id": "interaction_0",
+            "timestamp": 0,
+            "action": "click",
+            "selector": "#btn",
+            "metadata": {
+              "x": 1
+            },
+            "bounded": true
+          },
+          "replayed": true
+        },
+        {
+          "step": 1,
+          "action": {
+            "id": "interaction_1",
+            "timestamp": 1,
+            "action": "input",
+            "selector": "#f",
+            "metadata": {},
+            "bounded": true
+          },
+          "replayed": true
+        }
+      ],
+      "bounded": true
+    }
+  },
+  {
+    "id": "empty",
+    "api": "replay_interactions",
+    "input": {
+      "interaction_log": []
+    },
+    "expected": {
+      "replay": [],
+      "bounded": true
+    }
+  },
+  {
+    "id": "no-selector",
+    "api": "replay_interactions",
+    "input": {
+      "interaction_log": [
+        {
+          "action": "scroll"
+        }
+      ]
+    },
+    "expected": {
+      "replay": [
+        {
+          "step": 0,
+          "action": {
+            "id": "interaction_0",
+            "timestamp": 0,
+            "action": "scroll",
+            "selector": "",
+            "metadata": {},
+            "bounded": true
+          },
+          "replayed": true
+        }
+      ],
+      "bounded": true
+    }
+  },
+  {
+    "id": "type-key-fallback",
+    "api": "replay_interactions",
+    "input": {
+      "interaction_log": [
+        {
+          "type": "hover",
+          "selector": ".a",
+          "metadata": {
+            "k": "v"
+          }
+        }
+      ]
+    },
+    "expected": {
+      "replay": [
+        {
+          "step": 0,
+          "action": {
+            "id": "interaction_0",
+            "timestamp": 0,
+            "action": "hover",
+            "selector": ".a",
+            "metadata": {
+              "k": "v"
+            },
+            "bounded": true
+          },
+          "replayed": true
+        }
+      ],
+      "bounded": true
+    }
+  },
+  {
+    "id": "whitespace",
+    "api": "replay_interactions",
+    "input": {
+      "interaction_log": [
+        {
+          "action": "  click  ",
+          "selector": "  #s  "
+        }
+      ]
+    },
+    "expected": {
+      "replay": [
+        {
+          "step": 0,
+          "action": {
+            "id": "interaction_0",
+            "timestamp": 0,
+            "action": "click",
+            "selector": "#s",
+            "metadata": {},
+            "bounded": true
+          },
+          "replayed": true
+        }
+      ],
+      "bounded": true
+    }
+  },
+  {
+    "id": "metadata-nested",
+    "api": "replay_interactions",
+    "input": {
+      "interaction_log": [
+        {
+          "action": "drag",
+          "selector": "#d",
+          "metadata": {
+            "from": [
+              1,
+              2
+            ],
+            "to": {
+              "x": 3
+            }
+          }
+        }
+      ]
+    },
+    "expected": {
+      "replay": [
+        {
+          "step": 0,
+          "action": {
+            "id": "interaction_0",
+            "timestamp": 0,
+            "action": "drag",
+            "selector": "#d",
+            "metadata": {
+              "from": [
+                1,
+                2
+              ],
+              "to": {
+                "x": 3
+              }
+            },
+            "bounded": true
+          },
+          "replayed": true
+        }
+      ],
+      "bounded": true
+    }
+  }
+]
