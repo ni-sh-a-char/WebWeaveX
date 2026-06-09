@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased] — Wave 3 (parity + OSS)
+## [Unreleased] — Wave 3–4 (parity + OSS)
 
 ### Added
 
@@ -12,6 +12,16 @@
   `test/parity/selector_healing_parity_test.dart`). The `semantic_anchor` HTML
   sub-path matches BeautifulSoup for well-formed content; nested inline markup is
   the documented bounded edge.
+- `replayInteractions` / `recordInteraction` — native Dart port of Python
+  `replay_interactions` (moved Deferred → Partial). The returned structure is a
+  full-fidelity pure function of the interaction log, proven by 6 deep-equality
+  vectors vs Python 2.0.1 (`validation/parity/interaction_replay_api_vectors.json`).
+  The live-page action dispatch is the documented bounded edge.
+- Three-way parity validator: `validation/validate_parity.dart` now asserts the
+  deterministic core against **both** the JavaScript and Python references
+  (Python ≡ JavaScript ≡ Dart, 11 vectors).
+- `DART_REALITY_AUDIT.md`, `FINAL_TRUE_PARITY_REPORT.md` (proof-coverage audit +
+  honest name-parity vs signature-parity disclosure); `tools/proof_coverage.py`.
 - OSS governance files: `GOVERNANCE.md`, `MAINTAINERS.md`, `CODEOWNERS`,
   `RELEASE.md`, `SUPPORT.md`.
 - Full Phase-10 `README.md` (Installation, Features, API Reference, Examples,
@@ -25,8 +35,8 @@
 
 - `CONTRIBUTING.md` rewritten for Dart (was carrying Python `pip`/`pytest`/`playwright`
   instructions).
-- API parity matrix: **88 Complete · 24 Partial · 16 Deferred · 0 Missing**.
-- Test suite **779 → 793**; line coverage **97.23% → 97.25%** (6374/6554).
+- API parity matrix: **88 Complete · 25 Partial · 15 Deferred · 0 Missing**.
+- Test suite **779 → 802**; line coverage **97.23% → 97.26%** (6394/6574).
 - `.pubignore` excludes `CODEOWNERS` from the published package.
 
 ## [2.0.1] — 2026-06-09 — Dart native release

@@ -18,15 +18,15 @@ Totals computed directly from `coverage/lcov.info` `DA:` records.
 
 | Metric | Value |
 |--------|-------|
-| Lines instrumented | **6554** |
-| Lines hit | **6374** |
-| **Line coverage** | **97.25%** |
+| Lines instrumented | **6574** |
+| Lines hit | **6394** |
+| **Line coverage** | **97.26%** |
 | Target | 90% |
-| Status | ✅ **+7.25 pts over target** |
-| Files instrumented | 134 |
+| Status | ✅ **+7.26 pts over target** |
+| Files instrumented | 135 |
 | Files below 90% | **1** |
 
-(Includes the new `lib/src/adaptive/selector_healing.dart`, fully covered, ≥90%.)
+(Includes new `lib/src/adaptive/selector_healing.dart` and `lib/src/interaction/interaction_replay.dart`, both fully covered, ≥90%.)
 
 ## Files below 90%
 

@@ -21,7 +21,7 @@ Version alignment: Python **2.0.1** · JavaScript **2.0.1** · Dart **2.0.1**.
 |----------------|-------------------------------:|---------:|
 | Python (definition) | 126 / 126 | 100% |
 | **JavaScript** | **126 / 126** | **100%** (full reference) |
-| **Dart (native symbol)** | **95 / 126** | **75.4%** (after `heal_selector` port) |
+| **Dart (native symbol)** | **96 / 126** | **76.2%** (after `heal_selector` + `replay_interactions` ports) |
 
 JavaScript is the proof-of-feasibility reference: it reaches 126/126 because Node.js can drive
 real browsers (Playwright/Puppeteer), native OS/Electron/DevTools surfaces, and NLP/AST tooling
@@ -30,22 +30,24 @@ in-process. Dart cannot do these in-process — that gap is the source of every 
 ## Dart classification (`tools/dart_parity_audit.py`, regenerated this session)
 
 ```
-Python total: 128   Counts: {Complete: 88, Partial: 24, Missing: 0, Deferred: 16}
+Python total: 128   Counts: {Complete: 88, Partial: 25, Missing: 0, Deferred: 15}
 ```
 
 | Status | Count | Meaning | Proof standard |
 |--------|------:|---------|----------------|
 | ✅ Complete | **88** | Native Dart impl, name-mapped, parity-tested | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
-| 🟡 Partial | **24** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
-| ⚪ Deferred | **16** | Needs OS/desktop/Electron/DevTools/Playwright in-process | not feasible in Dart VM |
+| 🟡 Partial | **25** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
+| ⚪ Deferred | **15** | Needs OS/desktop/Electron/DevTools/Playwright in-process | not feasible in Dart VM |
 | ❌ Missing | **0** | Not implemented at all | — |
 
-**Wave 3 change (2026-06-10):** `heal_selector` was ported from Deferred → Partial. The DOM-node
-strategies (`text_anchor`, `attribute_anchor`, `structural_fallback`) are a full-fidelity native
-Dart port, proven by 11 deep-equality vectors against the canonical Python output
-(`validation/parity/selector_healing_api_vectors.json`, `test/parity/selector_healing_parity_test.dart`).
-Its `semantic_anchor` HTML sub-path matches BeautifulSoup for well-formed content; deeply nested
-inline markup remains the documented bounded edge — hence Partial, not Complete (honest).
+**Wave 3–4 changes (2026-06-10):** two APIs ported Deferred → Partial as native Dart, each proven
+by deep-equality vectors against Python **2.0.1** (materialized from `origin/python`; the installed
+Python is a broken 2.0.0):
+- `heal_selector` — DOM-node strategies (`text_anchor`/`attribute_anchor`/`structural_fallback`) are
+  full-fidelity (11 vectors, `selector_healing_api_vectors.json`); `semantic_anchor` HTML path bounds
+  deeply nested inline markup.
+- `replay_interactions` — the returned structure is a full-fidelity pure function of the interaction
+  log (6 vectors, `interaction_replay_api_vectors.json`); the live-page action dispatch is the bounded edge.
 
 `88 + 23 + 17 = 128` (with version names folded into Complete). Reconciliation with the
 74.6% name-presence figure: 94 APIs have a Dart symbol; 6 of those are deliberately
@@ -55,7 +57,7 @@ down-classified to Partial (`FORCE_PARTIAL`: `compile_document`, `compile_reposi
 behaviour drives an NLP/AST/network sub-path), yielding 88 Complete. The remaining 32 APIs
 with no Dart symbol split into the network-bounded Partials and the 17 Deferred.
 
-## The 31 Python APIs with no native Dart symbol (all present in JS)
+## The 30 Python APIs with no native Dart symbol (all present in JS)
 
 **Browser / network extraction (bounded-Partial candidates):**
 `extract`, `extract_async`, `extract_repo`, `extract_docs`, `extract_recursive`,
@@ -64,9 +66,9 @@ with no Dart symbol split into the network-bounded Partials and the 17 Deferred.
 `run_autonomous_extraction`.
 
 **Live-browser DOM/runtime capture (Deferred — needs Playwright/DevTools):**
-`replay_interactions`, `extract_infinite_scroll`, `extract_paginated_content`,
+`extract_infinite_scroll`, `extract_paginated_content`,
 `capture_websocket_frames`, `capture_dom_mutations`, `recover_modal_runtime`.
-(`heal_selector` was here; it is now a native Dart Partial — see Wave 3 change above.)
+(`heal_selector` and `replay_interactions` were here; both are now native Dart Partials — see above.)
 
 **Native OS / Electron / container / IDE (Deferred — no in-process Dart surface):**
 `run_application_cognition`, `execute_runtime_objective`, `save_application_memory`,

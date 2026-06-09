@@ -22,12 +22,12 @@
 |--------|-------|
 | Command | `dart test` |
 | Result | ✅ **All tests passed** |
-| Passing | **793** (779 baseline + 14 new `heal_selector` parity/branch tests) |
+| Passing | **802** (779 baseline + 14 `heal_selector` + 9 `replay_interactions` parity/branch tests) |
 | Failing | **0** |
-| Test files | 34 (`test/**/*.dart`) |
+| Test files | 35 (`test/**/*.dart`) |
 | Wall time | ~54 s |
 
-The runner's final line: `+793: All tests passed!`
+The runner’s final line: `+802: All tests passed!`
 
 ## Coverage by category (test directories)
 
@@ -43,4 +43,4 @@ query, kernel/contracts/unified-IR) under `test/parity/` and `test/engines/`.
 
 ## Verdict
 
-Test gate **PASS**: 793/793 green, 0 failures, on a clean tree.
+Test gate **PASS**: 802/802 green, 0 failures, on a clean tree.

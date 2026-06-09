@@ -24,8 +24,8 @@
 |------|--------|
 | `dart format --set-exit-if-changed .` | ✅ clean (189 files) |
 | `dart analyze` | ✅ No issues found |
-| `dart test` | ✅ **793 passing / 0 failing** |
-| Coverage (fresh LCOV) | ✅ **97.25%** (6374/6554), 1 file <90% (documented unreachable line) |
+| `dart test` | ✅ **802 passing / 0 failing** |
+| Coverage (fresh LCOV) | ✅ **97.26%** (6394/6574), 1 file <90% (documented unreachable line) |
 | Cross-language parity | ✅ `crossLangMatch: true` (11/11 core vectors hash-match JS) |
 | `dart pub publish --dry-run` | ✅ 0 warnings (1 benign version hint) |
 
@@ -35,13 +35,14 @@
 |----------------|-----------------------:|-------|
 | Python (definition) | 126 / 126 | `webweavex.__all__` (+ `version`, `__version__`) |
 | JavaScript | **126 / 126** | full reference (browser/native/NLP in-process) |
-| **Dart** | **95 / 126 by symbol** → **88 Complete · 24 Partial · 16 Deferred · 0 Missing** | |
+| **Dart** | **96 / 126 by symbol** → **88 Complete · 25 Partial · 15 Deferred · 0 Missing** | |
 
 - **0 Missing.** Every canonical API is Complete, bounded-Partial, or Deferred-with-reason.
-- Dart trails JS only on **31 browser/native/infra APIs** needing in-process capabilities the
+- Dart trails JS only on **30 browser/native/infra APIs** needing in-process capabilities the
   Dart VM lacks (Playwright/DevTools, Electron/OS automation, NLP/AST tooling).
-- **Wave 3 (this session):** `heal_selector` ported Deferred → Partial as a native Dart impl,
-  proven by 11 deep-equality vectors vs the canonical Python output.
+- **Wave 3–4 (this session):** `heal_selector` and `replay_interactions` ported Deferred → Partial
+  as native Dart impls, proven by deep-equality vectors vs Python 2.0.1. The parity validator now
+  asserts **three-way** (Python ≡ JavaScript ≡ Dart) on the deterministic core.
 
 ## 4. Documentation
 
