@@ -1,0 +1,681 @@
+[
+  {
+    "api": "run_runtime_memory",
+    "det_hash": "7408a0bd02b2ab4d87b6e42317bf84e2327b2823d4416dcee917b775d9b68631",
+    "input": {
+      "nodes": [
+        {
+          "node_id": "primary",
+          "synced": true
+        },
+        {
+          "conflicts_resolved": 1,
+          "node_id": "secondary",
+          "synced": true
+        }
+      ],
+      "sources": {
+        "application": {
+          "app": "demo"
+        },
+        "distributed": {
+          "nodes": 2
+        },
+        "evolution": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "ev:1"
+            }
+          ],
+          "selector": {
+            "selectors": [
+              {
+                "ancestor": "",
+                "id": "sel:0"
+              }
+            ]
+          }
+        },
+        "extraction": {
+          "enabled": true
+        },
+        "graph": {
+          "nodes": [
+            {
+              "id": "g1",
+              "type": "graph"
+            }
+          ]
+        },
+        "live": {
+          "streams": {
+            "streams": [
+              {
+                "id": "st:1"
+              }
+            ]
+          }
+        },
+        "semantic": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "ev:1"
+            }
+          ],
+          "selector": {
+            "selectors": [
+              {
+                "ancestor": "",
+                "id": "sel:0"
+              }
+            ]
+          },
+          "semantic": {
+            "domain": {
+              "domain": "web"
+            },
+            "entities": {
+              "entities": [
+                {
+                  "id": "e2",
+                  "label": "Beta",
+                  "type": "node"
+                },
+                {
+                  "id": "e1",
+                  "label": "Alpha",
+                  "type": "node"
+                }
+              ],
+              "relations": [
+                {
+                  "from": "e1",
+                  "relation": "links",
+                  "to": "e2"
+                }
+              ]
+            }
+          }
+        },
+        "sync": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "sy:1"
+            }
+          ]
+        },
+        "workflow": {
+          "objective": "extract"
+        }
+      },
+      "tick": 5
+    }
+  },
+  {
+    "api": "run_runtime_memory",
+    "det_hash": "c5148edfc0493f4bb52edd0365add5fd3de74b60a5ca779acb5b3c436ccdbc52",
+    "input": {}
+  },
+  {
+    "api": "run_memory_for_extraction",
+    "det_hash": "1bb9c688a784faa2a7f72f2ba3ed280bd4093c85c3308a721b470551f25629aa",
+    "input": {
+      "federated_memory": true,
+      "merge_graph": true,
+      "nodes": [
+        {
+          "node_id": "primary",
+          "synced": true
+        },
+        {
+          "conflicts_resolved": 1,
+          "node_id": "secondary",
+          "synced": true
+        }
+      ],
+      "sources": {
+        "application": {
+          "app": "demo"
+        },
+        "distributed": {
+          "nodes": 2
+        },
+        "evolution": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "ev:1"
+            }
+          ],
+          "selector": {
+            "selectors": [
+              {
+                "ancestor": "",
+                "id": "sel:0"
+              }
+            ]
+          }
+        },
+        "extraction": {
+          "enabled": true
+        },
+        "graph": {
+          "nodes": [
+            {
+              "id": "g1",
+              "type": "graph"
+            }
+          ]
+        },
+        "live": {
+          "streams": {
+            "streams": [
+              {
+                "id": "st:1"
+              }
+            ]
+          }
+        },
+        "semantic": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "ev:1"
+            }
+          ],
+          "selector": {
+            "selectors": [
+              {
+                "ancestor": "",
+                "id": "sel:0"
+              }
+            ]
+          },
+          "semantic": {
+            "domain": {
+              "domain": "web"
+            },
+            "entities": {
+              "entities": [
+                {
+                  "id": "e2",
+                  "label": "Beta",
+                  "type": "node"
+                },
+                {
+                  "id": "e1",
+                  "label": "Alpha",
+                  "type": "node"
+                }
+              ],
+              "relations": [
+                {
+                  "from": "e1",
+                  "relation": "links",
+                  "to": "e2"
+                }
+              ]
+            }
+          }
+        },
+        "sync": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "sy:1"
+            }
+          ]
+        },
+        "workflow": {
+          "objective": "extract"
+        }
+      },
+      "tick": 5
+    }
+  },
+  {
+    "api": "run_memory_for_extraction",
+    "det_hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147",
+    "input": {
+      "federated_memory": false
+    }
+  },
+  {
+    "api": "run_memory_for_extraction",
+    "det_hash": "3f5080e8849506532aab1a3c8d0635accc95b13c4000d074ea8993972032b660",
+    "input": {
+      "federated_memory": true,
+      "merge_graph": false,
+      "sources": {
+        "application": {
+          "app": "demo"
+        },
+        "distributed": {
+          "nodes": 2
+        },
+        "evolution": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "ev:1"
+            }
+          ],
+          "selector": {
+            "selectors": [
+              {
+                "ancestor": "",
+                "id": "sel:0"
+              }
+            ]
+          }
+        },
+        "extraction": {
+          "enabled": true
+        },
+        "graph": {
+          "nodes": [
+            {
+              "id": "g1",
+              "type": "graph"
+            }
+          ]
+        },
+        "live": {
+          "streams": {
+            "streams": [
+              {
+                "id": "st:1"
+              }
+            ]
+          }
+        },
+        "semantic": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "ev:1"
+            }
+          ],
+          "selector": {
+            "selectors": [
+              {
+                "ancestor": "",
+                "id": "sel:0"
+              }
+            ]
+          },
+          "semantic": {
+            "domain": {
+              "domain": "web"
+            },
+            "entities": {
+              "entities": [
+                {
+                  "id": "e2",
+                  "label": "Beta",
+                  "type": "node"
+                },
+                {
+                  "id": "e1",
+                  "label": "Alpha",
+                  "type": "node"
+                }
+              ],
+              "relations": [
+                {
+                  "from": "e1",
+                  "relation": "links",
+                  "to": "e2"
+                }
+              ]
+            }
+          }
+        },
+        "sync": {
+          "lineage": [
+            {
+              "ancestor": "",
+              "id": "sy:1"
+            }
+          ]
+        },
+        "workflow": {
+          "objective": "extract"
+        }
+      }
+    }
+  },
+  {
+    "api": "search_runtime_memory",
+    "det_hash": "6b4d7b529fc442066783bd28873c5a864cdb3f2a1e974e53817002ad8c9acff4",
+    "input": {
+      "index": {
+        "bounded": true,
+        "connector_index": {
+          "0": {
+            "streams": {
+              "streams": [
+                {
+                  "id": "st:1"
+                }
+              ]
+            }
+          }
+        },
+        "entity_index": {
+          "e1": {
+            "id": "e1",
+            "label": "Alpha",
+            "type": "node"
+          },
+          "e2": {
+            "id": "e2",
+            "label": "Beta",
+            "type": "node"
+          }
+        },
+        "graph_index": {
+          "0": {
+            "bounded": true,
+            "edges": [
+              {
+                "from": "e1",
+                "relation": "links",
+                "to": "e2"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "node"
+              },
+              {
+                "id": "e2",
+                "type": "node"
+              }
+            ]
+          }
+        },
+        "stream_index": {
+          "0": {
+            "id": "st:1"
+          }
+        },
+        "workflow_index": {
+          "extract": {
+            "id": "extract"
+          }
+        }
+      },
+      "search_type": "structural",
+      "term": "e1"
+    }
+  },
+  {
+    "api": "search_runtime_memory",
+    "det_hash": "e12dca0d51ebdca5b6383e8646593f62d3abd973a88baf99b29b631c00ec24ab",
+    "input": {
+      "index": {
+        "bounded": true,
+        "connector_index": {
+          "0": {
+            "streams": {
+              "streams": [
+                {
+                  "id": "st:1"
+                }
+              ]
+            }
+          }
+        },
+        "entity_index": {
+          "e1": {
+            "id": "e1",
+            "label": "Alpha",
+            "type": "node"
+          },
+          "e2": {
+            "id": "e2",
+            "label": "Beta",
+            "type": "node"
+          }
+        },
+        "graph_index": {
+          "0": {
+            "bounded": true,
+            "edges": [
+              {
+                "from": "e1",
+                "relation": "links",
+                "to": "e2"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "node"
+              },
+              {
+                "id": "e2",
+                "type": "node"
+              }
+            ]
+          }
+        },
+        "stream_index": {
+          "0": {
+            "id": "st:1"
+          }
+        },
+        "workflow_index": {
+          "extract": {
+            "id": "extract"
+          }
+        }
+      },
+      "search_type": "semantic",
+      "term": "e1"
+    }
+  },
+  {
+    "api": "search_runtime_memory",
+    "det_hash": "4c5118c279d52d5ddf2fe7470790c7fa44195e3290c260a054df7ecac482a8ce",
+    "input": {
+      "index": {
+        "bounded": true,
+        "connector_index": {
+          "0": {
+            "streams": {
+              "streams": [
+                {
+                  "id": "st:1"
+                }
+              ]
+            }
+          }
+        },
+        "entity_index": {
+          "e1": {
+            "id": "e1",
+            "label": "Alpha",
+            "type": "node"
+          },
+          "e2": {
+            "id": "e2",
+            "label": "Beta",
+            "type": "node"
+          }
+        },
+        "graph_index": {
+          "0": {
+            "bounded": true,
+            "edges": [
+              {
+                "from": "e1",
+                "relation": "links",
+                "to": "e2"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "node"
+              },
+              {
+                "id": "e2",
+                "type": "node"
+              }
+            ]
+          }
+        },
+        "stream_index": {
+          "0": {
+            "id": "st:1"
+          }
+        },
+        "workflow_index": {
+          "extract": {
+            "id": "extract"
+          }
+        }
+      },
+      "search_type": "lineage",
+      "term": "e1"
+    }
+  },
+  {
+    "api": "search_runtime_memory",
+    "det_hash": "c9c0bf5e60514b6332375ce0568f8c8d866851286e4e1060ef306fa6e289edd3",
+    "input": {
+      "index": {
+        "bounded": true,
+        "connector_index": {
+          "0": {
+            "streams": {
+              "streams": [
+                {
+                  "id": "st:1"
+                }
+              ]
+            }
+          }
+        },
+        "entity_index": {
+          "e1": {
+            "id": "e1",
+            "label": "Alpha",
+            "type": "node"
+          },
+          "e2": {
+            "id": "e2",
+            "label": "Beta",
+            "type": "node"
+          }
+        },
+        "graph_index": {
+          "0": {
+            "bounded": true,
+            "edges": [
+              {
+                "from": "e1",
+                "relation": "links",
+                "to": "e2"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "node"
+              },
+              {
+                "id": "e2",
+                "type": "node"
+              }
+            ]
+          }
+        },
+        "stream_index": {
+          "0": {
+            "id": "st:1"
+          }
+        },
+        "workflow_index": {
+          "extract": {
+            "id": "extract"
+          }
+        }
+      },
+      "search_type": "graph",
+      "term": "e1"
+    }
+  },
+  {
+    "api": "search_runtime_memory",
+    "det_hash": "0e2a3864aee4842c03d928aab56fdd6f5441ee1e453aa615b773846047c0d772",
+    "input": {
+      "index": {
+        "bounded": true,
+        "connector_index": {
+          "0": {
+            "streams": {
+              "streams": [
+                {
+                  "id": "st:1"
+                }
+              ]
+            }
+          }
+        },
+        "entity_index": {
+          "e1": {
+            "id": "e1",
+            "label": "Alpha",
+            "type": "node"
+          },
+          "e2": {
+            "id": "e2",
+            "label": "Beta",
+            "type": "node"
+          }
+        },
+        "graph_index": {
+          "0": {
+            "bounded": true,
+            "edges": [
+              {
+                "from": "e1",
+                "relation": "links",
+                "to": "e2"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "node"
+              },
+              {
+                "id": "e2",
+                "type": "node"
+              }
+            ]
+          }
+        },
+        "stream_index": {
+          "0": {
+            "id": "st:1"
+          }
+        },
+        "workflow_index": {
+          "extract": {
+            "id": "extract"
+          }
+        }
+      },
+      "search_type": "structural",
+      "term": ""
+    }
+  }
+]

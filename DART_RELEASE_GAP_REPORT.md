@@ -8,8 +8,8 @@ Gap between the current Dart runtime and first-class parity with Python (2.0.1) 
 |------|-------|
 | `dart analyze` | ✅ 0 issues (strict-casts + strict-inference) |
 | `dart format` | ✅ clean |
-| `dart test` | ✅ 551 passing |
-| Coverage | ✅ 96.93% (target 90%) |
+| `dart test` | ✅ 779 passing |
+| Coverage | ✅ 97.23% (target 90%) |
 | `dart pub publish --dry-run` | ✅ 0 warnings (benign version hint) |
 | OSS files | ✅ all present |
 | CI gates | 🟡 workflows exist; coverage + publish-dry-run gates to be confirmed green |
@@ -18,7 +18,7 @@ The existing surface is already release-quality. The gap is **API breadth**, not
 
 ## Public-API gap
 
-128 Python APIs: **51 Complete**, 15 Partial, 17 Deferred, **45 Missing** (was 16/80; +35 ported with proven hash parity this pass — causality, semantic, synchronization, evolution_runtime, workflows, execution).
+128 Python APIs: **88 Complete**, 23 Partial, 17 Deferred, **0 Missing** (was 16/80; +72 ported with proven cross-language hash parity across 12 runtime-cognition families).
 
 ### Phased close-out plan (parity-verified)
 

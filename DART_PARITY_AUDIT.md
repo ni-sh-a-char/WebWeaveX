@@ -32,29 +32,37 @@ Measured by `tools/dart_parity_audit.py` → `PUBLIC_API_MATRIX.md`.
 
 | Status | Count | Notes |
 |--------|------:|-------|
-| ✅ Complete | 51 | name-mapped + test-exercised (35 added via hash-parity ports) |
-| 🟡 Partial | 15 | bounded Dart impl; full parity needs live network/browser |
+| ✅ Complete | 88 | name-mapped + parity-tested (72 added via hash-parity ports) |
+| 🟡 Partial | 23 | bounded Dart impl; full parity needs live network/browser/NLP/AST |
 | ⚪ Deferred | 17 | needs OS/desktop/Electron/DevTools — not in-process in Dart |
-| ❌ Missing | 45 | remaining runtime-cognition families, portable with vector parity |
+| ❌ Missing | 0 | — |
 
-### Families ported with PROVEN cross-language hash parity (this pass)
+### Families ported with PROVEN cross-language hash parity
+
+Each ported API's Dart output hashes identically to Python's `compute_deterministic_hash` of the same call (`computeDeterministicHash(dartOut) == h(pyOut)`); save/load proven by temp-file roundtrip. Vectors in `validation/parity/*_api_vectors.json`, assertions in `test/parity/*_parity_test.dart`.
 
 | Family | APIs | Proof |
 |--------|-----:|-------|
-| causality | 5 | 8 hash vectors byte-identical to Python + save/load roundtrip |
+| causality | 5 | 8 hash vectors + roundtrip |
 | semantic | 5 | 8 hash vectors + roundtrip (non-empty-HTML UI/table path documented gap) |
 | synchronization | 6 | 11 hash vectors + roundtrip |
 | evolution_runtime | 6 | 10 hash vectors + roundtrip |
 | workflows | 7 | 16 hash vectors + roundtrip |
 | execution | 6 | 25 hash vectors |
+| memory-runtime | 5 | 10 hash vectors + roundtrip |
+| reconstruction-runtime | 5 | 17 hash vectors + roundtrip |
+| persistence / crypto-session / identity / adaptive / distributed / session / auth | 14 | 12 hash vectors + roundtrips |
+| connectors / streaming / interaction | 6 | 18 hash vectors |
+| query / reasoning | 8 | 17 hash vectors (graph/knowledge/topology/dict paths) |
+| kernel / contracts / unified-IR | compileUnifiedRuntimeIr, UniversalInput, RuntimeKernel, getRuntimeKernel | 18 hash vectors |
 
-Each ported API's Dart output hashes identically to Python's `compute_deterministic_hash` of the same call (see `validation/parity/*_api_vectors.json` and `test/parity/*_parity_test.dart`). The remaining 45 Missing cluster into: reconstruction-runtime (5), memory-runtime (5), query (5), ir-runtime (5), connectors-runtime (5), kernel (3), crypto-session (3), session (2), identity (2), adaptive (2), distributed-checkpoint (2), reasoning (1), contracts (1), auth (1) — same portable pattern.
+The 23 Partial include: `compile_document`/`compile_repository` (need an NLP/AST IR compiler — UnsupportedError stub), `run_canonical_pipeline` (deterministic kernel core proven; full pipeline drives network/extraction phases), `reason_semantically`/`query_documents`/`query_repository`/`query_semantics`/`analyze` (primary/result-dict path proven; document/repository/network sub-paths not yet portable), plus the bounded extract/crawl/stream pipeline. See `PUBLIC_API_MATRIX.md`.
 
 ## 4. Test inventory
 
-- **551 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel, browser, connectors, and the 6 newly-ported runtime families (101 parity + 161 engine-coverage tests added this pass).
-- **96.93% line coverage** (`dart test --coverage`, 3880/4003 lines).
-- Cross-language parity vectors: `validation/parity/*_vectors.json` (crypto/graph core, 11/11) + `validation/parity/*_api_vectors.json` (78 runtime-API hash vectors).
+- **779 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel, browser, connectors, and 12 newly-ported runtime families.
+- **97.23% line coverage** (`dart test --coverage`, 6280/6459 lines); only `normalization.dart` (Node NFKC fallback, unreachable when Node on PATH) is below 90%.
+- Cross-language parity vectors: `validation/parity/*_vectors.json` (crypto/graph core, 11/11) + `validation/parity/*_api_vectors.json` (~145 runtime-API hash vectors).
 
 ## 5. Documentation inventory
 

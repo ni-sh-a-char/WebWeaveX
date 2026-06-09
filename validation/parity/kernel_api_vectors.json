@@ -1,0 +1,317 @@
+[
+  {
+    "api": "compile_unified_runtime_ir",
+    "input": {},
+    "det_hash": "1b711d843c92d6e9504e3ca93649c605399895369945543cb1c96280e799ade0"
+  },
+  {
+    "api": "compile_unified_runtime_ir",
+    "input": {
+      "registry": {
+        "phases": {
+          "semantic": {
+            "a": 1
+          },
+          "memory": {
+            "m": 2
+          },
+          "synchronization": {
+            "s": 3
+          },
+          "execution": {
+            "e": 4
+          },
+          "reconstruction": {
+            "r": 5
+          }
+        }
+      },
+      "graph": {
+        "ir": "unified_runtime_graph",
+        "nodes": [
+          {
+            "id": "n1",
+            "type": "t"
+          }
+        ],
+        "edges": [],
+        "bounded": true
+      },
+      "bus": [
+        {
+          "type": "semantic",
+          "tick": 1,
+          "order": 0,
+          "payload": {}
+        },
+        {
+          "type": "memory",
+          "tick": 0,
+          "order": 2,
+          "payload": {}
+        }
+      ],
+      "phase_results": [
+        {
+          "phase": "memory",
+          "result": {}
+        },
+        {
+          "phase": "semantic",
+          "result": {}
+        }
+      ]
+    },
+    "det_hash": "08b6209006b8c1c730b724a8b2b3e7675da1b2f90417cc3a62131e167cfd713a"
+  },
+  {
+    "api": "compile_unified_runtime_ir",
+    "input": {
+      "sources": {
+        "browser": {
+          "b": 1
+        },
+        "semantic": {
+          "sem": 1
+        },
+        "connectors": {
+          "c": 1
+        }
+      }
+    },
+    "det_hash": "8a4f36e657483a227669f534d01f328246102e6fa9d8f8ca64e132b428f2b682"
+  },
+  {
+    "api": "UniversalInput.to_dict",
+    "input": {
+      "source": "s"
+    },
+    "det_hash": "3fda7992873ed05ce03193a4458d9156d180caf485dd22d5e93b902ae6eb7619"
+  },
+  {
+    "api": "UniversalInput.to_dict",
+    "input": {
+      "source": "https://app.example.com/x",
+      "source_type": "web",
+      "url": "https://app.example.com/x",
+      "path": "",
+      "session": {
+        "token": "t"
+      },
+      "options": {
+        "b": 2,
+        "a": 1
+      },
+      "tick": 3
+    },
+    "det_hash": "7ca05b517c259c9417b6d3da25f2e750faa4ad640c73416f498b895caa721a23"
+  },
+  {
+    "api": "UniversalInput.to_dict",
+    "input": {
+      "source": "/tmp/file.pdf",
+      "source_type": "document",
+      "path": "/tmp/file.pdf"
+    },
+    "det_hash": "8c4e48a67d18ec5f249fa807ea93b5fe502ee52e13180e4c159b90c62190cce9"
+  },
+  {
+    "api": "schedule_kernel_phases",
+    "input": {
+      "phases": [
+        "semantic",
+        "synchronization",
+        "memory",
+        "execution",
+        "reconstruction"
+      ],
+      "tick": 2
+    },
+    "det_hash": "72e568cc6c40fdba6570520245348c6aed877e7feb23cb1a7dc0a8b066350651"
+  },
+  {
+    "api": "register_runtime_phase",
+    "input": {
+      "sequence": [
+        [
+          "semantic",
+          {
+            "a": 1
+          }
+        ],
+        [
+          "memory",
+          {
+            "b": 2
+          }
+        ]
+      ]
+    },
+    "det_hash": "1a2bc90c8f88f131bc0f94367b13a6996140165563a8d0458ce84662a12d4ca0"
+  },
+  {
+    "api": "list_runtime_phases",
+    "input": {},
+    "det_hash": "0c6e428377c5fc76228740735c022940de037d793e30efcce4e28728ff234dff"
+  },
+  {
+    "api": "publish_runtime_event",
+    "input": {
+      "sequence": [
+        [
+          "semantic",
+          {
+            "x": 1
+          },
+          1
+        ],
+        [
+          "memory",
+          {
+            "y": 2
+          },
+          0
+        ]
+      ]
+    },
+    "det_hash": "814cb77d733df4ce9ac7fdc2e9730479061807ca794f331efe823a2509edab38"
+  },
+  {
+    "api": "build_kernel_topology",
+    "input": {
+      "graph": {
+        "nodes": [
+          {
+            "id": "b"
+          },
+          {
+            "id": "a"
+          }
+        ],
+        "edges": [
+          {
+            "from": "a",
+            "to": "b",
+            "relation": "r"
+          },
+          {
+            "from": "a",
+            "to": "a",
+            "relation": "q"
+          }
+        ]
+      }
+    },
+    "det_hash": "22edab4da25375c1d4a4ecb452e23add56fe6c640ea6611d7e60785c4ea7820c"
+  },
+  {
+    "api": "coordinate_kernel_phases",
+    "input": {
+      "phase_results": [
+        {
+          "phase": "memory"
+        },
+        {
+          "phase": "execution"
+        },
+        {
+          "phase": "semantic"
+        }
+      ],
+      "tick": 3
+    },
+    "det_hash": "539e558af883ad996d3ac5b1e37d4e9869785109d80c15add07b124f4f2ca200"
+  },
+  {
+    "api": "replay_kernel_state",
+    "input": {
+      "events": [
+        {
+          "tick": 2,
+          "order": 0
+        },
+        {
+          "tick": 0,
+          "order": 5
+        },
+        {
+          "tick": 0,
+          "order": 1
+        }
+      ]
+    },
+    "det_hash": "6f39d329e1bd2bfcdc1e2785342572878192978488ae1bf53971fd427cdb976d"
+  },
+  {
+    "api": "build_kernel_policy",
+    "input": {},
+    "det_hash": "e6a7210864f9d73b5bccae04e33203177bc0ec0327f2203921dbaafb56162660"
+  },
+  {
+    "api": "enforce_kernel_policy",
+    "input": {
+      "phase_count": 5,
+      "node_count": 0
+    },
+    "det_hash": "d63e227b69d26953291911a7623409efb9cad676c6bf402ed465108a3e56e2bb"
+  },
+  {
+    "api": "enforce_runtime_boundary",
+    "input": {
+      "irs": [
+        {
+          "ir": "a"
+        }
+      ],
+      "graph": {
+        "nodes": []
+      }
+    },
+    "det_hash": "cfd312775b345d1d6ef464f03938ef24821d253e2976aef92f0128403b6ec231"
+  },
+  {
+    "api": "RuntimeKernel.compileIr",
+    "input": {
+      "phase_results": {},
+      "tick": 0,
+      "runtime_type": "browser"
+    },
+    "det_hash": "a57c82c189b76ff6d7c50841f434d0dad42c3c2c609d71b2aff096e80f0c1699"
+  },
+  {
+    "api": "RuntimeKernel.compileIr",
+    "input": {
+      "phase_results": {
+        "semantic": {
+          "enabled": true,
+          "bounded": true,
+          "semantic_ir": {
+            "ir": "semantic_runtime",
+            "meta": {
+              "k": 1
+            }
+          }
+        },
+        "memory": {
+          "bounded": true,
+          "memory_ir": {
+            "ir": "runtime_memory",
+            "meta": {
+              "k": 2
+            }
+          }
+        },
+        "execution": {
+          "bounded": true,
+          "execution_ir": {
+            "ir": "execution_runtime",
+            "actions": []
+          }
+        }
+      },
+      "tick": 0,
+      "runtime_type": "browser"
+    },
+    "det_hash": "1642c5c160ec38b25446b24664f7bf88986e4428834bab65c4219dbf0e43b98b"
+  }
+]

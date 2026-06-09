@@ -1,0 +1,87 @@
+[
+  {
+    "api": "query_graph",
+    "input": {"graph": {"nodes": [{"id": "a", "kind": "svc"}, {"id": "b", "kind": "db"}], "edges": [{"from": "a", "to": "b", "evidence": ["e1"]}]}},
+    "det_hash": "8bffa73af1168e9dcde8d1ef5f88ddef0ecbad9c52fcfb75d750bc71369279c1"
+  },
+  {
+    "api": "query_graph",
+    "input": {"graph": {"nodes": [], "edges": []}},
+    "det_hash": "50fcf97a03274428a57bc3d9ca5ff40e217fc42b239f4ca255b0bdd1f1124fbc"
+  },
+  {
+    "api": "query_graph",
+    "input": {"graph": {"nodes": [{"id": "a"}, {"id": "b"}, {"id": "c"}, {"id": "d"}], "edges": [{"from": "a", "to": "b", "evidence": ["x"]}, {"from": "a", "to": "c", "evidence": ["y"]}, {"from": "a", "to": "d", "evidence": ["z"]}, {"from": "b", "to": "c", "evidence": ["w"]}]}, "node": "a"},
+    "det_hash": "42ef0a5ca88fde115f4beba92bd3631ce9d32c0e99c3c791d29703010a68fc4d"
+  },
+  {
+    "api": "query_graph",
+    "input": {"result": {"relationships": {"execution_graph": {"nodes": [{"id": "a"}], "edges": []}}}},
+    "det_hash": "9cd48b5b5b02215681df6539de15e7405ebbc5adc219d1c775e2bc6b957dc769"
+  },
+  {
+    "api": "query_graph",
+    "input": {},
+    "det_hash": "50fcf97a03274428a57bc3d9ca5ff40e217fc42b239f4ca255b0bdd1f1124fbc"
+  },
+  {
+    "api": "query_knowledge",
+    "input": {"entities": ["Alpha", "Beta", "Gamma"], "edges": [{"from": "Alpha", "to": "Beta", "evidence": ["ev1"], "contradictions": {"pairs": [["Alpha", "Beta"]]}}, {"from": "Beta", "to": "Gamma", "evidence": ["ev2"]}]},
+    "det_hash": "c5e2809ecafd1a6f845ff156877a370881a4ffddd04cbfb3a515f3c73c4dafb4"
+  },
+  {
+    "api": "query_knowledge",
+    "input": {"entities": [], "edges": []},
+    "det_hash": "2787b371d81d81542e8f0fbc59f973c8d79c2a774bea0363b28e75e8ad1d6e02"
+  },
+  {
+    "api": "query_knowledge",
+    "input": {"result": {"content": {"repository": {"services": ["s1"]}, "documents": {"d": 1}, "knowledge_v2": {"k": 2}, "knowledge_reconstruction_v18": {"k18": 3}}}},
+    "det_hash": "ddba44bd6c07c79d72ee13112b2b9d5321ca4370482f90eeb177c2fd87cc4ba5"
+  },
+  {
+    "api": "query_repo",
+    "input": {"result": {"content": {"repository": {"services": ["s1"]}, "documents": {"d": 1}, "knowledge_v2": {"k": 2}, "knowledge_reconstruction_v18": {"k18": 3}}}},
+    "det_hash": "2ae93b651d7da9952dff30a373108842bf88a94c8834d34770ede82c0dadc0dd"
+  },
+  {
+    "api": "query_repository",
+    "input": {"result": {"content": {"repository": {"services": ["s1"]}, "documents": {"d": 1}, "knowledge_v2": {"k": 2}, "knowledge_reconstruction_v18": {"k18": 3}}}},
+    "det_hash": "2ae93b651d7da9952dff30a373108842bf88a94c8834d34770ede82c0dadc0dd"
+  },
+  {
+    "api": "query_documents",
+    "input": {"result": {"content": {"repository": {"services": ["s1"]}, "documents": {"d": 1}, "knowledge_v2": {"k": 2}, "knowledge_reconstruction_v18": {"k18": 3}}}},
+    "det_hash": "99e6326a5a58748fb618850ce96523d192332126fbaeafd073b004f75148fdd3"
+  },
+  {
+    "api": "query_semantics",
+    "input": {"query_type": "graph", "payload": {"graph": {"nodes": [{"id": "a"}, {"id": "b"}, {"id": "c"}, {"id": "d"}], "edges": [{"from": "a", "to": "b", "evidence": ["x"]}, {"from": "a", "to": "c", "evidence": ["y"]}, {"from": "a", "to": "d", "evidence": ["z"]}, {"from": "b", "to": "c", "evidence": ["w"]}]}}},
+    "det_hash": "435c0e8a80a43e8cb3a103ae627aac0b231510bd657e3263325ca612020c34c2"
+  },
+  {
+    "api": "query_semantics",
+    "input": {"query_type": "knowledge", "payload": {"entities": ["Alpha", "Beta", "Gamma"], "edges": [{"from": "Alpha", "to": "Beta", "evidence": ["ev1"], "contradictions": {"pairs": [["Alpha", "Beta"]]}}, {"from": "Beta", "to": "Gamma", "evidence": ["ev2"]}]}},
+    "det_hash": "f2233c38fb00ffe44dc4125f5d9409a74c39bf16386073a60ee71be3665b4e02"
+  },
+  {
+    "api": "query_semantics",
+    "input": {"query_type": "weird", "payload": {"k": "v"}},
+    "det_hash": "aef5e29e7eb8259e0c94080e6f36b2df420137ea6964e7dfb88e80b32ef2fccb"
+  },
+  {
+    "api": "reason_semantically",
+    "input": {"domain": "topology", "payload": {"graph": {"nodes": [{"id": "a"}, {"id": "b"}, {"id": "c"}, {"id": "d"}], "edges": [{"from": "a", "to": "b", "evidence": ["x"]}, {"from": "a", "to": "c", "evidence": ["y"]}, {"from": "a", "to": "d", "evidence": ["z"]}, {"from": "b", "to": "c", "evidence": ["w"]}]}}},
+    "det_hash": "67719ba3a508830ecd8fa05087d150a22e78f737a5ed2628815cce1f290bbd25"
+  },
+  {
+    "api": "reason_semantically",
+    "input": {"domain": "mystery", "payload": {}},
+    "det_hash": "b186003a0935ee30b5a721e21da1f065944327c5776f1bf74cf1bede1e1f7b87"
+  },
+  {
+    "api": "analyze",
+    "input": {"nodes": [{"id": "a"}, {"id": "b"}, {"id": "c"}], "edges": [{"from": "a", "to": "b"}, {"from": "b", "to": "c"}, {"from": "a", "to": "c"}]},
+    "det_hash": "cee4325f37255f828795a0cabac2332b167f919d21194c13ce56a46e9d2479e9"
+  }
+]

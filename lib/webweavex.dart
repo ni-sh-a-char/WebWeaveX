@@ -93,5 +93,62 @@ export 'src/execution/execution.dart'
         buildRuntimeSandbox,
         simulateRuntimeExecution,
         replayRuntimeExecution;
+export 'src/runtime_memory_family/runtime_memory_runtime.dart'
+    show
+        runRuntimeMemory,
+        runMemoryForExtraction,
+        saveRuntimeMemory,
+        loadRuntimeMemory,
+        searchRuntimeMemory;
+export 'src/reconstruction_runtime/reconstruction_runtime.dart'
+    show
+        runReconstructionRuntime,
+        runReconstructionForExtraction,
+        fabricateRuntimeReality,
+        cloneRuntimeEnvironment,
+        validateReconstructedRuntime;
+// runCanonicalPipeline is already exported by src/kernel/runtime_pipeline.dart.
+export 'src/kernel_runtime/kernel_runtime.dart'
+    show
+        RuntimeKernel,
+        getRuntimeKernel,
+        compileUnifiedRuntimeIr,
+        UniversalInput;
+export 'src/persistence/persistence.dart'
+    show
+        fingerprint,
+        encryptSessionState,
+        decryptSessionState,
+        saveEncryptedSession,
+        loadEncryptedSession,
+        saveBrowserIdentity,
+        loadBrowserIdentity,
+        saveAdaptiveMemory,
+        loadAdaptiveMemory,
+        saveDistributedCheckpoint,
+        loadDistributedCheckpoint,
+        saveLiveRuntime,
+        loadLiveRuntime,
+        authenticateRuntime;
+export 'src/query/query.dart'
+    show
+        queryGraph,
+        queryRepo,
+        queryRepository,
+        queryDocuments,
+        queryKnowledge,
+        querySemantics,
+        reasonSemantically,
+        analyze,
+        compileDocument,
+        compileRepository;
+export 'src/connectors_runtime/connectors_runtime.dart'
+    show
+        extractApiRuntime,
+        extractRuntimeStreams,
+        extractTelemetryRuntime,
+        replayStreamEvents,
+        buildStreamTimeline,
+        buildInteractionGraph;
 
 const version = '2.0.0';
