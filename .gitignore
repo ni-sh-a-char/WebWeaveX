@@ -46,3 +46,5 @@ tool/debug_*.dart
 
 validation/browser/.session-test.kaalka
 
+
+tools/_three_way.tsv

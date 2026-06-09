@@ -1,0 +1,9 @@
+# WebWeaveX (Dart) — default reviewers
+* @ni-sh-a-char
+
+/lib/         @ni-sh-a-char
+/test/        @ni-sh-a-char
+/validation/  @ni-sh-a-char
+/tools/       @ni-sh-a-char
+/docs/        @ni-sh-a-char
+/.github/     @ni-sh-a-char
