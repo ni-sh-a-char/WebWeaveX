@@ -21,5 +21,6 @@ RuntimeGraph rebuildGraphFromPartial(RuntimeGraph partial) {
       payload: n.payload,
     ));
   }
-  return normalizeRuntimeGraph(RuntimeGraph(nodes: nodes, edges: normalized.edges));
+  return normalizeRuntimeGraph(
+      RuntimeGraph(nodes: nodes, edges: normalized.edges));
 }

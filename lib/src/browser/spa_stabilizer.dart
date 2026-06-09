@@ -10,7 +10,8 @@ Map<String, dynamic> stabilizeSpaDom(String html, {String route = '/'}) {
     framework = 'react';
   } else if (RegExp(r'data-v-', caseSensitive: false).hasMatch(html)) {
     framework = 'vue';
-  } else if (RegExp(r'ng-version|_ngcontent', caseSensitive: false).hasMatch(html)) {
+  } else if (RegExp(r'ng-version|_ngcontent', caseSensitive: false)
+      .hasMatch(html)) {
     framework = 'angular';
   }
   return {
@@ -18,7 +19,8 @@ Map<String, dynamic> stabilizeSpaDom(String html, {String route = '/'}) {
     'stabilized_html': stabilized,
     'stable_dom_hash': stableDomHash,
     'spa_fingerprint': spaFingerprint,
-    'route_hash': computeDeterministicHash({'route': route, 'stable_dom_hash': stableDomHash}),
+    'route_hash': computeDeterministicHash(
+        {'route': route, 'stable_dom_hash': stableDomHash}),
     'bounded': true,
   };
 }

@@ -13,4 +13,5 @@ RuntimeGraph reconstructGraphFromSources(Map<String, dynamic> sources) {
   return buildRuntimeGraph(sources);
 }
 
-String graphReconstructionFingerprint(RuntimeGraph graph) => graphFingerprint(graph);
+String graphReconstructionFingerprint(RuntimeGraph graph) =>
+    graphFingerprint(graph);

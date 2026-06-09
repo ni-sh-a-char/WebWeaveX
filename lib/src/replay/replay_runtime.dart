@@ -22,8 +22,8 @@ Map<String, dynamic> validateFullRuntimeReplay(
   final memory = (mem != null && replayMem != null)
       ? validateMemoryReplayEquivalence(mem, replayMem)
       : null;
-  final fingerprint =
-      validateFingerprintReplayEquivalence(original, replayed, graph: graph, memory: mem);
+  final fingerprint = validateFingerprintReplayEquivalence(original, replayed,
+      graph: graph, memory: mem);
   final equivalent = replay['equivalent'] == true &&
       graphResult['equivalent'] == true &&
       fingerprint['equivalent'] == true &&

@@ -30,7 +30,8 @@ String deriveKaalkaTimeKey(String encryptionKey) {
         '${digest[i] % 12}:${digest[i + 1] % 60}:${digest[i + 2] % 60}';
     if (kaalkaTimeKeyRoundTrips(candidate)) return candidate;
   }
-  if (kaalkaTimeKeyRoundTrips(kaalkaFallbackTimeKey))
+  if (kaalkaTimeKeyRoundTrips(kaalkaFallbackTimeKey)) {
     return kaalkaFallbackTimeKey;
+  }
   return '12:34:56';
 }

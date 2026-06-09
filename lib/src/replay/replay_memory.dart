@@ -17,5 +17,6 @@ Map<String, dynamic> validateMemoryReplayEquivalence(
   };
 }
 
-String memoryReplayHash(RuntimeGraph graph, [List<dynamic> history = const []]) =>
+String memoryReplayHash(RuntimeGraph graph,
+        [List<dynamic> history = const []]) =>
     stableMemoryHash(graph, history);

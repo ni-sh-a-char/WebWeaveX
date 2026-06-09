@@ -26,8 +26,11 @@ Map<String, dynamic> buildRuntimeMemoryGraph(
   return {
     'entities': entities,
     'relations': relations,
-    'graph_fingerprint':
-        computeDeterministicHash({'entities': entities, 'relations': relations, 'history_len': history.length}),
+    'graph_fingerprint': computeDeterministicHash({
+      'entities': entities,
+      'relations': relations,
+      'history_len': history.length
+    }),
     'bounded': true,
   };
 }

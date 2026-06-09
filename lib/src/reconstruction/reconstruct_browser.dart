@@ -11,8 +11,8 @@ Map<String, dynamic> reconstructBrowserState(Map<String, dynamic> extraction) {
     'navigation_history': [
       {'path': '/', 'order': 0}
     ],
-    'session': extraction['runtime']?['session'] ?? {},
-    'storage': ir['storage'] ?? {},
+    'session': extraction['runtime']?['session'] ?? <String, dynamic>{},
+    'storage': ir['storage'] ?? <String, dynamic>{},
     'bounded': true,
   };
 }

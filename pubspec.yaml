@@ -27,8 +27,6 @@ topics:
 
 license: Apache-2.0
 
-author: Piyush Mishra <piyushmishra.professional@gmail.com>
-
 dependencies:
   kaalka: ^5.0.0
   crypto: ^3.0.6

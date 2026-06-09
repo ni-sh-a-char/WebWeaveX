@@ -1,4 +1,3 @@
-import '../connectors/connectors_impl.dart' show extractPostgresRuntime;
 import '../graph/runtime_graph.dart';
 
 Map<String, dynamic> createExtractionWorker(String workerId) => {
@@ -16,9 +15,14 @@ Map<String, dynamic> runDistributedExtraction(
   final workerList = workers ?? [createExtractionWorker('worker_0')];
   final queue = <Map<String, dynamic>>[
     for (final t in tasks)
-      {'task_id': t['task_id'] ?? 'task', 'url': t['url'] ?? '', 'bounded': true}
+      {
+        'task_id': t['task_id'] ?? 'task',
+        'url': t['url'] ?? '',
+        'bounded': true
+      }
   ];
-  final graph = buildRuntimeGraph({'workers': workerList.length, 'tasks': tasks.length});
+  final graph =
+      buildRuntimeGraph({'workers': workerList.length, 'tasks': tasks.length});
   return {
     'workers': workerList,
     'queue': queue,

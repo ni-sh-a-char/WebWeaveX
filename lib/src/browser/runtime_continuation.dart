@@ -45,7 +45,8 @@ Future<Map<String, dynamic>> extractWithSession(
       'storage': captured['storage'],
     },
     'unified_runtime_graph': graph.toJson(),
-    'pipeline_hash': computeDeterministicHash({'url': url, 'kind': 'continuation', 'tick': tick}),
+    'pipeline_hash': computeDeterministicHash(
+        {'url': url, 'kind': 'continuation', 'tick': tick}),
   };
   envelope['global_runtime_fingerprint'] =
       computeGlobalRuntimeFingerprint(envelope, graph);

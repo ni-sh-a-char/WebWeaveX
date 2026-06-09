@@ -17,7 +17,8 @@ Map<String, dynamic> reconstructMemoryGraph(
   };
 }
 
-Map<String, dynamic> reconstructMemoryFromEnvelope(Map<String, dynamic> envelope) {
+Map<String, dynamic> reconstructMemoryFromEnvelope(
+    Map<String, dynamic> envelope) {
   final graph = reconstructRuntimeGraph(envelope);
   final history =
       ((envelope['runtime_memory'] as Map?)?['runtime_history'] as List?) ?? [];

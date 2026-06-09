@@ -6,6 +6,8 @@
   <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/pub/v/webweavex?style=flat-square" alt="pub"/></a>
   <img src="https://img.shields.io/badge/Dart-3.3%2B-0175C6?style=flat-square&logo=dart&logoColor=white" alt="Dart"/>
   <img src="https://img.shields.io/badge/parity-11%2F11-22c55e?style=flat-square" alt="Parity"/>
+  <img src="https://img.shields.io/badge/tests-290%20passing-22c55e?style=flat-square" alt="Tests"/>
+  <img src="https://img.shields.io/badge/coverage-99%25-22c55e?style=flat-square" alt="Coverage"/>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="License"/>
   <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Coffee"/></a>
 </p>

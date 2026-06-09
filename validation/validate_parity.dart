@@ -26,7 +26,7 @@ Future<void> main() async {
       'payload': {
         'z': 3,
         'a': {'b': 2, 'timestamp': 999},
-        'm': [1, {}],
+        'm': [1, <String, dynamic>{}],
       },
       'key': 'nested',
     },
@@ -119,8 +119,9 @@ Future<void> main() async {
     final encryptMatch = rv['encrypted'] == dv['encrypted'];
     final decryptOk = dv['decrypt_ok'] == true;
     final deterministic = dv['deterministic'] == true;
-    if (!hashMatch || !encryptMatch || !decryptOk || !deterministic)
+    if (!hashMatch || !encryptMatch || !decryptOk || !deterministic) {
       allOk = false;
+    }
     results.add({
       'id': id,
       'hash_match': hashMatch,

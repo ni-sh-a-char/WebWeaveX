@@ -4,11 +4,11 @@ import 'authenticated_runtime.dart';
 Map<String, dynamic> createRuntimeSession([Map<String, dynamic>? state]) {
   final s = state ?? {};
   final session = {
-    'cookies': s['cookies'] ?? [],
-    'headers': s['headers'] ?? {},
-    'auth_tokens': s['auth_tokens'] ?? [],
-    'localStorage': s['localStorage'] ?? {},
-    'sessionStorage': s['sessionStorage'] ?? {},
+    'cookies': s['cookies'] ?? <dynamic>[],
+    'headers': s['headers'] ?? <String, dynamic>{},
+    'auth_tokens': s['auth_tokens'] ?? <dynamic>[],
+    'localStorage': s['localStorage'] ?? <String, dynamic>{},
+    'sessionStorage': s['sessionStorage'] ?? <String, dynamic>{},
   };
   return {
     ...session,

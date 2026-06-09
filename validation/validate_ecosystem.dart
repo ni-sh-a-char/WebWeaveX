@@ -47,7 +47,8 @@ Future<void> main() async {
         )['runtime_id'] !=
         null,
     'agent_memory_query': queryRuntimeMemory(mem, 'graph') != null,
-    'agent_decrypt': dec is Map<String, dynamic> && dec['agent'] == 'continuity',
+    'agent_decrypt':
+        dec is Map<String, dynamic> && dec['agent'] == 'continuity',
   };
 
   final allOk = summary.values.every((v) => v == true);

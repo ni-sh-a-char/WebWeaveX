@@ -1,4 +1,6 @@
 /// Byte `_proc` bridge aligned with `package:kaalka` v5.0.0 (JavaScript `_proc` path).
+library;
+
 import 'package:kaalka/kaalka.dart' show Kaalka;
 
 (int, int, int) parseKaalkaTimeKey(String timeKey) {

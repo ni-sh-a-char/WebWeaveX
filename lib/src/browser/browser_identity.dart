@@ -1,9 +1,10 @@
 import '../crypto/kaalka_runtime.dart';
 
 Map<String, dynamic> buildBrowserIdentity(Map<String, dynamic> captured) {
-  final storageHash = computeDeterministicHash(captured['storage'] ?? {});
+  final storageHash =
+      computeDeterministicHash(captured['storage'] ?? <String, dynamic>{});
   final routeFingerprint =
-      computeDeterministicHash({'routes': captured['routes'] ?? []});
+      computeDeterministicHash({'routes': captured['routes'] ?? <dynamic>[]});
   final runtimeIdentity = computeDeterministicHash({
     'url': captured['url'],
     'dom_hash': captured['dom_hash'],
@@ -26,8 +27,10 @@ Map<String, dynamic> identityFromExtraction(Map<String, dynamic> envelope) {
   final ir = envelope['browser_ir'] as Map? ?? {};
   return {
     'runtime_identity': ir['runtime_identity'] ?? '',
-    'profile_hash': computeDeterministicHash({'storage': ir['storage'] ?? {}}),
-    'storage_hash': computeDeterministicHash(ir['storage'] ?? {}),
+    'profile_hash': computeDeterministicHash(
+        {'storage': ir['storage'] ?? <String, dynamic>{}}),
+    'storage_hash':
+        computeDeterministicHash(ir['storage'] ?? <String, dynamic>{}),
     'route_fingerprint': computeDeterministicHash(envelope),
     'bounded': true,
   };
