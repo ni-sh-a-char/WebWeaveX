@@ -10,6 +10,8 @@ export 'src/browser/runtime_continuation.dart';
 export 'src/browser/runtime_session.dart';
 export 'src/browser/runtime_snapshot.dart';
 export 'src/browser/spa_stabilizer.dart';
+export 'src/adaptive/selector_healing.dart'
+    show healSelector, buildSemanticAnchor;
 export 'src/crypto/kaalka_runtime.dart';
 export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';

@@ -41,7 +41,7 @@ DEFERRED_APIS = {
     "extract_kubernetes_runtime",
     "run_application_cognition", "execute_runtime_objective",
     "save_application_memory", "load_application_memory",
-    "recover_modal_runtime", "heal_selector",
+    "recover_modal_runtime",
     "extract_infinite_scroll", "extract_paginated_content",
     "capture_websocket_frames", "capture_dom_mutations",
     "replay_interactions",
@@ -126,6 +126,11 @@ FORCE_PARTIAL = {
     # network extract() fallback) is not yet portable to Dart.
     "reason_semantically", "query_documents", "query_repository",
     "query_semantics", "analyze",
+    # heal_selector: DOM-node strategies are a full-fidelity port (proven by
+    # deep-equality vectors); the semantic_anchor HTML sub-path matches
+    # BeautifulSoup for well-formed content but bounds deeply nested inline
+    # markup. Honest Partial, not Complete. See selector_healing_parity_test.
+    "heal_selector",
 }
 
 
