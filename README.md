@@ -148,7 +148,7 @@ Input → Canonical pipeline → Graph + Memory → Replay check → Reconstruct
 
 ```yaml
 dependencies:
-  webweavex: ^2.0.0
+  webweavex: ^2.0.1
   kaalka: ^5.0.0
 ```
 

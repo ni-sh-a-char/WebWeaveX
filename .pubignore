@@ -5,6 +5,7 @@ docs/
 example/
 .github/
 tool/
+tools/
 analysis_options.yaml
 *.md
 !README.md

@@ -151,4 +151,4 @@ export 'src/connectors_runtime/connectors_runtime.dart'
         buildStreamTimeline,
         buildInteractionGraph;
 
-const version = '2.0.0';
+const version = '2.0.1';
