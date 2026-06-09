@@ -4,7 +4,7 @@ Measured by `dart test --coverage=coverage` + `package:coverage` `format_coverag
 
 ## Total
 
-**97.23% line coverage — 6280 / 6459 lines.** Target 90% — **met with margin.**
+**97.25% line coverage — 6374 / 6554 lines.** Target 90% — **met with margin.**
 
 ```bash
 dart test --coverage=coverage

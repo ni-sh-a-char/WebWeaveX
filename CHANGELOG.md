@@ -1,5 +1,34 @@
 # Changelog
 
+## [Unreleased] — Wave 3 (parity + OSS)
+
+### Added
+
+- `healSelector` / `buildSemanticAnchor` — native Dart port of the canonical
+  Python `heal_selector` (moved Deferred → Partial). DOM-node strategies
+  (`text_anchor`, `attribute_anchor`, `structural_fallback`) are full-fidelity,
+  proven by 11 deep-equality vectors vs the Python reference
+  (`validation/parity/selector_healing_api_vectors.json`,
+  `test/parity/selector_healing_parity_test.dart`). The `semantic_anchor` HTML
+  sub-path matches BeautifulSoup for well-formed content; nested inline markup is
+  the documented bounded edge.
+- OSS governance files: `GOVERNANCE.md`, `MAINTAINERS.md`, `CODEOWNERS`,
+  `RELEASE.md`, `SUPPORT.md`.
+- Full Phase-10 `README.md` (Installation, Features, API Reference, Examples,
+  Performance, Testing, Coverage, CI/CD, Pub.dev Release, Vision).
+- Validation reports regenerated from measured reality: `REPOSITORY_VALIDATION_REPORT`,
+  `TEST_VALIDATION_REPORT`, `COVERAGE_VALIDATION_REPORT`, `API_PARITY_VALIDATION_REPORT`,
+  `README_GAP_REPORT`, `OSS_VALIDATION_REPORT`, `RELEASE_READINESS_REPORT`,
+  `FINAL_STATE_OF_DART_BRANCH`.
+
+### Changed
+
+- `CONTRIBUTING.md` rewritten for Dart (was carrying Python `pip`/`pytest`/`playwright`
+  instructions).
+- API parity matrix: **88 Complete · 24 Partial · 16 Deferred · 0 Missing**.
+- Test suite **779 → 793**; line coverage **97.23% → 97.25%** (6374/6554).
+- `.pubignore` excludes `CODEOWNERS` from the published package.
+
 ## [2.0.1] — 2026-06-09 — Dart native release
 
 ### Added

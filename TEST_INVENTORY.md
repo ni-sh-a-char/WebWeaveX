@@ -1,6 +1,6 @@
 # TEST_INVENTORY.md
 
-Measured from `test/` in the canonical repo (`dart` branch). **779 tests executed** (`dart test`), 644 static `test(` declarations across **33 files** (the gap is vector-driven loops that expand one declaration into many cases). Every test validates real behavior — parity tests assert cross-language hash equality, others assert structural contracts; no placeholder assertions.
+Measured from `test/` in the canonical repo (`dart` branch). **793 tests executed** (`dart test`) across **34 files** (vector-driven loops expand one declaration into many cases). Every test validates real behavior — parity tests assert cross-language hash equality (or deep-equality vs the canonical Python output), others assert structural contracts; no placeholder assertions.
 
 ## By category
 

@@ -33,8 +33,8 @@ Measured by `tools/dart_parity_audit.py` → `PUBLIC_API_MATRIX.md`.
 | Status | Count | Notes |
 |--------|------:|-------|
 | ✅ Complete | 88 | name-mapped + parity-tested (72 added via hash-parity ports) |
-| 🟡 Partial | 23 | bounded Dart impl; full parity needs live network/browser/NLP/AST |
-| ⚪ Deferred | 17 | needs OS/desktop/Electron/DevTools — not in-process in Dart |
+| 🟡 Partial | 24 | bounded Dart impl; full parity needs live network/browser/NLP/AST (incl. `heal_selector`, Wave 3) |
+| ⚪ Deferred | 16 | needs OS/desktop/Electron/DevTools — not in-process in Dart |
 | ❌ Missing | 0 | — |
 
 ### Families ported with PROVEN cross-language hash parity
@@ -60,8 +60,8 @@ The 23 Partial include: `compile_document`/`compile_repository` (need an NLP/AST
 
 ## 4. Test inventory
 
-- **779 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel, browser, connectors, and 12 newly-ported runtime families.
-- **97.23% line coverage** (`dart test --coverage`, 6280/6459 lines); only `normalization.dart` (Node NFKC fallback, unreachable when Node on PATH) is below 90%.
+- **793 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel, browser, connectors, selector-healing, and 12 ported runtime families.
+- **97.25% line coverage** (`dart test --coverage`, 6374/6554 lines); only `normalization.dart` (Node NFKC fallback, unreachable when Node on PATH) is below 90%.
 - Cross-language parity vectors: `validation/parity/*_vectors.json` (crypto/graph core, 11/11) + `validation/parity/*_api_vectors.json` (~145 runtime-API hash vectors).
 
 ## 5. Documentation inventory
