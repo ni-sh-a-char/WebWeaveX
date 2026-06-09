@@ -1,9 +1,9 @@
 # Cross-Language Parity Report (Dart)
 
 **Algorithm:** `webweavex-formula+kaalka@5.0.0`
-**Generated:** 2026-05-23T16:10:31.319Z
+**Generated:** 2026-06-09T20:01:29.025845Z
 
-✅ **PASS** — Dart matches JavaScript reference vectors
+✅ **PASS** — Dart matches JavaScript AND Python reference vectors (three-way)
 
 ```json
 {
@@ -11,78 +11,100 @@
   "results": [
     {
       "id": "probe-1",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "probe-2",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "unicode",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "emoji",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "crlf",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "session",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "nested-object",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "graph",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "array",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "dom",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     },
     {
       "id": "memory-graph",
-      "hash_match": true,
-      "encrypt_match": true,
+      "hash_match_js": true,
+      "encrypt_match_js": true,
+      "hash_match_py": true,
+      "encrypt_match_py": true,
       "decrypt_ok": true,
       "deterministic": true
     }

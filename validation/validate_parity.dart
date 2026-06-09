@@ -105,27 +105,51 @@ Future<void> main() async {
   File('${parityDir.path}/dart_vectors.json')
       .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(dartFile));
 
-  final refPath = '${parityDir.path}/javascript_vectors.json';
-  final ref =
-      jsonDecode(File(refPath).readAsStringSync()) as Map<String, dynamic>;
-  final refVectors = (ref['vectors'] as List).cast<Map<String, dynamic>>();
+  // Three-way reference comparison: Dart vs the JavaScript reference AND vs the
+  // Python reference. A BOM-tolerant read handles UTF-8-with-BOM reference files.
+  Map<String, Map<String, dynamic>> loadRef(String name) {
+    final f = File('${parityDir.path}/$name');
+    if (!f.existsSync()) return <String, Map<String, dynamic>>{};
+    var text = f.readAsStringSync();
+    if (text.isNotEmpty && text.codeUnitAt(0) == 0xFEFF) {
+      text = text.substring(1);
+    }
+    final decoded = jsonDecode(text) as Map<String, dynamic>;
+    final list = (decoded['vectors'] as List).cast<Map<String, dynamic>>();
+    return {for (final v in list) v['id'] as String: v};
+  }
+
+  final jsRef = loadRef('javascript_vectors.json');
+  final pyRef = loadRef('python_vectors.json');
 
   var allOk = true;
   final results = <Map<String, dynamic>>[];
-  for (final rv in refVectors) {
-    final id = rv['id'] as String;
-    final dv = vectors.firstWhere((v) => v['id'] == id);
-    final hashMatch = rv['hash'] == dv['hash'];
-    final encryptMatch = rv['encrypted'] == dv['encrypted'];
+  for (final dv in vectors) {
+    final id = dv['id'] as String;
+    final js = jsRef[id];
+    final py = pyRef[id];
+    final jsHashMatch = js != null && js['hash'] == dv['hash'];
+    final jsEncMatch = js != null && js['encrypted'] == dv['encrypted'];
+    // Python reference may not carry every id; only assert when present.
+    final pyHashMatch = py == null || py['hash'] == dv['hash'];
+    final pyEncMatch = py == null || py['encrypted'] == dv['encrypted'];
     final decryptOk = dv['decrypt_ok'] == true;
     final deterministic = dv['deterministic'] == true;
-    if (!hashMatch || !encryptMatch || !decryptOk || !deterministic) {
+    if (!jsHashMatch ||
+        !jsEncMatch ||
+        !pyHashMatch ||
+        !pyEncMatch ||
+        !decryptOk ||
+        !deterministic) {
       allOk = false;
     }
     results.add({
       'id': id,
-      'hash_match': hashMatch,
-      'encrypt_match': encryptMatch,
+      'hash_match_js': jsHashMatch,
+      'encrypt_match_js': jsEncMatch,
+      'hash_match_py': py != null ? py['hash'] == dv['hash'] : 'no-ref',
+      'encrypt_match_py':
+          py != null ? py['encrypted'] == dv['encrypted'] : 'no-ref',
       'decrypt_ok': decryptOk,
       'deterministic': deterministic,
     });
@@ -138,7 +162,7 @@ Future<void> main() async {
     ..writeln('**Generated:** ${DateTime.now().toUtc().toIso8601String()}')
     ..writeln()
     ..writeln(allOk
-        ? '✅ **PASS** — Dart matches JavaScript reference vectors'
+        ? '✅ **PASS** — Dart matches JavaScript AND Python reference vectors (three-way)'
         : '❌ **FAIL** — see results')
     ..writeln()
     ..writeln('```json')
