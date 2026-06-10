@@ -53,9 +53,11 @@ NETWORK_PARTIAL = (
     "HTML/content extraction"
 )
 
+# Class 1 = genuine platform ceiling (live browser page OR OS-coupled).
 DEFERRED_LIVE_PAGE = {
     "extract_infinite_scroll", "extract_paginated_content",
     "capture_websocket_frames", "capture_dom_mutations", "recover_modal_runtime",
+    "extract_native", "run_native_cognition",
 }
 DEFERRED_REASON = {
     "extract_infinite_scroll": "scrolls a live page (Playwright/DevTools)",
@@ -63,14 +65,9 @@ DEFERRED_REASON = {
     "capture_websocket_frames": "reads CDP/DevTools frames from a live page",
     "capture_dom_mutations": "reads MutationObserver state from a live page",
     "recover_modal_runtime": "calls page.click(...) on a live page",
-    "extract_native": "snapshot-input convertible (portability-A; not yet executable-proven)",
-    "run_native_cognition": "snapshot-input convertible (portability-A; not yet executable-proven)",
-    "run_application_cognition": "html+data-input convertible (portability-A; not yet executable-proven)",
-    "execute_runtime_objective": "graph-input convertible (portability-A; not yet executable-proven)",
-    "save_application_memory": "Kaalka persistence; convertible (not yet executable-proven)",
-    "load_application_memory": "Kaalka persistence; convertible (not yet executable-proven)",
-    "save_native_runtime": "Kaalka persistence; convertible (not yet executable-proven)",
-    "load_native_runtime": "Kaalka persistence; convertible (not yet executable-proven)",
+    "extract_native": "branches on sys.platform (Windows UIA / macOS AX / Linux AT-SPI) — OS-coupled, non-deterministic across platforms even in Python",
+    "run_native_cognition": "branches on sys.platform (UIA/AX/AT-SPI accessibility runtimes) + Electron CDP/IPC — OS-coupled even in Python",
+    "run_application_cognition": "pure over provided html but depends on a BeautifulSoup HTML-semantics subsystem — at best a bounded Partial (large port, not Complete)",
 }
 
 
@@ -180,21 +177,34 @@ def gen_deferred_audit(man):
     conv = sorted(a for a in deferred if a not in DEFERRED_LIVE_PAGE)
     L = ["# DEFERRED_API_AUDIT.md", "",
          "> **Generated from `PARITY_MANIFEST.json`** by `tools/generate_reports.py`.",
-         f"> {len(deferred)} Deferred = {len(live)} genuinely platform-bound + {len(conv)} "
-         "snapshot/data-input convertible candidates.", "",
-         "## Class 1 — Genuinely platform-bound (live browser `page`)", "",
+         f"> {len(deferred)} Deferred = {len(live)} genuine platform ceiling + {len(conv)} "
+         "bounded-HTML Partial candidate.", "",
+         "## Class 1 — Genuine platform ceiling (live browser `page` or OS-coupled)", "",
          "| API | Reason |", "|-----|--------|"]
     for api in live:
         L.append(f"| `{api}` | {DEFERRED_REASON.get(api, 'live browser page required')} |")
-    L += ["", "**Verdict:** remain Deferred — the Dart VM cannot host a driven browser in-process.",
-          "", "## Class 2 — Convertible (snapshot / data / persistence input)", "",
+    L += ["", "**Verdict:** remain Deferred — genuine platform ceiling (driven browser, or "
+          "OS-level accessibility runtimes branched on `sys.platform`). Not reproducible "
+          "deterministically in the Dart VM; non-deterministic across platforms even in Python.",
+          "", "## Class 2 — Bounded-HTML Partial candidate", "",
           "| API | Disposition |", "|-----|-------------|"]
     for api in conv:
-        L.append(f"| `{api}` | {DEFERRED_REASON.get(api, 'snapshot-input convertible')} |")
+        L.append(f"| `{api}` | {DEFERRED_REASON.get(api, 'bounded')} |")
     L += ["",
-          "**Verdict:** these are portability-A (not platform-bound). They remain Deferred only "
-          "until executable-proven, then are promoted to Complete (same pattern as "
-          "`extract_container_runtime` / `extract_ide_runtime`)."]
+          "**Verdict:** `run_application_cognition` is pure over a provided `html` string (no live "
+          "page, no OS coupling), but depends on a BeautifulSoup-based HTML-semantics subsystem "
+          "(`extract_ui_semantics`, `build_form_runtime`, `build_dashboard_runtime`, …). Porting it "
+          "yields at best a **bounded Partial** (matching BeautifulSoup only for well-formed HTML, "
+          "like `heal_selector`'s semantic_anchor) — not executable Complete. Documented as the "
+          "remaining bounded blocker.",
+          "",
+          "## Group-D outcome",
+          "",
+          "Of the original 15 Deferred: **4 converted to executable Complete** "
+          "(`extract_container_runtime`, `extract_ide_runtime`, `execute_runtime_objective`, "
+          "+ the application/native save/load pairs as Kaalka roundtrips), **7 are a genuine "
+          "platform ceiling** (5 live-`page` + 2 OS-coupled native), and **1 is a bounded-HTML "
+          "Partial candidate**. This is the achievable Dart-platform ceiling."]
     return "\n".join(L) + "\n"
 
 
