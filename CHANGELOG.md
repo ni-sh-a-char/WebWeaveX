@@ -35,7 +35,7 @@
 
 - `CONTRIBUTING.md` rewritten for Dart (was carrying Python `pip`/`pytest`/`playwright`
   instructions).
-- API parity matrix: **88 Complete · 25 Partial · 15 Deferred · 0 Missing**.
+- API parity matrix: **77 Complete · 36 Partial · 15 Deferred · 0 Missing** (Proof Coverage Audit downgraded 11 unproven Complete → Partial).
 - Test suite **779 → 802**; line coverage **97.23% → 97.26%** (6394/6574).
 - `.pubignore` excludes `CODEOWNERS` from the published package.
 

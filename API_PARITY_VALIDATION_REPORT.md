@@ -30,13 +30,13 @@ in-process. Dart cannot do these in-process — that gap is the source of every 
 ## Dart classification (`tools/dart_parity_audit.py`, regenerated this session)
 
 ```
-Python total: 128   Counts: {Complete: 88, Partial: 25, Missing: 0, Deferred: 15}
+Python total: 128   Counts: {Complete: 77, Partial: 36, Missing: 0, Deferred: 15}
 ```
 
 | Status | Count | Meaning | Proof standard |
 |--------|------:|---------|----------------|
-| ✅ Complete | **88** | Native Dart impl, name-mapped, parity-tested | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
-| 🟡 Partial | **25** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
+| ✅ Complete | **77** | Native Dart impl, name-mapped, **cross-language proof-verified** | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
+| 🟡 Partial | **36** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
 | ⚪ Deferred | **15** | Needs OS/desktop/Electron/DevTools/Playwright in-process | not feasible in Dart VM |
 | ❌ Missing | **0** | Not implemented at all | — |
 
@@ -49,13 +49,13 @@ Python is a broken 2.0.0):
 - `replay_interactions` — the returned structure is a full-fidelity pure function of the interaction
   log (6 vectors, `interaction_replay_api_vectors.json`); the live-page action dispatch is the bounded edge.
 
-`88 + 23 + 17 = 128` (with version names folded into Complete). Reconciliation with the
-74.6% name-presence figure: 94 APIs have a Dart symbol; 6 of those are deliberately
-down-classified to Partial (`FORCE_PARTIAL`: `compile_document`, `compile_repository`,
-`run_canonical_pipeline`, `reason_semantically`, `query_documents`, `query_repository`,
-`query_semantics`, `analyze` — the subset whose Dart symbol exists but whose full Python
-behaviour drives an NLP/AST/network sub-path), yielding 88 Complete. The remaining 32 APIs
-with no Dart symbol split into the network-bounded Partials and the 17 Deferred.
+`77 + 36 + 15 = 128` (with the `version`/`__version__` constants folded into Complete).
+**Proof Coverage Audit (`COMPLETE_API_PROOF_MATRIX.md`):** all 75 functional Complete APIs are
+cross-language proof-verified (49 VECTOR, 22 ROUNDTRIP, 4 CORE_VECTOR). **11 APIs were downgraded
+Complete → Partial** in this audit because they had only a determinism/structural test and the
+Dart contract/output diverges from Python (see `PARTIAL_API_AUDIT.md` Group 1). 96 APIs have a
+Dart symbol; the gap to 77 Complete is the 11 downgrades + the 8 `FORCE_PARTIAL` semantic/query
+sub-paths. The 30 APIs with no Dart symbol are the network-bounded Partials and the 15 Deferred.
 
 ## The 30 Python APIs with no native Dart symbol (all present in JS)
 
@@ -86,9 +86,8 @@ hash-match the JavaScript reference (`hash_match`, `encrypt_match`, `decrypt_ok`
 
 - **0 Missing** — every canonical API is either implemented (Complete), bounded with a proven
   core (Partial), or honestly Deferred for a documented platform reason.
-- Dart trails JavaScript only on the **32 browser/native/infra APIs** that require in-process
-  capabilities the Dart VM does not have.
-- Highest achievable next gains are the **15 network-extraction APIs** (a bounded-but-real Dart
-  HTTP/extraction surface can convert several Partials to Complete) and tightening the 6
-  `FORCE_PARTIAL` semantic/query sub-paths. The native-OS/Electron/DevTools families remain
-  genuinely Deferred.
+- Dart trails JavaScript on the **30 browser/native/infra APIs** that require in-process
+  capabilities the Dart VM does not have, plus the **11 audit-downgraded** contract-divergent APIs.
+- Highest achievable next gains are the **11 downgraded APIs** (Group 1 of `PARTIAL_API_AUDIT.md` —
+  several are portability **A**: port Python's exact field set/formula + add vectors) and the
+  network-extraction surface. The native-OS/Electron/DevTools families remain genuinely Deferred.

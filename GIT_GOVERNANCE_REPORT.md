@@ -13,8 +13,8 @@
 | `<this>` | docs | Governance report update |
 
 Wave 4 base `3bd9cf7` → head `7e36eac` (pushed). Final metrics: **802 tests, 97.26% coverage,
-88 Complete · 25 Partial · 15 Deferred · 0 Missing**, three-way deterministic-core parity proven.
-Key Phase-3 result: all 88 Complete APIs are exercised by executed tests (`tools/proof_coverage.py`);
+77 Complete · 36 Partial · 15 Deferred · 0 Missing**, three-way deterministic-core parity proven.
+Key Phase-3 result: all 77 Complete APIs are cross-language proof-verified (`tools/complete_proof_audit.py`);
 foundational core proven three-way; signature-divergent Complete APIs disclosed honestly in
 `FINAL_TRUE_PARITY_REPORT.md`.
 
@@ -74,7 +74,7 @@ No force push. No history rewrite. Local `dart` == `origin/dart`.
 
 ## Release readiness
 
-Production-, OSS-, and pub.dev-ready at **2.0.1**. API parity **88 Complete · 24 Partial ·
+Production-, OSS-, and pub.dev-ready at **2.0.1**. API parity **77 Complete · 36 Partial ·
 16 Deferred · 0 Missing**; remaining gap is the genuinely platform-bound browser/native/infra
 families (see `API_PARITY_VALIDATION_REPORT.md`). Only non-technical blocker to live publish:
 pub.dev maintainer credentials.

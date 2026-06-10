@@ -32,8 +32,8 @@ Measured by `tools/dart_parity_audit.py` → `PUBLIC_API_MATRIX.md`.
 
 | Status | Count | Notes |
 |--------|------:|-------|
-| ✅ Complete | 88 | name-mapped + parity-tested (72 added via hash-parity ports) |
-| 🟡 Partial | 25 | bounded Dart impl; full parity needs live network/browser/NLP/AST (incl. `heal_selector`, `replay_interactions`) |
+| ✅ Complete | 77 | name-mapped + cross-language proof-verified (see COMPLETE_API_PROOF_MATRIX.md) |
+| 🟡 Partial | 36 | bounded Dart impl; full parity needs live network/browser/NLP/AST (incl. `heal_selector`, `replay_interactions`) |
 | ⚪ Deferred | 15 | needs OS/desktop/Electron/DevTools — not in-process in Dart |
 | ❌ Missing | 0 | — |
 
@@ -56,7 +56,7 @@ Each ported API's Dart output hashes identically to Python's `compute_determinis
 | query / reasoning | 8 | 17 hash vectors (graph/knowledge/topology/dict paths) |
 | kernel / contracts / unified-IR | compileUnifiedRuntimeIr, UniversalInput, RuntimeKernel, getRuntimeKernel | 18 hash vectors |
 
-The 25 Partial include: `heal_selector` (DOM-node strategies proven; nested-HTML bounded), `replay_interactions` (return structure proven; live-page dispatch bounded), `compile_document`/`compile_repository` (need an NLP/AST IR compiler — UnsupportedError stub), `run_canonical_pipeline` (deterministic kernel core proven; full pipeline drives network/extraction phases), `reason_semantically`/`query_documents`/`query_repository`/`query_semantics`/`analyze` (primary/result-dict path proven; document/repository/network sub-paths not yet portable), plus the bounded extract/crawl/stream pipeline. See `PUBLIC_API_MATRIX.md`.
+The 36 Partial include 11 downgraded by the Proof Coverage Audit, plus: `heal_selector` (DOM-node strategies proven; nested-HTML bounded), `replay_interactions` (return structure proven; live-page dispatch bounded), `compile_document`/`compile_repository` (need an NLP/AST IR compiler — UnsupportedError stub), `run_canonical_pipeline` (deterministic kernel core proven; full pipeline drives network/extraction phases), `reason_semantically`/`query_documents`/`query_repository`/`query_semantics`/`analyze` (primary/result-dict path proven; document/repository/network sub-paths not yet portable), plus the bounded extract/crawl/stream pipeline. See `PUBLIC_API_MATRIX.md`.
 
 ## 4. Test inventory
 

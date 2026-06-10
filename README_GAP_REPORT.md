@@ -50,7 +50,7 @@ Installation → Quick Start → per-subsystem sections → API Reference → Ex
 Testing → Coverage → CI/CD → Pub.dev Release → Contributing → OSS Governance → Security →
 Roadmap → Vision), keeping the existing strong "runtime cognition" narrative and adding the
 Dart-specific Installation / Pub.dev / Testing / Coverage / CI blocks with the **measured**
-numbers from this validation run (779 tests, 97.23% coverage, all gates green, 88/126 parity).
+numbers from this validation run (779 tests, 97.23% coverage, all gates green, 77/126 parity).
 
 This is a **fully achievable** gap — no platform constraints — and is the highest-leverage
 single fix on the branch.
