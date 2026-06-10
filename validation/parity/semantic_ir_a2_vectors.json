@@ -1,0 +1,1150 @@
+[
+  {
+    "id": "a2-amb-empty",
+    "fn": "compute_ambiguity_pressure",
+    "args": [
+      []
+    ],
+    "expected": {
+      "pressure": 0.0,
+      "suppress_expansion": false,
+      "confidence_reduction": 0.0,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a2-amb-two",
+    "fn": "compute_ambiguity_pressure",
+    "args": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "expected": {
+      "pressure": 0.24,
+      "suppress_expansion": true,
+      "confidence_reduction": 0.072,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a2-amb-cap",
+    "fn": "compute_ambiguity_pressure",
+    "args": [
+      [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    ],
+    "expected": {
+      "pressure": 1.0,
+      "suppress_expansion": true,
+      "confidence_reduction": 0.25,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a2-contra-nondict",
+    "fn": "compute_contradiction_pressure",
+    "args": [
+      null
+    ],
+    "expected": {
+      "pressure": 0.0,
+      "pair_count": 0,
+      "preserved": false,
+      "suppress_propagation": false,
+      "suppress_reconciliation": false,
+      "suppress_ontology_expansion": false,
+      "suppress_topology_expansion": false,
+      "confidence_reduction": 0.0
+    }
+  },
+  {
+    "id": "a2-contra-empty",
+    "fn": "compute_contradiction_pressure",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "pressure": 0.0,
+      "pair_count": 0,
+      "preserved": false,
+      "suppress_propagation": false,
+      "suppress_reconciliation": false,
+      "suppress_ontology_expansion": false,
+      "suppress_topology_expansion": false,
+      "confidence_reduction": 0.0
+    }
+  },
+  {
+    "id": "a2-contra-two",
+    "fn": "compute_contradiction_pressure",
+    "args": [
+      {
+        "pairs": [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c",
+            "d"
+          ]
+        ],
+        "preserved": true
+      }
+    ],
+    "expected": {
+      "pressure": 0.5,
+      "pair_count": 2,
+      "preserved": true,
+      "suppress_propagation": true,
+      "suppress_reconciliation": true,
+      "suppress_ontology_expansion": true,
+      "suppress_topology_expansion": true,
+      "confidence_reduction": 0.3
+    }
+  },
+  {
+    "id": "a2-evb-gap",
+    "fn": "compute_evidence_boundary_pressure",
+    "args": [
+      0
+    ],
+    "expected": {
+      "pressure": 0.7,
+      "violation": true,
+      "gap": 2
+    }
+  },
+  {
+    "id": "a2-evb-ok",
+    "fn": "compute_evidence_boundary_pressure",
+    "args": [
+      3
+    ],
+    "expected": {
+      "pressure": 0.0,
+      "violation": false,
+      "gap": 0
+    }
+  },
+  {
+    "id": "a2-evb-min",
+    "fn": "compute_evidence_boundary_pressure",
+    "args": [
+      1,
+      4
+    ],
+    "expected": {
+      "pressure": 1.0,
+      "violation": true,
+      "gap": 3
+    }
+  },
+  {
+    "id": "a2-evd-gap",
+    "fn": "compute_evidence_decay_pressure",
+    "args": [
+      0
+    ],
+    "expected": {
+      "pressure": 0.8,
+      "incomplete": true
+    }
+  },
+  {
+    "id": "a2-evd-ok",
+    "fn": "compute_evidence_decay_pressure",
+    "args": [
+      5
+    ],
+    "expected": {
+      "pressure": 0.0,
+      "incomplete": false
+    }
+  },
+  {
+    "id": "a2-rbp-hi",
+    "fn": "compute_recursive_boundary_pressure",
+    "args": [
+      0.4,
+      5
+    ],
+    "expected": {
+      "pressure": 0.7,
+      "violation": true
+    }
+  },
+  {
+    "id": "a2-rbp-lo",
+    "fn": "compute_recursive_boundary_pressure",
+    "args": [
+      0.1,
+      2
+    ],
+    "expected": {
+      "pressure": 0.22,
+      "violation": false
+    }
+  },
+  {
+    "id": "a2-rcp-lo",
+    "fn": "compute_recursive_convergence_pressure",
+    "args": [
+      3,
+      0.8
+    ],
+    "expected": {
+      "pressure": 0.24,
+      "suppress": false
+    }
+  },
+  {
+    "id": "a2-rcp-hi",
+    "fn": "compute_recursive_convergence_pressure",
+    "args": [
+      5,
+      0.1
+    ],
+    "expected": {
+      "pressure": 0.8,
+      "suppress": true
+    }
+  },
+  {
+    "id": "a2-rdp-single",
+    "fn": "compute_recursive_dependency_pressure",
+    "args": [
+      1,
+      0
+    ],
+    "expected": {
+      "pressure": 0.2,
+      "violation": false
+    }
+  },
+  {
+    "id": "a2-rdp-deep",
+    "fn": "compute_recursive_dependency_pressure",
+    "args": [
+      4,
+      3
+    ],
+    "expected": {
+      "pressure": 0.45,
+      "violation": true
+    }
+  },
+  {
+    "id": "a2-sbp-hi",
+    "fn": "compute_semantic_boundary_pressure",
+    "args": [
+      0.2,
+      0.3
+    ],
+    "expected": {
+      "pressure": 0.35,
+      "suppress_continuation": true
+    }
+  },
+  {
+    "id": "a2-sbp-lo",
+    "fn": "compute_semantic_boundary_pressure",
+    "args": [
+      0.1,
+      0.1
+    ],
+    "expected": {
+      "pressure": 0.15,
+      "suppress_continuation": false
+    }
+  },
+  {
+    "id": "a2-tbp-bounded",
+    "fn": "compute_truth_boundary_pressure",
+    "args": [
+      true,
+      0.5
+    ],
+    "expected": {
+      "pressure": 0.15,
+      "violation": false
+    }
+  },
+  {
+    "id": "a2-tbp-unbounded",
+    "fn": "compute_truth_boundary_pressure",
+    "args": [
+      false,
+      2.5
+    ],
+    "expected": {
+      "pressure": 1.0,
+      "violation": true
+    }
+  },
+  {
+    "id": "a2-unc-empty",
+    "fn": "compute_uncertainty_pressure",
+    "args": [
+      [],
+      []
+    ],
+    "expected": {
+      "pressure": 0.0,
+      "suppress_propagation": false,
+      "confidence_reduction": 0.0,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a2-unc-three",
+    "fn": "compute_uncertainty_pressure",
+    "args": [
+      [
+        "u1",
+        "u2"
+      ],
+      [
+        "a1"
+      ]
+    ],
+    "expected": {
+      "pressure": 0.3,
+      "suppress_propagation": true,
+      "confidence_reduction": 0.105,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a2-conf",
+    "fn": "empty_confidence",
+    "args": [],
+    "expected": {
+      "score": 0.0,
+      "basis": [],
+      "deterministic": true
+    }
+  },
+  {
+    "id": "a2-lineage-default",
+    "fn": "empty_lineage",
+    "args": [],
+    "expected": {
+      "stages": [
+        {
+          "stage": "ir"
+        }
+      ],
+      "depth": 1
+    }
+  },
+  {
+    "id": "a2-lineage-stage",
+    "fn": "empty_lineage",
+    "args": [
+      "compile"
+    ],
+    "expected": {
+      "stages": [
+        {
+          "stage": "compile"
+        }
+      ],
+      "depth": 1
+    }
+  },
+  {
+    "id": "a2-merge",
+    "fn": "merge_evidence",
+    "args": [
+      [
+        "b",
+        "a"
+      ],
+      [
+        "a",
+        "c",
+        ""
+      ],
+      null
+    ],
+    "expected": {
+      "items": [
+        "a",
+        "b",
+        "c"
+      ],
+      "count": 3
+    }
+  },
+  {
+    "id": "a2-merge-mixed",
+    "fn": "merge_evidence",
+    "args": [
+      [
+        1,
+        true,
+        "x"
+      ],
+      []
+    ],
+    "expected": {
+      "items": [
+        "1",
+        "True",
+        "x"
+      ],
+      "count": 3
+    }
+  },
+  {
+    "id": "a2-entropy-empty",
+    "fn": "model_graph_entropy",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "entropy": 0.0,
+      "kind_diversity": 0,
+      "deterministic_inputs": [
+        "H=0.0"
+      ]
+    }
+  },
+  {
+    "id": "a2-entropy-mixed",
+    "fn": "model_graph_entropy",
+    "args": [
+      {
+        "nodes": [
+          {
+            "kind": "a"
+          },
+          {
+            "kind": "a"
+          },
+          {
+            "kind": "b"
+          },
+          "raw",
+          {}
+        ],
+        "edges": [
+          {
+            "from": "x",
+            "to": "y"
+          },
+          {
+            "from": "y",
+            "to": "z"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "entropy": 0.31,
+      "kind_diversity": 3,
+      "deterministic_inputs": [
+        "H=0.31"
+      ]
+    }
+  },
+  {
+    "id": "a2-cycles-simple",
+    "fn": "detect_cycles",
+    "args": [
+      {
+        "edges": [
+          {
+            "from": "a",
+            "to": "b"
+          },
+          {
+            "from": "b",
+            "to": "a"
+          },
+          {
+            "from": "b",
+            "to": "c"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "cycles": [
+        [
+          "a",
+          "b",
+          "a"
+        ]
+      ],
+      "cycle_count": 1,
+      "bounded": 50,
+      "contradiction_pressure": 0.2
+    }
+  },
+  {
+    "id": "a2-cycles-none",
+    "fn": "detect_cycles",
+    "args": [
+      {
+        "edges": [
+          {
+            "from": "a",
+            "to": "b"
+          },
+          {
+            "from": "b",
+            "to": "c"
+          },
+          "junk",
+          {
+            "from": "d"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "cycles": [],
+      "cycle_count": 0,
+      "bounded": 50,
+      "contradiction_pressure": 0.0
+    }
+  },
+  {
+    "id": "a2-cycles-self",
+    "fn": "detect_cycles",
+    "args": [
+      {
+        "edges": [
+          {
+            "from": "s",
+            "to": "s"
+          },
+          {
+            "from": "s",
+            "to": "t"
+          },
+          {
+            "from": "t",
+            "to": "u"
+          },
+          {
+            "from": "u",
+            "to": "t"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "cycles": [
+        [
+          "s",
+          "s"
+        ],
+        [
+          "t",
+          "u",
+          "t"
+        ]
+      ],
+      "cycle_count": 2,
+      "bounded": 50,
+      "contradiction_pressure": 0.4
+    }
+  },
+  {
+    "id": "a2-topo-hub",
+    "fn": "prove_topology",
+    "args": [
+      {
+        "edges": [
+          {
+            "from": "h",
+            "to": "a"
+          },
+          {
+            "from": "h",
+            "to": "b"
+          },
+          {
+            "from": "c",
+            "to": "h"
+          },
+          {
+            "from": "a",
+            "to": "b"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "proved": true,
+      "max_degree": 3,
+      "hubs": [
+        "h"
+      ],
+      "edge_count": 4,
+      "deterministic_inputs": [
+        "max_degree=3",
+        "hubs=1"
+      ]
+    }
+  },
+  {
+    "id": "a2-topo-empty",
+    "fn": "prove_topology",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "proved": true,
+      "max_degree": 0,
+      "hubs": [],
+      "edge_count": 0,
+      "deterministic_inputs": [
+        "max_degree=0",
+        "hubs=0"
+      ]
+    }
+  },
+  {
+    "id": "a2-topo-partial",
+    "fn": "prove_topology",
+    "args": [
+      {
+        "edges": [
+          {
+            "from": "x"
+          },
+          {
+            "to": "y"
+          },
+          "junk",
+          {
+            "from": "",
+            "to": "z"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "proved": true,
+      "max_degree": 1,
+      "hubs": [],
+      "edge_count": 4,
+      "deterministic_inputs": [
+        "max_degree=1",
+        "hubs=0"
+      ]
+    }
+  },
+  {
+    "id": "a2-api-paths",
+    "fn": "reason_api_surface",
+    "args": [
+      {
+        "paths": {
+          "/users": {
+            "get": {},
+            "post": {}
+          },
+          "/health": {
+            "delete": {}
+          }
+        }
+      }
+    ],
+    "expected": {
+      "paths": [
+        {
+          "path": "/users",
+          "method": "GET"
+        },
+        {
+          "path": "/users",
+          "method": "POST"
+        },
+        {
+          "path": "/health",
+          "method": "DELETE"
+        }
+      ],
+      "path_count": 3,
+      "evidence": [
+        "openapi:paths"
+      ],
+      "deterministic_inputs": [
+        "paths=3"
+      ]
+    }
+  },
+  {
+    "id": "a2-api-empty",
+    "fn": "reason_api_surface",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "paths": [],
+      "path_count": 0,
+      "evidence": [],
+      "deterministic_inputs": [
+        "paths=0"
+      ]
+    }
+  },
+  {
+    "id": "a2-api-badpaths",
+    "fn": "reason_api_surface",
+    "args": [
+      {
+        "paths": "not-a-dict"
+      }
+    ],
+    "expected": {
+      "paths": [],
+      "path_count": 0,
+      "evidence": [],
+      "deterministic_inputs": [
+        "paths=0"
+      ]
+    }
+  },
+  {
+    "id": "a2-flow-mixed",
+    "fn": "reconstruct_execution_flow",
+    "args": [
+      {
+        "symbols": {
+          "functions": [
+            "main_x",
+            "helper",
+            "run_job",
+            "handle_evt"
+          ]
+        },
+        "calls": {
+          "calls": [
+            {
+              "caller": "a",
+              "callee": "b"
+            },
+            "junk",
+            {
+              "caller": "c"
+            }
+          ]
+        }
+      }
+    ],
+    "expected": {
+      "entrypoints": [
+        "main_x",
+        "run_job",
+        "handle_evt"
+      ],
+      "flow": [
+        {
+          "step": 0,
+          "call": {
+            "caller": "a",
+            "callee": "b"
+          }
+        },
+        {
+          "step": 2,
+          "call": {
+            "caller": "c"
+          }
+        }
+      ],
+      "evidence": [
+        "parser:functions",
+        "parser:call_graph"
+      ]
+    }
+  },
+  {
+    "id": "a2-flow-empty",
+    "fn": "reconstruct_execution_flow",
+    "args": [
+      null
+    ],
+    "expected": {
+      "entrypoints": [],
+      "flow": [],
+      "evidence": []
+    }
+  },
+  {
+    "id": "a2-infra-hits",
+    "fn": "detect_infra_signals",
+    "args": [
+      [
+        "src\\Dockerfile",
+        "k8s/deploy.yaml",
+        "README.md",
+        ".github/workflows/ci.yml",
+        "infra/terraform/main.tf"
+      ]
+    ],
+    "expected": {
+      "signals": [
+        {
+          "file": "src\\Dockerfile",
+          "signal": "Dockerfile"
+        },
+        {
+          "file": "k8s/deploy.yaml",
+          "signal": "k8s/"
+        },
+        {
+          "file": ".github/workflows/ci.yml",
+          "signal": ".github/workflows"
+        },
+        {
+          "file": "infra/terraform/main.tf",
+          "signal": "terraform"
+        }
+      ],
+      "evidence": [
+        "infra:Dockerfile",
+        "infra:k8s/",
+        "infra:.github/workflows",
+        "infra:terraform"
+      ],
+      "deterministic_inputs": [
+        "signals=4"
+      ]
+    }
+  },
+  {
+    "id": "a2-infra-none",
+    "fn": "detect_infra_signals",
+    "args": [
+      null
+    ],
+    "expected": {
+      "signals": [],
+      "evidence": [],
+      "deterministic_inputs": [
+        "signals=0"
+      ]
+    }
+  },
+  {
+    "id": "a2-deps-fallback",
+    "fn": "resolve_runtime_dependencies",
+    "args": [
+      null,
+      "flask==2.0\nnumpy>=1.2\n# comment\nbad line\n"
+    ],
+    "expected": {
+      "dependencies": [
+        "flask",
+        "numpy"
+      ],
+      "evidence": [
+        "fallback:requirements_line"
+      ],
+      "parser_first": false
+    }
+  },
+  {
+    "id": "a2-deps-parser",
+    "fn": "resolve_runtime_dependencies",
+    "args": [
+      {
+        "dependencies": {
+          "dependencies": [
+            "zeta",
+            "alpha"
+          ]
+        },
+        "runtime": {
+          "packages": [
+            "pkg1"
+          ],
+          "modules": []
+        }
+      }
+    ],
+    "expected": {
+      "dependencies": [
+        "alpha",
+        "pkg1",
+        "zeta"
+      ],
+      "evidence": [
+        "parser:dependencies",
+        "parser:runtime_packages"
+      ],
+      "parser_first": true
+    }
+  },
+  {
+    "id": "a2-deps-empty",
+    "fn": "resolve_runtime_dependencies",
+    "args": [
+      {},
+      ""
+    ],
+    "expected": {
+      "dependencies": [],
+      "evidence": [],
+      "parser_first": false
+    }
+  },
+  {
+    "id": "a2-svc-mixed",
+    "fn": "infer_service_interactions",
+    "args": [
+      {
+        "calls": {
+          "calls": [
+            {
+              "caller": "svc_a",
+              "callee": "svc_b"
+            },
+            {
+              "callee": "x"
+            },
+            {
+              "caller": "svc_c"
+            }
+          ]
+        }
+      },
+      [
+        "docker-compose.yml",
+        "app.py",
+        "k8s/x.yaml"
+      ]
+    ],
+    "expected": {
+      "interactions": [
+        {
+          "from": "svc_a",
+          "to": "svc_b",
+          "evidence": [
+            "parser:call_graph"
+          ]
+        },
+        {
+          "from": "svc_c",
+          "to": "",
+          "evidence": [
+            "parser:call_graph"
+          ]
+        }
+      ],
+      "service_files": [
+        "docker-compose.yml",
+        "k8s/x.yaml"
+      ],
+      "evidence": [
+        "parser:call_graph"
+      ]
+    }
+  },
+  {
+    "id": "a2-svc-empty",
+    "fn": "infer_service_interactions",
+    "args": [
+      null,
+      []
+    ],
+    "expected": {
+      "interactions": [],
+      "service_files": [],
+      "evidence": []
+    }
+  },
+  {
+    "id": "a2-cfg-three",
+    "fn": "build_control_flow_graph",
+    "args": [
+      {
+        "functions": [
+          {
+            "name": "a"
+          },
+          {
+            "name": "b"
+          },
+          {
+            "name": "c"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "nodes": [
+        {
+          "id": "a",
+          "type": "function"
+        },
+        {
+          "id": "b",
+          "type": "function"
+        },
+        {
+          "id": "c",
+          "type": "function"
+        }
+      ],
+      "edges": [
+        {
+          "from": "a",
+          "to": "b",
+          "relation": "possible_flow"
+        },
+        {
+          "from": "b",
+          "to": "c",
+          "relation": "possible_flow"
+        }
+      ],
+      "bounded": true,
+      "deterministic": true
+    }
+  },
+  {
+    "id": "a2-cfg-empty",
+    "fn": "build_control_flow_graph",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "nodes": [],
+      "edges": [],
+      "bounded": true,
+      "deterministic": true
+    }
+  },
+  {
+    "id": "a2-paths-two",
+    "fn": "reconstruct_execution_paths",
+    "args": [
+      {
+        "nodes": [
+          {
+            "id": "x"
+          },
+          {
+            "id": "y"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "paths": [
+        [
+          "x"
+        ],
+        [
+          "y"
+        ]
+      ],
+      "path_count": 2,
+      "bounded": true
+    }
+  },
+  {
+    "id": "a2-paths-empty",
+    "fn": "reconstruct_execution_paths",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "paths": [],
+      "path_count": 0,
+      "bounded": true
+    }
+  },
+  {
+    "id": "a2-sym-stable",
+    "fn": "resolve_symbols",
+    "args": [
+      {
+        "functions": [
+          {
+            "name": "zeta",
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "name": "alpha"
+          }
+        ],
+        "classes": [
+          {
+            "name": "Beta",
+            "bases": [
+              "Base"
+            ]
+          },
+          {
+            "name": "alpha"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "symbols": [
+        {
+          "symbol": "Beta",
+          "kind": "class",
+          "bases": [
+            "Base"
+          ]
+        },
+        {
+          "symbol": "alpha",
+          "kind": "function",
+          "args": []
+        },
+        {
+          "symbol": "alpha",
+          "kind": "class",
+          "bases": []
+        },
+        {
+          "symbol": "zeta",
+          "kind": "function",
+          "args": [
+            "x"
+          ]
+        }
+      ],
+      "symbol_count": 4,
+      "grounded": true
+    }
+  },
+  {
+    "id": "a2-sym-empty",
+    "fn": "resolve_symbols",
+    "args": [
+      {}
+    ],
+    "expected": {
+      "symbols": [],
+      "symbol_count": 0,
+      "grounded": true
+    }
+  }
+]
