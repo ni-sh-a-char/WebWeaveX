@@ -32,7 +32,7 @@ Future<void> main() async {
   final graph = buildRuntimeGraph({
     'session': {'ok': true}
   });
-  final mem = buildRuntimeMemory(graph);
+  final mem = buildRuntimeMemoryFabric(graph);
   final enc = encryptValue({'agent': 'continuity'}, 'agent-key');
   final dec = decryptValue(enc, 'agent-key');
 
@@ -46,7 +46,7 @@ Future<void> main() async {
           extraction: {'unified_runtime_graph': graph.toJson()},
         )['runtime_id'] !=
         null,
-    'agent_memory_query': queryRuntimeMemory(mem, 'graph') != null,
+    'agent_memory_query': queryRuntimeMemoryFabric(mem, "graph") != null,
     'agent_decrypt':
         dec is Map<String, dynamic> && dec['agent'] == 'continuity',
   };

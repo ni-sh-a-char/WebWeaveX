@@ -11,7 +11,7 @@ void main() {
     ],
     'edges': <dynamic>[],
   });
-  final memory = buildRuntimeMemory(graph, [
+  final memory = buildRuntimeMemoryFabric(graph, [
     {'step': 'login'},
   ]);
   final envelope = {
@@ -40,12 +40,12 @@ void main() {
     'replay_match': replay['equivalent'] == true,
     'graph_match': graphFingerprint(graph) == graphFingerprint(graph),
     'memory_match': memory['stable_hash'] ==
-        stableMemoryHash(graph, [
+        stableMemoryFabricHash(graph, [
           {'step': 'login'},
         ]),
     'reconstruction_match':
         reconstructed['runtime_id'] == reconstructed2['runtime_id'],
-    'memory_query': queryRuntimeMemory(memory, 'graph') != null,
+    'memory_query': queryRuntimeMemoryFabric(memory, "graph") != null,
   };
 
   final allOk = results.values.every((v) => v == true);

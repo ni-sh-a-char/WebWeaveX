@@ -8,7 +8,7 @@ Map<String, dynamic> reconstructMemoryGraph(
   List<dynamic> history = const [],
 ]) {
   final memoryGraph = buildRuntimeMemoryGraph(graph, history);
-  final fabric = buildRuntimeMemory(graph, history);
+  final fabric = buildRuntimeMemoryFabric(graph, history);
   return {
     'memory_graph': memoryGraph,
     'memory': fabric['memory'],

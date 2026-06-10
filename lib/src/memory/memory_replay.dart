@@ -7,7 +7,7 @@ Map<String, dynamic> replayMemoryState(
   RuntimeGraph graph, [
   List<dynamic> history = const [],
 ]) {
-  final mem = buildRuntimeMemory(graph, history);
+  final mem = buildRuntimeMemoryFabric(graph, history);
   final histMaps = history
       .map((h) => h is Map<String, dynamic> ? h : {'tick': history.indexOf(h)})
       .cast<Map<String, dynamic>>()
@@ -18,7 +18,7 @@ Map<String, dynamic> replayMemoryState(
     ...mem,
     'lineage': lineage['lineage'],
     'memory_graph': memoryGraph,
-    'replay_hash': stableMemoryHash(graph, history),
+    'replay_hash': stableMemoryFabricHash(graph, history),
     'bounded': true,
   };
 }

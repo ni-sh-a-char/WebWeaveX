@@ -3,7 +3,7 @@ import '../memory/runtime_memory.dart';
 
 Map<String, dynamic> replayRuntimeMemory(RuntimeGraph graph,
     [List<dynamic> history = const []]) {
-  return buildRuntimeMemory(graph, history);
+  return buildRuntimeMemoryFabric(graph, history);
 }
 
 Map<String, dynamic> validateMemoryReplayEquivalence(
@@ -19,4 +19,4 @@ Map<String, dynamic> validateMemoryReplayEquivalence(
 
 String memoryReplayHash(RuntimeGraph graph,
         [List<dynamic> history = const []]) =>
-    stableMemoryHash(graph, history);
+    stableMemoryFabricHash(graph, history);

@@ -7,10 +7,18 @@ import 'package:webweavex/webweavex.dart'
     show
         computeDeterministicHash,
         extractKubernetesRuntime,
-        extractDatabaseRuntime;
+        extractDatabaseRuntime,
+        buildRuntimeMemory,
+        queryRuntimeMemory;
 
 Map<String, dynamic>? _asMap(dynamic v) =>
     v == null ? null : Map<String, dynamic>.from(v as Map);
+
+List<Map<String, dynamic>> _mapList(dynamic v) => v == null
+    ? <Map<String, dynamic>>[]
+    : <Map<String, dynamic>>[
+        for (final e in v as List) Map<String, dynamic>.from(e as Map)
+      ];
 
 dynamic _call(String api, List<dynamic> args) {
   switch (api) {
@@ -20,6 +28,18 @@ dynamic _call(String api, List<dynamic> args) {
       return extractDatabaseRuntime(
         args[0] as String,
         args.length > 1 ? _asMap(args[1]) : null,
+      );
+    case 'build_runtime_memory':
+      return buildRuntimeMemory(
+        runtimeHistory: _mapList(args[0]),
+        lineage: _mapList(args[1]),
+        semanticRelations: _mapList(args[2]),
+      );
+    case 'query_runtime_memory':
+      return queryRuntimeMemory(
+        _asMap(args[0])!,
+        args[1] as String,
+        args[2] as String,
       );
     case 'compute_kaalka_hash':
       return computeDeterministicHash(args[0]);

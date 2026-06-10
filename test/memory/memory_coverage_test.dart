@@ -19,7 +19,7 @@ void main() {
         <String, dynamic>{'tick': 0},
         <String, dynamic>{'tick': 1},
       ];
-      final mem = buildRuntimeMemory(graph, history);
+      final mem = buildRuntimeMemoryFabric(graph, history);
 
       expect(mem['bounded'], isTrue);
       expect(mem['stable_hash'], isA<String>());
@@ -30,14 +30,14 @@ void main() {
     });
 
     test('default empty history branch', () {
-      final mem = buildRuntimeMemory(populatedGraph());
+      final mem = buildRuntimeMemoryFabric(populatedGraph());
       final inner = mem['memory'] as Map<String, dynamic>;
       expect(inner['runtime_history'], isEmpty);
       expect(mem['bounded'], isTrue);
     });
 
     test('empty graph still produces a stable hash', () {
-      final mem = buildRuntimeMemory(emptyGraph());
+      final mem = buildRuntimeMemoryFabric(emptyGraph());
       expect(mem['stable_hash'], isA<String>());
       final inner = mem['memory'] as Map<String, dynamic>;
       final graphJson = inner['graph'] as Map<String, dynamic>;
@@ -46,10 +46,10 @@ void main() {
     });
 
     test('determinism: identical inputs produce identical output', () {
-      final a = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final a = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
-      final b = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final b = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
       expect(a['stable_hash'], equals(b['stable_hash']));
@@ -59,20 +59,20 @@ void main() {
   group('stableMemoryHash', () {
     test('deterministic for same graph + history', () {
       final graph = populatedGraph();
-      final h1 = stableMemoryHash(graph, <dynamic>[1, 2, 3]);
-      final h2 = stableMemoryHash(graph, <dynamic>[1, 2, 3]);
+      final h1 = stableMemoryFabricHash(graph, <dynamic>[1, 2, 3]);
+      final h2 = stableMemoryFabricHash(graph, <dynamic>[1, 2, 3]);
       expect(h1, equals(h2));
     });
 
     test('history length changes hash', () {
       final graph = populatedGraph();
-      final h1 = stableMemoryHash(graph, <dynamic>[1]);
-      final h2 = stableMemoryHash(graph, <dynamic>[1, 2]);
+      final h1 = stableMemoryFabricHash(graph, <dynamic>[1]);
+      final h2 = stableMemoryFabricHash(graph, <dynamic>[1, 2]);
       expect(h1, isNot(equals(h2)));
     });
 
     test('default empty history branch', () {
-      final h = stableMemoryHash(emptyGraph());
+      final h = stableMemoryFabricHash(emptyGraph());
       expect(h, isA<String>());
       expect(h.isNotEmpty, isTrue);
     });
@@ -80,10 +80,10 @@ void main() {
 
   group('mergeRuntimeMemories', () {
     test('merges two populated memories with histories', () {
-      final memA = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final memA = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
-      final memB = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final memB = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 1}
       ]);
       final merged = mergeRuntimeMemories(memA, memB);
@@ -109,7 +109,7 @@ void main() {
     });
 
     test('merges one populated with one empty', () {
-      final memA = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final memA = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
       final merged = mergeRuntimeMemories(memA, <String, dynamic>{});
@@ -120,28 +120,28 @@ void main() {
 
   group('queryRuntimeMemory', () {
     test('returns value for present key', () {
-      final mem = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final mem = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
-      final history = queryRuntimeMemory(mem, 'runtime_history');
+      final history = queryRuntimeMemoryFabric(mem, 'runtime_history');
       expect(history, isA<List<dynamic>>());
       expect((history as List<dynamic>).length, equals(1));
-      expect(queryRuntimeMemory(mem, 'graph'), isNotNull);
+      expect(queryRuntimeMemoryFabric(mem, 'graph'), isNotNull);
     });
 
     test('returns null for absent key', () {
-      final mem = buildRuntimeMemory(populatedGraph());
-      expect(queryRuntimeMemory(mem, 'does_not_exist'), isNull);
+      final mem = buildRuntimeMemoryFabric(populatedGraph());
+      expect(queryRuntimeMemoryFabric(mem, 'does_not_exist'), isNull);
     });
 
     test('returns null when memory map is missing', () {
-      expect(queryRuntimeMemory(<String, dynamic>{}, 'graph'), isNull);
+      expect(queryRuntimeMemoryFabric(<String, dynamic>{}, 'graph'), isNull);
     });
   });
 
   group('replicateRuntimeMemory', () {
     test('deep clones an equal but distinct map', () {
-      final mem = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final mem = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
       final clone = replicateRuntimeMemory(mem);
@@ -335,7 +335,8 @@ void main() {
         <String, dynamic>{'tick': 0}
       ];
       final state = replayMemoryState(graph, history);
-      expect(state['replay_hash'], equals(stableMemoryHash(graph, history)));
+      expect(
+          state['replay_hash'], equals(stableMemoryFabricHash(graph, history)));
     });
   });
 
@@ -345,13 +346,13 @@ void main() {
       final history = <dynamic>[
         <String, dynamic>{'tick': 0}
       ];
-      final original = buildRuntimeMemory(graph, history);
+      final original = buildRuntimeMemoryFabric(graph, history);
       final replayed = replayMemoryState(graph, history);
       expect(validateMemoryReplay(original, replayed), isTrue);
     });
 
     test('mismatched stable hashes => false', () {
-      final original = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final original = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0}
       ]);
       final replayed = replayMemoryState(populatedGraph(), <dynamic>[
@@ -364,7 +365,7 @@ void main() {
 
   group('queryMemoryHistory', () {
     test('returns history list when present', () {
-      final mem = buildRuntimeMemory(populatedGraph(), <dynamic>[
+      final mem = buildRuntimeMemoryFabric(populatedGraph(), <dynamic>[
         <String, dynamic>{'tick': 0},
         <String, dynamic>{'tick': 1},
       ]);

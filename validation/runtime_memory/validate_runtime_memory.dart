@@ -7,21 +7,21 @@ void main() {
   final graph = buildRuntimeGraph({
     'session': {'ok': true}
   });
-  final mem = buildRuntimeMemory(graph, [
+  final mem = buildRuntimeMemoryFabric(graph, [
     {'step': 1, 'kind': 'workflow'},
   ]);
-  final queried = queryRuntimeMemory(mem, 'graph');
+  final queried = queryRuntimeMemoryFabric(mem, "graph");
   final merged = mergeRuntimeMemories(mem, mem);
 
   final results = {
     'memory_match': mem['stable_hash'] ==
-        stableMemoryHash(graph, [
+        stableMemoryFabricHash(graph, [
           {'step': 1, 'kind': 'workflow'},
         ]),
     'query_match': queried != null,
     'merge_match': merged['stable_hash'] != null && merged['bounded'] == true,
     'deterministic': mem['stable_hash'] ==
-        buildRuntimeMemory(graph, [
+        buildRuntimeMemoryFabric(graph, [
           {'step': 1, 'kind': 'workflow'},
         ])['stable_hash'],
   };

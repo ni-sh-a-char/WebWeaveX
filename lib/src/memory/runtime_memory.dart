@@ -3,17 +3,21 @@ import 'dart:convert';
 import '../crypto/kaalka_runtime.dart';
 import '../graph/runtime_graph.dart';
 
-Map<String, dynamic> buildRuntimeMemory(RuntimeGraph graph,
+/// Graph-based runtime-memory fabric (internal helper; not the canonical Python
+/// `build_runtime_memory`). The public, Python-aligned `buildRuntimeMemory`
+/// (runtime_history / lineage / semantic_relations) lives in
+/// `runtime_memory_family/runtime_memory_engines.dart`.
+Map<String, dynamic> buildRuntimeMemoryFabric(RuntimeGraph graph,
     [List<dynamic> history = const []]) {
   final normalized = normalizeRuntimeGraph(graph);
   return {
     'memory': {'graph': normalized.toJson(), 'runtime_history': history},
-    'stable_hash': stableMemoryHash(normalized, history),
+    'stable_hash': stableMemoryFabricHash(normalized, history),
     'bounded': true,
   };
 }
 
-String stableMemoryHash(RuntimeGraph graph,
+String stableMemoryFabricHash(RuntimeGraph graph,
     [List<dynamic> history = const []]) {
   return computeDeterministicHash({
     'graph': normalizeRuntimeGraph(graph).toJson(),
@@ -39,10 +43,12 @@ Map<String, dynamic> mergeRuntimeMemories(
   });
   final ha = ((a['memory'] as Map?)?['runtime_history'] as List?) ?? [];
   final hb = ((b['memory'] as Map?)?['runtime_history'] as List?) ?? [];
-  return buildRuntimeMemory(merged, [...ha, ...hb]);
+  return buildRuntimeMemoryFabric(merged, [...ha, ...hb]);
 }
 
-dynamic queryRuntimeMemory(Map<String, dynamic> mem, String key) {
+/// Key lookup against the graph-based fabric (internal; not the canonical Python
+/// `query_runtime_memory`, which takes `(memory, query_type, term)`).
+dynamic queryRuntimeMemoryFabric(Map<String, dynamic> mem, String key) {
   final m = mem['memory'] as Map<String, dynamic>?;
   return m?[key];
 }

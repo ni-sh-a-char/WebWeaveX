@@ -75,17 +75,21 @@ def main():
              "on every fixture → re-implemented to executable parity and promoted "
              "Partial → **Complete** (vectors: `validation/parity/connectors_snapshot_api_vectors.json`, "
              "test: `test/parity/connectors_snapshot_parity_test.dart`).")
+    L.append("- **`build_runtime_memory`** and **`query_runtime_memory`**: **Python ≡ "
+             "JavaScript ≡ Dart** after aligning the Dart public contract to Python's "
+             "(`buildRuntimeMemory(runtimeHistory, lineage, semanticRelations)`; "
+             "`queryRuntimeMemory(memory, queryType, term)`) → promoted Partial → "
+             "**Complete** (vectors: `validation/parity/memory_canonical_api_vectors.json`, "
+             "test: `test/parity/memory_canonical_parity_test.dart`). Note: JS's *public* "
+             "index exports the graph-based variants (a JS-branch divergence from Python); "
+             "the JS *engine* functions match Python and are used here.")
     L.append("- **`compute_kaalka_hash`**: ALL3 (foundational cross-language hash, "
              "re-confirmed by execution).")
-    L.append("- **`build_runtime_memory`**, **`query_runtime_memory`**, "
-             "**`build_browser_identity`**: Python executes; **Dart cannot execute "
-             "them under the current public contract** (the Dart signatures diverge — "
-             "`buildRuntimeMemory(RuntimeGraph)` vs Python `(runtime_history, lineage, "
-             "semantic_relations)`; `queryRuntimeMemory(mem, key)` vs `(memory, "
-             "query_type, term)`; `buildBrowserIdentity(captured)` vs `(profile_id)`). "
-             "These remain **Partial**; achieving parity requires a public-contract "
-             "change (and, for `build_browser_identity`, porting Python's ~10-helper "
-             "profile-generation subsystem + data tables). See `PARTIAL_API_AUDIT.md`.")
+    L.append("- **`build_browser_identity`**: Python executes; **Dart cannot execute it "
+             "under the current public contract** (`buildBrowserIdentity(captured)` vs "
+             "Python `(profile_id)`). Remains **Partial** — parity requires a public-"
+             "contract change **and** porting Python's ~10-helper profile-generation "
+             "subsystem + data tables (Group C). See `PARTIAL_API_AUDIT.md`.")
 
     open(os.path.join(REPO, "EXECUTABLE_PARITY_MATRIX.md"), "w",
          encoding="utf-8").write("\n".join(L) + "\n")

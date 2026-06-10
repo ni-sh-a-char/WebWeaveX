@@ -104,6 +104,11 @@ export 'src/runtime_memory_family/runtime_memory_runtime.dart'
         saveRuntimeMemory,
         loadRuntimeMemory,
         searchRuntimeMemory;
+// Canonical Python-aligned build/query (Python `__all__` contract). The
+// graph-based fabric variants are exported as buildRuntimeMemoryFabric /
+// queryRuntimeMemoryFabric from src/memory/runtime_memory.dart.
+export 'src/runtime_memory_family/runtime_memory_engines.dart'
+    show buildRuntimeMemory, queryRuntimeMemory;
 export 'src/reconstruction_runtime/reconstruction_runtime.dart'
     show
         runReconstructionRuntime,

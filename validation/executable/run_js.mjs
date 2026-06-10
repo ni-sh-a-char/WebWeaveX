@@ -5,11 +5,15 @@ import { readFileSync } from "node:fs";
 import {
   extractKubernetesRuntime,
   extractDatabaseRuntime,
-  buildRuntimeMemory,
-  queryRuntimeMemory,
   buildBrowserIdentity,
   computeKaalkaHash,
 } from "./src/index.ts";
+// Python `__all__` `build_runtime_memory`/`query_runtime_memory` are the 3-list /
+// (memory, query_type, term) engine functions. JS's PUBLIC index.ts exports the
+// graph-based variants (a JS-branch divergence from Python); for canonical parity
+// we use the engine implementations, which match Python.
+import { buildRuntimeMemory } from "./src/memory/runtimeMemoryEngine.ts";
+import { queryRuntimeMemory } from "./src/memory/runtimeQueryEngine.ts";
 
 function call(api, args) {
   switch (api) {

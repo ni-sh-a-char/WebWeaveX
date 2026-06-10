@@ -155,14 +155,15 @@ FORCE_PARTIAL = {
     # determinism/structural test (no cross-language vector / deep-equality) and
     # the Dart contract diverges from Python:
     #   build_browser_identity - Dart (captured: Map) vs Python (profile_id: str).
-    #   build_runtime_memory - Dart (RuntimeGraph) vs Python (runtime_history,
-    #     lineage, semantic_relations lists).
-    #   query_runtime_memory - Dart (mem, key) vs Python (memory, query_type, term).
     #   validate_replay_equivalence - Dart `checks` are {name, ok}; Python carries
     #     {name, ok, original, replay} hash fields from a different fingerprint formula.
     #   get_runtime_kernel - accessor returning a RuntimeKernel object; no own vector
     #     (RuntimeKernel.compileIr is separately proven).
-    "build_browser_identity", "build_runtime_memory", "query_runtime_memory",
+    # build_runtime_memory + query_runtime_memory were here; the Final Completion
+    # Protocol aligned the Dart public contract to Python (3-list / (memory,
+    # query_type, term)) and proved Python == JavaScript == Dart by EXECUTION
+    # (validation/executable/) -> promoted to Complete.
+    "build_browser_identity",
     "validate_replay_equivalence", "get_runtime_kernel",
 }
 
