@@ -18,7 +18,7 @@ The existing surface is already release-quality. The gap is **API breadth**, not
 
 ## Public-API gap
 
-128 Python APIs: **87 Complete**, 26 Partial, 15 Deferred, **0 Missing** (was 16/80; +72 ported with proven cross-language hash parity across 12 runtime-cognition families).
+128 Python APIs: **89 Complete**, 26 Partial, 13 Deferred, **0 Missing** (was 16/80; +72 ported with proven cross-language hash parity across 12 runtime-cognition families).
 
 ### Phased close-out plan (parity-verified)
 

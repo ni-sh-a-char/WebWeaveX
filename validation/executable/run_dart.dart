@@ -8,6 +8,8 @@ import 'package:webweavex/webweavex.dart'
         computeDeterministicHash,
         extractKubernetesRuntime,
         extractDatabaseRuntime,
+        extractContainerRuntime,
+        extractIdeRuntime,
         buildRuntimeMemory,
         queryRuntimeMemory,
         computeGlobalRuntimeFingerprint,
@@ -80,6 +82,12 @@ dynamic _call(String api, List<dynamic> args) {
       };
     case 'build_browser_identity':
       return buildBrowserIdentity(args[0] as String);
+    case 'extract_container_runtime':
+      return extractContainerRuntime(
+          args[0] as String, args.length > 1 ? _asMap(args[1]) : null);
+    case 'extract_ide_runtime':
+      return extractIdeRuntime(
+          args[0] as String, args.length > 1 ? _asMap(args[1]) : null);
     default:
       throw StateError('unknown/contract-divergent api $api');
   }

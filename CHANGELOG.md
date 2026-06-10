@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased] — Final Completion Protocol · Group D (Deferred re-audit)
+
+### Changed
+
+- Group D re-audit of the 15 Deferred APIs: only **5 are genuinely platform-bound** (live-browser
+  `page`); the other 10 are snapshot/data/persistence-input deterministic functions.
+- **`extractContainerRuntime`** and **`extractIdeRuntime`** ported to Python's full field set and
+  proven **Python ≡ JavaScript ≡ Dart** by execution → Deferred → **Complete**.
+- API parity matrix: **89 Complete · 26 Partial · 13 Deferred · 0 Missing**; 850 tests; 97.19% coverage.
+  13 executable-proven APIs. See `DEFERRED_API_AUDIT.md`.
+
+
 ## [Unreleased] — Final Completion Protocol · Group C (build_browser_identity)
 
 ### Changed (BREAKING)

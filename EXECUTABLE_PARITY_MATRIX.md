@@ -25,6 +25,11 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `build_browser_identity` | `browser-id-a` | `6c9a555b32d19249` | `6c9a555b32d19249` | `6c9a555b32d19249` | ✅ ALL3 | Complete (executable) |
 | `build_browser_identity` | `browser-id-b` | `9cd3dffac690c364` | `9cd3dffac690c364` | `9cd3dffac690c364` | ✅ ALL3 | Complete (executable) |
 | `build_browser_identity` | `browser-id-unknown` | `4ea9e25540e6c845` | `4ea9e25540e6c845` | `4ea9e25540e6c845` | ✅ ALL3 | Complete (executable) |
+| `extract_container_runtime` | `container-docker` | `809a54cb68db047e` | `809a54cb68db047e` | `809a54cb68db047e` | ✅ ALL3 | Complete (executable) |
+| `extract_container_runtime` | `container-podman` | `d1127881fb239ac0` | `d1127881fb239ac0` | `d1127881fb239ac0` | ✅ ALL3 | Complete (executable) |
+| `extract_container_runtime` | `container-unknown` | `e2a45795737a3565` | `e2a45795737a3565` | `e2a45795737a3565` | ✅ ALL3 | Complete (executable) |
+| `extract_ide_runtime` | `ide-vscode` | `f48caa09dda9628b` | `f48caa09dda9628b` | `f48caa09dda9628b` | ✅ ALL3 | Complete (executable) |
+| `extract_ide_runtime` | `ide-empty` | `141714f840b7944a` | `141714f840b7944a` | `141714f840b7944a` | ✅ ALL3 | Complete (executable) |
 | `compute_kaalka_hash` | `hash-nested` | `222135f9323b12b1` | `222135f9323b12b1` | `222135f9323b12b1` | ✅ ALL3 | Complete (executable) |
 | `compute_global_runtime_fingerprint` | `fp-empty` | `9feafe03a758f460` | `9feafe03a758f460` | `9feafe03a758f460` | ✅ ALL3 | Complete (executable) |
 | `compute_global_runtime_fingerprint` | `fp-full` | `46ae328a59b98b59` | `46ae328a59b98b59` | `46ae328a59b98b59` | ✅ ALL3 | Complete (executable) |
@@ -48,6 +53,8 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `build_runtime_memory` | Complete (executable) |
 | `query_runtime_memory` | Complete (executable) |
 | `build_browser_identity` | Complete (executable) |
+| `extract_container_runtime` | Complete (executable) |
+| `extract_ide_runtime` | Complete (executable) |
 | `compute_kaalka_hash` | Complete (executable) |
 | `compute_global_runtime_fingerprint` | Complete (executable) |
 | `query_runtime_graph` | Complete (executable) |

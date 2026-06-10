@@ -37,12 +37,14 @@ def _python_init_source():
 DEFERRED_APIS = {
     "extract_native", "run_native_cognition", "save_native_runtime",
     "load_native_runtime",
-    "extract_ide_runtime", "extract_container_runtime",
     "run_application_cognition", "execute_runtime_objective",
     "save_application_memory", "load_application_memory",
     "recover_modal_runtime",
     "extract_infinite_scroll", "extract_paginated_content",
     "capture_websocket_frames", "capture_dom_mutations",
+    # Group D re-audit (2026-06-10): extract_container_runtime + extract_ide_runtime
+    # are snapshot-input deterministic functions (not live-runtime bound) — ported
+    # to executable parity (Python == JavaScript == Dart) and promoted to Complete.
 }
 
 # APIs whose Python behaviour requires live network / browser rendering.

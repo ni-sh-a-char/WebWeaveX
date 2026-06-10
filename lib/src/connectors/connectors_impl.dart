@@ -160,11 +160,57 @@ Map<String, dynamic> extractWebsocketRuntime(
       'bounded': true,
     };
 
-Map<String, dynamic> extractDockerRuntime([Map<String, dynamic>? snapshot]) => {
-      'runtime': 'docker',
-      'containers': snapshot?['containers'] ?? <dynamic>[],
-      'bounded': true,
-    };
+Map<String, dynamic> extractDockerRuntime([Map<String, dynamic>? snapshot]) {
+  final snap = snapshot ?? {};
+  return {
+    'runtime': 'docker',
+    'containers': _pyList(snap['containers']),
+    'images': _sortedByStr(snap['images'], <dynamic>[]),
+    'volumes': _pyList(snap['volumes']),
+    'networks': _pyList(snap['networks']),
+    'states': _dict(snap['states']),
+    'health': _dict(snap['health']),
+    'degraded': _degradedOr(snap),
+    'bounded': true,
+  };
+}
+
+/// Port of webweavex.extract_container_runtime(runtime, snapshot).
+Map<String, dynamic> extractContainerRuntime(
+    [String runtime = 'docker', Map<String, dynamic>? snapshot]) {
+  final n = runtime.toLowerCase();
+  final snap = snapshot ?? {};
+  if (n == 'docker' || n == 'podman' || n == 'oci') {
+    final result = extractDockerRuntime(snap);
+    result['runtime'] = n;
+    return result;
+  }
+  return {
+    'runtime': n,
+    'containers': <dynamic>[],
+    'images': <dynamic>[],
+    'volumes': <dynamic>[],
+    'networks': <dynamic>[],
+    'degraded': true,
+    'bounded': true,
+  };
+}
+
+/// Port of webweavex.extract_ide_runtime(ide, snapshot).
+Map<String, dynamic> extractIdeRuntime(
+    [String ide = 'vscode', Map<String, dynamic>? snapshot]) {
+  final snap = snapshot ?? {};
+  return {
+    'ide': ide,
+    'open_files': _sortedByStr(snap['open_files'], <dynamic>[]),
+    'terminals': _pyList(snap['terminals']),
+    'tabs': _pyList(snap['tabs']),
+    'workspace_topology': _dict(snap['workspace']),
+    'debug_sessions': _pyList(snap['debug_sessions']),
+    'degraded': _degradedOr(snap),
+    'bounded': true,
+  };
+}
 
 Map<String, dynamic> extractKubernetesRuntime(
     [Map<String, dynamic>? snapshot]) {

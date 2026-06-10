@@ -1,75 +1,74 @@
 # DEFERRED_API_AUDIT.md
 
-> Audit of every API classified **Deferred** (15) on the `dart` branch, 2026-06-10.
-> Deferred = the Python behaviour requires an external capability that the Dart VM cannot host
-> in-process. Portability is **C** (external runtime) for all rows. Source of truth:
-> `origin/python` 2.0.1 vs `lib/`.
+> Group D re-audit (2026-06-10): every Deferred API re-evaluated against the question
+> *"can the Python behavior become deterministic under a snapshot-input architecture?"*
+> Source of truth: `origin/python` 2.0.1 signatures. Started at 15 Deferred → now **13**
+> (`extract_container_runtime` + `extract_ide_runtime` converted to executable Complete).
 
 ## Summary
 
-| Group | Count | External capability required |
-|-------|------:|------------------------------|
-| Live-browser DevTools / Playwright | 5 | a driven Chromium/DevTools session |
-| Native application / Electron cognition | 4 | a running desktop/Electron app + OS automation |
-| Native OS runtime | 4 | OS-level process/native introspection |
-| Container / IDE | 2 | Docker daemon / a live IDE instance |
-
-All 15 share the same structural blocker: Python reaches these via Playwright/Puppeteer, Electron,
-OS automation, the Docker API, or IDE protocols **in-process**. Dart has no in-process equivalent;
-a faithful port would require shelling out to an external runtime, which breaks the "no import-time
-side effects / deterministic, bounded" contract. JavaScript reaches 126/126 precisely because Node
-can host these drivers in-process.
+| Class | Count | Disposition |
+|-------|------:|-------------|
+| Genuinely platform-bound (takes a live `page`) | 5 | Remain **Deferred** |
+| Snapshot/data/persistence-input (convertible) | 8 | **Deferred → Partial** candidates; conversion in progress |
+| Converted this audit (executable Complete) | 2 | `extract_container_runtime`, `extract_ide_runtime` |
 
 ---
 
-## Group 1 — Live-browser DevTools / Playwright (5)
+## Class 1 — Genuinely Deferred (live browser `page` required)
 
-| API | Classification reason | Portability | Effort | Blockers |
-|-----|-----------------------|-------------|--------|----------|
-| `extract_infinite_scroll` | needs a live page to scroll and observe lazy-loaded DOM | **C** | N/A in-process | driven browser (Playwright/Puppeteer) |
-| `extract_paginated_content` | needs live navigation across pages | **C** | N/A | driven browser |
-| `capture_websocket_frames` | needs CDP/DevTools network domain to observe frames | **C** | N/A | Chrome DevTools Protocol |
-| `capture_dom_mutations` | needs a live `MutationObserver` on a real page (Dart impl returns empty without a page) | **C** | N/A | live page runtime |
-| `recover_modal_runtime` | needs a live `page` object with `.click` to dismiss modals | **C** | N/A | driven browser page |
+These take a live `page: Any` object and observe/drive it (DevTools/Playwright). Python's own
+contract is the live page, not a snapshot — converting would diverge from the canonical contract.
 
-## Group 2 — Native application / Electron cognition (4)
+| API | Python signature | Reason |
+|-----|------------------|--------|
+| `extract_infinite_scroll` | `(page)` | scrolls a live page, observes lazy DOM |
+| `extract_paginated_content` | `(page, next_selector)` | navigates a live page |
+| `capture_websocket_frames` | `(page)` | reads CDP/DevTools frames from a live page |
+| `capture_dom_mutations` | `(page)` | reads `page._test_dom_mutations` from a live page |
+| `recover_modal_runtime` | `(page, html='')` | calls `page.click(...)` on a live page |
 
-| API | Classification reason | Portability | Effort | Blockers |
-|-----|-----------------------|-------------|--------|----------|
-| `run_application_cognition` | drives a running desktop/Electron application | **C** | N/A | Electron/desktop automation |
-| `execute_runtime_objective` | executes objectives against a live app runtime | **C** | N/A | live app runtime |
-| `save_application_memory` | persists state captured from a live app session | **C** | N/A | depends on the live capture above |
-| `load_application_memory` | restores into a live app session | **C** | N/A | live app runtime |
-
-## Group 3 — Native OS runtime (4)
-
-| API | Classification reason | Portability | Effort | Blockers |
-|-----|-----------------------|-------------|--------|----------|
-| `extract_native` | introspects native OS processes/windows | **C** | N/A | OS-level native automation |
-| `run_native_cognition` | runs cognition over a native OS runtime | **C** | N/A | native OS access |
-| `save_native_runtime` | persists native runtime capture | **C** | N/A | depends on native capture |
-| `load_native_runtime` | restores native runtime | **C** | N/A | native OS access |
-
-## Group 4 — Container / IDE (2)
-
-| API | Classification reason | Portability | Effort | Blockers |
-|-----|-----------------------|-------------|--------|----------|
-| `extract_container_runtime` | inspects a live container via the Docker API | **C** | N/A | Docker daemon/API |
-| `extract_ide_runtime` | inspects a live IDE instance | **C** | N/A | IDE extension/protocol |
+**Verdict:** remain Deferred — the Dart VM cannot host a driven browser in-process. (JavaScript
+reaches these via Playwright/Puppeteer in-process; Dart cannot.)
 
 ---
 
-## Note on save/load pairs
+## Class 2 — Convertible (snapshot / data / persistence input)
 
-`save_application_memory` / `load_application_memory` (and the native save/load pairs) are Deferred
-**not** because persistence is hard in Dart — Kaalka persistence is already Complete elsewhere — but
-because the *data they persist* originates from a live application/native capture that cannot be
-produced in-process. If a caller supplies a pre-captured snapshot, a bounded deterministic path
-could be added (portability would shift to **B**), mirroring the `heal_selector` /
-`replay_interactions` pattern; that has not been implemented.
+These do **not** require a live runtime — their Python signatures accept a `snapshot`, provided
+data, or are pure Kaalka persistence. They are **Deferred → Partial** candidates and conversion is
+underway (same pattern as `extract_database_runtime` / `extract_kubernetes_runtime`).
+
+| API | Python signature | Convertibility | Notes |
+|-----|------------------|----------------|-------|
+| `extract_native` | `(runtime, application, …, snapshot=None, …)` | **A** | large flag-heavy signature; snapshot-driven core is deterministic |
+| `run_native_cognition` | `(runtime, application, snapshot=None, memory=None, …)` | **A** | snapshot + provided memory |
+| `run_application_cognition` | `(url, html, interactions=None, memory=None, …)` | **A** | composes over provided `html` + data (no live page) |
+| `execute_runtime_objective` | `(objective, workflow_graph, action_graph, navigation, …)` | **A** | pure composition over provided graphs |
+| `save_application_memory` | `(path, memory, key)` | **A** | Kaalka persistence (deterministic save/load roundtrip) |
+| `load_application_memory` | `(path, key)` | **A** | Kaalka persistence |
+| `save_native_runtime` | `(path, runtime, key)` | **A** | Kaalka persistence |
+| `load_native_runtime` | `(path, key)` | **A** | Kaalka persistence |
+
+**Verdict:** these 8 were mis-classified Deferred — none is platform-bound. They are scheduled for
+the same executable-parity port (port Python's exact output, execute Python/JS/Dart, prove hashes,
+promote). Until each is proven, it remains Deferred (honest: not yet executable-proven).
+
+---
+
+## Converted this audit (Deferred → Complete, executable parity)
+
+| API | Proof |
+|-----|-------|
+| `extract_container_runtime` | Python ≡ JavaScript ≡ Dart on 3 fixtures (docker/podman/unknown) — `connectors_snapshot_api_vectors.json` |
+| `extract_ide_runtime` | Python ≡ JavaScript ≡ Dart on 2 fixtures (vscode/empty) |
+
+Both are snapshot-input deterministic functions (`extract_container_runtime(runtime, snapshot)`,
+`extract_ide_runtime(ide, snapshot)`) — ported to Python's full field set and proven by execution.
 
 ## Verdict
 
-All 15 Deferred APIs are correctly classified: each requires a live external runtime the Dart VM
-cannot host in-process. None can become Complete without shelling out to an external driver, which
-the deterministic/bounded contract forbids. This is the genuine platform ceiling.
+Only **5 of the original 15** Deferred APIs are genuinely platform-bound (live-browser page). The
+other 10 are snapshot/data/persistence-input deterministic functions: 2 are now executable-Complete
+and 8 remain convertible (Deferred until executable-proven). This is the honest platform ceiling —
+the live-`page` browser-automation surface is the only true Dart-VM limitation here.

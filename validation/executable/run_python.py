@@ -37,6 +37,8 @@ def call(api, args):
     if api == "get_runtime_kernel":
         # Canonical observable kernel state (the rest are methods).
         return {"runtime_type": fn(cleaned[0]).runtime_type}
+    if api in ("extract_container_runtime", "extract_ide_runtime"):
+        return fn(cleaned[0], cleaned[1] if len(cleaned) > 1 else None)
     raise SystemExit("unknown api " + api)
 
 

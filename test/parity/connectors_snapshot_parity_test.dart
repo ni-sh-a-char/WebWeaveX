@@ -6,7 +6,9 @@ import 'package:webweavex/webweavex.dart'
     show
         computeDeterministicHash,
         extractKubernetesRuntime,
-        extractDatabaseRuntime;
+        extractDatabaseRuntime,
+        extractContainerRuntime,
+        extractIdeRuntime;
 
 /// Executable cross-language parity for the snapshot extractors.
 /// Reference outputs were captured by EXECUTING Python 2.0.1 (and corroborated
@@ -38,6 +40,16 @@ void main() {
           actual = extractKubernetesRuntime(asMap(args[0]));
         } else if (api == 'extract_database_runtime') {
           actual = extractDatabaseRuntime(
+            args[0] as String,
+            args.length > 1 ? asMap(args[1]) : null,
+          );
+        } else if (api == 'extract_container_runtime') {
+          actual = extractContainerRuntime(
+            args[0] as String,
+            args.length > 1 ? asMap(args[1]) : null,
+          );
+        } else if (api == 'extract_ide_runtime') {
+          actual = extractIdeRuntime(
             args[0] as String,
             args.length > 1 ? asMap(args[1]) : null,
           );

@@ -270,5 +270,148 @@
       "reason": "connector_unavailable",
       "bounded": true
     }
+  },
+  {
+    "id": "container-docker",
+    "api": "extract_container_runtime",
+    "args": [
+      "docker",
+      {
+        "containers": [
+          {
+            "id": "c1"
+          }
+        ],
+        "images": [
+          "img-b",
+          "img-a"
+        ],
+        "states": {
+          "c1": "running"
+        }
+      }
+    ],
+    "expected": {
+      "runtime": "docker",
+      "containers": [
+        {
+          "id": "c1"
+        }
+      ],
+      "images": [
+        "img-a",
+        "img-b"
+      ],
+      "volumes": [],
+      "networks": [],
+      "states": {
+        "c1": "running"
+      },
+      "health": {},
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "container-podman",
+    "api": "extract_container_runtime",
+    "args": [
+      "podman",
+      {
+        "images": [
+          "z",
+          "a"
+        ]
+      }
+    ],
+    "expected": {
+      "runtime": "podman",
+      "containers": [],
+      "images": [
+        "a",
+        "z"
+      ],
+      "volumes": [],
+      "networks": [],
+      "states": {},
+      "health": {},
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "container-unknown",
+    "api": "extract_container_runtime",
+    "args": [
+      "lxc",
+      null
+    ],
+    "expected": {
+      "runtime": "lxc",
+      "containers": [],
+      "images": [],
+      "volumes": [],
+      "networks": [],
+      "degraded": true,
+      "bounded": true
+    }
+  },
+  {
+    "id": "ide-vscode",
+    "api": "extract_ide_runtime",
+    "args": [
+      "vscode",
+      {
+        "open_files": [
+          "b.dart",
+          "a.dart"
+        ],
+        "terminals": [
+          {
+            "id": 1
+          }
+        ],
+        "workspace": {
+          "root": "/x"
+        }
+      }
+    ],
+    "expected": {
+      "ide": "vscode",
+      "open_files": [
+        "a.dart",
+        "b.dart"
+      ],
+      "terminals": [
+        {
+          "id": 1
+        }
+      ],
+      "tabs": [],
+      "workspace_topology": {
+        "root": "/x"
+      },
+      "debug_sessions": [],
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "ide-empty",
+    "api": "extract_ide_runtime",
+    "args": [
+      "intellij",
+      null
+    ],
+    "expected": {
+      "ide": "intellij",
+      "open_files": [],
+      "terminals": [],
+      "tabs": [],
+      "workspace_topology": {},
+      "debug_sessions": [],
+      "degraded": false,
+      "bounded": true
+    }
   }
 ]

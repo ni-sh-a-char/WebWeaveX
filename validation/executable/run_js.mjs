@@ -5,6 +5,8 @@ import { readFileSync } from "node:fs";
 import {
   extractKubernetesRuntime,
   extractDatabaseRuntime,
+  extractContainerRuntime,
+  extractIdeRuntime,
   computeKaalkaHash,
 } from "./src/index.ts";
 // Python `__all__` build_browser_identity(profile_id) is the orchestrator engine;
@@ -35,6 +37,10 @@ function call(api, args) {
       return queryRuntimeMemory(args[0], args[1], args[2]);
     case "build_browser_identity":
       return buildBrowserIdentity(args[0]);
+    case "extract_container_runtime":
+      return extractContainerRuntime(args[0], args[1] ?? undefined);
+    case "extract_ide_runtime":
+      return extractIdeRuntime(args[0], args[1] ?? undefined);
     case "compute_kaalka_hash":
       return computeKaalkaHash(args[0]);
     case "compute_global_runtime_fingerprint":

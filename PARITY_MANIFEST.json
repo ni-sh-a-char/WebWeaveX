@@ -2,16 +2,18 @@
   "generated_by": "tools/generate_parity_manifest.py",
   "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
   "counts": {
-    "Complete": 87,
+    "Complete": 89,
     "Partial": 26,
-    "Deferred": 15
+    "Deferred": 13
   },
   "executable_proven_apis": [
     "build_browser_identity",
     "build_runtime_memory",
     "compute_global_runtime_fingerprint",
     "compute_kaalka_hash",
+    "extract_container_runtime",
     "extract_database_runtime",
+    "extract_ide_runtime",
     "extract_kubernetes_runtime",
     "get_runtime_kernel",
     "query_runtime_graph",
@@ -444,13 +446,13 @@
       "api": "extract_container_runtime",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
-      "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "dart": true,
+      "dart_symbol": "extractContainerRuntime",
+      "contract_parity": true,
+      "behavior_parity": true,
+      "executable_parity": true,
+      "classification": "Complete",
+      "proof_type": "EXECUTABLE"
     },
     {
       "api": "extract_database_runtime",
@@ -492,13 +494,13 @@
       "api": "extract_ide_runtime",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
-      "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "dart": true,
+      "dart_symbol": "extractIdeRuntime",
+      "contract_parity": true,
+      "behavior_parity": true,
+      "executable_parity": true,
+      "classification": "Complete",
+      "proof_type": "EXECUTABLE"
     },
     {
       "api": "extract_infinite_scroll",
