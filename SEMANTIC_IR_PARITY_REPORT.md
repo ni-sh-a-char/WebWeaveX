@@ -17,10 +17,12 @@
 | A.1 | `core.documents.*` parser leaves | 5 | Python ≡ JS ≡ Dart, 12 fixtures | ✅ proven |
 | A.2 | non-evidence leaves: `core.semantic` pressure ×10, `core.ir._base` ×3, `core.graph` ×3, `core.repository` ×5, `core.ast` ×3 | 24 | Python ≡ JS ≡ Dart, 54 fixtures (66/66 incl. A.1, hash + deep equality) | ✅ proven |
 | A.3 b1 | `core.evidence` trivial leaves (record-shaped bool/count/round engines) | 60 | Python ≡ JS ≡ Dart, 119 fixtures (185/185 cumulative, hash + deep equality) | ✅ proven |
-| A.3 b2… | remaining `core.evidence` leaves (sorted/set/round-heavy engines) | 0 / 121 | — | pending |
+| A.3 b2 | `core.evidence` leaves: recursive/semantic/unsupported families (incl. sorted/set/round + deep-equality sites) | 57 | Python ≡ JS ≡ Dart, 113 fixtures (298/298 cumulative, hash + deep equality) | ✅ proven |
+| A.3 b3… | remaining `core.evidence` public leaves (the 11–37-line engines: confidence caps, contradiction lattice, evidence algebra/weighting, explainability, lineage/provenance/traceability, semantic confidence/conservatism/drift/fragility/stability, uncertainty, noninference, …) | 0 / 51 | — | pending |
+| — | 13 private leaf helpers (`_depth`×4, `_record`×3, `_suppression_record`×2, `_lineage_depth`, `_closure_record`, `_continuation_record`, `_stabilization_record`) | deferred | proven through their module's public parent (only callers) | deferred |
 | B–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
-Phase-A leaves proven: **89 / 212** (plus 2 reclassified below).
+Phase-A leaves proven: **146 / 212** (plus 2 reclassified below; 13 privates fold into their parents' phases — several share the name `_depth`/`_record` across modules, which the fn-name-keyed harness can't address directly).
 
 ## A.1 — document-parser leaves (proven)
 
@@ -76,6 +78,22 @@ substring of the Python list repr, via `pyToStr`), `refuse_unsupported_continuit
 - Test: `test/parity/semantic_ir_a3_test.dart` (+123 tests → 1054 total, all passing).
 - Cumulative proof: **185/185 fixtures** pass 3-way hash + deep equality.
 
+## A.3 batch 2 — evidence leaves, recursive/semantic/unsupported (proven)
+
+57 leaf engines ported to `lib/src/semantic_ir/evidence_leaves_2.dart`. Notables
+proven bit-exact by execution: `detect_semantic_self_reinforcement` (Python's
+structural `reconciled == inferred`, via new `pyDeepEq` with numeric cross-type
+equality), `measure_semantic_momentum` (true division `inferred/max(1,evidence)`),
+`model_semantic_alternatives` (sorted union of dict keys, observed-priority),
+`refuse_recursive_stabilization` (nested `.get(...,{}).get("type")` null chains),
+`terminate_semantic_chain`/`terminate_recursive_stabilization` (truthy-filtered
+sorted sets), `expose_ambiguity_visibility`/`preserve_recursive_uncertainty`
+(`sorted(set(str(x)))`).
+
+- Vectors: `validation/parity/semantic_ir_a3b_vectors.json` (113, from executed Python).
+- Test: `test/parity/semantic_ir_a3b_test.dart` (+117 tests → 1171 total, all passing).
+- Cumulative proof: **298/298 fixtures** pass 3-way hash + deep equality.
+
 ## Plan corrections (recomputed from source, rule 10)
 
 1. **`parse_source` is NOT a Phase-A leaf.** `core.parsers.parser_registry.parse_source`
@@ -121,9 +139,12 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-A.3 batch 2+: the remaining 121 `core.evidence` leaves (the `sorted`/`set`/`round`-heavy
-engines: confidence caps, contradiction lattice, evidence algebra/weighting,
-explainability, lineage/provenance/traceability, semantic confidence/conservatism/
-drift/fragility/stability, uncertainty, noninference, refusal/termination records, …),
-in proven batches via the same 3-language harness; then ascend layers B→O until the
-6 dispatchers close with executable parity.
+A.3 batch 3+: the remaining 51 `core.evidence` public leaves — the medium/heavy
+engines (11–37 lines each, ~800 lines total: `apply_confidence_caps`,
+`build_contradiction_lattice`, `combine_evidence`, `weight_evidence_calculus`,
+`build_explainability`, `build_lineage`/`build_provenance`/`build_traceability`,
+`score_semantic_confidence`, `apply_semantic_conservatism`, `detect_semantic_drift`,
+`model_fragility`, `model_semantic_stability`, `model_uncertainty`,
+`model_noninference`, …) in proven batches; the 13 private leaf helpers prove
+through their parents; then ascend layers B→O until the 6 dispatchers close with
+executable parity.

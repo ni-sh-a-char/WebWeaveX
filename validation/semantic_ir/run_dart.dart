@@ -8,6 +8,7 @@ import 'package:webweavex/src/crypto/hashing.dart'
 import 'package:webweavex/src/semantic_ir/ast_engines.dart';
 import 'package:webweavex/src/semantic_ir/document_parser.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves.dart';
+import 'package:webweavex/src/semantic_ir/evidence_leaves_2.dart';
 import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
@@ -75,6 +76,65 @@ final Map<String, Function> a3Registry = <String, Function>{
   'suppress_worldview_convergence': suppressWorldviewConvergence,
   'model_worldview_diversity': modelWorldviewDiversity,
   'model_worldview_variance': modelWorldviewVariance,
+  'expose_ambiguity_visibility': exposeAmbiguityVisibility,
+  'model_evidence_boundaries': modelEvidenceBoundaries,
+  'assess_evidence_sufficiency': assessEvidenceSufficiency,
+  'detect_narrative_hallucination': detectNarrativeHallucination,
+  'detect_recursive_drift': detectRecursiveDrift,
+  'preserve_recursive_entropy': preserveRecursiveEntropy,
+  'track_recursive_evidence_ancestry': trackRecursiveEvidenceAncestry,
+  'resist_exploration_decay': resistExplorationDecay,
+  'detect_recursive_guardianship': detectRecursiveGuardianship,
+  'resist_independence_decay': resistIndependenceDecay,
+  'model_recursive_interpretive_independence':
+      modelRecursiveInterpretiveIndependence,
+  'detect_recursive_narrative_monopoly': detectRecursiveNarrativeMonopoly,
+  'resist_novelty_decay': resistNoveltyDecay,
+  'model_recursive_novelty': modelRecursiveNovelty,
+  'preserve_recursive_novelty': preserveRecursiveNovelty,
+  'detect_recursive_obedience': detectRecursiveObedience,
+  'recursive_ontology_limits': recursiveOntologyLimits,
+  'model_recursive_openness_stability': modelRecursiveOpennessStability,
+  'model_recursive_phase_space': modelRecursivePhaseSpace,
+  'preserve_recursive_provenance': preserveRecursiveProvenance,
+  'recursive_reality_limits': recursiveRealityLimits,
+  'detect_recursive_self_confirmation': detectRecursiveSelfConfirmation,
+  'model_recursive_semantic_decentralization':
+      modelRecursiveSemanticDecentralization,
+  'distribute_recursive_semantics': distributeRecursiveSemantics,
+  'model_recursive_semantic_independence': modelRecursiveSemanticIndependence,
+  'model_sovereignty_stability': modelSovereigntyStability,
+  'detect_recursive_stabilization': detectRecursiveStabilization,
+  'terminate_recursive_stabilization': terminateRecursiveStabilization,
+  'detect_recursive_submission': detectRecursiveSubmission,
+  'recursive_topology_limits': recursiveTopologyLimits,
+  'detect_recursive_trust_monopoly': detectRecursiveTrustMonopoly,
+  'model_recursive_truth_boundaries': modelRecursiveTruthBoundaries,
+  'refuse_recursive_stabilization': refuseRecursiveStabilization,
+  'preserve_recursive_uncertainty': preserveRecursiveUncertainty,
+  'model_semantic_alternatives': modelSemanticAlternatives,
+  'apply_semantic_antigravity': applySemanticAntigravity,
+  'model_semantic_autonomy': modelSemanticAutonomy,
+  'model_semantic_boundaries': modelSemanticBoundaries,
+  'suppress_semantic_dependency': suppressSemanticDependency,
+  'model_semantic_divergence': modelSemanticDivergence,
+  'model_semantic_diversity': modelSemanticDiversity,
+  'detect_semantic_fixation': detectSemanticFixation,
+  'model_semantic_freedom': modelSemanticFreedom,
+  'suppress_semantic_governance': suppressSemanticGovernance,
+  'detect_semantic_hierarchy_permanence': detectSemanticHierarchyPermanence,
+  'detect_semantic_homogenization': detectSemanticHomogenization,
+  'measure_semantic_momentum': measureSemanticMomentum,
+  'resist_semantic_domestication': resistSemanticDomestication,
+  'detect_semantic_orthodoxy': detectSemanticOrthodoxy,
+  'model_semantic_self_determination': modelSemanticSelfDetermination,
+  'detect_semantic_self_reinforcement': detectSemanticSelfReinforcement,
+  'semantic_stability_limits': semanticStabilityLimits,
+  'terminate_semantic_chain': terminateSemanticChain,
+  'semantic_truth_limits': semanticTruthLimits,
+  'detect_semantic_uniformity': detectSemanticUniformity,
+  'detect_unsupported_expansion': detectUnsupportedExpansion,
+  'model_unsupported_scope': modelUnsupportedScope,
 };
 
 List<Map<String, dynamic>> _claims(dynamic v) => <Map<String, dynamic>>[

@@ -106,6 +106,64 @@ import { applyWorldviewAntigravity } from "./src/evidence/worldviewAntigravityEn
 import { suppressWorldviewConvergence } from "./src/evidence/worldviewConvergenceEngine.ts";
 import { modelWorldviewDiversity } from "./src/evidence/worldviewDiversityEngine.ts";
 import { modelWorldviewVariance } from "./src/evidence/worldviewVarianceEngine.ts";
+// A.3 batch 2 — evidence leaves (recursive/semantic/unsupported)
+import { exposeAmbiguityVisibility } from "./src/evidence/ambiguityVisibilityEngine.ts";
+import { modelEvidenceBoundaries } from "./src/evidence/evidenceBoundaryEngine.ts";
+import { assessEvidenceSufficiency } from "./src/evidence/evidenceSufficiencyEngine.ts";
+import { detectNarrativeHallucination } from "./src/evidence/narrativeHallucinationEngine.ts";
+import { detectRecursiveDrift } from "./src/evidence/recursiveDriftEngine.ts";
+import { preserveRecursiveEntropy } from "./src/evidence/recursiveEntropyPreservationEngine.ts";
+import { trackRecursiveEvidenceAncestry } from "./src/evidence/recursiveEvidenceAncestryEngine.ts";
+import { resistExplorationDecay } from "./src/evidence/recursiveExplorationDecayEngine.ts";
+import { detectRecursiveGuardianship } from "./src/evidence/recursiveGuardianshipEngine.ts";
+import { resistIndependenceDecay } from "./src/evidence/recursiveIndependenceDecayEngine.ts";
+import { modelRecursiveInterpretiveIndependence } from "./src/evidence/recursiveInterpretiveIndependenceEngine.ts";
+import { detectRecursiveNarrativeMonopoly } from "./src/evidence/recursiveNarrativeMonopolyEngine.ts";
+import { resistNoveltyDecay } from "./src/evidence/recursiveNoveltyDecayEngine.ts";
+import { modelRecursiveNovelty } from "./src/evidence/recursiveNoveltyEngine.ts";
+import { preserveRecursiveNovelty } from "./src/evidence/recursiveNoveltyPreservationEngine.ts";
+import { detectRecursiveObedience } from "./src/evidence/recursiveObedienceEngine.ts";
+import { recursiveOntologyLimits } from "./src/evidence/recursiveOntologyLimitEngine.ts";
+import { modelRecursiveOpennessStability } from "./src/evidence/recursiveOpennessStabilityEngine.ts";
+import { modelRecursivePhaseSpace } from "./src/evidence/recursivePhaseSpaceEngine.ts";
+import { preserveRecursiveProvenance } from "./src/evidence/recursiveProvenanceEngine.ts";
+import { recursiveRealityLimits } from "./src/evidence/recursiveRealityLimitEngine.ts";
+import { detectRecursiveSelfConfirmation } from "./src/evidence/recursiveSelfConfirmationEngine.ts";
+import { modelRecursiveSemanticDecentralization } from "./src/evidence/recursiveSemanticDecentralizationEngine.ts";
+import { distributeRecursiveSemantics } from "./src/evidence/recursiveSemanticDistributionEngine.ts";
+import { modelRecursiveSemanticIndependence } from "./src/evidence/recursiveSemanticIndependenceEngine.ts";
+import { modelSovereigntyStability } from "./src/evidence/recursiveSovereigntyStabilityEngine.ts";
+import { detectRecursiveStabilization } from "./src/evidence/recursiveStabilizationEngine.ts";
+import { terminateRecursiveStabilization } from "./src/evidence/recursiveStabilizationTerminationEngine.ts";
+import { detectRecursiveSubmission } from "./src/evidence/recursiveSubmissionEngine.ts";
+import { recursiveTopologyLimits } from "./src/evidence/recursiveTopologyLimitEngine.ts";
+import { detectRecursiveTrustMonopoly } from "./src/evidence/recursiveTrustMonopolyEngine.ts";
+import { modelRecursiveTruthBoundaries } from "./src/evidence/recursiveTruthBoundaryEngine.ts";
+import { refuseRecursiveStabilization } from "./src/evidence/recursiveTruthRefusalEngine.ts";
+import { preserveRecursiveUncertainty } from "./src/evidence/recursiveUncertaintyPreservationEngine.ts";
+import { modelSemanticAlternatives } from "./src/evidence/semanticAlternativeEngine.ts";
+import { applySemanticAntigravity } from "./src/evidence/semanticAntigravityEngine.ts";
+import { modelSemanticAutonomy } from "./src/evidence/semanticAutonomyEngine.ts";
+import { modelSemanticBoundaries } from "./src/evidence/semanticBoundaryEngine.ts";
+import { suppressSemanticDependency } from "./src/evidence/semanticDependencySuppressionEngine.ts";
+import { modelSemanticDivergence } from "./src/evidence/semanticDivergenceEngine.ts";
+import { modelSemanticDiversity } from "./src/evidence/semanticDiversityEngine.ts";
+import { detectSemanticFixation } from "./src/evidence/semanticFixationEngine.ts";
+import { modelSemanticFreedom } from "./src/evidence/semanticFreedomEngine.ts";
+import { suppressSemanticGovernance } from "./src/evidence/semanticGovernanceEngine.ts";
+import { detectSemanticHierarchyPermanence } from "./src/evidence/semanticHierarchyEngine.ts";
+import { detectSemanticHomogenization } from "./src/evidence/semanticHomogenizationEngine.ts";
+import { measureSemanticMomentum } from "./src/evidence/semanticMomentumEngine.ts";
+import { resistSemanticDomestication } from "./src/evidence/semanticNondomesticationEngine.ts";
+import { detectSemanticOrthodoxy } from "./src/evidence/semanticOrthodoxyEngine.ts";
+import { modelSemanticSelfDetermination } from "./src/evidence/semanticSelfDeterminationEngine.ts";
+import { detectSemanticSelfReinforcement } from "./src/evidence/semanticSelfReinforcementEngine.ts";
+import { semanticStabilityLimits } from "./src/evidence/semanticStabilityLimitEngine.ts";
+import { terminateSemanticChain } from "./src/evidence/semanticTerminationEngine.ts";
+import { semanticTruthLimits } from "./src/evidence/semanticTruthLimitEngine.ts";
+import { detectSemanticUniformity } from "./src/evidence/semanticUniformityEngine.ts";
+import { detectUnsupportedExpansion } from "./src/evidence/unsupportedExpansionEngine.ts";
+import { modelUnsupportedScope } from "./src/evidence/unsupportedScopeEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -169,6 +227,63 @@ const A3_REGISTRY = {
   suppress_worldview_convergence: suppressWorldviewConvergence,
   model_worldview_diversity: modelWorldviewDiversity,
   model_worldview_variance: modelWorldviewVariance,
+  expose_ambiguity_visibility: exposeAmbiguityVisibility,
+  model_evidence_boundaries: modelEvidenceBoundaries,
+  assess_evidence_sufficiency: assessEvidenceSufficiency,
+  detect_narrative_hallucination: detectNarrativeHallucination,
+  detect_recursive_drift: detectRecursiveDrift,
+  preserve_recursive_entropy: preserveRecursiveEntropy,
+  track_recursive_evidence_ancestry: trackRecursiveEvidenceAncestry,
+  resist_exploration_decay: resistExplorationDecay,
+  detect_recursive_guardianship: detectRecursiveGuardianship,
+  resist_independence_decay: resistIndependenceDecay,
+  model_recursive_interpretive_independence: modelRecursiveInterpretiveIndependence,
+  detect_recursive_narrative_monopoly: detectRecursiveNarrativeMonopoly,
+  resist_novelty_decay: resistNoveltyDecay,
+  model_recursive_novelty: modelRecursiveNovelty,
+  preserve_recursive_novelty: preserveRecursiveNovelty,
+  detect_recursive_obedience: detectRecursiveObedience,
+  recursive_ontology_limits: recursiveOntologyLimits,
+  model_recursive_openness_stability: modelRecursiveOpennessStability,
+  model_recursive_phase_space: modelRecursivePhaseSpace,
+  preserve_recursive_provenance: preserveRecursiveProvenance,
+  recursive_reality_limits: recursiveRealityLimits,
+  detect_recursive_self_confirmation: detectRecursiveSelfConfirmation,
+  model_recursive_semantic_decentralization: modelRecursiveSemanticDecentralization,
+  distribute_recursive_semantics: distributeRecursiveSemantics,
+  model_recursive_semantic_independence: modelRecursiveSemanticIndependence,
+  model_sovereignty_stability: modelSovereigntyStability,
+  detect_recursive_stabilization: detectRecursiveStabilization,
+  terminate_recursive_stabilization: terminateRecursiveStabilization,
+  detect_recursive_submission: detectRecursiveSubmission,
+  recursive_topology_limits: recursiveTopologyLimits,
+  detect_recursive_trust_monopoly: detectRecursiveTrustMonopoly,
+  model_recursive_truth_boundaries: modelRecursiveTruthBoundaries,
+  refuse_recursive_stabilization: refuseRecursiveStabilization,
+  preserve_recursive_uncertainty: preserveRecursiveUncertainty,
+  model_semantic_alternatives: modelSemanticAlternatives,
+  apply_semantic_antigravity: applySemanticAntigravity,
+  model_semantic_autonomy: modelSemanticAutonomy,
+  model_semantic_boundaries: modelSemanticBoundaries,
+  suppress_semantic_dependency: suppressSemanticDependency,
+  model_semantic_divergence: modelSemanticDivergence,
+  model_semantic_diversity: modelSemanticDiversity,
+  detect_semantic_fixation: detectSemanticFixation,
+  model_semantic_freedom: modelSemanticFreedom,
+  suppress_semantic_governance: suppressSemanticGovernance,
+  detect_semantic_hierarchy_permanence: detectSemanticHierarchyPermanence,
+  detect_semantic_homogenization: detectSemanticHomogenization,
+  measure_semantic_momentum: measureSemanticMomentum,
+  resist_semantic_domestication: resistSemanticDomestication,
+  detect_semantic_orthodoxy: detectSemanticOrthodoxy,
+  model_semantic_self_determination: modelSemanticSelfDetermination,
+  detect_semantic_self_reinforcement: detectSemanticSelfReinforcement,
+  semantic_stability_limits: semanticStabilityLimits,
+  terminate_semantic_chain: terminateSemanticChain,
+  semantic_truth_limits: semanticTruthLimits,
+  detect_semantic_uniformity: detectSemanticUniformity,
+  detect_unsupported_expansion: detectUnsupportedExpansion,
+  model_unsupported_scope: modelUnsupportedScope,
 };
 
 const VOLATILE = new Set([

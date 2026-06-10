@@ -117,6 +117,27 @@ String _pyRepr(dynamic v) {
   return pyToStr(v);
 }
 
+/// Python `==` deep structural equality for the JSON value domain
+/// (numbers compare by value: `1 == 1.0` is true, as in Python).
+bool pyDeepEq(dynamic a, dynamic b) {
+  if (a is num && b is num) return a == b;
+  if (a is Map && b is Map) {
+    if (a.length != b.length) return false;
+    for (final k in a.keys) {
+      if (!b.containsKey(k) || !pyDeepEq(a[k], b[k])) return false;
+    }
+    return true;
+  }
+  if (a is List && b is List) {
+    if (a.length != b.length) return false;
+    for (var i = 0; i < a.length; i++) {
+      if (!pyDeepEq(a[i], b[i])) return false;
+    }
+    return true;
+  }
+  return a == b;
+}
+
 /// Python `sorted(items, key=...)` — stable (Dart's List.sort is not).
 List<T> pyStableSortedBy<T>(List<T> items, Comparable<dynamic> Function(T) key) {
   final indices = List<int>.generate(items.length, (i) => i);
