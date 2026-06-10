@@ -28,6 +28,22 @@ def normalize_runtime_value(value: str) -> str:
     return re.sub(r"\s+$", "", normalized)
 
 
+def canonicalize_number(value: Any) -> Any:
+    """Cross-language numeric canonicalization.
+
+    JavaScript has a single number type, so 2.0 cannot serialize differently
+    from 2. Contract: integral floats serialize as integers, non-finite floats
+    as null — identically in Python, JavaScript, and Dart. 2**63 bounds the
+    range where the conversion is exact in every runtime.
+    """
+    if isinstance(value, float) and not isinstance(value, bool):
+        if value != value or value in (float("inf"), float("-inf")):
+            return None
+        if value.is_integer() and abs(value) < 9223372036854775808.0:
+            return int(value)
+    return value
+
+
 def stable_sort_keys(obj: dict[str, Any]) -> dict[str, Any]:
     sorted_obj: dict[str, Any] = {}
     for key in sorted(obj.keys()):
@@ -38,11 +54,23 @@ def stable_sort_keys(obj: dict[str, Any]) -> dict[str, Any]:
             sorted_obj[key] = stable_sort_keys(val)
         elif isinstance(val, list):
             sorted_obj[key] = [
-                stable_sort_keys(item) if isinstance(item, dict) else item for item in val
+                stable_sort_keys(item) if isinstance(item, dict) else canonicalize_number(item)
+                for item in val
             ]
         else:
-            sorted_obj[key] = val
+            sorted_obj[key] = canonicalize_number(val)
     return sorted_obj
+
+
+def _canonicalize_numbers_deep(value: Any) -> Any:
+    """Apply canonicalize_number at every depth (lists nested in lists included),
+    matching the JavaScript and Dart canonical encoders which canonicalize at
+    serialization time."""
+    if isinstance(value, dict):
+        return {k: _canonicalize_numbers_deep(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_canonicalize_numbers_deep(v) for v in value]
+    return canonicalize_number(value)
 
 
 def stable_serialize(value: Any) -> str:
@@ -50,7 +78,7 @@ def stable_serialize(value: Any) -> str:
         return normalize_runtime_value(value)
     if isinstance(value, dict):
         return json.dumps(
-            stable_sort_keys(value),
+            _canonicalize_numbers_deep(stable_sort_keys(value)),
             ensure_ascii=False,
             separators=(",", ":"),
             sort_keys=True,
@@ -61,5 +89,10 @@ def stable_serialize(value: Any) -> str:
             str(i): stable_sort_keys(item) if isinstance(item, dict) else item
             for i, item in enumerate(value)
         }
-        return json.dumps(keyed, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
-    return json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+        return json.dumps(
+            _canonicalize_numbers_deep(keyed),
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        )
+    return json.dumps(canonicalize_number(value), ensure_ascii=False, separators=(",", ":"))

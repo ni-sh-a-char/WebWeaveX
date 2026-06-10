@@ -21,8 +21,16 @@ def _stable(value: Any, _depth: int = 0) -> Any:
         return value
     if isinstance(value, float):
         if math.isnan(value) or math.isinf(value):
-            return 0.0
-        return float(format(value, ".15g"))
+            return 0
+        # Integral floats convert exactly, BEFORE .15g rounding (cross-language
+        # contract: JavaScript cannot distinguish 9007199254740991.0 from the
+        # integer, so 16-digit integral floats must not lose a digit here).
+        if value.is_integer() and abs(value) < 9223372036854775808.0:
+            return int(value)
+        rounded = float(format(value, ".15g"))
+        if rounded.is_integer() and abs(rounded) < 9223372036854775808.0:
+            return int(rounded)
+        return rounded
     if isinstance(value, dict):
         return {
             _norm_str(str(k)): _stable(value[k], _depth + 1)
