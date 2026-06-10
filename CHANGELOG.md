@@ -1,5 +1,24 @@
 # Changelog
 
+## [Unreleased] — Final Completion Protocol · Group D (cont.) + manifest-driven reports
+
+### Added
+
+- `tools/generate_reports.py` — generates API_PARITY_VALIDATION_REPORT, FINAL_TRUE_PARITY_REPORT,
+  PARTIAL_API_AUDIT, DEFERRED_API_AUDIT from **PARITY_MANIFEST.json** and syncs count tokens in the
+  legacy reports. No report carries hand-maintained counts (resolved prior count disagreements).
+- `lib/src/application/runtime_application.dart` — `executeRuntimeObjective` (executable parity,
+  Python ≡ JS ≡ Dart), `buildRuntimeGoal`, and the `saveApplicationMemory`/`loadApplicationMemory`
+  + `saveNativeRuntime`/`loadNativeRuntime` Kaalka pairs (proven by save→load deep-equality roundtrip).
+
+### Changed
+
+- 5 APIs promoted Deferred → Complete (`execute_runtime_objective` + 4 application/native save/load
+  pairs). API parity matrix: **94 Complete · 26 Partial · 8 Deferred · 0 Missing**; 857 tests;
+  97.21% coverage. 14 executable-proven APIs. Deferred re-audit: 8 remain = 5 live-`page` browser
+  (platform ceiling) + 3 large native/application cognition entry points (convertible, pending).
+
+
 ## [Unreleased] — Final Completion Protocol · Group D (Deferred re-audit)
 
 ### Changed

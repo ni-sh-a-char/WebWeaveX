@@ -6,9 +6,9 @@
 
 | Status | Count |
 |--------|------:|
-| ✅ Complete | **89** |
+| ✅ Complete | **94** |
 | 🟡 Partial | **26** |
-| ⚪ Deferred | **13** |
+| ⚪ Deferred | **8** |
 | ❌ Missing | **0** |
 | **Total Python APIs** | **128** |
 
@@ -16,11 +16,11 @@
 
 | Proof type | Count |
 |------------|------:|
-| VECTOR | 61 |
+| VECTOR | 62 |
 | CORE_VECTOR | 4 |
-| ROUNDTRIP | 22 |
+| ROUNDTRIP | 26 |
 
-## Executable-proven APIs (13)
+## Executable-proven APIs (14)
 
 Proven **Python ≡ JavaScript ≡ Dart** by execution on shared fixtures (`validation/executable/`, `EXECUTABLE_PARITY_MATRIX.md`):
 
@@ -28,6 +28,7 @@ Proven **Python ≡ JavaScript ≡ Dart** by execution on shared fixtures (`vali
 - `build_runtime_memory`
 - `compute_global_runtime_fingerprint`
 - `compute_kaalka_hash`
+- `execute_runtime_objective`
 - `extract_container_runtime`
 - `extract_database_runtime`
 - `extract_ide_runtime`
@@ -40,5 +41,5 @@ Proven **Python ≡ JavaScript ≡ Dart** by execution on shared fixtures (`vali
 
 ## Verdict
 
-- **0 Missing.** 89 Complete, 26 Partial, 13 Deferred of 128 canonical APIs.
+- **0 Missing.** 94 Complete, 26 Partial, 8 Deferred of 128 canonical APIs.
 - Every Complete API has executable or vector/roundtrip proof (`COMPLETE_API_PROOF_MATRIX.md`). Every Partial/Deferred is classified with a reason (`PARTIAL_API_AUDIT.md`, `DEFERRED_API_AUDIT.md`).

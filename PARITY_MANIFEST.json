@@ -2,15 +2,16 @@
   "generated_by": "tools/generate_parity_manifest.py",
   "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
   "counts": {
-    "Complete": 89,
+    "Complete": 94,
     "Partial": 26,
-    "Deferred": 13
+    "Deferred": 8
   },
   "executable_proven_apis": [
     "build_browser_identity",
     "build_runtime_memory",
     "compute_global_runtime_fingerprint",
     "compute_kaalka_hash",
+    "execute_runtime_objective",
     "extract_container_runtime",
     "extract_database_runtime",
     "extract_ide_runtime",
@@ -398,13 +399,13 @@
       "api": "execute_runtime_objective",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
-      "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "dart": true,
+      "dart_symbol": "executeRuntimeObjective",
+      "contract_parity": true,
+      "behavior_parity": true,
+      "executable_parity": true,
+      "classification": "Complete",
+      "proof_type": "EXECUTABLE"
     },
     {
       "api": "extract",
@@ -710,13 +711,13 @@
       "api": "load_application_memory",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "loadApplicationMemory",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": "ROUNDTRIP"
     },
     {
       "api": "load_browser_identity",
@@ -794,13 +795,13 @@
       "api": "load_native_runtime",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "loadNativeRuntime",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": "ROUNDTRIP"
     },
     {
       "api": "load_runtime_memory",
@@ -1334,13 +1335,13 @@
       "api": "save_application_memory",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "saveApplicationMemory",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": "ROUNDTRIP"
     },
     {
       "api": "save_browser_identity",
@@ -1418,13 +1419,13 @@
       "api": "save_native_runtime",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "saveNativeRuntime",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": "ROUNDTRIP"
     },
     {
       "api": "save_runtime_memory",

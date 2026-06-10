@@ -30,6 +30,9 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `extract_container_runtime` | `container-unknown` | `e2a45795737a3565` | `e2a45795737a3565` | `e2a45795737a3565` | ✅ ALL3 | Complete (executable) |
 | `extract_ide_runtime` | `ide-vscode` | `f48caa09dda9628b` | `f48caa09dda9628b` | `f48caa09dda9628b` | ✅ ALL3 | Complete (executable) |
 | `extract_ide_runtime` | `ide-empty` | `141714f840b7944a` | `141714f840b7944a` | `141714f840b7944a` | ✅ ALL3 | Complete (executable) |
+| `execute_runtime_objective` | `exec-obj-login` | `135b03f8a05e6538` | `135b03f8a05e6538` | `135b03f8a05e6538` | ✅ ALL3 | Complete (executable) |
+| `execute_runtime_objective` | `exec-obj-default` | `1bbd9afe7fa71c87` | `1bbd9afe7fa71c87` | `1bbd9afe7fa71c87` | ✅ ALL3 | Complete (executable) |
+| `execute_runtime_objective` | `exec-obj-dash` | `75bf6b165f3ad0b3` | `75bf6b165f3ad0b3` | `75bf6b165f3ad0b3` | ✅ ALL3 | Complete (executable) |
 | `compute_kaalka_hash` | `hash-nested` | `222135f9323b12b1` | `222135f9323b12b1` | `222135f9323b12b1` | ✅ ALL3 | Complete (executable) |
 | `compute_global_runtime_fingerprint` | `fp-empty` | `9feafe03a758f460` | `9feafe03a758f460` | `9feafe03a758f460` | ✅ ALL3 | Complete (executable) |
 | `compute_global_runtime_fingerprint` | `fp-full` | `46ae328a59b98b59` | `46ae328a59b98b59` | `46ae328a59b98b59` | ✅ ALL3 | Complete (executable) |
@@ -55,6 +58,7 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `build_browser_identity` | Complete (executable) |
 | `extract_container_runtime` | Complete (executable) |
 | `extract_ide_runtime` | Complete (executable) |
+| `execute_runtime_objective` | Complete (executable) |
 | `compute_kaalka_hash` | Complete (executable) |
 | `compute_global_runtime_fingerprint` | Complete (executable) |
 | `query_runtime_graph` | Complete (executable) |

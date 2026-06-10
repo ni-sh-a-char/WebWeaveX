@@ -2,11 +2,11 @@
 
 > Proof Coverage Audit — every API classified **Complete** in `PUBLIC_API_MATRIX.md`, with its Python / JavaScript / Dart source and the strongest executed proof. Generated 2026-06-10 by `tools/complete_proof_audit.py` from repository reality (origin/python, origin/javascript, local `lib/`). No Complete API remains without proof.
 
-**Complete APIs: 87 functional + 2 metadata constants = 89 rows.** Proof status: {'PROVEN': 87, 'WEAK': 2}.
+**Complete APIs: 92 functional + 2 metadata constants = 94 rows.** Proof status: {'PROVEN': 92, 'WEAK': 2}.
 
 > Source-location columns are best-effort `git grep` locations (symbol definition or nearest reference) and may point to a re-export/use site; the **Proof type / Proof location / Status** columns are authoritative.
 
-Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=61
+Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=26, VECTOR=62
 
 | API | Python source | JavaScript source | Dart source | Proof type | Proof location | Status |
 |-----|---------------|-------------------|-------------|------------|----------------|--------|
@@ -34,6 +34,11 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=61
 | `load_adaptive_memory` | `core/adaptive/extraction_memory_engine.py` | `src/adaptive/extractionMemoryEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
 | `save_distributed_checkpoint` | `core/distributed_extraction/distributed_checkpoint_engine.py` | `src/distributed_extraction/distributedCheckpointEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
 | `load_distributed_checkpoint` | `core/distributed_extraction/distributed_checkpoint_engine.py` | `src/distributed_extraction/distributedCheckpointEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
+| `execute_runtime_objective` | `core/application/objective_execution_engine.py` | `src/application/index.ts` | `lib/src/application/runtime_application.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/application_runtime_api_vectors.json` | ✅ PROVEN |
+| `save_application_memory` | `core/application/application_memory_engine.py` | `src/application/applicationMemoryEngine.ts` | `lib/src/application/runtime_application.dart` | save/load deep-equality roundtrip | `test/parity/application_runtime_parity_test.dart` | ✅ PROVEN |
+| `load_application_memory` | `core/application/application_memory_engine.py` | `src/application/applicationMemoryEngine.ts` | `lib/src/application/runtime_application.dart` | save/load deep-equality roundtrip | `test/parity/application_runtime_parity_test.dart` | ✅ PROVEN |
+| `save_native_runtime` | `core/native/native_memory_engine.py` | `src/native/nativeMemoryEngine.ts` | `lib/src/application/runtime_application.dart` | save/load deep-equality roundtrip | `test/parity/application_runtime_parity_test.dart` | ✅ PROVEN |
+| `load_native_runtime` | `core/native/native_memory_engine.py` | `src/native/index.ts` | `lib/src/application/runtime_application.dart` | save/load deep-equality roundtrip | `test/parity/application_runtime_parity_test.dart` | ✅ PROVEN |
 | `run_causality_runtime` | `core/causality/causality_orchestrator.py` | `src/causality/causalityOrchestrator.ts` | `lib/src/causality/causality_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/causality_api_vectors.json` | ✅ PROVEN |
 | `run_causality_for_extraction` | `core/causality/causality_orchestrator.py` | `src/causality/causalityOrchestrator.ts` | `lib/src/causality/causality_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/causality_api_vectors.json` | ✅ PROVEN |
 | `save_causal_memory` | `core/causality/causal_memory_engine.py` | `src/causality/causalMemoryEngine.ts` | `lib/src/causality/causality_runtime.dart` | save/load deep-equality roundtrip | `test/parity/causality_parity_test.dart` | ✅ PROVEN |
@@ -113,7 +118,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=61
 
 ## Audit result
 
-**87/87 functional Complete APIs PROVEN** (`87` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
+**92/92 functional Complete APIs PROVEN** (`92` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
 
 **11 APIs were downgraded Complete → Partial during this audit** because they carried only a determinism/structural test (no cross-language vector, deep-equality, or roundtrip) AND their Dart contract/output diverges from Python, so a passing proof vector cannot be produced without new implementation:
 

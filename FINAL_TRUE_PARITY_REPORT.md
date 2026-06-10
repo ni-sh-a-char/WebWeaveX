@@ -8,13 +8,13 @@
 |----------------|--------|
 | **Python** (`webweavex.__all__`) | 126 canonical APIs — source of truth |
 | **JavaScript** | 126/126 — full reference |
-| **Dart** | **89 Complete · 26 Partial · 13 Deferred · 0 Missing** |
+| **Dart** | **94 Complete · 26 Partial · 8 Deferred · 0 Missing** |
 
 ## Proof standard (enforced)
 
 Complete requires a cross-language vector, a save/load deep-equality roundtrip, or **executable parity** (Python hash == JavaScript hash == Dart hash on a shared fixture). Source similarity, name parity, and determinism-only tests do **not** count.
 
-## Executable parity (13 APIs)
+## Executable parity (14 APIs)
 
 Proven Python ≡ JavaScript ≡ Dart by execution:
 
@@ -22,6 +22,7 @@ Proven Python ≡ JavaScript ≡ Dart by execution:
 - `build_runtime_memory`
 - `compute_global_runtime_fingerprint`
 - `compute_kaalka_hash`
+- `execute_runtime_objective`
 - `extract_container_runtime`
 - `extract_database_runtime`
 - `extract_ide_runtime`
@@ -36,15 +37,15 @@ Proven Python ≡ JavaScript ≡ Dart by execution:
 
 | Proof type | Count |
 |------------|------:|
-| VECTOR | 61 |
+| VECTOR | 62 |
 | CORE_VECTOR | 4 |
-| ROUNDTRIP | 22 |
+| ROUNDTRIP | 26 |
 
 ## Remaining gaps
 
 - **26 Partial** — bounded; see `PARTIAL_API_AUDIT.md`.
-- **13 Deferred** — 5 genuinely live-browser-`page`-bound (the platform ceiling); the rest are snapshot/data-input convertible candidates. See `DEFERRED_API_AUDIT.md`.
+- **8 Deferred** — 5 genuinely live-browser-`page`-bound (the platform ceiling); the rest are snapshot/data-input convertible candidates. See `DEFERRED_API_AUDIT.md`.
 
 ## Verdict
 
-Dart is at **89 Complete · 26 Partial · 13 Deferred · 0 Missing** with **0 Missing**. Every Complete API is executable- or vector-proven; every remaining gap is a documented bounded Partial or a live-runtime Deferred. Parity is proven by execution.
+Dart is at **94 Complete · 26 Partial · 8 Deferred · 0 Missing** with **0 Missing**. Every Complete API is executable- or vector-proven; every remaining gap is a documented bounded Partial or a live-runtime Deferred. Parity is proven by execution.

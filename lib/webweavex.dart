@@ -29,6 +29,15 @@ export 'src/reconstruction_runtime/reconstruction_runtime_engines.dart'
 // Canonical Python-aligned build_browser_identity(profileId). The captured-map
 // variant is buildBrowserIdentityFromCapture in src/browser/browser_identity.dart.
 export 'src/identity/browser_identity_canonical.dart' show buildBrowserIdentity;
+// Group D — snapshot/data/persistence-input application & native runtime APIs.
+export 'src/application/runtime_application.dart'
+    show
+        executeRuntimeObjective,
+        buildRuntimeGoal,
+        saveApplicationMemory,
+        loadApplicationMemory,
+        saveNativeRuntime,
+        loadNativeRuntime;
 export 'src/crypto/kaalka_runtime.dart';
 export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';

@@ -10,6 +10,7 @@ import 'package:webweavex/webweavex.dart'
         extractDatabaseRuntime,
         extractContainerRuntime,
         extractIdeRuntime,
+        executeRuntimeObjective,
         buildRuntimeMemory,
         queryRuntimeMemory,
         computeGlobalRuntimeFingerprint,
@@ -88,6 +89,14 @@ dynamic _call(String api, List<dynamic> args) {
     case 'extract_ide_runtime':
       return extractIdeRuntime(
           args[0] as String, args.length > 1 ? _asMap(args[1]) : null);
+    case 'execute_runtime_objective':
+      return executeRuntimeObjective(
+        args[0] as String,
+        _asMap(args[1]) ?? <String, dynamic>{},
+        _asMap(args[2]) ?? <String, dynamic>{},
+        _asMap(args[3]) ?? <String, dynamic>{},
+        adaptiveRuntime: _asMap(args[4]),
+      );
     default:
       throw StateError('unknown/contract-divergent api $api');
   }

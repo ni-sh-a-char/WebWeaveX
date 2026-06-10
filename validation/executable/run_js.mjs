@@ -24,6 +24,7 @@ import { queryRuntimeGraph } from "./src/runtime_graph/runtimeGraphQueryEngine.t
 import { validateReplayEquivalence } from "./src/replay/replayEquivalenceEngine.ts";
 import { reconstructRuntime } from "./src/reconstruction/runtimeReconstructionEngine.ts";
 import { getRuntimeKernel } from "./src/kernel/runtimeKernel.ts";
+import { executeRuntimeObjective } from "./src/application/objectiveExecutionEngine.ts";
 
 function call(api, args) {
   switch (api) {
@@ -41,6 +42,8 @@ function call(api, args) {
       return extractContainerRuntime(args[0], args[1] ?? undefined);
     case "extract_ide_runtime":
       return extractIdeRuntime(args[0], args[1] ?? undefined);
+    case "execute_runtime_objective":
+      return executeRuntimeObjective(args[0], args[1], args[2], args[3], args[4] ?? null);
     case "compute_kaalka_hash":
       return computeKaalkaHash(args[0]);
     case "compute_global_runtime_fingerprint":
