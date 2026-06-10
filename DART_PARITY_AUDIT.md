@@ -32,8 +32,8 @@ Measured by `tools/dart_parity_audit.py` → `PUBLIC_API_MATRIX.md`.
 
 | Status | Count | Notes |
 |--------|------:|-------|
-| ✅ Complete | 81 | name-mapped + cross-language proof-verified (see COMPLETE_API_PROOF_MATRIX.md) |
-| 🟡 Partial | 32 | bounded Dart impl; full parity needs live network/browser/NLP/AST (incl. `heal_selector`, `replay_interactions`) |
+| ✅ Complete | 84 | name-mapped + cross-language proof-verified (see COMPLETE_API_PROOF_MATRIX.md) |
+| 🟡 Partial | 29 | bounded Dart impl; full parity needs live network/browser/NLP/AST (incl. `heal_selector`, `replay_interactions`) |
 | ⚪ Deferred | 15 | needs OS/desktop/Electron/DevTools — not in-process in Dart |
 | ❌ Missing | 0 | — |
 

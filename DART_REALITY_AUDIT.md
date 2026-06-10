@@ -48,8 +48,8 @@
 
 | Status | Count |
 |--------|------:|
-| ✅ Complete | 81 |
-| 🟡 Partial | 32 |
+| ✅ Complete | 84 |
+| 🟡 Partial | 29 |
 | ⚪ Deferred | 15 |
 | ❌ Missing | 0 |
 
@@ -72,6 +72,6 @@ ROADMAP.md, CITATION.cff, GOVERNANCE.md, MAINTAINERS.md, CODEOWNERS, RELEASE.md,
 
 ## Verdict
 
-The branch is internally consistent and measured: 148 source files, 802 passing tests, 97.26%
-coverage, 81/32/15/0 parity, version-aligned 2.0.1, all gates green. Reality matches the
+The branch is internally consistent and measured: 148 source files, 831 passing tests, 97.26%
+coverage, 84/29/15/0 parity, version-aligned 2.0.1, all gates green. Reality matches the
 classification — see `FINAL_TRUE_PARITY_REPORT.md` for the proof-coverage and honesty analysis.

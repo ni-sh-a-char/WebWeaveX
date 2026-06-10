@@ -1,5 +1,25 @@
 # Changelog
 
+## [Unreleased] — Final Completion Protocol · Group B (executable parity)
+
+### Changed (contract alignment, BREAKING)
+
+- **`computeGlobalRuntimeFingerprint`**, **`queryRuntimeGraph`**, and
+  **`validateReplayEquivalence`** now match the canonical Python contracts and are proven
+  **Python ≡ JavaScript ≡ Dart** by execution (`validation/executable/`) → promoted to **Complete**:
+  - `computeGlobalRuntimeFingerprint({extraction, graph, memory, sync, reconstruction, kaalkaSeal})`
+  - `queryRuntimeGraph(Map graph, Map query)` → `{results, count, bounded}`
+  - `validateReplayEquivalence(original, replayed)` → `{equivalent, checks:[{name, ok, original, replay}], bounded}`
+  - The Dart-native variants are retained as `computeRuntimePipelineFingerprint`,
+    `queryRuntimeGraphTyped`, and `validateReplayEquivalenceExtended`.
+- API parity matrix: **84 Complete · 29 Partial · 15 Deferred · 0 Missing**; 831 tests; 97.13% coverage.
+
+### Added
+
+- `tools/generate_parity_manifest.py` → **PARITY_MANIFEST.json** (single source of truth:
+  per-API python/javascript/dart presence, contract/behavior/executable parity, classification,
+  proof type). `lib/src/parity/canonical_runtime.dart` (Python-canonical Group-B ports).
+
 ## [Unreleased] — Final Completion Protocol (executable parity)
 
 ### Changed (contract alignment)
