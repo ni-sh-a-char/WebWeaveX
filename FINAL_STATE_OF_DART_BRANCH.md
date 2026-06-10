@@ -35,7 +35,7 @@
 |----------------|-----------------------:|-------|
 | Python (definition) | 126 / 126 | `webweavex.__all__` (+ `version`, `__version__`) |
 | JavaScript | **126 / 126** | full reference (browser/native/NLP in-process) |
-| **Dart** | **96 / 126 by symbol** → **94 Complete · 26 Partial · 13 Deferred · 0 Missing** | |
+| **Dart** | **96 / 126 by symbol** → **94 Complete · 26 Partial · 8 Deferred · 0 Missing** | |
 
 - **0 Missing.** Every canonical API is Complete, bounded-Partial, or Deferred-with-reason.
 - Dart trails JS only on **30 browser/native/infra APIs** needing in-process capabilities the

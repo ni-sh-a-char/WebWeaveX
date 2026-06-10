@@ -229,6 +229,10 @@ def sync_counts(man):
         s = re.sub(r"(Complete \(cross-language proof-verified\) \| \*\*)\d+", lambda m: m.group(1) + str(cc), s)
         s = re.sub(r"(Partial \(bounded; documented sub-path gap\) \| )\d+", lambda m: m.group(1) + str(pp), s)
         s = re.sub(r"(Deferred \(OS/desktop/Electron/DevTools — not in-process in Dart\) \| )\d+", lambda m: m.group(1) + str(dd), s)
+        # inline "NN Complete · NN Partial · NN Deferred · NN Missing"
+        s = re.sub(
+            r"\d+ Complete · \d+ Partial · \d+ Deferred · \d+ Missing",
+            f"{cc} Complete · {pp} Partial · {dd} Deferred · 0 Missing", s)
         # prose count phrases
         s = re.sub(r"\b\d+ Partial \(NLP/AST", f"{pp} Partial (NLP/AST", s)
         s = re.sub(r"and \d+ Deferred \(native", f"and {dd} Deferred (native", s)
