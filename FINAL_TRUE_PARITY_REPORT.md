@@ -10,7 +10,7 @@
 |----------------|---------------:|-------|
 | **Python** (`webweavex.__all__`) | 126 | source of truth (`origin/python`) |
 | **JavaScript** | 126 / 126 | full reference (`origin/javascript`) |
-| **Dart** | **77 Complete · 36 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
+| **Dart** | **79 Complete · 34 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
 
 ## 2. Proof standard (enforced, not assumed)
 
@@ -64,6 +64,22 @@ The one signature-divergent API that **stays Complete** is `build_runtime_graph`
 dict-based output is proven cross-language by the core `graph` vector
 (`buildRuntimeGraph(...).toJson()` hash-matches the JS and Python references), so it is genuinely
 proven despite the Dart-idiomatic input shape.
+
+## 4b. Phase 5 — Executable Parity Certification (`EXECUTABLE_PARITY_MATRIX.md`)
+
+Stopped using source inspection as final proof. Built `validation/executable/` runners that
+**execute** Python 2.0.1, JavaScript, and Dart on shared fixtures and hash each raw output with
+that language's own deterministic hasher:
+
+- **`extract_kubernetes_runtime`** and **`extract_database_runtime`** (postgres/mysql/sqlite/redis
+  + degraded): **Python ≡ JavaScript ≡ Dart** on every fixture → re-implemented and promoted
+  Partial → **Complete** (+10 tests, `connectors_snapshot_api_vectors.json`).
+- **`build_runtime_memory`**, **`query_runtime_memory`**, **`build_browser_identity`**: Python
+  executes; **Dart cannot execute them under the current public contract** (signatures diverge).
+  Proven — by execution — to require a public-contract change; they stay Partial.
+
+All 5 Phase-5 portability-A targets reached a terminal state: 2 Complete-with-executable-proof,
+3 proven-impossible-without-a-contract-change.
 
 ## 5. Wave-4 parity gains (this session)
 
