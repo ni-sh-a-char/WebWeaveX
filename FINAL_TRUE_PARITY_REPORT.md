@@ -10,7 +10,7 @@
 |----------------|---------------:|-------|
 | **Python** (`webweavex.__all__`) | 126 | source of truth (`origin/python`) |
 | **JavaScript** | 126 / 126 | full reference (`origin/javascript`) |
-| **Dart** | **79 Complete · 34 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
+| **Dart** | **81 Complete · 32 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
 
 ## 2. Proof standard (enforced, not assumed)
 
@@ -28,11 +28,11 @@ proof vectors × parity tests). Strongest proof per API:
 
 | Proof type | Count | Meaning |
 |------------|------:|---------|
-| VECTOR | 49 | `det_hash`/deep-equality vector in `validation/parity/*.json` |
+| VECTOR | 53 | `det_hash`/deep-equality vector in `validation/parity/*.json` |
 | ROUNDTRIP | 22 | save → load → deep-equality (Kaalka persistence) |
 | CORE_VECTOR | 4 | three-way crypto core + the `graph` case (Python ≡ JS ≡ Dart) |
 
-**Result: 75/75 functional Complete APIs PROVEN** (the 2 remaining rows are the
+**Result: 79/79 functional Complete APIs PROVEN** (the 2 remaining rows are the
 `version`/`__version__` constants, self-proving). The foundational deterministic core is proven
 three-way — `validate_parity.dart` asserts Dart against **both** the JavaScript and Python
 reference vectors (11 core vectors). Independently re-verified: Dart `computeDeterministicHash`
@@ -79,7 +79,7 @@ that language's own deterministic hasher:
   Proven — by execution — to require a public-contract change; they stay Partial.
 
 All 5 Phase-5 portability-A targets reached a terminal state: 2 Complete-with-executable-proof,
-3 proven-impossible-without-a-contract-change.
+and (after the Final Completion Protocol aligned the Dart contract) `build_runtime_memory` + `query_runtime_memory` are also **Complete** (Python ≡ JS ≡ Dart). Only `build_browser_identity` remains Partial (needs the profile-generation subsystem port).
 
 ## 5. Wave-4 parity gains (this session)
 
@@ -110,8 +110,8 @@ Deferred has fallen from 17 → **15**.
 | Gate | Result |
 |------|--------|
 | format / analyze | ✅ clean / ✅ No issues |
-| `dart test` | ✅ **802 passing / 0 failing** |
-| coverage | ✅ **97.26%** (6394/6574) |
+| `dart test` | ✅ **816 passing / 0 failing** |
+| coverage | ✅ **97.24%** (6443/6626) |
 | three-way parity validator | ✅ Python ≡ JavaScript ≡ Dart |
 | `dart pub publish --dry-run` | ✅ 0 warnings (1 benign hint) |
 

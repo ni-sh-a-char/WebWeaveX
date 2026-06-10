@@ -35,7 +35,7 @@
 |----------------|-----------------------:|-------|
 | Python (definition) | 126 / 126 | `webweavex.__all__` (+ `version`, `__version__`) |
 | JavaScript | **126 / 126** | full reference (browser/native/NLP in-process) |
-| **Dart** | **96 / 126 by symbol** → **79 Complete · 34 Partial · 15 Deferred · 0 Missing** | |
+| **Dart** | **96 / 126 by symbol** → **81 Complete · 32 Partial · 15 Deferred · 0 Missing** | |
 
 - **0 Missing.** Every canonical API is Complete, bounded-Partial, or Deferred-with-reason.
 - Dart trails JS only on **30 browser/native/infra APIs** needing in-process capabilities the
@@ -92,6 +92,6 @@ Ranked by leverage × achievability:
 ## Verdict
 
 The `dart` branch is **production-, OSS-, and pub.dev-ready at 2.0.1**: all gates green, 0
-Missing APIs, 79/126 proof-verified cross-language parity, every remaining gap explicitly classified
+Missing APIs, 81/126 proof-verified cross-language parity, every remaining gap explicitly classified
 as either a fully-achievable documentation/governance task or a genuinely platform-bound
 deferral. Proceeding to Wave 3, highest-leverage gaps first.

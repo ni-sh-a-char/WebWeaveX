@@ -30,13 +30,13 @@ in-process. Dart cannot do these in-process — that gap is the source of every 
 ## Dart classification (`tools/dart_parity_audit.py`, regenerated this session)
 
 ```
-Python total: 128   Counts: {Complete: 79, Partial: 34, Missing: 0, Deferred: 15}
+Python total: 128   Counts: {Complete: 81, Partial: 32, Missing: 0, Deferred: 15}
 ```
 
 | Status | Count | Meaning | Proof standard |
 |--------|------:|---------|----------------|
-| ✅ Complete | **79** | Native Dart impl, name-mapped, **cross-language proof-verified** | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
-| 🟡 Partial | **34** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
+| ✅ Complete | **81** | Native Dart impl, name-mapped, **cross-language proof-verified** | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
+| 🟡 Partial | **32** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
 | ⚪ Deferred | **15** | Needs OS/desktop/Electron/DevTools/Playwright in-process | not feasible in Dart VM |
 | ❌ Missing | **0** | Not implemented at all | — |
 
@@ -49,14 +49,8 @@ Python is a broken 2.0.0):
 - `replay_interactions` — the returned structure is a full-fidelity pure function of the interaction
   log (6 vectors, `interaction_replay_api_vectors.json`); the live-page action dispatch is the bounded edge.
 
-`79 + 34 + 15 = 128` (with the `version`/`__version__` constants folded into Complete).
-**Proof Coverage Audit (`COMPLETE_API_PROOF_MATRIX.md`):** all 77 functional Complete APIs are
-cross-language proof-verified (51 VECTOR, 22 ROUNDTRIP, 4 CORE_VECTOR). The Proof Coverage Audit
-downgraded 11 unproven Complete → Partial; **Phase 5 (`EXECUTABLE_PARITY_MATRIX.md`) then
-re-implemented `extract_database_runtime` and `extract_kubernetes_runtime` to executable parity
-(Python ≡ JavaScript ≡ Dart) and promoted them back to Complete** — net 9 still-downgraded. 96 APIs
-have a Dart symbol; the 30 APIs with no Dart symbol are the network-bounded Partials and the 15
-Deferred.
+`81 + 32 + 15 = 128` (with the `version`/`__version__` constants folded into Complete).
+**Proof Coverage Audit + executable certification (`COMPLETE_API_PROOF_MATRIX.md`, `EXECUTABLE_PARITY_MATRIX.md`):** all 79 functional Complete APIs are cross-language proof-verified (53 VECTOR, 22 ROUNDTRIP, 4 CORE_VECTOR). The Proof Coverage Audit downgraded 11 unproven Complete → Partial; the Final Completion Protocol then took 4 of them (`extract_database_runtime`, `extract_kubernetes_runtime`, `build_runtime_memory`, `query_runtime_memory`) to **executable parity** (Python ≡ JavaScript ≡ Dart) and promoted them back to Complete — net 7 still-downgraded. The 30 APIs with no Dart symbol are the network-bounded Partials and the 15 Deferred.
 
 ## The 30 Python APIs with no native Dart symbol (all present in JS)
 

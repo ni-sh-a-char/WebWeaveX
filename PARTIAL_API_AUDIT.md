@@ -1,10 +1,12 @@
 # PARTIAL_API_AUDIT.md
 
-> Audit of every API classified **Partial** (34) on the `dart` branch, 2026-06-10.
-> **Phase 5 update:** `extract_database_runtime` and `extract_kubernetes_runtime` were
-> re-implemented to **executable parity** (Python ≡ JavaScript ≡ Dart) and promoted to
-> Complete — see `EXECUTABLE_PARITY_MATRIX.md`. The 3 remaining Group-1 contract-divergent
-> APIs were proven divergent **by execution** (Dart cannot run them under the current contract).
+> Audit of every API classified **Partial** (32) on the `dart` branch, 2026-06-10.
+> **Phase 5 / Final Completion Protocol:** `extract_database_runtime`, `extract_kubernetes_runtime`,
+> `build_runtime_memory`, and `query_runtime_memory` were taken to **executable parity**
+> (Python ≡ JavaScript ≡ Dart) and promoted to Complete — see `EXECUTABLE_PARITY_MATRIX.md`.
+> `build_runtime_memory`/`query_runtime_memory` required aligning the Dart public contract to
+> Python's (maintainer-sanctioned); the graph-based variants are retained as
+> `buildRuntimeMemoryFabric`/`queryRuntimeMemoryFabric`.
 > Portability key: **A** = can be ported faithfully (full parity feasible) · **B** = bounded
 > implementation is the ceiling · **C** = needs external runtime. Effort is rough engineering
 > size. Source of truth: `origin/python` 2.0.1 vs `lib/`.
@@ -13,7 +15,7 @@
 
 | Group | Count | Portability |
 |-------|------:|-------------|
-| Downgraded by Proof Coverage Audit (contract/output divergence) | 9 | A/B |
+| Downgraded by Proof Coverage Audit (contract/output divergence) | 7 | A/B |
 | Native Dart ports with a bounded edge | 3 | B (largely done) |
 | NLP/AST IR compilers | 2 | B/C |
 | Semantic/query document·repository sub-paths | 5 | B |
@@ -21,12 +23,13 @@
 
 ---
 
-## Group 1 — Downgraded by the Proof Coverage Audit (9 remaining)
+## Group 1 — Downgraded by the Proof Coverage Audit (7 remaining)
 
 These were `Complete` by name-match but had **only a determinism/structural test** — no
 cross-language vector, deep-equality, or roundtrip — and the Dart contract/output diverges from
-Python. `extract_database_runtime` and `extract_kubernetes_runtime` have since been **re-implemented
-to executable parity and promoted to Complete** (Phase 5). The remaining 9:
+Python. `extract_database_runtime`, `extract_kubernetes_runtime`, `build_runtime_memory`, and
+`query_runtime_memory` have since been **taken to executable parity and promoted to Complete**.
+The remaining 7:
 
 | API | Classification reason | Portability | Effort | Blockers |
 |-----|-----------------------|-------------|--------|----------|
@@ -35,17 +38,11 @@ to executable parity and promoted to Complete** (Phase 5). The remaining 9:
 | `compute_global_runtime_fingerprint` | Dart hashes a Dart-specific `{pipeline_hash, graph, bounded}`; Python uses a different multi-input formula | **A** | Medium | Port Python's exact formula; signature `(envelope, RuntimeGraph)` vs 6-arg |
 | `run_live_runtime` | Dart performs **live, non-deterministic filesystem listing** + reduced signature `(config)` vs Python `(config, snapshot, memory, tick)` | **B** | Medium | Live FS is non-deterministic; only a snapshot-driven path is provable |
 | `build_browser_identity` | **Executably divergent** (`EXECUTABLE_PARITY_MATRIX.md`): Python `(profile_id)` runs a ~10-helper profile-generation subsystem + data tables; Dart `(captured: Map)` cannot run it | **A** | **High** | Public-contract change `(Map)`→`(profile_id)` **and** porting the browser-profile subsystem (UA/platform/webgl/canvas/font/screen tables) |
-| `build_runtime_memory` | **Executably divergent**: Python `(runtime_history, lineage, semantic_relations)`; Dart `(RuntimeGraph)` — Dart cannot execute Python's input | **A** | Medium | Public-contract change to the 3-list signature; logic is portable (sha256 id, sorted histories, stable_memory_hash) |
-| `query_runtime_memory` | **Executably divergent**: Python `(memory, query_type='semantic', term='')`; Dart `(mem, key)` | **A** | Medium | Public-contract change to `(memory, query_type, term)`; logic is portable |
 | `validate_replay_equivalence` | Dart `checks` are `{name, ok}`; Python carries `{name, ok, original, replay}` hash fields from a different fingerprint formula | **A** | Medium–High | Depends on `compute_global_runtime_fingerprint` parity + richer check output |
 | `get_runtime_kernel` | accessor returning a `RuntimeKernel` object; no own cross-language vector (`RuntimeKernel.compileIr` is separately proven) | **A** | Low | Add a vector asserting the returned kernel's serialized state/compileIr parity |
 
-**Phase-5 terminal status for the 3 executably-divergent APIs:** `build_runtime_memory` and
-`query_runtime_memory` are **one maintainer-approved public-contract change away** from executable
-parity (the porting logic is straightforward). `build_browser_identity` additionally requires
-porting Python's profile-generation subsystem. All three are **proven impossible without changing
-the public Dart contract** — the mission's accepted terminal state — with the evidence captured by
-execution in `EXECUTABLE_PARITY_MATRIX.md`.
+**`build_browser_identity`** remains the one Group-C task: executable parity needs the public-contract
+change **and** porting Python's profile-generation subsystem (Group C below).
 
 ## Group 2 — Native Dart ports with a documented bounded edge (3)
 
