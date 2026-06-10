@@ -16,10 +16,11 @@
 |-------|-------|-----------------:|-------|--------|
 | A.1 | `core.documents.*` parser leaves | 5 | Python ≡ JS ≡ Dart, 12 fixtures | ✅ proven |
 | A.2 | non-evidence leaves: `core.semantic` pressure ×10, `core.ir._base` ×3, `core.graph` ×3, `core.repository` ×5, `core.ast` ×3 | 24 | Python ≡ JS ≡ Dart, 54 fixtures (66/66 incl. A.1, hash + deep equality) | ✅ proven |
-| A.3…A.n | remaining Phase-A leaves: 181 `core.evidence` leaves | 0 / 181 | — | pending |
+| A.3 b1 | `core.evidence` trivial leaves (record-shaped bool/count/round engines) | 60 | Python ≡ JS ≡ Dart, 119 fixtures (185/185 cumulative, hash + deep equality) | ✅ proven |
+| A.3 b2… | remaining `core.evidence` leaves (sorted/set/round-heavy engines) | 0 / 121 | — | pending |
 | B–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
-Phase-A leaves proven: **29 / 212** (plus 2 reclassified below).
+Phase-A leaves proven: **89 / 212** (plus 2 reclassified below).
 
 ## A.1 — document-parser leaves (proven)
 
@@ -57,6 +58,23 @@ binary double; `pyToStr`/`pyFloatStr` — Python `str()`/float repr; `pyTruthy`;
 - Float determinism proven by execution: ties-to-even rounding (`0.4 + 5*0.06 → 0.7`,
   `3*0.15 → 0.45`), unrounded float tails (`3 cycles * 0.2 → 0.6000000000000001`),
   integral-float formatting (`0.0`), Python `str()` of mixed types (`1`, `True`).
+
+## A.3 batch 1 — evidence trivial leaves (proven)
+
+60 record-shaped `core.evidence` leaf engines ported to
+`lib/src/semantic_ir/evidence_leaves.dart` (authority/autonomy/causal/cognitive/
+confidence-echo/continuity/epistemic-openness/evidence-decay/explanatory×8/
+inference-refusal/interpretive×8/ontology×12/plurality/recursive×11/stability/
+topology×2/truth/worldview×4). Notables proven bit-exact by execution:
+`detect_confidence_echo`/`detect_recursive_confidence_echo` (float average +
+Python-rounded collapse), `model_explanatory_diversity` (`k in str(evidence)` —
+substring of the Python list repr, via `pyToStr`), `refuse_unsupported_continuity`
+(null `boundary_failures` from missing keys), `model_worldview_variance`
+(ties-to-even rounding of `0.2/0.15` accumulations).
+
+- Vectors: `validation/parity/semantic_ir_a3_vectors.json` (119, from executed Python).
+- Test: `test/parity/semantic_ir_a3_test.dart` (+123 tests → 1054 total, all passing).
+- Cumulative proof: **185/185 fixtures** pass 3-way hash + deep equality.
 
 ## Plan corrections (recomputed from source, rule 10)
 
@@ -103,7 +121,9 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-A.3+: the 181 `core.evidence` leaf functions (largest block: ~1500 lines, heavy
-`round`/`sorted`/`set` density — the helper layer proven in A.2 covers all three),
+A.3 batch 2+: the remaining 121 `core.evidence` leaves (the `sorted`/`set`/`round`-heavy
+engines: confidence caps, contradiction lattice, evidence algebra/weighting,
+explainability, lineage/provenance/traceability, semantic confidence/conservatism/
+drift/fragility/stability, uncertainty, noninference, refusal/termination records, …),
 in proven batches via the same 3-language harness; then ascend layers B→O until the
 6 dispatchers close with executable parity.

@@ -7,16 +7,83 @@ import 'package:webweavex/src/crypto/hashing.dart'
     show computeDeterministicHash;
 import 'package:webweavex/src/semantic_ir/ast_engines.dart';
 import 'package:webweavex/src/semantic_ir/document_parser.dart';
+import 'package:webweavex/src/semantic_ir/evidence_leaves.dart';
 import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
 import 'package:webweavex/src/semantic_ir/repository_engines.dart';
+
+/// A.3 leaves take plain positional args — dispatch generically.
+final Map<String, Function> a3Registry = <String, Function>{
+  'detect_authority_concentration': detectAuthorityConcentration,
+  'diffuse_authority': diffuseAuthority,
+  'resist_autonomy_erosion': resistAutonomyErosion,
+  'model_causal_plurality': modelCausalPlurality,
+  'model_cognitive_decentralization': modelCognitiveDecentralization,
+  'detect_cognitive_gravity_well': detectCognitiveGravityWell,
+  'model_cognitive_sovereignty': modelCognitiveSovereignty,
+  'detect_confidence_echo': detectConfidenceEcho,
+  'refuse_unsupported_continuity': refuseUnsupportedContinuity,
+  'model_epistemic_openness': modelEpistemicOpenness,
+  'model_evidence_decay': modelEvidenceDecay,
+  'apply_explanatory_antigravity': applyExplanatoryAntigravity,
+  'model_explanatory_competition': modelExplanatoryCompetition,
+  'model_explanatory_divergence': modelExplanatoryDivergence,
+  'model_explanatory_diversity': modelExplanatoryDiversity,
+  'detect_explanatory_fixation': detectExplanatoryFixation,
+  'preserve_explanatory_freedom': preserveExplanatoryFreedom,
+  'resist_explanatory_domestication': resistExplanatoryDomestication,
+  'model_explanatory_self_determination': modelExplanatorySelfDetermination,
+  'refuse_inference': refuseInference,
+  'model_interpretive_autonomy': modelInterpretiveAutonomy,
+  'detect_interpretive_closure': detectInterpretiveClosure,
+  'resist_interpretive_decay': resistInterpretiveDecay,
+  'distribute_interpretations': distributeInterpretations,
+  'model_interpretive_divergence': modelInterpretiveDivergence,
+  'preserve_interpretive_freedom': preserveInterpretiveFreedom,
+  'resist_interpretive_domestication': resistInterpretiveDomestication,
+  'model_interpretive_self_determination': modelInterpretiveSelfDetermination,
+  'apply_ontology_antigravity': applyOntologyAntigravity,
+  'model_ontology_boundaries': modelOntologyBoundaries,
+  'model_ontology_competition': modelOntologyCompetition,
+  'model_ontology_divergence': modelOntologyDivergence,
+  'detect_ontology_fixation': detectOntologyFixation,
+  'preserve_ontology_freedom': preserveOntologyFreedom,
+  'detect_ontology_hardening': detectOntologyHardening,
+  'model_ontology_instability': modelOntologyInstability,
+  'ontology_limits': ontologyLimits,
+  'detect_ontology_monopoly': detectOntologyMonopoly,
+  'resist_ontology_domestication': resistOntologyDomestication,
+  'model_ontology_self_determination': modelOntologySelfDetermination,
+  'resist_plurality_decay': resistPluralityDecay,
+  'resist_agency_decay': resistAgencyDecay,
+  'model_recursive_agency': modelRecursiveAgency,
+  'preserve_recursive_agency': preserveRecursiveAgency,
+  'diffuse_recursive_authority': diffuseRecursiveAuthority,
+  'preserve_recursive_autonomy': preserveRecursiveAutonomy,
+  'model_capture_resistance': modelCaptureResistance,
+  'detect_recursive_centralization': detectRecursiveCentralization,
+  'distribute_recursive_cognition': distributeRecursiveCognition,
+  'detect_recursive_coherence_inflation': detectRecursiveCoherenceInflation,
+  'detect_recursive_confidence_echo': detectRecursiveConfidenceEcho,
+  'detect_recursive_consensus': detectRecursiveConsensus,
+  'model_stability_boundary': modelStabilityBoundary,
+  'model_topology_boundaries': modelTopologyBoundaries,
+  'topology_limits': topologyLimits,
+  'model_truth_boundaries': modelTruthBoundaries,
+  'apply_worldview_antigravity': applyWorldviewAntigravity,
+  'suppress_worldview_convergence': suppressWorldviewConvergence,
+  'model_worldview_diversity': modelWorldviewDiversity,
+  'model_worldview_variance': modelWorldviewVariance,
+};
 
 List<Map<String, dynamic>> _claims(dynamic v) => <Map<String, dynamic>>[
       for (final e in v as List) Map<String, dynamic>.from(e as Map)
     ];
 
 dynamic _call(String fn, List<dynamic> args) {
+  final a3 = a3Registry[fn];
+  if (a3 != null) return Function.apply(a3, args);
   switch (fn) {
     // A.1 — document parser leaves
     case 'extract_rhetorical_structure':

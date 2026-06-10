@@ -45,6 +45,131 @@ import { inferServiceInteractions } from "./src/repository/serviceInteractionEng
 import { buildControlFlowGraph } from "./src/ast/controlFlowEngine.ts";
 import { reconstructExecutionPaths } from "./src/ast/executionPathEngine.ts";
 import { resolveSymbols } from "./src/ast/symbolResolutionEngine.ts";
+// A.3 batch 1 — evidence trivial leaves
+import { detectAuthorityConcentration } from "./src/evidence/authorityConcentrationEngine.ts";
+import { diffuseAuthority } from "./src/evidence/authorityDiffusionEngine.ts";
+import { resistAutonomyErosion } from "./src/evidence/autonomyErosionEngine.ts";
+import { modelCausalPlurality } from "./src/evidence/causalPluralityEngine.ts";
+import { modelCognitiveDecentralization } from "./src/evidence/cognitiveDecentralizationEngine.ts";
+import { detectCognitiveGravityWell } from "./src/evidence/cognitiveGravityEngine.ts";
+import { modelCognitiveSovereignty } from "./src/evidence/cognitiveSovereigntyEngine.ts";
+import { detectConfidenceEcho } from "./src/evidence/confidenceEchoEngine.ts";
+import { refuseUnsupportedContinuity } from "./src/evidence/continuityRefusalEngine.ts";
+import { modelEpistemicOpenness } from "./src/evidence/epistemicOpennessEngine.ts";
+import { modelEvidenceDecay } from "./src/evidence/evidenceDecayEngine.ts";
+import { applyExplanatoryAntigravity } from "./src/evidence/explanatoryAntigravityEngine.ts";
+import { modelExplanatoryCompetition } from "./src/evidence/explanatoryCompetitionEngine.ts";
+import { modelExplanatoryDivergence } from "./src/evidence/explanatoryDivergenceEngine.ts";
+import { modelExplanatoryDiversity } from "./src/evidence/explanatoryDiversityEngine.ts";
+import { detectExplanatoryFixation } from "./src/evidence/explanatoryFixationEngine.ts";
+import { preserveExplanatoryFreedom } from "./src/evidence/explanatoryFreedomEngine.ts";
+import { resistExplanatoryDomestication } from "./src/evidence/explanatoryNondomesticationEngine.ts";
+import { modelExplanatorySelfDetermination } from "./src/evidence/explanatorySelfDeterminationEngine.ts";
+import { refuseInference } from "./src/evidence/inferenceRefusalEngine.ts";
+import { modelInterpretiveAutonomy } from "./src/evidence/interpretiveAutonomyEngine.ts";
+import { detectInterpretiveClosure } from "./src/evidence/interpretiveClosureEngine.ts";
+import { resistInterpretiveDecay } from "./src/evidence/interpretiveDecayEngine.ts";
+import { distributeInterpretations } from "./src/evidence/interpretiveDistributionEngine.ts";
+import { modelInterpretiveDivergence } from "./src/evidence/interpretiveDivergenceEngine.ts";
+import { preserveInterpretiveFreedom } from "./src/evidence/interpretiveFreedomEngine.ts";
+import { resistInterpretiveDomestication } from "./src/evidence/interpretiveNondomesticationEngine.ts";
+import { modelInterpretiveSelfDetermination } from "./src/evidence/interpretiveSelfDeterminationEngine.ts";
+import { applyOntologyAntigravity } from "./src/evidence/ontologyAntigravityEngine.ts";
+import { modelOntologyBoundaries } from "./src/evidence/ontologyBoundaryEngine.ts";
+import { modelOntologyCompetition } from "./src/evidence/ontologyCompetitionEngine.ts";
+import { modelOntologyDivergence } from "./src/evidence/ontologyDivergenceEngine.ts";
+import { detectOntologyFixation } from "./src/evidence/ontologyFixationEngine.ts";
+import { preserveOntologyFreedom } from "./src/evidence/ontologyFreedomEngine.ts";
+import { detectOntologyHardening } from "./src/evidence/ontologyHardeningEngine.ts";
+import { modelOntologyInstability } from "./src/evidence/ontologyInstabilityEngine.ts";
+import { ontologyLimits } from "./src/evidence/ontologyLimitEngine.ts";
+import { detectOntologyMonopoly } from "./src/evidence/ontologyMonopolyEngine.ts";
+import { resistOntologyDomestication } from "./src/evidence/ontologyNondomesticationEngine.ts";
+import { modelOntologySelfDetermination } from "./src/evidence/ontologySelfDeterminationEngine.ts";
+import { resistPluralityDecay } from "./src/evidence/pluralityDecayEngine.ts";
+import { resistAgencyDecay } from "./src/evidence/recursiveAgencyDecayEngine.ts";
+import { modelRecursiveAgency } from "./src/evidence/recursiveAgencyEngine.ts";
+import { preserveRecursiveAgency } from "./src/evidence/recursiveAgencyPreservationEngine.ts";
+import { diffuseRecursiveAuthority } from "./src/evidence/recursiveAuthorityDiffusionEngine.ts";
+import { preserveRecursiveAutonomy } from "./src/evidence/recursiveAutonomyPreservationEngine.ts";
+import { modelCaptureResistance } from "./src/evidence/recursiveCaptureResistanceEngine.ts";
+import { detectRecursiveCentralization } from "./src/evidence/recursiveCentralizationEngine.ts";
+import { distributeRecursiveCognition } from "./src/evidence/recursiveCognitiveDistributionEngine.ts";
+import { detectRecursiveCoherenceInflation } from "./src/evidence/recursiveCoherenceInflationEngine.ts";
+import { detectRecursiveConfidenceEcho } from "./src/evidence/recursiveConfidenceEchoEngine.ts";
+import { detectRecursiveConsensus } from "./src/evidence/recursiveConsensusEngine.ts";
+import { modelStabilityBoundary } from "./src/evidence/stabilityBoundaryEngine.ts";
+import { modelTopologyBoundaries } from "./src/evidence/topologyBoundaryEngine.ts";
+import { topologyLimits } from "./src/evidence/topologyLimitEngine.ts";
+import { modelTruthBoundaries } from "./src/evidence/truthBoundaryEngine.ts";
+import { applyWorldviewAntigravity } from "./src/evidence/worldviewAntigravityEngine.ts";
+import { suppressWorldviewConvergence } from "./src/evidence/worldviewConvergenceEngine.ts";
+import { modelWorldviewDiversity } from "./src/evidence/worldviewDiversityEngine.ts";
+import { modelWorldviewVariance } from "./src/evidence/worldviewVarianceEngine.ts";
+
+// A.3 leaves take plain positional args — dispatch generically.
+const A3_REGISTRY = {
+  detect_authority_concentration: detectAuthorityConcentration,
+  diffuse_authority: diffuseAuthority,
+  resist_autonomy_erosion: resistAutonomyErosion,
+  model_causal_plurality: modelCausalPlurality,
+  model_cognitive_decentralization: modelCognitiveDecentralization,
+  detect_cognitive_gravity_well: detectCognitiveGravityWell,
+  model_cognitive_sovereignty: modelCognitiveSovereignty,
+  detect_confidence_echo: detectConfidenceEcho,
+  refuse_unsupported_continuity: refuseUnsupportedContinuity,
+  model_epistemic_openness: modelEpistemicOpenness,
+  model_evidence_decay: modelEvidenceDecay,
+  apply_explanatory_antigravity: applyExplanatoryAntigravity,
+  model_explanatory_competition: modelExplanatoryCompetition,
+  model_explanatory_divergence: modelExplanatoryDivergence,
+  model_explanatory_diversity: modelExplanatoryDiversity,
+  detect_explanatory_fixation: detectExplanatoryFixation,
+  preserve_explanatory_freedom: preserveExplanatoryFreedom,
+  resist_explanatory_domestication: resistExplanatoryDomestication,
+  model_explanatory_self_determination: modelExplanatorySelfDetermination,
+  refuse_inference: refuseInference,
+  model_interpretive_autonomy: modelInterpretiveAutonomy,
+  detect_interpretive_closure: detectInterpretiveClosure,
+  resist_interpretive_decay: resistInterpretiveDecay,
+  distribute_interpretations: distributeInterpretations,
+  model_interpretive_divergence: modelInterpretiveDivergence,
+  preserve_interpretive_freedom: preserveInterpretiveFreedom,
+  resist_interpretive_domestication: resistInterpretiveDomestication,
+  model_interpretive_self_determination: modelInterpretiveSelfDetermination,
+  apply_ontology_antigravity: applyOntologyAntigravity,
+  model_ontology_boundaries: modelOntologyBoundaries,
+  model_ontology_competition: modelOntologyCompetition,
+  model_ontology_divergence: modelOntologyDivergence,
+  detect_ontology_fixation: detectOntologyFixation,
+  preserve_ontology_freedom: preserveOntologyFreedom,
+  detect_ontology_hardening: detectOntologyHardening,
+  model_ontology_instability: modelOntologyInstability,
+  ontology_limits: ontologyLimits,
+  detect_ontology_monopoly: detectOntologyMonopoly,
+  resist_ontology_domestication: resistOntologyDomestication,
+  model_ontology_self_determination: modelOntologySelfDetermination,
+  resist_plurality_decay: resistPluralityDecay,
+  resist_agency_decay: resistAgencyDecay,
+  model_recursive_agency: modelRecursiveAgency,
+  preserve_recursive_agency: preserveRecursiveAgency,
+  diffuse_recursive_authority: diffuseRecursiveAuthority,
+  preserve_recursive_autonomy: preserveRecursiveAutonomy,
+  model_capture_resistance: modelCaptureResistance,
+  detect_recursive_centralization: detectRecursiveCentralization,
+  distribute_recursive_cognition: distributeRecursiveCognition,
+  detect_recursive_coherence_inflation: detectRecursiveCoherenceInflation,
+  detect_recursive_confidence_echo: detectRecursiveConfidenceEcho,
+  detect_recursive_consensus: detectRecursiveConsensus,
+  model_stability_boundary: modelStabilityBoundary,
+  model_topology_boundaries: modelTopologyBoundaries,
+  topology_limits: topologyLimits,
+  model_truth_boundaries: modelTruthBoundaries,
+  apply_worldview_antigravity: applyWorldviewAntigravity,
+  suppress_worldview_convergence: suppressWorldviewConvergence,
+  model_worldview_diversity: modelWorldviewDiversity,
+  model_worldview_variance: modelWorldviewVariance,
+};
 
 const VOLATILE = new Set([
   "timestamp", "created_at", "updated_at", "nonce", "request_id",
@@ -86,6 +211,7 @@ function pyStableHash(value) {
 }
 
 function call(fn, args) {
+  if (fn in A3_REGISTRY) return A3_REGISTRY[fn](...args);
   switch (fn) {
     case "extract_rhetorical_structure":
       return extractRhetoricalStructure(args[0]);
