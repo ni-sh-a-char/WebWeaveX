@@ -14,6 +14,14 @@ export 'src/adaptive/selector_healing.dart'
     show healSelector, buildSemanticAnchor;
 export 'src/interaction/interaction_replay.dart'
     show replayInteractions, recordInteraction;
+// Canonical Python-aligned APIs (Group B). The Dart-native variants are exported
+// as computeRuntimePipelineFingerprint, queryRuntimeGraphTyped, and
+// validateReplayEquivalenceExtended from their original files.
+export 'src/parity/canonical_runtime.dart'
+    show
+        computeGlobalRuntimeFingerprint,
+        queryRuntimeGraph,
+        validateReplayEquivalence;
 export 'src/crypto/kaalka_runtime.dart';
 export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';

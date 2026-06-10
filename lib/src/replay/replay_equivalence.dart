@@ -46,14 +46,17 @@ RuntimeGraph _graphFromEnvelope(Map<String, dynamic> envelope) {
   return RuntimeGraph(nodes: [], edges: []);
 }
 
-Map<String, dynamic> validateReplayEquivalence(
+/// Extended Dart-native replay-equivalence check (adds dom/semantic/memory
+/// checks beyond Python's 3). The canonical Python `validate_replay_equivalence`
+/// is in `parity/canonical_runtime.dart`.
+Map<String, dynamic> validateReplayEquivalenceExtended(
   Map<String, dynamic> original,
   Map<String, dynamic> replayed,
 ) {
   final origGraph = _graphFromEnvelope(original);
   final replayGraph = _graphFromEnvelope(replayed);
-  final origFp = computeGlobalRuntimeFingerprint(original, origGraph);
-  final replayFp = computeGlobalRuntimeFingerprint(replayed, replayGraph);
+  final origFp = computeRuntimePipelineFingerprint(original, origGraph);
+  final replayFp = computeRuntimePipelineFingerprint(replayed, replayGraph);
   final origDom = _domSnapshotHash(original);
   final replayDom = _domSnapshotHash(replayed);
 

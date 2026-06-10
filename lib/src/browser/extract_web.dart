@@ -50,7 +50,7 @@ Future<Map<String, dynamic>> extractWeb(
   };
 
   envelope['global_runtime_fingerprint'] =
-      computeGlobalRuntimeFingerprint(envelope, graph);
+      computeRuntimePipelineFingerprint(envelope, graph);
   if (semanticRuntime) {
     envelope['semantic'] = {'entities': <dynamic>[], 'bounded': true};
   }

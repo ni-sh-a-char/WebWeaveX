@@ -86,18 +86,18 @@ void main() {
     });
 
     test('null nodeType returns normalized full graph', () {
-      final q = queryRuntimeGraph(graph);
+      final q = queryRuntimeGraphTyped(graph);
       expect(q.nodes.length, 2);
     });
 
     test('present nodeType filters to matching nodes', () {
-      final q = queryRuntimeGraph(graph, nodeType: 'alpha');
+      final q = queryRuntimeGraphTyped(graph, nodeType: 'alpha');
       expect(q.nodes.length, 1);
       expect(q.nodes.first.type, 'alpha');
     });
 
     test('absent nodeType yields empty nodes but keeps edges', () {
-      final q = queryRuntimeGraph(graph, nodeType: 'missing');
+      final q = queryRuntimeGraphTyped(graph, nodeType: 'missing');
       expect(q.nodes, isEmpty);
       expect(q.edges, isNotEmpty);
     });

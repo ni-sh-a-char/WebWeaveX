@@ -1,7 +1,9 @@
 import '../crypto/hashing.dart';
 import '../graph/runtime_graph.dart';
 
-String computeGlobalRuntimeFingerprint(
+/// Dart-native pipeline fingerprint (internal). The canonical Python
+/// `compute_global_runtime_fingerprint` is in `parity/canonical_runtime.dart`.
+String computeRuntimePipelineFingerprint(
   Map<String, dynamic> envelope,
   RuntimeGraph graph,
 ) {

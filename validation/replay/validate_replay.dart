@@ -24,7 +24,7 @@ void main() {
       'runtime_identity':
           computeDeterministicHash({'url': 'https://example.com'}),
     },
-    'global_runtime_fingerprint': computeGlobalRuntimeFingerprint(
+    'global_runtime_fingerprint': computeRuntimePipelineFingerprint(
       {'bounded': true, 'pipeline_hash': 'x'},
       graph,
     ),
@@ -32,7 +32,7 @@ void main() {
   };
 
   final clone = jsonDecode(jsonEncode(envelope)) as Map<String, dynamic>;
-  final replay = validateReplayEquivalence(envelope, clone);
+  final replay = validateReplayEquivalenceExtended(envelope, clone);
   final reconstructed = reconstructRuntime(extraction: envelope);
   final reconstructed2 = reconstructRuntime(extraction: envelope);
 

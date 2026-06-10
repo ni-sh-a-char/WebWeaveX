@@ -47,7 +47,7 @@ Future<Map<String, dynamic>> runCanonicalPipeline(
           computeDeterministicHash({'target': target, 'kind': kind}),
     };
     extraction['global_runtime_fingerprint'] =
-        computeGlobalRuntimeFingerprint(extraction, graph);
+        computeRuntimePipelineFingerprint(extraction, graph);
   }
 
   return {

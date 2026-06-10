@@ -90,7 +90,7 @@ RuntimeGraph buildRuntimeGraph(Map<String, dynamic> sources) {
   return normalizeRuntimeGraph(RuntimeGraph(nodes: nodes, edges: edges));
 }
 
-RuntimeGraph queryRuntimeGraph(RuntimeGraph graph, {String? nodeType}) {
+RuntimeGraph queryRuntimeGraphTyped(RuntimeGraph graph, {String? nodeType}) {
   final g = normalizeRuntimeGraph(graph);
   if (nodeType == null) return g;
   return normalizeRuntimeGraph(RuntimeGraph(

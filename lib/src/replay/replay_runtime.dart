@@ -15,7 +15,7 @@ Map<String, dynamic> validateFullRuntimeReplay(
 ) {
   final graph = _graphFromEnvelope(original);
   final replayGraph = _graphFromEnvelope(replayed);
-  final replay = validateReplayEquivalence(original, replayed);
+  final replay = validateReplayEquivalenceExtended(original, replayed);
   final graphResult = validateGraphReplayEquivalence(graph, replayGraph);
   final mem = original['runtime_memory'] as Map<String, dynamic>?;
   final replayMem = replayed['runtime_memory'] as Map<String, dynamic>?;

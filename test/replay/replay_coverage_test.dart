@@ -159,7 +159,7 @@ void main() {
 
   group('replay_equivalence', () {
     test('equivalent for identical envelopes', () {
-      final r = validateReplayEquivalence(_envelope(), _envelope());
+      final r = validateReplayEquivalenceExtended(_envelope(), _envelope());
       expect(r['equivalent'], isTrue);
       final checks = r['checks'] as List<dynamic>;
       expect(checks.every((c) => (c as Map)['ok'] == true), isTrue);
@@ -174,7 +174,7 @@ void main() {
           ],
           'edges': <dynamic>[],
         };
-      final r = validateReplayEquivalence(a, b);
+      final r = validateReplayEquivalenceExtended(a, b);
       expect(r['equivalent'], isFalse);
     });
 
@@ -185,14 +185,14 @@ void main() {
           'runtime_identity': 'other-identity',
           'dom_html': '<div>body</div>',
         };
-      final r = validateReplayEquivalence(a, b);
+      final r = validateReplayEquivalenceExtended(a, b);
       expect(r['equivalent'], isFalse);
     });
 
     test('not equivalent when dom snapshot differs materially', () {
       final a = _envelope();
       final b = _envelope()..['dom_snapshot'] = '<div>totally different</div>';
-      final r = validateReplayEquivalence(a, b);
+      final r = validateReplayEquivalenceExtended(a, b);
       expect(r['equivalent'], isFalse);
     });
 
@@ -201,7 +201,7 @@ void main() {
         ..['runtime_memory'] = <String, dynamic>{'stable_hash': 'mh'};
       final b = _envelope()
         ..['runtime_memory'] = <String, dynamic>{'stable_hash': 'mh'};
-      final r = validateReplayEquivalence(a, b);
+      final r = validateReplayEquivalenceExtended(a, b);
       final checks = r['checks'] as List<dynamic>;
       expect(
         checks.any((c) => (c as Map)['name'] == 'memory_stable_hash'),
@@ -216,7 +216,7 @@ void main() {
         'graph': _graphMap(),
         'browser_ir': <String, dynamic>{'runtime_identity': 'id'},
       };
-      final r = validateReplayEquivalence(a, a);
+      final r = validateReplayEquivalenceExtended(a, a);
       final checks = r['checks'] as List<dynamic>;
       expect(
         checks.any((c) => (c as Map)['name'] == 'dom_stabilized_hash'),
@@ -231,13 +231,13 @@ void main() {
         'unified_runtime_graph': buildRuntimeGraph(<String, dynamic>{'a': 1}),
         'dom_html': '<div>x</div>',
       };
-      final r = validateReplayEquivalence(env, env);
+      final r = validateReplayEquivalenceExtended(env, env);
       expect(r['equivalent'], isTrue);
     });
 
     test('empty graph fallback when graph key absent', () {
       final env = <String, dynamic>{'pipeline_hash': 'p'};
-      final r = validateReplayEquivalence(env, env);
+      final r = validateReplayEquivalenceExtended(env, env);
       expect(r['equivalent'], isTrue);
     });
   });

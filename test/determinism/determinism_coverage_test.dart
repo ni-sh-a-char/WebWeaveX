@@ -269,8 +269,8 @@ void main() {
     test('deterministic for same envelope+graph', () {
       final env = <String, dynamic>{'pipeline_hash': 'abc', 'bounded': true};
       expect(
-        computeGlobalRuntimeFingerprint(env, graph),
-        computeGlobalRuntimeFingerprint(env, graph),
+        computeRuntimePipelineFingerprint(env, graph),
+        computeRuntimePipelineFingerprint(env, graph),
       );
     });
 
@@ -281,8 +281,8 @@ void main() {
         'bounded': true,
       };
       expect(
-        computeGlobalRuntimeFingerprint(withBounded, graph),
-        computeGlobalRuntimeFingerprint(withExplicit, graph),
+        computeRuntimePipelineFingerprint(withBounded, graph),
+        computeRuntimePipelineFingerprint(withExplicit, graph),
       );
     });
 
@@ -290,8 +290,8 @@ void main() {
       final f = <String, dynamic>{'pipeline_hash': 'p', 'bounded': false};
       final t = <String, dynamic>{'pipeline_hash': 'p', 'bounded': true};
       expect(
-        computeGlobalRuntimeFingerprint(f, graph),
-        isNot(computeGlobalRuntimeFingerprint(t, graph)),
+        computeRuntimePipelineFingerprint(f, graph),
+        isNot(computeRuntimePipelineFingerprint(t, graph)),
       );
     });
 
@@ -299,15 +299,15 @@ void main() {
       final a = <String, dynamic>{'pipeline_hash': 'a'};
       final b = <String, dynamic>{'pipeline_hash': 'b'};
       expect(
-        computeGlobalRuntimeFingerprint(a, graph),
-        isNot(computeGlobalRuntimeFingerprint(b, graph)),
+        computeRuntimePipelineFingerprint(a, graph),
+        isNot(computeRuntimePipelineFingerprint(b, graph)),
       );
     });
 
     test('produces a 64-char hex sha256 string', () {
       final env = <String, dynamic>{'pipeline_hash': 'h'};
       expect(
-        computeGlobalRuntimeFingerprint(env, graph),
+        computeRuntimePipelineFingerprint(env, graph),
         matches(RegExp(r'^[0-9a-f]{64}$')),
       );
     });

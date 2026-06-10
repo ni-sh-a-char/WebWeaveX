@@ -49,6 +49,6 @@ Future<Map<String, dynamic>> extractWithSession(
         {'url': url, 'kind': 'continuation', 'tick': tick}),
   };
   envelope['global_runtime_fingerprint'] =
-      computeGlobalRuntimeFingerprint(envelope, graph);
+      computeRuntimePipelineFingerprint(envelope, graph);
   return envelope;
 }

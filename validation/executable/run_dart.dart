@@ -9,7 +9,10 @@ import 'package:webweavex/webweavex.dart'
         extractKubernetesRuntime,
         extractDatabaseRuntime,
         buildRuntimeMemory,
-        queryRuntimeMemory;
+        queryRuntimeMemory,
+        computeGlobalRuntimeFingerprint,
+        queryRuntimeGraph,
+        validateReplayEquivalence;
 
 Map<String, dynamic>? _asMap(dynamic v) =>
     v == null ? null : Map<String, dynamic>.from(v as Map);
@@ -43,6 +46,19 @@ dynamic _call(String api, List<dynamic> args) {
       );
     case 'compute_kaalka_hash':
       return computeDeterministicHash(args[0]);
+    case 'compute_global_runtime_fingerprint':
+      return computeGlobalRuntimeFingerprint(
+        extraction: _asMap(args[0]),
+        graph: _asMap(args[1]),
+        memory: _asMap(args[2]),
+        sync: _asMap(args[3]),
+        reconstruction: _asMap(args[4]),
+        kaalkaSeal: (args[5] ?? '') as String,
+      );
+    case 'query_runtime_graph':
+      return queryRuntimeGraph(_asMap(args[0])!, _asMap(args[1])!);
+    case 'validate_replay_equivalence':
+      return validateReplayEquivalence(_asMap(args[0])!, _asMap(args[1])!);
     default:
       throw StateError('unknown/contract-divergent api $api');
   }

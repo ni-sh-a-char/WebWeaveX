@@ -146,25 +146,25 @@ FORCE_PARTIAL = {
     #     bounded field set vs Python's richer snapshot (k8s: 3 fields vs 9).
     #   run_live_runtime - Dart performs live (non-deterministic) filesystem listing
     #     and a reduced signature.
-    # extract_database_runtime + extract_kubernetes_runtime were here; Phase 5
-    # re-implemented them to executable parity (Python == JavaScript == Dart on
-    # validation/executable/ fixtures) -> promoted back to Complete with vectors.
-    "compute_global_runtime_fingerprint", "query_runtime_graph",
+    # extract_database_runtime + extract_kubernetes_runtime were here (Phase 5);
+    # compute_global_runtime_fingerprint, query_runtime_graph,
+    # validate_replay_equivalence were here (Group B) — all re-implemented to
+    # executable parity (Python == JavaScript == Dart, validation/executable/) and
+    # promoted to Complete with vectors. The Dart-native variants remain as
+    # computeRuntimePipelineFingerprint / queryRuntimeGraphTyped /
+    # validateReplayEquivalenceExtended.
     "reconstruct_runtime", "run_live_runtime",
     # Second Proof Coverage Audit pass (2026-06-10): these had only a
     # determinism/structural test (no cross-language vector / deep-equality) and
     # the Dart contract diverges from Python:
     #   build_browser_identity - Dart (captured: Map) vs Python (profile_id: str).
-    #   validate_replay_equivalence - Dart `checks` are {name, ok}; Python carries
-    #     {name, ok, original, replay} hash fields from a different fingerprint formula.
     #   get_runtime_kernel - accessor returning a RuntimeKernel object; no own vector
     #     (RuntimeKernel.compileIr is separately proven).
     # build_runtime_memory + query_runtime_memory were here; the Final Completion
     # Protocol aligned the Dart public contract to Python (3-list / (memory,
     # query_type, term)) and proved Python == JavaScript == Dart by EXECUTION
     # (validation/executable/) -> promoted to Complete.
-    "build_browser_identity",
-    "validate_replay_equivalence", "get_runtime_kernel",
+    "build_browser_identity", "get_runtime_kernel",
 }
 
 

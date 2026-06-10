@@ -2,18 +2,18 @@
 
 > Proof Coverage Audit — every API classified **Complete** in `PUBLIC_API_MATRIX.md`, with its Python / JavaScript / Dart source and the strongest executed proof. Generated 2026-06-10 by `tools/complete_proof_audit.py` from repository reality (origin/python, origin/javascript, local `lib/`). No Complete API remains without proof.
 
-**Complete APIs: 79 functional + 2 metadata constants = 81 rows.** Proof status: {'PROVEN': 79, 'WEAK': 2}.
+**Complete APIs: 82 functional + 2 metadata constants = 84 rows.** Proof status: {'PROVEN': 82, 'WEAK': 2}.
 
 > Source-location columns are best-effort `git grep` locations (symbol definition or nearest reference) and may point to a re-export/use site; the **Proof type / Proof location / Status** columns are authoritative.
 
-Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=53
+Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=56
 
 | API | Python source | JavaScript source | Dart source | Proof type | Proof location | Status |
 |-----|---------------|-------------------|-------------|------------|----------------|--------|
 | `query_graph` | `core/query/graph_query_engine.py` | `src/publicApi.ts` | `lib/src/query/query_engines.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/query_api_vectors.json` | ✅ PROVEN |
 | `query_repo` | `webweavex/__init__.py` | `src/publicApi.ts` | `lib/src/query/query_engines.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/query_api_vectors.json` | ✅ PROVEN |
 | `query_knowledge` | `core/query/ontology_query_engine.py` | `src/publicApi.ts` | `lib/src/query/query_engines.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/query_api_vectors.json` | ✅ PROVEN |
-| `fingerprint` | `core/compiler/semantic_bytecode_optimizer.py` | `src/crypto/index.ts` | `lib/src/persistence/persistence.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/persistence_api_vectors.json` | ✅ PROVEN |
+| `fingerprint` | `core/compiler/semantic_bytecode_optimizer.py` | `src/crypto/index.ts` | `lib/src/determinism/fingerprint.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/persistence_api_vectors.json` | ✅ PROVEN |
 | `encrypt_value` | `core/crypto/kaalka_runtime_engine.py` | `src/causality/causalCheckpointEngine.ts` | `lib/src/crypto/kaalka_runtime.dart` | three-way crypto vector (Python≡JS≡Dart) | `validation/parity/{dart,js,python}_vectors.json` | ✅ PROVEN |
 | `decrypt_value` | `core/crypto/kaalka_runtime_engine.py` | `src/causality/causalCheckpointEngine.ts` | `lib/src/crypto/kaalka_runtime.dart` | three-way crypto vector (Python≡JS≡Dart) | `validation/parity/{dart,js,python}_vectors.json` | ✅ PROVEN |
 | `encrypt_session_state` | `core/crypto/kaalka_session_engine.py` | `src/crypto/kaalkaSessionEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/persistence_api_vectors.json` | ✅ PROVEN |
@@ -23,6 +23,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=53
 | `load_encrypted_session` | `core/session/encrypted_session_store.py` | `src/publicApi.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
 | `authenticate_runtime` | `core/auth/authentication_runtime_engine.py` | `src/auth/authenticationRuntimeEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/persistence_api_vectors.json` | ✅ PROVEN |
 | `build_runtime_graph` | `core/graph/runtime_graph_engine.py` | `src/connectors/liveRuntimeOrchestrator.ts` | `lib/src/distributed/distributed_extraction_orchestrator.dart` | three-way crypto vector (Python≡JS≡Dart) | `validation/parity/{dart,js,python}_vectors.json (graph case)` | ✅ PROVEN |
+| `query_runtime_graph` | `core/runtime_graph/runtime_graph_query_engine.py` | `src/graph/runtimeGraph.ts` | `lib/src/parity/canonical_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/canonical_runtime_api_vectors.json` | ✅ PROVEN |
 | `build_interaction_graph` | `core/interaction/interaction_graph_engine.py` | `src/interaction/index.ts` | `lib/src/connectors_runtime/interaction_graph.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
 | `replay_stream_events` | `core/streaming/stream_replay_engine.py` | `src/streaming/streamReplay.ts` | `lib/src/connectors_runtime/stream_replay.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
 | `build_stream_timeline` | `core/streaming/stream_replay_engine.py` | `src/publicApi.ts` | `lib/src/connectors_runtime/stream_replay.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
@@ -88,6 +89,8 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=53
 | `validate_reconstructed_runtime` | `core/reconstruction/runtime_validation_engine.py` | `src/reconstruction/index.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_runtime_api_vectors.json` | ✅ PROVEN |
 | `RuntimeKernel` | `core/kernel/runtime_kernel.py` | `src/kernel/index.ts` | `lib/src/kernel_runtime/runtime_kernel.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/kernel_api_vectors.json (RuntimeKernel.compileIr)` | ✅ PROVEN |
 | `UniversalInput` | `core/contracts/runtime_contracts.py` | `src/contracts/runtimeContracts.ts` | `lib/src/kernel_runtime/runtime_contracts.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/kernel_api_vectors.json (UniversalInput.to_dict)` | ✅ PROVEN |
+| `compute_global_runtime_fingerprint` | `core/determinism/global_runtime_fingerprint.py` | `src/determinism/globalRuntimeFingerprint.ts` | `lib/src/parity/canonical_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/canonical_runtime_api_vectors.json` | ✅ PROVEN |
+| `validate_replay_equivalence` | `core/replay/replay_equivalence_engine.py` | `src/index.ts` | `lib/src/parity/canonical_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/canonical_runtime_api_vectors.json` | ✅ PROVEN |
 | `compile_unified_runtime_ir` | `core/ir/unified_runtime_ir.py` | `src/ir/unifiedRuntimeIr.ts` | `lib/src/kernel_runtime/unified_runtime_ir.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/kernel_api_vectors.json` | ✅ PROVEN |
 
 ## Metadata constants (not functional APIs)
@@ -105,7 +108,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=53
 
 ## Audit result
 
-**79/79 functional Complete APIs PROVEN** (`79` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
+**82/82 functional Complete APIs PROVEN** (`82` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
 
 **11 APIs were downgraded Complete → Partial during this audit** because they carried only a determinism/structural test (no cross-language vector, deep-equality, or roundtrip) AND their Dart contract/output diverges from Python, so a passing proof vector cannot be produced without new implementation:
 

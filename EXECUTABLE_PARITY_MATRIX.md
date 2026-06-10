@@ -23,6 +23,13 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `query_runtime_memory` | `query-rt-mem` | `40367d57ad329aef` | `40367d57ad329aef` | `40367d57ad329aef` | ✅ ALL3 | Complete (executable) |
 | `build_browser_identity` | `browser-id` | `4ea9e25540e6c845` | ✗ The "data" argument must | ✗ Bad state: unknown/contr | ⚠️ Dart DIVERG | Partial (contract change required) |
 | `compute_kaalka_hash` | `hash-nested` | `222135f9323b12b1` | `222135f9323b12b1` | `222135f9323b12b1` | ✅ ALL3 | Complete (executable) |
+| `compute_global_runtime_fingerprint` | `fp-empty` | `9feafe03a758f460` | `9feafe03a758f460` | `9feafe03a758f460` | ✅ ALL3 | Complete (executable) |
+| `compute_global_runtime_fingerprint` | `fp-full` | `46ae328a59b98b59` | `46ae328a59b98b59` | `46ae328a59b98b59` | ✅ ALL3 | Complete (executable) |
+| `compute_global_runtime_fingerprint` | `fp-spa` | `ee21ef750423ea83` | `ee21ef750423ea83` | `ee21ef750423ea83` | ✅ ALL3 | Complete (executable) |
+| `query_runtime_graph` | `qrg-type` | `afcc0a026a5f0d35` | `afcc0a026a5f0d35` | `afcc0a026a5f0d35` | ✅ ALL3 | Complete (executable) |
+| `query_runtime_graph` | `qrg-all` | `e7130dabec8348e2` | `e7130dabec8348e2` | `e7130dabec8348e2` | ✅ ALL3 | Complete (executable) |
+| `validate_replay_equivalence` | `vre-equal` | `b118936aa7dc1efc` | `b118936aa7dc1efc` | `b118936aa7dc1efc` | ✅ ALL3 | Complete (executable) |
+| `validate_replay_equivalence` | `vre-diff` | `23f9bf9d0446e697` | `23f9bf9d0446e697` | `23f9bf9d0446e697` | ✅ ALL3 | Complete (executable) |
 
 ## Per-API certification
 
@@ -34,6 +41,9 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `query_runtime_memory` | Complete (executable) |
 | `build_browser_identity` | Partial (contract change required) |
 | `compute_kaalka_hash` | Complete (executable) |
+| `compute_global_runtime_fingerprint` | Complete (executable) |
+| `query_runtime_graph` | Complete (executable) |
+| `validate_replay_equivalence` | Complete (executable) |
 
 ## Result
 

@@ -14,6 +14,10 @@ import {
 // we use the engine implementations, which match Python.
 import { buildRuntimeMemory } from "./src/memory/runtimeMemoryEngine.ts";
 import { queryRuntimeMemory } from "./src/memory/runtimeQueryEngine.ts";
+// Group B canonical (Python-aligned) engine functions.
+import { computeGlobalRuntimeFingerprint } from "./src/determinism/globalRuntimeFingerprint.ts";
+import { queryRuntimeGraph } from "./src/runtime_graph/runtimeGraphQueryEngine.ts";
+import { validateReplayEquivalence } from "./src/replay/replayEquivalenceEngine.ts";
 
 function call(api, args) {
   switch (api) {
@@ -29,6 +33,14 @@ function call(api, args) {
       return buildBrowserIdentity(args[0]);
     case "compute_kaalka_hash":
       return computeKaalkaHash(args[0]);
+    case "compute_global_runtime_fingerprint":
+      return computeGlobalRuntimeFingerprint(
+        args[0] ?? undefined, args[1] ?? undefined, args[2] ?? undefined,
+        args[3] ?? undefined, args[4] ?? undefined, args[5] ?? "");
+    case "query_runtime_graph":
+      return queryRuntimeGraph(args[0], args[1]);
+    case "validate_replay_equivalence":
+      return validateReplayEquivalence(args[0], args[1]);
     default:
       throw new Error("unknown api " + api);
   }

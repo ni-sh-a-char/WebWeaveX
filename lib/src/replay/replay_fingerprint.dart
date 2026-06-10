@@ -10,8 +10,8 @@ Map<String, dynamic> validateFingerprintReplayEquivalence(
 }) {
   final g = graph ?? _graphFromEnvelope(original);
   final rg = _graphFromEnvelope(replayed);
-  final origFp = computeGlobalRuntimeFingerprint(original, g);
-  final replayFp = computeGlobalRuntimeFingerprint(replayed, rg);
+  final origFp = computeRuntimePipelineFingerprint(original, g);
+  final replayFp = computeRuntimePipelineFingerprint(replayed, rg);
   final graphHashMatch = graphReplayHash(g) == graphReplayHash(rg);
   return {
     'equivalent': origFp == replayFp && graphHashMatch,

@@ -24,6 +24,13 @@ def call(api, args):
         return fn(cleaned[0])
     if api == "compute_kaalka_hash":
         return fn(cleaned[0])
+    if api == "compute_global_runtime_fingerprint":
+        return fn(cleaned[0], cleaned[1], cleaned[2], cleaned[3], cleaned[4],
+                  cleaned[5])
+    if api == "query_runtime_graph":
+        return fn(cleaned[0], cleaned[1])
+    if api == "validate_replay_equivalence":
+        return fn(cleaned[0], cleaned[1])
     raise SystemExit("unknown api " + api)
 
 
