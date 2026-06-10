@@ -1,5 +1,36 @@
 # Changelog
 
+## [Unreleased] — Cross-language canonical contract + standalone Dart
+
+### Added
+
+- `cross_language_verifier/` — automated 3-language parity harness: 1100
+  deterministic torture vectors (multilingual Unicode, float matrix, key
+  ordering, nested structures), 3 runs per language, byte-level comparison.
+  Certified: **6601/6601 fields byte-identical** across Python, JavaScript,
+  and Dart (`certification_report.json`, `kaalka_parity_matrix.json`).
+- `lib/src/determinism/py_float_repr.dart` — Python `repr(float)` formatting
+  (canonical float form shared by all languages).
+- `lib/src/determinism/canonical_json_encode.dart` — compact canonical JSON
+  encoder, byte-identical to Python `json.dumps(..., ensure_ascii=False,
+  separators=(",", ":"), sort_keys=True)`.
+
+### Changed (canonicalization contract — affects hashes of edge-case payloads)
+
+- **Dart is now fully standalone**: `normalizeRuntimeValue` performs NFKC via
+  pure-Dart `package:unorm_dart` (byte-verified against Python `unicodedata`
+  and ICU); the previous silent `Process.runSync('node', ...)` delegation is
+  removed. Output no longer depends on whether Node.js is installed.
+- Dict keys sort by Unicode **code point** (Python `sorted` semantics) in all
+  languages; Dart/JS previously used UTF-16 code-unit order, which inverted
+  astral-plane keys (e.g. U+1F680) relative to U+E000–U+FFFF.
+- **Integral floats `< 2^63` canonicalize to integers** in every language
+  (JavaScript cannot distinguish `2.0` from `2`); non-finite floats serialize
+  as `null` on the stable path and `0` on the fingerprint path; fractional
+  floats use Python `repr` thresholds in all languages.
+- `dumpsDeterministic` (fingerprint path) now applies real NFC normalization
+  in Dart (was identity) and `.15g` rounding only to fractional values.
+
 ## [Unreleased] — Final Completion Protocol · Group D (cont.) + manifest-driven reports
 
 ### Added

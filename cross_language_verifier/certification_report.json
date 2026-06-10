@@ -1,0 +1,14 @@
+{
+ "verdict": "PASS",
+ "claim": "Python == JavaScript == Dart, byte-identical, for all deterministic vectors",
+ "vectors": 1100,
+ "fields_compared": 6601,
+ "byte_identical_fields": 6601,
+ "per_language_determinism_3_runs": true,
+ "encryption_roundtrip_all_pass": true,
+ "input_domain_contract": [
+  "integers: |n| <= 2^53",
+  "floats: IEEE-754 doubles; integral floats < 2^63 canonicalize to integers; non-finite -> null",
+  "strings: Unicode scalar sequences (no lone surrogates); NFKC applied to top-level strings only"
+ ]
+}

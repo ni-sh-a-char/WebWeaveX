@@ -1,30 +1,15 @@
-import 'dart:convert';
-import 'dart:io';
+import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
 import 'normalization_core.dart';
 
 export 'normalization_core.dart';
 
-/// NFKC via Node.js when available (matches `String.normalize('NFKC')` in JavaScript).
-/// Falls back to CRLF/trim normalization when Node is not installed.
-String normalizeRuntimeValue(String value) {
-  try {
-    final b64 = base64Encode(utf8.encode(value));
-    final result = Process.runSync(
-      'node',
-      [
-        '-e',
-        "const v=Buffer.from(process.argv[1],'base64').toString('utf8');process.stdout.write(v.normalize('NFKC'))",
-        b64,
-      ],
-      stdoutEncoding: utf8,
-      stderrEncoding: utf8,
-    );
-    if (result.exitCode == 0) {
-      return normalizeRuntimeValueCore(result.stdout as String);
-    }
-  } catch (_) {
-    // Node optional — CRLF normalization still applied.
-  }
-  return normalizeRuntimeValueCore(value);
-}
+/// NFKC + CRLF + trailing-whitespace normalization.
+///
+/// Order matches Python `normalize_runtime_value` (core/determinism/
+/// normalization.py): NFKC first, then CRLF→LF, then trailing `\s+$` strip.
+/// NFKC is pure Dart (`package:unorm_dart`) — byte-verified against
+/// Python `unicodedata.normalize('NFKC')` and JavaScript
+/// `String.normalize('NFKC')`.
+String normalizeRuntimeValue(String value) =>
+    normalizeRuntimeValueCore(unorm.nfkc(value));

@@ -12,14 +12,15 @@ import 'package:webweavex/src/semantic/semantic_engines.dart';
 
 void main() {
   group('fingerprint_hex', () {
-    test('dumpsDeterministic coerces NaN/Infinity floats to 0.0 (line 79)', () {
+    test('dumpsDeterministic coerces NaN/Infinity floats to 0', () {
       final out = dumpsDeterministic(<String, dynamic>{
         'nan': double.nan,
         'inf': double.infinity,
         'ninf': double.negativeInfinity,
       });
-      // All three non-finite doubles collapse to 0.0 in compact JSON.
-      expect(out, equals('{"inf":0.0,"nan":0.0,"ninf":0.0}'));
+      // Non-finite doubles collapse to integer 0 in compact JSON
+      // (cross-language contract: matches Python and JavaScript).
+      expect(out, equals('{"inf":0,"nan":0,"ninf":0}'));
     });
 
     test('dumpsDeterministic formats a finite non-integral float (line 81)',
@@ -34,12 +35,11 @@ void main() {
       expect(out, equals('{"v":0.5}'));
     });
 
-    test('_format15g integral-valued double fast-path (line 124)', () {
-      // Goes through the double branch (line 78) then the integral fast-path
-      // in _format15g (line 124). double.parse round-trips to 2.0, which
-      // jsonEncode renders as "2.0".
+    test('integral-valued double canonicalizes to int', () {
+      // Cross-language contract: JavaScript cannot distinguish 2.0 from 2,
+      // so integral doubles serialize as integers in every language.
       final out = dumpsDeterministic(<String, dynamic>{'v': 2.0});
-      expect(out, equals('{"v":2.0}'));
+      expect(out, equals('{"v":2}'));
     });
 
     test('_format15g large/precise float keeps decimal form (127-130)', () {

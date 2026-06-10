@@ -1,0 +1,38 @@
+{
+  "kaalka_source_of_truth": "official Kaalka v5.0.0 (PyPI kaalka / npm kaalka / pub.dev kaalka) — byte _proc contract; no fork, no custom cryptography",
+  "algorithm_id": "webweavex-formula+kaalka@5.0.0",
+  "call_path": {
+    "encrypt_value": {
+      "python": "core/crypto/kaalka_runtime_engine.py: stable_serialize(value) -> UTF-8 -> derive_kaalka_time_key(key) -> kaalka_v5_proc(encrypt) -> base64",
+      "javascript": "src/crypto/kaalkaRuntime.ts: stableSerialize -> UTF-8 -> deriveKaalkaTimeKey -> kaalkaV5EncryptBytes -> base64",
+      "dart": "lib/src/crypto/kaalka_runtime.dart: stableSerialize -> UTF-8 -> deriveKaalkaTimeKey -> kaalkaV5EncryptBytes -> base64 (package:kaalka registry)"
+    },
+    "time_key_derivation": {
+      "all_languages": "sha256(NFKC-normalized key) -> first digest triple (d[i]%12, d[i+1]%60, d[i+2]%60) that round-trips -> 'h:m:s'",
+      "preprocessing": "normalize_runtime_value: NFKC, CRLF->LF, strip trailing whitespace",
+      "verified": "identical time_key in all 3 languages for the verifier key"
+    },
+    "hashing": {
+      "all_languages": "compute_deterministic_hash = sha256(stable_serialize(value)) hex",
+      "note": "compute_kaalka_hash is an alias in all three languages"
+    },
+    "fingerprinting": {
+      "all_languages": "hex_fingerprint = kaalka v1 byte cipher ((n XOR token[i%len]) + i*31 + len%251, double-modulo) over dumps_deterministic payload, hex output",
+      "python": "core/crypto/kaalka_engine.py",
+      "javascript": "src/crypto/kaalkaEngine.ts (@generated port)",
+      "dart": "lib/src/persistence/fingerprint_hex.dart"
+    },
+    "decryption": {
+      "all_languages": "base64 decode -> kaalka_v5_proc(decrypt) -> UTF-8; roundtrip verified for all 1100 vectors in all 3 languages"
+    }
+  },
+  "serialization_contract": {
+    "string_normalization": "NFKC + CRLF->LF + trailing-whitespace strip on top-level strings; NFC on fingerprint-path strings",
+    "key_ordering": "Unicode code-point order (Python sorted semantics) — JS/Dart UTF-16 default sort replaced",
+    "numbers": "integral floats < 2^63 -> int; non-finite -> null (stable path) / 0 (fingerprint path); fractional floats: shortest round-trip digits, Python repr thresholds (positional for exponent in [-4,15], else e+NN with 2-digit-minimum exponent); .15g rounding on fingerprint path applies to fractional values only",
+    "volatile_keys": "timestamp, created_at, updated_at, nonce, request_id, csrf, generated_at, runtime_id, random, uuid — stripped from dicts and from dicts directly inside list values; not stripped inside lists nested in lists (all languages identical)",
+    "arrays": "stable path serializes top-level arrays as index-keyed objects (historical fast-json-stable-stringify shape)"
+  },
+  "dart_standalone": "no Process.run / shell / Node delegation anywhere in lib/; NFKC via pure-Dart package:unorm_dart 0.3.2, byte-verified against Python unicodedata and V8 ICU on multilingual probes",
+  "evidence": "cross_language_verifier/: 1100 vectors x 6 fields + time_key = 6601 comparisons, byte-identical, 3 runs per language, certification_report.json verdict PASS"
+}

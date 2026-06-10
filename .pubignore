@@ -13,6 +13,8 @@ CODEOWNERS
 !CHANGELOG.md
 .dart_tool/
 build/
+# Cross-language verifier (repo tooling, not package code)
+cross_language_verifier/
 # Cross-branch artifacts (never publish)
 node_modules/
 core/

@@ -1,0 +1,38 @@
+{
+ "vectors_total": 1100,
+ "fields_compared": 6601,
+ "fields_matched": 6601,
+ "fields_mismatched": 0,
+ "roundtrip_failures": [],
+ "determinism": {
+  "python": {
+   "identical_runs": true,
+   "run_digests": [
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0",
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0",
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0"
+   ]
+  },
+  "js": {
+   "identical_runs": true,
+   "run_digests": [
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0",
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0",
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0"
+   ]
+  },
+  "dart": {
+   "identical_runs": true,
+   "run_digests": [
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0",
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0",
+    "73a385e746604ec4f528576217d12948fdbf33e8d767d0ef20587682eb009ce0"
+   ]
+  }
+ },
+ "languages": {
+  "python": "branch python @ core/",
+  "javascript": "branch javascript @ src/",
+  "dart": "branch dart @ lib/"
+ }
+}

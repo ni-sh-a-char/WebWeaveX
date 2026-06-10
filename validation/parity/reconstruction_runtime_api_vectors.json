@@ -1,1167 +1,1167 @@
 [
-  {
-    "api": "run_reconstruction_runtime",
-    "input": {},
-    "det_hash": "c804db62436c49df8bd91f0141bc0e93d55de4f2bde1a2e6bb39113ee1521491"
-  },
-  {
-    "api": "run_reconstruction_runtime",
-    "input": {
-      "sources": {
-        "semantic_ir": {
-          "concepts": [
-            {
-              "id": "c1"
-            }
-          ]
-        },
-        "workflow_ir": {
-          "workflows": [
-            {
-              "id": "w1",
-              "objective": "login"
-            }
-          ]
-        },
-        "sync_ir": {
-          "lineage": [
-            {
-              "id": "s1"
-            },
-            {
-              "id": "s2"
-            }
-          ]
-        },
-        "execution_ir": {
-          "actions": [
-            {
-              "id": "a2"
-            },
-            {
-              "id": "a1"
-            }
-          ],
-          "transactions": [
-            {
-              "transaction_id": "t1"
-            }
-          ],
-          "queues": {
-            "queue": [
-              {
-                "order": 1,
-                "priority": 2
-              }
-            ]
-          },
-          "mutations": {
-            "mutations": [
-              {
-                "kind": "set",
-                "tick": 1
-              }
-            ]
-          },
-          "federation": {
-            "workers": [
-              {
-                "worker_id": "wk1"
-              }
-            ]
-          }
-        },
-        "memory_ir": {
-          "runtime_history": {
-            "runtime_history": [
-              {
-                "kind": "sync"
-              }
-            ]
-          }
-        },
-        "graph": {
-          "nodes": [
-            {
-              "id": "n1",
-              "type": "x"
-            },
-            {
-              "id": "n2"
-            }
-          ],
-          "edges": [
-            {
-              "from": "n1",
-              "to": "n2",
-              "relation": "r"
-            }
-          ]
-        },
-        "connectors": [
-          {
-            "id": "conn1",
-            "kind": "database"
-          }
-        ],
-        "workers": [
-          {
-            "worker_id": "wk1"
-          }
-        ],
-        "identity": {
-          "identity_id": "id1"
-        },
-        "session": {
-          "authenticated": true,
-          "cookies": [
-            {
-              "name": "b"
-            },
-            {
-              "name": "a"
-            }
-          ],
-          "session_id": "sess1"
-        }
-      },
-      "runtime_type": "browser",
-      "tick": 5
-    },
-    "det_hash": "629bafb9599f305649acffecff9a7a2104283ecb13997186e109029aa0f9db9d"
-  },
-  {
-    "api": "run_reconstruction_runtime",
-    "input": {
-      "sources": {
-        "semantic_ir": {
-          "concepts": [
-            {
-              "id": "c1"
-            }
-          ]
-        },
-        "workflow_ir": {
-          "workflows": [
-            {
-              "id": "w1",
-              "objective": "login"
-            }
-          ]
-        },
-        "sync_ir": {
-          "lineage": [
-            {
-              "id": "s1"
-            },
-            {
-              "id": "s2"
-            }
-          ]
-        },
-        "execution_ir": {
-          "actions": [
-            {
-              "id": "a2"
-            },
-            {
-              "id": "a1"
-            }
-          ],
-          "transactions": [
-            {
-              "transaction_id": "t1"
-            }
-          ],
-          "queues": {
-            "queue": [
-              {
-                "order": 1,
-                "priority": 2
-              }
-            ]
-          },
-          "mutations": {
-            "mutations": [
-              {
-                "kind": "set",
-                "tick": 1
-              }
-            ]
-          },
-          "federation": {
-            "workers": [
-              {
-                "worker_id": "wk1"
-              }
-            ]
-          }
-        },
-        "memory_ir": {
-          "runtime_history": {
-            "runtime_history": [
-              {
-                "kind": "sync"
-              }
-            ]
-          }
-        },
-        "graph": {
-          "nodes": [
-            {
-              "id": "n1",
-              "type": "x"
-            },
-            {
-              "id": "n2"
-            }
-          ],
-          "edges": [
-            {
-              "from": "n1",
-              "to": "n2",
-              "relation": "r"
-            }
-          ]
-        },
-        "connectors": [
-          {
-            "id": "conn1",
-            "kind": "database"
-          }
-        ],
-        "workers": [
-          {
-            "worker_id": "wk1"
-          }
-        ],
-        "identity": {
-          "identity_id": "id1"
-        },
-        "session": {
-          "authenticated": true,
-          "cookies": [
-            {
-              "name": "b"
-            },
-            {
-              "name": "a"
-            }
-          ],
-          "session_id": "sess1"
-        }
-      },
-      "runtime_type": "electron",
-      "tick": 2,
-      "fabricate": true,
-      "clone": true
-    },
-    "det_hash": "faa70b4e8af4c0286852a259087505a3a62f6677a75ebe987591e2e26da6382d"
-  },
-  {
-    "api": "run_reconstruction_runtime",
-    "input": {
-      "sources": {
-        "browser_ir": {
-          "url": "/home",
-          "routes": {
-            "history": [
-              {
-                "path": "/b"
-              },
-              {
-                "path": "/a"
-              }
-            ]
-          },
-          "navigation": {
-            "history": [
-              {
-                "path": "/n2",
-                "order": 2
-              },
-              {
-                "path": "/n1",
-                "order": 1
-              }
-            ]
-          }
-        },
-        "interaction_ir": {
-          "interactions": [
-            {
-              "id": "i1"
-            },
-            {
-              "id": "i2"
-            }
-          ]
-        },
-        "dom": {
-          "nodes": {
-            "root": {
-              "tag": "html"
-            }
-          }
-        },
-        "execution_ir": {
-          "actions": [
-            {
-              "id": "a3"
-            },
-            {
-              "id": "a1"
-            },
-            {
-              "id": "a2"
-            }
-          ],
-          "transactions": [
-            {
-              "transaction_id": "t2"
-            },
-            {
-              "transaction_id": "t1"
-            }
-          ],
-          "queues": {
-            "queue": [
-              {
-                "order": 2,
-                "priority": 1
-              },
-              {
-                "order": 1,
-                "priority": 1
-              },
-              {
-                "order": 0,
-                "priority": 5
-              }
-            ]
-          },
-          "mutations": {
-            "mutations": [
-              {
-                "kind": "b",
-                "tick": 1,
-                "ordered_index": 1
-              },
-              {
-                "kind": "a",
-                "tick": 1,
-                "ordered_index": 0
-              }
-            ]
-          },
-          "execution_state": {
-            "phase": "run"
-          },
-          "federation": {
-            "workers": [
-              {
-                "worker_id": "z"
-              },
-              {
-                "worker_id": "a"
-              }
-            ]
-          }
-        },
-        "memory_ir": {
-          "lineage": {
-            "lineage": [
-              {
-                "id": "L2"
-              },
-              {
-                "id": "L1"
-              }
-            ]
-          },
-          "knowledge": {
-            "k": 1
-          },
-          "memory_graphs": {
-            "g": 1
-          },
-          "runtime_history": {
-            "runtime_history": [
-              {
-                "kind": "sync"
-              },
-              {
-                "kind": "other"
-              }
-            ]
-          }
-        },
-        "connectors": [
-          {
-            "id": "c2",
-            "type": "unknown_kind",
-            "state": {
-              "open": true
-            }
-          },
-          {
-            "id": "c1",
-            "kind": "docker"
-          }
-        ],
-        "live": {
-          "streams": [
-            {
-              "s": 1
-            },
-            {
-              "s": 2
-            }
-          ]
-        },
-        "workers": [
-          {
-            "worker_id": "w2"
-          },
-          {
-            "worker_id": "w1"
-          }
-        ],
-        "lineage": {
-          "lineage": [
-            {
-              "id": "el2"
-            },
-            {
-              "id": "el1"
-            }
-          ]
-        },
-        "graph": {
-          "nodes": [
-            {
-              "id": "g2",
-              "type": "t"
-            },
-            {
-              "id": "g1"
-            }
-          ],
-          "edges": [
-            {
-              "from": "g2",
-              "to": "g1",
-              "relation": "r2"
-            },
-            {
-              "from": "g1",
-              "to": "g2",
-              "relation": "r1"
-            }
-          ]
-        },
-        "identity": {
-          "identity_id": "idz"
-        },
-        "session": {
-          "authenticated": true,
-          "cookies": [
-            {
-              "name": "z"
-            },
-            {
-              "name": "a"
-            }
-          ],
-          "session_id": "s9",
-          "csrf": {
-            "token": "x"
-          },
-          "local_storage": {
-            "k": "v"
-          },
-          "session_storage": {
-            "k2": "v2"
-          }
-        },
-        "adaptive_memory": {
-          "weights": [
-            1,
-            2
-          ]
-        }
-      },
-      "runtime_type": "connector",
-      "tick": 7,
-      "fabricate": true,
-      "clone": true
-    },
-    "det_hash": "72167ecf556b3ea5a24e3aab1be04a6233470a5017475c85e38296f818c398c0"
-  },
-  {
-    "api": "run_reconstruction_for_extraction",
-    "input": {
-      "sources": {
-        "browser_ir": {
-          "url": "/home",
-          "routes": {
-            "history": [
-              {
-                "path": "/b"
-              },
-              {
-                "path": "/a"
-              }
-            ]
-          },
-          "navigation": {
-            "history": [
-              {
-                "path": "/n2",
-                "order": 2
-              },
-              {
-                "path": "/n1",
-                "order": 1
-              }
-            ]
-          }
-        },
-        "interaction_ir": {
-          "interactions": [
-            {
-              "id": "i1"
-            },
-            {
-              "id": "i2"
-            }
-          ]
-        },
-        "dom": {
-          "nodes": {
-            "root": {
-              "tag": "html"
-            }
-          }
-        },
-        "execution_ir": {
-          "actions": [
-            {
-              "id": "a3"
-            },
-            {
-              "id": "a1"
-            },
-            {
-              "id": "a2"
-            }
-          ],
-          "transactions": [
-            {
-              "transaction_id": "t2"
-            },
-            {
-              "transaction_id": "t1"
-            }
-          ],
-          "queues": {
-            "queue": [
-              {
-                "order": 2,
-                "priority": 1
-              },
-              {
-                "order": 1,
-                "priority": 1
-              },
-              {
-                "order": 0,
-                "priority": 5
-              }
-            ]
-          },
-          "mutations": {
-            "mutations": [
-              {
-                "kind": "b",
-                "tick": 1,
-                "ordered_index": 1
-              },
-              {
-                "kind": "a",
-                "tick": 1,
-                "ordered_index": 0
-              }
-            ]
-          },
-          "execution_state": {
-            "phase": "run"
-          },
-          "federation": {
-            "workers": [
-              {
-                "worker_id": "z"
-              },
-              {
-                "worker_id": "a"
-              }
-            ]
-          }
-        },
-        "memory_ir": {
-          "lineage": {
-            "lineage": [
-              {
-                "id": "L2"
-              },
-              {
-                "id": "L1"
-              }
-            ]
-          },
-          "knowledge": {
-            "k": 1
-          },
-          "memory_graphs": {
-            "g": 1
-          },
-          "runtime_history": {
-            "runtime_history": [
-              {
-                "kind": "sync"
-              },
-              {
-                "kind": "other"
-              }
-            ]
-          }
-        },
-        "connectors": [
-          {
-            "id": "c2",
-            "type": "unknown_kind",
-            "state": {
-              "open": true
-            }
-          },
-          {
-            "id": "c1",
-            "kind": "docker"
-          }
-        ],
-        "live": {
-          "streams": [
-            {
-              "s": 1
-            },
-            {
-              "s": 2
-            }
-          ]
-        },
-        "workers": [
-          {
-            "worker_id": "w2"
-          },
-          {
-            "worker_id": "w1"
-          }
-        ],
-        "lineage": {
-          "lineage": [
-            {
-              "id": "el2"
-            },
-            {
-              "id": "el1"
-            }
-          ]
-        },
-        "graph": {
-          "nodes": [
-            {
-              "id": "g2",
-              "type": "t"
-            },
-            {
-              "id": "g1"
-            }
-          ],
-          "edges": [
-            {
-              "from": "g2",
-              "to": "g1",
-              "relation": "r2"
-            },
-            {
-              "from": "g1",
-              "to": "g2",
-              "relation": "r1"
-            }
-          ]
-        },
-        "identity": {
-          "identity_id": "idz"
-        },
-        "session": {
-          "authenticated": true,
-          "cookies": [
-            {
-              "name": "z"
-            },
-            {
-              "name": "a"
-            }
-          ],
-          "session_id": "s9",
-          "csrf": {
-            "token": "x"
-          },
-          "local_storage": {
-            "k": "v"
-          },
-          "session_storage": {
-            "k2": "v2"
-          }
-        },
-        "adaptive_memory": {
-          "weights": [
-            1,
-            2
-          ]
-        }
-      },
-      "runtime_type": "vm",
-      "tick": 4,
-      "merge_graph": true
-    },
-    "det_hash": "ec55c52fa7ad6f81a460c14392162740c16326ecc24b4af9fdc63c316d21cfb2"
-  },
-  {
-    "api": "run_reconstruction_for_extraction",
-    "input": {
-      "reconstruction_runtime": false
-    },
-    "det_hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
-  },
-  {
-    "api": "run_reconstruction_for_extraction",
-    "input": {
-      "sources": {
-        "semantic_ir": {
-          "concepts": [
-            {
-              "id": "c1"
-            }
-          ]
-        },
-        "workflow_ir": {
-          "workflows": [
-            {
-              "id": "w1",
-              "objective": "login"
-            }
-          ]
-        },
-        "sync_ir": {
-          "lineage": [
-            {
-              "id": "s1"
-            },
-            {
-              "id": "s2"
-            }
-          ]
-        },
-        "execution_ir": {
-          "actions": [
-            {
-              "id": "a2"
-            },
-            {
-              "id": "a1"
-            }
-          ],
-          "transactions": [
-            {
-              "transaction_id": "t1"
-            }
-          ],
-          "queues": {
-            "queue": [
-              {
-                "order": 1,
-                "priority": 2
-              }
-            ]
-          },
-          "mutations": {
-            "mutations": [
-              {
-                "kind": "set",
-                "tick": 1
-              }
-            ]
-          },
-          "federation": {
-            "workers": [
-              {
-                "worker_id": "wk1"
-              }
-            ]
-          }
-        },
-        "memory_ir": {
-          "runtime_history": {
-            "runtime_history": [
-              {
-                "kind": "sync"
-              }
-            ]
-          }
-        },
-        "graph": {
-          "nodes": [
-            {
-              "id": "n1",
-              "type": "x"
-            },
-            {
-              "id": "n2"
-            }
-          ],
-          "edges": [
-            {
-              "from": "n1",
-              "to": "n2",
-              "relation": "r"
-            }
-          ]
-        },
-        "connectors": [
-          {
-            "id": "conn1",
-            "kind": "database"
-          }
-        ],
-        "workers": [
-          {
-            "worker_id": "wk1"
-          }
-        ],
-        "identity": {
-          "identity_id": "id1"
-        },
-        "session": {
-          "authenticated": true,
-          "cookies": [
-            {
-              "name": "b"
-            },
-            {
-              "name": "a"
-            }
-          ],
-          "session_id": "sess1"
-        }
-      },
-      "runtime_type": "browser",
-      "tick": 5,
-      "merge_graph": true
-    },
-    "det_hash": "a8be1da7e6c48cd81e95f249cf501b82908c38d81e6224199c993b27fe1ca41a"
-  },
-  {
-    "api": "run_reconstruction_for_extraction",
-    "input": {
-      "sources": {
-        "semantic_ir": {
-          "concepts": [
-            {
-              "id": "c1"
-            }
-          ]
-        },
-        "workflow_ir": {
-          "workflows": [
-            {
-              "id": "w1",
-              "objective": "login"
-            }
-          ]
-        },
-        "sync_ir": {
-          "lineage": [
-            {
-              "id": "s1"
-            },
-            {
-              "id": "s2"
-            }
-          ]
-        },
-        "execution_ir": {
-          "actions": [
-            {
-              "id": "a2"
-            },
-            {
-              "id": "a1"
-            }
-          ],
-          "transactions": [
-            {
-              "transaction_id": "t1"
-            }
-          ],
-          "queues": {
-            "queue": [
-              {
-                "order": 1,
-                "priority": 2
-              }
-            ]
-          },
-          "mutations": {
-            "mutations": [
-              {
-                "kind": "set",
-                "tick": 1
-              }
-            ]
-          },
-          "federation": {
-            "workers": [
-              {
-                "worker_id": "wk1"
-              }
-            ]
-          }
-        },
-        "memory_ir": {
-          "runtime_history": {
-            "runtime_history": [
-              {
-                "kind": "sync"
-              }
-            ]
-          }
-        },
-        "graph": {
-          "nodes": [
-            {
-              "id": "n1",
-              "type": "x"
-            },
-            {
-              "id": "n2"
-            }
-          ],
-          "edges": [
-            {
-              "from": "n1",
-              "to": "n2",
-              "relation": "r"
-            }
-          ]
-        },
-        "connectors": [
-          {
-            "id": "conn1",
-            "kind": "database"
-          }
-        ],
-        "workers": [
-          {
-            "worker_id": "wk1"
-          }
-        ],
-        "identity": {
-          "identity_id": "id1"
-        },
-        "session": {
-          "authenticated": true,
-          "cookies": [
-            {
-              "name": "b"
-            },
-            {
-              "name": "a"
-            }
-          ],
-          "session_id": "sess1"
-        }
-      },
-      "runtime_type": "electron",
-      "tick": 3,
-      "fabricate_runtime": true,
-      "clone_runtime": true,
-      "merge_graph": false
-    },
-    "det_hash": "01089b10b66018adaa89ec726c3f9488830252c5977cc57521551a2d1cd73675"
-  },
-  {
-    "api": "fabricate_runtime_reality",
-    "input": {},
-    "det_hash": "1aeb2dd926cf3d5de30ea5f5aeee4b6e4689c0b3328270cfc1c1f47280537062"
-  },
-  {
-    "api": "fabricate_runtime_reality",
-    "input": {
-      "runtime": {
-        "runtime_id": "rid",
-        "runtime_type": "browser",
-        "reconstructed": true
-      },
-      "environment": {
-        "runtime": "electron",
-        "execution_ready": true
-      },
-      "browser": {
-        "tabs": [
-          {
-            "id": "tab:0"
-          }
-        ]
-      },
-      "application": {
-        "workflows": [
-          {
-            "id": "w1"
-          }
-        ]
-      },
-      "portable": false
-    },
-    "det_hash": "05254bf2d5525020ee66675f4a06564c9e7d5c085358f38a5d8cc7c60621986f"
-  },
-  {
-    "api": "fabricate_runtime_reality",
-    "input": {
-      "environment": {
-        "runtime": "terminal"
+ {
+  "api": "run_reconstruction_runtime",
+  "input": {},
+  "det_hash": "8a095bcb1993a4ea2c4e3ef7f41762d7bf91b4f0d073eca02930ed0af360fcd1"
+ },
+ {
+  "api": "run_reconstruction_runtime",
+  "input": {
+   "sources": {
+    "semantic_ir": {
+     "concepts": [
+      {
+       "id": "c1"
       }
+     ]
     },
-    "det_hash": "2bcded6a0b6e3af753a66599c473a6053d301ea934730e5f1b3b8c486a55a771"
-  },
-  {
-    "api": "clone_runtime_environment",
-    "input": {
-      "source": {}
-    },
-    "det_hash": "1ce2276e102079f0f6acef88362fddcf9c0a981332376c67ed672d6299ded151"
-  },
-  {
-    "api": "clone_runtime_environment",
-    "input": {
-      "source": {
-        "runtime_graph": {
-          "nodes": [
-            {
-              "id": "n1"
-            }
-          ]
-        },
-        "browser": {
-          "tabs": []
-        },
-        "application": {
-          "workflows": [
-            {
-              "id": "w1"
-            }
-          ]
-        },
-        "queues": [
-          {
-            "order": 1
-          }
-        ],
-        "synchronization": {
-          "lineage": []
-        },
-        "workflows": [
-          {
-            "id": "w1"
-          }
-        ]
+    "workflow_ir": {
+     "workflows": [
+      {
+       "id": "w1",
+       "objective": "login"
       }
+     ]
     },
-    "det_hash": "5e9e042b18620f73f446fd4ef338ab58b2a860842f5e7400662d700b1cbd2bf0"
-  },
-  {
-    "api": "clone_runtime_environment",
-    "input": {
-      "source": {
-        "browser_state": {
-          "x": 1
-        },
-        "execution_queues": [
-          1
-        ]
+    "sync_ir": {
+     "lineage": [
+      {
+       "id": "s1"
       },
-      "include_graph": false,
-      "include_queues": false
-    },
-    "det_hash": "8469a2bc2d8f31bf4f47f7a325902aa4641b18eda4461ddfdaec5e3337515269"
-  },
-  {
-    "api": "validate_reconstructed_runtime",
-    "input": {},
-    "det_hash": "e8afa977d8d4e36778878d2ad9ce9446f44b0cf98ebaaf2d015dc059af409c9d"
-  },
-  {
-    "api": "validate_reconstructed_runtime",
-    "input": {
-      "runtime": {
-        "reconstructed": true,
-        "replay_safe": true
-      },
-      "replay": {
-        "replay_chains": [
-          {
-            "step": 0
-          }
-        ]
-      },
-      "topology": {
-        "reconstructed": true,
-        "runtime_graph": {
-          "nodes": []
-        }
-      },
-      "execution": {
-        "actions": [
-          {
-            "id": "a1"
-          }
-        ]
-      },
-      "mutations": {
-        "mutations": [
-          {
-            "kind": "set"
-          }
-        ]
+      {
+       "id": "s2"
       }
+     ]
     },
-    "det_hash": "e67e45c7bcbda6b7486abb098c1e2f0de8f88c7dd3d1385a30c5e6add9e79200"
-  },
-  {
-    "api": "validate_reconstructed_runtime",
-    "input": {
-      "runtime": {
-        "fabricated": true
+    "execution_ir": {
+     "actions": [
+      {
+       "id": "a2"
       },
-      "replay": {
-        "replayed": true
-      },
-      "mutations": [
-        {
-          "target": "x"
-        }
+      {
+       "id": "a1"
+      }
+     ],
+     "transactions": [
+      {
+       "transaction_id": "t1"
+      }
+     ],
+     "queues": {
+      "queue": [
+       {
+        "order": 1,
+        "priority": 2
+       }
       ]
+     },
+     "mutations": {
+      "mutations": [
+       {
+        "kind": "set",
+        "tick": 1
+       }
+      ]
+     },
+     "federation": {
+      "workers": [
+       {
+        "worker_id": "wk1"
+       }
+      ]
+     }
     },
-    "det_hash": "e67e45c7bcbda6b7486abb098c1e2f0de8f88c7dd3d1385a30c5e6add9e79200"
-  }
+    "memory_ir": {
+     "runtime_history": {
+      "runtime_history": [
+       {
+        "kind": "sync"
+       }
+      ]
+     }
+    },
+    "graph": {
+     "nodes": [
+      {
+       "id": "n1",
+       "type": "x"
+      },
+      {
+       "id": "n2"
+      }
+     ],
+     "edges": [
+      {
+       "from": "n1",
+       "to": "n2",
+       "relation": "r"
+      }
+     ]
+    },
+    "connectors": [
+     {
+      "id": "conn1",
+      "kind": "database"
+     }
+    ],
+    "workers": [
+     {
+      "worker_id": "wk1"
+     }
+    ],
+    "identity": {
+     "identity_id": "id1"
+    },
+    "session": {
+     "authenticated": true,
+     "cookies": [
+      {
+       "name": "b"
+      },
+      {
+       "name": "a"
+      }
+     ],
+     "session_id": "sess1"
+    }
+   },
+   "runtime_type": "browser",
+   "tick": 5
+  },
+  "det_hash": "22b0cab0304ea01a99915e2e8659c7daa609b1424e5c346ed40690ed90713c16"
+ },
+ {
+  "api": "run_reconstruction_runtime",
+  "input": {
+   "sources": {
+    "semantic_ir": {
+     "concepts": [
+      {
+       "id": "c1"
+      }
+     ]
+    },
+    "workflow_ir": {
+     "workflows": [
+      {
+       "id": "w1",
+       "objective": "login"
+      }
+     ]
+    },
+    "sync_ir": {
+     "lineage": [
+      {
+       "id": "s1"
+      },
+      {
+       "id": "s2"
+      }
+     ]
+    },
+    "execution_ir": {
+     "actions": [
+      {
+       "id": "a2"
+      },
+      {
+       "id": "a1"
+      }
+     ],
+     "transactions": [
+      {
+       "transaction_id": "t1"
+      }
+     ],
+     "queues": {
+      "queue": [
+       {
+        "order": 1,
+        "priority": 2
+       }
+      ]
+     },
+     "mutations": {
+      "mutations": [
+       {
+        "kind": "set",
+        "tick": 1
+       }
+      ]
+     },
+     "federation": {
+      "workers": [
+       {
+        "worker_id": "wk1"
+       }
+      ]
+     }
+    },
+    "memory_ir": {
+     "runtime_history": {
+      "runtime_history": [
+       {
+        "kind": "sync"
+       }
+      ]
+     }
+    },
+    "graph": {
+     "nodes": [
+      {
+       "id": "n1",
+       "type": "x"
+      },
+      {
+       "id": "n2"
+      }
+     ],
+     "edges": [
+      {
+       "from": "n1",
+       "to": "n2",
+       "relation": "r"
+      }
+     ]
+    },
+    "connectors": [
+     {
+      "id": "conn1",
+      "kind": "database"
+     }
+    ],
+    "workers": [
+     {
+      "worker_id": "wk1"
+     }
+    ],
+    "identity": {
+     "identity_id": "id1"
+    },
+    "session": {
+     "authenticated": true,
+     "cookies": [
+      {
+       "name": "b"
+      },
+      {
+       "name": "a"
+      }
+     ],
+     "session_id": "sess1"
+    }
+   },
+   "runtime_type": "electron",
+   "tick": 2,
+   "fabricate": true,
+   "clone": true
+  },
+  "det_hash": "d88b41fcb81ec8528dfed754144f966f2d635d337a59b4b9e5a0fd3420f4c880"
+ },
+ {
+  "api": "run_reconstruction_runtime",
+  "input": {
+   "sources": {
+    "browser_ir": {
+     "url": "/home",
+     "routes": {
+      "history": [
+       {
+        "path": "/b"
+       },
+       {
+        "path": "/a"
+       }
+      ]
+     },
+     "navigation": {
+      "history": [
+       {
+        "path": "/n2",
+        "order": 2
+       },
+       {
+        "path": "/n1",
+        "order": 1
+       }
+      ]
+     }
+    },
+    "interaction_ir": {
+     "interactions": [
+      {
+       "id": "i1"
+      },
+      {
+       "id": "i2"
+      }
+     ]
+    },
+    "dom": {
+     "nodes": {
+      "root": {
+       "tag": "html"
+      }
+     }
+    },
+    "execution_ir": {
+     "actions": [
+      {
+       "id": "a3"
+      },
+      {
+       "id": "a1"
+      },
+      {
+       "id": "a2"
+      }
+     ],
+     "transactions": [
+      {
+       "transaction_id": "t2"
+      },
+      {
+       "transaction_id": "t1"
+      }
+     ],
+     "queues": {
+      "queue": [
+       {
+        "order": 2,
+        "priority": 1
+       },
+       {
+        "order": 1,
+        "priority": 1
+       },
+       {
+        "order": 0,
+        "priority": 5
+       }
+      ]
+     },
+     "mutations": {
+      "mutations": [
+       {
+        "kind": "b",
+        "tick": 1,
+        "ordered_index": 1
+       },
+       {
+        "kind": "a",
+        "tick": 1,
+        "ordered_index": 0
+       }
+      ]
+     },
+     "execution_state": {
+      "phase": "run"
+     },
+     "federation": {
+      "workers": [
+       {
+        "worker_id": "z"
+       },
+       {
+        "worker_id": "a"
+       }
+      ]
+     }
+    },
+    "memory_ir": {
+     "lineage": {
+      "lineage": [
+       {
+        "id": "L2"
+       },
+       {
+        "id": "L1"
+       }
+      ]
+     },
+     "knowledge": {
+      "k": 1
+     },
+     "memory_graphs": {
+      "g": 1
+     },
+     "runtime_history": {
+      "runtime_history": [
+       {
+        "kind": "sync"
+       },
+       {
+        "kind": "other"
+       }
+      ]
+     }
+    },
+    "connectors": [
+     {
+      "id": "c2",
+      "type": "unknown_kind",
+      "state": {
+       "open": true
+      }
+     },
+     {
+      "id": "c1",
+      "kind": "docker"
+     }
+    ],
+    "live": {
+     "streams": [
+      {
+       "s": 1
+      },
+      {
+       "s": 2
+      }
+     ]
+    },
+    "workers": [
+     {
+      "worker_id": "w2"
+     },
+     {
+      "worker_id": "w1"
+     }
+    ],
+    "lineage": {
+     "lineage": [
+      {
+       "id": "el2"
+      },
+      {
+       "id": "el1"
+      }
+     ]
+    },
+    "graph": {
+     "nodes": [
+      {
+       "id": "g2",
+       "type": "t"
+      },
+      {
+       "id": "g1"
+      }
+     ],
+     "edges": [
+      {
+       "from": "g2",
+       "to": "g1",
+       "relation": "r2"
+      },
+      {
+       "from": "g1",
+       "to": "g2",
+       "relation": "r1"
+      }
+     ]
+    },
+    "identity": {
+     "identity_id": "idz"
+    },
+    "session": {
+     "authenticated": true,
+     "cookies": [
+      {
+       "name": "z"
+      },
+      {
+       "name": "a"
+      }
+     ],
+     "session_id": "s9",
+     "csrf": {
+      "token": "x"
+     },
+     "local_storage": {
+      "k": "v"
+     },
+     "session_storage": {
+      "k2": "v2"
+     }
+    },
+    "adaptive_memory": {
+     "weights": [
+      1,
+      2
+     ]
+    }
+   },
+   "runtime_type": "connector",
+   "tick": 7,
+   "fabricate": true,
+   "clone": true
+  },
+  "det_hash": "576e2ab04d5d5c9ef99421bd48c9fadaf31675c591d98d66cc68ef7f6e2edf8b"
+ },
+ {
+  "api": "run_reconstruction_for_extraction",
+  "input": {
+   "sources": {
+    "browser_ir": {
+     "url": "/home",
+     "routes": {
+      "history": [
+       {
+        "path": "/b"
+       },
+       {
+        "path": "/a"
+       }
+      ]
+     },
+     "navigation": {
+      "history": [
+       {
+        "path": "/n2",
+        "order": 2
+       },
+       {
+        "path": "/n1",
+        "order": 1
+       }
+      ]
+     }
+    },
+    "interaction_ir": {
+     "interactions": [
+      {
+       "id": "i1"
+      },
+      {
+       "id": "i2"
+      }
+     ]
+    },
+    "dom": {
+     "nodes": {
+      "root": {
+       "tag": "html"
+      }
+     }
+    },
+    "execution_ir": {
+     "actions": [
+      {
+       "id": "a3"
+      },
+      {
+       "id": "a1"
+      },
+      {
+       "id": "a2"
+      }
+     ],
+     "transactions": [
+      {
+       "transaction_id": "t2"
+      },
+      {
+       "transaction_id": "t1"
+      }
+     ],
+     "queues": {
+      "queue": [
+       {
+        "order": 2,
+        "priority": 1
+       },
+       {
+        "order": 1,
+        "priority": 1
+       },
+       {
+        "order": 0,
+        "priority": 5
+       }
+      ]
+     },
+     "mutations": {
+      "mutations": [
+       {
+        "kind": "b",
+        "tick": 1,
+        "ordered_index": 1
+       },
+       {
+        "kind": "a",
+        "tick": 1,
+        "ordered_index": 0
+       }
+      ]
+     },
+     "execution_state": {
+      "phase": "run"
+     },
+     "federation": {
+      "workers": [
+       {
+        "worker_id": "z"
+       },
+       {
+        "worker_id": "a"
+       }
+      ]
+     }
+    },
+    "memory_ir": {
+     "lineage": {
+      "lineage": [
+       {
+        "id": "L2"
+       },
+       {
+        "id": "L1"
+       }
+      ]
+     },
+     "knowledge": {
+      "k": 1
+     },
+     "memory_graphs": {
+      "g": 1
+     },
+     "runtime_history": {
+      "runtime_history": [
+       {
+        "kind": "sync"
+       },
+       {
+        "kind": "other"
+       }
+      ]
+     }
+    },
+    "connectors": [
+     {
+      "id": "c2",
+      "type": "unknown_kind",
+      "state": {
+       "open": true
+      }
+     },
+     {
+      "id": "c1",
+      "kind": "docker"
+     }
+    ],
+    "live": {
+     "streams": [
+      {
+       "s": 1
+      },
+      {
+       "s": 2
+      }
+     ]
+    },
+    "workers": [
+     {
+      "worker_id": "w2"
+     },
+     {
+      "worker_id": "w1"
+     }
+    ],
+    "lineage": {
+     "lineage": [
+      {
+       "id": "el2"
+      },
+      {
+       "id": "el1"
+      }
+     ]
+    },
+    "graph": {
+     "nodes": [
+      {
+       "id": "g2",
+       "type": "t"
+      },
+      {
+       "id": "g1"
+      }
+     ],
+     "edges": [
+      {
+       "from": "g2",
+       "to": "g1",
+       "relation": "r2"
+      },
+      {
+       "from": "g1",
+       "to": "g2",
+       "relation": "r1"
+      }
+     ]
+    },
+    "identity": {
+     "identity_id": "idz"
+    },
+    "session": {
+     "authenticated": true,
+     "cookies": [
+      {
+       "name": "z"
+      },
+      {
+       "name": "a"
+      }
+     ],
+     "session_id": "s9",
+     "csrf": {
+      "token": "x"
+     },
+     "local_storage": {
+      "k": "v"
+     },
+     "session_storage": {
+      "k2": "v2"
+     }
+    },
+    "adaptive_memory": {
+     "weights": [
+      1,
+      2
+     ]
+    }
+   },
+   "runtime_type": "vm",
+   "tick": 4,
+   "merge_graph": true
+  },
+  "det_hash": "6c5b8ebe09585610bdddaab0dfdc0c5c528bd308c77bf9e1024291a7a1fbffc9"
+ },
+ {
+  "api": "run_reconstruction_for_extraction",
+  "input": {
+   "reconstruction_runtime": false
+  },
+  "det_hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+ },
+ {
+  "api": "run_reconstruction_for_extraction",
+  "input": {
+   "sources": {
+    "semantic_ir": {
+     "concepts": [
+      {
+       "id": "c1"
+      }
+     ]
+    },
+    "workflow_ir": {
+     "workflows": [
+      {
+       "id": "w1",
+       "objective": "login"
+      }
+     ]
+    },
+    "sync_ir": {
+     "lineage": [
+      {
+       "id": "s1"
+      },
+      {
+       "id": "s2"
+      }
+     ]
+    },
+    "execution_ir": {
+     "actions": [
+      {
+       "id": "a2"
+      },
+      {
+       "id": "a1"
+      }
+     ],
+     "transactions": [
+      {
+       "transaction_id": "t1"
+      }
+     ],
+     "queues": {
+      "queue": [
+       {
+        "order": 1,
+        "priority": 2
+       }
+      ]
+     },
+     "mutations": {
+      "mutations": [
+       {
+        "kind": "set",
+        "tick": 1
+       }
+      ]
+     },
+     "federation": {
+      "workers": [
+       {
+        "worker_id": "wk1"
+       }
+      ]
+     }
+    },
+    "memory_ir": {
+     "runtime_history": {
+      "runtime_history": [
+       {
+        "kind": "sync"
+       }
+      ]
+     }
+    },
+    "graph": {
+     "nodes": [
+      {
+       "id": "n1",
+       "type": "x"
+      },
+      {
+       "id": "n2"
+      }
+     ],
+     "edges": [
+      {
+       "from": "n1",
+       "to": "n2",
+       "relation": "r"
+      }
+     ]
+    },
+    "connectors": [
+     {
+      "id": "conn1",
+      "kind": "database"
+     }
+    ],
+    "workers": [
+     {
+      "worker_id": "wk1"
+     }
+    ],
+    "identity": {
+     "identity_id": "id1"
+    },
+    "session": {
+     "authenticated": true,
+     "cookies": [
+      {
+       "name": "b"
+      },
+      {
+       "name": "a"
+      }
+     ],
+     "session_id": "sess1"
+    }
+   },
+   "runtime_type": "browser",
+   "tick": 5,
+   "merge_graph": true
+  },
+  "det_hash": "07934b5f5bffea7f8b397d780cca197a298c03b03c17fba381746e0046963e7b"
+ },
+ {
+  "api": "run_reconstruction_for_extraction",
+  "input": {
+   "sources": {
+    "semantic_ir": {
+     "concepts": [
+      {
+       "id": "c1"
+      }
+     ]
+    },
+    "workflow_ir": {
+     "workflows": [
+      {
+       "id": "w1",
+       "objective": "login"
+      }
+     ]
+    },
+    "sync_ir": {
+     "lineage": [
+      {
+       "id": "s1"
+      },
+      {
+       "id": "s2"
+      }
+     ]
+    },
+    "execution_ir": {
+     "actions": [
+      {
+       "id": "a2"
+      },
+      {
+       "id": "a1"
+      }
+     ],
+     "transactions": [
+      {
+       "transaction_id": "t1"
+      }
+     ],
+     "queues": {
+      "queue": [
+       {
+        "order": 1,
+        "priority": 2
+       }
+      ]
+     },
+     "mutations": {
+      "mutations": [
+       {
+        "kind": "set",
+        "tick": 1
+       }
+      ]
+     },
+     "federation": {
+      "workers": [
+       {
+        "worker_id": "wk1"
+       }
+      ]
+     }
+    },
+    "memory_ir": {
+     "runtime_history": {
+      "runtime_history": [
+       {
+        "kind": "sync"
+       }
+      ]
+     }
+    },
+    "graph": {
+     "nodes": [
+      {
+       "id": "n1",
+       "type": "x"
+      },
+      {
+       "id": "n2"
+      }
+     ],
+     "edges": [
+      {
+       "from": "n1",
+       "to": "n2",
+       "relation": "r"
+      }
+     ]
+    },
+    "connectors": [
+     {
+      "id": "conn1",
+      "kind": "database"
+     }
+    ],
+    "workers": [
+     {
+      "worker_id": "wk1"
+     }
+    ],
+    "identity": {
+     "identity_id": "id1"
+    },
+    "session": {
+     "authenticated": true,
+     "cookies": [
+      {
+       "name": "b"
+      },
+      {
+       "name": "a"
+      }
+     ],
+     "session_id": "sess1"
+    }
+   },
+   "runtime_type": "electron",
+   "tick": 3,
+   "fabricate_runtime": true,
+   "clone_runtime": true,
+   "merge_graph": false
+  },
+  "det_hash": "c0325fe4e3e3758dc5216a198fcdd18a209f4283238a8095e39eec4f61b27e1a"
+ },
+ {
+  "api": "fabricate_runtime_reality",
+  "input": {},
+  "det_hash": "1aeb2dd926cf3d5de30ea5f5aeee4b6e4689c0b3328270cfc1c1f47280537062"
+ },
+ {
+  "api": "fabricate_runtime_reality",
+  "input": {
+   "runtime": {
+    "runtime_id": "rid",
+    "runtime_type": "browser",
+    "reconstructed": true
+   },
+   "environment": {
+    "runtime": "electron",
+    "execution_ready": true
+   },
+   "browser": {
+    "tabs": [
+     {
+      "id": "tab:0"
+     }
+    ]
+   },
+   "application": {
+    "workflows": [
+     {
+      "id": "w1"
+     }
+    ]
+   },
+   "portable": false
+  },
+  "det_hash": "05254bf2d5525020ee66675f4a06564c9e7d5c085358f38a5d8cc7c60621986f"
+ },
+ {
+  "api": "fabricate_runtime_reality",
+  "input": {
+   "environment": {
+    "runtime": "terminal"
+   }
+  },
+  "det_hash": "2bcded6a0b6e3af753a66599c473a6053d301ea934730e5f1b3b8c486a55a771"
+ },
+ {
+  "api": "clone_runtime_environment",
+  "input": {
+   "source": {}
+  },
+  "det_hash": "1ce2276e102079f0f6acef88362fddcf9c0a981332376c67ed672d6299ded151"
+ },
+ {
+  "api": "clone_runtime_environment",
+  "input": {
+   "source": {
+    "runtime_graph": {
+     "nodes": [
+      {
+       "id": "n1"
+      }
+     ]
+    },
+    "browser": {
+     "tabs": []
+    },
+    "application": {
+     "workflows": [
+      {
+       "id": "w1"
+      }
+     ]
+    },
+    "queues": [
+     {
+      "order": 1
+     }
+    ],
+    "synchronization": {
+     "lineage": []
+    },
+    "workflows": [
+     {
+      "id": "w1"
+     }
+    ]
+   }
+  },
+  "det_hash": "5e9e042b18620f73f446fd4ef338ab58b2a860842f5e7400662d700b1cbd2bf0"
+ },
+ {
+  "api": "clone_runtime_environment",
+  "input": {
+   "source": {
+    "browser_state": {
+     "x": 1
+    },
+    "execution_queues": [
+     1
+    ]
+   },
+   "include_graph": false,
+   "include_queues": false
+  },
+  "det_hash": "8469a2bc2d8f31bf4f47f7a325902aa4641b18eda4461ddfdaec5e3337515269"
+ },
+ {
+  "api": "validate_reconstructed_runtime",
+  "input": {},
+  "det_hash": "d82b05f0095542f76d5d00011c52dc2812d943d79b0ead2f0cbc5d719278388b"
+ },
+ {
+  "api": "validate_reconstructed_runtime",
+  "input": {
+   "runtime": {
+    "reconstructed": true,
+    "replay_safe": true
+   },
+   "replay": {
+    "replay_chains": [
+     {
+      "step": 0
+     }
+    ]
+   },
+   "topology": {
+    "reconstructed": true,
+    "runtime_graph": {
+     "nodes": []
+    }
+   },
+   "execution": {
+    "actions": [
+     {
+      "id": "a1"
+     }
+    ]
+   },
+   "mutations": {
+    "mutations": [
+     {
+      "kind": "set"
+     }
+    ]
+   }
+  },
+  "det_hash": "923708e13fe80279a048bc20d65b9efdf9860f54bf1f70f6d49dbbb8523ea4f4"
+ },
+ {
+  "api": "validate_reconstructed_runtime",
+  "input": {
+   "runtime": {
+    "fabricated": true
+   },
+   "replay": {
+    "replayed": true
+   },
+   "mutations": [
+    {
+     "target": "x"
+    }
+   ]
+  },
+  "det_hash": "923708e13fe80279a048bc20d65b9efdf9860f54bf1f70f6d49dbbb8523ea4f4"
+ }
 ]

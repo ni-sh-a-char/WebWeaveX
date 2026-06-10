@@ -49,3 +49,7 @@ validation/browser/.session-test.kaalka
 
 tools/_three_way.tsv
 tools/_proof_matrix.tsv
+
+# Cross-language verifier regenerable artifacts
+cross_language_verifier/out_*.json
+cross_language_verifier/vectors.json

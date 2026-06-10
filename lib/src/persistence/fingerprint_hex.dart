@@ -10,6 +10,11 @@
 
 import 'dart:convert';
 
+import 'package:unorm_dart/unorm_dart.dart' as unorm;
+
+import '../determinism/normalization_core.dart' show codePointCompare;
+import '../determinism/py_float_repr.dart';
+
 /// Python `((value % 256) + 256) % 256`.
 int _safeByte(int value) => ((value % 256) + 256) % 256;
 
@@ -64,10 +69,9 @@ String hexFingerprint(dynamic payload, [String token = 'webweavex']) {
 // dumps_deterministic (core/serialize/deterministic_serializer.py)
 // ---------------------------------------------------------------------------
 
-/// NFC normalization. For ASCII this is identity; for the general case we
-/// delegate to the canonical JSON form which the Python side also normalizes.
-/// (Mirrors `_norm_str` = unicodedata.normalize("NFC", value).)
-String _normStr(String value) => value;
+/// NFC normalization (mirrors `_norm_str` = unicodedata.normalize("NFC", value)).
+/// Pure Dart via `package:unorm_dart`, byte-verified against Python.
+String _normStr(String value) => unorm.nfc(value);
 
 /// Port of `_stable(value, _depth)`.
 dynamic _stable(dynamic value, [int depth = 0]) {
@@ -76,12 +80,22 @@ dynamic _stable(dynamic value, [int depth = 0]) {
   if (value is bool || value == null) return value;
   if (value is int) return value;
   if (value is double) {
-    if (value.isNaN || value.isInfinite) return 0.0;
-    // float(format(value, ".15g"))
-    return double.parse(_format15g(value));
+    if (value.isNaN || value.isInfinite) return 0;
+    // Integral floats convert exactly, BEFORE .15g rounding (cross-language
+    // contract: 16-digit integral floats must not lose a digit here).
+    if (value == value.truncateToDouble() &&
+        value.abs() < 9223372036854775808.0) {
+      return value.toInt();
+    }
+    final v = double.parse(_format15g(value));
+    if (v == v.truncateToDouble() && v.abs() < 9223372036854775808.0) {
+      return v.toInt();
+    }
+    return v;
   }
   if (value is Map) {
-    final keys = value.keys.map((k) => _normStr(k.toString())).toList()..sort();
+    final keys = value.keys.map((k) => _normStr(k.toString())).toList()
+      ..sort(codePointCompare);
     final byNorm = <String, dynamic>{};
     for (final k in value.keys) {
       byNorm[_normStr(k.toString())] = value[k];
@@ -94,7 +108,7 @@ dynamic _stable(dynamic value, [int depth = 0]) {
   }
   if (value is List) {
     final items = value.map((v) => _stable(v, depth + 1)).toList();
-    items.sort((a, b) => _compactJson(a).compareTo(_compactJson(b)));
+    items.sort((a, b) => codePointCompare(_compactJson(a), _compactJson(b)));
     return items;
   }
   return _normStr(value.toString());
@@ -103,7 +117,8 @@ dynamic _stable(dynamic value, [int depth = 0]) {
 /// `json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",",":"))`.
 String _compactJson(dynamic value) {
   if (value is Map) {
-    final keys = value.keys.map((k) => k.toString()).toList()..sort();
+    final keys = value.keys.map((k) => k.toString()).toList()
+      ..sort(codePointCompare);
     final parts = <String>[];
     for (final k in keys) {
       parts.add('${jsonEncode(k)}:${_compactJson(value[k])}');
@@ -112,6 +127,10 @@ String _compactJson(dynamic value) {
   }
   if (value is List) {
     return '[${value.map(_compactJson).join(',')}]';
+  }
+  if (value is double) {
+    // Python repr float form (json.dumps uses repr for floats).
+    return pyFloatRepr(value);
   }
   return jsonEncode(value);
 }

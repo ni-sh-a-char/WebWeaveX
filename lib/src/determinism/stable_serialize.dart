@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import '../graph/runtime_graph.dart';
+import 'canonical_json_encode.dart';
 import 'normalization.dart';
 
 String stableSerialize(dynamic value) {
@@ -8,11 +7,12 @@ String stableSerialize(dynamic value) {
     return normalizeRuntimeValue(value);
   }
   if (value is RuntimeGraph) {
-    return jsonEncode(
+    return canonicalJsonEncode(
         stableSortKeys(Map<String, dynamic>.from(value.toJson())));
   }
   if (value is Map) {
-    return jsonEncode(stableSortKeys(Map<String, dynamic>.from(value)));
+    return canonicalJsonEncode(
+        stableSortKeys(Map<String, dynamic>.from(value)));
   }
   if (value is List) {
     final asMap = <String, dynamic>{};
@@ -21,10 +21,13 @@ String stableSerialize(dynamic value) {
       if (item is Map) {
         asMap['$i'] = stableSortKeys(Map<String, dynamic>.from(item));
       } else {
-        asMap['$i'] = item;
+        asMap['$i'] = canonicalizeNumber(item);
       }
     }
-    return jsonEncode(stableSortKeys(asMap));
+    // No outer stableSortKeys here: volatile-key stripping applies only to
+    // dict items directly inside the list (Python/JS keyed-object semantics);
+    // the encoder sorts keys itself.
+    return canonicalJsonEncode(asMap);
   }
-  return jsonEncode(value);
+  return canonicalJsonEncode(value);
 }
