@@ -1,0 +1,285 @@
+[
+  {
+    "id": "rhet-md",
+    "fn": "extract_rhetorical_structure",
+    "args": [
+      "# Title\n## Section\n- item one\n* item two\n```\ncode\n```\nplain line"
+    ],
+    "expected": {
+      "units": [
+        {
+          "type": "heading",
+          "level": 1,
+          "title": "Title",
+          "line": 0
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "title": "Section",
+          "line": 1
+        },
+        {
+          "type": "list_item",
+          "line": 2
+        },
+        {
+          "type": "list_item",
+          "line": 3
+        },
+        {
+          "type": "code_fence",
+          "line": 4
+        },
+        {
+          "type": "code_fence",
+          "line": 6
+        }
+      ],
+      "unit_count": 6,
+      "deterministic_inputs": [
+        "units=6"
+      ]
+    }
+  },
+  {
+    "id": "rhet-empty",
+    "fn": "extract_rhetorical_structure",
+    "args": [
+      ""
+    ],
+    "expected": {
+      "units": [],
+      "unit_count": 0,
+      "deterministic_inputs": [
+        "units=0"
+      ]
+    }
+  },
+  {
+    "id": "rhet-null",
+    "fn": "extract_rhetorical_structure",
+    "args": [
+      null
+    ],
+    "expected": {
+      "units": [],
+      "unit_count": 0,
+      "deterministic_inputs": [
+        "units=0"
+      ]
+    }
+  },
+  {
+    "id": "rhet-crlf",
+    "fn": "extract_rhetorical_structure",
+    "args": [
+      "### Deep Heading\r\n- a\r\ntext"
+    ],
+    "expected": {
+      "units": [
+        {
+          "type": "heading",
+          "level": 3,
+          "title": "Deep Heading",
+          "line": 0
+        },
+        {
+          "type": "list_item",
+          "line": 1
+        }
+      ],
+      "unit_count": 2,
+      "deterministic_inputs": [
+        "units=2"
+      ]
+    }
+  },
+  {
+    "id": "roles",
+    "fn": "assign_semantic_roles",
+    "args": [
+      "This is an example of usage.\nTherefore it works.\nIt fails because of input.\nNote: be careful.\nplain sentence"
+    ],
+    "expected": {
+      "roles": [
+        {
+          "line": 0,
+          "role": "example",
+          "text": "This is an example of usage."
+        },
+        {
+          "line": 1,
+          "role": "conclusion",
+          "text": "Therefore it works."
+        },
+        {
+          "line": 2,
+          "role": "reason",
+          "text": "It fails because of input."
+        },
+        {
+          "line": 3,
+          "role": "notice",
+          "text": "Note: be careful."
+        }
+      ],
+      "count": 4
+    }
+  },
+  {
+    "id": "roles-empty",
+    "fn": "assign_semantic_roles",
+    "args": [
+      ""
+    ],
+    "expected": {
+      "roles": [],
+      "count": 0
+    }
+  },
+  {
+    "id": "head-mixed",
+    "fn": "extract_headings",
+    "args": [
+      "# B Title\n## A Section\n<h1>Z Html</h1><h3>A Html</h3>"
+    ],
+    "expected": {
+      "headings": [
+        {
+          "level": 1,
+          "title": "B Title"
+        },
+        {
+          "level": 1,
+          "title": "Z Html"
+        },
+        {
+          "level": 2,
+          "title": "A Section"
+        },
+        {
+          "level": 3,
+          "title": "A Html"
+        }
+      ]
+    }
+  },
+  {
+    "id": "head-none",
+    "fn": "extract_headings",
+    "args": [
+      "no headings here"
+    ],
+    "expected": {
+      "headings": []
+    }
+  },
+  {
+    "id": "argdep-order",
+    "fn": "reconstruct_argument_dependencies",
+    "args": [
+      [
+        {
+          "id": "c2",
+          "order": 2
+        },
+        {
+          "id": "c1",
+          "order": 1
+        },
+        {
+          "id": "c3",
+          "order": 3,
+          "depends_on": "c1"
+        }
+      ]
+    ],
+    "expected": {
+      "edges": [
+        {
+          "from": "c1",
+          "to": "c2",
+          "metadata": {
+            "kind": "argument_sequence",
+            "basis": "document_order"
+          }
+        },
+        {
+          "from": "c1",
+          "to": "c3",
+          "metadata": {
+            "kind": "argument_support",
+            "basis": "explicit_dependency"
+          }
+        }
+      ],
+      "count": 2,
+      "deterministic": true
+    }
+  },
+  {
+    "id": "argdep-empty",
+    "fn": "reconstruct_argument_dependencies",
+    "args": [
+      []
+    ],
+    "expected": {
+      "edges": [],
+      "count": 0,
+      "deterministic": true
+    }
+  },
+  {
+    "id": "coref",
+    "fn": "resolve_coreferences",
+    "args": [
+      "# Intro\nThis is it.\n## Body\nThey said that those work."
+    ],
+    "expected": {
+      "chains": [
+        {
+          "pronoun": "This",
+          "antecedent": "Body"
+        },
+        {
+          "pronoun": "it",
+          "antecedent": "Body"
+        },
+        {
+          "pronoun": "They",
+          "antecedent": "Body"
+        },
+        {
+          "pronoun": "that",
+          "antecedent": "Body"
+        },
+        {
+          "pronoun": "those",
+          "antecedent": "Body"
+        }
+      ],
+      "count": 5
+    }
+  },
+  {
+    "id": "coref-noheading",
+    "fn": "resolve_coreferences",
+    "args": [
+      "it works and this too"
+    ],
+    "expected": {
+      "chains": [
+        {
+          "pronoun": "it",
+          "antecedent": ""
+        },
+        {
+          "pronoun": "this",
+          "antecedent": ""
+        }
+      ],
+      "count": 2
+    }
+  }
+]

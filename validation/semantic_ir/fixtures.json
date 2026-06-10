@@ -1,0 +1,14 @@
+[
+  {"id": "rhet-md", "fn": "extract_rhetorical_structure", "args": ["# Title\n## Section\n- item one\n* item two\n```\ncode\n```\nplain line"]},
+  {"id": "rhet-empty", "fn": "extract_rhetorical_structure", "args": [""]},
+  {"id": "rhet-null", "fn": "extract_rhetorical_structure", "args": [null]},
+  {"id": "rhet-crlf", "fn": "extract_rhetorical_structure", "args": ["### Deep Heading\r\n- a\r\ntext"]},
+  {"id": "roles", "fn": "assign_semantic_roles", "args": ["This is an example of usage.\nTherefore it works.\nIt fails because of input.\nNote: be careful.\nplain sentence"]},
+  {"id": "roles-empty", "fn": "assign_semantic_roles", "args": [""]},
+  {"id": "head-mixed", "fn": "extract_headings", "args": ["# B Title\n## A Section\n<h1>Z Html</h1><h3>A Html</h3>"]},
+  {"id": "head-none", "fn": "extract_headings", "args": ["no headings here"]},
+  {"id": "argdep-order", "fn": "reconstruct_argument_dependencies", "args": [[{"id": "c2", "order": 2}, {"id": "c1", "order": 1}, {"id": "c3", "order": 3, "depends_on": "c1"}]]},
+  {"id": "argdep-empty", "fn": "reconstruct_argument_dependencies", "args": [[]]},
+  {"id": "coref", "fn": "resolve_coreferences", "args": ["# Intro\nThis is it.\n## Body\nThey said that those work."]},
+  {"id": "coref-noheading", "fn": "resolve_coreferences", "args": ["it works and this too"]}
+]
