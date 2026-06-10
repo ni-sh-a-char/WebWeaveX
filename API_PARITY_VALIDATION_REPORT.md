@@ -1,88 +1,44 @@
 # API_PARITY_VALIDATION_REPORT.md
 
-> Regenerated from source on 2026-06-10. Three-way comparison measured directly from the
-> real branch sources via `git show`, not from any prior report.
-> Tools: `tools/dart_parity_audit.py` (Python↔Dart classification) and
-> `tools/three_way_parity.py` (Python↔JavaScript↔Dart name-level presence).
+> **Generated from `PARITY_MANIFEST.json`** by `tools/generate_reports.py`. No hand-maintained counts. Python 2.0.1 is canonical; JavaScript is the reference.
 
-## Sources compared (all measured live)
+## Counts (manifest)
 
-| Language | Source of truth | Public surface |
-|----------|-----------------|----------------|
-| Python | `origin/python:webweavex/__init__.py` `__all__` | **128** names (126 APIs + `version`, `__version__`) |
-| JavaScript | `origin/javascript:src/index.ts` + `publicApi.ts` + `connectors/index.ts` | **126/126** canonical APIs present (229 total exports incl. helpers) |
-| Dart | `lib/webweavex.dart` barrel + all `lib/**/*.dart` public symbols | classified below |
+| Status | Count |
+|--------|------:|
+| ✅ Complete | **89** |
+| 🟡 Partial | **26** |
+| ⚪ Deferred | **13** |
+| ❌ Missing | **0** |
+| **Total Python APIs** | **128** |
 
-Version alignment: Python **2.0.1** · JavaScript **2.0.1** · Dart **2.0.1**.
+## Proof-type breakdown (functional Complete APIs)
 
-## Three-way name-level presence (excluding `version`/`__version__`)
+| Proof type | Count |
+|------------|------:|
+| VECTOR | 61 |
+| CORE_VECTOR | 4 |
+| ROUNDTRIP | 22 |
 
-| Implementation | Canonical APIs present by name | Coverage |
-|----------------|-------------------------------:|---------:|
-| Python (definition) | 126 / 126 | 100% |
-| **JavaScript** | **126 / 126** | **100%** (full reference) |
-| **Dart (native symbol)** | **96 / 126** | **76.2%** (after `heal_selector` + `replay_interactions` ports) |
+## Executable-proven APIs (13)
 
-JavaScript is the proof-of-feasibility reference: it reaches 126/126 because Node.js can drive
-real browsers (Playwright/Puppeteer), native OS/Electron/DevTools surfaces, and NLP/AST tooling
-in-process. Dart cannot do these in-process — that gap is the source of every non-Complete row.
+Proven **Python ≡ JavaScript ≡ Dart** by execution on shared fixtures (`validation/executable/`, `EXECUTABLE_PARITY_MATRIX.md`):
 
-## Dart classification (`tools/dart_parity_audit.py`, regenerated this session)
-
-```
-Python total: 128   Counts: {Complete: 89, Partial: 26, Missing: 0, Deferred: 13}
-```
-
-| Status | Count | Meaning | Proof standard |
-|--------|------:|---------|----------------|
-| ✅ Complete | **89** | Native Dart impl, name-mapped, **cross-language proof-verified** | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
-| 🟡 Partial | **26** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
-| ⚪ Deferred | **13** | Needs OS/desktop/Electron/DevTools/Playwright in-process | not feasible in Dart VM |
-| ❌ Missing | **0** | Not implemented at all | — |
-
-**Wave 3–4 changes (2026-06-10):** two APIs ported Deferred → Partial as native Dart, each proven
-by deep-equality vectors against Python **2.0.1** (materialized from `origin/python`; the installed
-Python is a broken 2.0.0):
-- `heal_selector` — DOM-node strategies (`text_anchor`/`attribute_anchor`/`structural_fallback`) are
-  full-fidelity (11 vectors, `selector_healing_api_vectors.json`); `semantic_anchor` HTML path bounds
-  deeply nested inline markup.
-- `replay_interactions` — the returned structure is a full-fidelity pure function of the interaction
-  log (6 vectors, `interaction_replay_api_vectors.json`); the live-page action dispatch is the bounded edge.
-
-`81 + 32 + 15 = 128` (with the `version`/`__version__` constants folded into Complete).
-**Proof Coverage Audit + executable certification (`COMPLETE_API_PROOF_MATRIX.md`, `EXECUTABLE_PARITY_MATRIX.md`):** all 79 functional Complete APIs are cross-language proof-verified (53 VECTOR, 22 ROUNDTRIP, 4 CORE_VECTOR). The Proof Coverage Audit downgraded 11 unproven Complete → Partial; the Final Completion Protocol then took 4 of them (`extract_database_runtime`, `extract_kubernetes_runtime`, `build_runtime_memory`, `query_runtime_memory`) to **executable parity** (Python ≡ JavaScript ≡ Dart) and promoted them back to Complete — net 7 still-downgraded. The 30 APIs with no Dart symbol are the network-bounded Partials and the 15 Deferred.
-
-## The 30 Python APIs with no native Dart symbol (all present in JS)
-
-**Browser / network extraction (bounded-Partial candidates):**
-`extract`, `extract_async`, `extract_repo`, `extract_docs`, `extract_recursive`,
-`crawl`, `crawl_async`, `stream_extract`, `ingest_input`, `universal_extract`,
-`extract_web`, `extract_repository`, `extract_multimodal`, `extract_document_runtime`,
-`run_autonomous_extraction`.
-
-**Live-browser DOM/runtime capture (Deferred — needs Playwright/DevTools):**
-`extract_infinite_scroll`, `extract_paginated_content`,
-`capture_websocket_frames`, `capture_dom_mutations`, `recover_modal_runtime`.
-(`heal_selector` and `replay_interactions` were here; both are now native Dart Partials — see above.)
-
-**Native OS / Electron / container / IDE (Deferred — no in-process Dart surface):**
-`run_application_cognition`, `execute_runtime_objective`, `save_application_memory`,
-`load_application_memory`, `extract_native`, `run_native_cognition`, `save_native_runtime`,
-`load_native_runtime`, `extract_container_runtime`, `extract_ide_runtime`.
-
-## Cross-language deterministic parity (executed)
-
-`dart run validation/validate_parity.dart` → `crossLangMatch: true`, all 11 core vectors
-hash-match the JavaScript reference (`hash_match`, `encrypt_match`, `decrypt_ok`,
-`deterministic` all true). Runtime-family parity proven by ~145 hash vectors in
-`validation/parity/*_api_vectors.json` asserted in `test/parity/`.
+- `build_browser_identity`
+- `build_runtime_memory`
+- `compute_global_runtime_fingerprint`
+- `compute_kaalka_hash`
+- `extract_container_runtime`
+- `extract_database_runtime`
+- `extract_ide_runtime`
+- `extract_kubernetes_runtime`
+- `get_runtime_kernel`
+- `query_runtime_graph`
+- `query_runtime_memory`
+- `reconstruct_runtime`
+- `validate_replay_equivalence`
 
 ## Verdict
 
-- **0 Missing** — every canonical API is either implemented (Complete), bounded with a proven
-  core (Partial), or honestly Deferred for a documented platform reason.
-- Dart trails JavaScript on the **30 browser/native/infra APIs** that require in-process
-  capabilities the Dart VM does not have, plus the **11 audit-downgraded** contract-divergent APIs.
-- Highest achievable next gains are the **11 downgraded APIs** (Group 1 of `PARTIAL_API_AUDIT.md` —
-  several are portability **A**: port Python's exact field set/formula + add vectors) and the
-  network-extraction surface. The native-OS/Electron/DevTools families remain genuinely Deferred.
+- **0 Missing.** 89 Complete, 26 Partial, 13 Deferred of 128 canonical APIs.
+- Every Complete API has executable or vector/roundtrip proof (`COMPLETE_API_PROOF_MATRIX.md`). Every Partial/Deferred is classified with a reason (`PARTIAL_API_AUDIT.md`, `DEFERRED_API_AUDIT.md`).
