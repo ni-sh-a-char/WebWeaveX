@@ -124,18 +124,18 @@ void main() {
           <String, String>{'url': 'https://x.test', 'method': 'GET'},
         ],
       };
-      final id = buildBrowserIdentity(captured);
+      final id = buildBrowserIdentityFromCapture(captured);
       expect(id['runtime_identity'], isA<String>());
       expect(id['profile_hash'], isA<String>());
       expect(id['storage_hash'], isA<String>());
       expect(id['route_fingerprint'], isA<String>());
       expect(id['bounded'], isTrue);
       // determinism
-      expect(buildBrowserIdentity(captured), id);
+      expect(buildBrowserIdentityFromCapture(captured), id);
     });
 
     test('buildBrowserIdentity empty map exercises ?? fallbacks', () {
-      final id = buildBrowserIdentity(<String, dynamic>{});
+      final id = buildBrowserIdentityFromCapture(<String, dynamic>{});
       expect(id['runtime_identity'], isA<String>());
       // network missing -> length 0 branch; storage/routes default
       expect(id['storage_hash'], isA<String>());
@@ -144,13 +144,13 @@ void main() {
     });
 
     test('buildBrowserIdentity network length feeds profile_hash', () {
-      final one = buildBrowserIdentity(<String, dynamic>{
+      final one = buildBrowserIdentityFromCapture(<String, dynamic>{
         'url': 'u',
         'network': <dynamic>[
           <String, String>{'url': 'u', 'method': 'GET'}
         ],
       });
-      final two = buildBrowserIdentity(<String, dynamic>{
+      final two = buildBrowserIdentityFromCapture(<String, dynamic>{
         'url': 'u',
         'network': <dynamic>[
           <String, String>{'url': 'u', 'method': 'GET'},

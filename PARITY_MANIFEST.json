@@ -2,11 +2,12 @@
   "generated_by": "tools/generate_parity_manifest.py",
   "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
   "counts": {
-    "Complete": 86,
-    "Partial": 27,
+    "Complete": 87,
+    "Partial": 26,
     "Deferred": 15
   },
   "executable_proven_apis": [
+    "build_browser_identity",
     "build_runtime_memory",
     "compute_global_runtime_fingerprint",
     "compute_kaalka_hash",
@@ -85,11 +86,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "buildBrowserIdentity",
-      "contract_parity": false,
-      "behavior_parity": false,
-      "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "contract_parity": true,
+      "behavior_parity": true,
+      "executable_parity": true,
+      "classification": "Complete",
+      "proof_type": "EXECUTABLE"
     },
     {
       "api": "build_interaction_graph",

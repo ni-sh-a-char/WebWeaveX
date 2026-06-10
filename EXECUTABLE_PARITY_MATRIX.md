@@ -21,7 +21,10 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `extract_database_runtime` | `db-unknown` | `c845c3a06b43baee` | `c845c3a06b43baee` | `c845c3a06b43baee` | ✅ ALL3 | Complete (executable) |
 | `build_runtime_memory` | `build-rt-mem` | `060e4d5f24eafa71` | `060e4d5f24eafa71` | `060e4d5f24eafa71` | ✅ ALL3 | Complete (executable) |
 | `query_runtime_memory` | `query-rt-mem` | `40367d57ad329aef` | `40367d57ad329aef` | `40367d57ad329aef` | ✅ ALL3 | Complete (executable) |
-| `build_browser_identity` | `browser-id` | `4ea9e25540e6c845` | ✗ The "data" argument must | ✗ Bad state: unknown/contr | ⚠️ Dart DIVERG | Partial (contract change required) |
+| `build_browser_identity` | `browser-id` | `4ea9e25540e6c845` | `4ea9e25540e6c845` | `4ea9e25540e6c845` | ✅ ALL3 | Complete (executable) |
+| `build_browser_identity` | `browser-id-a` | `6c9a555b32d19249` | `6c9a555b32d19249` | `6c9a555b32d19249` | ✅ ALL3 | Complete (executable) |
+| `build_browser_identity` | `browser-id-b` | `9cd3dffac690c364` | `9cd3dffac690c364` | `9cd3dffac690c364` | ✅ ALL3 | Complete (executable) |
+| `build_browser_identity` | `browser-id-unknown` | `4ea9e25540e6c845` | `4ea9e25540e6c845` | `4ea9e25540e6c845` | ✅ ALL3 | Complete (executable) |
 | `compute_kaalka_hash` | `hash-nested` | `222135f9323b12b1` | `222135f9323b12b1` | `222135f9323b12b1` | ✅ ALL3 | Complete (executable) |
 | `compute_global_runtime_fingerprint` | `fp-empty` | `9feafe03a758f460` | `9feafe03a758f460` | `9feafe03a758f460` | ✅ ALL3 | Complete (executable) |
 | `compute_global_runtime_fingerprint` | `fp-full` | `46ae328a59b98b59` | `46ae328a59b98b59` | `46ae328a59b98b59` | ✅ ALL3 | Complete (executable) |
@@ -44,7 +47,7 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `extract_database_runtime` | Complete (executable) |
 | `build_runtime_memory` | Complete (executable) |
 | `query_runtime_memory` | Complete (executable) |
-| `build_browser_identity` | Partial (contract change required) |
+| `build_browser_identity` | Complete (executable) |
 | `compute_kaalka_hash` | Complete (executable) |
 | `compute_global_runtime_fingerprint` | Complete (executable) |
 | `query_runtime_graph` | Complete (executable) |

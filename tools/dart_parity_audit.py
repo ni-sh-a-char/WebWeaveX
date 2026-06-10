@@ -164,10 +164,10 @@ FORCE_PARTIAL = {
     # Protocol aligned the Dart public contract to Python (3-list / (memory,
     # query_type, term)) and proved Python == JavaScript == Dart by EXECUTION
     # (validation/executable/) -> promoted to Complete.
-    # reconstruct_runtime + get_runtime_kernel were here (Group B) — re-wired to
-    # the canonical family impl / proved {runtime_type} parity by execution and
-    # promoted to Complete. build_browser_identity remains (Group C subsystem port).
-    "build_browser_identity",
+    # reconstruct_runtime + get_runtime_kernel (Group B) and build_browser_identity
+    # (Group C — full profile-generation subsystem port) all reached executable
+    # parity (Python == JavaScript == Dart, validation/executable/) and were
+    # promoted to Complete. FORCE_PARTIAL now holds only genuinely-bounded APIs.
 }
 
 

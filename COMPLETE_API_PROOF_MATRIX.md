@@ -2,11 +2,11 @@
 
 > Proof Coverage Audit — every API classified **Complete** in `PUBLIC_API_MATRIX.md`, with its Python / JavaScript / Dart source and the strongest executed proof. Generated 2026-06-10 by `tools/complete_proof_audit.py` from repository reality (origin/python, origin/javascript, local `lib/`). No Complete API remains without proof.
 
-**Complete APIs: 84 functional + 2 metadata constants = 86 rows.** Proof status: {'PROVEN': 84, 'WEAK': 2}.
+**Complete APIs: 85 functional + 2 metadata constants = 87 rows.** Proof status: {'PROVEN': 85, 'WEAK': 2}.
 
 > Source-location columns are best-effort `git grep` locations (symbol definition or nearest reference) and may point to a re-export/use site; the **Proof type / Proof location / Status** columns are authoritative.
 
-Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=58
+Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=59
 
 | API | Python source | JavaScript source | Dart source | Proof type | Proof location | Status |
 |-----|---------------|-------------------|-------------|------------|----------------|--------|
@@ -27,6 +27,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=58
 | `build_interaction_graph` | `core/interaction/interaction_graph_engine.py` | `src/interaction/index.ts` | `lib/src/connectors_runtime/interaction_graph.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
 | `replay_stream_events` | `core/streaming/stream_replay_engine.py` | `src/streaming/streamReplay.ts` | `lib/src/connectors_runtime/stream_replay.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
 | `build_stream_timeline` | `core/streaming/stream_replay_engine.py` | `src/publicApi.ts` | `lib/src/connectors_runtime/stream_replay.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
+| `build_browser_identity` | `core/identity/browser_identity_orchestrator.py` | `src/browser/browserIdentity.ts` | `lib/src/identity/browser_identity_canonical.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/browser_identity_api_vectors.json` | ✅ PROVEN |
 | `save_browser_identity` | `core/identity/fingerprint_persistence_engine.py` | `src/identity/fingerprintPersistenceEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
 | `load_browser_identity` | `core/identity/fingerprint_persistence_engine.py` | `src/identity/fingerprintPersistenceEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
 | `save_adaptive_memory` | `core/adaptive/extraction_memory_engine.py` | `src/adaptive/extractionMemoryEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
@@ -110,7 +111,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=58
 
 ## Audit result
 
-**84/84 functional Complete APIs PROVEN** (`84` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
+**85/85 functional Complete APIs PROVEN** (`85` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
 
 **11 APIs were downgraded Complete → Partial during this audit** because they carried only a determinism/structural test (no cross-language vector, deep-equality, or roundtrip) AND their Dart contract/output diverges from Python, so a passing proof vector cannot be produced without new implementation:
 

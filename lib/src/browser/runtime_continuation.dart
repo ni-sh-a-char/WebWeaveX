@@ -27,7 +27,7 @@ Future<Map<String, dynamic>> extractWithSession(
   final html = rendered['html'] as String? ?? '';
   final spa = stabilizeSpaDom(html, route: url);
   final captured = await captureRuntime(url);
-  final identity = buildBrowserIdentity(captured);
+  final identity = buildBrowserIdentityFromCapture(captured);
   final graph = buildRuntimeGraph({
     'browser': {'url': url, 'identity': identity['runtime_identity']},
     'session': {'session_id': session['session_id'], 'continued': true},

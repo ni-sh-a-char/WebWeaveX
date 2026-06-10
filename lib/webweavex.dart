@@ -26,6 +26,9 @@ export 'src/parity/canonical_runtime.dart'
 // variant is reconstructRuntimeFromEnvelope in src/reconstruction/reconstruct_runtime.dart.
 export 'src/reconstruction_runtime/reconstruction_runtime_engines.dart'
     show reconstructRuntime;
+// Canonical Python-aligned build_browser_identity(profileId). The captured-map
+// variant is buildBrowserIdentityFromCapture in src/browser/browser_identity.dart.
+export 'src/identity/browser_identity_canonical.dart' show buildBrowserIdentity;
 export 'src/crypto/kaalka_runtime.dart';
 export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';

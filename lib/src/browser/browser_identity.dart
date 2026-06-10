@@ -1,6 +1,7 @@
 import '../crypto/kaalka_runtime.dart';
 
-Map<String, dynamic> buildBrowserIdentity(Map<String, dynamic> captured) {
+Map<String, dynamic> buildBrowserIdentityFromCapture(
+    Map<String, dynamic> captured) {
   final storageHash =
       computeDeterministicHash(captured['storage'] ?? <String, dynamic>{});
   final routeFingerprint =

@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased] — Final Completion Protocol · Group C (build_browser_identity)
+
+### Changed (BREAKING)
+
+- **`buildBrowserIdentity(profileId)`** now matches the canonical Python contract — a full port
+  of the `core.identity.*` profile-generation subsystem (profile / user-agent / platform /
+  language / timezone / webgl / canvas / font / media-device / navigator engines + entropy +
+  fingerprint + data tables). Proven **Python ≡ JavaScript ≡ Dart** by execution on 4 profiles
+  → **Complete**. The captured-map variant is `buildBrowserIdentityFromCapture`.
+- API parity matrix: **87 Complete · 26 Partial · 15 Deferred · 0 Missing**; 845 tests; 97.17% coverage.
+  Group C done (11 executable-proven APIs).
+
+
 ## [Unreleased] — Final Completion Protocol · Group B complete (executable parity)
 
 ### Changed

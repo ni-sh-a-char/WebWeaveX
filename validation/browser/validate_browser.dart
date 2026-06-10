@@ -13,14 +13,14 @@ Future<void> main() async {
 
   final snapshot =
       await captureRuntimeSnapshot('https://example.com', session: session);
-  final identity = buildBrowserIdentity(snapshot);
+  final identity = buildBrowserIdentityFromCapture(snapshot);
   final spa = stabilizeSpaDom('<div data-reactroot>hello</div>', route: '/');
 
   final results = {
     'session_roundtrip': restored['session_id'] == session['session_id'],
     'snapshot_bounded': snapshot['bounded'] == true,
     'identity_stable': identity['runtime_identity'] ==
-        buildBrowserIdentity(snapshot)['runtime_identity'],
+        buildBrowserIdentityFromCapture(snapshot)['runtime_identity'],
     'spa_framework': spa['framework'] == 'react',
     'spa_hash': (spa['stable_dom_hash'] as String).isNotEmpty,
   };

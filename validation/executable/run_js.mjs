@@ -5,9 +5,11 @@ import { readFileSync } from "node:fs";
 import {
   extractKubernetesRuntime,
   extractDatabaseRuntime,
-  buildBrowserIdentity,
   computeKaalkaHash,
 } from "./src/index.ts";
+// Python `__all__` build_browser_identity(profile_id) is the orchestrator engine;
+// JS's public index exports the captured-map variant (JS-branch divergence).
+import { buildBrowserIdentity } from "./src/identity/browserIdentityOrchestrator.ts";
 // Python `__all__` `build_runtime_memory`/`query_runtime_memory` are the 3-list /
 // (memory, query_type, term) engine functions. JS's PUBLIC index.ts exports the
 // graph-based variants (a JS-branch divergence from Python); for canonical parity

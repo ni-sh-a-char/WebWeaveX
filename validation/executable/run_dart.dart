@@ -14,7 +14,8 @@ import 'package:webweavex/webweavex.dart'
         queryRuntimeGraph,
         validateReplayEquivalence,
         reconstructRuntime,
-        getRuntimeKernel;
+        getRuntimeKernel,
+        buildBrowserIdentity;
 
 Map<String, dynamic>? _asMap(dynamic v) =>
     v == null ? null : Map<String, dynamic>.from(v as Map);
@@ -77,6 +78,8 @@ dynamic _call(String api, List<dynamic> args) {
         'runtime_type':
             getRuntimeKernel(runtimeType: args[0] as String).runtimeKind,
       };
+    case 'build_browser_identity':
+      return buildBrowserIdentity(args[0] as String);
     default:
       throw StateError('unknown/contract-divergent api $api');
   }

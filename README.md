@@ -6,9 +6,9 @@
   <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/pub/v/webweavex?style=flat-square" alt="pub"/></a>
   <img src="https://img.shields.io/badge/Dart-3.3%2B-0175C6?style=flat-square&logo=dart&logoColor=white" alt="Dart"/>
   <img src="https://img.shields.io/badge/parity-11%2F11-22c55e?style=flat-square" alt="Parity"/>
-  <img src="https://img.shields.io/badge/tests-838%20passing-22c55e?style=flat-square" alt="Tests"/>
+  <img src="https://img.shields.io/badge/tests-845%20passing-22c55e?style=flat-square" alt="Tests"/>
   <img src="https://img.shields.io/badge/coverage-97.26%25-22c55e?style=flat-square" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/API%20parity-86%2F126-3b82f6?style=flat-square" alt="API parity"/>
+  <img src="https://img.shields.io/badge/API%20parity-87%2F126-3b82f6?style=flat-square" alt="API parity"/>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="License"/>
   <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Coffee"/></a>
 </p>
@@ -340,7 +340,7 @@ index-tiebreak comparators to match Python's stable `sorted` without extra passe
 dart test
 ```
 
-**838 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel,
+**845 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel,
 browser, connectors, selector-healing, interaction-replay, and the 12 ported runtime families
 (`test/parity/`, `test/engines/`).
 See [`TEST_INVENTORY.md`](TEST_INVENTORY.md) and [`TEST_VALIDATION_REPORT.md`](TEST_VALIDATION_REPORT.md).
