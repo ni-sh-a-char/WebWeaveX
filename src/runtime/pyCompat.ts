@@ -151,6 +151,26 @@ export function eq(a: unknown, b: unknown): boolean {
   return false;
 }
 
+/**
+ * Unicode code-point string comparison (Python `<` semantics).
+ * JS `<` compares UTF-16 code units, which misorders astral-plane characters
+ * (U+10000+) relative to BMP characters in U+E000–U+FFFF.
+ */
+export function codePointCompare(a: string, b: string): number {
+  const ia = a[Symbol.iterator]();
+  const ib = b[Symbol.iterator]();
+  for (;;) {
+    const ra = ia.next();
+    const rb = ib.next();
+    if (ra.done && rb.done) return 0;
+    if (ra.done) return -1;
+    if (rb.done) return 1;
+    const ca = ra.value.codePointAt(0)!;
+    const cb = rb.value.codePointAt(0)!;
+    if (ca !== cb) return ca < cb ? -1 : 1;
+  }
+}
+
 /** Python ordering comparison; supports numbers, strings, booleans, arrays. */
 export function cmp(a: unknown, b: unknown): number {
   if (a instanceof PyFloat) a = a.v;
@@ -169,7 +189,7 @@ export function cmp(a: unknown, b: unknown): number {
   }
   if (typeof a === "string" && typeof b === "string") {
     // Python compares by code point — never locale-dependent.
-    return a < b ? -1 : a > b ? 1 : 0;
+    return codePointCompare(a, b);
   }
   if (Array.isArray(a) && Array.isArray(b)) {
     const n = Math.min(a.length, b.length);
@@ -813,22 +833,41 @@ export function repr(value: unknown): string {
 const REPR_SEEN = new Set<object>();
 
 /** Python str() of a float-typed value: integral floats render as "N.0". */
-export function floatStr(xIn: unknown): string {
-  const x = xIn instanceof PyFloat ? xIn.v : xIn;
-  if (typeof x !== "number") return toStr(x);
-  if (Number.isInteger(x) && Number.isFinite(x)) {
-    if (Math.abs(x) >= 1e16) return x.toExponential();
-    return `${x}.0`;
-  }
-  if (Number.isFinite(x) && x !== 0 && Math.abs(x) < 1e-4) {
-    let s = x.toExponential();
-    s = s.replace(/e([+-])(\d)$/, "e$10$2");
-    return s;
-  }
+/**
+ * Python `repr(float)` for finite doubles: shortest round-trip digits,
+ * positional form for decimal exponents in [-4, 15], otherwise scientific
+ * notation with a sign and at-least-two-digit exponent. JS `String(x)`
+ * uses different thresholds (1e21 / 1e-7), so it cannot be used directly.
+ */
+export function pyFloatRepr(x: number): string {
   if (Number.isNaN(x)) return "nan";
   if (x === Infinity) return "inf";
   if (x === -Infinity) return "-inf";
-  return String(x);
+  if (Number.isInteger(x)) {
+    if (Math.abs(x) >= 1e16) {
+      return x.toExponential().replace(/e([+-])(\d)$/, "e$10$2");
+    }
+    return `${x}.0`;
+  }
+  const m = /^(-?)(\d)(?:\.(\d+))?e([+-])(\d+)$/.exec(x.toExponential())!;
+  const sign = m[1]!;
+  const digits = m[2]! + (m[3] ?? "");
+  const esign = m[4]!;
+  const eabs = parseInt(m[5]!, 10);
+  const exp = esign === "-" ? -eabs : eabs;
+  if (exp < -4 || exp >= 16) {
+    const mant = m[3] ? `${m[2]}.${m[3]}` : m[2]!;
+    return `${sign}${mant}e${esign}${String(eabs).padStart(2, "0")}`;
+  }
+  if (exp < 0) return `${sign}0.${"0".repeat(-exp - 1)}${digits}`;
+  if (digits.length <= exp + 1) return `${sign}${digits.padEnd(exp + 1, "0")}.0`;
+  return `${sign}${digits.slice(0, exp + 1)}.${digits.slice(exp + 1)}`;
+}
+
+export function floatStr(xIn: unknown): string {
+  const x = xIn instanceof PyFloat ? xIn.v : xIn;
+  if (typeof x !== "number") return toStr(x);
+  return pyFloatRepr(x);
 }
 
 export function ord(s: string): number {
@@ -1655,7 +1694,12 @@ export function jsonDumps(value: unknown, opts: JsonDumpsOpts = {}): string {
       if (Number.isNaN(v)) return "NaN";
       if (v === Infinity) return "Infinity";
       if (v === -Infinity) return "-Infinity";
-      return String(v);
+      // Python json.dumps uses repr() thresholds for floats; integers print
+      // plain. Integral values >= 2^63 stay floats in Python/Dart (beyond the
+      // exact int-conversion zone), so they print as float repr here too.
+      return Number.isInteger(v) && Math.abs(v) < 9223372036854775808
+        ? String(v)
+        : pyFloatRepr(v);
     }
     if (typeof v === "string") return encStr(v);
     if (v instanceof PyPath) return encStr(v.toString());
@@ -1683,7 +1727,7 @@ export function jsonDumps(value: unknown, opts: JsonDumpsOpts = {}): string {
       if (seen.has(v)) throw err("ValueError", "Circular reference detected");
       seen.add(v);
       let entries = Object.entries(v as Record<string, unknown>);
-      if (opts.sortKeys) entries = entries.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+      if (opts.sortKeys) entries = entries.sort((a, b) => codePointCompare(a[0], b[0]));
       if (!entries.length) {
         seen.delete(v);
         return "{}";

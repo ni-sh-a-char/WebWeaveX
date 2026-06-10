@@ -163,14 +163,15 @@ describe("deterministic serializer", () => {
   });
 
   it("renders boxed floats with float formatting", () => {
-    expect(dumpsDeterministic({ v: py.F(2) })).toBe('{"v":2.0}');
+    // Integral floats canonicalize to int (cross-language contract).
+    expect(dumpsDeterministic({ v: py.F(2) })).toBe('{"v":2}');
     expect(dumpsDeterministic({ v: py.F(0.16800000000000001) })).toBe('{"v":0.168}');
   });
 
   it("normalizes NFC, clamps non-finite, handles null/bool", () => {
     expect(dumpsDeterministic(["é"])).toBe(dumpsDeterministic(["é"]));
     expect(dumpsDeterministic(Infinity)).toBe("0");
-    expect(dumpsDeterministic(py.F(Infinity))).toBe("0.0");
+    expect(dumpsDeterministic(py.F(Infinity))).toBe("0");
     expect(dumpsDeterministic({ t: true, n: null })).toBe('{"n":null,"t":true}');
     expect(dumpsDeterministic(0.1 + 0.2)).toBe("0.3");
   });
