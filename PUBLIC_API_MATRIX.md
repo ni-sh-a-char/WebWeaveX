@@ -6,8 +6,8 @@
 
 | Status | Count | Meaning |
 |--------|------:|---------|
-| Complete | 88 | Implemented in Dart, name-mapped, exercised by tests |
-| Partial | 25 | Bounded Dart implementation exists; full parity needs live network/browser |
+| Complete | 77 | Implemented in Dart, name-mapped, exercised by tests |
+| Partial | 36 | Bounded Dart implementation exists; full parity needs live network/browser |
 | Deferred | 15 | Requires OS/desktop/Electron/DevTools capabilities not available in-process in Dart |
 | Missing | 0 | Not yet ported |
 
@@ -20,30 +20,30 @@
 | auth | 1 | 0 | 0 | 0 |
 | browser | 0 | 1 | 0 | 0 |
 | causality | 5 | 0 | 0 | 0 |
-| connectors | 8 | 0 | 2 | 0 |
+| connectors | 5 | 3 | 2 | 0 |
 | contracts | 1 | 0 | 0 | 0 |
 | crawling | 0 | 1 | 0 | 0 |
 | crypto | 6 | 0 | 0 | 0 |
-| determinism | 1 | 0 | 0 | 0 |
+| determinism | 0 | 1 | 0 | 0 |
 | distributed_extraction | 2 | 1 | 0 | 0 |
 | documents | 0 | 1 | 0 | 0 |
 | evolution_runtime | 6 | 0 | 0 | 0 |
 | execution | 6 | 0 | 0 | 0 |
 | extract | 0 | 4 | 0 | 0 |
-| identity | 3 | 0 | 0 | 0 |
+| identity | 2 | 1 | 0 | 0 |
 | ingestion | 0 | 1 | 0 | 0 |
 | interaction | 1 | 1 | 2 | 0 |
 | ir | 4 | 5 | 0 | 0 |
-| kernel | 2 | 1 | 0 | 0 |
-| memory | 7 | 0 | 0 | 0 |
+| kernel | 1 | 2 | 0 | 0 |
+| memory | 5 | 2 | 0 | 0 |
 | multimodal | 0 | 1 | 0 | 0 |
 | native | 0 | 0 | 4 | 0 |
 | query | 2 | 3 | 0 | 0 |
 | reasoning | 0 | 1 | 0 | 0 |
-| reconstruction | 6 | 0 | 0 | 0 |
-| replay | 1 | 0 | 0 | 0 |
+| reconstruction | 5 | 1 | 0 | 0 |
+| replay | 0 | 1 | 0 | 0 |
 | repository | 0 | 1 | 0 | 0 |
-| runtime_graph | 2 | 0 | 0 | 0 |
+| runtime_graph | 1 | 1 | 0 | 0 |
 | semantic | 5 | 0 | 0 | 0 |
 | session | 2 | 0 | 0 | 0 |
 | streaming | 2 | 1 | 2 | 0 |
@@ -91,7 +91,7 @@ JavaScript column reflects the certified `javascript` branch (128/128 public API
 | multimodal | `extract_multimodal` | ✅ | — | 🟡 Partial |
 | documents | `extract_document_runtime` | ✅ | — | 🟡 Partial |
 | runtime_graph | `build_runtime_graph` | ✅ | `buildRuntimeGraph` | ✅ Complete |
-| runtime_graph | `query_runtime_graph` | ✅ | `queryRuntimeGraph` | ✅ Complete |
+| runtime_graph | `query_runtime_graph` | ✅ | `queryRuntimeGraph` | 🟡 Partial |
 | interaction | `replay_interactions` | ✅ | `replayInteractions` | 🟡 Partial |
 | interaction | `extract_infinite_scroll` | ✅ | — | ⚪ Deferred |
 | interaction | `extract_paginated_content` | ✅ | — | ⚪ Deferred |
@@ -100,7 +100,7 @@ JavaScript column reflects the certified `javascript` branch (128/128 public API
 | streaming | `capture_dom_mutations` | ✅ | — | ⚪ Deferred |
 | streaming | `replay_stream_events` | ✅ | `replayStreamEvents` | ✅ Complete |
 | streaming | `build_stream_timeline` | ✅ | `buildStreamTimeline` | ✅ Complete |
-| identity | `build_browser_identity` | ✅ | `buildBrowserIdentity` | ✅ Complete |
+| identity | `build_browser_identity` | ✅ | `buildBrowserIdentity` | 🟡 Partial |
 | identity | `save_browser_identity` | ✅ | `saveBrowserIdentity` | ✅ Complete |
 | identity | `load_browser_identity` | ✅ | `loadBrowserIdentity` | ✅ Complete |
 | adaptive | `heal_selector` | ✅ | `healSelector` | 🟡 Partial |
@@ -147,23 +147,23 @@ JavaScript column reflects the certified `javascript` branch (128/128 public API
 | evolution_runtime | `evolve_selector_runtime` | ✅ | `evolveSelectorRuntime` | ✅ Complete |
 | evolution_runtime | `save_evolution_runtime` | ✅ | `saveEvolutionRuntime` | ✅ Complete |
 | evolution_runtime | `load_evolution_runtime` | ✅ | `loadEvolutionRuntime` | ✅ Complete |
-| connectors | `extract_database_runtime` | ✅ | `extractDatabaseRuntime` | ✅ Complete |
+| connectors | `extract_database_runtime` | ✅ | `extractDatabaseRuntime` | 🟡 Partial |
 | connectors | `extract_api_runtime` | ✅ | `extractApiRuntime` | ✅ Complete |
 | connectors | `extract_runtime_streams` | ✅ | `extractRuntimeStreams` | ✅ Complete |
 | connectors | `extract_container_runtime` | ✅ | — | ⚪ Deferred |
-| connectors | `extract_kubernetes_runtime` | ✅ | `extractKubernetesRuntime` | ✅ Complete |
+| connectors | `extract_kubernetes_runtime` | ✅ | `extractKubernetesRuntime` | 🟡 Partial |
 | connectors | `extract_telemetry_runtime` | ✅ | `extractTelemetryRuntime` | ✅ Complete |
 | connectors | `extract_ide_runtime` | ✅ | — | ⚪ Deferred |
-| connectors | `run_live_runtime` | ✅ | `runLiveRuntime` | ✅ Complete |
+| connectors | `run_live_runtime` | ✅ | `runLiveRuntime` | 🟡 Partial |
 | connectors | `save_live_runtime` | ✅ | `saveLiveRuntime` | ✅ Complete |
 | connectors | `load_live_runtime` | ✅ | `loadLiveRuntime` | ✅ Complete |
 | memory | `run_runtime_memory` | ✅ | `runRuntimeMemory` | ✅ Complete |
 | memory | `run_memory_for_extraction` | ✅ | `runMemoryForExtraction` | ✅ Complete |
-| memory | `build_runtime_memory` | ✅ | `buildRuntimeMemory` | ✅ Complete |
+| memory | `build_runtime_memory` | ✅ | `buildRuntimeMemory` | 🟡 Partial |
 | memory | `save_runtime_memory` | ✅ | `saveRuntimeMemory` | ✅ Complete |
 | memory | `load_runtime_memory` | ✅ | `loadRuntimeMemory` | ✅ Complete |
 | memory | `search_runtime_memory` | ✅ | `searchRuntimeMemory` | ✅ Complete |
-| memory | `query_runtime_memory` | ✅ | `queryRuntimeMemory` | ✅ Complete |
+| memory | `query_runtime_memory` | ✅ | `queryRuntimeMemory` | 🟡 Partial |
 | execution | `run_execution_runtime` | ✅ | `runExecutionRuntime` | ✅ Complete |
 | execution | `run_execution_for_extraction` | ✅ | `runExecutionForExtraction` | ✅ Complete |
 | execution | `execute_runtime_action` | ✅ | `executeRuntimeAction` | ✅ Complete |
@@ -172,16 +172,16 @@ JavaScript column reflects the certified `javascript` branch (128/128 public API
 | execution | `replay_runtime_execution` | ✅ | `replayRuntimeExecution` | ✅ Complete |
 | reconstruction | `run_reconstruction_runtime` | ✅ | `runReconstructionRuntime` | ✅ Complete |
 | reconstruction | `run_reconstruction_for_extraction` | ✅ | `runReconstructionForExtraction` | ✅ Complete |
-| reconstruction | `reconstruct_runtime` | ✅ | `reconstructRuntime` | ✅ Complete |
+| reconstruction | `reconstruct_runtime` | ✅ | `reconstructRuntime` | 🟡 Partial |
 | reconstruction | `fabricate_runtime_reality` | ✅ | `fabricateRuntimeReality` | ✅ Complete |
 | reconstruction | `clone_runtime_environment` | ✅ | `cloneRuntimeEnvironment` | ✅ Complete |
 | reconstruction | `validate_reconstructed_runtime` | ✅ | `validateReconstructedRuntime` | ✅ Complete |
 | kernel | `RuntimeKernel` | ✅ | `RuntimeKernel` | ✅ Complete |
-| kernel | `get_runtime_kernel` | ✅ | `getRuntimeKernel` | ✅ Complete |
+| kernel | `get_runtime_kernel` | ✅ | `getRuntimeKernel` | 🟡 Partial |
 | kernel | `run_canonical_pipeline` | ✅ | `runCanonicalPipeline` | 🟡 Partial |
 | contracts | `UniversalInput` | ✅ | `UniversalInput` | ✅ Complete |
-| determinism | `compute_global_runtime_fingerprint` | ✅ | `computeGlobalRuntimeFingerprint` | ✅ Complete |
-| replay | `validate_replay_equivalence` | ✅ | `validateReplayEquivalence` | ✅ Complete |
+| determinism | `compute_global_runtime_fingerprint` | ✅ | `computeGlobalRuntimeFingerprint` | 🟡 Partial |
+| replay | `validate_replay_equivalence` | ✅ | `validateReplayEquivalence` | 🟡 Partial |
 | ir | `compile_unified_runtime_ir` | ✅ | `compileUnifiedRuntimeIr` | ✅ Complete |
 | ir | `__version__` | ✅ | `version` | ✅ Complete |
 | ir | `version` | ✅ | `version` | ✅ Complete |

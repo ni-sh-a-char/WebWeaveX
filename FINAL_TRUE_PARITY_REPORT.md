@@ -10,7 +10,7 @@
 |----------------|---------------:|-------|
 | **Python** (`webweavex.__all__`) | 126 | source of truth (`origin/python`) |
 | **JavaScript** | 126 / 126 | full reference (`origin/javascript`) |
-| **Dart** | **88 Complete · 25 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
+| **Dart** | **77 Complete · 36 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
 
 ## 2. Proof standard (enforced, not assumed)
 
@@ -21,37 +21,49 @@
 | Deferred | needs external capability not in the Dart VM | documented reason |
 | Missing | absent | — |
 
-## 3. Phase-3 proof-coverage audit (every COMPLETE API)
+## 3. Proof Coverage Audit (every COMPLETE API) — `COMPLETE_API_PROOF_MATRIX.md`
 
-Measured by `tools/proof_coverage.py` (matrix Complete rows × test references × vector files):
+Measured by `tools/complete_proof_audit.py` (matrix Complete rows × Python/JS/Dart sources ×
+proof vectors × parity tests). Strongest proof per API:
 
-- **88 Complete rows; 88 have a Dart symbol; 88 are referenced in an executed test. 0 untested.**
-- The **foundational deterministic core is proven three-way** — `validate_parity.dart` now asserts
-  Dart against **both** the JavaScript and Python reference vectors:
-  **Python ≡ JavaScript ≡ Dart** for all 11 core vectors (hash + encrypt + decrypt + determinism).
-  Independently re-verified: Dart `computeDeterministicHash` byte-equals Python 2.0.1
-  `compute_kaalka_hash` (`{...}` → `222135f9…370f`).
-- The **12 runtime-cognition families** are proven by ~145 hash vectors in
-  `validation/parity/*_api_vectors.json` asserted in `test/parity/` (`computeDeterministicHash(dartOut)
-  == Python det_hash`), plus save/load roundtrips for the persistence pairs.
+| Proof type | Count | Meaning |
+|------------|------:|---------|
+| VECTOR | 49 | `det_hash`/deep-equality vector in `validation/parity/*.json` |
+| ROUNDTRIP | 22 | save → load → deep-equality (Kaalka persistence) |
+| CORE_VECTOR | 4 | three-way crypto core + the `graph` case (Python ≡ JS ≡ Dart) |
 
-## 4. Honest finding — name-parity vs signature-parity
+**Result: 75/75 functional Complete APIs PROVEN** (the 2 remaining rows are the
+`version`/`__version__` constants, self-proving). The foundational deterministic core is proven
+three-way — `validate_parity.dart` asserts Dart against **both** the JavaScript and Python
+reference vectors (11 core vectors). Independently re-verified: Dart `computeDeterministicHash`
+byte-equals Python 2.0.1 `compute_kaalka_hash` (`222135f9…370f`). Full table:
+`COMPLETE_API_PROOF_MATRIX.md`.
 
-A subset of name-mapped **Complete** APIs are **native Dart re-implementations whose signatures
-intentionally diverge from the Python function signatures**, while sharing the proven-identical
-deterministic core. These are Complete as Dart contracts and deterministic, but are **not
-byte-for-byte signature ports**:
+**11 APIs downgraded Complete → Partial by this audit** (two passes), because they carried only a
+determinism/structural test (no vector/deep-equality/roundtrip) AND the Dart contract/output
+diverges from Python, so a passing proof vector cannot be produced without new implementation:
+- Pass 1: `compute_global_runtime_fingerprint`, `query_runtime_graph`, `reconstruct_runtime`,
+  `extract_database_runtime`, `extract_kubernetes_runtime`, `run_live_runtime`.
+- Pass 2: `build_browser_identity`, `build_runtime_memory`, `query_runtime_memory`,
+  `validate_replay_equivalence`, `get_runtime_kernel`.
 
-| API | Python signature | Dart signature | Shared proven core |
-|-----|------------------|----------------|--------------------|
-| `compute_global_runtime_fingerprint` | `(extraction, graph, memory, sync, reconstruction, kaalka_seal)` | `(envelope, RuntimeGraph)` | `computeDeterministicHash` |
-| `query_runtime_graph` | `(graph: dict, query: dict)` | `(RuntimeGraph, {nodeType})` | graph fingerprint |
-| `build_browser_identity` | `(profile_id: str)` | `(captured: Map)` | hash/serialize |
-| `build_runtime_graph` | list-of-IRs merge | dict-based builder (+ private list variant) | sorted-graph fingerprint |
+See `PARTIAL_API_AUDIT.md`. This is the audit working as intended — Complete now means **proven**,
+not merely named.
 
-This is disclosed, not hidden: the Dart API provides the same capability with a Dart-idiomatic
-contract, and every value it emits flows through the cross-language-proven hash/serialize layer.
-Where a caller needs the exact Python I/O shape, that is the documented bounded edge.
+## 4. Honest finding — name-parity vs signature-parity (resolved by downgrade)
+
+The audit found that the "name-mapped Complete but Dart-signature-divergent" APIs were exactly the
+ones lacking cross-language proof. Rather than leave them as Complete-by-name, **they were
+downgraded to Partial** (see §3 and `PARTIAL_API_AUDIT.md`) — e.g.
+`compute_global_runtime_fingerprint` `(envelope, RuntimeGraph)` vs Python's 6-arg formula;
+`query_runtime_graph` typed-graph vs dict-query; `build_browser_identity` `(captured)` vs
+`(profile_id)`. This removes the ambiguity: a Complete classification no longer hides a divergent
+contract.
+
+The one signature-divergent API that **stays Complete** is `build_runtime_graph` — its Dart
+dict-based output is proven cross-language by the core `graph` vector
+(`buildRuntimeGraph(...).toJson()` hash-matches the JS and Python references), so it is genuinely
+proven despite the Dart-idiomatic input shape.
 
 ## 5. Wave-4 parity gains (this session)
 

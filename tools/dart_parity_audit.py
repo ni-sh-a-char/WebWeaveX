@@ -38,7 +38,6 @@ DEFERRED_APIS = {
     "extract_native", "run_native_cognition", "save_native_runtime",
     "load_native_runtime",
     "extract_ide_runtime", "extract_container_runtime",
-    "extract_kubernetes_runtime",
     "run_application_cognition", "execute_runtime_objective",
     "save_application_memory", "load_application_memory",
     "recover_modal_runtime",
@@ -134,6 +133,35 @@ FORCE_PARTIAL = {
     # (proven by 6 deep-equality vectors vs Python 2.0.1); the live-page action
     # dispatch (_ACTION_DISPATCH) drives a real browser and is the bounded edge.
     "replay_interactions",
+    # Proof Coverage Audit (2026-06-10) downgrades — these had a Dart symbol but
+    # NO cross-language proof; the Dart contract/output diverges from Python, so a
+    # passing proof vector cannot be generated without new implementation:
+    #   compute_global_runtime_fingerprint - Dart (envelope, RuntimeGraph) hashes a
+    #     Dart-specific {pipeline_hash, graph, bounded}; Python formula differs.
+    #   query_runtime_graph - Dart returns a typed RuntimeGraph filtered by nodeType;
+    #     Python takes/returns dicts (graph, query).
+    #   reconstruct_runtime - Dart reconstructs from one `extraction` envelope; Python
+    #     composes from separate IRs (semantic/workflow/sync/execution/memory).
+    #   extract_database_runtime / extract_kubernetes_runtime - Dart returns a reduced
+    #     bounded field set vs Python's richer snapshot (k8s: 3 fields vs 9).
+    #   run_live_runtime - Dart performs live (non-deterministic) filesystem listing
+    #     and a reduced signature.
+    "compute_global_runtime_fingerprint", "query_runtime_graph",
+    "reconstruct_runtime", "extract_database_runtime",
+    "extract_kubernetes_runtime", "run_live_runtime",
+    # Second Proof Coverage Audit pass (2026-06-10): these had only a
+    # determinism/structural test (no cross-language vector / deep-equality) and
+    # the Dart contract diverges from Python:
+    #   build_browser_identity - Dart (captured: Map) vs Python (profile_id: str).
+    #   build_runtime_memory - Dart (RuntimeGraph) vs Python (runtime_history,
+    #     lineage, semantic_relations lists).
+    #   query_runtime_memory - Dart (mem, key) vs Python (memory, query_type, term).
+    #   validate_replay_equivalence - Dart `checks` are {name, ok}; Python carries
+    #     {name, ok, original, replay} hash fields from a different fingerprint formula.
+    #   get_runtime_kernel - accessor returning a RuntimeKernel object; no own vector
+    #     (RuntimeKernel.compileIr is separately proven).
+    "build_browser_identity", "build_runtime_memory", "query_runtime_memory",
+    "validate_replay_equivalence", "get_runtime_kernel",
 }
 
 
