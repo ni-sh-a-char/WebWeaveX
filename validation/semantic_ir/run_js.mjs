@@ -164,6 +164,31 @@ import { semanticTruthLimits } from "./src/evidence/semanticTruthLimitEngine.ts"
 import { detectSemanticUniformity } from "./src/evidence/semanticUniformityEngine.ts";
 import { detectUnsupportedExpansion } from "./src/evidence/unsupportedExpansionEngine.ts";
 import { modelUnsupportedScope } from "./src/evidence/unsupportedScopeEngine.ts";
+// A.3 batch 3 — evidence medium leaves
+import { applyConfidenceCaps } from "./src/evidence/confidenceCapEngine.ts";
+import { buildContradictionLattice } from "./src/evidence/contradictionLatticeEngine.ts";
+import { preserveEpistemicBoundaries } from "./src/evidence/epistemicBoundaryEngine.ts";
+import { modelEpistemicLimits } from "./src/evidence/epistemicLimitEngine.ts";
+import { combineEvidence } from "./src/evidence/evidenceAlgebraEngine.ts";
+import { weightEvidenceCalculus } from "./src/evidence/evidenceWeightingCalculus.ts";
+import { buildExplainability } from "./src/evidence/explainabilityEngine.ts";
+import { modelInferenceIntegrity } from "./src/evidence/inferenceIntegrityEngine.ts";
+import { terminateInferenceChain } from "./src/evidence/inferenceTerminationEngine.ts";
+import { preserveInstability } from "./src/evidence/instabilityPreservationEngine.ts";
+import { markInsufficiency } from "./src/evidence/insufficiencyEngine.ts";
+import { modelInterpretiveDiversity } from "./src/evidence/interpretiveDiversityEngine.ts";
+import { buildLineage } from "./src/evidence/lineageEngine.ts";
+import { modelNoninferableRegions } from "./src/evidence/noninferableScopeEngine.ts";
+import { modelNoninference } from "./src/evidence/noninferenceEngine.ts";
+import { buildProvenance } from "./src/evidence/provenanceEngine.ts";
+import { modelRecursiveEntropy } from "./src/evidence/recursiveEntropyEngine.ts";
+import { modelRecursiveInstability } from "./src/evidence/recursiveInstabilityEngine.ts";
+import { preserveRecursiveLineage } from "./src/evidence/recursiveLineageEngine.ts";
+import { detectSpeculativeCoherence } from "./src/evidence/speculativeCoherenceEngine.ts";
+import { buildSupport } from "./src/evidence/semanticSupportEngine.ts";
+import { buildWeaknesses } from "./src/evidence/semanticWeaknessEngine.ts";
+import { buildTraceability } from "./src/evidence/traceabilityEngine.ts";
+import { refuseUnsupportedStabilization } from "./src/evidence/truthRefusalEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -284,6 +309,30 @@ const A3_REGISTRY = {
   detect_semantic_uniformity: detectSemanticUniformity,
   detect_unsupported_expansion: detectUnsupportedExpansion,
   model_unsupported_scope: modelUnsupportedScope,
+  apply_confidence_caps: applyConfidenceCaps,
+  build_contradiction_lattice: buildContradictionLattice,
+  preserve_epistemic_boundaries: preserveEpistemicBoundaries,
+  model_epistemic_limits: modelEpistemicLimits,
+  combine_evidence: combineEvidence,
+  weight_evidence_calculus: weightEvidenceCalculus,
+  build_explainability: buildExplainability,
+  model_inference_integrity: modelInferenceIntegrity,
+  terminate_inference_chain: terminateInferenceChain,
+  preserve_instability: preserveInstability,
+  mark_insufficiency: markInsufficiency,
+  model_interpretive_diversity: modelInterpretiveDiversity,
+  build_lineage: buildLineage,
+  model_noninferable_regions: modelNoninferableRegions,
+  model_noninference: modelNoninference,
+  build_provenance: buildProvenance,
+  model_recursive_entropy: modelRecursiveEntropy,
+  model_recursive_instability: modelRecursiveInstability,
+  preserve_recursive_lineage: preserveRecursiveLineage,
+  detect_speculative_coherence: detectSpeculativeCoherence,
+  build_support: buildSupport,
+  build_weaknesses: buildWeaknesses,
+  build_traceability: buildTraceability,
+  refuse_unsupported_stabilization: refuseUnsupportedStabilization,
 };
 
 const VOLATILE = new Set([

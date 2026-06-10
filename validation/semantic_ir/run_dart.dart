@@ -9,6 +9,7 @@ import 'package:webweavex/src/semantic_ir/ast_engines.dart';
 import 'package:webweavex/src/semantic_ir/document_parser.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_2.dart';
+import 'package:webweavex/src/semantic_ir/evidence_leaves_3.dart';
 import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
@@ -135,6 +136,30 @@ final Map<String, Function> a3Registry = <String, Function>{
   'detect_semantic_uniformity': detectSemanticUniformity,
   'detect_unsupported_expansion': detectUnsupportedExpansion,
   'model_unsupported_scope': modelUnsupportedScope,
+  'apply_confidence_caps': applyConfidenceCaps,
+  'build_contradiction_lattice': buildContradictionLattice,
+  'preserve_epistemic_boundaries': preserveEpistemicBoundaries,
+  'model_epistemic_limits': modelEpistemicLimits,
+  'combine_evidence': combineEvidence,
+  'weight_evidence_calculus': weightEvidenceCalculus,
+  'build_explainability': buildExplainability,
+  'model_inference_integrity': modelInferenceIntegrity,
+  'terminate_inference_chain': terminateInferenceChain,
+  'preserve_instability': preserveInstability,
+  'mark_insufficiency': markInsufficiency,
+  'model_interpretive_diversity': modelInterpretiveDiversity,
+  'build_lineage': buildLineage,
+  'model_noninferable_regions': modelNoninferableRegions,
+  'model_noninference': modelNoninference,
+  'build_provenance': buildProvenance,
+  'model_recursive_entropy': modelRecursiveEntropy,
+  'model_recursive_instability': modelRecursiveInstability,
+  'preserve_recursive_lineage': preserveRecursiveLineage,
+  'detect_speculative_coherence': detectSpeculativeCoherence,
+  'build_support': buildSupport,
+  'build_weaknesses': buildWeaknesses,
+  'build_traceability': buildTraceability,
+  'refuse_unsupported_stabilization': refuseUnsupportedStabilization,
 };
 
 List<Map<String, dynamic>> _claims(dynamic v) => <Map<String, dynamic>>[

@@ -18,11 +18,12 @@
 | A.2 | non-evidence leaves: `core.semantic` pressure ×10, `core.ir._base` ×3, `core.graph` ×3, `core.repository` ×5, `core.ast` ×3 | 24 | Python ≡ JS ≡ Dart, 54 fixtures (66/66 incl. A.1, hash + deep equality) | ✅ proven |
 | A.3 b1 | `core.evidence` trivial leaves (record-shaped bool/count/round engines) | 60 | Python ≡ JS ≡ Dart, 119 fixtures (185/185 cumulative, hash + deep equality) | ✅ proven |
 | A.3 b2 | `core.evidence` leaves: recursive/semantic/unsupported families (incl. sorted/set/round + deep-equality sites) | 57 | Python ≡ JS ≡ Dart, 113 fixtures (298/298 cumulative, hash + deep equality) | ✅ proven |
-| A.3 b3… | remaining `core.evidence` public leaves (the 11–37-line engines: confidence caps, contradiction lattice, evidence algebra/weighting, explainability, lineage/provenance/traceability, semantic confidence/conservatism/drift/fragility/stability, uncertainty, noninference, …) | 0 / 51 | — | pending |
+| A.3 b3 | `core.evidence` medium leaves: confidence caps, contradiction lattice, evidence algebra/weighting, explainability, lineage/provenance/traceability, noninference, instability | 24 | Python ≡ JS ≡ Dart, 51 fixtures (349/349 cumulative, hash + deep equality) | ✅ proven |
+| A.3 b4… | remaining `core.evidence` public leaves (the semantic_* heavy cluster: confidence/conservatism/consistency/decay/drift/entropy/fragility/honesty/incompleteness/inference/instability/justification/limits/overreach/plurality/proof/refusal/self-limitation/stability + uncertainty/visibility/escalation) | 0 / 27 | — | pending |
 | — | 13 private leaf helpers (`_depth`×4, `_record`×3, `_suppression_record`×2, `_lineage_depth`, `_closure_record`, `_continuation_record`, `_stabilization_record`) | deferred | proven through their module's public parent (only callers) | deferred |
 | B–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
-Phase-A leaves proven: **146 / 212** (plus 2 reclassified below; 13 privates fold into their parents' phases — several share the name `_depth`/`_record` across modules, which the fn-name-keyed harness can't address directly).
+Phase-A leaves proven: **170 / 212** (plus 2 reclassified below; 13 privates fold into their parents' phases — several share the name `_depth`/`_record` across modules, which the fn-name-keyed harness can't address directly).
 
 ## A.1 — document-parser leaves (proven)
 
@@ -94,6 +95,23 @@ sorted sets), `expose_ambiguity_visibility`/`preserve_recursive_uncertainty`
 - Test: `test/parity/semantic_ir_a3b_test.dart` (+117 tests → 1171 total, all passing).
 - Cumulative proof: **298/298 fixtures** pass 3-way hash + deep equality.
 
+## A.3 batch 3 — evidence medium leaves (proven)
+
+24 engines ported to `lib/src/semantic_ir/evidence_leaves_3.dart`. Determinism
+sites proven bit-exact by execution: `apply_confidence_caps` (stacked rounded
+penalties, `float()` cap coercion, floor at 0.0, float-formatted f-strings),
+`combine_evidence`/`weight_evidence_calculus` (Python's empty `sum()` stays
+**int 0** — payload `0` not `0.0`), `build_contradiction_lattice` (stringified
+pair tuples in lexicographic tuple order), `terminate_inference_chain`
+(`stop_at` is the pre-sort first element), `model_noninference` /
+`detect_speculative_coherence` (structural `!=` via `pyDeepEq`),
+`build_explainability` (eager nested-get fallbacks, `{}`-is-falsy language
+default), `build_lineage` (per-stage `step_{idx}` defaults, list-typed guards).
+
+- Vectors: `validation/parity/semantic_ir_a3c_vectors.json` (51, from executed Python).
+- Test: `test/parity/semantic_ir_a3c_test.dart` (+56 tests → 1227 total, all passing).
+- Cumulative proof: **349/349 fixtures** pass 3-way hash + deep equality.
+
 ## Plan corrections (recomputed from source, rule 10)
 
 1. **`parse_source` is NOT a Phase-A leaf.** `core.parsers.parser_registry.parse_source`
@@ -139,12 +157,12 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-A.3 batch 3+: the remaining 51 `core.evidence` public leaves — the medium/heavy
-engines (11–37 lines each, ~800 lines total: `apply_confidence_caps`,
-`build_contradiction_lattice`, `combine_evidence`, `weight_evidence_calculus`,
-`build_explainability`, `build_lineage`/`build_provenance`/`build_traceability`,
-`score_semantic_confidence`, `apply_semantic_conservatism`, `detect_semantic_drift`,
-`model_fragility`, `model_semantic_stability`, `model_uncertainty`,
-`model_noninference`, …) in proven batches; the 13 private leaf helpers prove
+A.3 batch 4 (final Phase-A batch): the 27 remaining `core.evidence` public leaves —
+the semantic_* heavy cluster (`score_semantic_confidence` 37L,
+`apply_semantic_conservatism` 29L, `model_fragility` 35L, `detect_semantic_drift`,
+`model_semantic_stability`, `model_uncertainty`, `infer_from_evidence`,
+`build_justification`, `prove_semantic_claim`, `refuse_unsupported_conclusions`,
+`apply_semantic_self_limitation`, `expose_uncertainty_visibility`,
+`block_unsupported_confidence_escalation`, …). The 13 private leaf helpers prove
 through their parents; then ascend layers B→O until the 6 dispatchers close with
 executable parity.

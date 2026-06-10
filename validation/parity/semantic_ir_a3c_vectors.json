@@ -1,0 +1,1427 @@
+[
+  {
+    "id": "a3c-caps-full",
+    "fn": "apply_confidence_caps",
+    "args": [
+      0.9,
+      {
+        "confidence_limits": {
+          "max_score": 0.8
+        },
+        "level": "high"
+      },
+      2,
+      3,
+      1
+    ],
+    "expected": {
+      "score": 0.0,
+      "caps": {
+        "fragility_max": 0.8
+      },
+      "fragility_penalties": {
+        "amount": 0.25,
+        "level": "high"
+      },
+      "contradiction_penalties": {
+        "amount": 0.24,
+        "count": 2
+      },
+      "ambiguity_penalties": {
+        "amount": 0.24,
+        "count": 3
+      },
+      "unsupported_expansion_penalties": {
+        "amount": 0.1,
+        "count": 1
+      },
+      "deterministic_inputs": [
+        "cap=0.8",
+        "contradict=2",
+        "ambig=3",
+        "expand=1"
+      ]
+    }
+  },
+  {
+    "id": "a3c-caps-defaults",
+    "fn": "apply_confidence_caps",
+    "args": [
+      0.7,
+      {}
+    ],
+    "expected": {
+      "score": 0.58,
+      "caps": {
+        "fragility_max": 0.85
+      },
+      "fragility_penalties": {
+        "amount": 0.12,
+        "level": null
+      },
+      "contradiction_penalties": {
+        "amount": 0.0,
+        "count": 0
+      },
+      "ambiguity_penalties": {
+        "amount": 0.0,
+        "count": 0
+      },
+      "unsupported_expansion_penalties": {
+        "amount": 0.0,
+        "count": 0
+      },
+      "deterministic_inputs": [
+        "cap=0.85",
+        "contradict=0",
+        "ambig=0",
+        "expand=0"
+      ]
+    }
+  },
+  {
+    "id": "a3c-caps-floor",
+    "fn": "apply_confidence_caps",
+    "args": [
+      0.3,
+      {
+        "level": "medium"
+      },
+      5,
+      5,
+      5
+    ],
+    "expected": {
+      "score": 0.0,
+      "caps": {
+        "fragility_max": 0.85
+      },
+      "fragility_penalties": {
+        "amount": 0.12,
+        "level": "medium"
+      },
+      "contradiction_penalties": {
+        "amount": 0.35,
+        "count": 5
+      },
+      "ambiguity_penalties": {
+        "amount": 0.25,
+        "count": 5
+      },
+      "unsupported_expansion_penalties": {
+        "amount": 0.2,
+        "count": 5
+      },
+      "deterministic_inputs": [
+        "cap=0.85",
+        "contradict=5",
+        "ambig=5",
+        "expand=5"
+      ]
+    }
+  },
+  {
+    "id": "a3c-lattice-mixed",
+    "fn": "build_contradiction_lattice",
+    "args": [
+      [
+        [
+          "z",
+          "y"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "b",
+          "extra"
+        ],
+        "junk",
+        [
+          "solo"
+        ]
+      ]
+    ],
+    "expected": {
+      "pairs": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "z",
+          "y"
+        ]
+      ],
+      "count": 3,
+      "pressure": 0.75,
+      "rigor": "lattice_enumeration",
+      "deterministic_inputs": [
+        "pair_count=3",
+        "pressure=0.75"
+      ]
+    }
+  },
+  {
+    "id": "a3c-lattice-empty",
+    "fn": "build_contradiction_lattice",
+    "args": [
+      null
+    ],
+    "expected": {
+      "pairs": [],
+      "count": 0,
+      "pressure": 0.0,
+      "rigor": "lattice_enumeration",
+      "deterministic_inputs": [
+        "pair_count=0",
+        "pressure=0.0"
+      ]
+    }
+  },
+  {
+    "id": "a3c-epibound-broken",
+    "fn": "preserve_epistemic_boundaries",
+    "args": [
+      [
+        "e1"
+      ],
+      [
+        "n1"
+      ],
+      [
+        "u1",
+        "u2"
+      ]
+    ],
+    "expected": {
+      "visible": true,
+      "where_inference_stops": [
+        "n1"
+      ],
+      "where_cognition_stops": [
+        "u1",
+        "u2"
+      ],
+      "where_reconstruction_stops": [
+        "u1",
+        "u2"
+      ],
+      "suppress_stabilization": true,
+      "suppress_coherence": true
+    }
+  },
+  {
+    "id": "a3c-epibound-ok",
+    "fn": "preserve_epistemic_boundaries",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      [],
+      []
+    ],
+    "expected": {
+      "visible": true,
+      "where_inference_stops": [],
+      "where_cognition_stops": [],
+      "where_reconstruction_stops": [],
+      "suppress_stabilization": false,
+      "suppress_coherence": false
+    }
+  },
+  {
+    "id": "a3c-epilim-all",
+    "fn": "model_epistemic_limits",
+    "args": [
+      [],
+      0,
+      {
+        "level": "high",
+        "confidence_limits": {
+          "max_score": 0.3
+        }
+      }
+    ],
+    "expected": {
+      "cannot_conclude": [
+        "definitive_semantic_conclusion",
+        "high_confidence_claim",
+        "parser_grounded_conclusion"
+      ],
+      "exceeds_evidence": true,
+      "exceeds_parser_grounding": true,
+      "exceeds_corroboration": true,
+      "max_confidence": 0.3
+    }
+  },
+  {
+    "id": "a3c-epilim-none",
+    "fn": "model_epistemic_limits",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      4,
+      {
+        "level": "low"
+      }
+    ],
+    "expected": {
+      "cannot_conclude": [],
+      "exceeds_evidence": false,
+      "exceeds_parser_grounding": false,
+      "exceeds_corroboration": false,
+      "max_confidence": 0.5
+    }
+  },
+  {
+    "id": "a3c-algebra-weighted",
+    "fn": "combine_evidence",
+    "args": [
+      [
+        "b",
+        "a",
+        "",
+        "b"
+      ],
+      {
+        "a": 0.5,
+        "b": 0.75
+      }
+    ],
+    "expected": {
+      "items": [
+        "a",
+        "b"
+      ],
+      "count": 2,
+      "weight_sum": 1.25,
+      "sufficient": true,
+      "deterministic_inputs": [
+        "count=2",
+        "weight_sum=1.25"
+      ]
+    }
+  },
+  {
+    "id": "a3c-algebra-default",
+    "fn": "combine_evidence",
+    "args": [
+      [
+        "x",
+        "y"
+      ]
+    ],
+    "expected": {
+      "items": [
+        "x",
+        "y"
+      ],
+      "count": 2,
+      "weight_sum": 2.0,
+      "sufficient": true,
+      "deterministic_inputs": [
+        "count=2",
+        "weight_sum=2.0"
+      ]
+    }
+  },
+  {
+    "id": "a3c-algebra-empty",
+    "fn": "combine_evidence",
+    "args": [
+      []
+    ],
+    "expected": {
+      "items": [],
+      "count": 0,
+      "weight_sum": 0,
+      "sufficient": false,
+      "deterministic_inputs": [
+        "count=0",
+        "weight_sum=0"
+      ]
+    }
+  },
+  {
+    "id": "a3c-calc-parser",
+    "fn": "weight_evidence_calculus",
+    "args": [
+      [
+        "parser:sym",
+        "doc:a",
+        "doc:b"
+      ],
+      true
+    ],
+    "expected": {
+      "weights": {
+        "doc:a": 0.85,
+        "doc:b": 0.85,
+        "parser:sym": 1.0
+      },
+      "total": 2.7,
+      "parser_backed": true,
+      "deterministic_inputs": [
+        "items=3",
+        "total=2.7"
+      ]
+    }
+  },
+  {
+    "id": "a3c-calc-textual",
+    "fn": "weight_evidence_calculus",
+    "args": [
+      [
+        "doc:a",
+        "doc:b"
+      ]
+    ],
+    "expected": {
+      "weights": {
+        "doc:a": 0.6,
+        "doc:b": 0.6
+      },
+      "total": 1.2,
+      "parser_backed": false,
+      "deterministic_inputs": [
+        "items=2",
+        "total=1.2"
+      ]
+    }
+  },
+  {
+    "id": "a3c-calc-empty",
+    "fn": "weight_evidence_calculus",
+    "args": [
+      []
+    ],
+    "expected": {
+      "weights": {},
+      "total": 0,
+      "parser_backed": false,
+      "deterministic_inputs": [
+        "items=0",
+        "total=0"
+      ]
+    }
+  },
+  {
+    "id": "a3c-explain-full",
+    "fn": "build_explainability",
+    "args": [
+      {
+        "language": "python",
+        "parser_evidence": {
+          "ast": true
+        },
+        "semantic_graph": {
+          "nodes": [
+            {
+              "id": "n1"
+            }
+          ],
+          "edges": []
+        }
+      },
+      {
+        "score": 0.42,
+        "deterministic_inputs": [
+          "s=1"
+        ]
+      },
+      {
+        "grounding": {
+          "symbol_count": 7
+        },
+        "evidence": [
+          "z",
+          "a"
+        ]
+      }
+    ],
+    "expected": {
+      "parser_basis": {
+        "language": "python",
+        "flags": {
+          "ast": true
+        },
+        "symbol_count": 7
+      },
+      "graph_basis": {
+        "nodes": 1,
+        "edges": 0
+      },
+      "semantic_basis": {
+        "confidence_score": 0.42,
+        "deterministic_inputs": [
+          "s=1"
+        ]
+      },
+      "summary": [
+        "a",
+        "z"
+      ]
+    }
+  },
+  {
+    "id": "a3c-explain-null",
+    "fn": "build_explainability",
+    "args": [
+      null,
+      {},
+      {}
+    ],
+    "expected": {
+      "parser_basis": {
+        "language": "unknown",
+        "flags": {},
+        "symbol_count": 0
+      },
+      "graph_basis": {},
+      "semantic_basis": {
+        "confidence_score": 0.0,
+        "deterministic_inputs": []
+      },
+      "summary": []
+    }
+  },
+  {
+    "id": "a3c-integrity-explicit",
+    "fn": "model_inference_integrity",
+    "args": [
+      [
+        "e1"
+      ],
+      [
+        "s2",
+        "s1"
+      ],
+      [
+        "c1"
+      ],
+      {
+        "level": "high",
+        "basis": {
+          "b": 1
+        },
+        "confidence_limits": {
+          "max_score": 0.4
+        },
+        "missing_support": [
+          "m1"
+        ],
+        "contradiction_pressure": [
+          "p1"
+        ]
+      },
+      [
+        "x1"
+      ]
+    ],
+    "expected": {
+      "basis": {
+        "b": 1
+      },
+      "supporting_evidence": [
+        "s1",
+        "s2"
+      ],
+      "contradicting_evidence": [
+        "c1"
+      ],
+      "missing_evidence": [
+        "x1"
+      ],
+      "uncertainty_factors": [
+        "p1"
+      ],
+      "confidence_caps": [
+        0.4
+      ],
+      "unsupported_dimensions": [
+        "m1"
+      ],
+      "fragility": {
+        "level": "high",
+        "basis": {
+          "b": 1
+        },
+        "confidence_limits": {
+          "max_score": 0.4
+        },
+        "missing_support": [
+          "m1"
+        ],
+        "contradiction_pressure": [
+          "p1"
+        ]
+      }
+    }
+  },
+  {
+    "id": "a3c-integrity-fallback",
+    "fn": "model_inference_integrity",
+    "args": [
+      [
+        "e2",
+        "e1"
+      ],
+      [],
+      [],
+      {}
+    ],
+    "expected": {
+      "basis": {},
+      "supporting_evidence": [
+        "e1",
+        "e2"
+      ],
+      "contradicting_evidence": [],
+      "missing_evidence": [],
+      "uncertainty_factors": [],
+      "confidence_caps": [
+        1.0
+      ],
+      "unsupported_dimensions": [],
+      "fragility": {}
+    }
+  },
+  {
+    "id": "a3c-termchain-mixed",
+    "fn": "terminate_inference_chain",
+    "args": [
+      [
+        "r1"
+      ],
+      [
+        {
+          "reason": "spec1"
+        },
+        {},
+        "junk"
+      ]
+    ],
+    "expected": {
+      "terminated_inferences": [
+        "r1",
+        "spec1",
+        "speculative"
+      ],
+      "chain_stopped": true,
+      "stop_at": "r1"
+    }
+  },
+  {
+    "id": "a3c-termchain-empty",
+    "fn": "terminate_inference_chain",
+    "args": [
+      [],
+      []
+    ],
+    "expected": {
+      "terminated_inferences": [],
+      "chain_stopped": false,
+      "stop_at": null
+    }
+  },
+  {
+    "id": "a3c-instab-weak",
+    "fn": "preserve_instability",
+    "args": [
+      [
+        "r1"
+      ],
+      [
+        "e1"
+      ],
+      [
+        {
+          "s": 1
+        }
+      ]
+    ],
+    "expected": {
+      "preserved": true,
+      "unstable": true,
+      "regions": [
+        "r1",
+        "semantic:stabilization_blocked",
+        "semantic:weak_evidence_instability"
+      ],
+      "do_not_stabilize": true
+    }
+  },
+  {
+    "id": "a3c-instab-ok",
+    "fn": "preserve_instability",
+    "args": [
+      [],
+      [
+        "e1",
+        "e2"
+      ],
+      []
+    ],
+    "expected": {
+      "preserved": true,
+      "unstable": false,
+      "regions": [],
+      "do_not_stabilize": true
+    }
+  },
+  {
+    "id": "a3c-insuff-y",
+    "fn": "mark_insufficiency",
+    "args": [
+      {
+        "evidence": [
+          "e1"
+        ],
+        "ambiguities": [
+          "a1"
+        ]
+      }
+    ],
+    "expected": {
+      "insufficient": true,
+      "flags": [
+        "ambiguous_claim",
+        "insufficient_evidence"
+      ],
+      "evidence_count": 1,
+      "required": 2,
+      "message": "insufficient evidence"
+    }
+  },
+  {
+    "id": "a3c-insuff-n",
+    "fn": "mark_insufficiency",
+    "args": [
+      {
+        "evidence": [
+          "e1",
+          "e2"
+        ]
+      }
+    ],
+    "expected": {
+      "insufficient": false,
+      "flags": [],
+      "evidence_count": 2,
+      "required": 2,
+      "message": "evidence_ok"
+    }
+  },
+  {
+    "id": "a3c-intdivers-rich",
+    "fn": "model_interpretive_diversity",
+    "args": [
+      [
+        "k1",
+        "e2"
+      ],
+      {
+        "k1": "v1",
+        "k2": "v2"
+      }
+    ],
+    "expected": {
+      "preserved": true,
+      "count": 3,
+      "interpretations": [
+        {
+          "id": "evidence_backed",
+          "evidence": [
+            "k1",
+            "e2"
+          ],
+          "limitations": []
+        },
+        {
+          "id": "infer:k1",
+          "interpretation": {
+            "k1": "v1"
+          },
+          "evidence": [
+            "k1",
+            "e2"
+          ],
+          "limitations": [],
+          "contradictions": [],
+          "ambiguities": [],
+          "plurality": {
+            "rank": "primary"
+          },
+          "confidence": {
+            "capped": false
+          }
+        },
+        {
+          "id": "infer:k2",
+          "interpretation": {
+            "k2": "v2"
+          },
+          "evidence": [
+            "k1",
+            "e2"
+          ],
+          "limitations": [
+            "inferred"
+          ],
+          "contradictions": [],
+          "ambiguities": [],
+          "plurality": {
+            "rank": "primary"
+          },
+          "confidence": {
+            "capped": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "a3c-intdivers-empty",
+    "fn": "model_interpretive_diversity",
+    "args": [
+      [],
+      {}
+    ],
+    "expected": {
+      "preserved": true,
+      "count": 0,
+      "interpretations": []
+    }
+  },
+  {
+    "id": "a3c-lineage-mixed",
+    "fn": "build_lineage",
+    "args": [
+      [
+        {
+          "stage": "parse",
+          "inputs": [
+            "b",
+            "a"
+          ],
+          "outputs": [
+            "o"
+          ]
+        },
+        "junk",
+        {
+          "inputs": "bad"
+        }
+      ]
+    ],
+    "expected": {
+      "stages": [
+        {
+          "step": 0,
+          "stage": "parse",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "outputs": [
+            "o"
+          ]
+        },
+        {
+          "step": 2,
+          "stage": "step_2",
+          "inputs": [],
+          "outputs": []
+        }
+      ],
+      "depth": 2
+    }
+  },
+  {
+    "id": "a3c-lineage-null",
+    "fn": "build_lineage",
+    "args": [
+      null
+    ],
+    "expected": {
+      "stages": [],
+      "depth": 0
+    }
+  },
+  {
+    "id": "a3c-noninf-regions",
+    "fn": "model_noninferable_regions",
+    "args": [
+      {
+        "k": 1
+      },
+      [],
+      [
+        "pre1"
+      ]
+    ],
+    "expected": {
+      "noninferable_regions": [
+        "pre1",
+        "semantic:insufficient_evidence",
+        "semantic:ungrounded_inference"
+      ],
+      "inference_voids": [
+        "pre1",
+        "semantic:insufficient_evidence",
+        "semantic:ungrounded_inference"
+      ],
+      "semantic_boundaries": {
+        "min_evidence": 2,
+        "blocked": true
+      },
+      "unsupported_scope": {
+        "regions": [
+          "pre1",
+          "semantic:insufficient_evidence",
+          "semantic:ungrounded_inference"
+        ],
+        "count": 3
+      },
+      "epistemic_limits": {
+        "cannot_determine": true,
+        "reason": "insufficient_evidence"
+      }
+    }
+  },
+  {
+    "id": "a3c-noninf-clear",
+    "fn": "model_noninferable_regions",
+    "args": [
+      {},
+      [
+        "e1",
+        "e2"
+      ],
+      []
+    ],
+    "expected": {
+      "noninferable_regions": [],
+      "inference_voids": [],
+      "semantic_boundaries": {
+        "min_evidence": 2,
+        "blocked": false
+      },
+      "unsupported_scope": {
+        "regions": [],
+        "count": 0
+      },
+      "epistemic_limits": {
+        "cannot_determine": false,
+        "reason": null
+      }
+    }
+  },
+  {
+    "id": "a3c-noninference-weak",
+    "fn": "model_noninference",
+    "args": [
+      [
+        "e1"
+      ],
+      {
+        "b": 1,
+        "a": 2
+      },
+      {
+        "a": 2
+      },
+      {
+        "a": 3
+      }
+    ],
+    "expected": {
+      "noninferences": [
+        "entity_link_without_evidence",
+        "reconcile_without_evidence"
+      ],
+      "refused_inferences": [
+        "infer:a",
+        "infer:b",
+        "reconcile:unsupported"
+      ],
+      "boundary_conditions": [
+        "min_evidence=2"
+      ],
+      "suppression_basis": {
+        "evidence_count": 1,
+        "allowed": false
+      }
+    }
+  },
+  {
+    "id": "a3c-noninference-strong",
+    "fn": "model_noninference",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      }
+    ],
+    "expected": {
+      "noninferences": [],
+      "refused_inferences": [],
+      "boundary_conditions": [
+        "min_evidence=2"
+      ],
+      "suppression_basis": {
+        "evidence_count": 2,
+        "allowed": true
+      }
+    }
+  },
+  {
+    "id": "a3c-prov-full",
+    "fn": "build_provenance",
+    "args": [
+      [
+        "b",
+        "a",
+        ""
+      ],
+      [
+        "s1"
+      ],
+      {
+        "symbol_count": 2
+      },
+      {
+        "depth": 1
+      },
+      {
+        "basis": true
+      }
+    ],
+    "expected": {
+      "evidence": [
+        "a",
+        "b"
+      ],
+      "sources": [
+        "s1"
+      ],
+      "grounding": {
+        "symbol_count": 2
+      },
+      "lineage": {
+        "depth": 1
+      },
+      "confidence_basis": {
+        "basis": true
+      }
+    }
+  },
+  {
+    "id": "a3c-prov-fallback",
+    "fn": "build_provenance",
+    "args": [
+      [
+        "e2",
+        "e1"
+      ]
+    ],
+    "expected": {
+      "evidence": [
+        "e1",
+        "e2"
+      ],
+      "sources": [
+        "e1",
+        "e2"
+      ],
+      "grounding": {},
+      "lineage": {},
+      "confidence_basis": {}
+    }
+  },
+  {
+    "id": "a3c-recent-rich",
+    "fn": "model_recursive_entropy",
+    "args": [
+      [
+        "a1"
+      ],
+      [
+        "u1"
+      ],
+      {
+        "pairs": [
+          [
+            "x",
+            "y"
+          ]
+        ]
+      },
+      2
+    ],
+    "expected": {
+      "entropy": 0.43,
+      "depth": 2,
+      "preserved": true,
+      "suppress_recursive_stabilization": true,
+      "suppress_recursive_closure": true
+    }
+  },
+  {
+    "id": "a3c-recent-flat",
+    "fn": "model_recursive_entropy",
+    "args": [
+      [],
+      [],
+      null,
+      1
+    ],
+    "expected": {
+      "entropy": 0.05,
+      "depth": 1,
+      "preserved": true,
+      "suppress_recursive_stabilization": false,
+      "suppress_recursive_closure": false
+    }
+  },
+  {
+    "id": "a3c-recinstab-deep",
+    "fn": "model_recursive_instability",
+    "args": [
+      [
+        "r1"
+      ],
+      3,
+      1
+    ],
+    "expected": {
+      "preserved": true,
+      "unstable": true,
+      "regions": [
+        "r1",
+        "recursive:depth_3_instability",
+        "recursive:weak_evidence"
+      ],
+      "depth": 3
+    }
+  },
+  {
+    "id": "a3c-recinstab-ok",
+    "fn": "model_recursive_instability",
+    "args": [
+      [],
+      1,
+      3
+    ],
+    "expected": {
+      "preserved": true,
+      "unstable": false,
+      "regions": [],
+      "depth": 1
+    }
+  },
+  {
+    "id": "a3c-reclineage-stages",
+    "fn": "preserve_recursive_lineage",
+    "args": [
+      {
+        "stages": [
+          {
+            "stage": "a"
+          },
+          {
+            "stage": "b"
+          }
+        ]
+      },
+      [
+        "e1"
+      ],
+      [
+        "a1"
+      ],
+      [
+        "u1"
+      ],
+      {
+        "pairs": [
+          [
+            "p",
+            "q"
+          ]
+        ]
+      }
+    ],
+    "expected": {
+      "depth": 2,
+      "evidence_ancestry": [
+        "e1"
+      ],
+      "ambiguity_ancestry": [
+        "a1"
+      ],
+      "uncertainty_ancestry": [
+        "u1"
+      ],
+      "contradiction_ancestry": [
+        [
+          "p",
+          "q"
+        ]
+      ],
+      "entropy_ancestry_preserved": true,
+      "instability_ancestry_preserved": true,
+      "decay_prevented": true
+    }
+  },
+  {
+    "id": "a3c-reclineage-empty",
+    "fn": "preserve_recursive_lineage",
+    "args": [
+      {},
+      [],
+      [],
+      [],
+      null
+    ],
+    "expected": {
+      "depth": 0,
+      "evidence_ancestry": [],
+      "ambiguity_ancestry": [],
+      "uncertainty_ancestry": [],
+      "contradiction_ancestry": [],
+      "entropy_ancestry_preserved": true,
+      "instability_ancestry_preserved": true,
+      "decay_prevented": true
+    }
+  },
+  {
+    "id": "a3c-spec-y",
+    "fn": "detect_speculative_coherence",
+    "args": [
+      [
+        "e1"
+      ],
+      {
+        "a": 1
+      },
+      {
+        "a": 2
+      }
+    ],
+    "expected": {
+      "speculative": true,
+      "suppress_coherence": true,
+      "density": 1.0
+    }
+  },
+  {
+    "id": "a3c-spec-n",
+    "fn": "detect_speculative_coherence",
+    "args": [
+      [
+        "e1"
+      ],
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      }
+    ],
+    "expected": {
+      "speculative": false,
+      "suppress_coherence": false,
+      "density": 0.0
+    }
+  },
+  {
+    "id": "a3c-support-extra",
+    "fn": "build_support",
+    "args": [
+      [
+        "b",
+        "a"
+      ],
+      [
+        "c",
+        ""
+      ]
+    ],
+    "expected": {
+      "supporting_evidence": [
+        "a",
+        "b",
+        "c"
+      ],
+      "support_count": 3,
+      "support_strength": 0.45
+    }
+  },
+  {
+    "id": "a3c-support-bare",
+    "fn": "build_support",
+    "args": [
+      []
+    ],
+    "expected": {
+      "supporting_evidence": [],
+      "support_count": 0,
+      "support_strength": 0.15
+    }
+  },
+  {
+    "id": "a3c-weak-y",
+    "fn": "build_weaknesses",
+    "args": [
+      [
+        "e1"
+      ],
+      [
+        "amb2",
+        "amb1"
+      ]
+    ],
+    "expected": {
+      "weaknesses": [
+        "ambiguity:amb1",
+        "ambiguity:amb2",
+        "insufficient_evidence"
+      ],
+      "weak_evidence": true,
+      "weakness_count": 3
+    }
+  },
+  {
+    "id": "a3c-weak-n",
+    "fn": "build_weaknesses",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      []
+    ],
+    "expected": {
+      "weaknesses": [],
+      "weak_evidence": false,
+      "weakness_count": 0
+    }
+  },
+  {
+    "id": "a3c-trace-full",
+    "fn": "build_traceability",
+    "args": [
+      [
+        "b",
+        "a"
+      ],
+      {
+        "depth": 2
+      },
+      [
+        "s2",
+        "s1"
+      ]
+    ],
+    "expected": {
+      "evidence_chain": [
+        "a",
+        "b"
+      ],
+      "lineage_ref": {
+        "depth": 2
+      },
+      "stages": [
+        "s1",
+        "s2"
+      ],
+      "deterministic": true,
+      "reconstructible": true
+    }
+  },
+  {
+    "id": "a3c-trace-bare",
+    "fn": "build_traceability",
+    "args": [
+      []
+    ],
+    "expected": {
+      "evidence_chain": [],
+      "lineage_ref": {},
+      "stages": [],
+      "deterministic": true,
+      "reconstructible": false
+    }
+  },
+  {
+    "id": "a3c-truthref-mixed",
+    "fn": "refuse_unsupported_stabilization",
+    "args": [
+      [
+        {
+          "reason": "drift",
+          "truth_boundary_violation": {
+            "type": "closure"
+          }
+        },
+        {}
+      ]
+    ],
+    "expected": {
+      "truth_refusals": [
+        {
+          "target": "drift",
+          "message": "truthfully_incomplete"
+        },
+        {
+          "target": "stabilization",
+          "message": "truthfully_incomplete"
+        }
+      ],
+      "stabilization_failures": [
+        "drift",
+        null
+      ],
+      "truth_boundary_failures": [
+        "closure",
+        null
+      ],
+      "termination_reasons": [
+        "truthfully_incomplete"
+      ]
+    }
+  },
+  {
+    "id": "a3c-truthref-empty",
+    "fn": "refuse_unsupported_stabilization",
+    "args": [
+      []
+    ],
+    "expected": {
+      "truth_refusals": [],
+      "stabilization_failures": [],
+      "truth_boundary_failures": [],
+      "termination_reasons": []
+    }
+  }
+]
