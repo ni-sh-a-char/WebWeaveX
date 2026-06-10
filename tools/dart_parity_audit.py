@@ -146,9 +146,11 @@ FORCE_PARTIAL = {
     #     bounded field set vs Python's richer snapshot (k8s: 3 fields vs 9).
     #   run_live_runtime - Dart performs live (non-deterministic) filesystem listing
     #     and a reduced signature.
+    # extract_database_runtime + extract_kubernetes_runtime were here; Phase 5
+    # re-implemented them to executable parity (Python == JavaScript == Dart on
+    # validation/executable/ fixtures) -> promoted back to Complete with vectors.
     "compute_global_runtime_fingerprint", "query_runtime_graph",
-    "reconstruct_runtime", "extract_database_runtime",
-    "extract_kubernetes_runtime", "run_live_runtime",
+    "reconstruct_runtime", "run_live_runtime",
     # Second Proof Coverage Audit pass (2026-06-10): these had only a
     # determinism/structural test (no cross-language vector / deep-equality) and
     # the Dart contract diverges from Python:

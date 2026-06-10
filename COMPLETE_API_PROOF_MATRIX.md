@@ -2,11 +2,11 @@
 
 > Proof Coverage Audit — every API classified **Complete** in `PUBLIC_API_MATRIX.md`, with its Python / JavaScript / Dart source and the strongest executed proof. Generated 2026-06-10 by `tools/complete_proof_audit.py` from repository reality (origin/python, origin/javascript, local `lib/`). No Complete API remains without proof.
 
-**Complete APIs: 75 functional + 2 metadata constants = 77 rows.** Proof status: {'PROVEN': 75, 'WEAK': 2}.
+**Complete APIs: 77 functional + 2 metadata constants = 79 rows.** Proof status: {'PROVEN': 77, 'WEAK': 2}.
 
 > Source-location columns are best-effort `git grep` locations (symbol definition or nearest reference) and may point to a re-export/use site; the **Proof type / Proof location / Status** columns are authoritative.
 
-Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=49
+Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=51
 
 | API | Python source | JavaScript source | Dart source | Proof type | Proof location | Status |
 |-----|---------------|-------------------|-------------|------------|----------------|--------|
@@ -61,8 +61,10 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=49
 | `evolve_selector_runtime` | `core/evolution_runtime/selector_evolution_engine.py` | `src/evolution_runtime/index.ts` | `lib/src/evolution/selector_evolution_engine.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/evolution_runtime_api_vectors.json` | ✅ PROVEN |
 | `save_evolution_runtime` | `core/evolution_runtime/runtime_memory_engine.py` | `src/evolution_runtime/runtimeMemoryEngine.ts` | `lib/src/evolution/runtime_evolution_orchestrator.dart` | save/load deep-equality roundtrip | `test/parity/evolution_parity_test.dart` | ✅ PROVEN |
 | `load_evolution_runtime` | `core/evolution_runtime/runtime_memory_engine.py` | `src/evolution_runtime/index.ts` | `lib/src/evolution/runtime_memory_engine.dart` | save/load deep-equality roundtrip | `test/parity/evolution_parity_test.dart` | ✅ PROVEN |
+| `extract_database_runtime` | `core/connectors/database_connector_engine.py` | `src/connectors/databaseConnector.ts` | `lib/src/connectors/connectors_impl.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_snapshot_api_vectors.json` | ✅ PROVEN |
 | `extract_api_runtime` | `core/connectors/api_connector_engine.py` | `src/connectors/apiConnector.ts` | `lib/src/connectors_runtime/api_connector.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
 | `extract_runtime_streams` | `core/connectors/runtime_stream_connector_engine.py` | `src/connectors/index.ts` | `lib/src/connectors_runtime/runtime_streams.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
+| `extract_kubernetes_runtime` | `core/connectors/kubernetes_connector_engine.py` | `src/connectors/index.ts` | `lib/src/connectors/connectors_impl.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_snapshot_api_vectors.json` | ✅ PROVEN |
 | `extract_telemetry_runtime` | `core/connectors/telemetry_connector_engine.py` | `src/connectors/index.ts` | `lib/src/connectors_runtime/telemetry_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/connectors_runtime_api_vectors.json` | ✅ PROVEN |
 | `save_live_runtime` | `core/connectors/live_runtime_memory_engine.py` | `src/connectors/index.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
 | `load_live_runtime` | `core/connectors/live_runtime_memory_engine.py` | `src/connectors/liveRuntimeMemoryEngine.ts` | `lib/src/persistence/persistence_runtime.dart` | save/load deep-equality roundtrip | `test/parity/persistence_parity_test.dart` | ✅ PROVEN |
@@ -101,7 +103,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=49
 
 ## Audit result
 
-**75/75 functional Complete APIs PROVEN** (`75` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
+**77/77 functional Complete APIs PROVEN** (`77` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
 
 **11 APIs were downgraded Complete → Partial during this audit** because they carried only a determinism/structural test (no cross-language vector, deep-equality, or roundtrip) AND their Dart contract/output diverges from Python, so a passing proof vector cannot be produced without new implementation:
 

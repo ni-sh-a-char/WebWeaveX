@@ -1,0 +1,14 @@
+[
+  {"id": "k8s-empty", "api": "extract_kubernetes_runtime", "args": [null]},
+  {"id": "k8s-snap", "api": "extract_kubernetes_runtime", "args": [{"namespaces": ["z", "a", "default"], "pods": [{"name": "p2"}, {"name": "p1"}], "deployments": [{"name": "d1"}], "services": [{"id": "s1"}], "ingress": [], "topology": {"a": 1}, "events": [{"e": 1}], "degraded": false}]},
+  {"id": "db-pg", "api": "extract_database_runtime", "args": ["postgresql", {"tables": ["t2", "t1"], "schemas": ["public", "audit"], "active_connections": 7, "replication_state": "primary", "metrics": {"qps": 10}}]},
+  {"id": "db-pg-empty", "api": "extract_database_runtime", "args": ["postgresql", null]},
+  {"id": "db-mysql", "api": "extract_database_runtime", "args": ["mysql", {"tables": ["b", "a"], "schemas": ["app"]}]},
+  {"id": "db-sqlite", "api": "extract_database_runtime", "args": ["sqlite", {"tables": ["z", "a"]}]},
+  {"id": "db-redis", "api": "extract_database_runtime", "args": ["redis", {"keys": ["k1", "k2"], "clients": 3, "role": "replica", "streams": ["st1"]}]},
+  {"id": "db-unknown", "api": "extract_database_runtime", "args": ["cassandra", null]},
+  {"id": "build-rt-mem", "api": "build_runtime_memory", "args": [[{"tick": 2, "kind": "workflow"}, {"tick": 1, "kind": "sync"}], [{"id": "l2"}, {"id": "l1"}], [{"from": "a", "to": "b"}]]},
+  {"id": "query-rt-mem", "api": "query_runtime_memory", "args": [{"semantic_relations": [{"from": "alpha", "to": "beta"}, {"from": "x", "to": "y"}]}, "semantic", "alpha"]},
+  {"id": "browser-id", "api": "build_browser_identity", "args": ["default"]},
+  {"id": "hash-nested", "api": "compute_kaalka_hash", "args": [{"b": [1, 2, {"x": "a", "y": true}], "a": null, "c": 3.5}]}
+]

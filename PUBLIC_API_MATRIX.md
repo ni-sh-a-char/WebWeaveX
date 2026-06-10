@@ -6,8 +6,8 @@
 
 | Status | Count | Meaning |
 |--------|------:|---------|
-| Complete | 77 | Implemented in Dart, name-mapped, exercised by tests |
-| Partial | 36 | Bounded Dart implementation exists; full parity needs live network/browser |
+| Complete | 79 | Implemented in Dart, name-mapped, exercised by tests |
+| Partial | 34 | Bounded Dart implementation exists; full parity needs live network/browser |
 | Deferred | 15 | Requires OS/desktop/Electron/DevTools capabilities not available in-process in Dart |
 | Missing | 0 | Not yet ported |
 
@@ -20,7 +20,7 @@
 | auth | 1 | 0 | 0 | 0 |
 | browser | 0 | 1 | 0 | 0 |
 | causality | 5 | 0 | 0 | 0 |
-| connectors | 5 | 3 | 2 | 0 |
+| connectors | 7 | 1 | 2 | 0 |
 | contracts | 1 | 0 | 0 | 0 |
 | crawling | 0 | 1 | 0 | 0 |
 | crypto | 6 | 0 | 0 | 0 |
@@ -147,11 +147,11 @@ JavaScript column reflects the certified `javascript` branch (128/128 public API
 | evolution_runtime | `evolve_selector_runtime` | ✅ | `evolveSelectorRuntime` | ✅ Complete |
 | evolution_runtime | `save_evolution_runtime` | ✅ | `saveEvolutionRuntime` | ✅ Complete |
 | evolution_runtime | `load_evolution_runtime` | ✅ | `loadEvolutionRuntime` | ✅ Complete |
-| connectors | `extract_database_runtime` | ✅ | `extractDatabaseRuntime` | 🟡 Partial |
+| connectors | `extract_database_runtime` | ✅ | `extractDatabaseRuntime` | ✅ Complete |
 | connectors | `extract_api_runtime` | ✅ | `extractApiRuntime` | ✅ Complete |
 | connectors | `extract_runtime_streams` | ✅ | `extractRuntimeStreams` | ✅ Complete |
 | connectors | `extract_container_runtime` | ✅ | — | ⚪ Deferred |
-| connectors | `extract_kubernetes_runtime` | ✅ | `extractKubernetesRuntime` | 🟡 Partial |
+| connectors | `extract_kubernetes_runtime` | ✅ | `extractKubernetesRuntime` | ✅ Complete |
 | connectors | `extract_telemetry_runtime` | ✅ | `extractTelemetryRuntime` | ✅ Complete |
 | connectors | `extract_ide_runtime` | ✅ | — | ⚪ Deferred |
 | connectors | `run_live_runtime` | ✅ | `runLiveRuntime` | 🟡 Partial |

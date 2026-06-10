@@ -1,0 +1,274 @@
+[
+  {
+    "id": "k8s-empty",
+    "api": "extract_kubernetes_runtime",
+    "args": [
+      null
+    ],
+    "expected": {
+      "namespaces": [
+        "default"
+      ],
+      "pods": [],
+      "deployments": [],
+      "services": [],
+      "ingress": [],
+      "topology": {},
+      "events": [],
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "k8s-snap",
+    "api": "extract_kubernetes_runtime",
+    "args": [
+      {
+        "namespaces": [
+          "z",
+          "a",
+          "default"
+        ],
+        "pods": [
+          {
+            "name": "p2"
+          },
+          {
+            "name": "p1"
+          }
+        ],
+        "deployments": [
+          {
+            "name": "d1"
+          }
+        ],
+        "services": [
+          {
+            "id": "s1"
+          }
+        ],
+        "ingress": [],
+        "topology": {
+          "a": 1
+        },
+        "events": [
+          {
+            "e": 1
+          }
+        ],
+        "degraded": false
+      }
+    ],
+    "expected": {
+      "namespaces": [
+        "a",
+        "default",
+        "z"
+      ],
+      "pods": [
+        {
+          "name": "p1"
+        },
+        {
+          "name": "p2"
+        }
+      ],
+      "deployments": [
+        {
+          "name": "d1"
+        }
+      ],
+      "services": [
+        {
+          "id": "s1"
+        }
+      ],
+      "ingress": [],
+      "topology": {
+        "a": 1
+      },
+      "events": [
+        {
+          "e": 1
+        }
+      ],
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "db-pg",
+    "api": "extract_database_runtime",
+    "args": [
+      "postgresql",
+      {
+        "tables": [
+          "t2",
+          "t1"
+        ],
+        "schemas": [
+          "public",
+          "audit"
+        ],
+        "active_connections": 7,
+        "replication_state": "primary",
+        "metrics": {
+          "qps": 10
+        }
+      }
+    ],
+    "expected": {
+      "database_type": "postgresql",
+      "schemas": [
+        "public",
+        "audit"
+      ],
+      "tables": [
+        "t1",
+        "t2"
+      ],
+      "indexes": [],
+      "metrics": {
+        "qps": 10
+      },
+      "active_connections": 7,
+      "replication_state": "primary",
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "db-pg-empty",
+    "api": "extract_database_runtime",
+    "args": [
+      "postgresql",
+      null
+    ],
+    "expected": {
+      "database_type": "postgresql",
+      "schemas": [
+        "public"
+      ],
+      "tables": [],
+      "indexes": [],
+      "metrics": {},
+      "active_connections": 0,
+      "replication_state": "unknown",
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "db-mysql",
+    "api": "extract_database_runtime",
+    "args": [
+      "mysql",
+      {
+        "tables": [
+          "b",
+          "a"
+        ],
+        "schemas": [
+          "app"
+        ]
+      }
+    ],
+    "expected": {
+      "database_type": "mysql",
+      "schemas": [
+        "app"
+      ],
+      "tables": [
+        "a",
+        "b"
+      ],
+      "indexes": [],
+      "metrics": {},
+      "active_connections": 0,
+      "replication_state": "",
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "db-sqlite",
+    "api": "extract_database_runtime",
+    "args": [
+      "sqlite",
+      {
+        "tables": [
+          "z",
+          "a"
+        ]
+      }
+    ],
+    "expected": {
+      "database_type": "sqlite",
+      "schemas": [
+        "main"
+      ],
+      "tables": [
+        "a",
+        "z"
+      ],
+      "indexes": [],
+      "metrics": {},
+      "active_connections": 1,
+      "replication_state": "local",
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "db-redis",
+    "api": "extract_database_runtime",
+    "args": [
+      "redis",
+      {
+        "keys": [
+          "k1",
+          "k2"
+        ],
+        "clients": 3,
+        "role": "replica",
+        "streams": [
+          "st1"
+        ]
+      }
+    ],
+    "expected": {
+      "database_type": "redis",
+      "schemas": [],
+      "tables": [
+        "k1",
+        "k2"
+      ],
+      "indexes": [],
+      "metrics": {},
+      "active_connections": 3,
+      "replication_state": "replica",
+      "streams": [
+        "st1"
+      ],
+      "degraded": false,
+      "bounded": true
+    }
+  },
+  {
+    "id": "db-unknown",
+    "api": "extract_database_runtime",
+    "args": [
+      "cassandra",
+      null
+    ],
+    "expected": {
+      "database_type": "cassandra",
+      "schemas": [],
+      "tables": [],
+      "metrics": {},
+      "degraded": true,
+      "reason": "connector_unavailable",
+      "bounded": true
+    }
+  }
+]
