@@ -17,5 +17,10 @@
   {"id": "qrg-type", "api": "query_runtime_graph", "args": [{"nodes": [{"id": 1, "type": "a"}, {"id": 2, "type": "b"}, {"id": 3, "type": "a"}]}, {"type": "a"}]},
   {"id": "qrg-all", "api": "query_runtime_graph", "args": [{"nodes": [{"id": 1}, {"id": 2}]}, {}]},
   {"id": "vre-equal", "api": "validate_replay_equivalence", "args": [{"unified_runtime_graph": {"nodes": [{"id": "a", "type": "t"}], "edges": []}, "pipeline_hash": "p", "browser_ir": {"runtime_identity": "id"}}, {"unified_runtime_graph": {"nodes": [{"id": "a", "type": "t"}], "edges": []}, "pipeline_hash": "p", "browser_ir": {"runtime_identity": "id"}}]},
-  {"id": "vre-diff", "api": "validate_replay_equivalence", "args": [{"unified_runtime_graph": {"nodes": [{"id": "a"}], "edges": []}, "browser_ir": {"runtime_identity": "id1"}}, {"unified_runtime_graph": {"nodes": [{"id": "b"}], "edges": []}, "browser_ir": {"runtime_identity": "id2"}}]}
+  {"id": "vre-diff", "api": "validate_replay_equivalence", "args": [{"unified_runtime_graph": {"nodes": [{"id": "a"}], "edges": []}, "browser_ir": {"runtime_identity": "id1"}}, {"unified_runtime_graph": {"nodes": [{"id": "b"}], "edges": []}, "browser_ir": {"runtime_identity": "id2"}}]},
+  {"id": "recon-basic", "api": "reconstruct_runtime", "args": [{"a": 1}, {"b": 2}, null, null, null, {"nodes": [{"id": 1}, {"id": 2}]}, "browser", 0]},
+  {"id": "recon-empty", "api": "reconstruct_runtime", "args": [null, null, null, null, null, null, "browser", 0]},
+  {"id": "recon-native", "api": "reconstruct_runtime", "args": [{"s": "x"}, null, {"sync": true}, {"e": 1}, {"m": 2}, {"nodes": []}, "native", 5]},
+  {"id": "kernel-browser", "api": "get_runtime_kernel", "args": ["browser"]},
+  {"id": "kernel-native", "api": "get_runtime_kernel", "args": ["native"]}
 ]

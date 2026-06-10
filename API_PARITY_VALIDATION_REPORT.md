@@ -30,13 +30,13 @@ in-process. Dart cannot do these in-process — that gap is the source of every 
 ## Dart classification (`tools/dart_parity_audit.py`, regenerated this session)
 
 ```
-Python total: 128   Counts: {Complete: 84, Partial: 29, Missing: 0, Deferred: 15}
+Python total: 128   Counts: {Complete: 86, Partial: 27, Missing: 0, Deferred: 15}
 ```
 
 | Status | Count | Meaning | Proof standard |
 |--------|------:|---------|----------------|
-| ✅ Complete | **84** | Native Dart impl, name-mapped, **cross-language proof-verified** | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
-| 🟡 Partial | **29** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
+| ✅ Complete | **86** | Native Dart impl, name-mapped, **cross-language proof-verified** | `computeDeterministicHash(dartOut) == Python compute_deterministic_hash(pyOut)` or save/load roundtrip |
+| 🟡 Partial | **27** | Bounded Dart impl or proven core path only | primary/deterministic path proven; a sub-path (network/NLP/AST) not portable |
 | ⚪ Deferred | **15** | Needs OS/desktop/Electron/DevTools/Playwright in-process | not feasible in Dart VM |
 | ❌ Missing | **0** | Not implemented at all | — |
 

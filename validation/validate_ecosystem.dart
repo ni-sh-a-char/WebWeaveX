@@ -42,7 +42,7 @@ Future<void> main() async {
     'replay_match': true,
     'graph_match': graphFingerprint(graph).isNotEmpty,
     'memory_match': mem['stable_hash'] != null,
-    'reconstruction_match': reconstructRuntime(
+    'reconstruction_match': reconstructRuntimeFromEnvelope(
           extraction: {'unified_runtime_graph': graph.toJson()},
         )['runtime_id'] !=
         null,

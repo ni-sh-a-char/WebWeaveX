@@ -30,6 +30,11 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `query_runtime_graph` | `qrg-all` | `e7130dabec8348e2` | `e7130dabec8348e2` | `e7130dabec8348e2` | ✅ ALL3 | Complete (executable) |
 | `validate_replay_equivalence` | `vre-equal` | `b118936aa7dc1efc` | `b118936aa7dc1efc` | `b118936aa7dc1efc` | ✅ ALL3 | Complete (executable) |
 | `validate_replay_equivalence` | `vre-diff` | `23f9bf9d0446e697` | `23f9bf9d0446e697` | `23f9bf9d0446e697` | ✅ ALL3 | Complete (executable) |
+| `reconstruct_runtime` | `recon-basic` | `19a36ddd5e1f8d9c` | `19a36ddd5e1f8d9c` | `19a36ddd5e1f8d9c` | ✅ ALL3 | Complete (executable) |
+| `reconstruct_runtime` | `recon-empty` | `dbd237944b28db5a` | `dbd237944b28db5a` | `dbd237944b28db5a` | ✅ ALL3 | Complete (executable) |
+| `reconstruct_runtime` | `recon-native` | `c1956db4a5d7fe24` | `c1956db4a5d7fe24` | `c1956db4a5d7fe24` | ✅ ALL3 | Complete (executable) |
+| `get_runtime_kernel` | `kernel-browser` | `a53033a34073d4c9` | `a53033a34073d4c9` | `a53033a34073d4c9` | ✅ ALL3 | Complete (executable) |
+| `get_runtime_kernel` | `kernel-native` | `2630a32835efc814` | `2630a32835efc814` | `2630a32835efc814` | ✅ ALL3 | Complete (executable) |
 
 ## Per-API certification
 
@@ -44,6 +49,8 @@ dart run validation/executable/run_dart.dart validation/executable/fixtures.json
 | `compute_global_runtime_fingerprint` | Complete (executable) |
 | `query_runtime_graph` | Complete (executable) |
 | `validate_replay_equivalence` | Complete (executable) |
+| `reconstruct_runtime` | Complete (executable) |
+| `get_runtime_kernel` | Complete (executable) |
 
 ## Result
 

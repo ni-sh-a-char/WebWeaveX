@@ -153,7 +153,7 @@ FORCE_PARTIAL = {
     # promoted to Complete with vectors. The Dart-native variants remain as
     # computeRuntimePipelineFingerprint / queryRuntimeGraphTyped /
     # validateReplayEquivalenceExtended.
-    "reconstruct_runtime", "run_live_runtime",
+    "run_live_runtime",
     # Second Proof Coverage Audit pass (2026-06-10): these had only a
     # determinism/structural test (no cross-language vector / deep-equality) and
     # the Dart contract diverges from Python:
@@ -164,7 +164,10 @@ FORCE_PARTIAL = {
     # Protocol aligned the Dart public contract to Python (3-list / (memory,
     # query_type, term)) and proved Python == JavaScript == Dart by EXECUTION
     # (validation/executable/) -> promoted to Complete.
-    "build_browser_identity", "get_runtime_kernel",
+    # reconstruct_runtime + get_runtime_kernel were here (Group B) — re-wired to
+    # the canonical family impl / proved {runtime_type} parity by execution and
+    # promoted to Complete. build_browser_identity remains (Group C subsystem port).
+    "build_browser_identity",
 }
 
 

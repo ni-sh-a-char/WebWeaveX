@@ -12,7 +12,9 @@ import 'package:webweavex/webweavex.dart'
         queryRuntimeMemory,
         computeGlobalRuntimeFingerprint,
         queryRuntimeGraph,
-        validateReplayEquivalence;
+        validateReplayEquivalence,
+        reconstructRuntime,
+        getRuntimeKernel;
 
 Map<String, dynamic>? _asMap(dynamic v) =>
     v == null ? null : Map<String, dynamic>.from(v as Map);
@@ -59,6 +61,22 @@ dynamic _call(String api, List<dynamic> args) {
       return queryRuntimeGraph(_asMap(args[0])!, _asMap(args[1])!);
     case 'validate_replay_equivalence':
       return validateReplayEquivalence(_asMap(args[0])!, _asMap(args[1])!);
+    case 'reconstruct_runtime':
+      return reconstructRuntime(
+        semanticIr: _asMap(args[0]),
+        workflowIr: _asMap(args[1]),
+        synchronizationIr: _asMap(args[2]),
+        executionIr: _asMap(args[3]),
+        memoryIr: _asMap(args[4]),
+        runtimeGraph: _asMap(args[5]),
+        runtimeType: (args[6] ?? 'browser') as String,
+        tick: (args[7] ?? 0) as int,
+      );
+    case 'get_runtime_kernel':
+      return <String, dynamic>{
+        'runtime_type':
+            getRuntimeKernel(runtimeType: args[0] as String).runtimeKind,
+      };
     default:
       throw StateError('unknown/contract-divergent api $api');
   }

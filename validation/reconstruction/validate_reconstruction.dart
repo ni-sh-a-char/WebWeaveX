@@ -9,8 +9,8 @@ void main() {
     'unified_runtime_graph': graph.toJson(),
     'graph': graph.toJson(),
   };
-  final r1 = reconstructRuntime(extraction: extraction);
-  final r2 = reconstructRuntime(extraction: extraction);
+  final r1 = reconstructRuntimeFromEnvelope(extraction: extraction);
+  final r2 = reconstructRuntimeFromEnvelope(extraction: extraction);
 
   final results = {
     'reconstruction_match': r1['runtime_id'] == r2['runtime_id'],

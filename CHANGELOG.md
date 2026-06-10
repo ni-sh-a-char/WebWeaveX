@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased] — Final Completion Protocol · Group B complete (executable parity)
+
+### Changed
+
+- **`reconstructRuntime`** now exposes the canonical Python contract
+  `reconstructRuntime({semanticIr, workflowIr, synchronizationIr, executionIr, memoryIr,
+  runtimeGraph, runtimeType, tick})`; proven **Python ≡ JavaScript ≡ Dart** by execution →
+  **Complete**. The envelope variant is `reconstructRuntimeFromEnvelope` (BREAKING).
+- **`getRuntimeKernel`** — its observable kernel state (`{runtime_type}`) proven
+  Python ≡ JavaScript ≡ Dart by execution → **Complete**.
+- API parity matrix: **86 Complete · 27 Partial · 15 Deferred · 0 Missing**; 838 tests; 97.13% coverage.
+  Group B is fully complete (10 executable-proven APIs total).
+
 ## [Unreleased] — Final Completion Protocol · Group B (executable parity)
 
 ### Changed (contract alignment, BREAKING)

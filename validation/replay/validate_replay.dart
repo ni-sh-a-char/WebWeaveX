@@ -33,8 +33,8 @@ void main() {
 
   final clone = jsonDecode(jsonEncode(envelope)) as Map<String, dynamic>;
   final replay = validateReplayEquivalenceExtended(envelope, clone);
-  final reconstructed = reconstructRuntime(extraction: envelope);
-  final reconstructed2 = reconstructRuntime(extraction: envelope);
+  final reconstructed = reconstructRuntimeFromEnvelope(extraction: envelope);
+  final reconstructed2 = reconstructRuntimeFromEnvelope(extraction: envelope);
 
   final results = {
     'replay_match': replay['equivalent'] == true,

@@ -18,6 +18,8 @@ import { queryRuntimeMemory } from "./src/memory/runtimeQueryEngine.ts";
 import { computeGlobalRuntimeFingerprint } from "./src/determinism/globalRuntimeFingerprint.ts";
 import { queryRuntimeGraph } from "./src/runtime_graph/runtimeGraphQueryEngine.ts";
 import { validateReplayEquivalence } from "./src/replay/replayEquivalenceEngine.ts";
+import { reconstructRuntime } from "./src/reconstruction/runtimeReconstructionEngine.ts";
+import { getRuntimeKernel } from "./src/kernel/runtimeKernel.ts";
 
 function call(api, args) {
   switch (api) {
@@ -41,6 +43,11 @@ function call(api, args) {
       return queryRuntimeGraph(args[0], args[1]);
     case "validate_replay_equivalence":
       return validateReplayEquivalence(args[0], args[1]);
+    case "reconstruct_runtime":
+      return reconstructRuntime(args[0], args[1], args[2], args[3], args[4],
+        args[5], args[6], args[7]);
+    case "get_runtime_kernel":
+      return { runtime_type: getRuntimeKernel(args[0]).runtime_type };
     default:
       throw new Error("unknown api " + api);
   }

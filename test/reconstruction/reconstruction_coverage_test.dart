@@ -179,7 +179,8 @@ void main() {
 
   group('reconstructRuntime', () {
     test('produces runtime_id of length 32 and embedded sections', () {
-      final out = reconstructRuntime(extraction: populatedEnvelope());
+      final out =
+          reconstructRuntimeFromEnvelope(extraction: populatedEnvelope());
       expect((out['runtime_id'] as String).length, 32);
       expect(out['graph'], isA<Map<String, dynamic>>());
       expect(out['memory'], isA<Map<String, dynamic>>());
@@ -189,8 +190,8 @@ void main() {
     });
 
     test('is deterministic for the same input', () {
-      final a = reconstructRuntime(extraction: populatedEnvelope());
-      final b = reconstructRuntime(extraction: populatedEnvelope());
+      final a = reconstructRuntimeFromEnvelope(extraction: populatedEnvelope());
+      final b = reconstructRuntimeFromEnvelope(extraction: populatedEnvelope());
       expect(a['runtime_id'], b['runtime_id']);
     });
   });

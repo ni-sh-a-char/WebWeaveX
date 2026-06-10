@@ -2,8 +2,8 @@
   "generated_by": "tools/generate_parity_manifest.py",
   "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
   "counts": {
-    "Complete": 84,
-    "Partial": 29,
+    "Complete": 86,
+    "Partial": 27,
     "Deferred": 15
   },
   "executable_proven_apis": [
@@ -12,8 +12,10 @@
     "compute_kaalka_hash",
     "extract_database_runtime",
     "extract_kubernetes_runtime",
+    "get_runtime_kernel",
     "query_runtime_graph",
     "query_runtime_memory",
+    "reconstruct_runtime",
     "validate_replay_equivalence"
   ],
   "apis": [
@@ -659,11 +661,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "getRuntimeKernel",
-      "contract_parity": false,
-      "behavior_parity": false,
-      "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "contract_parity": true,
+      "behavior_parity": true,
+      "executable_parity": true,
+      "classification": "Complete",
+      "proof_type": "EXECUTABLE"
     },
     {
       "api": "heal_selector",
@@ -959,11 +961,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "reconstructRuntime",
-      "contract_parity": false,
-      "behavior_parity": false,
-      "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "contract_parity": true,
+      "behavior_parity": true,
+      "executable_parity": true,
+      "classification": "Complete",
+      "proof_type": "EXECUTABLE"
     },
     {
       "api": "recover_modal_runtime",

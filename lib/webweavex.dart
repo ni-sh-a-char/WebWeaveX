@@ -22,6 +22,10 @@ export 'src/parity/canonical_runtime.dart'
         computeGlobalRuntimeFingerprint,
         queryRuntimeGraph,
         validateReplayEquivalence;
+// Canonical Python-aligned reconstruct_runtime (IR composition). The envelope
+// variant is reconstructRuntimeFromEnvelope in src/reconstruction/reconstruct_runtime.dart.
+export 'src/reconstruction_runtime/reconstruction_runtime_engines.dart'
+    show reconstructRuntime;
 export 'src/crypto/kaalka_runtime.dart';
 export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';

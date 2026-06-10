@@ -2,11 +2,11 @@
 
 > Proof Coverage Audit — every API classified **Complete** in `PUBLIC_API_MATRIX.md`, with its Python / JavaScript / Dart source and the strongest executed proof. Generated 2026-06-10 by `tools/complete_proof_audit.py` from repository reality (origin/python, origin/javascript, local `lib/`). No Complete API remains without proof.
 
-**Complete APIs: 82 functional + 2 metadata constants = 84 rows.** Proof status: {'PROVEN': 82, 'WEAK': 2}.
+**Complete APIs: 84 functional + 2 metadata constants = 86 rows.** Proof status: {'PROVEN': 84, 'WEAK': 2}.
 
 > Source-location columns are best-effort `git grep` locations (symbol definition or nearest reference) and may point to a re-export/use site; the **Proof type / Proof location / Status** columns are authoritative.
 
-Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=56
+Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=58
 
 | API | Python source | JavaScript source | Dart source | Proof type | Proof location | Status |
 |-----|---------------|-------------------|-------------|------------|----------------|--------|
@@ -84,10 +84,12 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=56
 | `replay_runtime_execution` | `core/execution/runtime_replay_engine.py` | `src/execution/index.ts` | `lib/src/execution/runtime_replay_engine.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/execution_api_vectors.json` | ✅ PROVEN |
 | `run_reconstruction_runtime` | `core/reconstruction/runtime_reconstruction_orchestrator.py` | `src/reconstruction/index.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_runtime_api_vectors.json` | ✅ PROVEN |
 | `run_reconstruction_for_extraction` | `core/reconstruction/runtime_reconstruction_orchestrator.py` | `src/reconstruction/runtimeReconstructionOrchestrator.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_runtime_api_vectors.json` | ✅ PROVEN |
+| `reconstruct_runtime` | `core/reconstruction/runtime_reconstruction_engine.py` | `src/reconstruction/index.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_engines.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_kernel_api_vectors.json` | ✅ PROVEN |
 | `fabricate_runtime_reality` | `core/reconstruction/runtime_fabrication_engine.py` | `src/reconstruction/index.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_runtime_api_vectors.json` | ✅ PROVEN |
 | `clone_runtime_environment` | `core/reconstruction/runtime_clone_engine.py` | `src/publicApi.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_runtime_api_vectors.json` | ✅ PROVEN |
 | `validate_reconstructed_runtime` | `core/reconstruction/runtime_validation_engine.py` | `src/reconstruction/index.ts` | `lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_runtime_api_vectors.json` | ✅ PROVEN |
 | `RuntimeKernel` | `core/kernel/runtime_kernel.py` | `src/kernel/index.ts` | `lib/src/kernel_runtime/runtime_kernel.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/kernel_api_vectors.json (RuntimeKernel.compileIr)` | ✅ PROVEN |
+| `get_runtime_kernel` | `core/kernel/runtime_kernel.py` | `src/kernel/runtimeKernel.ts` | `lib/src/kernel_runtime/runtime_kernel.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/reconstruction_kernel_api_vectors.json` | ✅ PROVEN |
 | `UniversalInput` | `core/contracts/runtime_contracts.py` | `src/contracts/runtimeContracts.ts` | `lib/src/kernel_runtime/runtime_contracts.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/kernel_api_vectors.json (UniversalInput.to_dict)` | ✅ PROVEN |
 | `compute_global_runtime_fingerprint` | `core/determinism/global_runtime_fingerprint.py` | `src/determinism/globalRuntimeFingerprint.ts` | `lib/src/parity/canonical_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/canonical_runtime_api_vectors.json` | ✅ PROVEN |
 | `validate_replay_equivalence` | `core/replay/replay_equivalence_engine.py` | `src/index.ts` | `lib/src/parity/canonical_runtime.dart` | cross-language vector (`det_hash`/deep-equality) | `validation/parity/canonical_runtime_api_vectors.json` | ✅ PROVEN |
@@ -108,7 +110,7 @@ Proof types (functional APIs): CORE_VECTOR=4, ROUNDTRIP=22, VECTOR=56
 
 ## Audit result
 
-**82/82 functional Complete APIs PROVEN** (`82` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
+**84/84 functional Complete APIs PROVEN** (`84` PROVEN rows; the 2 remaining are the `version`/`__version__` constants, self-proving via a `version == '2.0.1'` test).
 
 **11 APIs were downgraded Complete → Partial during this audit** because they carried only a determinism/structural test (no cross-language vector, deep-equality, or roundtrip) AND their Dart contract/output diverges from Python, so a passing proof vector cannot be produced without new implementation:
 

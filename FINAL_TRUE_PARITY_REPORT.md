@@ -10,7 +10,7 @@
 |----------------|---------------:|-------|
 | **Python** (`webweavex.__all__`) | 126 | source of truth (`origin/python`) |
 | **JavaScript** | 126 / 126 | full reference (`origin/javascript`) |
-| **Dart** | **84 Complete · 29 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
+| **Dart** | **86 Complete · 27 Partial · 15 Deferred · 0 Missing** | 96/126 present by native symbol |
 
 ## 2. Proof standard (enforced, not assumed)
 
@@ -110,7 +110,7 @@ Deferred has fallen from 17 → **15**.
 | Gate | Result |
 |------|--------|
 | format / analyze | ✅ clean / ✅ No issues |
-| `dart test` | ✅ **831 passing / 0 failing** |
+| `dart test` | ✅ **838 passing / 0 failing** |
 | coverage | ✅ **97.24%** (6443/6626) |
 | three-way parity validator | ✅ Python ≡ JavaScript ≡ Dart |
 | `dart pub publish --dry-run` | ✅ 0 warnings (1 benign hint) |

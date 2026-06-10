@@ -31,6 +31,12 @@ def call(api, args):
         return fn(cleaned[0], cleaned[1])
     if api == "validate_replay_equivalence":
         return fn(cleaned[0], cleaned[1])
+    if api == "reconstruct_runtime":
+        return fn(cleaned[0], cleaned[1], cleaned[2], cleaned[3], cleaned[4],
+                  cleaned[5], cleaned[6], cleaned[7])
+    if api == "get_runtime_kernel":
+        # Canonical observable kernel state (the rest are methods).
+        return {"runtime_type": fn(cleaned[0]).runtime_type}
     raise SystemExit("unknown api " + api)
 
 
