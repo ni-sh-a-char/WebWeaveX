@@ -1,0 +1,171 @@
+{
+ "branch": "python",
+ "unknown": [],
+ "legacy": [
+  "CROSS_LANGUAGE_PARITY_REPORT.md",
+  "FINAL_CROSS_LANGUAGE_EQUALITY_REPORT.md",
+  "FINAL_PYTHON_PARITY_COMPLETION_REPORT.md",
+  "FINAL_TRUE_PARITY_REPORT.md",
+  "PYTHON_RELEASE_READINESS_REPORT.md",
+  "REPOSITORY_AUDIT.md",
+  "WEBWEAVEX_PYPI_RELEASE_CERTIFICATION.md",
+  "WEBWEAVEX_v2_ARCHITECTURE_LOCK_REPORT.md",
+  "WEBWEAVEX_v2_RELEASE_REPORT.md",
+  "extractors/__init__.py",
+  "extractors/generic_html_extractor.py",
+  "extractors/github_extractor.py",
+  "extractors/stackoverflow_extractor.py",
+  "scripts/absolute_semantic_integrity_audit.py",
+  "scripts/absolute_semantic_realization_audit.py",
+  "scripts/audit_import_graph.py",
+  "scripts/civilizational_epistemic_openness_audit.py",
+  "scripts/cognitive_anti_capture_audit.py",
+  "scripts/cognitive_humility_audit.py",
+  "scripts/cognitive_integrity_audit.py",
+  "scripts/cognitive_realism_audit.py",
+  "scripts/deterministic_cognitive_semantics_audit.py",
+  "scripts/deterministic_epistemic_audit.py",
+  "scripts/empirical_semantic_intelligence_audit.py",
+  "scripts/epistemic_civilization_stability_audit.py",
+  "scripts/epistemic_restraint_audit.py",
+  "scripts/final_absolute_engineering.py",
+  "scripts/final_audit_scan.py",
+  "scripts/final_deep_audit.py",
+  "scripts/final_import_stability.py",
+  "scripts/final_repository_purification.py",
+  "scripts/formal_semantic_foundation_audit.py",
+  "scripts/performance_benchmark.py",
+  "scripts/production_audit.py",
+  "scripts/reality_alignment_audit.py",
+  "scripts/recursive_epistemic_sovereignty_audit.py",
+  "scripts/recursive_reality_integrity_audit.py",
+  "scripts/scientific_semantic_baseline.py",
+  "scripts/security_execution_audit.py",
+  "scripts/semantic_execution_realization_audit.py",
+  "scripts/semantic_kernel_audit.py",
+  "scripts/semantic_quality_audit.py",
+  "scripts/semantic_runtime_audit.py",
+  "scripts/semantic_truthfulness_audit.py",
+  "scripts/truth_preservation_audit.py",
+  "scripts/v20_audit_scan.py",
+  "scripts/v21_audit_scan.py",
+  "scripts/v22_audit_scan.py",
+  "scripts/v23_physical_audit.py",
+  "scripts/v23_physical_delete.py",
+  "scripts/v24_final_convergence_audit.py",
+  "scripts/v24_physical_convergence.py",
+  "scripts/v25_absolute_final_audit.py",
+  "scripts/v25_physical_final.py",
+  "validation/reports/auth_validation_report.md",
+  "validation/reports/browser_validation_report.md",
+  "validation/reports/connectors_validation_report.md",
+  "validation/reports/determinism_validation_report.md",
+  "validation/reports/distributed_validation_report.md",
+  "validation/reports/document_validation_report.md",
+  "validation/reports/execution_validation_report.md",
+  "validation/reports/kaalka_validation_report.md",
+  "validation/reports/memory_sync_validation_report.md",
+  "validation/reports/multimodal_validation_report.md",
+  "validation/reports/native_runtime_validation_report.md",
+  "validation/reports/performance_validation_report.md",
+  "validation/reports/reconstruction_validation_report.md",
+  "validation/reports/repository_validation_report.md",
+  "validation/reports/security_validation_report.md",
+  "validation/reports/streaming_validation_report.md",
+  "validation/reports/workflow_validation_report.md"
+ ],
+ "generated": [],
+ "temporary": [],
+ "largest": [
+  {
+   "path": "validation/run_real_world_validation.py",
+   "size": 44415,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "benchmarks/benchmark_results.json",
+   "size": 43898,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "benchmark corpora + runners (performance reproducibility)"
+  },
+  {
+   "path": "core/browser/universal_web_extraction_engine.py",
+   "size": 34552,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  },
+  {
+   "path": "README.md",
+   "size": 28529,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "benchmarks/evaluators.py",
+   "size": 25125,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "benchmark corpora + runners (performance reproducibility)"
+  },
+  {
+   "path": "core/native/native_runtime_orchestrator.py",
+   "size": 23553,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  },
+  {
+   "path": "core/extract/enrichment_engine.py",
+   "size": 21978,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  },
+  {
+   "path": "core/ir/runtime_ir.py",
+   "size": 20663,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  },
+  {
+   "path": "scripts/v24_physical_convergence.py",
+   "size": 13648,
+   "classification": "LEGACY",
+   "purpose": "dev-era one-shot audit/purification scripts, unreferenced by runtime"
+  },
+  {
+   "path": "core/distributed_extraction/autonomous_extraction_engine.py",
+   "size": 12862,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  },
+  {
+   "path": "webweavex/__init__.py",
+   "size": 11235,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python public package"
+  },
+  {
+   "path": "docs/architecture/FINAL_TOTAL_PARITY_AUDIT.md",
+   "size": 11171,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "core/reconstruction/runtime_reconstruction_orchestrator.py",
+   "size": 10324,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  },
+  {
+   "path": "webweavex/plugins/__init__.py",
+   "size": 9956,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python public package"
+  },
+  {
+   "path": "core/causality/causality_orchestrator.py",
+   "size": 9770,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "python core engine source"
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "branch": "dart",
+ "unknown": [],
+ "legacy": [
+  "API_PARITY_VALIDATION_REPORT.md",
+  "CI_VALIDATION_REPORT.md",
+  "COMPLETE_API_PROOF_MATRIX.md",
+  "COVERAGE_REPORT.md",
+  "COVERAGE_VALIDATION_REPORT.md",
+  "DART_BRANCH_CANONICALIZATION_REPORT.md",
+  "DART_PARITY_AUDIT.md",
+  "DART_REALITY_AUDIT.md",
+  "DART_RELEASE_GAP_REPORT.md",
+  "DEFERRED_API_AUDIT.md",
+  "EXECUTABLE_PARITY_MATRIX.md",
+  "FINAL_RELEASE_VALIDATION.md",
+  "FINAL_STATE_OF_DART_BRANCH.md",
+  "FINAL_TRUE_PARITY_REPORT.md",
+  "FINAL_ZERO_TRUST_CERTIFICATION.md",
+  "FINAL_ZERO_TRUST_CERTIFICATION_V2.json",
+  "GIT_GOVERNANCE_REPORT.md",
+  "LANGUAGES.md",
+  "OSS_VALIDATION_REPORT.md",
+  "PARTIAL_API_AUDIT.md",
+  "README_GAP_REPORT.md",
+  "RELEASE_READINESS_REPORT.md",
+  "REPOSITORY_STATE_BEFORE_MIGRATION.md",
+  "REPOSITORY_VALIDATION_REPORT.md",
+  "SEMANTIC_IR_DEPENDENCY_MAP.md",
+  "SEMANTIC_IR_PARITY_REPORT.md",
+  "SEMANTIC_IR_PHASE_PLAN.md",
+  "TEST_INVENTORY.md",
+  "TEST_VALIDATION_REPORT.md",
+  "validation/replay/replay_report.md",
+  "validation/runtime_graph/runtime_graph_report.md"
+ ],
+ "generated": [
+  "PUBLIC_API_MATRIX.md",
+  "cross_language_verifier/bench_dart_out.json",
+  "cross_language_verifier/bench_js_out.json",
+  "cross_language_verifier/bench_py_out.json",
+  "cross_language_verifier/synth_dart.json",
+  "cross_language_verifier/synth_html.json",
+  "cross_language_verifier/synth_js.json",
+  "cross_language_verifier/synth_py.json",
+  "validation/executable/dart_results.json",
+  "validation/executable/js_results.json",
+  "validation/executable/python_results.json",
+  "validation/semantic_ir/dart_results.json",
+  "validation/semantic_ir/js_results.json",
+  "validation/semantic_ir/python_results.json",
+  "validation/zero_trust_v2/mv_dart.json",
+  "validation/zero_trust_v2/mv_js.json",
+  "validation/zero_trust_v2/mv_python.json"
+ ],
+ "temporary": [],
+ "largest": [
+  {
+   "path": "cross_language_verifier/synth_html.json",
+   "size": 3064984,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_py.json",
+   "size": 1600000,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_dart.json",
+   "size": 1550001,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_js.json",
+   "size": 1550001,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "validation/semantic_ir/python_results.json",
+   "size": 1007575,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/semantic_ir/dart_results.json",
+   "size": 934891,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/semantic_ir/js_results.json",
+   "size": 931997,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/parity/semantic_ir_fo_vectors.json",
+   "size": 487803,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_parsers_vectors.json",
+   "size": 448658,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "cross_language_verifier/dart_extraction_gap_report.json",
+   "size": 153232,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "validation/semantic_ir/fixtures.json",
+   "size": 122453,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certified fixture set (667)"
+  },
+  {
+   "path": "cross_language_verifier/inventory_javascript.json",
+   "size": 88481,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "validation/parity/semantic_ir_c_vectors.json",
+   "size": 88418,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "cross_language_verifier/inventory_python.json",
+   "size": 86578,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "test/engines/runtime_families_engines_test.dart",
+   "size": 64705,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  }
+ ]
+}

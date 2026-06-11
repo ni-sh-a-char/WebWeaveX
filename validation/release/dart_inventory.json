@@ -1,0 +1,3372 @@
+{
+ "branch": "dart",
+ "files": 559,
+ "bytes": 14890801,
+ "classification_counts": {
+  "REQUIRED_BUILD": 12,
+  "LEGACY": 31,
+  "REQUIRED_CONTRIBUTOR": 11,
+  "REQUIRED_DOCUMENTATION": 77,
+  "REQUIRED_CERTIFICATION": 163,
+  "GENERATED": 17,
+  "REQUIRED_EXAMPLE": 1,
+  "REQUIRED_RUNTIME": 191,
+  "REQUIRED_TESTING": 56
+ },
+ "entries": [
+  {
+   "path": ".github/CODE_OF_CONDUCT.md",
+   "size": 1029,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/FUNDING.yml",
+   "size": 54,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+   "size": 683,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+   "size": 532,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/ISSUE_TEMPLATE/performance_issue.md",
+   "size": 514,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/PULL_REQUEST_TEMPLATE.md",
+   "size": 839,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/workflows/ci.yml",
+   "size": 936,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".github/workflows/dart.yml",
+   "size": 1111,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "CI workflows"
+  },
+  {
+   "path": ".gitignore",
+   "size": 867,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "vcs excludes"
+  },
+  {
+   "path": ".pubignore",
+   "size": 391,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "pub package excludes"
+  },
+  {
+   "path": "API_PARITY_VALIDATION_REPORT.md",
+   "size": 1389,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "AUTHORS",
+   "size": 14,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "authors"
+  },
+  {
+   "path": "CHANGELOG.md",
+   "size": 11962,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "changelog"
+  },
+  {
+   "path": "CITATION.cff",
+   "size": 232,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "citation"
+  },
+  {
+   "path": "CI_VALIDATION_REPORT.md",
+   "size": 1512,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "CODEOWNERS",
+   "size": 226,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "code owners"
+  },
+  {
+   "path": "CODE_OF_CONDUCT.md",
+   "size": 186,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "conduct"
+  },
+  {
+   "path": "COMPLETE_API_PROOF_MATRIX.md",
+   "size": 27771,
+   "classification": "LEGACY",
+   "purpose": "dev-era matrix, superseded"
+  },
+  {
+   "path": "CONTRIBUTING.md",
+   "size": 2770,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "contributor guide"
+  },
+  {
+   "path": "COVERAGE_REPORT.md",
+   "size": 2393,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "COVERAGE_VALIDATION_REPORT.md",
+   "size": 1686,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "DART_BRANCH_CANONICALIZATION_REPORT.md",
+   "size": 2003,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "DART_PARITY_AUDIT.md",
+   "size": 5842,
+   "classification": "LEGACY",
+   "purpose": "dev-era audit, superseded"
+  },
+  {
+   "path": "DART_REALITY_AUDIT.md",
+   "size": 2792,
+   "classification": "LEGACY",
+   "purpose": "dev-era audit, superseded"
+  },
+  {
+   "path": "DART_RELEASE_GAP_REPORT.md",
+   "size": 3902,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "DEFERRED_API_AUDIT.md",
+   "size": 2018,
+   "classification": "LEGACY",
+   "purpose": "dev-era audit, superseded"
+  },
+  {
+   "path": "EXECUTABLE_PARITY_MATRIX.md",
+   "size": 8117,
+   "classification": "LEGACY",
+   "purpose": "dev-era matrix, superseded"
+  },
+  {
+   "path": "FINAL_RELEASE_VALIDATION.md",
+   "size": 3054,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "FINAL_STATE_OF_DART_BRANCH.md",
+   "size": 5379,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "FINAL_TRUE_PARITY_REPORT.md",
+   "size": 1866,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "FINAL_ZERO_TRUST_CERTIFICATION.md",
+   "size": 8861,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "FINAL_ZERO_TRUST_CERTIFICATION_V2.json",
+   "size": 4713,
+   "classification": "LEGACY",
+   "purpose": "superseded by final_certification.json (historical FAIL evidence)"
+  },
+  {
+   "path": "GIT_GOVERNANCE_REPORT.md",
+   "size": 3659,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "GOVERNANCE.md",
+   "size": 1487,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "governance"
+  },
+  {
+   "path": "LANGUAGES.md",
+   "size": 1676,
+   "classification": "LEGACY",
+   "purpose": "dev-era doc, superseded"
+  },
+  {
+   "path": "LICENSE",
+   "size": 660,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "license"
+  },
+  {
+   "path": "MAINTAINERS.md",
+   "size": 770,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "maintainers"
+  },
+  {
+   "path": "NOTICE",
+   "size": 129,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "notices"
+  },
+  {
+   "path": "OSS_VALIDATION_REPORT.md",
+   "size": 1929,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "PARITY_MANIFEST.json",
+   "size": 41737,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "single source of truth for API classification"
+  },
+  {
+   "path": "PARTIAL_API_AUDIT.md",
+   "size": 3794,
+   "classification": "LEGACY",
+   "purpose": "dev-era audit, superseded"
+  },
+  {
+   "path": "PUBLIC_API_MATRIX.md",
+   "size": 12465,
+   "classification": "GENERATED",
+   "purpose": "regenerated by tools/dart_parity_audit.py"
+  },
+  {
+   "path": "README.md",
+   "size": 16736,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "README_GAP_REPORT.md",
+   "size": 2955,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "RELEASE.md",
+   "size": 1461,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "release process"
+  },
+  {
+   "path": "RELEASE_READINESS_REPORT.md",
+   "size": 1770,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "REPOSITORY_STATE_BEFORE_MIGRATION.md",
+   "size": 1922,
+   "classification": "LEGACY",
+   "purpose": "dev-era snapshot"
+  },
+  {
+   "path": "REPOSITORY_VALIDATION_REPORT.md",
+   "size": 1966,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "ROADMAP.md",
+   "size": 860,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "roadmap"
+  },
+  {
+   "path": "SECURITY.md",
+   "size": 695,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "security policy"
+  },
+  {
+   "path": "SEMANTIC_IR_DEPENDENCY_MAP.md",
+   "size": 4076,
+   "classification": "LEGACY",
+   "purpose": "dev-era living progress docs, superseded by CERTIFICATION.md"
+  },
+  {
+   "path": "SEMANTIC_IR_PARITY_REPORT.md",
+   "size": 25062,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "SEMANTIC_IR_PHASE_PLAN.md",
+   "size": 40562,
+   "classification": "LEGACY",
+   "purpose": "dev-era living progress docs, superseded by CERTIFICATION.md"
+  },
+  {
+   "path": "SUPPORT.md",
+   "size": 1097,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "support policy"
+  },
+  {
+   "path": "TEST_INVENTORY.md",
+   "size": 2897,
+   "classification": "LEGACY",
+   "purpose": "dev-era doc, superseded"
+  },
+  {
+   "path": "TEST_VALIDATION_REPORT.md",
+   "size": 1507,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "analysis_options.yaml",
+   "size": 202,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "dart analyzer config"
+  },
+  {
+   "path": "cross_language_verifier/README.md",
+   "size": 2403,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "verifier protocol"
+  },
+  {
+   "path": "cross_language_verifier/api_parity_matrix.json",
+   "size": 42008,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/api_signatures.json",
+   "size": 6667,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/bench_dart.dart",
+   "size": 1314,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/bench_dart_out.json",
+   "size": 92,
+   "classification": "GENERATED",
+   "purpose": "verifier run outputs"
+  },
+  {
+   "path": "cross_language_verifier/bench_js.mjs",
+   "size": 1035,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/bench_js_out.json",
+   "size": 100,
+   "classification": "GENERATED",
+   "purpose": "verifier run outputs"
+  },
+  {
+   "path": "cross_language_verifier/bench_py.py",
+   "size": 1031,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/bench_py_out.json",
+   "size": 103,
+   "classification": "GENERATED",
+   "purpose": "verifier run outputs"
+  },
+  {
+   "path": "cross_language_verifier/build_inventory.py",
+   "size": 6908,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/certification_report.json",
+   "size": 529,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/compare.py",
+   "size": 4617,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/content_probe.py",
+   "size": 537,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/content_probe_diff.py",
+   "size": 1232,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/cross_js.mjs",
+   "size": 6081,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/cross_product_matrix.json",
+   "size": 1631,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/cross_py.py",
+   "size": 4691,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/dart_extraction_gap_report.json",
+   "size": 153232,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/deep_diff.py",
+   "size": 1101,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extract3_detail.json",
+   "size": 127,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/extract_compare.py",
+   "size": 2867,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extract_compare3.py",
+   "size": 2237,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extract_dart.dart",
+   "size": 3140,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extract_js.mjs",
+   "size": 2749,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extract_probe.py",
+   "size": 566,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extract_py.py",
+   "size": 2778,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/extraction_certification.json",
+   "size": 2585,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/extraction_torture_fail_detail.json",
+   "size": 2,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/failure_vectors.json",
+   "size": 2,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/fetch_corpus.py",
+   "size": 4408,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/function_parity_matrix.json",
+   "size": 2987,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/gap_report.py",
+   "size": 5762,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/gen_entities.py",
+   "size": 1248,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/gen_entities_dart.py",
+   "size": 1073,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/gen_synth_html.py",
+   "size": 4323,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/gen_unescape_tables.py",
+   "size": 3067,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/generate_vectors.py",
+   "size": 6800,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/inventory_dart.json",
+   "size": 13147,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/inventory_javascript.json",
+   "size": 88481,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/inventory_python.json",
+   "size": 86578,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_certification_report.json",
+   "size": 1711,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_parity_matrix.json",
+   "size": 3139,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_pkg_dart.json",
+   "size": 225,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_pkg_js.json",
+   "size": 232,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_pkg_python.json",
+   "size": 233,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_pkg_verify.dart",
+   "size": 2115,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/kaalka_pkg_verify.py",
+   "size": 1754,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/oss_readiness_report.json",
+   "size": 1356,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/parity_report.json",
+   "size": 1137,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/performance_report.json",
+   "size": 1169,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/real_world_parity_report.json",
+   "size": 2255,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/run_dart.dart",
+   "size": 1629,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/run_js.mjs",
+   "size": 1184,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/run_python.py",
+   "size": 1341,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/semantic_ir_certification.json",
+   "size": 100,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier certification artifacts"
+  },
+  {
+   "path": "cross_language_verifier/sir_compare.py",
+   "size": 1779,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/spot_gap_dart.dart",
+   "size": 1689,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/spot_gap_py.py",
+   "size": 1115,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/synth_compare.py",
+   "size": 801,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/synth_dart.dart",
+   "size": 632,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/synth_dart.json",
+   "size": 1550001,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_html.json",
+   "size": 3064984,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_js.json",
+   "size": 1550001,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_js.mjs",
+   "size": 638,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "cross_language_verifier/synth_py.json",
+   "size": 1600000,
+   "classification": "GENERATED",
+   "purpose": "synth outputs/inputs \u2014 regenerated from seeded generator"
+  },
+  {
+   "path": "cross_language_verifier/synth_py.py",
+   "size": 626,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "verifier harness"
+  },
+  {
+   "path": "docs/README.md",
+   "size": 452,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/api/README.md",
+   "size": 1075,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/architecture/CANONICAL_RUNTIME_SPEC.md",
+   "size": 5183,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/architecture/CROSS_LANGUAGE_PARITY.md",
+   "size": 12710,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/architecture/DART_GAP_AUDIT.md",
+   "size": 2352,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/architecture/ECOSYSTEM_MATRIX.md",
+   "size": 1085,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/architecture/FINAL_TOTAL_PARITY_AUDIT.md",
+   "size": 11171,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/architecture/JAVASCRIPT_GAP_AUDIT.md",
+   "size": 4713,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/architecture/README.md",
+   "size": 1273,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/architecture/architecture.md",
+   "size": 1030,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "architecture"
+  },
+  {
+   "path": "docs/archive/ABSOLUTE_KAALKA_MATHEMATICAL_VALIDATION.md",
+   "size": 622,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/CODE_OF_CONDUCT.md",
+   "size": 831,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "conduct"
+  },
+  {
+   "path": "docs/archive/COVERAGE_REPORT.md",
+   "size": 678,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_90_PERCENT_COVERAGE_REPORT.md",
+   "size": 373,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_CONNECTOR_VALIDATION_REPORT.md",
+   "size": 116,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_COVERAGE_REPORT.md",
+   "size": 907,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_CROSS_LANGUAGE_EQUALITY_REPORT.md",
+   "size": 1827,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_DART_RELEASE_REPORT.md",
+   "size": 475,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_DEAD_SYSTEMS_REPORT.md",
+   "size": 1045,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_DEEP_AUDIT_REPORT.md",
+   "size": 1896,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_DETERMINISM_AUDIT.md",
+   "size": 420,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_DETERMINISM_REPORT.md",
+   "size": 254,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_DETERMINISM_VALIDATION.md",
+   "size": 245,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_ENTERPRISE_VALIDATION_REPORT.md",
+   "size": 605,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_EXECUTION_SECURITY_AUDIT.md",
+   "size": 542,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_EXECUTION_SECURITY_REPORT.md",
+   "size": 102,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_EXTRACTION_GENERALIZATION_REPORT.md",
+   "size": 272,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_IMPORT_HARDENING_REPORT.md",
+   "size": 157,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_IMPORT_STABILITY_REPORT.md",
+   "size": 403,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_KAALKA_INTEGRATION_AUDIT.md",
+   "size": 555,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_MEMORY_FABRIC_REPORT.md",
+   "size": 99,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_NATIVE_RUNTIME_REPORT.md",
+   "size": 105,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_PARITY_REPORT.md",
+   "size": 308,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_PERFORMANCE_REPORT.md",
+   "size": 100,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_PIPELINE_UNIFICATION_REPORT.md",
+   "size": 533,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_PUBLIC_API_REPORT.md",
+   "size": 300,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_PUB_READINESS_REPORT.md",
+   "size": 343,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_REAL_WORLD_VALIDATION_REPORT.md",
+   "size": 264,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_RECONSTRUCTION_AUDIT.md",
+   "size": 97,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_RECONSTRUCTION_VALIDATION_REPORT.md",
+   "size": 119,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_REPLAY_EQUIVALENCE_REPORT.md",
+   "size": 56,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_REPOSITORY_PURIFICATION_REPORT.md",
+   "size": 533,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_REPOSITORY_STRUCTURE_REPORT.md",
+   "size": 381,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_SPA_STABILIZATION_REPORT.md",
+   "size": 108,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/FINAL_TRUE_EQUALITY_REPORT.md",
+   "size": 1835,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/IMPORT_GRAPH_REPORT.md",
+   "size": 939,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/LEGACY_PURGE_REPORT.md",
+   "size": 1460,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/LIVE_CONNECTOR_VALIDATION_REPORT.md",
+   "size": 1920,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/PERFORMANCE_REPORT.md",
+   "size": 426,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/README.md",
+   "size": 655,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/archive/REMOVED_MODULES_REPORT.md",
+   "size": 1091,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/REPO_CLEANUP_REPORT.md",
+   "size": 554,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/SECURITY_EXECUTION_AUDIT.md",
+   "size": 468,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/WEBWEAVEX_v2_ARCHITECTURE_LOCK_REPORT.md",
+   "size": 536,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/WEBWEAVEX_v2_FINAL_PRODUCTION_REPORT.md",
+   "size": 2654,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/WEBWEAVEX_v2_REAL_WORLD_VALIDATION_REPORT.md",
+   "size": 3474,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/WEBWEAVEX_v2_RELEASE_REPORT.md",
+   "size": 1985,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/api-reference.md",
+   "size": 739,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/extraction.md",
+   "size": 251,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/kernel.md",
+   "size": 976,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/archive/native.enc",
+   "size": 3119,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/kaalka/README.md",
+   "size": 669,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/replay/README.md",
+   "size": 776,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/security/README.md",
+   "size": 548,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/security/kaalka.md",
+   "size": 250,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/security/security.md",
+   "size": 186,
+   "classification": "REQUIRED_CONTRIBUTOR",
+   "purpose": "security policy"
+  },
+  {
+   "path": "docs/validation/FINAL_PUBLIC_RELEASE_REPORT.md",
+   "size": 3500,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/validation/FINAL_REPOSITORY_BRANDING_REPORT.md",
+   "size": 5590,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/validation/GITHUB_RELEASE_v2.0.0.md",
+   "size": 2309,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/validation/README.md",
+   "size": 822,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "front page"
+  },
+  {
+   "path": "docs/validation/WEBWEAVEX_v2_FINAL_RELEASE_REPORT.md",
+   "size": 2617,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "docs/validation/WEBWEAVEX_v2_REAL_WORLD_VALIDATION_REPORT.md",
+   "size": 3471,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "extended docs"
+  },
+  {
+   "path": "example/parity_example.dart",
+   "size": 296,
+   "classification": "REQUIRED_EXAMPLE",
+   "purpose": "dart examples"
+  },
+  {
+   "path": "final_certification.json",
+   "size": 3362,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "final verdict artifact"
+  },
+  {
+   "path": "lib/src/adaptive/modal_recovery_engine.dart",
+   "size": 2672,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/adaptive/selector_healing.dart",
+   "size": 6798,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/application/application_cognition.dart",
+   "size": 17564,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/application/runtime_application.dart",
+   "size": 5373,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/authenticated_runtime.dart",
+   "size": 1033,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/browser_identity.dart",
+   "size": 1325,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/capture_runtime.dart",
+   "size": 677,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/extract_web.dart",
+   "size": 1850,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/render_page.dart",
+   "size": 659,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/runtime_continuation.dart",
+   "size": 1927,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/runtime_session.dart",
+   "size": 1001,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/runtime_snapshot.dart",
+   "size": 914,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/browser/spa_stabilizer.dart",
+   "size": 943,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/causality/causality.dart",
+   "size": 358,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/causality/causality_engines.dart",
+   "size": 33462,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/causality/causality_runtime.dart",
+   "size": 12918,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors/connectors_exports.dart",
+   "size": 65,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors/connectors_impl.dart",
+   "size": 8829,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors/postgres_connector.dart",
+   "size": 59,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors_runtime/api_connector.dart",
+   "size": 3064,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors_runtime/connectors_runtime.dart",
+   "size": 1042,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors_runtime/interaction_graph.dart",
+   "size": 2503,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors_runtime/runtime_streams.dart",
+   "size": 4830,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors_runtime/stream_replay.dart",
+   "size": 2962,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/connectors_runtime/telemetry_runtime.dart",
+   "size": 1281,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/crypto/hashing.dart",
+   "size": 261,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/crypto/kaalka_runtime.dart",
+   "size": 2082,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/crypto/kaalka_v5_proc.dart",
+   "size": 1858,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/crypto/time_key.dart",
+   "size": 1070,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/crypto/utf8_parity.dart",
+   "size": 720,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/canonical_json_encode.dart",
+   "size": 1275,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/dom_stabilization.dart",
+   "size": 1396,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/fingerprint.dart",
+   "size": 497,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/normalization.dart",
+   "size": 588,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/normalization_core.dart",
+   "size": 2904,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/py_float_repr.dart",
+   "size": 1393,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/determinism/stable_serialize.dart",
+   "size": 1051,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/distributed/distributed_extraction_orchestrator.dart",
+   "size": 904,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/_sort_util.dart",
+   "size": 1003,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/evolution_runtime.dart",
+   "size": 694,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/evolution_runtime_ir.dart",
+   "size": 1749,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_adaptation_engine.dart",
+   "size": 712,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_convergence_engine.dart",
+   "size": 1270,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_diff_engine.dart",
+   "size": 667,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_evolution_engine.dart",
+   "size": 1353,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_evolution_graph_engine.dart",
+   "size": 2136,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_evolution_orchestrator.dart",
+   "size": 8283,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_lineage_engine.dart",
+   "size": 851,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_memory_engine.dart",
+   "size": 4962,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_mutation_engine.dart",
+   "size": 1772,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_optimization_engine.dart",
+   "size": 760,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_pattern_engine.dart",
+   "size": 949,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_policy_engine.dart",
+   "size": 1266,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_recovery_engine.dart",
+   "size": 480,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_repair_engine.dart",
+   "size": 1283,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_semantic_engine.dart",
+   "size": 1661,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_strategy_engine.dart",
+   "size": 841,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_topology_engine.dart",
+   "size": 864,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/runtime_workflow_engine.dart",
+   "size": 1370,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/selector_evolution_engine.dart",
+   "size": 1117,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/evolution/unified_runtime_graph.dart",
+   "size": 2538,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/execution.dart",
+   "size": 955,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/execution_runtime_ir.dart",
+   "size": 6429,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_action_engine.dart",
+   "size": 1766,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_coordination_engine.dart",
+   "size": 1457,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_execution_engine.dart",
+   "size": 4507,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_execution_orchestrator.dart",
+   "size": 10488,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_federation_engine.dart",
+   "size": 1459,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_mutation_engine.dart",
+   "size": 2035,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_permissions_engine.dart",
+   "size": 1480,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_policy_engine.dart",
+   "size": 1777,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_queue_engine.dart",
+   "size": 1778,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_recovery_engine.dart",
+   "size": 1277,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_replay_engine.dart",
+   "size": 1526,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_rollback_engine.dart",
+   "size": 1111,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_sandbox_engine.dart",
+   "size": 1310,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_scheduler_engine.dart",
+   "size": 1706,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_simulation_engine.dart",
+   "size": 1855,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_state_engine.dart",
+   "size": 784,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_transaction_engine.dart",
+   "size": 1453,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_transition_engine.dart",
+   "size": 1666,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/execution/runtime_worker_engine.dart",
+   "size": 872,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/extraction/html_semantic_extraction.dart",
+   "size": 2139,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/graph/runtime_graph.dart",
+   "size": 3529,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/graph/runtime_graph_reconstruction.dart",
+   "size": 771,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/graph/runtime_graph_replay.dart",
+   "size": 583,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/identity/browser_identity_canonical.dart",
+   "size": 9748,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/ingestion/universal_ingestion_engine.dart",
+   "size": 2531,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/interaction/interaction_replay.dart",
+   "size": 2364,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/interaction/pagination_engine.dart",
+   "size": 3003,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/ir/multimodal_ir.dart",
+   "size": 764,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel/reconstruction_pipeline.dart",
+   "size": 423,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel/replay_pipeline.dart",
+   "size": 375,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel/runtime_pipeline.dart",
+   "size": 1775,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel_runtime/kernel_runtime.dart",
+   "size": 1236,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel_runtime/kernel_scaffolding.dart",
+   "size": 10961,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel_runtime/runtime_contracts.dart",
+   "size": 1726,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel_runtime/runtime_kernel.dart",
+   "size": 6830,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/kernel_runtime/unified_runtime_ir.dart",
+   "size": 3696,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/layout/layout_detection_engine.dart",
+   "size": 803,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/memory/memory_lineage.dart",
+   "size": 796,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/memory/memory_replay.dart",
+   "size": 900,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/memory/query_memory.dart",
+   "size": 164,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/memory/runtime_memory.dart",
+   "size": 2052,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/memory/runtime_memory_graph.dart",
+   "size": 972,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/multimodal/universal_multimodal_extraction_engine.dart",
+   "size": 1697,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/ocr/ocr_engine.dart",
+   "size": 9882,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/orchestration/orchestration_engine.dart",
+   "size": 199,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/parity/canonical_runtime.dart",
+   "size": 9748,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/persistence/fingerprint_hex.dart",
+   "size": 5392,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/persistence/persistence.dart",
+   "size": 876,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/persistence/persistence_runtime.dart",
+   "size": 15744,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/query/graph_ir.dart",
+   "size": 5802,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/query/knowledge_ir.dart",
+   "size": 7241,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/query/python_repr.dart",
+   "size": 1792,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/query/query.dart",
+   "size": 942,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/query/query_engines.dart",
+   "size": 8515,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/query/topology_reasoning.dart",
+   "size": 4872,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction/reconstruct_browser.dart",
+   "size": 574,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction/reconstruct_graph.dart",
+   "size": 615,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction/reconstruct_memory.dart",
+   "size": 827,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction/reconstruct_replay.dart",
+   "size": 681,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction/reconstruct_runtime.dart",
+   "size": 1122,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction_runtime/reconstruction_runtime.dart",
+   "size": 657,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction_runtime/reconstruction_runtime_engines.dart",
+   "size": 29621,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/reconstruction_runtime/reconstruction_runtime_orchestrator.dart",
+   "size": 17247,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/replay/replay_dom.dart",
+   "size": 336,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/replay/replay_equivalence.dart",
+   "size": 3329,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/replay/replay_fingerprint.dart",
+   "size": 1077,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/replay/replay_graph.dart",
+   "size": 1314,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/replay/replay_memory.dart",
+   "size": 682,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/replay/replay_runtime.dart",
+   "size": 1731,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/runtime_memory_family/runtime_memory_engines.dart",
+   "size": 33978,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/runtime_memory_family/runtime_memory_orchestrator.dart",
+   "size": 9247,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/runtime_memory_family/runtime_memory_persistence_engine.dart",
+   "size": 3725,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/runtime_memory_family/runtime_memory_runtime.dart",
+   "size": 898,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic/semantic_engines.dart",
+   "size": 28296,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic/semantic_memory.dart",
+   "size": 533,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic/semantic_runtime.dart",
+   "size": 11489,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/ast_engines.dart",
+   "size": 2381,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/composites_b.dart",
+   "size": 4758,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/composites_c.dart",
+   "size": 4957,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/document_composites.dart",
+   "size": 5563,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/document_parser.dart",
+   "size": 6682,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/evidence_layer_b.dart",
+   "size": 26498,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/evidence_layer_c.dart",
+   "size": 36288,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/evidence_leaves.dart",
+   "size": 21876,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/evidence_leaves_2.dart",
+   "size": 24306,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/evidence_leaves_3.dart",
+   "size": 22491,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/evidence_leaves_4.dart",
+   "size": 24368,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/graph_engines.dart",
+   "size": 3581,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/ir_base.dart",
+   "size": 1188,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/layer_d.dart",
+   "size": 10416,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/layer_e.dart",
+   "size": 14883,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/layer_f_o.dart",
+   "size": 26194,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/layer_repo.dart",
+   "size": 12405,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/parsers.dart",
+   "size": 30462,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/pressure_engines.dart",
+   "size": 4922,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/py_compat.dart",
+   "size": 4707,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/python_ast_parser.dart",
+   "size": 8791,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/semantic_ir/repository_engines.dart",
+   "size": 6527,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/soup/html_entities.dart",
+   "size": 52602,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/soup/soup.dart",
+   "size": 15385,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/synchronization/runtime_sync_memory.dart",
+   "size": 3874,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/synchronization/synchronization.dart",
+   "size": 611,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/synchronization/synchronization_engines.dart",
+   "size": 34188,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/tables/table_extraction_engine.dart",
+   "size": 1195,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/vision/chart_detection_engine.dart",
+   "size": 1083,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/vision/form_extraction_engine.dart",
+   "size": 971,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/vision/ui_component_detection_engine.dart",
+   "size": 1051,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/objective_engine.dart",
+   "size": 1474,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/unified_runtime_graph.dart",
+   "size": 3110,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_alignment_engine.dart",
+   "size": 667,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_dependency_engine.dart",
+   "size": 2034,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_execution_engine.dart",
+   "size": 1009,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_federation_engine.dart",
+   "size": 1552,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_graph_engine.dart",
+   "size": 2656,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_memory_engine.dart",
+   "size": 3029,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_navigation_engine.dart",
+   "size": 1400,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_orchestrator.dart",
+   "size": 7454,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_planner_engine.dart",
+   "size": 3525,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_recovery_engine.dart",
+   "size": 1480,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_replay_engine.dart",
+   "size": 569,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_runtime_engine.dart",
+   "size": 452,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_runtime_ir.dart",
+   "size": 1855,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_scheduler_engine.dart",
+   "size": 1570,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_semantic_alignment_engine.dart",
+   "size": 1162,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_state_engine.dart",
+   "size": 1199,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflow_transition_engine.dart",
+   "size": 976,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/src/workflows/workflows.dart",
+   "size": 556,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "lib/webweavex.dart",
+   "size": 7834,
+   "classification": "REQUIRED_RUNTIME",
+   "purpose": "dart library source"
+  },
+  {
+   "path": "pubspec.yaml",
+   "size": 957,
+   "classification": "REQUIRED_BUILD",
+   "purpose": "dart package manifest"
+  },
+  {
+   "path": "test/browser/browser_coverage_test.dart",
+   "size": 19950,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/browser/render_page_http_test.dart",
+   "size": 1393,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/connectors/connectors_coverage_test.dart",
+   "size": 13400,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/crypto/crypto_coverage_test.dart",
+   "size": 8883,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/crypto/kaalka_test.dart",
+   "size": 615,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/crypto/parity_vectors_test.dart",
+   "size": 1533,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/determinism/determinism_coverage_test.dart",
+   "size": 10474,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/determinism/dom_test.dart",
+   "size": 239,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/determinism/normalization_test.dart",
+   "size": 363,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/engines/execution_engines_test.dart",
+   "size": 38584,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/engines/runtime_families_engines_test.dart",
+   "size": 64705,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/engines/wave2_coverage_test.dart",
+   "size": 21259,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/graph/graph_coverage_test.dart",
+   "size": 7489,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/graph/runtime_graph_test.dart",
+   "size": 298,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/integration/pipeline_test.dart",
+   "size": 338,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/kernel/kernel_coverage_test.dart",
+   "size": 5906,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/memory/memory_coverage_test.dart",
+   "size": 14525,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/application_cognition_test.dart",
+   "size": 3555,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/application_runtime_parity_test.dart",
+   "size": 4374,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/browser_identity_parity_test.dart",
+   "size": 2489,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/canonical_runtime_coverage_test.dart",
+   "size": 3402,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/canonical_runtime_parity_test.dart",
+   "size": 3501,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/causality_parity_test.dart",
+   "size": 5807,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/connectors_runtime_parity_test.dart",
+   "size": 9855,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/connectors_snapshot_parity_test.dart",
+   "size": 3407,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/evolution_parity_test.dart",
+   "size": 5209,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/execution_parity_test.dart",
+   "size": 5076,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/interaction_replay_parity_test.dart",
+   "size": 2827,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/kernel_parity_test.dart",
+   "size": 10370,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/memory_canonical_parity_test.dart",
+   "size": 3300,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/memory_runtime_parity_test.dart",
+   "size": 14474,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/persistence_parity_test.dart",
+   "size": 11399,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/query_parity_test.dart",
+   "size": 10411,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/reconstruction_kernel_parity_test.dart",
+   "size": 2879,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/reconstruction_runtime_parity_test.dart",
+   "size": 8500,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/selector_healing_parity_test.dart",
+   "size": 3486,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_a2_test.dart",
+   "size": 7048,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_a3_test.dart",
+   "size": 6255,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_a3b_test.dart",
+   "size": 6528,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_a3c_test.dart",
+   "size": 4345,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_a3d_test.dart",
+   "size": 5098,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_b_test.dart",
+   "size": 7807,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_c_test.dart",
+   "size": 5876,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_d_test.dart",
+   "size": 4152,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_document_parser_test.dart",
+   "size": 2698,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_e_test.dart",
+   "size": 4064,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_fo_test.dart",
+   "size": 4177,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_parsers_test.dart",
+   "size": 3964,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_ir_repo_test.dart",
+   "size": 3480,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/semantic_parity_test.dart",
+   "size": 9138,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/synchronization_parity_test.dart",
+   "size": 9262,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/parity/workflows_parity_test.dart",
+   "size": 6064,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/production/exports_test.dart",
+   "size": 304,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/reconstruction/reconstruction_coverage_test.dart",
+   "size": 8035,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/replay/replay_coverage_test.dart",
+   "size": 10383,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "test/replay/replay_test.dart",
+   "size": 712,
+   "classification": "REQUIRED_TESTING",
+   "purpose": "test suite"
+  },
+  {
+   "path": "tools/complete_proof_audit.py",
+   "size": 7378,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/cov_breakdown.py",
+   "size": 886,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/dart_parity_audit.py",
+   "size": 12480,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/gen_executable_matrix.py",
+   "size": 4840,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/gen_proof_matrix.py",
+   "size": 4953,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/gen_semantic_ir_map.py",
+   "size": 6168,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/gen_semantic_ir_phaseplan.py",
+   "size": 7435,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/generate_parity_manifest.py",
+   "size": 4284,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/generate_reports.py",
+   "size": 16560,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/proof_coverage.py",
+   "size": 2899,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "tools/three_way_parity.py",
+   "size": 4300,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
+   "path": "validation/browser/validate_browser.dart",
+   "size": 1101,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/connectors/validate_connectors.dart",
+   "size": 314,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/executable/dart_results.json",
+   "size": 15616,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/executable/fixtures.json",
+   "size": 5321,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executable API harness"
+  },
+  {
+   "path": "validation/executable/js_results.json",
+   "size": 15616,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/executable/python_results.json",
+   "size": 16725,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/executable/run_dart.dart",
+   "size": 4390,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executable API harness"
+  },
+  {
+   "path": "validation/executable/run_js.mjs",
+   "size": 3831,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executable API harness"
+  },
+  {
+   "path": "validation/executable/run_python.py",
+   "size": 2469,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executable API harness"
+  },
+  {
+   "path": "validation/parity/application_cognition_vectors.json",
+   "size": 37002,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/application_runtime_api_vectors.json",
+   "size": 3507,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/browser_identity_api_vectors.json",
+   "size": 8435,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/canonical_runtime_api_vectors.json",
+   "size": 5190,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/causality_api_vectors.json",
+   "size": 2280,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/connectors_runtime_api_vectors.json",
+   "size": 6497,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/connectors_snapshot_api_vectors.json",
+   "size": 7093,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/dart_vectors.json",
+   "size": 4172,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/evolution_runtime_api_vectors.json",
+   "size": 12838,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/execution_api_vectors.json",
+   "size": 7325,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/interaction_replay_api_vectors.json",
+   "size": 3836,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/javascript_vectors.json",
+   "size": 4172,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/kernel_api_vectors.json",
+   "size": 6517,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/memory_api_vectors.json",
+   "size": 14441,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/memory_canonical_api_vectors.json",
+   "size": 1799,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/parity_report.md",
+   "size": 2604,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/persistence_api_vectors.json",
+   "size": 2725,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/python_vectors.json",
+   "size": 2313,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/query_api_vectors.json",
+   "size": 6801,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/reconstruction_kernel_api_vectors.json",
+   "size": 1741,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/reconstruction_runtime_api_vectors.json",
+   "size": 17414,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/selector_healing_api_vectors.json",
+   "size": 6665,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_api_vectors.json",
+   "size": 3869,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_a2_vectors.json",
+   "size": 19528,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_a3_vectors.json",
+   "size": 29171,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_a3b_vectors.json",
+   "size": 30189,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_a3c_vectors.json",
+   "size": 24404,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_a3d_vectors.json",
+   "size": 23275,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_b_vectors.json",
+   "size": 56902,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_c_vectors.json",
+   "size": 88418,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_d_vectors.json",
+   "size": 28630,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_document_parser_vectors.json",
+   "size": 5255,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_e_vectors.json",
+   "size": 32028,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_fo_vectors.json",
+   "size": 487803,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_parsers_vectors.json",
+   "size": 448658,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/semantic_ir_repo_vectors.json",
+   "size": 38210,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/synchronization_api_vectors.json",
+   "size": 5835,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/parity/workflows_api_vectors.json",
+   "size": 5384,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/reconstruction/reconstruction_vectors.json",
+   "size": 171,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/reconstruction/validate_reconstruction.dart",
+   "size": 994,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/replay/replay_report.md",
+   "size": 191,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "validation/replay/replay_vectors.json",
+   "size": 222,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/replay/validate_replay.dart",
+   "size": 2258,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/runtime_graph/runtime_graph_report.md",
+   "size": 137,
+   "classification": "LEGACY",
+   "purpose": "dev-era report, superseded"
+  },
+  {
+   "path": "validation/runtime_graph/runtime_graph_vectors.json",
+   "size": 171,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/runtime_graph/validate_runtime_graph.dart",
+   "size": 1226,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/runtime_memory/runtime_memory_vectors.json",
+   "size": 194,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/runtime_memory/validate_runtime_memory.dart",
+   "size": 1230,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/semantic_ir/compare_results.py",
+   "size": 2160,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "3-way comparator"
+  },
+  {
+   "path": "validation/semantic_ir/dart_results.json",
+   "size": 934891,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/semantic_ir/fixtures.json",
+   "size": 122453,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certified fixture set (667)"
+  },
+  {
+   "path": "validation/semantic_ir/gen_app_fixtures.py",
+   "size": 4196,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_parsers_fixtures.py",
+   "size": 6193,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_phase_b_fixtures.py",
+   "size": 9943,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_phase_c_fixtures.py",
+   "size": 6152,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_phase_d_fixtures.py",
+   "size": 2656,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_phase_e_fixtures.py",
+   "size": 3006,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_phase_fo_fixtures.py",
+   "size": 4126,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/gen_repo_ir_fixtures.py",
+   "size": 3277,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "fixture provenance generators"
+  },
+  {
+   "path": "validation/semantic_ir/js_results.json",
+   "size": 931997,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/semantic_ir/python_results.json",
+   "size": 1007575,
+   "classification": "GENERATED",
+   "purpose": "harness outputs \u2014 regenerated on every run"
+  },
+  {
+   "path": "validation/semantic_ir/run_dart.dart",
+   "size": 28080,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "3-way harness runner"
+  },
+  {
+   "path": "validation/semantic_ir/run_js.mjs",
+   "size": 51066,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "3-way harness runner"
+  },
+  {
+   "path": "validation/semantic_ir/run_python.py",
+   "size": 26411,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "3-way harness runner"
+  },
+  {
+   "path": "validation/validate_ecosystem.dart",
+   "size": 1973,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/validate_parity.dart",
+   "size": 5600,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/validate_production.dart",
+   "size": 1023,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/zero_trust_v2/actual_repository_state.json",
+   "size": 870,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/api_parity_certification.json",
+   "size": 1497,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/application_ir_certification.json",
+   "size": 1016,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/determinism_certification.json",
+   "size": 1877,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/determinism_scan.py",
+   "size": 2068,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification writers/runners"
+  },
+  {
+   "path": "validation/zero_trust_v2/determinism_scan_raw.json",
+   "size": 2271,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/document_ir_certification.json",
+   "size": 867,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/extraction_certification.json",
+   "size": 997,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/million_vector_certification.json",
+   "size": 818,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/mv_dart.dart",
+   "size": 4583,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "million-vector runner"
+  },
+  {
+   "path": "validation/zero_trust_v2/mv_dart.json",
+   "size": 627,
+   "classification": "GENERATED",
+   "purpose": "million-vector outputs \u2014 regenerated"
+  },
+  {
+   "path": "validation/zero_trust_v2/mv_js.json",
+   "size": 627,
+   "classification": "GENERATED",
+   "purpose": "million-vector outputs \u2014 regenerated"
+  },
+  {
+   "path": "validation/zero_trust_v2/mv_js.mjs",
+   "size": 3778,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "million-vector runner"
+  },
+  {
+   "path": "validation/zero_trust_v2/mv_python.json",
+   "size": 653,
+   "classification": "GENERATED",
+   "purpose": "million-vector outputs \u2014 regenerated"
+  },
+  {
+   "path": "validation/zero_trust_v2/mv_python.py",
+   "size": 4400,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification writers/runners"
+  },
+  {
+   "path": "validation/zero_trust_v2/origin_reproducibility_report.json",
+   "size": 969,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/performance_certification.json",
+   "size": 1685,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/portable_api_matrix.json",
+   "size": 1061,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/release_readiness_report.json",
+   "size": 1310,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/repository_inventory.json",
+   "size": 6493,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/repository_ir_certification.json",
+   "size": 1169,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/runtime_ir_certification.json",
+   "size": 807,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/security_certification.json",
+   "size": 1489,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/semantic_ir_certification.json",
+   "size": 995,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification artifacts with repro commands"
+  },
+  {
+   "path": "validation/zero_trust_v2/write_determinism_cert.py",
+   "size": 2600,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification writers/runners"
+  },
+  {
+   "path": "validation/zero_trust_v2/write_final_certs.py",
+   "size": 10731,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification writers/runners"
+  },
+  {
+   "path": "validation/zero_trust_v2/write_final_v3.py",
+   "size": 9892,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "certification writers/runners"
+  }
+ ]
+}
