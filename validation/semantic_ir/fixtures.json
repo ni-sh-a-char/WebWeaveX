@@ -8160,5 +8160,359 @@
    "<template>\n  <div class='app'>{render()}</div>\n</template>\nfunction render() { return view(); }\nfunction view() { return fetchData(); }\n",
    "src/App.jsx"
   ]
+ },
+ {
+  "id": "a-ui-rich",
+  "fn": "extract_ui_semantics",
+  "args": [
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>"
+  ]
+ },
+ {
+  "id": "a-ui-empty",
+  "fn": "extract_ui_semantics",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "a-forms-rich",
+  "fn": "build_form_runtime",
+  "args": [
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>"
+  ]
+ },
+ {
+  "id": "a-forms-empty",
+  "fn": "build_form_runtime",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "a-dash-rich",
+  "fn": "build_dashboard_runtime",
+  "args": [
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>"
+  ]
+ },
+ {
+  "id": "a-dash-empty",
+  "fn": "build_dashboard_runtime",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "a-nav-rich",
+  "fn": "build_navigation_semantics",
+  "args": [
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>",
+   "/dash",
+   null
+  ]
+ },
+ {
+  "id": "a-nav-history",
+  "fn": "build_navigation_semantics",
+  "args": [
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>",
+   "/dash",
+   [
+    {
+     "path": "/a",
+     "order": 0
+    },
+    {
+     "path": "/b",
+     "order": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a-state-full",
+  "fn": "build_application_state",
+  "args": [
+   "/route/x",
+   [
+    {
+     "action": "/save"
+    }
+   ],
+   [
+    {
+     "id": "m1"
+    }
+   ],
+   [
+    {
+     "text": "w"
+    }
+   ],
+   [
+    {
+     "label": "t"
+    }
+   ],
+   true
+  ]
+ },
+ {
+  "id": "a-state-min",
+  "fn": "build_application_state",
+  "args": [
+   "/r"
+  ]
+ },
+ {
+  "id": "a-trans-3",
+  "fn": "build_application_transitions",
+  "args": [
+   [
+    {
+     "route": "/a"
+    },
+    {
+     "route": "/b"
+    },
+    {
+     "route": "/c"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a-trans-1",
+  "fn": "build_application_transitions",
+  "args": [
+   [
+    {
+     "route": "/solo"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a-actions-3",
+  "fn": "build_action_graph",
+  "args": [
+   [
+    {
+     "action": "click",
+     "selector": "#mainForm button"
+    },
+    {
+     "type": "fill",
+     "selector": "input[name=search_query]"
+    },
+    {
+     "action": "open_modal_settings",
+     "from": "/home",
+     "to": "/settings"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a-actions-0",
+  "fn": "build_action_graph",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a-workflow",
+  "fn": "build_workflow_graph",
+  "args": [
+   [
+    {
+     "route": "/a"
+    },
+    {
+     "route": "/b"
+    },
+    {
+     "route": "/c"
+    }
+   ],
+   [
+    {
+     "from": "/a",
+     "to": "/b"
+    },
+    {
+     "from": "/b",
+     "to": "/c",
+     "relation": "redirect"
+    }
+   ],
+   [
+    {
+     "action": "click",
+     "selector": "#mainForm button"
+    },
+    {
+     "type": "fill",
+     "selector": "input[name=search_query]"
+    },
+    {
+     "action": "open_modal_settings",
+     "from": "/home",
+     "to": "/settings"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a-intent-known",
+  "fn": "resolve_application_intent",
+  "args": [
+   "login"
+  ]
+ },
+ {
+  "id": "a-intent-unknown",
+  "fn": "resolve_application_intent",
+  "args": [
+   "wander"
+  ]
+ },
+ {
+  "id": "a-recovery-rich",
+  "fn": "recover_application_runtime",
+  "args": [
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>",
+   {
+    "route": "/r",
+    "modals": [],
+    "authenticated": true
+   }
+  ]
+ },
+ {
+  "id": "a-recovery-empty",
+  "fn": "recover_application_runtime",
+  "args": [
+   "",
+   {
+    "route": "/r",
+    "modals": [
+     {
+      "id": "m"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a-context",
+  "fn": "build_application_context",
+  "args": [
+   "https://x.test/app",
+   {
+    "route": "/app",
+    "authenticated": true
+   },
+   {
+    "profile_id": "p1"
+   }
+  ]
+ },
+ {
+  "id": "a-memory-merge",
+  "fn": "remember_application_runtime",
+  "args": [
+   {
+    "application_state": {
+     "route": "/previous",
+     "forms": [],
+     "modals": [],
+     "widgets": [],
+     "tabs": [],
+     "authenticated": false,
+     "runtime_state": {},
+     "bounded": true
+    },
+    "workflows": {
+     "seed": true
+    }
+   },
+   {
+    "forms": {
+     "f": 1
+    },
+    "objectives": [
+     "o1"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a-run-full",
+  "fn": "run_application_cognition",
+  "args": [
+   "https://x.test/dash",
+   "<html><head><title>Dashboard KPI</title></head><body><nav><a href='/home'>Home</a><a href='/billing'>Billing</a></nav><header><a href='/logout'>Logout</a></header><div class='breadcrumb trail'>Home / Billing</div><aside>side</aside><div class='widget metric'>Revenue 42</div><div class='card'>Orders 7</div><form action='/save' id='mainForm'><input type='text' name='search_query'><input type='checkbox' name='active'><input type='hidden' name='csrf_token' value='x'><select name='region'><option>eu</option></select><textarea name='notes'></textarea><fieldset><input name='a' required></fieldset><fieldset><input name='b'></fieldset></form><form action='/empty'></form><table><tr><th>h1</th><th>h2</th></tr><tr><td>v</td><td>w</td></tr></table><canvas data-live='1'></canvas><canvas></canvas><div role='tab'>Tab One</div><div role='tab'>Tab Two</div></body></html>",
+   [
+    {
+     "action": "click",
+     "selector": "#mainForm button"
+    },
+    {
+     "type": "fill",
+     "selector": "input[name=search_query]"
+    },
+    {
+     "action": "open_modal_settings",
+     "from": "/home",
+     "to": "/settings"
+    }
+   ],
+   {
+    "application_state": {
+     "route": "/previous",
+     "forms": [],
+     "modals": [],
+     "widgets": [],
+     "tabs": [],
+     "authenticated": false,
+     "runtime_state": {},
+     "bounded": true
+    },
+    "workflows": {
+     "seed": true
+    }
+   },
+   "extract_dashboard",
+   true,
+   {
+    "profile_id": "p9"
+   },
+   null,
+   [
+    {
+     "path": "/a",
+     "order": 0
+    },
+    {
+     "path": "/b",
+     "order": 1
+    }
+   ],
+   [
+    {
+     "id": "modal1"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a-run-min",
+  "fn": "run_application_cognition",
+  "args": [
+   "https://x.test/",
+   ""
+  ]
  }
 ]

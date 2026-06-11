@@ -323,6 +323,20 @@ REGISTRY = {
     "compile_repository_ir": "core.ir.repository_ir",
     "query_repository": "core.query.repository_query_engine",
     "reason_runtime_semantic": "core.reasoning.runtime_reasoning_engine",
+    # application cognition closure
+    "run_application_cognition": "core.application.application_cognition_orchestrator",
+    "extract_ui_semantics": "core.application.ui_semantic_engine",
+    "build_form_runtime": "core.application.form_runtime_engine",
+    "build_dashboard_runtime": "core.application.dashboard_runtime_engine",
+    "build_navigation_semantics": "core.application.navigation_semantic_engine",
+    "build_application_state": "core.application.application_state_engine",
+    "build_application_transitions": "core.application.application_transition_engine",
+    "build_action_graph": "core.application.action_graph_engine",
+    "build_workflow_graph": "core.application.workflow_graph_engine",
+    "resolve_application_intent": "core.application.application_intent_engine",
+    "recover_application_runtime": "core.application.application_recovery_engine",
+    "build_application_context": "core.application.application_context_engine",
+    "remember_application_runtime": "core.application.application_memory_engine",
 }
 
 

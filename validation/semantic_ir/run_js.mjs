@@ -325,6 +325,20 @@ import { modelRuntimeState } from "./src/repository/runtimeStateEngine.ts";
 import { compileRepositoryIr } from "./src/ir/repositoryIr.ts";
 import { queryRepository } from "./src/query/repositoryQueryEngine.ts";
 import { reasonRuntimeSemantic } from "./src/reasoning/runtimeReasoningEngine.ts";
+// application cognition closure
+import { runApplicationCognition } from "./src/application/applicationCognitionOrchestrator.ts";
+import { extractUiSemantics } from "./src/application/uiSemanticEngine.ts";
+import { buildFormRuntime } from "./src/application/formRuntimeEngine.ts";
+import { buildDashboardRuntime } from "./src/application/dashboardRuntimeEngine.ts";
+import { buildNavigationSemantics } from "./src/application/navigationSemanticEngine.ts";
+import { buildApplicationState } from "./src/application/applicationStateEngine.ts";
+import { buildApplicationTransitions } from "./src/application/applicationTransitionEngine.ts";
+import { buildActionGraph } from "./src/application/actionGraphEngine.ts";
+import { buildWorkflowGraph } from "./src/application/workflowGraphEngine.ts";
+import { resolveApplicationIntent } from "./src/application/applicationIntentEngine.ts";
+import { recoverApplicationRuntime } from "./src/application/applicationRecoveryEngine.ts";
+import { buildApplicationContext } from "./src/application/applicationContextEngine.ts";
+import { rememberApplicationRuntime } from "./src/application/applicationMemoryEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -603,6 +617,20 @@ const A3_REGISTRY = {
   compile_repository_ir: compileRepositoryIr,
   query_repository: queryRepository,
   reason_runtime_semantic: reasonRuntimeSemantic,
+  // application cognition closure
+  run_application_cognition: runApplicationCognition,
+  extract_ui_semantics: extractUiSemantics,
+  build_form_runtime: buildFormRuntime,
+  build_dashboard_runtime: buildDashboardRuntime,
+  build_navigation_semantics: buildNavigationSemantics,
+  build_application_state: buildApplicationState,
+  build_application_transitions: buildApplicationTransitions,
+  build_action_graph: buildActionGraph,
+  build_workflow_graph: buildWorkflowGraph,
+  resolve_application_intent: resolveApplicationIntent,
+  recover_application_runtime: recoverApplicationRuntime,
+  build_application_context: buildApplicationContext,
+  remember_application_runtime: rememberApplicationRuntime,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.

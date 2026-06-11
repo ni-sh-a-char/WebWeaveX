@@ -25,6 +25,7 @@ import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/layer_d.dart';
 import 'package:webweavex/src/semantic_ir/layer_e.dart';
 import 'package:webweavex/src/semantic_ir/layer_f_o.dart';
+import 'package:webweavex/src/application/application_cognition.dart';
 import 'package:webweavex/src/semantic_ir/layer_repo.dart';
 import 'package:webweavex/src/semantic_ir/parsers.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
@@ -384,6 +385,20 @@ final Map<String, Function> a3Registry = <String, Function>{
   'compile_repository_ir': compileRepositoryIr,
   'query_repository': queryRepositoryIr,
   'reason_runtime_semantic': reasonRuntimeSemantic,
+  // application cognition closure
+  'run_application_cognition': runApplicationCognition,
+  'extract_ui_semantics': extractUiSemantics,
+  'build_form_runtime': buildFormRuntime,
+  'build_dashboard_runtime': buildDashboardRuntime,
+  'build_navigation_semantics': buildNavigationSemantics,
+  'build_application_state': buildApplicationState,
+  'build_application_transitions': buildApplicationTransitions,
+  'build_action_graph': buildActionGraph,
+  'build_workflow_graph': buildWorkflowGraph,
+  'resolve_application_intent': resolveApplicationIntent,
+  'recover_application_runtime': recoverApplicationRuntime,
+  'build_application_context': buildApplicationContext,
+  'remember_application_runtime': rememberApplicationRuntime,
 };
 
 /// Python kw-only params, flattened to trailing positionals in py2ts order.
