@@ -249,6 +249,22 @@ REGISTRY = {
     "reason_api_contract": "core.repository.api_contract_reasoning_engine",
     "model_infra_relationships": "core.repository.infra_relationship_engine",
     "apply_contradiction_restraint": "core.semantic.contradiction_restraint_engine",
+    # Phase C — second layer (deps are proven A/B functions)
+    "compile_semantic_ast_ir": "core.ast.semantic_ast_ir_engine",
+    "build_coreference_graph": "core.documents.coreference_graph_engine",
+    "analyze_instructional_semantics": "core.documents.instructional_semantics_engine",
+    "parse_semantic_discourse": "core.documents.semantic_discourse_parser",
+    "apply_civilizational_epistemic_openness": "core.evidence.civilizational_epistemic_openness_engine",
+    "apply_cognitive_anti_capture": "core.evidence.cognitive_anti_capture_engine",
+    "apply_cognitive_integrity": "core.evidence.cognitive_integrity_engine",
+    "apply_epistemic_civilization_stability": "core.evidence.epistemic_civilization_stability_engine",
+    "apply_formal_semantic_foundation": "core.evidence.formal_semantic_foundation_engine",
+    "apply_reality_bounded_confidence": "core.evidence.reality_bounded_confidence_engine",
+    "apply_recursive_epistemic_sovereignty": "core.evidence.recursive_epistemic_sovereignty_engine",
+    "collect_suppressed_speculation": "core.evidence.speculative_inference_engine",
+    "collect_unsupported_continuity": "core.evidence.unsupported_continuity_engine",
+    "reason_topology_semantic": "core.reasoning.topology_reasoning_engine",
+    "analyze_deployment_semantics": "core.repository.deployment_semantics_engine",
 }
 
 

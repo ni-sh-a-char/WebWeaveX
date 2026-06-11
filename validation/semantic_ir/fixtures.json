@@ -5412,5 +5412,919 @@
   "args": [
    {}
   ]
+ },
+ {
+  "id": "c-astir-src",
+  "fn": "compile_semantic_ast_ir",
+  "args": [
+   "import os\nfrom typing import Any\n\ndef handler(event, context=None):\n    payload = event\n    return payload\n\nclass Service:\n    def run(self):\n        state = 1\n        return state\n\nlimit = 10\n"
+  ]
+ },
+ {
+  "id": "c-astir-empty",
+  "fn": "compile_semantic_ast_ir",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "c-coref-text",
+  "fn": "build_coreference_graph",
+  "args": [
+   "# Engine\nThe engine parses documents. It is deterministic.\n\n# Pipeline\nThis builds on the engine because of shared state.\n"
+  ]
+ },
+ {
+  "id": "c-coref-plain",
+  "fn": "build_coreference_graph",
+  "args": [
+   "plain text, nothing else"
+  ]
+ },
+ {
+  "id": "c-instr-steps",
+  "fn": "analyze_instructional_semantics",
+  "args": [
+   "# Overview\nNote: read carefully.\n\n## Step one: install\nWarning: requires network.\n\n## Step two: setup\nDone.\n"
+  ]
+ },
+ {
+  "id": "c-instr-empty",
+  "fn": "analyze_instructional_semantics",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "c-discourse-doc",
+  "fn": "parse_semantic_discourse",
+  "args": [
+   "# Overview\nNote: read carefully.\n\n## Step one: install\nWarning: requires network.\n\n## Step two: setup\nDone.\n"
+  ]
+ },
+ {
+  "id": "c-discourse-empty",
+  "fn": "parse_semantic_discourse",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "c-topo-cycle",
+  "fn": "reason_topology_semantic",
+  "args": [
+   {
+    "nodes": [
+     {
+      "kind": "a"
+     },
+     {
+      "kind": "b"
+     }
+    ],
+    "edges": [
+     {
+      "from": "a",
+      "to": "b"
+     },
+     {
+      "from": "b",
+      "to": "a"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "c-topo-empty",
+  "fn": "reason_topology_semantic",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-deploy-hits",
+  "fn": "analyze_deployment_semantics",
+  "args": [
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "README.md",
+    ".github/workflows/ci.yml",
+    "helm/chart.yaml"
+   ]
+  ]
+ },
+ {
+  "id": "c-deploy-none",
+  "fn": "analyze_deployment_semantics",
+  "args": [
+   [
+    "a.py",
+    "b.md"
+   ]
+  ]
+ },
+ {
+  "id": "c-integrity-full",
+  "fn": "apply_cognitive_integrity",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "observed": {
+     "o1": 1,
+     "o2": 2
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2,
+     "i3": 3,
+     "i4": 4
+    },
+    "reconciled": {},
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ],
+     "preserved": true
+    },
+    "parser_basis": {
+     "symbol_count": 3,
+     "flags": {
+      "ast": true
+     }
+    },
+    "confidence_basis": {
+     "score": 0.9,
+     "supporting_evidence": [
+      "s1"
+     ]
+    },
+    "epistemic_state": {
+     "incomplete": true
+    },
+    "uncertainties": {
+     "u1": 1,
+     "u2": 2
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-integrity-empty",
+  "fn": "apply_cognitive_integrity",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-integrity-allowed",
+  "fn": "apply_cognitive_integrity",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "observed": {
+     "i1": 1
+    },
+    "inferred": {
+     "i1": 1
+    },
+    "confidence_basis": {
+     "score": 0.6
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-foundation-full",
+  "fn": "apply_formal_semantic_foundation",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "observed": {
+     "o1": 1,
+     "o2": 2
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2,
+     "i3": 3,
+     "i4": 4
+    },
+    "reconciled": {},
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ],
+     "preserved": true
+    },
+    "parser_basis": {
+     "symbol_count": 3,
+     "flags": {
+      "ast": true
+     }
+    },
+    "confidence_basis": {
+     "score": 0.9,
+     "supporting_evidence": [
+      "s1"
+     ]
+    },
+    "epistemic_state": {
+     "incomplete": true
+    },
+    "uncertainties": {
+     "u1": 1,
+     "u2": 2
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-foundation-empty",
+  "fn": "apply_formal_semantic_foundation",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-foundation-alt",
+  "fn": "apply_formal_semantic_foundation",
+  "args": [
+   {
+    "contradictions": {
+     "pairs": [
+      [
+       "p",
+       "q"
+      ],
+      [
+       "r",
+       "s"
+      ]
+     ]
+    },
+    "evidence": [
+     "e1",
+     "e2"
+    ],
+    "deterministic_inputs": [
+     "seed=1"
+    ],
+    "lineage": {
+     "stages": [
+      {
+       "stage": "z"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-openness-grav",
+  "fn": "apply_civilizational_epistemic_openness",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {
+     "a": 1
+    },
+    "confidence_basis": {
+     "score": 0.9
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    },
+    "narrative_monopoly_suppressed": true,
+    "cognitive_decentralization": {
+     "dominance_without_evidence": true
+    },
+    "semantic_decentralization": {
+     "hierarchy_lock_in": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-openness-diverse",
+  "fn": "apply_civilizational_epistemic_openness",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "ambiguities": [
+     "amb1",
+     "amb2"
+    ],
+    "observed": {
+     "o1": 1
+    },
+    "inferred": {
+     "i1": 1
+    },
+    "reconciled": {
+     "r": 9
+    },
+    "interpretive_diversity": {
+     "interpretations": [
+      {
+       "k": 1
+      },
+      {
+       "k": 2
+      }
+     ]
+    },
+    "explanatory_diversity": {
+     "alternatives": [
+      "alt1",
+      "alt2"
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.45
+    },
+    "uncertain": [
+     "u-listy"
+    ],
+    "unstable_regions": [
+     "zone1"
+    ],
+    "lineage": {
+     "depth": 2,
+     "stages": "notalist"
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-openness-empty",
+  "fn": "apply_civilizational_epistemic_openness",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-openness-dictunc",
+  "fn": "apply_civilizational_epistemic_openness",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "observed": {
+     "o1": 1,
+     "o2": 2
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2,
+     "i3": 3,
+     "i4": 4
+    },
+    "reconciled": {},
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ],
+     "preserved": true
+    },
+    "parser_basis": {
+     "symbol_count": 3,
+     "flags": {
+      "ast": true
+     }
+    },
+    "confidence_basis": {
+     "score": 0.9,
+     "supporting_evidence": [
+      "s1"
+     ]
+    },
+    "epistemic_state": {
+     "incomplete": true
+    },
+    "uncertainties": {
+     "u1": 1,
+     "u2": 2
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-capture-lockin",
+  "fn": "apply_cognitive_anti_capture",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {
+     "a": 1
+    },
+    "confidence_basis": {
+     "score": 0.9
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    },
+    "narrative_monopoly_suppressed": true,
+    "cognitive_decentralization": {
+     "dominance_without_evidence": true
+    },
+    "semantic_decentralization": {
+     "hierarchy_lock_in": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-capture-diverse",
+  "fn": "apply_cognitive_anti_capture",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "ambiguities": [
+     "amb1",
+     "amb2"
+    ],
+    "observed": {
+     "o1": 1
+    },
+    "inferred": {
+     "i1": 1
+    },
+    "reconciled": {
+     "r": 9
+    },
+    "interpretive_diversity": {
+     "interpretations": [
+      {
+       "k": 1
+      },
+      {
+       "k": 2
+      }
+     ]
+    },
+    "explanatory_diversity": {
+     "alternatives": [
+      "alt1",
+      "alt2"
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.45
+    },
+    "uncertain": [
+     "u-listy"
+    ],
+    "unstable_regions": [
+     "zone1"
+    ],
+    "lineage": {
+     "depth": 2,
+     "stages": "notalist"
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-capture-empty",
+  "fn": "apply_cognitive_anti_capture",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-stability-full",
+  "fn": "apply_epistemic_civilization_stability",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "observed": {
+     "o1": 1,
+     "o2": 2
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2,
+     "i3": 3,
+     "i4": 4
+    },
+    "reconciled": {},
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ],
+     "preserved": true
+    },
+    "parser_basis": {
+     "symbol_count": 3,
+     "flags": {
+      "ast": true
+     }
+    },
+    "confidence_basis": {
+     "score": 0.9,
+     "supporting_evidence": [
+      "s1"
+     ]
+    },
+    "epistemic_state": {
+     "incomplete": true
+    },
+    "uncertainties": {
+     "u1": 1,
+     "u2": 2
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-stability-diverse",
+  "fn": "apply_epistemic_civilization_stability",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "ambiguities": [
+     "amb1",
+     "amb2"
+    ],
+    "observed": {
+     "o1": 1
+    },
+    "inferred": {
+     "i1": 1
+    },
+    "reconciled": {
+     "r": 9
+    },
+    "interpretive_diversity": {
+     "interpretations": [
+      {
+       "k": 1
+      },
+      {
+       "k": 2
+      }
+     ]
+    },
+    "explanatory_diversity": {
+     "alternatives": [
+      "alt1",
+      "alt2"
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.45
+    },
+    "uncertain": [
+     "u-listy"
+    ],
+    "unstable_regions": [
+     "zone1"
+    ],
+    "lineage": {
+     "depth": 2,
+     "stages": "notalist"
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-stability-empty",
+  "fn": "apply_epistemic_civilization_stability",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-sovereign-dep",
+  "fn": "apply_recursive_epistemic_sovereignty",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {
+     "a": 1
+    },
+    "confidence_basis": {
+     "score": 0.9
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    },
+    "narrative_monopoly_suppressed": true,
+    "cognitive_decentralization": {
+     "dominance_without_evidence": true
+    },
+    "semantic_decentralization": {
+     "hierarchy_lock_in": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-sovereign-indep",
+  "fn": "apply_recursive_epistemic_sovereignty",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "ambiguities": [
+     "amb1",
+     "amb2"
+    ],
+    "observed": {
+     "o1": 1
+    },
+    "inferred": {
+     "i1": 1
+    },
+    "reconciled": {
+     "r": 9
+    },
+    "interpretive_diversity": {
+     "interpretations": [
+      {
+       "k": 1
+      },
+      {
+       "k": 2
+      }
+     ]
+    },
+    "explanatory_diversity": {
+     "alternatives": [
+      "alt1",
+      "alt2"
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.45
+    },
+    "uncertain": [
+     "u-listy"
+    ],
+    "unstable_regions": [
+     "zone1"
+    ],
+    "lineage": {
+     "depth": 2,
+     "stages": "notalist"
+    }
+   }
+  ]
+ },
+ {
+  "id": "c-sovereign-empty",
+  "fn": "apply_recursive_epistemic_sovereignty",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "c-reality-plain",
+  "fn": "apply_reality_bounded_confidence",
+  "args": [
+   0.8,
+   {}
+  ]
+ },
+ {
+  "id": "c-reality-full",
+  "fn": "apply_reality_bounded_confidence",
+  "args": [
+   0.9,
+   {
+    "confidence_limits": {
+     "max": 0.7
+    }
+   }
+  ],
+  "kwargs": {
+   "drift_pressure": 0.6,
+   "continuity_count": 2,
+   "parser_gap": true,
+   "boundary_pressure": 0.4,
+   "contradiction_count": 1,
+   "ambiguity_count": 1,
+   "uncertainty_count": 2
+  }
+ },
+ {
+  "id": "c-reality-partial",
+  "fn": "apply_reality_bounded_confidence",
+  "args": [
+   0.5,
+   {}
+  ],
+  "kwargs": {
+   "drift_pressure": 0.3
+  }
+ },
+ {
+  "id": "c-collectspec-gap",
+  "fn": "collect_suppressed_speculation",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "i1": 1,
+    "i2": 2
+   },
+   {
+    "r": 1
+   }
+  ]
+ },
+ {
+  "id": "c-collectspec-ok",
+  "fn": "collect_suppressed_speculation",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "i": 1
+   },
+   {}
+  ]
+ },
+ {
+  "id": "c-collectcont-gap",
+  "fn": "collect_unsupported_continuity",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "i1": 1,
+    "i2": 2
+   },
+   {
+    "r": 1
+   }
+  ]
+ },
+ {
+  "id": "c-collectcont-ok",
+  "fn": "collect_unsupported_continuity",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "i": 1
+   },
+   {}
+  ]
  }
 ]

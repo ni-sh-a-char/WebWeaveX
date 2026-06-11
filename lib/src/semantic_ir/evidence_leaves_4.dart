@@ -143,9 +143,11 @@ Map<String, dynamic> applySemanticConservatism(Map<dynamic, dynamic> bundle,
 /// Port of core.evidence.semantic_consistency_engine.assess_semantic_consistency.
 Map<String, dynamic> assessSemanticConsistency(Map<dynamic, dynamic> observed,
     Map<dynamic, dynamic> inferred, Map<dynamic, dynamic> reconciled) {
-  final ko = observed.keys.toSet();
-  final ki = inferred.keys.toSet();
-  final kr = reconciled.keys.toSet();
+  // Set<dynamic> explicitly: callers mix Map<String,dynamic> (JSON) and
+  // Map<dynamic,dynamic> literals, and Set<String>.union(Set<dynamic>) throws.
+  final ko = Set<dynamic>.of(observed.keys);
+  final ki = Set<dynamic>.of(inferred.keys);
+  final kr = Set<dynamic>.of(reconciled.keys);
   final overlapOi = ko.intersection(ki).length;
   final overlapOr = ko.intersection(kr).length;
   final total = math.max(1, ko.union(ki).union(kr).length);
@@ -448,7 +450,9 @@ Map<String, dynamic> modelSemanticPlurality(
   final pairs = contradicted is Map
       ? pyGet(contradicted, 'pairs', <dynamic>[])
       : <dynamic>[];
-  final altCount = observed.keys.toSet().union(inferred.keys.toSet()).length +
+  final altCount = Set<dynamic>.of(observed.keys)
+          .union(Set<dynamic>.of(inferred.keys))
+          .length +
       ambiguities.length +
       (pairs as List).length;
   return <String, dynamic>{

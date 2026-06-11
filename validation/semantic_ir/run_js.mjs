@@ -250,6 +250,22 @@ import { emptyRepositoryIr } from "./src/ir/repositoryIr.ts";
 import { reasonApiContract } from "./src/repository/apiContractReasoningEngine.ts";
 import { modelInfraRelationships } from "./src/repository/infraRelationshipEngine.ts";
 import { applyContradictionRestraint } from "./src/semantic/contradictionRestraintEngine.ts";
+// Phase C — second layer
+import { compileSemanticAstIr } from "./src/ast/semanticAstIrEngine.ts";
+import { buildCoreferenceGraph } from "./src/documents/coreferenceGraphEngine.ts";
+import { analyzeInstructionalSemantics } from "./src/documents/instructionalSemanticsEngine.ts";
+import { parseSemanticDiscourse } from "./src/documents/semanticDiscourseParser.ts";
+import { applyCivilizationalEpistemicOpenness } from "./src/evidence/civilizationalEpistemicOpennessEngine.ts";
+import { applyCognitiveAntiCapture } from "./src/evidence/cognitiveAntiCaptureEngine.ts";
+import { applyCognitiveIntegrity } from "./src/evidence/cognitiveIntegrityEngine.ts";
+import { applyEpistemicCivilizationStability } from "./src/evidence/epistemicCivilizationStabilityEngine.ts";
+import { applyFormalSemanticFoundation } from "./src/evidence/formalSemanticFoundationEngine.ts";
+import { applyRealityBoundedConfidence } from "./src/evidence/realityBoundedConfidenceEngine.ts";
+import { applyRecursiveEpistemicSovereignty } from "./src/evidence/recursiveEpistemicSovereigntyEngine.ts";
+import { collectSuppressedSpeculation } from "./src/evidence/speculativeInferenceEngine.ts";
+import { collectUnsupportedContinuity } from "./src/evidence/unsupportedContinuityEngine.ts";
+import { reasonTopologySemantic } from "./src/reasoning/topologyReasoningEngine.ts";
+import { analyzeDeploymentSemantics } from "./src/repository/deploymentSemanticsEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -454,6 +470,22 @@ const A3_REGISTRY = {
   reason_api_contract: reasonApiContract,
   model_infra_relationships: modelInfraRelationships,
   apply_contradiction_restraint: applyContradictionRestraint,
+  // Phase C — second layer
+  compile_semantic_ast_ir: compileSemanticAstIr,
+  build_coreference_graph: buildCoreferenceGraph,
+  analyze_instructional_semantics: analyzeInstructionalSemantics,
+  parse_semantic_discourse: parseSemanticDiscourse,
+  apply_civilizational_epistemic_openness: applyCivilizationalEpistemicOpenness,
+  apply_cognitive_anti_capture: applyCognitiveAntiCapture,
+  apply_cognitive_integrity: applyCognitiveIntegrity,
+  apply_epistemic_civilization_stability: applyEpistemicCivilizationStability,
+  apply_formal_semantic_foundation: applyFormalSemanticFoundation,
+  apply_reality_bounded_confidence: applyRealityBoundedConfidence,
+  apply_recursive_epistemic_sovereignty: applyRecursiveEpistemicSovereignty,
+  collect_suppressed_speculation: collectSuppressedSpeculation,
+  collect_unsupported_continuity: collectUnsupportedContinuity,
+  reason_topology_semantic: reasonTopologySemantic,
+  analyze_deployment_semantics: analyzeDeploymentSemantics,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.
@@ -469,6 +501,14 @@ const KW_ORDER = {
   ],
   suppress_unsupported_continuity: [["min_evidence", 2]],
   detect_unsupported_stabilization: [["min_evidence", 2]],
+  // float-typed kw defaults must be PyFloat boxes so omitted params render
+  // "0.0" (Python float repr), not "0".
+  apply_reality_bounded_confidence: [
+    ["drift_pressure", py.F(0.0)], ["continuity_count", 0],
+    ["parser_gap", false], ["boundary_pressure", py.F(0.0)],
+    ["contradiction_count", 0], ["ambiguity_count", 0],
+    ["uncertainty_count", 0],
+  ],
 };
 
 const VOLATILE = new Set([

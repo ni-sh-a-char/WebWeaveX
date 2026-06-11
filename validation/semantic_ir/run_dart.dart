@@ -10,9 +10,11 @@ import 'package:webweavex/src/determinism/normalization_core.dart'
     show codePointCompare, volatileRuntimeKeys;
 import 'package:webweavex/src/semantic_ir/ast_engines.dart';
 import 'package:webweavex/src/semantic_ir/composites_b.dart';
+import 'package:webweavex/src/semantic_ir/composites_c.dart';
 import 'package:webweavex/src/semantic_ir/document_composites.dart';
 import 'package:webweavex/src/semantic_ir/document_parser.dart';
 import 'package:webweavex/src/semantic_ir/evidence_layer_b.dart';
+import 'package:webweavex/src/semantic_ir/evidence_layer_c.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_2.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_3.dart';
@@ -299,6 +301,24 @@ final Map<String, Function> a3Registry = <String, Function>{
   'reason_api_contract': reasonApiContract,
   'model_infra_relationships': modelInfraRelationships,
   'apply_contradiction_restraint': applyContradictionRestraint,
+  // Phase C — second layer
+  'compile_semantic_ast_ir': compileSemanticAstIr,
+  'build_coreference_graph': buildCoreferenceGraph,
+  'analyze_instructional_semantics': analyzeInstructionalSemantics,
+  'parse_semantic_discourse': parseSemanticDiscourse,
+  'apply_civilizational_epistemic_openness':
+      applyCivilizationalEpistemicOpenness,
+  'apply_cognitive_anti_capture': applyCognitiveAntiCapture,
+  'apply_cognitive_integrity': applyCognitiveIntegrity,
+  'apply_epistemic_civilization_stability':
+      applyEpistemicCivilizationStability,
+  'apply_formal_semantic_foundation': applyFormalSemanticFoundation,
+  'apply_reality_bounded_confidence': applyRealityBoundedConfidence,
+  'apply_recursive_epistemic_sovereignty': applyRecursiveEpistemicSovereignty,
+  'collect_suppressed_speculation': collectSuppressedSpeculation,
+  'collect_unsupported_continuity': collectUnsupportedContinuity,
+  'reason_topology_semantic': reasonTopologySemantic,
+  'analyze_deployment_semantics': analyzeDeploymentSemantics,
 };
 
 /// Python kw-only params, flattened to trailing positionals in py2ts order.
@@ -322,6 +342,15 @@ const Map<String, List<List<dynamic>>> kwOrder = <String, List<List<dynamic>>>{
   ],
   'detect_unsupported_stabilization': <List<dynamic>>[
     <dynamic>['min_evidence', 2],
+  ],
+  'apply_reality_bounded_confidence': <List<dynamic>>[
+    <dynamic>['drift_pressure', 0.0],
+    <dynamic>['continuity_count', 0],
+    <dynamic>['parser_gap', false],
+    <dynamic>['boundary_pressure', 0.0],
+    <dynamic>['contradiction_count', 0],
+    <dynamic>['ambiguity_count', 0],
+    <dynamic>['uncertainty_count', 0],
   ],
 };
 

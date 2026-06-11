@@ -23,7 +23,9 @@
 | — | 13 private leaf helpers (`_depth`×4, `_record`×3, `_suppression_record`×2, `_lineage_depth`, `_closure_record`, `_continuation_record`, `_stabilization_record`) | deferred | proven through their module's public parent (only callers) | deferred |
 | B | first non-leaf layer: evidence composites (degradation/restraint/reliability/epistemic-confidence/uncertainty-propagation/recursive-closure …), document composites (sections, argument graph/dependencies, instructional flow, rhetorical parser), `parse_python_ast`, `reason_topology`, empty IRs, API contracts, infra relationships, contradiction restraint — incl. 6 private record helpers proven inside their parents | 32 | Python ≡ JS ≡ Dart, 88 fixtures (493/493 cumulative, hash + deep equality) | ✅ proven |
 | — | 4 `parse_source`-gated Phase-B engines (`model_execution_dependencies`, `analyze_runtime_semantics`, `build_service_runtime_graph`, `build_repository_semantic_ir` — the last reaches `parse_source` via a function-local import invisible to the DAG generator) | deferred | blocked on the `core.parsers` subsystem closure (plan correction 1) | deferred |
-| C–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
+| C | second layer: the five heavy bundle-mutating civilizational engines (cognitive integrity, formal semantic foundation, civilizational epistemic openness, cognitive anti-capture, epistemic civilization stability, recursive epistemic sovereignty — incl. the shared private `_depth` ×4), reality-bounded confidence, the speculation/continuity collectors, semantic-AST IR, coreference graph, instructional semantics, semantic discourse, topology-semantic reasoning, deployment semantics | 15 | Python ≡ JS ≡ Dart, 38 fixtures (531/531 cumulative, hash + deep equality) | ✅ proven |
+| — | 2 `parse_source`-gated Phase-C engines (`analyze_runtime_execution`, `reason_runtime_flow`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
+| D–O | higher layers (evidence integrity assembly, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
 **Phase A is CLOSED.** All 212 plan rows accounted (verified programmatically by
 diffing the harness REGISTRY against the plan table): **197 leaves executable-proven**
@@ -172,6 +174,34 @@ repr via `pyToStr`).
 - Test: `test/parity/semantic_ir_b_test.dart` (+93 tests → 1381 total, all passing).
 - Cumulative proof: **493/493 fixtures** pass 3-way hash + deep equality.
 
+## Phase C — second layer (proven)
+
+15 engines ported to `lib/src/semantic_ir/{evidence_layer_c,composites_c}.dart`.
+The four civilizational engines (`apply_civilizational_epistemic_openness`,
+`apply_cognitive_anti_capture`, `apply_epistemic_civilization_stability`,
+`apply_recursive_epistemic_sovereignty`) each carry their private `_depth`
+helper (length of `lineage.stages` when a list, else `int(lineage.depth or 0)`),
+mutate the bundle in place, and fan out into ~90 proven A/B leaves.
+Determinism sites proven bit-exact by execution: `apply_cognitive_integrity`
+(post-hoc `unsupported["inferred_keys"]` mutation + sorted-set ambiguity
+merges, nested `confidence_limits.max_score` float coercion),
+`apply_formal_semantic_foundation` (six-way sorted-set union of
+deterministic-inputs, `{**contradicted, **lattice}` merge),
+`apply_reality_bounded_confidence` (penalty ladder over
+`apply_confidence_degradation` with kw-only float f-strings `drift=0.0`),
+`list(set(...))` entity lists (safe: every consumer is length-only),
+dict-vs-list `uncertainties` normalization (`list(dict)` → key list).
+Type hardening from execution: `assess_semantic_consistency` /
+`model_semantic_alternatives` key-set unions are now `Set<dynamic>` (callers
+mix JSON `Map<String,dynamic>` with `Map<dynamic,dynamic>` literal fallbacks;
+`Set<String>.union(Set<dynamic>)` throws — caught by fixture
+`c-foundation-full`).
+
+- Vectors: `validation/parity/semantic_ir_c_vectors.json` (38, from executed
+  Python; fixture provenance: `validation/semantic_ir/gen_phase_c_fixtures.py`).
+- Test: `test/parity/semantic_ir_c_test.dart` (+43 tests → 1424 total, all passing).
+- Cumulative proof: **531/531 fixtures** pass 3-way hash + deep equality.
+
 ## Finding — JS-branch python-AST scanner diverges from CPython on `async def`
 
 CPython's `ast.walk` summary collects `ast.FunctionDef` only; `async def`
@@ -251,10 +281,9 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-Phase C (17 fns, 554 lines): the next topological layer — functions whose
-in-closure dependencies are now-proven A/B functions (notably
-`build_semantic_integrity_object` over `_ground_parser` + the A.3 integrity
-leaves, and the heavier evidence bundlers). Also outstanding: the
-`core.parsers` subsystem closure (gates `parse_source` + 4 deferred Phase-B
-engines). Then ascend D→O until the 6 dispatchers close with executable
-parity.
+Phase D (6 fns, 170 lines): the next topological layer (notably
+`build_semantic_integrity_object` over `_ground_parser` and the now-proven
+`apply_formal_semantic_foundation`/`attach_epistemic_state` chain). Also
+outstanding: the `core.parsers` subsystem closure (gates `parse_source` + 6
+deferred B/C engines). Then ascend E→O until the 6 dispatchers close with
+executable parity.
