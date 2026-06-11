@@ -189,6 +189,34 @@ import { buildSupport } from "./src/evidence/semanticSupportEngine.ts";
 import { buildWeaknesses } from "./src/evidence/semanticWeaknessEngine.ts";
 import { buildTraceability } from "./src/evidence/traceabilityEngine.ts";
 import { refuseUnsupportedStabilization } from "./src/evidence/truthRefusalEngine.ts";
+// A.3 batch 4 — final evidence public leaves (semantic_* heavies)
+import { scoreSemanticConfidence } from "./src/evidence/semanticConfidenceEngine.ts";
+import { applySemanticConservatism } from "./src/evidence/semanticConservatismEngine.ts";
+import { assessSemanticConsistency } from "./src/evidence/semanticConsistencyEngine.ts";
+import { modelSemanticDecay } from "./src/evidence/semanticDecayEngine.ts";
+import { modelSemanticDecentralization } from "./src/evidence/semanticDecentralizationEngine.ts";
+import { detectSemanticDrift } from "./src/evidence/semanticDriftEngine.ts";
+import { modelSemanticEntropy } from "./src/evidence/semanticEntropyEngine.ts";
+import { modelFragility } from "./src/evidence/semanticFragilityEngine.ts";
+import { assessSemanticHonesty } from "./src/evidence/semanticHonestyEngine.ts";
+import { modelIncompleteness } from "./src/evidence/semanticIncompletenessEngine.ts";
+import { inferFromEvidence } from "./src/evidence/semanticInferenceCalculus.ts";
+import { modelSemanticInstability } from "./src/evidence/semanticInstabilityEngine.ts";
+import { buildJustification } from "./src/evidence/semanticJustificationEngine.ts";
+import { semanticLimits } from "./src/evidence/semanticLimitEngine.ts";
+import { detectSemanticOverreach } from "./src/evidence/semanticOverreachEngine.ts";
+import { modelSemanticPlurality } from "./src/evidence/semanticPluralityEngine.ts";
+import { proveSemanticClaim } from "./src/evidence/semanticProofEngine.ts";
+import { refuseUnsupportedConclusions } from "./src/evidence/semanticRefusalEngine.ts";
+import { applySemanticSelfLimitation } from "./src/evidence/semanticSelfLimitationEngine.ts";
+import { modelSemanticStability } from "./src/evidence/semanticStabilityEngine.ts";
+import { terminateStabilization } from "./src/evidence/stabilizationTerminationEngine.ts";
+import { modelUncertainty } from "./src/evidence/uncertaintyEngine.ts";
+import { exposeUncertaintyVisibility } from "./src/evidence/uncertaintyVisibilityEngine.ts";
+import { blockUnsupportedConfidenceEscalation } from "./src/evidence/unsupportedConfidenceEngine.ts";
+import { suppressUnsupportedInference } from "./src/evidence/unsupportedInferenceEngine.ts";
+import { preserveRecursiveDivergence } from "./src/evidence/recursiveDivergencePreservationEngine.ts";
+import { detectRecursiveDomestication } from "./src/evidence/recursiveDomesticationEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -333,6 +361,33 @@ const A3_REGISTRY = {
   build_weaknesses: buildWeaknesses,
   build_traceability: buildTraceability,
   refuse_unsupported_stabilization: refuseUnsupportedStabilization,
+  score_semantic_confidence: scoreSemanticConfidence,
+  apply_semantic_conservatism: applySemanticConservatism,
+  assess_semantic_consistency: assessSemanticConsistency,
+  model_semantic_decay: modelSemanticDecay,
+  model_semantic_decentralization: modelSemanticDecentralization,
+  detect_semantic_drift: detectSemanticDrift,
+  model_semantic_entropy: modelSemanticEntropy,
+  model_fragility: modelFragility,
+  assess_semantic_honesty: assessSemanticHonesty,
+  model_incompleteness: modelIncompleteness,
+  infer_from_evidence: inferFromEvidence,
+  model_semantic_instability: modelSemanticInstability,
+  build_justification: buildJustification,
+  semantic_limits: semanticLimits,
+  detect_semantic_overreach: detectSemanticOverreach,
+  model_semantic_plurality: modelSemanticPlurality,
+  prove_semantic_claim: proveSemanticClaim,
+  refuse_unsupported_conclusions: refuseUnsupportedConclusions,
+  apply_semantic_self_limitation: applySemanticSelfLimitation,
+  model_semantic_stability: modelSemanticStability,
+  terminate_stabilization: terminateStabilization,
+  model_uncertainty: modelUncertainty,
+  expose_uncertainty_visibility: exposeUncertaintyVisibility,
+  block_unsupported_confidence_escalation: blockUnsupportedConfidenceEscalation,
+  suppress_unsupported_inference: suppressUnsupportedInference,
+  preserve_recursive_divergence: preserveRecursiveDivergence,
+  detect_recursive_domestication: detectRecursiveDomestication,
 };
 
 const VOLATILE = new Set([

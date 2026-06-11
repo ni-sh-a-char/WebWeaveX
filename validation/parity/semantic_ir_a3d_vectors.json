@@ -1,0 +1,1357 @@
+[
+  {
+    "id": "a3d-conf-full",
+    "fn": "score_semantic_confidence",
+    "args": [
+      {
+        "evidence": {
+          "b": true,
+          "a": false,
+          "c": 1
+        }
+      },
+      {
+        "nodes": [
+          {
+            "id": "n"
+          }
+        ],
+        "edges": [
+          {
+            "e": 1
+          },
+          {
+            "e": 2
+          }
+        ]
+      },
+      [
+        "x1",
+        "x2"
+      ]
+    ],
+    "expected": {
+      "score": 0.56,
+      "basis": {
+        "parser_density": 2,
+        "graph_edges": 2
+      },
+      "evidence": [
+        "graph:edges",
+        "parser:b",
+        "parser:c",
+        "x1",
+        "x2"
+      ],
+      "deterministic_inputs": [
+        "graph.edges=2",
+        "graph.nodes=1",
+        "parser.a=False",
+        "parser.b=True",
+        "parser.c=True"
+      ]
+    }
+  },
+  {
+    "id": "a3d-conf-null",
+    "fn": "score_semantic_confidence",
+    "args": [
+      null,
+      null
+    ],
+    "expected": {
+      "score": 0.2,
+      "basis": {
+        "parser_density": 0,
+        "graph_edges": 0
+      },
+      "evidence": [],
+      "deterministic_inputs": []
+    }
+  },
+  {
+    "id": "a3d-conf-emptygraph",
+    "fn": "score_semantic_confidence",
+    "args": [
+      {
+        "evidence": {}
+      },
+      {}
+    ],
+    "expected": {
+      "score": 0.2,
+      "basis": {
+        "parser_density": 0,
+        "graph_edges": 0
+      },
+      "evidence": [],
+      "deterministic_inputs": [
+        "graph.edges=0",
+        "graph.nodes=0"
+      ]
+    }
+  },
+  {
+    "id": "a3d-conserv-weak",
+    "fn": "apply_semantic_conservatism",
+    "args": [
+      {
+        "evidence": [
+          "e1"
+        ],
+        "ambiguities": [
+          "z"
+        ],
+        "contradicted": {
+          "preserved": true,
+          "pairs": [
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "confidence_basis": {
+          "score": 0.9,
+          "deterministic_inputs": [
+            "d1"
+          ]
+        },
+        "semantic_basis": {
+          "k": 1
+        }
+      }
+    ],
+    "expected": {
+      "evidence": [
+        "e1"
+      ],
+      "ambiguities": [
+        "unresolved_contradiction",
+        "weak_evidence",
+        "z"
+      ],
+      "contradicted": {
+        "preserved": true,
+        "pairs": [
+          [
+            "a",
+            "b"
+          ]
+        ]
+      },
+      "confidence_basis": {
+        "score": 0.35,
+        "deterministic_inputs": [
+          "d1",
+          "evidence_count=1"
+        ],
+        "conservative": true
+      },
+      "semantic_basis": {
+        "k": 1,
+        "conservative_score": 0.35
+      }
+    }
+  },
+  {
+    "id": "a3d-conserv-strong",
+    "fn": "apply_semantic_conservatism",
+    "args": [
+      {
+        "evidence": [
+          "e1",
+          "e2"
+        ],
+        "confidence_basis": {
+          "score": 0.6
+        }
+      }
+    ],
+    "expected": {
+      "evidence": [
+        "e1",
+        "e2"
+      ],
+      "confidence_basis": {
+        "score": 0.6,
+        "conservative": true,
+        "deterministic_inputs": [
+          "evidence_count=2"
+        ]
+      },
+      "ambiguities": []
+    }
+  },
+  {
+    "id": "a3d-consist-overlap",
+    "fn": "assess_semantic_consistency",
+    "args": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 9,
+        "c": 3
+      },
+      {
+        "a": 1,
+        "b": 2
+      }
+    ],
+    "expected": {
+      "consistent": true,
+      "consistency_score": 0.5,
+      "overlap_observed_inferred": 1,
+      "overlap_observed_reconciled": 2,
+      "deterministic_inputs": [
+        "score=0.5",
+        "keys_total=3"
+      ]
+    }
+  },
+  {
+    "id": "a3d-consist-empty",
+    "fn": "assess_semantic_consistency",
+    "args": [
+      {},
+      {},
+      {}
+    ],
+    "expected": {
+      "consistent": true,
+      "consistency_score": 0.0,
+      "overlap_observed_inferred": 0,
+      "overlap_observed_reconciled": 0,
+      "deterministic_inputs": [
+        "score=0.0",
+        "keys_total=1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-decay-fast",
+    "fn": "model_semantic_decay",
+    "args": [
+      [
+        "e1"
+      ],
+      {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      },
+      2
+    ],
+    "expected": {
+      "decaying": true,
+      "decay_rate": 0.6,
+      "destabilize_unsupported": true,
+      "prefer_incomplete": true
+    }
+  },
+  {
+    "id": "a3d-decay-none",
+    "fn": "model_semantic_decay",
+    "args": [
+      [
+        "e1",
+        "e2",
+        "e3"
+      ],
+      {},
+      0
+    ],
+    "expected": {
+      "decaying": false,
+      "decay_rate": 0.0,
+      "destabilize_unsupported": false,
+      "prefer_incomplete": true
+    }
+  },
+  {
+    "id": "a3d-decen-dom",
+    "fn": "model_semantic_decentralization",
+    "args": [
+      [
+        {
+          "i": 1
+        }
+      ],
+      1
+    ],
+    "expected": {
+      "decentralized": false,
+      "authority_diffused": false,
+      "hierarchy_lock_in": false,
+      "single_interpretation_dominance": true
+    }
+  },
+  {
+    "id": "a3d-decen-free",
+    "fn": "model_semantic_decentralization",
+    "args": [
+      [
+        {
+          "i": 1
+        },
+        {
+          "i": 2
+        }
+      ],
+      0
+    ],
+    "expected": {
+      "decentralized": true,
+      "authority_diffused": true,
+      "hierarchy_lock_in": false,
+      "single_interpretation_dominance": false
+    }
+  },
+  {
+    "id": "a3d-drift-rich",
+    "fn": "detect_semantic_drift",
+    "args": [
+      {
+        "a": 1
+      },
+      {
+        "a": 1,
+        "x": 2,
+        "y": 3
+      },
+      {
+        "a": 2
+      },
+      [
+        "e1"
+      ]
+    ],
+    "expected": {
+      "drift_detected": true,
+      "drift_keys": [
+        "drift:x",
+        "drift:y",
+        "reconcile_drift"
+      ],
+      "drift_pressure": 0.6,
+      "suppress_continuation": true
+    }
+  },
+  {
+    "id": "a3d-drift-none",
+    "fn": "detect_semantic_drift",
+    "args": [
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      },
+      [
+        "e1",
+        "e2"
+      ]
+    ],
+    "expected": {
+      "drift_detected": false,
+      "drift_keys": [],
+      "drift_pressure": 0.0,
+      "suppress_continuation": false
+    }
+  },
+  {
+    "id": "a3d-entropy-rich",
+    "fn": "model_semantic_entropy",
+    "args": [
+      [
+        "a1",
+        "a2"
+      ],
+      [
+        "u1"
+      ],
+      {
+        "pairs": [
+          [
+            "x",
+            "y"
+          ]
+        ]
+      }
+    ],
+    "expected": {
+      "entropy": 0.43,
+      "visible": true,
+      "suppress_stabilization": true,
+      "suppress_coherence": true,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-entropy-zero",
+    "fn": "model_semantic_entropy",
+    "args": [
+      [],
+      [],
+      null
+    ],
+    "expected": {
+      "entropy": 0.0,
+      "visible": false,
+      "suppress_stabilization": false,
+      "suppress_coherence": false,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-frag-low",
+    "fn": "model_fragility",
+    "args": [
+      [
+        "e1",
+        "e2",
+        "e3"
+      ],
+      [],
+      0,
+      2
+    ],
+    "expected": {
+      "level": "low",
+      "basis": {
+        "evidence_count": 3,
+        "ambiguity_count": 0,
+        "parser_density": 2
+      },
+      "missing_support": [],
+      "contradiction_pressure": [],
+      "confidence_limits": {
+        "max_score": 0.85
+      }
+    }
+  },
+  {
+    "id": "a3d-frag-medium-amb",
+    "fn": "model_fragility",
+    "args": [
+      [
+        "e1"
+      ],
+      [
+        "a1"
+      ],
+      1,
+      0
+    ],
+    "expected": {
+      "level": "high",
+      "basis": {
+        "evidence_count": 1,
+        "ambiguity_count": 1,
+        "parser_density": 0
+      },
+      "missing_support": [
+        "low_evidence_density",
+        "no_parser_grounding"
+      ],
+      "contradiction_pressure": [
+        "contradiction:1"
+      ],
+      "confidence_limits": {
+        "max_score": 0.45
+      }
+    }
+  },
+  {
+    "id": "a3d-frag-high",
+    "fn": "model_fragility",
+    "args": [
+      [],
+      []
+    ],
+    "expected": {
+      "level": "high",
+      "basis": {
+        "evidence_count": 0,
+        "ambiguity_count": 0,
+        "parser_density": 0
+      },
+      "missing_support": [
+        "low_evidence_density",
+        "no_parser_grounding"
+      ],
+      "contradiction_pressure": [],
+      "confidence_limits": {
+        "max_score": 0.35
+      }
+    }
+  },
+  {
+    "id": "a3d-honest-y",
+    "fn": "assess_semantic_honesty",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      {
+        "keys": [
+          "k1",
+          "k2"
+        ]
+      },
+      {},
+      {
+        "level": "low"
+      }
+    ],
+    "expected": {
+      "honest": true,
+      "prefers_insufficient_over_certainty": true,
+      "supported_claims": 2,
+      "unsupported_claims": 0,
+      "message": "sufficient_honesty",
+      "deterministic_inputs": [
+        "evidence=2",
+        "fragility=low"
+      ]
+    }
+  },
+  {
+    "id": "a3d-honest-n",
+    "fn": "assess_semantic_honesty",
+    "args": [
+      [
+        "e1"
+      ],
+      {},
+      {
+        "claims": [
+          "c1"
+        ]
+      },
+      {
+        "level": "high"
+      }
+    ],
+    "expected": {
+      "honest": false,
+      "prefers_insufficient_over_certainty": true,
+      "supported_claims": 0,
+      "unsupported_claims": 1,
+      "message": "semantic_honesty_warning",
+      "deterministic_inputs": [
+        "evidence=1",
+        "fragility=high"
+      ]
+    }
+  },
+  {
+    "id": "a3d-incomp-y",
+    "fn": "model_incompleteness",
+    "args": [
+      {
+        "k": 1
+      },
+      [
+        "u2",
+        "u1"
+      ],
+      [
+        "s1"
+      ]
+    ],
+    "expected": {
+      "known": {
+        "k": 1
+      },
+      "unknown": [
+        "u1",
+        "u2"
+      ],
+      "unsupported": [
+        "s1"
+      ],
+      "incomplete": true,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-incomp-n",
+    "fn": "model_incompleteness",
+    "args": [
+      {
+        "k": 1
+      },
+      [],
+      []
+    ],
+    "expected": {
+      "known": {
+        "k": 1
+      },
+      "unknown": [],
+      "unsupported": [],
+      "incomplete": false,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-infer-allowed",
+    "fn": "infer_from_evidence",
+    "args": [
+      {
+        "b": 2,
+        "a": 1
+      },
+      [
+        "e1",
+        ""
+      ]
+    ],
+    "expected": {
+      "inferred": {
+        "b": 2,
+        "a": 1
+      },
+      "allowed": true,
+      "evidence_count": 1,
+      "rule": "inference_requires_evidence",
+      "deterministic_inputs": [
+        "evidence_count=1",
+        "min=1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-infer-blocked",
+    "fn": "infer_from_evidence",
+    "args": [
+      {
+        "a": 1
+      },
+      [],
+      2
+    ],
+    "expected": {
+      "inferred": {},
+      "allowed": false,
+      "evidence_count": 0,
+      "rule": "inference_requires_evidence",
+      "deterministic_inputs": [
+        "evidence_count=0",
+        "min=2"
+      ]
+    }
+  },
+  {
+    "id": "a3d-instab-entropy",
+    "fn": "model_semantic_instability",
+    "args": [
+      [
+        "r1"
+      ],
+      {
+        "entropy": 0.4
+      },
+      [
+        "e1"
+      ]
+    ],
+    "expected": {
+      "unstable": true,
+      "regions": [
+        "r1",
+        "semantic:entropy_instability"
+      ],
+      "truth_pressure": 0.7,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-instab-intzero",
+    "fn": "model_semantic_instability",
+    "args": [
+      [],
+      {},
+      [
+        "e1",
+        "e2"
+      ]
+    ],
+    "expected": {
+      "unstable": false,
+      "regions": [],
+      "truth_pressure": 0,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-justif-full",
+    "fn": "build_justification",
+    "args": [
+      [
+        "b",
+        "a"
+      ],
+      {
+        "stages": [
+          {
+            "stage": "parse"
+          },
+          {
+            "other": 1
+          }
+        ]
+      },
+      {
+        "deterministic_inputs": [
+          "u1"
+        ]
+      },
+      {
+        "entropy": 0.3
+      }
+    ],
+    "expected": {
+      "evidence": [
+        "a",
+        "b"
+      ],
+      "lineage_stages": [
+        "parse",
+        "{'other': 1}"
+      ],
+      "uncertainty_basis": [
+        "u1"
+      ],
+      "entropy": 0.3,
+      "explainable": true,
+      "opaque": false,
+      "deterministic_inputs": [
+        "evidence_count=2",
+        "stage_count=2",
+        "u1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-justif-factors",
+    "fn": "build_justification",
+    "args": [
+      [],
+      {},
+      {
+        "factors": [
+          "f1"
+        ]
+      },
+      {}
+    ],
+    "expected": {
+      "evidence": [],
+      "lineage_stages": [],
+      "uncertainty_basis": [
+        "f1"
+      ],
+      "entropy": 0,
+      "explainable": true,
+      "opaque": false,
+      "deterministic_inputs": [
+        "evidence_count=0",
+        "stage_count=0"
+      ]
+    }
+  },
+  {
+    "id": "a3d-limits-allowed",
+    "fn": "semantic_limits",
+    "args": [
+      3,
+      [
+        "n1"
+      ],
+      {
+        "expansion_allowed": true,
+        "reconciliation_allowed": true
+      }
+    ],
+    "expected": {
+      "max_confidence_without_evidence": 0.45,
+      "min_evidence_for_inference": 2,
+      "noninferable_count": 1,
+      "expansion_allowed": true,
+      "reconciliation_allowed": true
+    }
+  },
+  {
+    "id": "a3d-limits-default",
+    "fn": "semantic_limits",
+    "args": [
+      0,
+      [],
+      {}
+    ],
+    "expected": {
+      "max_confidence_without_evidence": 0.45,
+      "min_evidence_for_inference": 2,
+      "noninferable_count": 0,
+      "expansion_allowed": false,
+      "reconciliation_allowed": false
+    }
+  },
+  {
+    "id": "a3d-overreach-y",
+    "fn": "detect_semantic_overreach",
+    "args": [
+      [],
+      {
+        "a": 1
+      },
+      {
+        "b": 2
+      }
+    ],
+    "expected": {
+      "overreach_detected": true,
+      "overreach_flags": [
+        "inference_expansion",
+        "pure_heuristic_inference",
+        "reconciled_beyond_evidence"
+      ],
+      "deterministic_inputs": [
+        "inferred_keys=1",
+        "evidence=0"
+      ]
+    }
+  },
+  {
+    "id": "a3d-overreach-n",
+    "fn": "detect_semantic_overreach",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      }
+    ],
+    "expected": {
+      "overreach_detected": false,
+      "overreach_flags": [],
+      "deterministic_inputs": [
+        "inferred_keys=1",
+        "evidence=2"
+      ]
+    }
+  },
+  {
+    "id": "a3d-plural-rich",
+    "fn": "model_semantic_plurality",
+    "args": [
+      {
+        "a": 1
+      },
+      {
+        "b": 2
+      },
+      [
+        "amb"
+      ],
+      {
+        "pairs": [
+          [
+            "x",
+            "y"
+          ]
+        ]
+      }
+    ],
+    "expected": {
+      "preserved": true,
+      "alternative_count": 4,
+      "unresolved": true,
+      "monoculture_risk": false
+    }
+  },
+  {
+    "id": "a3d-plural-mono",
+    "fn": "model_semantic_plurality",
+    "args": [
+      {
+        "a": 1
+      },
+      {},
+      [],
+      null
+    ],
+    "expected": {
+      "preserved": true,
+      "alternative_count": 1,
+      "unresolved": false,
+      "monoculture_risk": true
+    }
+  },
+  {
+    "id": "a3d-proof-y",
+    "fn": "prove_semantic_claim",
+    "args": [
+      "claim-x",
+      [
+        "e2",
+        "e1"
+      ]
+    ],
+    "expected": {
+      "claim": "claim-x",
+      "proved": true,
+      "evidence": [
+        "e1",
+        "e2"
+      ],
+      "steps": [
+        {
+          "rule": "evidence_threshold",
+          "met": true
+        }
+      ],
+      "deterministic_inputs": [
+        "evidence=2",
+        "min=1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-proof-n",
+    "fn": "prove_semantic_claim",
+    "args": [
+      "claim-y",
+      [],
+      1
+    ],
+    "expected": {
+      "claim": "claim-y",
+      "proved": false,
+      "evidence": [],
+      "steps": [
+        {
+          "rule": "evidence_threshold",
+          "met": false
+        }
+      ],
+      "deterministic_inputs": [
+        "evidence=0",
+        "min=1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-refuse-mixed",
+    "fn": "refuse_unsupported_conclusions",
+    "args": [
+      [
+        "r1"
+      ],
+      [
+        {
+          "reason": "spec1"
+        },
+        {}
+      ]
+    ],
+    "expected": {
+      "refusals": [
+        {
+          "target": "r1",
+          "message": "cannot_determine"
+        },
+        {
+          "target": "spec1",
+          "message": "cannot_determine"
+        },
+        {
+          "target": "speculation",
+          "message": "cannot_determine"
+        }
+      ],
+      "terminated_inferences": [
+        "r1",
+        "spec1",
+        "speculation"
+      ],
+      "termination_reasons": [
+        "cannot_determine"
+      ],
+      "unsupported_regions": [
+        "r1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-refuse-empty",
+    "fn": "refuse_unsupported_conclusions",
+    "args": [
+      [],
+      []
+    ],
+    "expected": {
+      "refusals": [],
+      "terminated_inferences": [],
+      "termination_reasons": [],
+      "unsupported_regions": []
+    }
+  },
+  {
+    "id": "a3d-selflim-active",
+    "fn": "apply_semantic_self_limitation",
+    "args": [
+      [
+        "e1"
+      ],
+      [
+        {
+          "s": 1
+        }
+      ],
+      [
+        "n1"
+      ]
+    ],
+    "expected": {
+      "active": true,
+      "prefer_cannot_determine": true,
+      "propagation_allowed": false,
+      "reconciliation_allowed": false,
+      "expansion_allowed": false,
+      "limit_reasons": [
+        "insufficient_evidence",
+        "noninferable_regions",
+        "speculative_suppression"
+      ]
+    }
+  },
+  {
+    "id": "a3d-selflim-open",
+    "fn": "apply_semantic_self_limitation",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      [],
+      []
+    ],
+    "expected": {
+      "active": false,
+      "prefer_cannot_determine": true,
+      "propagation_allowed": true,
+      "reconciliation_allowed": true,
+      "expansion_allowed": true,
+      "limit_reasons": []
+    }
+  },
+  {
+    "id": "a3d-stability-stable",
+    "fn": "model_semantic_stability",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      0.1,
+      [],
+      true
+    ],
+    "expected": {
+      "stable": true,
+      "level": "high",
+      "unstable_regions": [],
+      "boundary_pressure": 0.0,
+      "stability_limits": {
+        "max_confidence": 0.85
+      }
+    }
+  },
+  {
+    "id": "a3d-stability-low",
+    "fn": "model_semantic_stability",
+    "args": [
+      [
+        "e1"
+      ],
+      0.3,
+      [
+        {
+          "c": 1
+        }
+      ],
+      false
+    ],
+    "expected": {
+      "stable": false,
+      "level": "low",
+      "unstable_regions": [
+        "semantic:continuity",
+        "semantic:drift",
+        "semantic:insufficient_evidence",
+        "semantic:parser_gap"
+      ],
+      "boundary_pressure": 1.0,
+      "stability_limits": {
+        "max_confidence": 0.5
+      }
+    }
+  },
+  {
+    "id": "a3d-stabterm-mixed",
+    "fn": "terminate_stabilization",
+    "args": [
+      [
+        {
+          "reason": "z"
+        },
+        {}
+      ],
+      [
+        "a",
+        "z"
+      ]
+    ],
+    "expected": {
+      "terminated": [
+        "a",
+        "z"
+      ],
+      "chain_stopped": true
+    }
+  },
+  {
+    "id": "a3d-stabterm-empty",
+    "fn": "terminate_stabilization",
+    "args": [
+      [],
+      []
+    ],
+    "expected": {
+      "terminated": [],
+      "chain_stopped": false
+    }
+  },
+  {
+    "id": "a3d-uncert-low",
+    "fn": "model_uncertainty",
+    "args": [
+      3,
+      0,
+      0
+    ],
+    "expected": {
+      "uncertainty_score": 0.2,
+      "confidence_score": 0.8,
+      "evidence_count": 3,
+      "ambiguity_count": 0,
+      "contradiction_count": 0,
+      "deterministic_inputs": [
+        "evidence=3",
+        "ambiguity=0",
+        "contradiction=0"
+      ]
+    }
+  },
+  {
+    "id": "a3d-uncert-high",
+    "fn": "model_uncertainty",
+    "args": [
+      0,
+      2,
+      1
+    ],
+    "expected": {
+      "uncertainty_score": 1.0,
+      "confidence_score": 0.0,
+      "evidence_count": 0,
+      "ambiguity_count": 2,
+      "contradiction_count": 1,
+      "deterministic_inputs": [
+        "evidence=0",
+        "ambiguity=2",
+        "contradiction=1"
+      ]
+    }
+  },
+  {
+    "id": "a3d-uncvis-some",
+    "fn": "expose_uncertainty_visibility",
+    "args": [
+      [
+        "u2",
+        "u1",
+        "u2"
+      ],
+      [
+        "a1"
+      ],
+      0.7
+    ],
+    "expected": {
+      "visible": true,
+      "count": 3,
+      "items": [
+        "u1",
+        "u2"
+      ],
+      "pressure": 0.55,
+      "suppress_propagation": true,
+      "confidence_impact": 0.22,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-uncvis-none",
+    "fn": "expose_uncertainty_visibility",
+    "args": [
+      [],
+      [],
+      0.4
+    ],
+    "expected": {
+      "visible": false,
+      "count": 0,
+      "items": [],
+      "pressure": 0.0,
+      "suppress_propagation": false,
+      "confidence_impact": 0.0,
+      "preserved": true
+    }
+  },
+  {
+    "id": "a3d-escal-blocked",
+    "fn": "block_unsupported_confidence_escalation",
+    "args": [
+      0.8,
+      1
+    ],
+    "expected": {
+      "escalation_blocked": true,
+      "capped_score": 0.45,
+      "reason": "unsupported_confidence_escalation",
+      "evidence_count": 1
+    }
+  },
+  {
+    "id": "a3d-escal-ok",
+    "fn": "block_unsupported_confidence_escalation",
+    "args": [
+      0.8,
+      3
+    ],
+    "expected": {
+      "escalation_blocked": false,
+      "capped_score": 0.8,
+      "reason": null
+    }
+  },
+  {
+    "id": "a3d-suppinf-y",
+    "fn": "suppress_unsupported_inference",
+    "args": [
+      [
+        "e1"
+      ],
+      {
+        "b": 1,
+        "a": 2
+      },
+      {}
+    ],
+    "expected": {
+      "suppressed": true,
+      "unsupported_dimensions": [
+        "inferred_without_evidence",
+        "inferred_without_observation"
+      ],
+      "suppressed_keys": [
+        "a",
+        "b"
+      ],
+      "allowed_inference": false
+    }
+  },
+  {
+    "id": "a3d-suppinf-n",
+    "fn": "suppress_unsupported_inference",
+    "args": [
+      [
+        "e1",
+        "e2"
+      ],
+      {
+        "a": 1
+      },
+      {
+        "a": 1
+      }
+    ],
+    "expected": {
+      "suppressed": false,
+      "unsupported_dimensions": [],
+      "suppressed_keys": [],
+      "allowed_inference": true
+    }
+  },
+  {
+    "id": "a3d-recdivpres-y",
+    "fn": "preserve_recursive_divergence",
+    "args": [
+      0.4
+    ],
+    "expected": {
+      "preserved": true,
+      "collapse_blocked": true
+    }
+  },
+  {
+    "id": "a3d-recdivpres-n",
+    "fn": "preserve_recursive_divergence",
+    "args": [
+      0.0
+    ],
+    "expected": {
+      "preserved": false,
+      "collapse_blocked": true
+    }
+  },
+  {
+    "id": "a3d-recdomest-y",
+    "fn": "detect_recursive_domestication",
+    "args": [
+      true,
+      3
+    ],
+    "expected": {
+      "domesticated": true,
+      "suppress": true
+    }
+  },
+  {
+    "id": "a3d-recdomest-n",
+    "fn": "detect_recursive_domestication",
+    "args": [
+      true,
+      2
+    ],
+    "expected": {
+      "domesticated": false,
+      "suppress": false
+    }
+  }
+]

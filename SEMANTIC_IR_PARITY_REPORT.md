@@ -19,11 +19,16 @@
 | A.3 b1 | `core.evidence` trivial leaves (record-shaped bool/count/round engines) | 60 | Python ≡ JS ≡ Dart, 119 fixtures (185/185 cumulative, hash + deep equality) | ✅ proven |
 | A.3 b2 | `core.evidence` leaves: recursive/semantic/unsupported families (incl. sorted/set/round + deep-equality sites) | 57 | Python ≡ JS ≡ Dart, 113 fixtures (298/298 cumulative, hash + deep equality) | ✅ proven |
 | A.3 b3 | `core.evidence` medium leaves: confidence caps, contradiction lattice, evidence algebra/weighting, explainability, lineage/provenance/traceability, noninference, instability | 24 | Python ≡ JS ≡ Dart, 51 fixtures (349/349 cumulative, hash + deep equality) | ✅ proven |
-| A.3 b4… | remaining `core.evidence` public leaves (the semantic_* heavy cluster: confidence/conservatism/consistency/decay/drift/entropy/fragility/honesty/incompleteness/inference/instability/justification/limits/overreach/plurality/proof/refusal/self-limitation/stability + uncertainty/visibility/escalation) | 0 / 27 | — | pending |
+| A.3 b4 | final `core.evidence` public leaves: the semantic_* heavy cluster (confidence scoring, conservatism, consistency, decay, drift, entropy, fragility, honesty, incompleteness, inference calculus, instability, justification, limits, overreach, plurality, proof, refusal, self-limitation, stability, uncertainty, visibility, escalation) + 2 stragglers caught by the accounting check | 27 | Python ≡ JS ≡ Dart, 56 fixtures (405/405 cumulative, hash + deep equality) | ✅ proven |
 | — | 13 private leaf helpers (`_depth`×4, `_record`×3, `_suppression_record`×2, `_lineage_depth`, `_closure_record`, `_continuation_record`, `_stabilization_record`) | deferred | proven through their module's public parent (only callers) | deferred |
 | B–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
-Phase-A leaves proven: **170 / 212** (plus 2 reclassified below; 13 privates fold into their parents' phases — several share the name `_depth`/`_record` across modules, which the fn-name-keyed harness can't address directly).
+**Phase A is CLOSED.** All 212 plan rows accounted (verified programmatically by
+diffing the harness REGISTRY against the plan table): **197 leaves executable-proven**
++ **14 private helpers** deferring to their public parents (several share the name
+`_depth`/`_record`/`_suppression_record` across modules, which the fn-name-keyed
+harness can't address directly; they are the only callees of those parents) +
+**1 reclassified** (`parse_source`, below).
 
 ## A.1 — document-parser leaves (proven)
 
@@ -112,6 +117,29 @@ default), `build_lineage` (per-stage `step_{idx}` defaults, list-typed guards).
 - Test: `test/parity/semantic_ir_a3c_test.dart` (+56 tests → 1227 total, all passing).
 - Cumulative proof: **349/349 fixtures** pass 3-way hash + deep equality.
 
+## A.3 batch 4 — final evidence public leaves (proven; Phase A closed)
+
+27 engines ported to `lib/src/semantic_ir/evidence_leaves_4.dart`. Determinism
+sites proven bit-exact by execution: `score_semantic_confidence` (float score
+accumulated in Python's exact order — base 0.2, +0.12 per truthy parser flag in
+key-sorted order, +min(0.25, edges×0.01), +0.05 per extra; `bool()` rendered
+`True`/`False` in f-strings), `apply_semantic_conservatism` (bundle mutation
+semantics, `float()` coercion, set-union of deterministic inputs, double
+`round(min(...))` capping), `model_semantic_instability` (`round(int+int, 3)`
+stays **int** — `truth_pressure: 0` not `0.0`), `build_justification` (dict-repr
+stage fallback `str(s)`, eager nested-get fallback to `factors`),
+`assess_semantic_consistency` (true-division overlap score),
+`detect_semantic_drift`/`detect_semantic_overreach` (structural `!=` via
+`pyDeepEq` + key-membership drift), `model_fragility` (level/cap ladder with
+ambiguity demotion), `block_unsupported_confidence_escalation` (early-return
+passes the score through unrounded). The 2 stragglers surfaced by the
+programmatic accounting check (`preserve_recursive_divergence`,
+`detect_recursive_domestication`) are included.
+
+- Vectors: `validation/parity/semantic_ir_a3d_vectors.json` (56, from executed Python).
+- Test: `test/parity/semantic_ir_a3d_test.dart`.
+- Cumulative proof: **405/405 fixtures** pass 3-way hash + deep equality.
+
 ## Plan corrections (recomputed from source, rule 10)
 
 1. **`parse_source` is NOT a Phase-A leaf.** `core.parsers.parser_registry.parse_source`
@@ -148,6 +176,26 @@ the JS engine's typed output via the engine's own Python-faithful serializer
 canonical definition as-is. This is a JS-branch bug to fix on `origin/javascript`
 (out of scope for the dart branch); it does not affect Python ≡ Dart parity.
 
+## Finding — Dart library hash diverged from the Python canonical payload (discovered by re-execution)
+
+Commit `4f4ef51` ("cross-language canonical contract") changed the library's
+`computeDeterministicHash` to serialize **integral doubles as integers**
+(`0.0 → "0"`, for JS alignment), while Python's canonical
+`compute_kaalka_hash = sha256(stable_serialize(value))` keeps float types
+(`0.0 → "0.0"`). The semantic-IR harness carries float **type** parity in the
+hash (deep equality uses Python `==`, where `0 == 0.0`), so this silently
+invalidated the Dart side of the harness: a zero-trust re-execution of all 405
+fixtures failed 42 of them (every fixture whose output contains an integral
+float), including batch 1–3 fixtures whose committed results predate `4f4ef51`
+and had passed. Fix: `run_dart.dart` now computes the hash with a harness-level
+`pyStableHash` — the canonical Python `stable_serialize` payload (volatile-key
+strip, code-point key sort, Python float repr via `pyFloatStr`, `json.dumps`
+compact separators) — exactly mirroring the JS harness's `pyStableHash`
+workaround above. The library contract is untouched (it is what the extraction
+and executable certifications were proven against). After the fix, all 405/405
+fixtures pass 3-way from a full re-materialization (`origin/python` c8c4152,
+`origin/javascript` 0baeeac via npm+tsx, this Dart tree).
+
 ## Promotion status
 
 **No public API promoted yet** — `compile_document`, `query_documents`, `compile_repository`,
@@ -157,12 +205,10 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-A.3 batch 4 (final Phase-A batch): the 27 remaining `core.evidence` public leaves —
-the semantic_* heavy cluster (`score_semantic_confidence` 37L,
-`apply_semantic_conservatism` 29L, `model_fragility` 35L, `detect_semantic_drift`,
-`model_semantic_stability`, `model_uncertainty`, `infer_from_evidence`,
-`build_justification`, `prove_semantic_claim`, `refuse_unsupported_conclusions`,
-`apply_semantic_self_limitation`, `expose_uncertainty_visibility`,
-`block_unsupported_confidence_escalation`, …). The 13 private leaf helpers prove
-through their parents; then ascend layers B→O until the 6 dispatchers close with
+Phase B (36 fns, 578 lines): the first non-leaf layer — functions whose only
+in-closure dependencies are Phase-A leaves (e.g. `parse_python_ast` + `_node`,
+`apply_confidence_degradation`, `validate_inference`, `detect_recursive_dependency`
++ `_record`, the `apply_*` integrity bundlers' lower tiers, document-IR composites
+like `extract_sections`/`build_argument_dependencies`). Private helpers prove
+inside their parents here. Then ascend C→O until the 6 dispatchers close with
 executable parity.

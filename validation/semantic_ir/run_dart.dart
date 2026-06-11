@@ -3,17 +3,91 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:webweavex/src/crypto/hashing.dart'
-    show computeDeterministicHash;
+import 'package:crypto/crypto.dart' show sha256;
+import 'package:webweavex/src/determinism/normalization.dart'
+    show normalizeRuntimeValue;
+import 'package:webweavex/src/determinism/normalization_core.dart'
+    show codePointCompare, volatileRuntimeKeys;
 import 'package:webweavex/src/semantic_ir/ast_engines.dart';
 import 'package:webweavex/src/semantic_ir/document_parser.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_2.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_3.dart';
+import 'package:webweavex/src/semantic_ir/evidence_leaves_4.dart';
 import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
+import 'package:webweavex/src/semantic_ir/py_compat.dart' show pyFloatStr;
 import 'package:webweavex/src/semantic_ir/repository_engines.dart';
+
+// ---------------------------------------------------------------------------
+// Python-faithful canonical hash (harness-level), mirroring run_js.mjs's
+// pyStableHash. The canonical payload is core.determinism.normalization
+// .stable_serialize, which keeps float types (0.0 -> "0.0") — that is how the
+// hash carries float TYPE parity that deep equality (Python ==) cannot see.
+// The library's computeDeterministicHash implements the v2 cross-language
+// contract (integral doubles serialize as integers, for JS alignment) and so
+// cannot be used here.
+// ---------------------------------------------------------------------------
+
+/// Python `stable_sort_keys`: recursive volatile-key strip on dicts; list
+/// items strip only when they are dicts (deeper lists pass through unchanged).
+Map<String, dynamic> _pySortStrip(Map<dynamic, dynamic> m) {
+  final out = <String, dynamic>{};
+  final keys = m.keys.map((k) => k.toString()).toList()..sort(codePointCompare);
+  for (final k in keys) {
+    if (volatileRuntimeKeys.contains(k)) continue;
+    final v = m[k];
+    if (v is Map) {
+      out[k] = _pySortStrip(v);
+    } else if (v is List) {
+      out[k] = <dynamic>[
+        for (final item in v) item is Map ? _pySortStrip(item) : item
+      ];
+    } else {
+      out[k] = v;
+    }
+  }
+  return out;
+}
+
+/// Python `json.dumps(v, ensure_ascii=False, separators=(",", ":"),
+/// sort_keys=True)` — floats via Python repr, keys code-point sorted.
+String _pyJson(dynamic v) {
+  if (v == null) return 'null';
+  if (v is bool) return v ? 'true' : 'false';
+  if (v is double) return pyFloatStr(v);
+  if (v is int) return v.toString();
+  if (v is String) return jsonEncode(v);
+  if (v is List) return '[${v.map(_pyJson).join(',')}]';
+  if (v is Map) {
+    final byKey = <String, dynamic>{
+      for (final k in v.keys) k.toString(): v[k]
+    };
+    final keys = byKey.keys.toList()..sort(codePointCompare);
+    return '{${keys.map((k) => '${jsonEncode(k)}:${_pyJson(byKey[k])}').join(',')}}';
+  }
+  throw StateError('unserializable: ${v.runtimeType}');
+}
+
+/// `sha256(stable_serialize(value))` — Python compute_kaalka_hash.
+String pyStableHash(dynamic value) {
+  String payload;
+  if (value is String) {
+    payload = normalizeRuntimeValue(value);
+  } else if (value is Map) {
+    payload = _pyJson(_pySortStrip(value));
+  } else if (value is List) {
+    final keyed = <String, dynamic>{
+      for (var i = 0; i < value.length; i++)
+        '$i': value[i] is Map ? _pySortStrip(value[i] as Map) : value[i],
+    };
+    payload = _pyJson(keyed);
+  } else {
+    payload = _pyJson(value);
+  }
+  return sha256.convert(utf8.encode(payload)).toString();
+}
 
 /// A.3 leaves take plain positional args — dispatch generically.
 final Map<String, Function> a3Registry = <String, Function>{
@@ -160,6 +234,34 @@ final Map<String, Function> a3Registry = <String, Function>{
   'build_weaknesses': buildWeaknesses,
   'build_traceability': buildTraceability,
   'refuse_unsupported_stabilization': refuseUnsupportedStabilization,
+  'score_semantic_confidence': scoreSemanticConfidence,
+  'apply_semantic_conservatism': applySemanticConservatism,
+  'assess_semantic_consistency': assessSemanticConsistency,
+  'model_semantic_decay': modelSemanticDecay,
+  'model_semantic_decentralization': modelSemanticDecentralization,
+  'detect_semantic_drift': detectSemanticDrift,
+  'model_semantic_entropy': modelSemanticEntropy,
+  'model_fragility': modelFragility,
+  'assess_semantic_honesty': assessSemanticHonesty,
+  'model_incompleteness': modelIncompleteness,
+  'infer_from_evidence': inferFromEvidence,
+  'model_semantic_instability': modelSemanticInstability,
+  'build_justification': buildJustification,
+  'semantic_limits': semanticLimits,
+  'detect_semantic_overreach': detectSemanticOverreach,
+  'model_semantic_plurality': modelSemanticPlurality,
+  'prove_semantic_claim': proveSemanticClaim,
+  'refuse_unsupported_conclusions': refuseUnsupportedConclusions,
+  'apply_semantic_self_limitation': applySemanticSelfLimitation,
+  'model_semantic_stability': modelSemanticStability,
+  'terminate_stabilization': terminateStabilization,
+  'model_uncertainty': modelUncertainty,
+  'expose_uncertainty_visibility': exposeUncertaintyVisibility,
+  'block_unsupported_confidence_escalation':
+      blockUnsupportedConfidenceEscalation,
+  'suppress_unsupported_inference': suppressUnsupportedInference,
+  'preserve_recursive_divergence': preserveRecursiveDivergence,
+  'detect_recursive_domestication': detectRecursiveDomestication,
 };
 
 List<Map<String, dynamic>> _claims(dynamic v) => <Map<String, dynamic>>[
@@ -260,7 +362,7 @@ void main(List<String> argv) {
         'id': fx['id'],
         'fn': fn,
         'output': result,
-        'hash': computeDeterministicHash(result),
+        'hash': pyStableHash(result),
       });
     } catch (e) {
       out.add(
