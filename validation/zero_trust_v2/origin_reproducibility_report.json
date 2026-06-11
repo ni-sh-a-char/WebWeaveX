@@ -1,0 +1,22 @@
+{
+ "generated_at": "2026-06-11T15:07:22.800854+00:00",
+ "commits": {
+  "dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0",
+  "python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "origin_javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0"
+ },
+ "certification": "origin_reproducibility",
+ "verdict": "PASS",
+ "origin_in_sync": true,
+ "pushed": "python d4c5800, javascript b4120be (incl. 3 parser/PySoup fixes found by this session's 3-way execution), dart 2c6ac0b",
+ "clean_clone_evidence": {
+  "clone": "git clone --no-local -> /c/Projects/wwx_clean @ dart 2c6ac0b; refs materialized from origin/python + origin/javascript",
+  "semantic_ir": "667/667",
+  "core_verifier": "60,001/60,001, 3-run determinism all languages",
+  "executable": "35/35",
+  "dart_suite": "1583/1583"
+ }
+}

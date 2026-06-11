@@ -1,25 +1,15 @@
 {
- "generated_at": "2026-06-11T13:31:30.182121+00:00",
+ "generated_at": "2026-06-11T15:07:22.800854+00:00",
  "commits": {
-  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
-  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
-  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20"
- },
- "repro": [
-  "PYTHONPATH=<python-branch> python validation/executable/run_python.py fixtures.json",
-  "npx tsx run_js.mjs <abs fixtures.json> (from javascript branch)",
-  "dart run validation/executable/run_dart.dart validation/executable/fixtures.json",
-  "3-way hash comparison"
- ],
- "result_hashes": {
-  "fixtures.json": "8196e2a64a83e0a94737b3783d924c4ab865fa904ebef2eafc1cb7dd6117bd14",
-  "python_results.json": "c82c7ba98dc7f3d60f9b9e6cd5c4ce5e17223f378a845dada822c9d40c200921",
-  "js_results.json": "e7f96343b2e92869183e6dbaafc749603a2ed83931f67bcd4e392781eacd474f",
-  "dart_results.json": "e7f96343b2e92869183e6dbaafc749603a2ed83931f67bcd4e392781eacd474f"
+  "dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0",
+  "python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "origin_javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0"
  },
  "certification": "application_ir",
- "verdict": "FAIL",
- "reason": "Application-cognition surface is split: execute_runtime_objective, save/load_application_memory, extract_container_runtime, extract_ide_runtime, extract_database_runtime, extract_kubernetes_runtime are executable-proven 3-way (within the 35/35 run). run_application_cognition remains Deferred (bounded-HTML path needs the BeautifulSoup-equivalent subsystem wiring in Dart, now available but not integrated); run_native_cognition/extract_native are OS-coupled (sys.platform branching) and non-deterministic across platforms even in Python \u2014 platform-bound by construction.",
- "executed_evidence": "validation/executable 35/35 covers the proven subset",
- "blocking_work": "integrate the Dart soup engine into run_application_cognition and certify; platform-bound APIs stay excluded from portable certification"
+ "verdict": "PASS",
+ "pass_detail": "run_application_cognition + 12 engines over the bs4-parity soup, 667/667 cumulative 3-way; promoted to Complete and barrel-exported. extract_native / run_native_cognition remain platform-bound by construction (sys.platform branching in Python itself) and are excluded from the portable surface by classification, not absence of proof",
+ "repro": "validation/semantic_ir: PYTHONPATH=<python> python run_python.py fixtures.json; npx tsx run_js.mjs (from javascript); dart run run_dart.dart; compare_results.py"
 }

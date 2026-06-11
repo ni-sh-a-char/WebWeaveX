@@ -1,0 +1,22 @@
+{
+ "generated_at": "2026-06-11T15:07:22.800854+00:00",
+ "commits": {
+  "dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0",
+  "python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "origin_javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0"
+ },
+ "certification": "portable_api_matrix",
+ "matrix": {
+  "complete": 105,
+  "partial": 18,
+  "deferred": 5,
+  "missing": 0
+ },
+ "portable_api_gap_count": 0,
+ "partial_composition": "13 network-gated extract/crawl APIs (live HTTP by design) + 5 bounded (heal_selector, replay_interactions, run_live_runtime, run_canonical_pipeline, analyze \u2014 live-browser/network sub-paths)",
+ "deferred_composition": "5 platform-bound (live-page capture x3, recover_modal_runtime, extract_native/run_native_cognition OS-coupled)",
+ "source": "tools/dart_parity_audit.py + generate_parity_manifest.py regenerated from source at this commit"
+}

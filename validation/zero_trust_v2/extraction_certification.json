@@ -1,64 +1,22 @@
 {
+ "generated_at": "2026-06-11T15:07:22.800854+00:00",
+ "commits": {
+  "dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0",
+  "python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_python": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "origin_javascript": "b4120be6c3eff374594cb80aa409b164364a49de",
+  "origin_dart": "2c6ac0b796ca2d077e692e8f0eaf801cfc4ff9d0"
+ },
  "certification": "extraction",
  "verdict": "PASS",
- "generated_at": "2026-06-11T13:27:54.208484+00:00",
- "commits": {
-  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
-  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
-  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20",
-  "origin_python_STALE": "c8c415267c90e91842b98eca0fa721c83f8951ac",
-  "origin_javascript_STALE": "0baeeacd698e0e1ee7cf2d1682ed6911c43facac"
- },
- "caveat": "PASS holds ONLY against the certified LOCAL python/javascript branches; origin/python and origin/javascript are stale (2026-06-08) and FAIL re-execution (8971/60001 core fields mismatched). Push python+javascript branches to origin before release.",
  "evidence": {
-  "core_determinism": {
-   "vectors": 10000,
-   "fields": 60001,
-   "byte_identical": 60001,
-   "runs_per_language": 3,
-   "repro": [
-    "python generate_vectors.py",
-    "PYTHONPATH=<py-branch> python run_python.py vectors.json out_python_N.json (x3)",
-    "cp run_js.mjs <js-branch>/cv_run.mjs && npx tsx cv_run.mjs vectors.json out_js_N.json (x3)",
-    "dart run cross_language_verifier/run_dart.dart vectors.json out_dart_N.json (x3)",
-    "python compare.py"
-   ]
-  },
-  "synthetic_10k": {
-   "documents": 10000,
-   "match_3way": 10000,
-   "mismatches": 0,
-   "generator": "gen_synth_html.py (SEED=20260612)",
-   "repro": [
-    "python gen_synth_html.py synth_html.json",
-    "PYTHONPATH=<py> python synth_py.py synth_html.json synth_py.json",
-    "npx tsx synth_js.mjs synth_html.json synth_js.json (from js branch)",
-    "dart run cross_language_verifier/synth_dart.dart synth_html.json synth_dart.json",
-    "python synth_compare.py"
-   ]
-  },
-  "real_corpus": {
-   "pages": 1006,
-   "torture": 14,
-   "match_3way": "1006/1006 + 14/14",
-   "corpus_manifest_sha256": "da60d0c3413f1f3de508c66a307a9e543d2c65406e10ed184b6476a79369856d",
-   "repro": [
-    "PYTHONPATH=<py> python extract_py.py extract_py_out.json",
-    "npx tsx extract_js.mjs <verifier-dir> extract_js_out.json (from js branch)",
-    "dart run cross_language_verifier/extract_dart.dart cross_language_verifier extract_dart_out.json",
-    "python extract_compare3.py"
-   ]
-  }
+  "core_determinism": "60,001/60,001 fields byte-identical (10k vectors x 3 runs x 3 languages), re-run after the javascript PySoup fixes AND from the clean clone",
+  "synthetic_10k": "10,000/10,000 3-way",
+  "real_corpus": "1006/1006 pages + 14/14 torture 3-way"
  },
- "output_hashes": {
-  "out_python_1.json": "ff2daea127d2c8c3ddf2f5510f95390850334cedbf3e9b407546e392fb87baa7",
-  "out_js_1.json": "2647d84434958bbc4ed45ffc0cc6be4f77f1fc05283242838dc9d10967dd3ee8",
-  "out_dart_1.json": "2647d84434958bbc4ed45ffc0cc6be4f77f1fc05283242838dc9d10967dd3ee8",
-  "synth_py.json": "6404fc4e8977e6e6bf2f6143b130f7255b5c6d15f424b478c746a636a475c52c",
-  "synth_js.json": "bd3f9c20a4e97ccecd81969c304847651e77ba14ffccd4a1b7d75ac3e2b05403",
-  "synth_dart.json": "bd3f9c20a4e97ccecd81969c304847651e77ba14ffccd4a1b7d75ac3e2b05403",
-  "extract_py_out.json": "c25b1c516a856f0488f3faab71e7c945823a7dbd90c2a9111b3873b8c504d70e",
-  "extract_js_out.json": "27de16d8fa08df324fe7a56b7ed9ec2d782b4da7e950f7b60766f8380122fcd3",
-  "extract_dart_out.json": "00ab2bbd39fd18443903f01c035158358f9c10a83775104bd93c023ab01e5c2d"
- }
+ "repro": [
+  "cross_language_verifier: generate_vectors.py; 3 runs/lang; compare.py",
+  "cross_language_verifier: gen_synth_html.py + synth_* runners + synth_compare.py; extract_* runners + extract_compare3.py over corpus/"
+ ]
 }
