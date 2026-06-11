@@ -159,24 +159,35 @@ void main() {
       expect(out['density'], 0.0);
     });
 
-    test('compileDocument is unported', () {
-      expect(() => compileDocument('x'), throwsUnsupportedError);
+    test('compileDocument routes to the proven document IR', () {
+      final ir = compileDocument('# T\nbody\n');
+      expect((ir['confidence'] as Map)['score'], equals(0.7));
+      expect(ir.containsKey('_raw'), isTrue);
     });
 
-    test('compileRepository is unported', () {
-      expect(() => compileRepository('git@x'), throwsUnsupportedError);
+    test('compileRepository routes to the proven repository IR', () {
+      final ir = compileRepository('');
+      expect((ir['confidence'] as Map)['score'], equals(0.4));
+      expect(ir.containsKey('semantic_ast'), isTrue);
     });
 
-    test('queryRepository source path is unported', () {
-      expect(() => queryRepository(source: 'git@x'), throwsUnsupportedError);
+    test('queryRepository source path routes to the repository IR', () {
+      final out =
+          queryRepository(source: 'function a() { b(); }', path: 'svc.js');
+      expect(out['explainable'], isTrue);
+      expect((out['ir'] as Map).containsKey('semantic_evidence'), isTrue);
     });
 
-    test('queryDocuments text path is unported', () {
-      expect(() => queryDocuments(text: 'hi'), throwsUnsupportedError);
+    test('queryDocuments text path routes to the document IR', () {
+      final out = queryDocuments(text: '# H\nline\n');
+      expect(out['explainable'], isTrue);
+      expect((out['ir'] as Map).containsKey('rhetorical_units'), isTrue);
     });
 
-    test('queryDocuments empty path is unported', () {
-      expect(() => queryDocuments(), throwsUnsupportedError);
+    test('queryDocuments empty path returns the empty-text document IR', () {
+      final out = queryDocuments();
+      expect(out['explainable'], isTrue);
+      expect(((out['ir'] as Map)['confidence'] as Map)['score'], equals(0.3));
     });
   });
 
