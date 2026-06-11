@@ -2734,11 +2734,13 @@ export class PyTag {
     //  - plain object  -> attrs={...}: equality on the space-joined value
     //  - string/list/True/null -> tag-name matching (original behavior)
     let matcher: ((node: PyTag) => boolean) | null = null;
-    if (name instanceof RegExp) {
+    if (name instanceof RegExp || name instanceof PyRegex) {
       const re = name;
+      const hit = (s: string) =>
+        re instanceof PyRegex ? re.search(s) !== null : re.test(s);
       matcher = (node) => {
         const cls = node.attrs["class"];
-        return Array.isArray(cls) && cls.some((c) => re.test(String(c)));
+        return Array.isArray(cls) && cls.some((c) => hit(String(c)));
       };
     } else if (typeof name === "function") {
       const fn = name as (v: unknown) => unknown;
