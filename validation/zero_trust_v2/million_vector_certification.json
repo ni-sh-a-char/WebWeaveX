@@ -1,0 +1,33 @@
+{
+ "certification": "million_vector",
+ "verdict": "PASS",
+ "generated_at": "2026-06-11T13:39:02.453129+00:00",
+ "commits": {
+  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20"
+ },
+ "vectors": 1000000,
+ "family_counts": {
+  "application": 166666,
+  "extraction": 50000,
+  "repository": 316667,
+  "runtime": 150000,
+  "semantic": 316667
+ },
+ "family_digests_match": true,
+ "final_digest_all_three_languages": "ccd54d127abe3709c054d7b093a2b1a0a57cd3ebea63d929d1105e909a53fb1c",
+ "method": "seeded 64-bit LCG (seed 20260612, identical state evolution in all 3 languages), battery across extraction (extract_semantic_html), semantic IR (model_uncertainty, compute_ambiguity_pressure), repository IR (reason_api_surface, detect_infra_signals), runtime IR (prove_topology), application/deployment IR (analyze_deployment_semantics); per-vector v2-contract canonical hash folded into rolling SHA-256 per family + overall",
+ "repro": [
+  "PYTHONPATH=<python-branch> python validation/zero_trust_v2/mv_python.py 1000000 > mv_python.json",
+  "cp mv_js.mjs <javascript-branch>/ && npx tsx mv_js.mjs 1000000 > mv_js.json",
+  "dart run validation/zero_trust_v2/mv_dart.dart 1000000 > mv_dart.json",
+  "compare final_digest + family_digests"
+ ],
+ "gotcha_documented": "Python evaluates `d[key_expr] = value_expr` RHS-first; key/value expressions consuming the shared LCG must be sequenced explicitly or the languages desynchronize (caught by the 2k smoke run)",
+ "result_hashes": {
+  "mv_python.json": "ad2979266ef7d9f340532f2a6c039574ca57854ce940c713c86967e162cb80b8",
+  "mv_js.json": "5c1bd6798d76c1e045d4bc494715cc803b69671f6da181c2320b2865445bc9b5",
+  "mv_dart.json": "5c1bd6798d76c1e045d4bc494715cc803b69671f6da181c2320b2865445bc9b5"
+ }
+}

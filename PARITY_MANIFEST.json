@@ -2,9 +2,9 @@
   "generated_by": "tools/generate_parity_manifest.py",
   "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
   "counts": {
-    "Complete": 94,
-    "Partial": 26,
-    "Deferred": 8
+    "Complete": 98,
+    "Partial": 24,
+    "Deferred": 6
   },
   "executable_proven_apis": [
     "build_browser_identity",
@@ -531,13 +531,13 @@
       "api": "extract_multimodal",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "extractMultimodal",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "extract_native",
@@ -555,13 +555,13 @@
       "api": "extract_paginated_content",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "extractPaginatedContent",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "extract_recursive",
@@ -687,13 +687,13 @@
       "api": "ingest_input",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "ingestInput",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "load_adaptive_memory",
@@ -975,13 +975,13 @@
       "api": "recover_modal_runtime",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "recoverModalRuntime",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "replay_causal_runtime",

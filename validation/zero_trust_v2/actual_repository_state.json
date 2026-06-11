@@ -1,0 +1,21 @@
+{
+ "generated_at": "2026-06-11T13:08:57.618551+00:00",
+ "dart_commit": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+ "python_api_count": 126,
+ "javascript_api_count": 126,
+ "dart_api_count": 107,
+ "dart_classified_complete": 98,
+ "portable_api_count": 104,
+ "platform_bound_api_count": 6,
+ "network_or_bounded_partial_count": 18,
+ "portable_api_gap_count": 6,
+ "portable_api_gap_list": [
+  "compile_document",
+  "compile_repository",
+  "query_documents",
+  "query_repository",
+  "query_semantics",
+  "reason_semantically"
+ ],
+ "note": "portable gap = pure Category-A APIs whose full closure is not yet parity-certified Complete; document-side engine closure (compile_document_ir/query_documents/reason_discourse_semantic) is executable-proven 3-way as of this commit but public-API promotion requires the repository-side parse_source closure for the shared dispatchers"
+}

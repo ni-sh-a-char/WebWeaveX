@@ -1,0 +1,25 @@
+{
+ "generated_at": "2026-06-11T13:31:30.182121+00:00",
+ "commits": {
+  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20"
+ },
+ "repro": [
+  "PYTHONPATH=<python-branch> python validation/executable/run_python.py fixtures.json",
+  "npx tsx run_js.mjs <abs fixtures.json> (from javascript branch)",
+  "dart run validation/executable/run_dart.dart validation/executable/fixtures.json",
+  "3-way hash comparison"
+ ],
+ "result_hashes": {
+  "fixtures.json": "8196e2a64a83e0a94737b3783d924c4ab865fa904ebef2eafc1cb7dd6117bd14",
+  "python_results.json": "c82c7ba98dc7f3d60f9b9e6cd5c4ce5e17223f378a845dada822c9d40c200921",
+  "js_results.json": "e7f96343b2e92869183e6dbaafc749603a2ed83931f67bcd4e392781eacd474f",
+  "dart_results.json": "e7f96343b2e92869183e6dbaafc749603a2ed83931f67bcd4e392781eacd474f"
+ },
+ "certification": "repository_ir",
+ "verdict": "FAIL",
+ "reason": "FAIL-BY-ABSENCE: compile_repository_ir / query_repository / reason_runtime_semantic and their dependency chain (build_repository_execution_ir, build_repository_semantic_ir, build_service_runtime_graph, model_execution_dependencies, analyze_runtime_semantics, analyze_runtime_execution, reason_runtime_flow, model_runtime_state) are gated on core.parsers.parse_source, whose closure (the core.parsers subsystem incl. ParserRegistry static methods) is not yet ported to Dart. Leaf-level repository engines (reason_api_surface, reason_api_contract, detect_infra_signals, model_infra_relationships, analyze_deployment_semantics, resolve_runtime_dependencies, reconstruct_execution_flow, infer_service_interactions) ARE proven 3-way in the semantic-IR run.",
+ "executed_evidence": "semantic_ir_certification.json covers the proven repository leaves; the dispatcher chain has no Dart implementation to execute",
+ "blocking_work": "port core.parsers closure (map with parse_source-rooted DAG incl. function-local imports), then the 11 gated engines, then re-certify"
+}

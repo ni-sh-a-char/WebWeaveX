@@ -1,0 +1,46 @@
+{
+ "certification": "performance",
+ "verdict": "PASS",
+ "generated_at": "2026-06-11T13:46:44.431718+00:00",
+ "commits": {
+  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20",
+  "origin_python_STALE": "c8c415267c90e91842b98eca0fa721c83f8951ac",
+  "origin_javascript_STALE": "0baeeacd698e0e1ee7cf2d1682ed6911c43facac"
+ },
+ "benchmarks_ops_per_s": {
+  "python": {
+   "language": "python",
+   "serialize_ops_per_s": 3093,
+   "hash_ops_per_s": 2967,
+   "encrypt_ops_per_s": 1332
+  },
+  "javascript": {
+   "language": "javascript",
+   "serialize_ops_per_s": 6043,
+   "hash_ops_per_s": 5791,
+   "encrypt_ops_per_s": 4245
+  },
+  "dart": {
+   "language": "dart",
+   "serialize_ops_per_s": 3938,
+   "hash_ops_per_s": 3488,
+   "encrypt_ops_per_s": 899
+  }
+ },
+ "scale_evidence": {
+  "million_vector_battery": "1,000,000 vectors executed to completion in all 3 languages with steady throughput and no memory explosion (Dart compiled exe fastest; Python slowest; all linear)",
+  "real_corpus": "1006 real pages + 14 torture pages extracted without hangs or pathological slowdowns",
+  "synthetic_10k": "10,000 torture documents 3-way without timeout"
+ },
+ "findings": [
+  "Dart Kaalka encryption throughput (899 ops/s) is ~4.7x below JS (4245 ops/s) \u2014 optimization opportunity, not a correctness or certification blocker"
+ ],
+ "no_critical_bottlenecks_observed": true,
+ "repro": [
+  "PYTHONPATH=<py> python cross_language_verifier/bench_py.py",
+  "npx tsx bench_js.mjs (from js branch)",
+  "dart run cross_language_verifier/bench_dart.dart"
+ ]
+}

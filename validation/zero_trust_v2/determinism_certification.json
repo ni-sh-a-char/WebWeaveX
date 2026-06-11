@@ -1,0 +1,35 @@
+{
+ "certification": "determinism",
+ "verdict": "PASS",
+ "generated_at": "2026-06-11T13:42:37.174158+00:00",
+ "commits": {
+  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20"
+ },
+ "scope": "canonical portable API surface",
+ "executed_evidence": {
+  "core_verifier_3_runs_per_language": "identical run digests x3 per language over 10,000 vectors (cross_language_verifier/parity_report.json)",
+  "million_vector_battery": "1,000,000 vectors, single aggregate digest identical across 3 languages"
+ },
+ "static_scan": {
+  "dart_lib": {
+   "hits": 0,
+   "verdict": "clean"
+  },
+  "python_core": {
+   "hits": 11,
+   "all_in": "core/native/* (extract_native/run_native_cognition platform-bound surface, excluded from portable classification by design \u2014 sys.platform branching is the documented platform ceiling)"
+  },
+  "javascript_src": {
+   "platform_branches": "5 in runtime/pyCompat.ts \u2014 faithful emulation of CPython PurePath Windows casefold ordering; outside the JSON value domain used by canonical APIs",
+   "finding": "createSemanticSnapshot (src/semantic/semanticSnapshot.ts:8) embeds created_at: Date.now() \u2014 a JS-extra symbol NOT in the canonical 126-API surface (Python's counterpart snapshot_semantic_state has no timestamp). created_at is in VOLATILE_RUNTIME_KEYS, so every canonical serialize/hash path strips it; raw output of this non-canonical symbol is nonetheless wall-clock-dependent. Recommended fix on the javascript branch: drop the field or derive it deterministically."
+  }
+ },
+ "scan_artifact": "validation/zero_trust_v2/determinism_scan_raw.json",
+ "repro": [
+  "python validation/zero_trust_v2/determinism_scan.py",
+  "cross_language_verifier 3-run protocol",
+  "million-vector battery"
+ ]
+}

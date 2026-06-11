@@ -1,0 +1,80 @@
+{
+ "portable_api_gap_count": 6,
+ "python_js_parity": "PASS",
+ "python_dart_parity": "PASS",
+ "js_dart_parity": "PASS",
+ "extraction_ir": "PASS",
+ "semantic_ir": "PASS",
+ "document_ir": "PASS",
+ "repository_ir": "FAIL",
+ "runtime_ir": "PASS",
+ "application_ir": "FAIL",
+ "million_vector_certification": "PASS",
+ "determinism_certification": "PASS",
+ "security_certification": "PASS",
+ "performance_certification": "PASS",
+ "release_readiness": "FAIL",
+ "overall_verdict": "FAIL",
+ "generated_at": "2026-06-11T13:46:44.431718+00:00",
+ "commits": {
+  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20",
+  "origin_python_STALE": "c8c415267c90e91842b98eca0fa721c83f8951ac",
+  "origin_javascript_STALE": "0baeeacd698e0e1ee7cf2d1682ed6911c43facac"
+ },
+ "verdict_basis": {
+  "fails": {
+   "portable_api_gap_count": "6 Category-A public APIs not promotable until the core.parsers (parse_source) closure is ported (repository/runtime dispatcher paths)",
+   "repository_ir": "FAIL-BY-ABSENCE \u2014 compile_repository_ir/query_repository/reason_runtime_semantic chain has no Dart implementation (11 parse_source-gated engines); repository LEAF engines are proven 3-way",
+   "application_ir": "run_application_cognition not integrated with the (now available) Dart soup engine; extract_native/run_native_cognition are platform-bound by construction (sys.platform branching in Python itself)",
+   "release_readiness": "certified python/javascript states are unpushed local branches; origin refs FAIL re-certification"
+  },
+  "language_parity_caveat": "all parity PASSes hold against the certified LOCAL python (d4c5800) and javascript (fb09003) branches. Against origin/python (c8c4152) + origin/javascript (0baeeac), the core verifier FAILS 8,971/60,001 fields \u2014 executed proof that the origin refs are stale, not that the engines diverge."
+ },
+ "executed_evidence": {
+  "core_determinism": "10,000 vectors x 6 fields x 3 languages x 3 runs = 60,001/60,001 byte-identical; 3-run digests identical per language",
+  "extraction": "10,000/10,000 synthetic + 1006/1006 real corpus + 14/14 torture, 3-way",
+  "semantic_ir": "581/581 fixtures (267 functions, layers A-O document side), 3-way hash + deep equality",
+  "executable_api": "35/35 fixtures, 14 runtime-cognition APIs, 3-way",
+  "million_vector": "1,000,000 vectors, aggregate SHA-256 ccd54d127abe3709c054d7b093a2b1a0a57cd3ebea63d929d1105e909a53fb1c identical in Python/JS/Dart, 5/5 family digests match",
+  "dart_suite": "1486 tests pass; analyzer clean",
+  "benchmarks": {
+   "python": {
+    "language": "python",
+    "serialize_ops_per_s": 3093,
+    "hash_ops_per_s": 2967,
+    "encrypt_ops_per_s": 1332
+   },
+   "javascript": {
+    "language": "javascript",
+    "serialize_ops_per_s": 6043,
+    "hash_ops_per_s": 5791,
+    "encrypt_ops_per_s": 4245
+   },
+   "dart": {
+    "language": "dart",
+    "serialize_ops_per_s": 3938,
+    "hash_ops_per_s": 3488,
+    "encrypt_ops_per_s": 899
+   }
+  },
+  "artifact_hashes": {
+   "repository_inventory.json": "6b92525522e8868f7a99474e3b6739774b6157df0f1a622d5c2d5f09bb6c9966",
+   "actual_repository_state.json": "28aaa81ae05d3f76334137b3cc72c9042ad878c3856b482131b901f9e3a1de59",
+   "api_parity_certification.json": "73525eacba9989bf1e5553df43e6334aac7ebb292e13dbb67df42dc4854a8766",
+   "extraction_certification.json": "29f81f75b49067ae48a7f1187c62a8bc2ca5f67659e61607f361f4056176346f",
+   "semantic_ir_certification.json": "fccdd77358b7f298c5ff7515b3a8defb15cbf23a9b2677715a0e57a2bd704f7a",
+   "document_ir_certification.json": "ad82cde82282344da74a20d0bb949483fcb0c611f846b4162ea2f44a99fadd96",
+   "repository_ir_certification.json": "c5e867dcfd1990f13cadf3f163bcadb99921714c1682259e98bb12213862081e",
+   "runtime_ir_certification.json": "237f26e464630e16b26159ad26ec0c9040fcdeaac9e47b5f409cab231443e1d2",
+   "application_ir_certification.json": "705ee08222e9cb5ea817dccbc03d3474531ae5b479ca1536003b0d0b2fa55cec",
+   "million_vector_certification.json": "ccf276d7ab3f7b7ab8058cf155d288421d7ea57aa5c3edd3fb2f1822a3d7f008",
+   "determinism_certification.json": "1b89125653dd41bb4e8970573425c7d5cfe2e70df1f1f91c0b84b8d65694c98e",
+   "performance_certification.json": "bd8b5fd6bf9ef68050dc3ee8d189b56407bf00a24d2cb6c8487fc3714c576d67",
+   "security_certification.json": "e28d0951d19a9a53e11f97ee90f49ab360540269b2463813fedc5232596fa6d7",
+   "release_readiness_report.json": "06c5c8a2c2bac03bac9df0172843befd9d14d1e4e203e642858b39f5a3cb5763",
+   "FINAL_ZERO_TRUST_CERTIFICATION_V2.json(self,pre-hash)": "86c60ba6320e82d3864414c10f9681770c370a92f8888b563502259bb0cfcbf9"
+  }
+ }
+}

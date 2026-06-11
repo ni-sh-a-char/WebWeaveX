@@ -12,6 +12,7 @@
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import * as py from "./src/runtime/pyCompat.ts";
+import { computeKaalkaHash } from "./src/crypto/kaalkaRuntime.ts";
 // A.1 — document parser leaves
 import { extractRhetoricalStructure } from "./src/documents/rhetoricalStructureEngine.ts";
 import { assignSemanticRoles } from "./src/documents/semanticRoleEngine.ts";
@@ -689,7 +690,10 @@ const out = [];
 for (const fx of fixtures) {
   try {
     const result = call(fx.fn, fx.args, fx.kwargs);
-    out.push({ id: fx.id, fn: fx.fn, output: result, hash: pyStableHash(result) });
+    // v2 canonical contract hash (python d4c5800 == js 048aa5c == dart
+    // 4f4ef51); float-TYPE parity separately proven by the pyStableHash run
+    // against the pre-contract python (engines identical).
+    out.push({ id: fx.id, fn: fx.fn, output: result, hash: computeKaalkaHash(result) });
   } catch (e) {
     out.push({ id: fx.id, fn: fx.fn, error: String(e && e.message ? e.message : e) });
   }

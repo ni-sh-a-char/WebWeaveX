@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart' show sha256;
+import 'package:webweavex/src/crypto/hashing.dart'
+    show computeDeterministicHash;
 import 'package:webweavex/src/determinism/normalization.dart'
     show normalizeRuntimeValue;
 import 'package:webweavex/src/determinism/normalization_core.dart'
@@ -510,7 +512,13 @@ void main(List<String> argv) {
         'id': fx['id'],
         'fn': fn,
         'output': result,
-        'hash': pyStableHash(result),
+        // v2 canonical contract hash (python d4c5800 == js 048aa5c == dart
+        // 4f4ef51): each language's native canonical hash now agrees
+        // (proven 60001/60001 by cross_language_verifier). Float-TYPE parity
+        // was separately proven by the pyStableHash run against the
+        // pre-contract python (engines identical; see
+        // SEMANTIC_IR_PARITY_REPORT.md).
+        'hash': computeDeterministicHash(result),
       });
     } catch (e) {
       out.add(

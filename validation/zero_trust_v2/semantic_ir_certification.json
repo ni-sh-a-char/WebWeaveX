@@ -1,0 +1,40 @@
+{
+ "generated_at": "2026-06-11T13:30:57.244028+00:00",
+ "commits": {
+  "dart": "c7778e23dec0b52150d0409d51e7c9e11aa356cf",
+  "python_certified_local": "d4c580080553c1123fb70621f87cf1b4f8913c41",
+  "javascript_certified_local": "fb09003712ef31ec4d54b7b7d7cb2c3c731ecd20"
+ },
+ "hash_contract": "v2 canonical (python d4c5800 compute_kaalka_hash == js 048aa5c computeKaalkaHash == dart 4f4ef51 computeDeterministicHash; integral floats canonicalize to integers). Float-TYPE parity separately proven by the type-faithful pyStableHash run against pre-contract python c8c4152 (engines byte-identical between c8c4152 and d4c5800).",
+ "repro": [
+  "PYTHONPATH=<python-branch> python run_python.py fixtures.json > python_results.json",
+  "cp run_js.mjs <javascript-branch>/ && npx tsx run_js.mjs <abs fixtures.json> > js_results.json",
+  "dart run validation/semantic_ir/run_dart.dart validation/semantic_ir/fixtures.json > dart_results.json",
+  "python compare_results.py"
+ ],
+ "result_hashes": {
+  "fixtures.json": "8315f995df6adcd5c7e9635deaf337b926013380df5643df450e36c5b430cc73",
+  "python_results.json": "120e87a3f3914ba084a6a96396487e0e2eac96c3a0e1d8e30ee49f512e84054e",
+  "js_results.json": "1e34bbaedd70a5c187c33f1a3006f1b19543e77fc4ad9e8b0ae96a19a1ad34db",
+  "dart_results.json": "41a413f869c400b4b3f6b139e0bc2a6fff70f5b1dc4220a12983dd8e6306a050"
+ },
+ "certification": "semantic_ir",
+ "verdict": "PASS",
+ "fixtures": 581,
+ "functions_covered": 267,
+ "layers": "A (212-row leaf plan: 197 proven + 14 private-through-parents + 1 reclassified) through O (document-side dispatchers)",
+ "deferred_parse_source_gated": [
+  "model_execution_dependencies",
+  "analyze_runtime_semantics",
+  "build_service_runtime_graph",
+  "build_repository_semantic_ir",
+  "analyze_runtime_execution",
+  "reason_runtime_flow",
+  "build_repository_execution_ir",
+  "model_runtime_state",
+  "compile_repository_ir",
+  "query_repository",
+  "reason_runtime_semantic"
+ ],
+ "pass_detail": "581/581 fixtures hash + deep equality across Python/JS/Dart"
+}
