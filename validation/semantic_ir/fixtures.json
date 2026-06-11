@@ -1,416 +1,5416 @@
 [
-  {"id": "rhet-md", "fn": "extract_rhetorical_structure", "args": ["# Title\n## Section\n- item one\n* item two\n```\ncode\n```\nplain line"]},
-  {"id": "rhet-empty", "fn": "extract_rhetorical_structure", "args": [""]},
-  {"id": "rhet-null", "fn": "extract_rhetorical_structure", "args": [null]},
-  {"id": "rhet-crlf", "fn": "extract_rhetorical_structure", "args": ["### Deep Heading\r\n- a\r\ntext"]},
-  {"id": "roles", "fn": "assign_semantic_roles", "args": ["This is an example of usage.\nTherefore it works.\nIt fails because of input.\nNote: be careful.\nplain sentence"]},
-  {"id": "roles-empty", "fn": "assign_semantic_roles", "args": [""]},
-  {"id": "head-mixed", "fn": "extract_headings", "args": ["# B Title\n## A Section\n<h1>Z Html</h1><h3>A Html</h3>"]},
-  {"id": "head-none", "fn": "extract_headings", "args": ["no headings here"]},
-  {"id": "argdep-order", "fn": "reconstruct_argument_dependencies", "args": [[{"id": "c2", "order": 2}, {"id": "c1", "order": 1}, {"id": "c3", "order": 3, "depends_on": "c1"}]]},
-  {"id": "argdep-empty", "fn": "reconstruct_argument_dependencies", "args": [[]]},
-  {"id": "coref", "fn": "resolve_coreferences", "args": ["# Intro\nThis is it.\n## Body\nThey said that those work."]},
-  {"id": "coref-noheading", "fn": "resolve_coreferences", "args": ["it works and this too"]},
-
-  {"id": "a2-amb-empty", "fn": "compute_ambiguity_pressure", "args": [[]]},
-  {"id": "a2-amb-two", "fn": "compute_ambiguity_pressure", "args": [["a", "b"]]},
-  {"id": "a2-amb-cap", "fn": "compute_ambiguity_pressure", "args": [["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]]},
-  {"id": "a2-contra-nondict", "fn": "compute_contradiction_pressure", "args": [null]},
-  {"id": "a2-contra-empty", "fn": "compute_contradiction_pressure", "args": [{}]},
-  {"id": "a2-contra-two", "fn": "compute_contradiction_pressure", "args": [{"pairs": [["a", "b"], ["c", "d"]], "preserved": true}]},
-  {"id": "a2-evb-gap", "fn": "compute_evidence_boundary_pressure", "args": [0]},
-  {"id": "a2-evb-ok", "fn": "compute_evidence_boundary_pressure", "args": [3]},
-  {"id": "a2-evb-min", "fn": "compute_evidence_boundary_pressure", "args": [1, 4]},
-  {"id": "a2-evd-gap", "fn": "compute_evidence_decay_pressure", "args": [0]},
-  {"id": "a2-evd-ok", "fn": "compute_evidence_decay_pressure", "args": [5]},
-  {"id": "a2-rbp-hi", "fn": "compute_recursive_boundary_pressure", "args": [0.4, 5]},
-  {"id": "a2-rbp-lo", "fn": "compute_recursive_boundary_pressure", "args": [0.1, 2]},
-  {"id": "a2-rcp-lo", "fn": "compute_recursive_convergence_pressure", "args": [3, 0.8]},
-  {"id": "a2-rcp-hi", "fn": "compute_recursive_convergence_pressure", "args": [5, 0.1]},
-  {"id": "a2-rdp-single", "fn": "compute_recursive_dependency_pressure", "args": [1, 0]},
-  {"id": "a2-rdp-deep", "fn": "compute_recursive_dependency_pressure", "args": [4, 3]},
-  {"id": "a2-sbp-hi", "fn": "compute_semantic_boundary_pressure", "args": [0.2, 0.3]},
-  {"id": "a2-sbp-lo", "fn": "compute_semantic_boundary_pressure", "args": [0.1, 0.1]},
-  {"id": "a2-tbp-bounded", "fn": "compute_truth_boundary_pressure", "args": [true, 0.5]},
-  {"id": "a2-tbp-unbounded", "fn": "compute_truth_boundary_pressure", "args": [false, 2.5]},
-  {"id": "a2-unc-empty", "fn": "compute_uncertainty_pressure", "args": [[], []]},
-  {"id": "a2-unc-three", "fn": "compute_uncertainty_pressure", "args": [["u1", "u2"], ["a1"]]},
-
-  {"id": "a2-conf", "fn": "empty_confidence", "args": []},
-  {"id": "a2-lineage-default", "fn": "empty_lineage", "args": []},
-  {"id": "a2-lineage-stage", "fn": "empty_lineage", "args": ["compile"]},
-  {"id": "a2-merge", "fn": "merge_evidence", "args": [["b", "a"], ["a", "c", ""], null]},
-  {"id": "a2-merge-mixed", "fn": "merge_evidence", "args": [[1, true, "x"], []]},
-
-  {"id": "a2-entropy-empty", "fn": "model_graph_entropy", "args": [{}]},
-  {"id": "a2-entropy-mixed", "fn": "model_graph_entropy", "args": [{"nodes": [{"kind": "a"}, {"kind": "a"}, {"kind": "b"}, "raw", {}], "edges": [{"from": "x", "to": "y"}, {"from": "y", "to": "z"}]}]},
-  {"id": "a2-cycles-simple", "fn": "detect_cycles", "args": [{"edges": [{"from": "a", "to": "b"}, {"from": "b", "to": "a"}, {"from": "b", "to": "c"}]}]},
-  {"id": "a2-cycles-none", "fn": "detect_cycles", "args": [{"edges": [{"from": "a", "to": "b"}, {"from": "b", "to": "c"}, "junk", {"from": "d"}]}]},
-  {"id": "a2-cycles-self", "fn": "detect_cycles", "args": [{"edges": [{"from": "s", "to": "s"}, {"from": "s", "to": "t"}, {"from": "t", "to": "u"}, {"from": "u", "to": "t"}]}]},
-  {"id": "a2-topo-hub", "fn": "prove_topology", "args": [{"edges": [{"from": "h", "to": "a"}, {"from": "h", "to": "b"}, {"from": "c", "to": "h"}, {"from": "a", "to": "b"}]}]},
-  {"id": "a2-topo-empty", "fn": "prove_topology", "args": [{}]},
-  {"id": "a2-topo-partial", "fn": "prove_topology", "args": [{"edges": [{"from": "x"}, {"to": "y"}, "junk", {"from": "", "to": "z"}]}]},
-
-  {"id": "a2-api-paths", "fn": "reason_api_surface", "args": [{"paths": {"/users": {"get": {}, "post": {}}, "/health": {"delete": {}}}}]},
-  {"id": "a2-api-empty", "fn": "reason_api_surface", "args": [{}]},
-  {"id": "a2-api-badpaths", "fn": "reason_api_surface", "args": [{"paths": "not-a-dict"}]},
-  {"id": "a2-flow-mixed", "fn": "reconstruct_execution_flow", "args": [{"symbols": {"functions": ["main_x", "helper", "run_job", "handle_evt"]}, "calls": {"calls": [{"caller": "a", "callee": "b"}, "junk", {"caller": "c"}]}}]},
-  {"id": "a2-flow-empty", "fn": "reconstruct_execution_flow", "args": [null]},
-  {"id": "a2-infra-hits", "fn": "detect_infra_signals", "args": [["src\\Dockerfile", "k8s/deploy.yaml", "README.md", ".github/workflows/ci.yml", "infra/terraform/main.tf"]]},
-  {"id": "a2-infra-none", "fn": "detect_infra_signals", "args": [null]},
-  {"id": "a2-deps-fallback", "fn": "resolve_runtime_dependencies", "args": [null, "flask==2.0\nnumpy>=1.2\n# comment\nbad line\n"]},
-  {"id": "a2-deps-parser", "fn": "resolve_runtime_dependencies", "args": [{"dependencies": {"dependencies": ["zeta", "alpha"]}, "runtime": {"packages": ["pkg1"], "modules": []}}]},
-  {"id": "a2-deps-empty", "fn": "resolve_runtime_dependencies", "args": [{}, ""]},
-  {"id": "a2-svc-mixed", "fn": "infer_service_interactions", "args": [{"calls": {"calls": [{"caller": "svc_a", "callee": "svc_b"}, {"callee": "x"}, {"caller": "svc_c"}]}}, ["docker-compose.yml", "app.py", "k8s/x.yaml"]]},
-  {"id": "a2-svc-empty", "fn": "infer_service_interactions", "args": [null, []]},
-
-  {"id": "a2-cfg-three", "fn": "build_control_flow_graph", "args": [{"functions": [{"name": "a"}, {"name": "b"}, {"name": "c"}]}]},
-  {"id": "a2-cfg-empty", "fn": "build_control_flow_graph", "args": [{}]},
-  {"id": "a2-paths-two", "fn": "reconstruct_execution_paths", "args": [{"nodes": [{"id": "x"}, {"id": "y"}]}]},
-  {"id": "a2-paths-empty", "fn": "reconstruct_execution_paths", "args": [{}]},
-  {"id": "a2-sym-stable", "fn": "resolve_symbols", "args": [{"functions": [{"name": "zeta", "args": ["x"]}, {"name": "alpha"}], "classes": [{"name": "Beta", "bases": ["Base"]}, {"name": "alpha"}]}]},
-  {"id": "a2-sym-empty", "fn": "resolve_symbols", "args": [{}]},
-
-  {"id": "a3-authconc-y", "fn": "detect_authority_concentration", "args": [true, 2]},
-  {"id": "a3-authconc-n", "fn": "detect_authority_concentration", "args": [true, 1]},
-  {"id": "a3-authdiff-one", "fn": "diffuse_authority", "args": [[{"i": 1}]]},
-  {"id": "a3-authdiff-none", "fn": "diffuse_authority", "args": [[]]},
-  {"id": "a3-autero-y", "fn": "resist_autonomy_erosion", "args": [false, 4]},
-  {"id": "a3-autero-n", "fn": "resist_autonomy_erosion", "args": [true, 5]},
-  {"id": "a3-causal-six", "fn": "model_causal_plurality", "args": [{"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6}]},
-  {"id": "a3-causal-empty", "fn": "model_causal_plurality", "args": [{}]},
-  {"id": "a3-cogdec-dom", "fn": "model_cognitive_decentralization", "args": [1, 2]},
-  {"id": "a3-cogdec-free", "fn": "model_cognitive_decentralization", "args": [3, 0]},
-  {"id": "a3-gravity-y", "fn": "detect_cognitive_gravity_well", "args": [true, true, 2]},
-  {"id": "a3-gravity-n", "fn": "detect_cognitive_gravity_well", "args": [true, false, 5]},
-  {"id": "a3-cogsov-y", "fn": "model_cognitive_sovereignty", "args": [true]},
-  {"id": "a3-cogsov-n", "fn": "model_cognitive_sovereignty", "args": [false]},
-  {"id": "a3-echo-y", "fn": "detect_confidence_echo", "args": [0.9, [0.5, 0.6]]},
-  {"id": "a3-echo-empty", "fn": "detect_confidence_echo", "args": [0.5, []]},
-  {"id": "a3-echo-n", "fn": "detect_confidence_echo", "args": [0.3, [0.4]]},
-  {"id": "a3-contref-mixed", "fn": "refuse_unsupported_continuity", "args": [[{"reason": "gap"}, {}]]},
-  {"id": "a3-contref-empty", "fn": "refuse_unsupported_continuity", "args": [[]]},
-  {"id": "a3-epopen-mixed", "fn": "model_epistemic_openness", "args": [{"preserved": true}, {"decentralized": false}]},
-  {"id": "a3-epopen-default", "fn": "model_epistemic_openness", "args": [{}, {}]},
-  {"id": "a3-evdecay-y", "fn": "model_evidence_decay", "args": [["e1"]]},
-  {"id": "a3-evdecay-n", "fn": "model_evidence_decay", "args": [["e1", "e2"]]},
-  {"id": "a3-expanti-y", "fn": "apply_explanatory_antigravity", "args": [true]},
-  {"id": "a3-expanti-n", "fn": "apply_explanatory_antigravity", "args": [false]},
-  {"id": "a3-expcomp-y", "fn": "model_explanatory_competition", "args": [[{"x": 1}, {"y": 2}]]},
-  {"id": "a3-expcomp-n", "fn": "model_explanatory_competition", "args": [[]]},
-  {"id": "a3-expdiv-one", "fn": "model_explanatory_divergence", "args": [[{"x": 1}]]},
-  {"id": "a3-expdiv-none", "fn": "model_explanatory_divergence", "args": [[]]},
-  {"id": "a3-expdivers-mixed", "fn": "model_explanatory_diversity", "args": [{"alpha": 1, "beta": 2}, ["alpha evidence", "z"]]},
-  {"id": "a3-expdivers-empty", "fn": "model_explanatory_diversity", "args": [{}, []]},
-  {"id": "a3-expfix-y", "fn": "detect_explanatory_fixation", "args": [1, 2]},
-  {"id": "a3-expfix-n", "fn": "detect_explanatory_fixation", "args": [3, 2]},
-  {"id": "a3-expfree-y", "fn": "preserve_explanatory_freedom", "args": [[{"a": 1}]]},
-  {"id": "a3-expfree-n", "fn": "preserve_explanatory_freedom", "args": [[]]},
-  {"id": "a3-expdomest-y", "fn": "resist_explanatory_domestication", "args": [true]},
-  {"id": "a3-expdomest-n", "fn": "resist_explanatory_domestication", "args": [false]},
-  {"id": "a3-expself-n", "fn": "model_explanatory_self_determination", "args": [0]},
-  {"id": "a3-expself-y", "fn": "model_explanatory_self_determination", "args": [2]},
-  {"id": "a3-refinf-low", "fn": "refuse_inference", "args": [["b", "a", "b"], 1]},
-  {"id": "a3-refinf-ok", "fn": "refuse_inference", "args": [["x"], 3]},
-  {"id": "a3-intauto-one", "fn": "model_interpretive_autonomy", "args": [[{"i": 1}]]},
-  {"id": "a3-intauto-none", "fn": "model_interpretive_autonomy", "args": [[]]},
-  {"id": "a3-intclose-y", "fn": "detect_interpretive_closure", "args": [1, 2]},
-  {"id": "a3-intclose-n", "fn": "detect_interpretive_closure", "args": [3, 1]},
-  {"id": "a3-intdecay-y", "fn": "resist_interpretive_decay", "args": [1, 4]},
-  {"id": "a3-intdecay-n", "fn": "resist_interpretive_decay", "args": [3, 4]},
-  {"id": "a3-intdist-y", "fn": "distribute_interpretations", "args": [[{"i": 1}]]},
-  {"id": "a3-intdist-n", "fn": "distribute_interpretations", "args": [[]]},
-  {"id": "a3-intdiv-two", "fn": "model_interpretive_divergence", "args": [[{"a": 1}, {"b": 2}]]},
-  {"id": "a3-intdiv-none", "fn": "model_interpretive_divergence", "args": [[]]},
-  {"id": "a3-intfree-n", "fn": "preserve_interpretive_freedom", "args": [{"autonomous": false}]},
-  {"id": "a3-intfree-default", "fn": "preserve_interpretive_freedom", "args": [{}]},
-  {"id": "a3-intdomest-y", "fn": "resist_interpretive_domestication", "args": [true]},
-  {"id": "a3-intdomest-n", "fn": "resist_interpretive_domestication", "args": [false]},
-  {"id": "a3-intself-one", "fn": "model_interpretive_self_determination", "args": [1]},
-  {"id": "a3-intself-many", "fn": "model_interpretive_self_determination", "args": [3]},
-  {"id": "a3-ontanti-y", "fn": "apply_ontology_antigravity", "args": [true]},
-  {"id": "a3-ontbound-rich", "fn": "model_ontology_boundaries", "args": [["e1", "e2", "e3"]]},
-  {"id": "a3-ontbound-inferred", "fn": "model_ontology_boundaries", "args": [["a", "b"], true]},
-  {"id": "a3-ontcomp-deep", "fn": "model_ontology_competition", "args": [["x"], 3]},
-  {"id": "a3-ontcomp-many", "fn": "model_ontology_competition", "args": [["x", "y"], 5]},
-  {"id": "a3-ontdiv-dups", "fn": "model_ontology_divergence", "args": [["a", "a", "b"], 1]},
-  {"id": "a3-ontdiv-single", "fn": "model_ontology_divergence", "args": [["a"], 3]},
-  {"id": "a3-ontfix-y", "fn": "detect_ontology_fixation", "args": [1, 3]},
-  {"id": "a3-ontfix-n", "fn": "detect_ontology_fixation", "args": [2, 3]},
-  {"id": "a3-ontfree-n", "fn": "preserve_ontology_freedom", "args": [{"competitive": false}]},
-  {"id": "a3-ontfree-default", "fn": "preserve_ontology_freedom", "args": [{}]},
-  {"id": "a3-onthard-y", "fn": "detect_ontology_hardening", "args": [3, 1]},
-  {"id": "a3-onthard-n", "fn": "detect_ontology_hardening", "args": [3, 2]},
-  {"id": "a3-ontinst-regions", "fn": "model_ontology_instability", "args": [["r1", "r2"], 2]},
-  {"id": "a3-ontinst-empty", "fn": "model_ontology_instability", "args": [[], 0]},
-  {"id": "a3-ontlim-y", "fn": "ontology_limits", "args": [{"inheritance_allowed": true}]},
-  {"id": "a3-ontlim-empty", "fn": "ontology_limits", "args": [{}]},
-  {"id": "a3-ontmono-y", "fn": "detect_ontology_monopoly", "args": [1, 3]},
-  {"id": "a3-ontmono-n", "fn": "detect_ontology_monopoly", "args": [5, 3]},
-  {"id": "a3-ontdomest-y", "fn": "resist_ontology_domestication", "args": [true]},
-  {"id": "a3-ontself-one", "fn": "model_ontology_self_determination", "args": [1]},
-  {"id": "a3-ontself-none", "fn": "model_ontology_self_determination", "args": [0]},
-  {"id": "a3-plurdecay-y", "fn": "resist_plurality_decay", "args": [1, 3]},
-  {"id": "a3-plurdecay-n", "fn": "resist_plurality_decay", "args": [2, 3]},
-  {"id": "a3-agdecay-y", "fn": "resist_agency_decay", "args": [false, 4]},
-  {"id": "a3-agdecay-n", "fn": "resist_agency_decay", "args": [true, 4]},
-  {"id": "a3-recagency-y", "fn": "model_recursive_agency", "args": [true, 3]},
-  {"id": "a3-recagency-n", "fn": "model_recursive_agency", "args": [false, 0]},
-  {"id": "a3-recagpres-y", "fn": "preserve_recursive_agency", "args": [true]},
-  {"id": "a3-recagpres-n", "fn": "preserve_recursive_agency", "args": [false]},
-  {"id": "a3-recauth-many", "fn": "diffuse_recursive_authority", "args": [2]},
-  {"id": "a3-recauth-one", "fn": "diffuse_recursive_authority", "args": [1]},
-  {"id": "a3-recautopres-y", "fn": "preserve_recursive_autonomy", "args": [true]},
-  {"id": "a3-recautopres-n", "fn": "preserve_recursive_autonomy", "args": [false]},
-  {"id": "a3-capres-some", "fn": "model_capture_resistance", "args": [[{"e": 1}]]},
-  {"id": "a3-capres-none", "fn": "model_capture_resistance", "args": [[]]},
-  {"id": "a3-reccentral-y", "fn": "detect_recursive_centralization", "args": [false, 2]},
-  {"id": "a3-reccentral-n", "fn": "detect_recursive_centralization", "args": [true, 5]},
-  {"id": "a3-reccogdist-y", "fn": "distribute_recursive_cognition", "args": [2]},
-  {"id": "a3-reccogdist-n", "fn": "distribute_recursive_cognition", "args": [0]},
-  {"id": "a3-reccoh-y", "fn": "detect_recursive_coherence_inflation", "args": [2, 0.25]},
-  {"id": "a3-reccoh-n", "fn": "detect_recursive_coherence_inflation", "args": [1, 0.9]},
-  {"id": "a3-rececho-y", "fn": "detect_recursive_confidence_echo", "args": [0.95, 3, [0.5, 0.55]]},
-  {"id": "a3-rececho-shallow", "fn": "detect_recursive_confidence_echo", "args": [0.4, 1, [0.5]]},
-  {"id": "a3-rececho-n", "fn": "detect_recursive_confidence_echo", "args": [0.4, 2, [0.45, 0.55]]},
-  {"id": "a3-reccons-y", "fn": "detect_recursive_consensus", "args": [true, 2, 1]},
-  {"id": "a3-reccons-n", "fn": "detect_recursive_consensus", "args": [true, 2, 5]},
-  {"id": "a3-stabbound-broken", "fn": "model_stability_boundary", "args": [["r"]]},
-  {"id": "a3-stabbound-ok", "fn": "model_stability_boundary", "args": [[]]},
-  {"id": "a3-topobound-grounded", "fn": "model_topology_boundaries", "args": [["e1", "e2"], true]},
-  {"id": "a3-topobound-bare", "fn": "model_topology_boundaries", "args": [["e1"]]},
-  {"id": "a3-topolim-y", "fn": "topology_limits", "args": [{"propagation_allowed": true, "deployment_inference_allowed": false}]},
-  {"id": "a3-topolim-empty", "fn": "topology_limits", "args": [{}]},
-  {"id": "a3-truthbound-y", "fn": "model_truth_boundaries", "args": [["e1", "e2"]]},
-  {"id": "a3-truthbound-n", "fn": "model_truth_boundaries", "args": [[]]},
-  {"id": "a3-wvanti-y", "fn": "apply_worldview_antigravity", "args": [true]},
-  {"id": "a3-wvconv-deep", "fn": "suppress_worldview_convergence", "args": [true, 2]},
-  {"id": "a3-wvconv-shallow", "fn": "suppress_worldview_convergence", "args": [true, 1]},
-  {"id": "a3-wvdiv-pairs", "fn": "model_worldview_diversity", "args": [[{"i": 1}], {"pairs": [["a", "b"]]}]},
-  {"id": "a3-wvdiv-empty", "fn": "model_worldview_diversity", "args": [[], {}]},
-  {"id": "a3-wvvar-some", "fn": "model_worldview_variance", "args": [2, 1]},
-  {"id": "a3-wvvar-zero", "fn": "model_worldview_variance", "args": [0, 0]},
-
-  {"id": "a3b-ambvis-some", "fn": "expose_ambiguity_visibility", "args": [["b amb", "a amb", "b amb"], 0.7]},
-  {"id": "a3b-ambvis-none", "fn": "expose_ambiguity_visibility", "args": [[], 0.4]},
-  {"id": "a3b-evbound-y", "fn": "model_evidence_boundaries", "args": [["e1", "e2"]]},
-  {"id": "a3b-evbound-n", "fn": "model_evidence_boundaries", "args": [["e1"]]},
-  {"id": "a3b-evsuff-y", "fn": "assess_evidence_sufficiency", "args": [["e1", "e2", "e3"]]},
-  {"id": "a3b-evsuff-n", "fn": "assess_evidence_sufficiency", "args": [["e1"]]},
-  {"id": "a3b-evsuff-null", "fn": "assess_evidence_sufficiency", "args": [null, 1]},
-  {"id": "a3b-halluc-y", "fn": "detect_narrative_hallucination", "args": [{"k": 1}, [], false]},
-  {"id": "a3b-halluc-n", "fn": "detect_narrative_hallucination", "args": [{"k": 1}, ["e"], false]},
-  {"id": "a3b-drift-y", "fn": "detect_recursive_drift", "args": [3, 1, 4]},
-  {"id": "a3b-drift-n", "fn": "detect_recursive_drift", "args": [1, 5, 2]},
-  {"id": "a3b-recentpres-rich", "fn": "preserve_recursive_entropy", "args": [["a1", "a2"], ["u1"], 3]},
-  {"id": "a3b-recentpres-zero", "fn": "preserve_recursive_entropy", "args": [[], [], 0]},
-  {"id": "a3b-ancestry-detached", "fn": "track_recursive_evidence_ancestry", "args": [["e1"], 4]},
-  {"id": "a3b-ancestry-ok", "fn": "track_recursive_evidence_ancestry", "args": [["e1", "e2"], 5]},
-  {"id": "a3b-explordecay-y", "fn": "resist_exploration_decay", "args": [false, 5]},
-  {"id": "a3b-explordecay-n", "fn": "resist_exploration_decay", "args": [true, 6]},
-  {"id": "a3b-guardian-y", "fn": "detect_recursive_guardianship", "args": [true, 2]},
-  {"id": "a3b-guardian-n", "fn": "detect_recursive_guardianship", "args": [true, 1]},
-  {"id": "a3b-inddecay-y", "fn": "resist_independence_decay", "args": [false, 5]},
-  {"id": "a3b-inddecay-n", "fn": "resist_independence_decay", "args": [true, 6]},
-  {"id": "a3b-intind-y", "fn": "model_recursive_interpretive_independence", "args": [2]},
-  {"id": "a3b-intind-n", "fn": "model_recursive_interpretive_independence", "args": [1]},
-  {"id": "a3b-narrmono-y", "fn": "detect_recursive_narrative_monopoly", "args": [1, 2]},
-  {"id": "a3b-narrmono-n", "fn": "detect_recursive_narrative_monopoly", "args": [3, 2]},
-  {"id": "a3b-novdecay-y", "fn": "resist_novelty_decay", "args": [0.1, 4]},
-  {"id": "a3b-novdecay-n", "fn": "resist_novelty_decay", "args": [0.5, 4]},
-  {"id": "a3b-recnov-rich", "fn": "model_recursive_novelty", "args": [1, 3, 2]},
-  {"id": "a3b-recnov-flat", "fn": "model_recursive_novelty", "args": [5, 0, 0]},
-  {"id": "a3b-novpres-risk", "fn": "preserve_recursive_novelty", "args": [{"novelty": 0.1}, 5]},
-  {"id": "a3b-novpres-ok", "fn": "preserve_recursive_novelty", "args": [{"novelty": 0.5}, 5]},
-  {"id": "a3b-obed-y", "fn": "detect_recursive_obedience", "args": [true, true, 2]},
-  {"id": "a3b-obed-n", "fn": "detect_recursive_obedience", "args": [true, false, 5]},
-  {"id": "a3b-reconlim", "fn": "recursive_ontology_limits", "args": [4]},
-  {"id": "a3b-openstab-y", "fn": "model_recursive_openness_stability", "args": [true, 3]},
-  {"id": "a3b-openstab-n", "fn": "model_recursive_openness_stability", "args": [false, 1]},
-  {"id": "a3b-phasespace-rich", "fn": "model_recursive_phase_space", "args": [3, 2, 1]},
-  {"id": "a3b-phasespace-reduced", "fn": "model_recursive_phase_space", "args": [1, 0, 4]},
-  {"id": "a3b-recprov-some", "fn": "preserve_recursive_provenance", "args": [["s1", "s2"], {"depth": 3}]},
-  {"id": "a3b-recprov-none", "fn": "preserve_recursive_provenance", "args": [[], {}]},
-  {"id": "a3b-reclim-suppressed", "fn": "recursive_reality_limits", "args": [2, {"suppress_recursive_stabilization": true}]},
-  {"id": "a3b-reclim-open", "fn": "recursive_reality_limits", "args": [1, {}]},
-  {"id": "a3b-selfconf-y", "fn": "detect_recursive_self_confirmation", "args": [3, true, 1]},
-  {"id": "a3b-selfconf-n", "fn": "detect_recursive_self_confirmation", "args": [3, true, 4]},
-  {"id": "a3b-semdecen-dom", "fn": "model_recursive_semantic_decentralization", "args": [["c1"], 2]},
-  {"id": "a3b-semdecen-free", "fn": "model_recursive_semantic_decentralization", "args": [["c1", "c2"], 0]},
-  {"id": "a3b-semdist-many", "fn": "distribute_recursive_semantics", "args": [["k1", "k2", "k1"]]},
-  {"id": "a3b-semdist-one", "fn": "distribute_recursive_semantics", "args": [["k1", "k1"]]},
-  {"id": "a3b-semind-y", "fn": "model_recursive_semantic_independence", "args": [["k1"], 1]},
-  {"id": "a3b-semind-n", "fn": "model_recursive_semantic_independence", "args": [["k1"], 3]},
-  {"id": "a3b-sovstab-y", "fn": "model_sovereignty_stability", "args": [true, 2]},
-  {"id": "a3b-sovstab-n", "fn": "model_sovereignty_stability", "args": [false, 1]},
-  {"id": "a3b-recstab-y", "fn": "detect_recursive_stabilization", "args": [true, 2]},
-  {"id": "a3b-recstab-n", "fn": "detect_recursive_stabilization", "args": [true, 1]},
-  {"id": "a3b-recterm-deep", "fn": "terminate_recursive_stabilization", "args": [[{"reason": "z"}, {"reason": "a"}, {}], 4]},
-  {"id": "a3b-recterm-shallow", "fn": "terminate_recursive_stabilization", "args": [[], 2]},
-  {"id": "a3b-recsub-y", "fn": "detect_recursive_submission", "args": [true, 2, 1]},
-  {"id": "a3b-recsub-n", "fn": "detect_recursive_submission", "args": [false, 5, 0]},
-  {"id": "a3b-rectopolim", "fn": "recursive_topology_limits", "args": [1]},
-  {"id": "a3b-trustmono-y", "fn": "detect_recursive_trust_monopoly", "args": [0.9, 2, 1]},
-  {"id": "a3b-trustmono-n", "fn": "detect_recursive_trust_monopoly", "args": [0.8, 5, 0]},
-  {"id": "a3b-rectruth-bounded", "fn": "model_recursive_truth_boundaries", "args": [2, 3]},
-  {"id": "a3b-rectruth-eroded", "fn": "model_recursive_truth_boundaries", "args": [7, 3]},
-  {"id": "a3b-recrefuse-mixed", "fn": "refuse_recursive_stabilization", "args": [[{"reason": "drift", "truth_boundary_violation": {"type": "closure"}}, {}]]},
-  {"id": "a3b-recrefuse-empty", "fn": "refuse_recursive_stabilization", "args": [[]]},
-  {"id": "a3b-recunc-some", "fn": "preserve_recursive_uncertainty", "args": [["u2", "u1", "u2"], 3]},
-  {"id": "a3b-recunc-none", "fn": "preserve_recursive_uncertainty", "args": [[], 0]},
-  {"id": "a3b-semalt-mixed", "fn": "model_semantic_alternatives", "args": [{"b": 1, "a": 2}, {"c": 3, "a": 9}]},
-  {"id": "a3b-semalt-empty", "fn": "model_semantic_alternatives", "args": [{}, {}]},
-  {"id": "a3b-semanti-y", "fn": "apply_semantic_antigravity", "args": [true]},
-  {"id": "a3b-semanti-n", "fn": "apply_semantic_antigravity", "args": [false]},
-  {"id": "a3b-semauto-y", "fn": "model_semantic_autonomy", "args": [[{"i": 1}, {"i": 2}], 0]},
-  {"id": "a3b-semauto-n", "fn": "model_semantic_autonomy", "args": [[{"i": 1}], 1]},
-  {"id": "a3b-sembound-allowed", "fn": "model_semantic_boundaries", "args": [{"z": 1, "a": 2}, true]},
-  {"id": "a3b-sembound-blocked", "fn": "model_semantic_boundaries", "args": [{"z": 1, "a": 2}, false]},
-  {"id": "a3b-semdep-some", "fn": "suppress_semantic_dependency", "args": [[{"d": 1}]]},
-  {"id": "a3b-semdep-none", "fn": "suppress_semantic_dependency", "args": [[]]},
-  {"id": "a3b-semdiverg-rich", "fn": "model_semantic_divergence", "args": [{"a": 1, "b": 2}, {"b": 3, "c": 4}, ["amb1"]]},
-  {"id": "a3b-semdiverg-zero", "fn": "model_semantic_divergence", "args": [{}, {}, []]},
-  {"id": "a3b-semdivers-rich", "fn": "model_semantic_diversity", "args": [{"a": 1}, {"b": 2}, ["amb1"]]},
-  {"id": "a3b-semdivers-zero", "fn": "model_semantic_diversity", "args": [{}, {}, []]},
-  {"id": "a3b-semfix-y", "fn": "detect_semantic_fixation", "args": [true, 2]},
-  {"id": "a3b-semfix-n", "fn": "detect_semantic_fixation", "args": [true, 1]},
-  {"id": "a3b-semfree-y", "fn": "model_semantic_freedom", "args": [{"autonomous": true}, {"competitive": true}]},
-  {"id": "a3b-semfree-n", "fn": "model_semantic_freedom", "args": [{"autonomous": false}, {}]},
-  {"id": "a3b-semgov-y", "fn": "suppress_semantic_governance", "args": [true, 2]},
-  {"id": "a3b-semgov-n", "fn": "suppress_semantic_governance", "args": [true, 1]},
-  {"id": "a3b-semhier-y", "fn": "detect_semantic_hierarchy_permanence", "args": [3, true]},
-  {"id": "a3b-semhier-n", "fn": "detect_semantic_hierarchy_permanence", "args": [2, true]},
-  {"id": "a3b-semhomog-y", "fn": "detect_semantic_homogenization", "args": [true, 2]},
-  {"id": "a3b-semhomog-n", "fn": "detect_semantic_homogenization", "args": [false, 5]},
-  {"id": "a3b-semmom-high", "fn": "measure_semantic_momentum", "args": [5, 2]},
-  {"id": "a3b-semmom-low", "fn": "measure_semantic_momentum", "args": [1, 0]},
-  {"id": "a3b-semdomest-y", "fn": "resist_semantic_domestication", "args": [true]},
-  {"id": "a3b-semdomest-n", "fn": "resist_semantic_domestication", "args": [false]},
-  {"id": "a3b-semorth-y", "fn": "detect_semantic_orthodoxy", "args": [[{"i": 1}], 3]},
-  {"id": "a3b-semorth-n", "fn": "detect_semantic_orthodoxy", "args": [[{"i": 1}, {"i": 2}], 3]},
-  {"id": "a3b-semself-y", "fn": "model_semantic_self_determination", "args": [true, 2]},
-  {"id": "a3b-semself-n", "fn": "model_semantic_self_determination", "args": [false, 0]},
-  {"id": "a3b-semreinf-y", "fn": "detect_semantic_self_reinforcement", "args": [{"a": 1, "b": 2}, {"a": 1, "b": 2}, ["e"]]},
-  {"id": "a3b-semreinf-n", "fn": "detect_semantic_self_reinforcement", "args": [{"a": 1, "b": 2}, {"a": 1, "b": 3}, []]},
-  {"id": "a3b-stablim-set", "fn": "semantic_stability_limits", "args": [{"stability_limits": {"max_confidence": 0.4}, "stable": true}]},
-  {"id": "a3b-stablim-default", "fn": "semantic_stability_limits", "args": [{}]},
-  {"id": "a3b-semterm-mixed", "fn": "terminate_semantic_chain", "args": [["r2", "r1"], [{"target": "t1"}, {}]]},
-  {"id": "a3b-semterm-empty", "fn": "terminate_semantic_chain", "args": [[], []]},
-  {"id": "a3b-truthlim-suppressed", "fn": "semantic_truth_limits", "args": [{"suppress_stabilization": true, "suppress_coherence": false}, {"preserved": false}]},
-  {"id": "a3b-truthlim-open", "fn": "semantic_truth_limits", "args": [{}, {}]},
-  {"id": "a3b-semunif-y", "fn": "detect_semantic_uniformity", "args": [["k", "k"], 2]},
-  {"id": "a3b-semunif-n", "fn": "detect_semantic_uniformity", "args": [["k", "j"], 2]},
-  {"id": "a3b-unexp-y", "fn": "detect_unsupported_expansion", "args": [["e1"], "ontology", 3]},
-  {"id": "a3b-unexp-n", "fn": "detect_unsupported_expansion", "args": [["e1", "e2"], "topology", 2]},
-  {"id": "a3b-unscope-mixed", "fn": "model_unsupported_scope", "args": [["dim2", "dim1", "", "dim2"]]},
-  {"id": "a3b-unscope-null", "fn": "model_unsupported_scope", "args": [null]},
-
-  {"id": "a3c-caps-full", "fn": "apply_confidence_caps", "args": [0.9, {"confidence_limits": {"max_score": 0.8}, "level": "high"}, 2, 3, 1]},
-  {"id": "a3c-caps-defaults", "fn": "apply_confidence_caps", "args": [0.7, {}]},
-  {"id": "a3c-caps-floor", "fn": "apply_confidence_caps", "args": [0.3, {"level": "medium"}, 5, 5, 5]},
-  {"id": "a3c-lattice-mixed", "fn": "build_contradiction_lattice", "args": [[["z", "y"], ["a", "b"], ["a", "b", "extra"], "junk", ["solo"]]]},
-  {"id": "a3c-lattice-empty", "fn": "build_contradiction_lattice", "args": [null]},
-  {"id": "a3c-epibound-broken", "fn": "preserve_epistemic_boundaries", "args": [["e1"], ["n1"], ["u1", "u2"]]},
-  {"id": "a3c-epibound-ok", "fn": "preserve_epistemic_boundaries", "args": [["e1", "e2"], [], []]},
-  {"id": "a3c-epilim-all", "fn": "model_epistemic_limits", "args": [[], 0, {"level": "high", "confidence_limits": {"max_score": 0.3}}]},
-  {"id": "a3c-epilim-none", "fn": "model_epistemic_limits", "args": [["e1", "e2"], 4, {"level": "low"}]},
-  {"id": "a3c-algebra-weighted", "fn": "combine_evidence", "args": [["b", "a", "", "b"], {"a": 0.5, "b": 0.75}]},
-  {"id": "a3c-algebra-default", "fn": "combine_evidence", "args": [["x", "y"]]},
-  {"id": "a3c-algebra-empty", "fn": "combine_evidence", "args": [[]]},
-  {"id": "a3c-calc-parser", "fn": "weight_evidence_calculus", "args": [["parser:sym", "doc:a", "doc:b"], true]},
-  {"id": "a3c-calc-textual", "fn": "weight_evidence_calculus", "args": [["doc:a", "doc:b"]]},
-  {"id": "a3c-calc-empty", "fn": "weight_evidence_calculus", "args": [[]]},
-  {"id": "a3c-explain-full", "fn": "build_explainability", "args": [{"language": "python", "parser_evidence": {"ast": true}, "semantic_graph": {"nodes": [{"id": "n1"}], "edges": []}}, {"score": 0.42, "deterministic_inputs": ["s=1"]}, {"grounding": {"symbol_count": 7}, "evidence": ["z", "a"]}]},
-  {"id": "a3c-explain-null", "fn": "build_explainability", "args": [null, {}, {}]},
-  {"id": "a3c-integrity-explicit", "fn": "model_inference_integrity", "args": [["e1"], ["s2", "s1"], ["c1"], {"level": "high", "basis": {"b": 1}, "confidence_limits": {"max_score": 0.4}, "missing_support": ["m1"], "contradiction_pressure": ["p1"]}, ["x1"]]},
-  {"id": "a3c-integrity-fallback", "fn": "model_inference_integrity", "args": [["e2", "e1"], [], [], {}]},
-  {"id": "a3c-termchain-mixed", "fn": "terminate_inference_chain", "args": [["r1"], [{"reason": "spec1"}, {}, "junk"]]},
-  {"id": "a3c-termchain-empty", "fn": "terminate_inference_chain", "args": [[], []]},
-  {"id": "a3c-instab-weak", "fn": "preserve_instability", "args": [["r1"], ["e1"], [{"s": 1}]]},
-  {"id": "a3c-instab-ok", "fn": "preserve_instability", "args": [[], ["e1", "e2"], []]},
-  {"id": "a3c-insuff-y", "fn": "mark_insufficiency", "args": [{"evidence": ["e1"], "ambiguities": ["a1"]}]},
-  {"id": "a3c-insuff-n", "fn": "mark_insufficiency", "args": [{"evidence": ["e1", "e2"]}]},
-  {"id": "a3c-intdivers-rich", "fn": "model_interpretive_diversity", "args": [["k1", "e2"], {"k1": "v1", "k2": "v2"}]},
-  {"id": "a3c-intdivers-empty", "fn": "model_interpretive_diversity", "args": [[], {}]},
-  {"id": "a3c-lineage-mixed", "fn": "build_lineage", "args": [[{"stage": "parse", "inputs": ["b", "a"], "outputs": ["o"]}, "junk", {"inputs": "bad"}]]},
-  {"id": "a3c-lineage-null", "fn": "build_lineage", "args": [null]},
-  {"id": "a3c-noninf-regions", "fn": "model_noninferable_regions", "args": [{"k": 1}, [], ["pre1"]]},
-  {"id": "a3c-noninf-clear", "fn": "model_noninferable_regions", "args": [{}, ["e1", "e2"], []]},
-  {"id": "a3c-noninference-weak", "fn": "model_noninference", "args": [["e1"], {"b": 1, "a": 2}, {"a": 2}, {"a": 3}]},
-  {"id": "a3c-noninference-strong", "fn": "model_noninference", "args": [["e1", "e2"], {"a": 1}, {"a": 1}, {"a": 1}]},
-  {"id": "a3c-prov-full", "fn": "build_provenance", "args": [["b", "a", ""], ["s1"], {"symbol_count": 2}, {"depth": 1}, {"basis": true}]},
-  {"id": "a3c-prov-fallback", "fn": "build_provenance", "args": [["e2", "e1"]]},
-  {"id": "a3c-recent-rich", "fn": "model_recursive_entropy", "args": [["a1"], ["u1"], {"pairs": [["x", "y"]]}, 2]},
-  {"id": "a3c-recent-flat", "fn": "model_recursive_entropy", "args": [[], [], null, 1]},
-  {"id": "a3c-recinstab-deep", "fn": "model_recursive_instability", "args": [["r1"], 3, 1]},
-  {"id": "a3c-recinstab-ok", "fn": "model_recursive_instability", "args": [[], 1, 3]},
-  {"id": "a3c-reclineage-stages", "fn": "preserve_recursive_lineage", "args": [{"stages": [{"stage": "a"}, {"stage": "b"}]}, ["e1"], ["a1"], ["u1"], {"pairs": [["p", "q"]]}]},
-  {"id": "a3c-reclineage-empty", "fn": "preserve_recursive_lineage", "args": [{}, [], [], [], null]},
-  {"id": "a3c-spec-y", "fn": "detect_speculative_coherence", "args": [["e1"], {"a": 1}, {"a": 2}]},
-  {"id": "a3c-spec-n", "fn": "detect_speculative_coherence", "args": [["e1"], {"a": 1}, {"a": 1}]},
-  {"id": "a3c-support-extra", "fn": "build_support", "args": [["b", "a"], ["c", ""]]},
-  {"id": "a3c-support-bare", "fn": "build_support", "args": [[]]},
-  {"id": "a3c-weak-y", "fn": "build_weaknesses", "args": [["e1"], ["amb2", "amb1"]]},
-  {"id": "a3c-weak-n", "fn": "build_weaknesses", "args": [["e1", "e2"], []]},
-  {"id": "a3c-trace-full", "fn": "build_traceability", "args": [["b", "a"], {"depth": 2}, ["s2", "s1"]]},
-  {"id": "a3c-trace-bare", "fn": "build_traceability", "args": [[]]},
-  {"id": "a3c-truthref-mixed", "fn": "refuse_unsupported_stabilization", "args": [[{"reason": "drift", "truth_boundary_violation": {"type": "closure"}}, {}]]},
-  {"id": "a3c-truthref-empty", "fn": "refuse_unsupported_stabilization", "args": [[]]},
-
-  {"id": "a3d-conf-full", "fn": "score_semantic_confidence", "args": [{"evidence": {"b": true, "a": false, "c": 1}}, {"nodes": [{"id": "n"}], "edges": [{"e": 1}, {"e": 2}]}, ["x1", "x2"]]},
-  {"id": "a3d-conf-null", "fn": "score_semantic_confidence", "args": [null, null]},
-  {"id": "a3d-conf-emptygraph", "fn": "score_semantic_confidence", "args": [{"evidence": {}}, {}]},
-  {"id": "a3d-conserv-weak", "fn": "apply_semantic_conservatism", "args": [{"evidence": ["e1"], "ambiguities": ["z"], "contradicted": {"preserved": true, "pairs": [["a", "b"]]}, "confidence_basis": {"score": 0.9, "deterministic_inputs": ["d1"]}, "semantic_basis": {"k": 1}}]},
-  {"id": "a3d-conserv-strong", "fn": "apply_semantic_conservatism", "args": [{"evidence": ["e1", "e2"], "confidence_basis": {"score": 0.6}}]},
-  {"id": "a3d-consist-overlap", "fn": "assess_semantic_consistency", "args": [{"a": 1, "b": 2}, {"a": 9, "c": 3}, {"a": 1, "b": 2}]},
-  {"id": "a3d-consist-empty", "fn": "assess_semantic_consistency", "args": [{}, {}, {}]},
-  {"id": "a3d-decay-fast", "fn": "model_semantic_decay", "args": [["e1"], {"a": 1, "b": 2, "c": 3}, 2]},
-  {"id": "a3d-decay-none", "fn": "model_semantic_decay", "args": [["e1", "e2", "e3"], {}, 0]},
-  {"id": "a3d-decen-dom", "fn": "model_semantic_decentralization", "args": [[{"i": 1}], 1]},
-  {"id": "a3d-decen-free", "fn": "model_semantic_decentralization", "args": [[{"i": 1}, {"i": 2}], 0]},
-  {"id": "a3d-drift-rich", "fn": "detect_semantic_drift", "args": [{"a": 1}, {"a": 1, "x": 2, "y": 3}, {"a": 2}, ["e1"]]},
-  {"id": "a3d-drift-none", "fn": "detect_semantic_drift", "args": [{"a": 1}, {"a": 1}, {"a": 1}, ["e1", "e2"]]},
-  {"id": "a3d-entropy-rich", "fn": "model_semantic_entropy", "args": [["a1", "a2"], ["u1"], {"pairs": [["x", "y"]]}]},
-  {"id": "a3d-entropy-zero", "fn": "model_semantic_entropy", "args": [[], [], null]},
-  {"id": "a3d-frag-low", "fn": "model_fragility", "args": [["e1", "e2", "e3"], [], 0, 2]},
-  {"id": "a3d-frag-medium-amb", "fn": "model_fragility", "args": [["e1"], ["a1"], 1, 0]},
-  {"id": "a3d-frag-high", "fn": "model_fragility", "args": [[], []]},
-  {"id": "a3d-honest-y", "fn": "assess_semantic_honesty", "args": [["e1", "e2"], {"keys": ["k1", "k2"]}, {}, {"level": "low"}]},
-  {"id": "a3d-honest-n", "fn": "assess_semantic_honesty", "args": [["e1"], {}, {"claims": ["c1"]}, {"level": "high"}]},
-  {"id": "a3d-incomp-y", "fn": "model_incompleteness", "args": [{"k": 1}, ["u2", "u1"], ["s1"]]},
-  {"id": "a3d-incomp-n", "fn": "model_incompleteness", "args": [{"k": 1}, [], []]},
-  {"id": "a3d-infer-allowed", "fn": "infer_from_evidence", "args": [{"b": 2, "a": 1}, ["e1", ""]]},
-  {"id": "a3d-infer-blocked", "fn": "infer_from_evidence", "args": [{"a": 1}, [], 2]},
-  {"id": "a3d-instab-entropy", "fn": "model_semantic_instability", "args": [["r1"], {"entropy": 0.4}, ["e1"]]},
-  {"id": "a3d-instab-intzero", "fn": "model_semantic_instability", "args": [[], {}, ["e1", "e2"]]},
-  {"id": "a3d-justif-full", "fn": "build_justification", "args": [["b", "a"], {"stages": [{"stage": "parse"}, {"other": 1}]}, {"deterministic_inputs": ["u1"]}, {"entropy": 0.3}]},
-  {"id": "a3d-justif-factors", "fn": "build_justification", "args": [[], {}, {"factors": ["f1"]}, {}]},
-  {"id": "a3d-limits-allowed", "fn": "semantic_limits", "args": [3, ["n1"], {"expansion_allowed": true, "reconciliation_allowed": true}]},
-  {"id": "a3d-limits-default", "fn": "semantic_limits", "args": [0, [], {}]},
-  {"id": "a3d-overreach-y", "fn": "detect_semantic_overreach", "args": [[], {"a": 1}, {"b": 2}]},
-  {"id": "a3d-overreach-n", "fn": "detect_semantic_overreach", "args": [["e1", "e2"], {"a": 1}, {"a": 1}]},
-  {"id": "a3d-plural-rich", "fn": "model_semantic_plurality", "args": [{"a": 1}, {"b": 2}, ["amb"], {"pairs": [["x", "y"]]}]},
-  {"id": "a3d-plural-mono", "fn": "model_semantic_plurality", "args": [{"a": 1}, {}, [], null]},
-  {"id": "a3d-proof-y", "fn": "prove_semantic_claim", "args": ["claim-x", ["e2", "e1"]]},
-  {"id": "a3d-proof-n", "fn": "prove_semantic_claim", "args": ["claim-y", [], 1]},
-  {"id": "a3d-refuse-mixed", "fn": "refuse_unsupported_conclusions", "args": [["r1"], [{"reason": "spec1"}, {}]]},
-  {"id": "a3d-refuse-empty", "fn": "refuse_unsupported_conclusions", "args": [[], []]},
-  {"id": "a3d-selflim-active", "fn": "apply_semantic_self_limitation", "args": [["e1"], [{"s": 1}], ["n1"]]},
-  {"id": "a3d-selflim-open", "fn": "apply_semantic_self_limitation", "args": [["e1", "e2"], [], []]},
-  {"id": "a3d-stability-stable", "fn": "model_semantic_stability", "args": [["e1", "e2"], 0.1, [], true]},
-  {"id": "a3d-stability-low", "fn": "model_semantic_stability", "args": [["e1"], 0.3, [{"c": 1}], false]},
-  {"id": "a3d-stabterm-mixed", "fn": "terminate_stabilization", "args": [[{"reason": "z"}, {}], ["a", "z"]]},
-  {"id": "a3d-stabterm-empty", "fn": "terminate_stabilization", "args": [[], []]},
-  {"id": "a3d-uncert-low", "fn": "model_uncertainty", "args": [3, 0, 0]},
-  {"id": "a3d-uncert-high", "fn": "model_uncertainty", "args": [0, 2, 1]},
-  {"id": "a3d-uncvis-some", "fn": "expose_uncertainty_visibility", "args": [["u2", "u1", "u2"], ["a1"], 0.7]},
-  {"id": "a3d-uncvis-none", "fn": "expose_uncertainty_visibility", "args": [[], [], 0.4]},
-  {"id": "a3d-escal-blocked", "fn": "block_unsupported_confidence_escalation", "args": [0.8, 1]},
-  {"id": "a3d-escal-ok", "fn": "block_unsupported_confidence_escalation", "args": [0.8, 3]},
-  {"id": "a3d-suppinf-y", "fn": "suppress_unsupported_inference", "args": [["e1"], {"b": 1, "a": 2}, {}]},
-  {"id": "a3d-suppinf-n", "fn": "suppress_unsupported_inference", "args": [["e1", "e2"], {"a": 1}, {"a": 1}]},
-  {"id": "a3d-recdivpres-y", "fn": "preserve_recursive_divergence", "args": [0.4]},
-  {"id": "a3d-recdivpres-n", "fn": "preserve_recursive_divergence", "args": [0.0]},
-  {"id": "a3d-recdomest-y", "fn": "detect_recursive_domestication", "args": [true, 3]},
-  {"id": "a3d-recdomest-n", "fn": "detect_recursive_domestication", "args": [true, 2]}
+ {
+  "id": "rhet-md",
+  "fn": "extract_rhetorical_structure",
+  "args": [
+   "# Title\n## Section\n- item one\n* item two\n```\ncode\n```\nplain line"
+  ]
+ },
+ {
+  "id": "rhet-empty",
+  "fn": "extract_rhetorical_structure",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "rhet-null",
+  "fn": "extract_rhetorical_structure",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "rhet-crlf",
+  "fn": "extract_rhetorical_structure",
+  "args": [
+   "### Deep Heading\r\n- a\r\ntext"
+  ]
+ },
+ {
+  "id": "roles",
+  "fn": "assign_semantic_roles",
+  "args": [
+   "This is an example of usage.\nTherefore it works.\nIt fails because of input.\nNote: be careful.\nplain sentence"
+  ]
+ },
+ {
+  "id": "roles-empty",
+  "fn": "assign_semantic_roles",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "head-mixed",
+  "fn": "extract_headings",
+  "args": [
+   "# B Title\n## A Section\n<h1>Z Html</h1><h3>A Html</h3>"
+  ]
+ },
+ {
+  "id": "head-none",
+  "fn": "extract_headings",
+  "args": [
+   "no headings here"
+  ]
+ },
+ {
+  "id": "argdep-order",
+  "fn": "reconstruct_argument_dependencies",
+  "args": [
+   [
+    {
+     "id": "c2",
+     "order": 2
+    },
+    {
+     "id": "c1",
+     "order": 1
+    },
+    {
+     "id": "c3",
+     "order": 3,
+     "depends_on": "c1"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "argdep-empty",
+  "fn": "reconstruct_argument_dependencies",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "coref",
+  "fn": "resolve_coreferences",
+  "args": [
+   "# Intro\nThis is it.\n## Body\nThey said that those work."
+  ]
+ },
+ {
+  "id": "coref-noheading",
+  "fn": "resolve_coreferences",
+  "args": [
+   "it works and this too"
+  ]
+ },
+ {
+  "id": "a2-amb-empty",
+  "fn": "compute_ambiguity_pressure",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a2-amb-two",
+  "fn": "compute_ambiguity_pressure",
+  "args": [
+   [
+    "a",
+    "b"
+   ]
+  ]
+ },
+ {
+  "id": "a2-amb-cap",
+  "fn": "compute_ambiguity_pressure",
+  "args": [
+   [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10"
+   ]
+  ]
+ },
+ {
+  "id": "a2-contra-nondict",
+  "fn": "compute_contradiction_pressure",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "a2-contra-empty",
+  "fn": "compute_contradiction_pressure",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a2-contra-two",
+  "fn": "compute_contradiction_pressure",
+  "args": [
+   {
+    "pairs": [
+     [
+      "a",
+      "b"
+     ],
+     [
+      "c",
+      "d"
+     ]
+    ],
+    "preserved": true
+   }
+  ]
+ },
+ {
+  "id": "a2-evb-gap",
+  "fn": "compute_evidence_boundary_pressure",
+  "args": [
+   0
+  ]
+ },
+ {
+  "id": "a2-evb-ok",
+  "fn": "compute_evidence_boundary_pressure",
+  "args": [
+   3
+  ]
+ },
+ {
+  "id": "a2-evb-min",
+  "fn": "compute_evidence_boundary_pressure",
+  "args": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "a2-evd-gap",
+  "fn": "compute_evidence_decay_pressure",
+  "args": [
+   0
+  ]
+ },
+ {
+  "id": "a2-evd-ok",
+  "fn": "compute_evidence_decay_pressure",
+  "args": [
+   5
+  ]
+ },
+ {
+  "id": "a2-rbp-hi",
+  "fn": "compute_recursive_boundary_pressure",
+  "args": [
+   0.4,
+   5
+  ]
+ },
+ {
+  "id": "a2-rbp-lo",
+  "fn": "compute_recursive_boundary_pressure",
+  "args": [
+   0.1,
+   2
+  ]
+ },
+ {
+  "id": "a2-rcp-lo",
+  "fn": "compute_recursive_convergence_pressure",
+  "args": [
+   3,
+   0.8
+  ]
+ },
+ {
+  "id": "a2-rcp-hi",
+  "fn": "compute_recursive_convergence_pressure",
+  "args": [
+   5,
+   0.1
+  ]
+ },
+ {
+  "id": "a2-rdp-single",
+  "fn": "compute_recursive_dependency_pressure",
+  "args": [
+   1,
+   0
+  ]
+ },
+ {
+  "id": "a2-rdp-deep",
+  "fn": "compute_recursive_dependency_pressure",
+  "args": [
+   4,
+   3
+  ]
+ },
+ {
+  "id": "a2-sbp-hi",
+  "fn": "compute_semantic_boundary_pressure",
+  "args": [
+   0.2,
+   0.3
+  ]
+ },
+ {
+  "id": "a2-sbp-lo",
+  "fn": "compute_semantic_boundary_pressure",
+  "args": [
+   0.1,
+   0.1
+  ]
+ },
+ {
+  "id": "a2-tbp-bounded",
+  "fn": "compute_truth_boundary_pressure",
+  "args": [
+   true,
+   0.5
+  ]
+ },
+ {
+  "id": "a2-tbp-unbounded",
+  "fn": "compute_truth_boundary_pressure",
+  "args": [
+   false,
+   2.5
+  ]
+ },
+ {
+  "id": "a2-unc-empty",
+  "fn": "compute_uncertainty_pressure",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a2-unc-three",
+  "fn": "compute_uncertainty_pressure",
+  "args": [
+   [
+    "u1",
+    "u2"
+   ],
+   [
+    "a1"
+   ]
+  ]
+ },
+ {
+  "id": "a2-conf",
+  "fn": "empty_confidence",
+  "args": []
+ },
+ {
+  "id": "a2-lineage-default",
+  "fn": "empty_lineage",
+  "args": []
+ },
+ {
+  "id": "a2-lineage-stage",
+  "fn": "empty_lineage",
+  "args": [
+   "compile"
+  ]
+ },
+ {
+  "id": "a2-merge",
+  "fn": "merge_evidence",
+  "args": [
+   [
+    "b",
+    "a"
+   ],
+   [
+    "a",
+    "c",
+    ""
+   ],
+   null
+  ]
+ },
+ {
+  "id": "a2-merge-mixed",
+  "fn": "merge_evidence",
+  "args": [
+   [
+    1,
+    true,
+    "x"
+   ],
+   []
+  ]
+ },
+ {
+  "id": "a2-entropy-empty",
+  "fn": "model_graph_entropy",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a2-entropy-mixed",
+  "fn": "model_graph_entropy",
+  "args": [
+   {
+    "nodes": [
+     {
+      "kind": "a"
+     },
+     {
+      "kind": "a"
+     },
+     {
+      "kind": "b"
+     },
+     "raw",
+     {}
+    ],
+    "edges": [
+     {
+      "from": "x",
+      "to": "y"
+     },
+     {
+      "from": "y",
+      "to": "z"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-cycles-simple",
+  "fn": "detect_cycles",
+  "args": [
+   {
+    "edges": [
+     {
+      "from": "a",
+      "to": "b"
+     },
+     {
+      "from": "b",
+      "to": "a"
+     },
+     {
+      "from": "b",
+      "to": "c"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-cycles-none",
+  "fn": "detect_cycles",
+  "args": [
+   {
+    "edges": [
+     {
+      "from": "a",
+      "to": "b"
+     },
+     {
+      "from": "b",
+      "to": "c"
+     },
+     "junk",
+     {
+      "from": "d"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-cycles-self",
+  "fn": "detect_cycles",
+  "args": [
+   {
+    "edges": [
+     {
+      "from": "s",
+      "to": "s"
+     },
+     {
+      "from": "s",
+      "to": "t"
+     },
+     {
+      "from": "t",
+      "to": "u"
+     },
+     {
+      "from": "u",
+      "to": "t"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-topo-hub",
+  "fn": "prove_topology",
+  "args": [
+   {
+    "edges": [
+     {
+      "from": "h",
+      "to": "a"
+     },
+     {
+      "from": "h",
+      "to": "b"
+     },
+     {
+      "from": "c",
+      "to": "h"
+     },
+     {
+      "from": "a",
+      "to": "b"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-topo-empty",
+  "fn": "prove_topology",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a2-topo-partial",
+  "fn": "prove_topology",
+  "args": [
+   {
+    "edges": [
+     {
+      "from": "x"
+     },
+     {
+      "to": "y"
+     },
+     "junk",
+     {
+      "from": "",
+      "to": "z"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-api-paths",
+  "fn": "reason_api_surface",
+  "args": [
+   {
+    "paths": {
+     "/users": {
+      "get": {},
+      "post": {}
+     },
+     "/health": {
+      "delete": {}
+     }
+    }
+   }
+  ]
+ },
+ {
+  "id": "a2-api-empty",
+  "fn": "reason_api_surface",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a2-api-badpaths",
+  "fn": "reason_api_surface",
+  "args": [
+   {
+    "paths": "not-a-dict"
+   }
+  ]
+ },
+ {
+  "id": "a2-flow-mixed",
+  "fn": "reconstruct_execution_flow",
+  "args": [
+   {
+    "symbols": {
+     "functions": [
+      "main_x",
+      "helper",
+      "run_job",
+      "handle_evt"
+     ]
+    },
+    "calls": {
+     "calls": [
+      {
+       "caller": "a",
+       "callee": "b"
+      },
+      "junk",
+      {
+       "caller": "c"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "a2-flow-empty",
+  "fn": "reconstruct_execution_flow",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "a2-infra-hits",
+  "fn": "detect_infra_signals",
+  "args": [
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "README.md",
+    ".github/workflows/ci.yml",
+    "infra/terraform/main.tf"
+   ]
+  ]
+ },
+ {
+  "id": "a2-infra-none",
+  "fn": "detect_infra_signals",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "a2-deps-fallback",
+  "fn": "resolve_runtime_dependencies",
+  "args": [
+   null,
+   "flask==2.0\nnumpy>=1.2\n# comment\nbad line\n"
+  ]
+ },
+ {
+  "id": "a2-deps-parser",
+  "fn": "resolve_runtime_dependencies",
+  "args": [
+   {
+    "dependencies": {
+     "dependencies": [
+      "zeta",
+      "alpha"
+     ]
+    },
+    "runtime": {
+     "packages": [
+      "pkg1"
+     ],
+     "modules": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "a2-deps-empty",
+  "fn": "resolve_runtime_dependencies",
+  "args": [
+   {},
+   ""
+  ]
+ },
+ {
+  "id": "a2-svc-mixed",
+  "fn": "infer_service_interactions",
+  "args": [
+   {
+    "calls": {
+     "calls": [
+      {
+       "caller": "svc_a",
+       "callee": "svc_b"
+      },
+      {
+       "callee": "x"
+      },
+      {
+       "caller": "svc_c"
+      }
+     ]
+    }
+   },
+   [
+    "docker-compose.yml",
+    "app.py",
+    "k8s/x.yaml"
+   ]
+  ]
+ },
+ {
+  "id": "a2-svc-empty",
+  "fn": "infer_service_interactions",
+  "args": [
+   null,
+   []
+  ]
+ },
+ {
+  "id": "a2-cfg-three",
+  "fn": "build_control_flow_graph",
+  "args": [
+   {
+    "functions": [
+     {
+      "name": "a"
+     },
+     {
+      "name": "b"
+     },
+     {
+      "name": "c"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-cfg-empty",
+  "fn": "build_control_flow_graph",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a2-paths-two",
+  "fn": "reconstruct_execution_paths",
+  "args": [
+   {
+    "nodes": [
+     {
+      "id": "x"
+     },
+     {
+      "id": "y"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-paths-empty",
+  "fn": "reconstruct_execution_paths",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a2-sym-stable",
+  "fn": "resolve_symbols",
+  "args": [
+   {
+    "functions": [
+     {
+      "name": "zeta",
+      "args": [
+       "x"
+      ]
+     },
+     {
+      "name": "alpha"
+     }
+    ],
+    "classes": [
+     {
+      "name": "Beta",
+      "bases": [
+       "Base"
+      ]
+     },
+     {
+      "name": "alpha"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2-sym-empty",
+  "fn": "resolve_symbols",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3-authconc-y",
+  "fn": "detect_authority_concentration",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3-authconc-n",
+  "fn": "detect_authority_concentration",
+  "args": [
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3-authdiff-one",
+  "fn": "diffuse_authority",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-authdiff-none",
+  "fn": "diffuse_authority",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-autero-y",
+  "fn": "resist_autonomy_erosion",
+  "args": [
+   false,
+   4
+  ]
+ },
+ {
+  "id": "a3-autero-n",
+  "fn": "resist_autonomy_erosion",
+  "args": [
+   true,
+   5
+  ]
+ },
+ {
+  "id": "a3-causal-six",
+  "fn": "model_causal_plurality",
+  "args": [
+   {
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6
+   }
+  ]
+ },
+ {
+  "id": "a3-causal-empty",
+  "fn": "model_causal_plurality",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3-cogdec-dom",
+  "fn": "model_cognitive_decentralization",
+  "args": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "a3-cogdec-free",
+  "fn": "model_cognitive_decentralization",
+  "args": [
+   3,
+   0
+  ]
+ },
+ {
+  "id": "a3-gravity-y",
+  "fn": "detect_cognitive_gravity_well",
+  "args": [
+   true,
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3-gravity-n",
+  "fn": "detect_cognitive_gravity_well",
+  "args": [
+   true,
+   false,
+   5
+  ]
+ },
+ {
+  "id": "a3-cogsov-y",
+  "fn": "model_cognitive_sovereignty",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-cogsov-n",
+  "fn": "model_cognitive_sovereignty",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3-echo-y",
+  "fn": "detect_confidence_echo",
+  "args": [
+   0.9,
+   [
+    0.5,
+    0.6
+   ]
+  ]
+ },
+ {
+  "id": "a3-echo-empty",
+  "fn": "detect_confidence_echo",
+  "args": [
+   0.5,
+   []
+  ]
+ },
+ {
+  "id": "a3-echo-n",
+  "fn": "detect_confidence_echo",
+  "args": [
+   0.3,
+   [
+    0.4
+   ]
+  ]
+ },
+ {
+  "id": "a3-contref-mixed",
+  "fn": "refuse_unsupported_continuity",
+  "args": [
+   [
+    {
+     "reason": "gap"
+    },
+    {}
+   ]
+  ]
+ },
+ {
+  "id": "a3-contref-empty",
+  "fn": "refuse_unsupported_continuity",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-epopen-mixed",
+  "fn": "model_epistemic_openness",
+  "args": [
+   {
+    "preserved": true
+   },
+   {
+    "decentralized": false
+   }
+  ]
+ },
+ {
+  "id": "a3-epopen-default",
+  "fn": "model_epistemic_openness",
+  "args": [
+   {},
+   {}
+  ]
+ },
+ {
+  "id": "a3-evdecay-y",
+  "fn": "model_evidence_decay",
+  "args": [
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3-evdecay-n",
+  "fn": "model_evidence_decay",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "a3-expanti-y",
+  "fn": "apply_explanatory_antigravity",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-expanti-n",
+  "fn": "apply_explanatory_antigravity",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3-expcomp-y",
+  "fn": "model_explanatory_competition",
+  "args": [
+   [
+    {
+     "x": 1
+    },
+    {
+     "y": 2
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-expcomp-n",
+  "fn": "model_explanatory_competition",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-expdiv-one",
+  "fn": "model_explanatory_divergence",
+  "args": [
+   [
+    {
+     "x": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-expdiv-none",
+  "fn": "model_explanatory_divergence",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-expdivers-mixed",
+  "fn": "model_explanatory_diversity",
+  "args": [
+   {
+    "alpha": 1,
+    "beta": 2
+   },
+   [
+    "alpha evidence",
+    "z"
+   ]
+  ]
+ },
+ {
+  "id": "a3-expdivers-empty",
+  "fn": "model_explanatory_diversity",
+  "args": [
+   {},
+   []
+  ]
+ },
+ {
+  "id": "a3-expfix-y",
+  "fn": "detect_explanatory_fixation",
+  "args": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "a3-expfix-n",
+  "fn": "detect_explanatory_fixation",
+  "args": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "a3-expfree-y",
+  "fn": "preserve_explanatory_freedom",
+  "args": [
+   [
+    {
+     "a": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-expfree-n",
+  "fn": "preserve_explanatory_freedom",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-expdomest-y",
+  "fn": "resist_explanatory_domestication",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-expdomest-n",
+  "fn": "resist_explanatory_domestication",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3-expself-n",
+  "fn": "model_explanatory_self_determination",
+  "args": [
+   0
+  ]
+ },
+ {
+  "id": "a3-expself-y",
+  "fn": "model_explanatory_self_determination",
+  "args": [
+   2
+  ]
+ },
+ {
+  "id": "a3-refinf-low",
+  "fn": "refuse_inference",
+  "args": [
+   [
+    "b",
+    "a",
+    "b"
+   ],
+   1
+  ]
+ },
+ {
+  "id": "a3-refinf-ok",
+  "fn": "refuse_inference",
+  "args": [
+   [
+    "x"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3-intauto-one",
+  "fn": "model_interpretive_autonomy",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-intauto-none",
+  "fn": "model_interpretive_autonomy",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-intclose-y",
+  "fn": "detect_interpretive_closure",
+  "args": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "a3-intclose-n",
+  "fn": "detect_interpretive_closure",
+  "args": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "a3-intdecay-y",
+  "fn": "resist_interpretive_decay",
+  "args": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "a3-intdecay-n",
+  "fn": "resist_interpretive_decay",
+  "args": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "a3-intdist-y",
+  "fn": "distribute_interpretations",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-intdist-n",
+  "fn": "distribute_interpretations",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-intdiv-two",
+  "fn": "model_interpretive_divergence",
+  "args": [
+   [
+    {
+     "a": 1
+    },
+    {
+     "b": 2
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-intdiv-none",
+  "fn": "model_interpretive_divergence",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-intfree-n",
+  "fn": "preserve_interpretive_freedom",
+  "args": [
+   {
+    "autonomous": false
+   }
+  ]
+ },
+ {
+  "id": "a3-intfree-default",
+  "fn": "preserve_interpretive_freedom",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3-intdomest-y",
+  "fn": "resist_interpretive_domestication",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-intdomest-n",
+  "fn": "resist_interpretive_domestication",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3-intself-one",
+  "fn": "model_interpretive_self_determination",
+  "args": [
+   1
+  ]
+ },
+ {
+  "id": "a3-intself-many",
+  "fn": "model_interpretive_self_determination",
+  "args": [
+   3
+  ]
+ },
+ {
+  "id": "a3-ontanti-y",
+  "fn": "apply_ontology_antigravity",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-ontbound-rich",
+  "fn": "model_ontology_boundaries",
+  "args": [
+   [
+    "e1",
+    "e2",
+    "e3"
+   ]
+  ]
+ },
+ {
+  "id": "a3-ontbound-inferred",
+  "fn": "model_ontology_boundaries",
+  "args": [
+   [
+    "a",
+    "b"
+   ],
+   true
+  ]
+ },
+ {
+  "id": "a3-ontcomp-deep",
+  "fn": "model_ontology_competition",
+  "args": [
+   [
+    "x"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3-ontcomp-many",
+  "fn": "model_ontology_competition",
+  "args": [
+   [
+    "x",
+    "y"
+   ],
+   5
+  ]
+ },
+ {
+  "id": "a3-ontdiv-dups",
+  "fn": "model_ontology_divergence",
+  "args": [
+   [
+    "a",
+    "a",
+    "b"
+   ],
+   1
+  ]
+ },
+ {
+  "id": "a3-ontdiv-single",
+  "fn": "model_ontology_divergence",
+  "args": [
+   [
+    "a"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3-ontfix-y",
+  "fn": "detect_ontology_fixation",
+  "args": [
+   1,
+   3
+  ]
+ },
+ {
+  "id": "a3-ontfix-n",
+  "fn": "detect_ontology_fixation",
+  "args": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "a3-ontfree-n",
+  "fn": "preserve_ontology_freedom",
+  "args": [
+   {
+    "competitive": false
+   }
+  ]
+ },
+ {
+  "id": "a3-ontfree-default",
+  "fn": "preserve_ontology_freedom",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3-onthard-y",
+  "fn": "detect_ontology_hardening",
+  "args": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "a3-onthard-n",
+  "fn": "detect_ontology_hardening",
+  "args": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "a3-ontinst-regions",
+  "fn": "model_ontology_instability",
+  "args": [
+   [
+    "r1",
+    "r2"
+   ],
+   2
+  ]
+ },
+ {
+  "id": "a3-ontinst-empty",
+  "fn": "model_ontology_instability",
+  "args": [
+   [],
+   0
+  ]
+ },
+ {
+  "id": "a3-ontlim-y",
+  "fn": "ontology_limits",
+  "args": [
+   {
+    "inheritance_allowed": true
+   }
+  ]
+ },
+ {
+  "id": "a3-ontlim-empty",
+  "fn": "ontology_limits",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3-ontmono-y",
+  "fn": "detect_ontology_monopoly",
+  "args": [
+   1,
+   3
+  ]
+ },
+ {
+  "id": "a3-ontmono-n",
+  "fn": "detect_ontology_monopoly",
+  "args": [
+   5,
+   3
+  ]
+ },
+ {
+  "id": "a3-ontdomest-y",
+  "fn": "resist_ontology_domestication",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-ontself-one",
+  "fn": "model_ontology_self_determination",
+  "args": [
+   1
+  ]
+ },
+ {
+  "id": "a3-ontself-none",
+  "fn": "model_ontology_self_determination",
+  "args": [
+   0
+  ]
+ },
+ {
+  "id": "a3-plurdecay-y",
+  "fn": "resist_plurality_decay",
+  "args": [
+   1,
+   3
+  ]
+ },
+ {
+  "id": "a3-plurdecay-n",
+  "fn": "resist_plurality_decay",
+  "args": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "a3-agdecay-y",
+  "fn": "resist_agency_decay",
+  "args": [
+   false,
+   4
+  ]
+ },
+ {
+  "id": "a3-agdecay-n",
+  "fn": "resist_agency_decay",
+  "args": [
+   true,
+   4
+  ]
+ },
+ {
+  "id": "a3-recagency-y",
+  "fn": "model_recursive_agency",
+  "args": [
+   true,
+   3
+  ]
+ },
+ {
+  "id": "a3-recagency-n",
+  "fn": "model_recursive_agency",
+  "args": [
+   false,
+   0
+  ]
+ },
+ {
+  "id": "a3-recagpres-y",
+  "fn": "preserve_recursive_agency",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-recagpres-n",
+  "fn": "preserve_recursive_agency",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3-recauth-many",
+  "fn": "diffuse_recursive_authority",
+  "args": [
+   2
+  ]
+ },
+ {
+  "id": "a3-recauth-one",
+  "fn": "diffuse_recursive_authority",
+  "args": [
+   1
+  ]
+ },
+ {
+  "id": "a3-recautopres-y",
+  "fn": "preserve_recursive_autonomy",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-recautopres-n",
+  "fn": "preserve_recursive_autonomy",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3-capres-some",
+  "fn": "model_capture_resistance",
+  "args": [
+   [
+    {
+     "e": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3-capres-none",
+  "fn": "model_capture_resistance",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-reccentral-y",
+  "fn": "detect_recursive_centralization",
+  "args": [
+   false,
+   2
+  ]
+ },
+ {
+  "id": "a3-reccentral-n",
+  "fn": "detect_recursive_centralization",
+  "args": [
+   true,
+   5
+  ]
+ },
+ {
+  "id": "a3-reccogdist-y",
+  "fn": "distribute_recursive_cognition",
+  "args": [
+   2
+  ]
+ },
+ {
+  "id": "a3-reccogdist-n",
+  "fn": "distribute_recursive_cognition",
+  "args": [
+   0
+  ]
+ },
+ {
+  "id": "a3-reccoh-y",
+  "fn": "detect_recursive_coherence_inflation",
+  "args": [
+   2,
+   0.25
+  ]
+ },
+ {
+  "id": "a3-reccoh-n",
+  "fn": "detect_recursive_coherence_inflation",
+  "args": [
+   1,
+   0.9
+  ]
+ },
+ {
+  "id": "a3-rececho-y",
+  "fn": "detect_recursive_confidence_echo",
+  "args": [
+   0.95,
+   3,
+   [
+    0.5,
+    0.55
+   ]
+  ]
+ },
+ {
+  "id": "a3-rececho-shallow",
+  "fn": "detect_recursive_confidence_echo",
+  "args": [
+   0.4,
+   1,
+   [
+    0.5
+   ]
+  ]
+ },
+ {
+  "id": "a3-rececho-n",
+  "fn": "detect_recursive_confidence_echo",
+  "args": [
+   0.4,
+   2,
+   [
+    0.45,
+    0.55
+   ]
+  ]
+ },
+ {
+  "id": "a3-reccons-y",
+  "fn": "detect_recursive_consensus",
+  "args": [
+   true,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "a3-reccons-n",
+  "fn": "detect_recursive_consensus",
+  "args": [
+   true,
+   2,
+   5
+  ]
+ },
+ {
+  "id": "a3-stabbound-broken",
+  "fn": "model_stability_boundary",
+  "args": [
+   [
+    "r"
+   ]
+  ]
+ },
+ {
+  "id": "a3-stabbound-ok",
+  "fn": "model_stability_boundary",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-topobound-grounded",
+  "fn": "model_topology_boundaries",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   true
+  ]
+ },
+ {
+  "id": "a3-topobound-bare",
+  "fn": "model_topology_boundaries",
+  "args": [
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3-topolim-y",
+  "fn": "topology_limits",
+  "args": [
+   {
+    "propagation_allowed": true,
+    "deployment_inference_allowed": false
+   }
+  ]
+ },
+ {
+  "id": "a3-topolim-empty",
+  "fn": "topology_limits",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3-truthbound-y",
+  "fn": "model_truth_boundaries",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "a3-truthbound-n",
+  "fn": "model_truth_boundaries",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3-wvanti-y",
+  "fn": "apply_worldview_antigravity",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3-wvconv-deep",
+  "fn": "suppress_worldview_convergence",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3-wvconv-shallow",
+  "fn": "suppress_worldview_convergence",
+  "args": [
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3-wvdiv-pairs",
+  "fn": "model_worldview_diversity",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ],
+   {
+    "pairs": [
+     [
+      "a",
+      "b"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3-wvdiv-empty",
+  "fn": "model_worldview_diversity",
+  "args": [
+   [],
+   {}
+  ]
+ },
+ {
+  "id": "a3-wvvar-some",
+  "fn": "model_worldview_variance",
+  "args": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "a3-wvvar-zero",
+  "fn": "model_worldview_variance",
+  "args": [
+   0,
+   0
+  ]
+ },
+ {
+  "id": "a3b-ambvis-some",
+  "fn": "expose_ambiguity_visibility",
+  "args": [
+   [
+    "b amb",
+    "a amb",
+    "b amb"
+   ],
+   0.7
+  ]
+ },
+ {
+  "id": "a3b-ambvis-none",
+  "fn": "expose_ambiguity_visibility",
+  "args": [
+   [],
+   0.4
+  ]
+ },
+ {
+  "id": "a3b-evbound-y",
+  "fn": "model_evidence_boundaries",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-evbound-n",
+  "fn": "model_evidence_boundaries",
+  "args": [
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-evsuff-y",
+  "fn": "assess_evidence_sufficiency",
+  "args": [
+   [
+    "e1",
+    "e2",
+    "e3"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-evsuff-n",
+  "fn": "assess_evidence_sufficiency",
+  "args": [
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-evsuff-null",
+  "fn": "assess_evidence_sufficiency",
+  "args": [
+   null,
+   1
+  ]
+ },
+ {
+  "id": "a3b-halluc-y",
+  "fn": "detect_narrative_hallucination",
+  "args": [
+   {
+    "k": 1
+   },
+   [],
+   false
+  ]
+ },
+ {
+  "id": "a3b-halluc-n",
+  "fn": "detect_narrative_hallucination",
+  "args": [
+   {
+    "k": 1
+   },
+   [
+    "e"
+   ],
+   false
+  ]
+ },
+ {
+  "id": "a3b-drift-y",
+  "fn": "detect_recursive_drift",
+  "args": [
+   3,
+   1,
+   4
+  ]
+ },
+ {
+  "id": "a3b-drift-n",
+  "fn": "detect_recursive_drift",
+  "args": [
+   1,
+   5,
+   2
+  ]
+ },
+ {
+  "id": "a3b-recentpres-rich",
+  "fn": "preserve_recursive_entropy",
+  "args": [
+   [
+    "a1",
+    "a2"
+   ],
+   [
+    "u1"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3b-recentpres-zero",
+  "fn": "preserve_recursive_entropy",
+  "args": [
+   [],
+   [],
+   0
+  ]
+ },
+ {
+  "id": "a3b-ancestry-detached",
+  "fn": "track_recursive_evidence_ancestry",
+  "args": [
+   [
+    "e1"
+   ],
+   4
+  ]
+ },
+ {
+  "id": "a3b-ancestry-ok",
+  "fn": "track_recursive_evidence_ancestry",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   5
+  ]
+ },
+ {
+  "id": "a3b-explordecay-y",
+  "fn": "resist_exploration_decay",
+  "args": [
+   false,
+   5
+  ]
+ },
+ {
+  "id": "a3b-explordecay-n",
+  "fn": "resist_exploration_decay",
+  "args": [
+   true,
+   6
+  ]
+ },
+ {
+  "id": "a3b-guardian-y",
+  "fn": "detect_recursive_guardianship",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-guardian-n",
+  "fn": "detect_recursive_guardianship",
+  "args": [
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3b-inddecay-y",
+  "fn": "resist_independence_decay",
+  "args": [
+   false,
+   5
+  ]
+ },
+ {
+  "id": "a3b-inddecay-n",
+  "fn": "resist_independence_decay",
+  "args": [
+   true,
+   6
+  ]
+ },
+ {
+  "id": "a3b-intind-y",
+  "fn": "model_recursive_interpretive_independence",
+  "args": [
+   2
+  ]
+ },
+ {
+  "id": "a3b-intind-n",
+  "fn": "model_recursive_interpretive_independence",
+  "args": [
+   1
+  ]
+ },
+ {
+  "id": "a3b-narrmono-y",
+  "fn": "detect_recursive_narrative_monopoly",
+  "args": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "a3b-narrmono-n",
+  "fn": "detect_recursive_narrative_monopoly",
+  "args": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "a3b-novdecay-y",
+  "fn": "resist_novelty_decay",
+  "args": [
+   0.1,
+   4
+  ]
+ },
+ {
+  "id": "a3b-novdecay-n",
+  "fn": "resist_novelty_decay",
+  "args": [
+   0.5,
+   4
+  ]
+ },
+ {
+  "id": "a3b-recnov-rich",
+  "fn": "model_recursive_novelty",
+  "args": [
+   1,
+   3,
+   2
+  ]
+ },
+ {
+  "id": "a3b-recnov-flat",
+  "fn": "model_recursive_novelty",
+  "args": [
+   5,
+   0,
+   0
+  ]
+ },
+ {
+  "id": "a3b-novpres-risk",
+  "fn": "preserve_recursive_novelty",
+  "args": [
+   {
+    "novelty": 0.1
+   },
+   5
+  ]
+ },
+ {
+  "id": "a3b-novpres-ok",
+  "fn": "preserve_recursive_novelty",
+  "args": [
+   {
+    "novelty": 0.5
+   },
+   5
+  ]
+ },
+ {
+  "id": "a3b-obed-y",
+  "fn": "detect_recursive_obedience",
+  "args": [
+   true,
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-obed-n",
+  "fn": "detect_recursive_obedience",
+  "args": [
+   true,
+   false,
+   5
+  ]
+ },
+ {
+  "id": "a3b-reconlim",
+  "fn": "recursive_ontology_limits",
+  "args": [
+   4
+  ]
+ },
+ {
+  "id": "a3b-openstab-y",
+  "fn": "model_recursive_openness_stability",
+  "args": [
+   true,
+   3
+  ]
+ },
+ {
+  "id": "a3b-openstab-n",
+  "fn": "model_recursive_openness_stability",
+  "args": [
+   false,
+   1
+  ]
+ },
+ {
+  "id": "a3b-phasespace-rich",
+  "fn": "model_recursive_phase_space",
+  "args": [
+   3,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "a3b-phasespace-reduced",
+  "fn": "model_recursive_phase_space",
+  "args": [
+   1,
+   0,
+   4
+  ]
+ },
+ {
+  "id": "a3b-recprov-some",
+  "fn": "preserve_recursive_provenance",
+  "args": [
+   [
+    "s1",
+    "s2"
+   ],
+   {
+    "depth": 3
+   }
+  ]
+ },
+ {
+  "id": "a3b-recprov-none",
+  "fn": "preserve_recursive_provenance",
+  "args": [
+   [],
+   {}
+  ]
+ },
+ {
+  "id": "a3b-reclim-suppressed",
+  "fn": "recursive_reality_limits",
+  "args": [
+   2,
+   {
+    "suppress_recursive_stabilization": true
+   }
+  ]
+ },
+ {
+  "id": "a3b-reclim-open",
+  "fn": "recursive_reality_limits",
+  "args": [
+   1,
+   {}
+  ]
+ },
+ {
+  "id": "a3b-selfconf-y",
+  "fn": "detect_recursive_self_confirmation",
+  "args": [
+   3,
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3b-selfconf-n",
+  "fn": "detect_recursive_self_confirmation",
+  "args": [
+   3,
+   true,
+   4
+  ]
+ },
+ {
+  "id": "a3b-semdecen-dom",
+  "fn": "model_recursive_semantic_decentralization",
+  "args": [
+   [
+    "c1"
+   ],
+   2
+  ]
+ },
+ {
+  "id": "a3b-semdecen-free",
+  "fn": "model_recursive_semantic_decentralization",
+  "args": [
+   [
+    "c1",
+    "c2"
+   ],
+   0
+  ]
+ },
+ {
+  "id": "a3b-semdist-many",
+  "fn": "distribute_recursive_semantics",
+  "args": [
+   [
+    "k1",
+    "k2",
+    "k1"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semdist-one",
+  "fn": "distribute_recursive_semantics",
+  "args": [
+   [
+    "k1",
+    "k1"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semind-y",
+  "fn": "model_recursive_semantic_independence",
+  "args": [
+   [
+    "k1"
+   ],
+   1
+  ]
+ },
+ {
+  "id": "a3b-semind-n",
+  "fn": "model_recursive_semantic_independence",
+  "args": [
+   [
+    "k1"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3b-sovstab-y",
+  "fn": "model_sovereignty_stability",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-sovstab-n",
+  "fn": "model_sovereignty_stability",
+  "args": [
+   false,
+   1
+  ]
+ },
+ {
+  "id": "a3b-recstab-y",
+  "fn": "detect_recursive_stabilization",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-recstab-n",
+  "fn": "detect_recursive_stabilization",
+  "args": [
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3b-recterm-deep",
+  "fn": "terminate_recursive_stabilization",
+  "args": [
+   [
+    {
+     "reason": "z"
+    },
+    {
+     "reason": "a"
+    },
+    {}
+   ],
+   4
+  ]
+ },
+ {
+  "id": "a3b-recterm-shallow",
+  "fn": "terminate_recursive_stabilization",
+  "args": [
+   [],
+   2
+  ]
+ },
+ {
+  "id": "a3b-recsub-y",
+  "fn": "detect_recursive_submission",
+  "args": [
+   true,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "a3b-recsub-n",
+  "fn": "detect_recursive_submission",
+  "args": [
+   false,
+   5,
+   0
+  ]
+ },
+ {
+  "id": "a3b-rectopolim",
+  "fn": "recursive_topology_limits",
+  "args": [
+   1
+  ]
+ },
+ {
+  "id": "a3b-trustmono-y",
+  "fn": "detect_recursive_trust_monopoly",
+  "args": [
+   0.9,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "a3b-trustmono-n",
+  "fn": "detect_recursive_trust_monopoly",
+  "args": [
+   0.8,
+   5,
+   0
+  ]
+ },
+ {
+  "id": "a3b-rectruth-bounded",
+  "fn": "model_recursive_truth_boundaries",
+  "args": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "a3b-rectruth-eroded",
+  "fn": "model_recursive_truth_boundaries",
+  "args": [
+   7,
+   3
+  ]
+ },
+ {
+  "id": "a3b-recrefuse-mixed",
+  "fn": "refuse_recursive_stabilization",
+  "args": [
+   [
+    {
+     "reason": "drift",
+     "truth_boundary_violation": {
+      "type": "closure"
+     }
+    },
+    {}
+   ]
+  ]
+ },
+ {
+  "id": "a3b-recrefuse-empty",
+  "fn": "refuse_recursive_stabilization",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3b-recunc-some",
+  "fn": "preserve_recursive_uncertainty",
+  "args": [
+   [
+    "u2",
+    "u1",
+    "u2"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3b-recunc-none",
+  "fn": "preserve_recursive_uncertainty",
+  "args": [
+   [],
+   0
+  ]
+ },
+ {
+  "id": "a3b-semalt-mixed",
+  "fn": "model_semantic_alternatives",
+  "args": [
+   {
+    "b": 1,
+    "a": 2
+   },
+   {
+    "c": 3,
+    "a": 9
+   }
+  ]
+ },
+ {
+  "id": "a3b-semalt-empty",
+  "fn": "model_semantic_alternatives",
+  "args": [
+   {},
+   {}
+  ]
+ },
+ {
+  "id": "a3b-semanti-y",
+  "fn": "apply_semantic_antigravity",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3b-semanti-n",
+  "fn": "apply_semantic_antigravity",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3b-semauto-y",
+  "fn": "model_semantic_autonomy",
+  "args": [
+   [
+    {
+     "i": 1
+    },
+    {
+     "i": 2
+    }
+   ],
+   0
+  ]
+ },
+ {
+  "id": "a3b-semauto-n",
+  "fn": "model_semantic_autonomy",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ],
+   1
+  ]
+ },
+ {
+  "id": "a3b-sembound-allowed",
+  "fn": "model_semantic_boundaries",
+  "args": [
+   {
+    "z": 1,
+    "a": 2
+   },
+   true
+  ]
+ },
+ {
+  "id": "a3b-sembound-blocked",
+  "fn": "model_semantic_boundaries",
+  "args": [
+   {
+    "z": 1,
+    "a": 2
+   },
+   false
+  ]
+ },
+ {
+  "id": "a3b-semdep-some",
+  "fn": "suppress_semantic_dependency",
+  "args": [
+   [
+    {
+     "d": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semdep-none",
+  "fn": "suppress_semantic_dependency",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3b-semdiverg-rich",
+  "fn": "model_semantic_divergence",
+  "args": [
+   {
+    "a": 1,
+    "b": 2
+   },
+   {
+    "b": 3,
+    "c": 4
+   },
+   [
+    "amb1"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semdiverg-zero",
+  "fn": "model_semantic_divergence",
+  "args": [
+   {},
+   {},
+   []
+  ]
+ },
+ {
+  "id": "a3b-semdivers-rich",
+  "fn": "model_semantic_diversity",
+  "args": [
+   {
+    "a": 1
+   },
+   {
+    "b": 2
+   },
+   [
+    "amb1"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semdivers-zero",
+  "fn": "model_semantic_diversity",
+  "args": [
+   {},
+   {},
+   []
+  ]
+ },
+ {
+  "id": "a3b-semfix-y",
+  "fn": "detect_semantic_fixation",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-semfix-n",
+  "fn": "detect_semantic_fixation",
+  "args": [
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3b-semfree-y",
+  "fn": "model_semantic_freedom",
+  "args": [
+   {
+    "autonomous": true
+   },
+   {
+    "competitive": true
+   }
+  ]
+ },
+ {
+  "id": "a3b-semfree-n",
+  "fn": "model_semantic_freedom",
+  "args": [
+   {
+    "autonomous": false
+   },
+   {}
+  ]
+ },
+ {
+  "id": "a3b-semgov-y",
+  "fn": "suppress_semantic_governance",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-semgov-n",
+  "fn": "suppress_semantic_governance",
+  "args": [
+   true,
+   1
+  ]
+ },
+ {
+  "id": "a3b-semhier-y",
+  "fn": "detect_semantic_hierarchy_permanence",
+  "args": [
+   3,
+   true
+  ]
+ },
+ {
+  "id": "a3b-semhier-n",
+  "fn": "detect_semantic_hierarchy_permanence",
+  "args": [
+   2,
+   true
+  ]
+ },
+ {
+  "id": "a3b-semhomog-y",
+  "fn": "detect_semantic_homogenization",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-semhomog-n",
+  "fn": "detect_semantic_homogenization",
+  "args": [
+   false,
+   5
+  ]
+ },
+ {
+  "id": "a3b-semmom-high",
+  "fn": "measure_semantic_momentum",
+  "args": [
+   5,
+   2
+  ]
+ },
+ {
+  "id": "a3b-semmom-low",
+  "fn": "measure_semantic_momentum",
+  "args": [
+   1,
+   0
+  ]
+ },
+ {
+  "id": "a3b-semdomest-y",
+  "fn": "resist_semantic_domestication",
+  "args": [
+   true
+  ]
+ },
+ {
+  "id": "a3b-semdomest-n",
+  "fn": "resist_semantic_domestication",
+  "args": [
+   false
+  ]
+ },
+ {
+  "id": "a3b-semorth-y",
+  "fn": "detect_semantic_orthodoxy",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3b-semorth-n",
+  "fn": "detect_semantic_orthodoxy",
+  "args": [
+   [
+    {
+     "i": 1
+    },
+    {
+     "i": 2
+    }
+   ],
+   3
+  ]
+ },
+ {
+  "id": "a3b-semself-y",
+  "fn": "model_semantic_self_determination",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "a3b-semself-n",
+  "fn": "model_semantic_self_determination",
+  "args": [
+   false,
+   0
+  ]
+ },
+ {
+  "id": "a3b-semreinf-y",
+  "fn": "detect_semantic_self_reinforcement",
+  "args": [
+   {
+    "a": 1,
+    "b": 2
+   },
+   {
+    "a": 1,
+    "b": 2
+   },
+   [
+    "e"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semreinf-n",
+  "fn": "detect_semantic_self_reinforcement",
+  "args": [
+   {
+    "a": 1,
+    "b": 2
+   },
+   {
+    "a": 1,
+    "b": 3
+   },
+   []
+  ]
+ },
+ {
+  "id": "a3b-stablim-set",
+  "fn": "semantic_stability_limits",
+  "args": [
+   {
+    "stability_limits": {
+     "max_confidence": 0.4
+    },
+    "stable": true
+   }
+  ]
+ },
+ {
+  "id": "a3b-stablim-default",
+  "fn": "semantic_stability_limits",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "a3b-semterm-mixed",
+  "fn": "terminate_semantic_chain",
+  "args": [
+   [
+    "r2",
+    "r1"
+   ],
+   [
+    {
+     "target": "t1"
+    },
+    {}
+   ]
+  ]
+ },
+ {
+  "id": "a3b-semterm-empty",
+  "fn": "terminate_semantic_chain",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3b-truthlim-suppressed",
+  "fn": "semantic_truth_limits",
+  "args": [
+   {
+    "suppress_stabilization": true,
+    "suppress_coherence": false
+   },
+   {
+    "preserved": false
+   }
+  ]
+ },
+ {
+  "id": "a3b-truthlim-open",
+  "fn": "semantic_truth_limits",
+  "args": [
+   {},
+   {}
+  ]
+ },
+ {
+  "id": "a3b-semunif-y",
+  "fn": "detect_semantic_uniformity",
+  "args": [
+   [
+    "k",
+    "k"
+   ],
+   2
+  ]
+ },
+ {
+  "id": "a3b-semunif-n",
+  "fn": "detect_semantic_uniformity",
+  "args": [
+   [
+    "k",
+    "j"
+   ],
+   2
+  ]
+ },
+ {
+  "id": "a3b-unexp-y",
+  "fn": "detect_unsupported_expansion",
+  "args": [
+   [
+    "e1"
+   ],
+   "ontology",
+   3
+  ]
+ },
+ {
+  "id": "a3b-unexp-n",
+  "fn": "detect_unsupported_expansion",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   "topology",
+   2
+  ]
+ },
+ {
+  "id": "a3b-unscope-mixed",
+  "fn": "model_unsupported_scope",
+  "args": [
+   [
+    "dim2",
+    "dim1",
+    "",
+    "dim2"
+   ]
+  ]
+ },
+ {
+  "id": "a3b-unscope-null",
+  "fn": "model_unsupported_scope",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "a3c-caps-full",
+  "fn": "apply_confidence_caps",
+  "args": [
+   0.9,
+   {
+    "confidence_limits": {
+     "max_score": 0.8
+    },
+    "level": "high"
+   },
+   2,
+   3,
+   1
+  ]
+ },
+ {
+  "id": "a3c-caps-defaults",
+  "fn": "apply_confidence_caps",
+  "args": [
+   0.7,
+   {}
+  ]
+ },
+ {
+  "id": "a3c-caps-floor",
+  "fn": "apply_confidence_caps",
+  "args": [
+   0.3,
+   {
+    "level": "medium"
+   },
+   5,
+   5,
+   5
+  ]
+ },
+ {
+  "id": "a3c-lattice-mixed",
+  "fn": "build_contradiction_lattice",
+  "args": [
+   [
+    [
+     "z",
+     "y"
+    ],
+    [
+     "a",
+     "b"
+    ],
+    [
+     "a",
+     "b",
+     "extra"
+    ],
+    "junk",
+    [
+     "solo"
+    ]
+   ]
+  ]
+ },
+ {
+  "id": "a3c-lattice-empty",
+  "fn": "build_contradiction_lattice",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "a3c-epibound-broken",
+  "fn": "preserve_epistemic_boundaries",
+  "args": [
+   [
+    "e1"
+   ],
+   [
+    "n1"
+   ],
+   [
+    "u1",
+    "u2"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-epibound-ok",
+  "fn": "preserve_epistemic_boundaries",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3c-epilim-all",
+  "fn": "model_epistemic_limits",
+  "args": [
+   [],
+   0,
+   {
+    "level": "high",
+    "confidence_limits": {
+     "max_score": 0.3
+    }
+   }
+  ]
+ },
+ {
+  "id": "a3c-epilim-none",
+  "fn": "model_epistemic_limits",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   4,
+   {
+    "level": "low"
+   }
+  ]
+ },
+ {
+  "id": "a3c-algebra-weighted",
+  "fn": "combine_evidence",
+  "args": [
+   [
+    "b",
+    "a",
+    "",
+    "b"
+   ],
+   {
+    "a": 0.5,
+    "b": 0.75
+   }
+  ]
+ },
+ {
+  "id": "a3c-algebra-default",
+  "fn": "combine_evidence",
+  "args": [
+   [
+    "x",
+    "y"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-algebra-empty",
+  "fn": "combine_evidence",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3c-calc-parser",
+  "fn": "weight_evidence_calculus",
+  "args": [
+   [
+    "parser:sym",
+    "doc:a",
+    "doc:b"
+   ],
+   true
+  ]
+ },
+ {
+  "id": "a3c-calc-textual",
+  "fn": "weight_evidence_calculus",
+  "args": [
+   [
+    "doc:a",
+    "doc:b"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-calc-empty",
+  "fn": "weight_evidence_calculus",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3c-explain-full",
+  "fn": "build_explainability",
+  "args": [
+   {
+    "language": "python",
+    "parser_evidence": {
+     "ast": true
+    },
+    "semantic_graph": {
+     "nodes": [
+      {
+       "id": "n1"
+      }
+     ],
+     "edges": []
+    }
+   },
+   {
+    "score": 0.42,
+    "deterministic_inputs": [
+     "s=1"
+    ]
+   },
+   {
+    "grounding": {
+     "symbol_count": 7
+    },
+    "evidence": [
+     "z",
+     "a"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3c-explain-null",
+  "fn": "build_explainability",
+  "args": [
+   null,
+   {},
+   {}
+  ]
+ },
+ {
+  "id": "a3c-integrity-explicit",
+  "fn": "model_inference_integrity",
+  "args": [
+   [
+    "e1"
+   ],
+   [
+    "s2",
+    "s1"
+   ],
+   [
+    "c1"
+   ],
+   {
+    "level": "high",
+    "basis": {
+     "b": 1
+    },
+    "confidence_limits": {
+     "max_score": 0.4
+    },
+    "missing_support": [
+     "m1"
+    ],
+    "contradiction_pressure": [
+     "p1"
+    ]
+   },
+   [
+    "x1"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-integrity-fallback",
+  "fn": "model_inference_integrity",
+  "args": [
+   [
+    "e2",
+    "e1"
+   ],
+   [],
+   [],
+   {}
+  ]
+ },
+ {
+  "id": "a3c-termchain-mixed",
+  "fn": "terminate_inference_chain",
+  "args": [
+   [
+    "r1"
+   ],
+   [
+    {
+     "reason": "spec1"
+    },
+    {},
+    "junk"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-termchain-empty",
+  "fn": "terminate_inference_chain",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3c-instab-weak",
+  "fn": "preserve_instability",
+  "args": [
+   [
+    "r1"
+   ],
+   [
+    "e1"
+   ],
+   [
+    {
+     "s": 1
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3c-instab-ok",
+  "fn": "preserve_instability",
+  "args": [
+   [],
+   [
+    "e1",
+    "e2"
+   ],
+   []
+  ]
+ },
+ {
+  "id": "a3c-insuff-y",
+  "fn": "mark_insufficiency",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "a1"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3c-insuff-n",
+  "fn": "mark_insufficiency",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3c-intdivers-rich",
+  "fn": "model_interpretive_diversity",
+  "args": [
+   [
+    "k1",
+    "e2"
+   ],
+   {
+    "k1": "v1",
+    "k2": "v2"
+   }
+  ]
+ },
+ {
+  "id": "a3c-intdivers-empty",
+  "fn": "model_interpretive_diversity",
+  "args": [
+   [],
+   {}
+  ]
+ },
+ {
+  "id": "a3c-lineage-mixed",
+  "fn": "build_lineage",
+  "args": [
+   [
+    {
+     "stage": "parse",
+     "inputs": [
+      "b",
+      "a"
+     ],
+     "outputs": [
+      "o"
+     ]
+    },
+    "junk",
+    {
+     "inputs": "bad"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "a3c-lineage-null",
+  "fn": "build_lineage",
+  "args": [
+   null
+  ]
+ },
+ {
+  "id": "a3c-noninf-regions",
+  "fn": "model_noninferable_regions",
+  "args": [
+   {
+    "k": 1
+   },
+   [],
+   [
+    "pre1"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-noninf-clear",
+  "fn": "model_noninferable_regions",
+  "args": [
+   {},
+   [
+    "e1",
+    "e2"
+   ],
+   []
+  ]
+ },
+ {
+  "id": "a3c-noninference-weak",
+  "fn": "model_noninference",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "b": 1,
+    "a": 2
+   },
+   {
+    "a": 2
+   },
+   {
+    "a": 3
+   }
+  ]
+ },
+ {
+  "id": "a3c-noninference-strong",
+  "fn": "model_noninference",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   }
+  ]
+ },
+ {
+  "id": "a3c-prov-full",
+  "fn": "build_provenance",
+  "args": [
+   [
+    "b",
+    "a",
+    ""
+   ],
+   [
+    "s1"
+   ],
+   {
+    "symbol_count": 2
+   },
+   {
+    "depth": 1
+   },
+   {
+    "basis": true
+   }
+  ]
+ },
+ {
+  "id": "a3c-prov-fallback",
+  "fn": "build_provenance",
+  "args": [
+   [
+    "e2",
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-recent-rich",
+  "fn": "model_recursive_entropy",
+  "args": [
+   [
+    "a1"
+   ],
+   [
+    "u1"
+   ],
+   {
+    "pairs": [
+     [
+      "x",
+      "y"
+     ]
+    ]
+   },
+   2
+  ]
+ },
+ {
+  "id": "a3c-recent-flat",
+  "fn": "model_recursive_entropy",
+  "args": [
+   [],
+   [],
+   null,
+   1
+  ]
+ },
+ {
+  "id": "a3c-recinstab-deep",
+  "fn": "model_recursive_instability",
+  "args": [
+   [
+    "r1"
+   ],
+   3,
+   1
+  ]
+ },
+ {
+  "id": "a3c-recinstab-ok",
+  "fn": "model_recursive_instability",
+  "args": [
+   [],
+   1,
+   3
+  ]
+ },
+ {
+  "id": "a3c-reclineage-stages",
+  "fn": "preserve_recursive_lineage",
+  "args": [
+   {
+    "stages": [
+     {
+      "stage": "a"
+     },
+     {
+      "stage": "b"
+     }
+    ]
+   },
+   [
+    "e1"
+   ],
+   [
+    "a1"
+   ],
+   [
+    "u1"
+   ],
+   {
+    "pairs": [
+     [
+      "p",
+      "q"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3c-reclineage-empty",
+  "fn": "preserve_recursive_lineage",
+  "args": [
+   {},
+   [],
+   [],
+   [],
+   null
+  ]
+ },
+ {
+  "id": "a3c-spec-y",
+  "fn": "detect_speculative_coherence",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "a": 1
+   },
+   {
+    "a": 2
+   }
+  ]
+ },
+ {
+  "id": "a3c-spec-n",
+  "fn": "detect_speculative_coherence",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   }
+  ]
+ },
+ {
+  "id": "a3c-support-extra",
+  "fn": "build_support",
+  "args": [
+   [
+    "b",
+    "a"
+   ],
+   [
+    "c",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "a3c-support-bare",
+  "fn": "build_support",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3c-weak-y",
+  "fn": "build_weaknesses",
+  "args": [
+   [
+    "e1"
+   ],
+   [
+    "amb2",
+    "amb1"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-weak-n",
+  "fn": "build_weaknesses",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   []
+  ]
+ },
+ {
+  "id": "a3c-trace-full",
+  "fn": "build_traceability",
+  "args": [
+   [
+    "b",
+    "a"
+   ],
+   {
+    "depth": 2
+   },
+   [
+    "s2",
+    "s1"
+   ]
+  ]
+ },
+ {
+  "id": "a3c-trace-bare",
+  "fn": "build_traceability",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3c-truthref-mixed",
+  "fn": "refuse_unsupported_stabilization",
+  "args": [
+   [
+    {
+     "reason": "drift",
+     "truth_boundary_violation": {
+      "type": "closure"
+     }
+    },
+    {}
+   ]
+  ]
+ },
+ {
+  "id": "a3c-truthref-empty",
+  "fn": "refuse_unsupported_stabilization",
+  "args": [
+   []
+  ]
+ },
+ {
+  "id": "a3d-conf-full",
+  "fn": "score_semantic_confidence",
+  "args": [
+   {
+    "evidence": {
+     "b": true,
+     "a": false,
+     "c": 1
+    }
+   },
+   {
+    "nodes": [
+     {
+      "id": "n"
+     }
+    ],
+    "edges": [
+     {
+      "e": 1
+     },
+     {
+      "e": 2
+     }
+    ]
+   },
+   [
+    "x1",
+    "x2"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-conf-null",
+  "fn": "score_semantic_confidence",
+  "args": [
+   null,
+   null
+  ]
+ },
+ {
+  "id": "a3d-conf-emptygraph",
+  "fn": "score_semantic_confidence",
+  "args": [
+   {
+    "evidence": {}
+   },
+   {}
+  ]
+ },
+ {
+  "id": "a3d-conserv-weak",
+  "fn": "apply_semantic_conservatism",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "z"
+    ],
+    "contradicted": {
+     "preserved": true,
+     "pairs": [
+      [
+       "a",
+       "b"
+      ]
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.9,
+     "deterministic_inputs": [
+      "d1"
+     ]
+    },
+    "semantic_basis": {
+     "k": 1
+    }
+   }
+  ]
+ },
+ {
+  "id": "a3d-conserv-strong",
+  "fn": "apply_semantic_conservatism",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2"
+    ],
+    "confidence_basis": {
+     "score": 0.6
+    }
+   }
+  ]
+ },
+ {
+  "id": "a3d-consist-overlap",
+  "fn": "assess_semantic_consistency",
+  "args": [
+   {
+    "a": 1,
+    "b": 2
+   },
+   {
+    "a": 9,
+    "c": 3
+   },
+   {
+    "a": 1,
+    "b": 2
+   }
+  ]
+ },
+ {
+  "id": "a3d-consist-empty",
+  "fn": "assess_semantic_consistency",
+  "args": [
+   {},
+   {},
+   {}
+  ]
+ },
+ {
+  "id": "a3d-decay-fast",
+  "fn": "model_semantic_decay",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "a": 1,
+    "b": 2,
+    "c": 3
+   },
+   2
+  ]
+ },
+ {
+  "id": "a3d-decay-none",
+  "fn": "model_semantic_decay",
+  "args": [
+   [
+    "e1",
+    "e2",
+    "e3"
+   ],
+   {},
+   0
+  ]
+ },
+ {
+  "id": "a3d-decen-dom",
+  "fn": "model_semantic_decentralization",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ],
+   1
+  ]
+ },
+ {
+  "id": "a3d-decen-free",
+  "fn": "model_semantic_decentralization",
+  "args": [
+   [
+    {
+     "i": 1
+    },
+    {
+     "i": 2
+    }
+   ],
+   0
+  ]
+ },
+ {
+  "id": "a3d-drift-rich",
+  "fn": "detect_semantic_drift",
+  "args": [
+   {
+    "a": 1
+   },
+   {
+    "a": 1,
+    "x": 2,
+    "y": 3
+   },
+   {
+    "a": 2
+   },
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-drift-none",
+  "fn": "detect_semantic_drift",
+  "args": [
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   },
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-entropy-rich",
+  "fn": "model_semantic_entropy",
+  "args": [
+   [
+    "a1",
+    "a2"
+   ],
+   [
+    "u1"
+   ],
+   {
+    "pairs": [
+     [
+      "x",
+      "y"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3d-entropy-zero",
+  "fn": "model_semantic_entropy",
+  "args": [
+   [],
+   [],
+   null
+  ]
+ },
+ {
+  "id": "a3d-frag-low",
+  "fn": "model_fragility",
+  "args": [
+   [
+    "e1",
+    "e2",
+    "e3"
+   ],
+   [],
+   0,
+   2
+  ]
+ },
+ {
+  "id": "a3d-frag-medium-amb",
+  "fn": "model_fragility",
+  "args": [
+   [
+    "e1"
+   ],
+   [
+    "a1"
+   ],
+   1,
+   0
+  ]
+ },
+ {
+  "id": "a3d-frag-high",
+  "fn": "model_fragility",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3d-honest-y",
+  "fn": "assess_semantic_honesty",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "keys": [
+     "k1",
+     "k2"
+    ]
+   },
+   {},
+   {
+    "level": "low"
+   }
+  ]
+ },
+ {
+  "id": "a3d-honest-n",
+  "fn": "assess_semantic_honesty",
+  "args": [
+   [
+    "e1"
+   ],
+   {},
+   {
+    "claims": [
+     "c1"
+    ]
+   },
+   {
+    "level": "high"
+   }
+  ]
+ },
+ {
+  "id": "a3d-incomp-y",
+  "fn": "model_incompleteness",
+  "args": [
+   {
+    "k": 1
+   },
+   [
+    "u2",
+    "u1"
+   ],
+   [
+    "s1"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-incomp-n",
+  "fn": "model_incompleteness",
+  "args": [
+   {
+    "k": 1
+   },
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3d-infer-allowed",
+  "fn": "infer_from_evidence",
+  "args": [
+   {
+    "b": 2,
+    "a": 1
+   },
+   [
+    "e1",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "a3d-infer-blocked",
+  "fn": "infer_from_evidence",
+  "args": [
+   {
+    "a": 1
+   },
+   [],
+   2
+  ]
+ },
+ {
+  "id": "a3d-instab-entropy",
+  "fn": "model_semantic_instability",
+  "args": [
+   [
+    "r1"
+   ],
+   {
+    "entropy": 0.4
+   },
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-instab-intzero",
+  "fn": "model_semantic_instability",
+  "args": [
+   [],
+   {},
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-justif-full",
+  "fn": "build_justification",
+  "args": [
+   [
+    "b",
+    "a"
+   ],
+   {
+    "stages": [
+     {
+      "stage": "parse"
+     },
+     {
+      "other": 1
+     }
+    ]
+   },
+   {
+    "deterministic_inputs": [
+     "u1"
+    ]
+   },
+   {
+    "entropy": 0.3
+   }
+  ]
+ },
+ {
+  "id": "a3d-justif-factors",
+  "fn": "build_justification",
+  "args": [
+   [],
+   {},
+   {
+    "factors": [
+     "f1"
+    ]
+   },
+   {}
+  ]
+ },
+ {
+  "id": "a3d-limits-allowed",
+  "fn": "semantic_limits",
+  "args": [
+   3,
+   [
+    "n1"
+   ],
+   {
+    "expansion_allowed": true,
+    "reconciliation_allowed": true
+   }
+  ]
+ },
+ {
+  "id": "a3d-limits-default",
+  "fn": "semantic_limits",
+  "args": [
+   0,
+   [],
+   {}
+  ]
+ },
+ {
+  "id": "a3d-overreach-y",
+  "fn": "detect_semantic_overreach",
+  "args": [
+   [],
+   {
+    "a": 1
+   },
+   {
+    "b": 2
+   }
+  ]
+ },
+ {
+  "id": "a3d-overreach-n",
+  "fn": "detect_semantic_overreach",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   }
+  ]
+ },
+ {
+  "id": "a3d-plural-rich",
+  "fn": "model_semantic_plurality",
+  "args": [
+   {
+    "a": 1
+   },
+   {
+    "b": 2
+   },
+   [
+    "amb"
+   ],
+   {
+    "pairs": [
+     [
+      "x",
+      "y"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a3d-plural-mono",
+  "fn": "model_semantic_plurality",
+  "args": [
+   {
+    "a": 1
+   },
+   {},
+   [],
+   null
+  ]
+ },
+ {
+  "id": "a3d-proof-y",
+  "fn": "prove_semantic_claim",
+  "args": [
+   "claim-x",
+   [
+    "e2",
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-proof-n",
+  "fn": "prove_semantic_claim",
+  "args": [
+   "claim-y",
+   [],
+   1
+  ]
+ },
+ {
+  "id": "a3d-refuse-mixed",
+  "fn": "refuse_unsupported_conclusions",
+  "args": [
+   [
+    "r1"
+   ],
+   [
+    {
+     "reason": "spec1"
+    },
+    {}
+   ]
+  ]
+ },
+ {
+  "id": "a3d-refuse-empty",
+  "fn": "refuse_unsupported_conclusions",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3d-selflim-active",
+  "fn": "apply_semantic_self_limitation",
+  "args": [
+   [
+    "e1"
+   ],
+   [
+    {
+     "s": 1
+    }
+   ],
+   [
+    "n1"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-selflim-open",
+  "fn": "apply_semantic_self_limitation",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3d-stability-stable",
+  "fn": "model_semantic_stability",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   0.1,
+   [],
+   true
+  ]
+ },
+ {
+  "id": "a3d-stability-low",
+  "fn": "model_semantic_stability",
+  "args": [
+   [
+    "e1"
+   ],
+   0.3,
+   [
+    {
+     "c": 1
+    }
+   ],
+   false
+  ]
+ },
+ {
+  "id": "a3d-stabterm-mixed",
+  "fn": "terminate_stabilization",
+  "args": [
+   [
+    {
+     "reason": "z"
+    },
+    {}
+   ],
+   [
+    "a",
+    "z"
+   ]
+  ]
+ },
+ {
+  "id": "a3d-stabterm-empty",
+  "fn": "terminate_stabilization",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "a3d-uncert-low",
+  "fn": "model_uncertainty",
+  "args": [
+   3,
+   0,
+   0
+  ]
+ },
+ {
+  "id": "a3d-uncert-high",
+  "fn": "model_uncertainty",
+  "args": [
+   0,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "a3d-uncvis-some",
+  "fn": "expose_uncertainty_visibility",
+  "args": [
+   [
+    "u2",
+    "u1",
+    "u2"
+   ],
+   [
+    "a1"
+   ],
+   0.7
+  ]
+ },
+ {
+  "id": "a3d-uncvis-none",
+  "fn": "expose_uncertainty_visibility",
+  "args": [
+   [],
+   [],
+   0.4
+  ]
+ },
+ {
+  "id": "a3d-escal-blocked",
+  "fn": "block_unsupported_confidence_escalation",
+  "args": [
+   0.8,
+   1
+  ]
+ },
+ {
+  "id": "a3d-escal-ok",
+  "fn": "block_unsupported_confidence_escalation",
+  "args": [
+   0.8,
+   3
+  ]
+ },
+ {
+  "id": "a3d-suppinf-y",
+  "fn": "suppress_unsupported_inference",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "b": 1,
+    "a": 2
+   },
+   {}
+  ]
+ },
+ {
+  "id": "a3d-suppinf-n",
+  "fn": "suppress_unsupported_inference",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   }
+  ]
+ },
+ {
+  "id": "a3d-recdivpres-y",
+  "fn": "preserve_recursive_divergence",
+  "args": [
+   0.4
+  ]
+ },
+ {
+  "id": "a3d-recdivpres-n",
+  "fn": "preserve_recursive_divergence",
+  "args": [
+   0.0
+  ]
+ },
+ {
+  "id": "a3d-recdomest-y",
+  "fn": "detect_recursive_domestication",
+  "args": [
+   true,
+   3
+  ]
+ },
+ {
+  "id": "a3d-recdomest-n",
+  "fn": "detect_recursive_domestication",
+  "args": [
+   true,
+   2
+  ]
+ },
+ {
+  "id": "b-ast-simple",
+  "fn": "parse_python_ast",
+  "args": [
+   "import os\nimport sys as system\n\ndef main(a, b=1):\n    return a\n\nclass Foo(Base):\n    def method(self):\n        pass\n\nclass Bar:\n    pass\n\nx = 5\ny = compute(1, 2)\n"
+  ]
+ },
+ {
+  "id": "b-ast-from",
+  "fn": "parse_python_ast",
+  "args": [
+   "from typing import Any, Dict\nfrom os.path import (join,\n    split)\n\n\ndef solo():\n    inner = 1\n    return inner\n"
+  ]
+ },
+ {
+  "id": "b-ast-decorated",
+  "fn": "parse_python_ast",
+  "args": [
+   "import json, re\n\n@decorator\ndef fetch(url):\n    data = get(url)\n    return data\n\nresult = fetch('x')\n"
+  ]
+ },
+ {
+  "id": "b-ast-nested",
+  "fn": "parse_python_ast",
+  "args": [
+   "def outer(a):\n    first = a\n    def inner(b):\n        second = b\n        return second\n    return inner\n\nlast = outer(1)\n"
+  ]
+ },
+ {
+  "id": "b-ast-empty",
+  "fn": "parse_python_ast",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "b-argdep-multi",
+  "fn": "build_argument_dependencies",
+  "args": [
+   "Claim one.\nClaim two.\n\n  Claim three.  \n"
+  ]
+ },
+ {
+  "id": "b-argdep-single",
+  "fn": "build_argument_dependencies",
+  "args": [
+   "Only claim."
+  ]
+ },
+ {
+  "id": "b-argdep-empty",
+  "fn": "build_argument_dependencies",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "b-arggraph-multi",
+  "fn": "build_argument_graph",
+  "args": [
+   "# Intro\nThis is because of reasons.\n\n## Step one: install\n- item alpha\n- item beta\n\n## Background\nTherefore we conclude.\n\n### Deep dive\nFor instance, an example.\n\n# Intro\n```\ncode here\n```\n"
+  ]
+ },
+ {
+  "id": "b-arggraph-one",
+  "fn": "build_argument_graph",
+  "args": [
+   "# Only heading\nplain line\n"
+  ]
+ },
+ {
+  "id": "b-arggraph-none",
+  "fn": "build_argument_graph",
+  "args": [
+   "no headings here\njust text\n"
+  ]
+ },
+ {
+  "id": "b-iflow-mixed",
+  "fn": "extract_instructional_flow",
+  "args": [
+   "# Intro\nThis is because of reasons.\n\n## Step one: install\n- item alpha\n- item beta\n\n## Background\nTherefore we conclude.\n\n### Deep dive\nFor instance, an example.\n\n# Intro\n```\ncode here\n```\n"
+  ]
+ },
+ {
+  "id": "b-iflow-none",
+  "fn": "extract_instructional_flow",
+  "args": [
+   "### Too deep\nplain\n"
+  ]
+ },
+ {
+  "id": "b-iflow-keywords",
+  "fn": "extract_instructional_flow",
+  "args": [
+   "#### Setup prerequisites\n## Tutorial part\n# Overview\n"
+  ]
+ },
+ {
+  "id": "b-rhetparse-mixed",
+  "fn": "parse_rhetorical_structure",
+  "args": [
+   "# Intro\nThis is because of reasons.\n\n## Step one: install\n- item alpha\n- item beta\n\n## Background\nTherefore we conclude.\n\n### Deep dive\nFor instance, an example.\n\n# Intro\n```\ncode here\n```\n"
+  ]
+ },
+ {
+  "id": "b-rhetparse-plain",
+  "fn": "parse_rhetorical_structure",
+  "args": [
+   "just a line\nanother because line\n"
+  ]
+ },
+ {
+  "id": "b-rhetparse-empty",
+  "fn": "parse_rhetorical_structure",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "b-sections-dup",
+  "fn": "extract_sections",
+  "args": [
+   "# Intro\nThis is because of reasons.\n\n## Step one: install\n- item alpha\n- item beta\n\n## Background\nTherefore we conclude.\n\n### Deep dive\nFor instance, an example.\n\n# Intro\n```\ncode here\n```\n"
+  ]
+ },
+ {
+  "id": "b-sections-levels",
+  "fn": "extract_sections",
+  "args": [
+   "# Z\n## A\n### M\n"
+  ]
+ },
+ {
+  "id": "b-sections-empty",
+  "fn": "extract_sections",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "b-confdeg-plain",
+  "fn": "apply_confidence_degradation",
+  "args": [
+   0.8,
+   {}
+  ]
+ },
+ {
+  "id": "b-confdeg-full",
+  "fn": "apply_confidence_degradation",
+  "args": [
+   0.9,
+   {
+    "confidence_limits": {
+     "max": 0.7
+    }
+   }
+  ],
+  "kwargs": {
+   "contradiction_count": 1,
+   "ambiguity_count": 2,
+   "uncertainty_count": 3,
+   "speculation_count": 1,
+   "parser_weakness": true
+  }
+ },
+ {
+  "id": "b-confdeg-floor",
+  "fn": "apply_confidence_degradation",
+  "args": [
+   0.3,
+   {}
+  ],
+  "kwargs": {
+   "speculation_count": 5,
+   "uncertainty_count": 10
+  }
+ },
+ {
+  "id": "b-reasondet-suff",
+  "fn": "reason_deterministically",
+  "args": [
+   {
+    "a": 1
+   },
+   [
+    "e1",
+    "e2"
+   ],
+   []
+  ]
+ },
+ {
+  "id": "b-reasondet-insuff",
+  "fn": "reason_deterministically",
+  "args": [
+   {
+    "a": 1
+   },
+   [
+    "e1"
+   ],
+   [
+    "amb"
+   ]
+  ]
+ },
+ {
+  "id": "b-reasondet-empty",
+  "fn": "reason_deterministically",
+  "args": [
+   {},
+   [],
+   []
+  ]
+ },
+ {
+  "id": "b-epconf-ev",
+  "fn": "score_epistemic_confidence",
+  "args": [
+   [
+    "e1",
+    "e2",
+    "e3"
+   ]
+  ]
+ },
+ {
+  "id": "b-epconf-mixed",
+  "fn": "score_epistemic_confidence",
+  "args": [
+   [
+    "e1"
+   ],
+   null,
+   [
+    "c1",
+    "c2"
+   ],
+   [
+    "u1"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "b-epconf-empty",
+  "fn": "score_epistemic_confidence",
+  "args": [
+   [],
+   [],
+   [],
+   [],
+   0
+  ]
+ },
+ {
+  "id": "b-epconf-cap",
+  "fn": "score_epistemic_confidence",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   [
+    "s1"
+   ],
+   [],
+   [],
+   10
+  ]
+ },
+ {
+  "id": "b-incomp-empty",
+  "fn": "preserve_incompleteness",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "b-incomp-amb",
+  "fn": "preserve_incompleteness",
+  "args": [
+   {
+    "evidence": [
+     "e"
+    ],
+    "ambiguities": [
+     "a1",
+     "a2"
+    ],
+    "contradicted": {
+     "preserved": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-incomp-pairs",
+  "fn": "preserve_incompleteness",
+  "args": [
+   {
+    "evidence": [
+     "e"
+    ],
+    "observed": {
+     "x": 1
+    },
+    "parsed": {
+     "y": 2
+    },
+    "reconciled": {
+     "z": 3
+    },
+    "contradicted": {
+     "pairs": [
+      [
+       "a",
+       "b"
+      ]
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-inflim-allowed",
+  "fn": "model_inference_limits",
+  "args": [
+   {
+    "k1": 1,
+    "k2": 2
+   },
+   3
+  ]
+ },
+ {
+  "id": "b-inflim-blocked",
+  "fn": "model_inference_limits",
+  "args": [
+   {
+    "k": 1
+   },
+   1
+  ]
+ },
+ {
+  "id": "b-valinf-ok",
+  "fn": "validate_inference",
+  "args": [
+   {
+    "a": 1
+   },
+   [
+    "e1"
+   ]
+  ]
+ },
+ {
+  "id": "b-valinf-empty",
+  "fn": "validate_inference",
+  "args": [
+   {},
+   []
+  ]
+ },
+ {
+  "id": "b-reality-grow",
+  "fn": "apply_reality_constraints",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   true,
+   0.1
+  ]
+ },
+ {
+  "id": "b-reality-drift",
+  "fn": "apply_reality_constraints",
+  "args": [
+   [
+    "e1"
+   ],
+   false,
+   0.5
+  ]
+ },
+ {
+  "id": "b-reality-edge",
+  "fn": "apply_reality_constraints",
+  "args": [
+   [],
+   true,
+   0.29
+  ]
+ },
+ {
+  "id": "b-recdep-y",
+  "fn": "detect_recursive_dependency",
+  "args": [
+   3,
+   1,
+   1
+  ]
+ },
+ {
+  "id": "b-recdep-n",
+  "fn": "detect_recursive_dependency",
+  "args": [
+   1,
+   5,
+   5
+  ]
+ },
+ {
+  "id": "b-recclose-coh",
+  "fn": "detect_recursive_semantic_closure",
+  "args": [
+   2,
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   },
+   []
+  ]
+ },
+ {
+  "id": "b-recclose-amp",
+  "fn": "detect_recursive_semantic_closure",
+  "args": [
+   3,
+   {
+    "a": 1,
+    "b": 2,
+    "c": 3,
+    "d": 4,
+    "e": 5,
+    "f": 6,
+    "g": 7
+   },
+   {},
+   [
+    "e"
+   ]
+  ]
+ },
+ {
+  "id": "b-recclose-n",
+  "fn": "detect_recursive_semantic_closure",
+  "args": [
+   1,
+   {},
+   {},
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "b-attractor-y",
+  "fn": "detect_semantic_attractor",
+  "args": [
+   2,
+   1,
+   0
+  ]
+ },
+ {
+  "id": "b-attractor-n",
+  "fn": "detect_semantic_attractor",
+  "args": [
+   5,
+   3,
+   4
+  ]
+ },
+ {
+  "id": "b-ground-parser",
+  "fn": "_ground_parser",
+  "args": [
+   {
+    "language": "python",
+    "parser_evidence": {
+     "ast": true,
+     "imports": false,
+     "symbols": true
+    },
+    "symbols": {
+     "classes": [
+      "A"
+     ],
+     "functions": [
+      "f",
+      "g"
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-ground-evfallback",
+  "fn": "_ground_parser",
+  "args": [
+   {
+    "evidence": {
+     "b": 1,
+     "a": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-ground-nondict",
+  "fn": "_ground_parser",
+  "args": [
+   {
+    "parser_evidence": "notadict",
+    "symbols": "alsonot"
+   }
+  ]
+ },
+ {
+  "id": "b-monoc-y",
+  "fn": "detect_semantic_monoculture",
+  "args": [
+   [
+    {
+     "i": 1
+    }
+   ],
+   [],
+   2
+  ]
+ },
+ {
+  "id": "b-monoc-n",
+  "fn": "detect_semantic_monoculture",
+  "args": [
+   [
+    {
+     "i": 1
+    },
+    {
+     "j": 2
+    }
+   ],
+   [
+    "e"
+   ],
+   3
+  ]
+ },
+ {
+  "id": "b-monop-y",
+  "fn": "detect_semantic_monopoly",
+  "args": [
+   1,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "b-monop-n",
+  "fn": "detect_semantic_monopoly",
+  "args": [
+   4,
+   2,
+   5
+  ]
+ },
+ {
+  "id": "b-reliab-clean",
+  "fn": "score_reliability",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   []
+  ]
+ },
+ {
+  "id": "b-reliab-penalty",
+  "fn": "score_reliability",
+  "args": [
+   [
+    "e1"
+   ],
+   [
+    "a1",
+    "a2"
+   ],
+   2
+  ]
+ },
+ {
+  "id": "b-reliab-null",
+  "fn": "score_reliability",
+  "args": [
+   [],
+   null,
+   0
+  ]
+ },
+ {
+  "id": "b-restraint-empty",
+  "fn": "apply_epistemic_restraint",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "b-restraint-full",
+  "fn": "apply_epistemic_restraint",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "a"
+    ],
+    "observed": {
+     "o": 1
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2,
+     "i3": 3
+    },
+    "reconciled": {},
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ],
+     "preserved": true
+    },
+    "confidence_basis": {
+     "score": 0.8
+    },
+    "fragility": {
+     "confidence_limits": {
+      "max": 0.6
+     }
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-restraint-alt",
+  "fn": "apply_epistemic_restraint",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "inferred": {
+     "a": 1
+    },
+    "contradictions": {
+     "pairs": []
+    },
+    "fragile": {
+     "level": "low"
+    },
+    "boundaries": {
+     "existing": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-propunc-empty",
+  "fn": "propagate_uncertainty",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "b-propunc-pairs",
+  "fn": "propagate_uncertainty",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2"
+    ],
+    "ambiguities": [
+     "a1"
+    ],
+    "contradicted": {
+     "pairs": [
+      [
+       "p",
+       "q"
+      ],
+      [
+       "r",
+       "s"
+      ]
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-propunc-nondict",
+  "fn": "propagate_uncertainty",
+  "args": [
+   {
+    "evidence": [
+     "e"
+    ],
+    "contradicted": "notadict"
+   }
+  ]
+ },
+ {
+  "id": "b-spec-clean",
+  "fn": "suppress_speculative_inference",
+  "args": [
+   "x",
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "b-spec-inferred",
+  "fn": "suppress_speculative_inference",
+  "args": [
+   "claim",
+   []
+  ],
+  "kwargs": {
+   "inferred": true
+  }
+ },
+ {
+  "id": "b-spec-high",
+  "fn": "suppress_speculative_inference",
+  "args": [
+   "deep",
+   [
+    "e1"
+   ]
+  ],
+  "kwargs": {
+   "inferred": true,
+   "min_evidence": 3,
+   "fragility_level": "high"
+  }
+ },
+ {
+  "id": "b-uncmath-default",
+  "fn": "propagate_uncertainty_math",
+  "args": [
+   2,
+   1,
+   0
+  ]
+ },
+ {
+  "id": "b-uncmath-parent",
+  "fn": "propagate_uncertainty_math",
+  "args": [
+   0,
+   2,
+   1,
+   0.4
+  ]
+ },
+ {
+  "id": "b-uncmath-low",
+  "fn": "propagate_uncertainty_math",
+  "args": [
+   5,
+   0,
+   0,
+   0.25
+  ]
+ },
+ {
+  "id": "b-cont-y",
+  "fn": "suppress_unsupported_continuity",
+  "args": [
+   "s1",
+   []
+  ]
+ },
+ {
+  "id": "b-cont-n",
+  "fn": "suppress_unsupported_continuity",
+  "args": [
+   "s2",
+   [
+    "e1",
+    "e2"
+   ]
+  ]
+ },
+ {
+  "id": "b-cont-kw",
+  "fn": "suppress_unsupported_continuity",
+  "args": [
+   "s3",
+   [
+    "e1"
+   ]
+  ],
+  "kwargs": {
+   "min_evidence": 3
+  }
+ },
+ {
+  "id": "b-stab-coh",
+  "fn": "detect_unsupported_stabilization",
+  "args": [
+   [],
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   }
+  ]
+ },
+ {
+  "id": "b-stab-amp",
+  "fn": "detect_unsupported_stabilization",
+  "args": [
+   [],
+   {
+    "a": 1,
+    "b": 2
+   },
+   {}
+  ]
+ },
+ {
+  "id": "b-stab-n",
+  "fn": "detect_unsupported_stabilization",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {
+    "a": 1
+   },
+   {
+    "a": 1
+   }
+  ]
+ },
+ {
+  "id": "b-stab-kw",
+  "fn": "detect_unsupported_stabilization",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "a": 1,
+    "b": 2,
+    "c": 3
+   },
+   {
+    "x": 9
+   }
+  ],
+  "kwargs": {
+   "min_evidence": 2
+  }
+ },
+ {
+  "id": "b-topo-hub",
+  "fn": "reason_topology",
+  "args": [
+   {
+    "nodes": [
+     {
+      "kind": "a"
+     },
+     {
+      "kind": "b"
+     }
+    ],
+    "edges": [
+     {
+      "from": "h",
+      "to": "a"
+     },
+     {
+      "from": "h",
+      "to": "b"
+     },
+     {
+      "from": "c",
+      "to": "h"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "b-topo-empty",
+  "fn": "reason_topology",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "b-topo-mixed",
+  "fn": "reason_topology",
+  "args": [
+   {
+    "nodes": [
+     {
+      "kind": "a"
+     },
+     {
+      "kind": "a"
+     },
+     "raw"
+    ],
+    "edges": [
+     {
+      "from": "x",
+      "to": "y"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "b-docir-empty",
+  "fn": "empty_document_ir",
+  "args": []
+ },
+ {
+  "id": "b-repoir-empty",
+  "fn": "empty_repository_ir",
+  "args": []
+ },
+ {
+  "id": "b-apicontract-paths",
+  "fn": "reason_api_contract",
+  "args": [
+   {
+    "paths": {
+     "/users": {
+      "get": {},
+      "post": {}
+     },
+     "/health": {
+      "delete": {}
+     }
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-apicontract-empty",
+  "fn": "reason_api_contract",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "b-infrarel-hits",
+  "fn": "model_infra_relationships",
+  "args": [
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "README.md",
+    ".github/workflows/ci.yml",
+    "infra/terraform/main.tf"
+   ]
+  ]
+ },
+ {
+  "id": "b-infrarel-none",
+  "fn": "model_infra_relationships",
+  "args": [
+   [
+    "a.py",
+    "b.md"
+   ]
+  ]
+ },
+ {
+  "id": "b-contrarestraint-pairs",
+  "fn": "apply_contradiction_restraint",
+  "args": [
+   {
+    "contradicted": {
+     "pairs": [
+      [
+       "a",
+       "b"
+      ]
+     ]
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-contrarestraint-alt",
+  "fn": "apply_contradiction_restraint",
+  "args": [
+   {
+    "contradictions": {
+     "pairs": []
+    },
+    "fragility_pressure": {
+     "base": 0.2
+    }
+   }
+  ]
+ },
+ {
+  "id": "b-contrarestraint-empty",
+  "fn": "apply_contradiction_restraint",
+  "args": [
+   {}
+  ]
+ }
 ]

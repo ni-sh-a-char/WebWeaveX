@@ -21,7 +21,9 @@
 | A.3 b3 | `core.evidence` medium leaves: confidence caps, contradiction lattice, evidence algebra/weighting, explainability, lineage/provenance/traceability, noninference, instability | 24 | Python ≡ JS ≡ Dart, 51 fixtures (349/349 cumulative, hash + deep equality) | ✅ proven |
 | A.3 b4 | final `core.evidence` public leaves: the semantic_* heavy cluster (confidence scoring, conservatism, consistency, decay, drift, entropy, fragility, honesty, incompleteness, inference calculus, instability, justification, limits, overreach, plurality, proof, refusal, self-limitation, stability, uncertainty, visibility, escalation) + 2 stragglers caught by the accounting check | 27 | Python ≡ JS ≡ Dart, 56 fixtures (405/405 cumulative, hash + deep equality) | ✅ proven |
 | — | 13 private leaf helpers (`_depth`×4, `_record`×3, `_suppression_record`×2, `_lineage_depth`, `_closure_record`, `_continuation_record`, `_stabilization_record`) | deferred | proven through their module's public parent (only callers) | deferred |
-| B–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
+| B | first non-leaf layer: evidence composites (degradation/restraint/reliability/epistemic-confidence/uncertainty-propagation/recursive-closure …), document composites (sections, argument graph/dependencies, instructional flow, rhetorical parser), `parse_python_ast`, `reason_topology`, empty IRs, API contracts, infra relationships, contradiction restraint — incl. 6 private record helpers proven inside their parents | 32 | Python ≡ JS ≡ Dart, 88 fixtures (493/493 cumulative, hash + deep equality) | ✅ proven |
+| — | 4 `parse_source`-gated Phase-B engines (`model_execution_dependencies`, `analyze_runtime_semantics`, `build_service_runtime_graph`, `build_repository_semantic_ir` — the last reaches `parse_source` via a function-local import invisible to the DAG generator) | deferred | blocked on the `core.parsers` subsystem closure (plan correction 1) | deferred |
+| C–O | higher layers (evidence integrity, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
 **Phase A is CLOSED.** All 212 plan rows accounted (verified programmatically by
 diffing the harness REGISTRY against the plan table): **197 leaves executable-proven**
@@ -140,6 +142,50 @@ programmatic accounting check (`preserve_recursive_divergence`,
 - Test: `test/parity/semantic_ir_a3d_test.dart`.
 - Cumulative proof: **405/405 fixtures** pass 3-way hash + deep equality.
 
+## Phase B — first non-leaf layer (proven)
+
+32 engines ported to `lib/src/semantic_ir/{evidence_layer_b,document_composites,composites_b,python_ast_parser}.dart`.
+The 6 private record helpers (`_record`×3, `_closure_record`,
+`_suppression_record`, `_continuation_record`, `_stabilization_record`) are
+ported inside their parents; `_ground_parser` (whose public parent
+`build_semantic_integrity_object` is Phase C) is proven directly. The harness
+gained `kwargs` support: Python kw-only params are passed as real kwargs to
+Python and flattened to trailing positionals (py2ts order) for JS/Dart.
+
+Determinism sites proven bit-exact by execution: `apply_confidence_degradation`
+(stacked rounded penalties over `apply_confidence_caps`, `parser_weak=True`
+f-string rendering), `apply_epistemic_restraint` (full bundle mutation:
+restraint/noninference/boundaries/fragility-pressure/confidence-basis merge;
+Python `or`-chain fallbacks `contradicted or contradictions or {}`),
+`score_epistemic_confidence` (`supporting or ev` list-falsy fallback, sorted
+deterministic-inputs union), `propagate_uncertainty_math` (multiplicative
+complement, `parent=0.0` float formatting via each language's default),
+`detect_unsupported_stabilization`/`detect_recursive_semantic_closure`
+(structural `==` via `pyDeepEq` + truthiness gates), `parse_python_ast`
+(line/indent scanner reproducing CPython `ast.walk` BFS summary — depth-then-
+line statement order, logical-line joining over parens/triple-strings/
+backslash continuations, block end-lineno spans, imports sorted by Python dict
+repr via `pyToStr`).
+
+- Vectors: `validation/parity/semantic_ir_b_vectors.json` (88, from executed
+  Python; fixture provenance: `validation/semantic_ir/gen_phase_b_fixtures.py`).
+- Test: `test/parity/semantic_ir_b_test.dart` (+93 tests → 1381 total, all passing).
+- Cumulative proof: **493/493 fixtures** pass 3-way hash + deep equality.
+
+## Finding — JS-branch python-AST scanner diverges from CPython on `async def`
+
+CPython's `ast.walk` summary collects `ast.FunctionDef` only; `async def`
+produces `ast.AsyncFunctionDef`, which `isinstance(node, ast.FunctionDef)`
+does **not** match — canonical Python emits `functions: []` for async-only
+sources (the async body's assigns are still walked). The JS branch's
+hand-written scanner (`src/ast/pythonAstEngine.ts`) matches
+`(?:async\s+)?def` and wrongly emits a FunctionDef entry. Discovered by
+execution (fixture `b-ast-async`: Python ≠ JS==Dart before the fix). The Dart
+port matches canonical Python (`^def` only); the executed-Python async vector
+is asserted Python ≡ Dart in `test/parity/semantic_ir_b_test.dart`, and the
+3-way harness fixture uses a decorated sync def instead. JS-branch bug, out of
+scope for the dart branch.
+
 ## Plan corrections (recomputed from source, rule 10)
 
 1. **`parse_source` is NOT a Phase-A leaf.** `core.parsers.parser_registry.parse_source`
@@ -205,10 +251,10 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-Phase B (36 fns, 578 lines): the first non-leaf layer — functions whose only
-in-closure dependencies are Phase-A leaves (e.g. `parse_python_ast` + `_node`,
-`apply_confidence_degradation`, `validate_inference`, `detect_recursive_dependency`
-+ `_record`, the `apply_*` integrity bundlers' lower tiers, document-IR composites
-like `extract_sections`/`build_argument_dependencies`). Private helpers prove
-inside their parents here. Then ascend C→O until the 6 dispatchers close with
-executable parity.
+Phase C (17 fns, 554 lines): the next topological layer — functions whose
+in-closure dependencies are now-proven A/B functions (notably
+`build_semantic_integrity_object` over `_ground_parser` + the A.3 integrity
+leaves, and the heavier evidence bundlers). Also outstanding: the
+`core.parsers` subsystem closure (gates `parse_source` + 4 deferred Phase-B
+engines). Then ascend D→O until the 6 dispatchers close with executable
+parity.

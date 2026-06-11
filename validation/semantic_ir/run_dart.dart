@@ -9,7 +9,10 @@ import 'package:webweavex/src/determinism/normalization.dart'
 import 'package:webweavex/src/determinism/normalization_core.dart'
     show codePointCompare, volatileRuntimeKeys;
 import 'package:webweavex/src/semantic_ir/ast_engines.dart';
+import 'package:webweavex/src/semantic_ir/composites_b.dart';
+import 'package:webweavex/src/semantic_ir/document_composites.dart';
 import 'package:webweavex/src/semantic_ir/document_parser.dart';
+import 'package:webweavex/src/semantic_ir/evidence_layer_b.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_2.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_3.dart';
@@ -18,6 +21,7 @@ import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
 import 'package:webweavex/src/semantic_ir/py_compat.dart' show pyFloatStr;
+import 'package:webweavex/src/semantic_ir/python_ast_parser.dart';
 import 'package:webweavex/src/semantic_ir/repository_engines.dart';
 
 // ---------------------------------------------------------------------------
@@ -262,13 +266,79 @@ final Map<String, Function> a3Registry = <String, Function>{
   'suppress_unsupported_inference': suppressUnsupportedInference,
   'preserve_recursive_divergence': preserveRecursiveDivergence,
   'detect_recursive_domestication': detectRecursiveDomestication,
+  // Phase B — first non-leaf layer
+  'parse_python_ast': parsePythonAst,
+  'build_argument_dependencies': buildArgumentDependencies,
+  'build_argument_graph': buildArgumentGraph,
+  'extract_instructional_flow': extractInstructionalFlow,
+  'parse_rhetorical_structure': parseRhetoricalStructure,
+  'extract_sections': extractSections,
+  'apply_confidence_degradation': applyConfidenceDegradation,
+  'reason_deterministically': reasonDeterministically,
+  'score_epistemic_confidence': scoreEpistemicConfidence,
+  'preserve_incompleteness': preserveIncompleteness,
+  'model_inference_limits': modelInferenceLimits,
+  'validate_inference': validateInference,
+  'apply_reality_constraints': applyRealityConstraints,
+  'detect_recursive_dependency': detectRecursiveDependency,
+  'detect_recursive_semantic_closure': detectRecursiveSemanticClosure,
+  'detect_semantic_attractor': detectSemanticAttractor,
+  '_ground_parser': groundParser,
+  'detect_semantic_monoculture': detectSemanticMonoculture,
+  'detect_semantic_monopoly': detectSemanticMonopoly,
+  'score_reliability': scoreReliability,
+  'apply_epistemic_restraint': applyEpistemicRestraint,
+  'propagate_uncertainty': propagateUncertainty,
+  'suppress_speculative_inference': suppressSpeculativeInference,
+  'propagate_uncertainty_math': propagateUncertaintyMath,
+  'suppress_unsupported_continuity': suppressUnsupportedContinuity,
+  'detect_unsupported_stabilization': detectUnsupportedStabilization,
+  'reason_topology': reasonTopology,
+  'empty_document_ir': emptyDocumentIr,
+  'empty_repository_ir': emptyRepositoryIr,
+  'reason_api_contract': reasonApiContract,
+  'model_infra_relationships': modelInfraRelationships,
+  'apply_contradiction_restraint': applyContradictionRestraint,
+};
+
+/// Python kw-only params, flattened to trailing positionals in py2ts order.
+/// kwargs in a fixture are appended positionally using these orders/defaults.
+const Map<String, List<List<dynamic>>> kwOrder = <String, List<List<dynamic>>>{
+  'apply_confidence_degradation': <List<dynamic>>[
+    <dynamic>['contradiction_count', 0],
+    <dynamic>['ambiguity_count', 0],
+    <dynamic>['uncertainty_count', 0],
+    <dynamic>['unsupported_expansion_count', 0],
+    <dynamic>['speculation_count', 0],
+    <dynamic>['parser_weakness', false],
+  ],
+  'suppress_speculative_inference': <List<dynamic>>[
+    <dynamic>['inferred', false],
+    <dynamic>['min_evidence', 2],
+    <dynamic>['fragility_level', 'medium'],
+  ],
+  'suppress_unsupported_continuity': <List<dynamic>>[
+    <dynamic>['min_evidence', 2],
+  ],
+  'detect_unsupported_stabilization': <List<dynamic>>[
+    <dynamic>['min_evidence', 2],
+  ],
 };
 
 List<Map<String, dynamic>> _claims(dynamic v) => <Map<String, dynamic>>[
       for (final e in v as List) Map<String, dynamic>.from(e as Map)
     ];
 
-dynamic _call(String fn, List<dynamic> args) {
+dynamic _call(String fn, List<dynamic> args, [Map<dynamic, dynamic>? kwargs]) {
+  if (kwargs != null && kwargs.isNotEmpty) {
+    final order = kwOrder[fn];
+    if (order == null) throw StateError('kwargs not supported for $fn');
+    args = <dynamic>[
+      ...args,
+      for (final spec in order)
+        kwargs.containsKey(spec[0]) ? kwargs[spec[0]] : spec[1],
+    ];
+  }
   final a3 = a3Registry[fn];
   if (a3 != null) return Function.apply(a3, args);
   switch (fn) {
@@ -357,7 +427,8 @@ void main(List<String> argv) {
     final fx = Map<String, dynamic>.from(f as Map);
     final fn = fx['fn'] as String;
     try {
-      final result = _call(fn, fx['args'] as List<dynamic>);
+      final result = _call(
+          fn, fx['args'] as List<dynamic>, fx['kwargs'] as Map<dynamic, dynamic>?);
       out.add(<String, dynamic>{
         'id': fx['id'],
         'fn': fn,

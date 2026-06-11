@@ -217,6 +217,39 @@ import { blockUnsupportedConfidenceEscalation } from "./src/evidence/unsupported
 import { suppressUnsupportedInference } from "./src/evidence/unsupportedInferenceEngine.ts";
 import { preserveRecursiveDivergence } from "./src/evidence/recursiveDivergencePreservationEngine.ts";
 import { detectRecursiveDomestication } from "./src/evidence/recursiveDomesticationEngine.ts";
+// Phase B — first non-leaf layer
+import { parsePythonAst } from "./src/ast/pythonAstEngine.ts";
+import { buildArgumentDependencies } from "./src/documents/argumentDependencyEngine.ts";
+import { buildArgumentGraph } from "./src/documents/argumentGraphEngine.ts";
+import { extractInstructionalFlow } from "./src/documents/instructionalFlowEngine.ts";
+import { parseRhetoricalStructure } from "./src/documents/rhetoricalParserEngine.ts";
+import { extractSections } from "./src/documents/sectionEngine.ts";
+import { applyConfidenceDegradation } from "./src/evidence/confidenceDegradationEngine.ts";
+import { reasonDeterministically } from "./src/evidence/deterministicReasoningEngine.ts";
+import { scoreEpistemicConfidence } from "./src/evidence/epistemicConfidenceEngine.ts";
+import { preserveIncompleteness } from "./src/evidence/incompletenessEngine.ts";
+import { modelInferenceLimits } from "./src/evidence/inferenceLimitEngine.ts";
+import { validateInference } from "./src/evidence/inferenceValidationEngine.ts";
+import { applyRealityConstraints } from "./src/evidence/realityConstraintEngine.ts";
+import { detectRecursiveDependency } from "./src/evidence/recursiveDependencyEngine.ts";
+import { detectRecursiveSemanticClosure } from "./src/evidence/recursiveSemanticClosureEngine.ts";
+import { detectSemanticAttractor } from "./src/evidence/semanticAttractorEngine.ts";
+import { _groundParser } from "./src/evidence/semanticIntegrityEngine.ts";
+import { detectSemanticMonoculture } from "./src/evidence/semanticMonocultureEngine.ts";
+import { detectSemanticMonopoly } from "./src/evidence/semanticMonopolyEngine.ts";
+import { scoreReliability } from "./src/evidence/semanticReliabilityEngine.ts";
+import { applyEpistemicRestraint } from "./src/evidence/semanticRestraintEngine.ts";
+import { propagateUncertainty } from "./src/evidence/semanticUncertaintyPropagationEngine.ts";
+import { suppressSpeculativeInference } from "./src/evidence/speculativeInferenceEngine.ts";
+import { propagateUncertaintyMath } from "./src/evidence/uncertaintyPropagationMath.ts";
+import { suppressUnsupportedContinuity } from "./src/evidence/unsupportedContinuityEngine.ts";
+import { detectUnsupportedStabilization } from "./src/evidence/unsupportedStabilizationEngine.ts";
+import { reasonTopology } from "./src/graph/topologyReasoningEngine.ts";
+import { emptyDocumentIr } from "./src/ir/documentIr.ts";
+import { emptyRepositoryIr } from "./src/ir/repositoryIr.ts";
+import { reasonApiContract } from "./src/repository/apiContractReasoningEngine.ts";
+import { modelInfraRelationships } from "./src/repository/infraRelationshipEngine.ts";
+import { applyContradictionRestraint } from "./src/semantic/contradictionRestraintEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -388,6 +421,54 @@ const A3_REGISTRY = {
   suppress_unsupported_inference: suppressUnsupportedInference,
   preserve_recursive_divergence: preserveRecursiveDivergence,
   detect_recursive_domestication: detectRecursiveDomestication,
+  // Phase B — first non-leaf layer
+  parse_python_ast: parsePythonAst,
+  build_argument_dependencies: buildArgumentDependencies,
+  build_argument_graph: buildArgumentGraph,
+  extract_instructional_flow: extractInstructionalFlow,
+  parse_rhetorical_structure: parseRhetoricalStructure,
+  extract_sections: extractSections,
+  apply_confidence_degradation: applyConfidenceDegradation,
+  reason_deterministically: reasonDeterministically,
+  score_epistemic_confidence: scoreEpistemicConfidence,
+  preserve_incompleteness: preserveIncompleteness,
+  model_inference_limits: modelInferenceLimits,
+  validate_inference: validateInference,
+  apply_reality_constraints: applyRealityConstraints,
+  detect_recursive_dependency: detectRecursiveDependency,
+  detect_recursive_semantic_closure: detectRecursiveSemanticClosure,
+  detect_semantic_attractor: detectSemanticAttractor,
+  _ground_parser: _groundParser,
+  detect_semantic_monoculture: detectSemanticMonoculture,
+  detect_semantic_monopoly: detectSemanticMonopoly,
+  score_reliability: scoreReliability,
+  apply_epistemic_restraint: applyEpistemicRestraint,
+  propagate_uncertainty: propagateUncertainty,
+  suppress_speculative_inference: suppressSpeculativeInference,
+  propagate_uncertainty_math: propagateUncertaintyMath,
+  suppress_unsupported_continuity: suppressUnsupportedContinuity,
+  detect_unsupported_stabilization: detectUnsupportedStabilization,
+  reason_topology: reasonTopology,
+  empty_document_ir: emptyDocumentIr,
+  empty_repository_ir: emptyRepositoryIr,
+  reason_api_contract: reasonApiContract,
+  model_infra_relationships: modelInfraRelationships,
+  apply_contradiction_restraint: applyContradictionRestraint,
+};
+
+// Python kw-only params, flattened to trailing positionals in py2ts order.
+// kwargs in a fixture are appended positionally using these orders/defaults.
+const KW_ORDER = {
+  apply_confidence_degradation: [
+    ["contradiction_count", 0], ["ambiguity_count", 0],
+    ["uncertainty_count", 0], ["unsupported_expansion_count", 0],
+    ["speculation_count", 0], ["parser_weakness", false],
+  ],
+  suppress_speculative_inference: [
+    ["inferred", false], ["min_evidence", 2], ["fragility_level", "medium"],
+  ],
+  suppress_unsupported_continuity: [["min_evidence", 2]],
+  detect_unsupported_stabilization: [["min_evidence", 2]],
 };
 
 const VOLATILE = new Set([
@@ -429,7 +510,12 @@ function pyStableHash(value) {
   return createHash("sha256").update(payload, "utf8").digest("hex");
 }
 
-function call(fn, args) {
+function call(fn, args, kwargs) {
+  if (kwargs && Object.keys(kwargs).length) {
+    const order = KW_ORDER[fn];
+    if (!order) throw new Error("kwargs not supported for " + fn);
+    args = [...args, ...order.map(([name, dflt]) => (name in kwargs ? kwargs[name] : dflt))];
+  }
   if (fn in A3_REGISTRY) return A3_REGISTRY[fn](...args);
   switch (fn) {
     case "extract_rhetorical_structure":
@@ -499,7 +585,7 @@ const fixtures = JSON.parse(readFileSync(process.argv[2], "utf-8"));
 const out = [];
 for (const fx of fixtures) {
   try {
-    const result = call(fx.fn, fx.args);
+    const result = call(fx.fn, fx.args, fx.kwargs);
     out.push({ id: fx.id, fn: fx.fn, output: result, hash: pyStableHash(result) });
   } catch (e) {
     out.push({ id: fx.id, fn: fx.fn, error: String(e && e.message ? e.message : e) });

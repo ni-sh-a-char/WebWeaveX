@@ -216,6 +216,39 @@ REGISTRY = {
     "suppress_unsupported_inference": "core.evidence.unsupported_inference_engine",
     "preserve_recursive_divergence": "core.evidence.recursive_divergence_preservation_engine",
     "detect_recursive_domestication": "core.evidence.recursive_domestication_engine",
+    # Phase B — first non-leaf layer (deps are proven Phase-A leaves only)
+    "parse_python_ast": "core.ast.python_ast_engine",
+    "build_argument_dependencies": "core.documents.argument_dependency_engine",
+    "build_argument_graph": "core.documents.argument_graph_engine",
+    "extract_instructional_flow": "core.documents.instructional_flow_engine",
+    "parse_rhetorical_structure": "core.documents.rhetorical_parser_engine",
+    "extract_sections": "core.documents.section_engine",
+    "apply_confidence_degradation": "core.evidence.confidence_degradation_engine",
+    "reason_deterministically": "core.evidence.deterministic_reasoning_engine",
+    "score_epistemic_confidence": "core.evidence.epistemic_confidence_engine",
+    "preserve_incompleteness": "core.evidence.incompleteness_engine",
+    "model_inference_limits": "core.evidence.inference_limit_engine",
+    "validate_inference": "core.evidence.inference_validation_engine",
+    "apply_reality_constraints": "core.evidence.reality_constraint_engine",
+    "detect_recursive_dependency": "core.evidence.recursive_dependency_engine",
+    "detect_recursive_semantic_closure": "core.evidence.recursive_semantic_closure_engine",
+    "detect_semantic_attractor": "core.evidence.semantic_attractor_engine",
+    "_ground_parser": "core.evidence.semantic_integrity_engine",
+    "detect_semantic_monoculture": "core.evidence.semantic_monoculture_engine",
+    "detect_semantic_monopoly": "core.evidence.semantic_monopoly_engine",
+    "score_reliability": "core.evidence.semantic_reliability_engine",
+    "apply_epistemic_restraint": "core.evidence.semantic_restraint_engine",
+    "propagate_uncertainty": "core.evidence.semantic_uncertainty_propagation_engine",
+    "suppress_speculative_inference": "core.evidence.speculative_inference_engine",
+    "propagate_uncertainty_math": "core.evidence.uncertainty_propagation_math",
+    "suppress_unsupported_continuity": "core.evidence.unsupported_continuity_engine",
+    "detect_unsupported_stabilization": "core.evidence.unsupported_stabilization_engine",
+    "reason_topology": "core.graph.topology_reasoning_engine",
+    "empty_document_ir": "core.ir.document_ir",
+    "empty_repository_ir": "core.ir.repository_ir",
+    "reason_api_contract": "core.repository.api_contract_reasoning_engine",
+    "model_infra_relationships": "core.repository.infra_relationship_engine",
+    "apply_contradiction_restraint": "core.semantic.contradiction_restraint_engine",
 }
 
 
@@ -226,7 +259,7 @@ def main():
         fn = fx["fn"]
         try:
             mod = importlib.import_module(REGISTRY[fn])
-            result = getattr(mod, fn)(*fx["args"])
+            result = getattr(mod, fn)(*fx["args"], **fx.get("kwargs", {}))
             out.append({"id": fx["id"], "fn": fn, "output": result, "hash": H(result)})
         except Exception as e:  # noqa: BLE001
             out.append({"id": fx["id"], "fn": fn,
