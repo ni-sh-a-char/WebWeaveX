@@ -30,11 +30,17 @@ class _ScannedStmt {
 Exception _syntaxError(int line) =>
     FormatException('invalid syntax (<unknown>, line $line)');
 
-/// Crude Python-validity gate: rejects clearly non-Python statements.
+/// Python-validity gate: rejects lines that cannot begin a valid Python
+/// logical line (CPython ast.parse raises on all of these). Extended
+/// after real-world testing hit `/**`-led TypeScript sources that
+/// CPython rejects but the original narrow gate accepted. `*` (starred
+/// assignment), `.` (float literal), `+ - ~ @` (unary/decorator) remain
+/// valid starters.
 void _validateLine(String stripped, int lineno) {
   if (stripped.isEmpty) return;
-  if (RegExp(r'^[<>%?\\]').hasMatch(stripped)) throw _syntaxError(lineno);
-  if (RegExp(r'^[)\]}]').hasMatch(stripped)) throw _syntaxError(lineno);
+  if (RegExp(r'^[<>%?\\/,;:=&|!)\]}]').hasMatch(stripped)) {
+    throw _syntaxError(lineno);
+  }
 }
 
 List<_LogicalLine> _logicalLines(String code) {

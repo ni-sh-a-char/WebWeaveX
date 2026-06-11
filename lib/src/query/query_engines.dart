@@ -139,11 +139,12 @@ Map<String, dynamic> querySemantics(
           _asList(payload['entities']), _asList(payload['edges']));
       break;
     case 'repository':
-      result = queryRepositoryIr(pythonStr(payload['source'] ?? ''),
-          pythonStr(payload['path'] ?? ''));
+      // Python passes payload.get("source","") RAW (no str()/repr).
+      result = queryRepositoryIr((payload['source'] as String?) ?? '',
+          (payload['path'] as String?) ?? '');
       break;
     case 'document':
-      result = queryDocumentsIr(pythonStr(payload['text'] ?? ''));
+      result = queryDocumentsIr((payload['text'] as String?) ?? '');
       break;
     default:
       return _compileSemanticQueryIr(
@@ -180,11 +181,11 @@ Map<String, dynamic> reasonSemantically(
       result = reasonTopologySemantic(_asMap(payload['graph']));
       break;
     case 'runtime':
-      result = reasonRuntimeSemantic(pythonStr(payload['source'] ?? ''),
-          pythonStr(payload['path'] ?? ''));
+      result = reasonRuntimeSemantic((payload['source'] as String?) ?? '',
+          (payload['path'] as String?) ?? '');
       break;
     case 'discourse':
-      result = reasonDiscourseSemantic(pythonStr(payload['text'] ?? ''));
+      result = reasonDiscourseSemantic((payload['text'] as String?) ?? '');
       break;
     default:
       return <String, dynamic>{'error': 'unknown_domain', 'explainable': true};

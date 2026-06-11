@@ -104,10 +104,22 @@
    "purpose": "executed-Python parity vectors consumed by the test suite"
   },
   {
+   "path": "validation/release/javascript_inventory.json",
+   "size": 471434,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
    "path": "validation/parity/semantic_ir_parsers_vectors.json",
    "size": 448658,
    "classification": "REQUIRED_CERTIFICATION",
    "purpose": "executed-Python parity vectors consumed by the test suite"
+  },
+  {
+   "path": "validation/release/python_inventory.json",
+   "size": 441203,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
   },
   {
    "path": "cross_language_verifier/dart_extraction_gap_report.json",
@@ -122,28 +134,16 @@
    "purpose": "certified fixture set (667)"
   },
   {
+   "path": "validation/release/dart_inventory.json",
+   "size": 92281,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
    "path": "cross_language_verifier/inventory_javascript.json",
    "size": 88481,
    "classification": "REQUIRED_CERTIFICATION",
    "purpose": "verifier certification artifacts"
-  },
-  {
-   "path": "validation/parity/semantic_ir_c_vectors.json",
-   "size": 88418,
-   "classification": "REQUIRED_CERTIFICATION",
-   "purpose": "executed-Python parity vectors consumed by the test suite"
-  },
-  {
-   "path": "cross_language_verifier/inventory_python.json",
-   "size": 86578,
-   "classification": "REQUIRED_CERTIFICATION",
-   "purpose": "verifier certification artifacts"
-  },
-  {
-   "path": "test/engines/runtime_families_engines_test.dart",
-   "size": 64705,
-   "classification": "REQUIRED_TESTING",
-   "purpose": "test suite"
   }
  ]
 }

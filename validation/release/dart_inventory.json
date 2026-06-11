@@ -1,13 +1,14 @@
 {
  "branch": "dart",
- "files": 559,
- "bytes": 14890801,
+ "files": 571,
+ "bytes": 15948107,
  "classification_counts": {
   "REQUIRED_BUILD": 12,
+  "REQUIRED_AGENT": 1,
   "LEGACY": 31,
+  "REQUIRED_DOCUMENTATION": 80,
   "REQUIRED_CONTRIBUTOR": 11,
-  "REQUIRED_DOCUMENTATION": 77,
-  "REQUIRED_CERTIFICATION": 163,
+  "REQUIRED_CERTIFICATION": 171,
   "GENERATED": 17,
   "REQUIRED_EXAMPLE": 1,
   "REQUIRED_RUNTIME": 191,
@@ -75,16 +76,40 @@
    "purpose": "pub package excludes"
   },
   {
+   "path": "AI_AGENT_GUIDE.md",
+   "size": 6680,
+   "classification": "REQUIRED_AGENT",
+   "purpose": "agent onboarding"
+  },
+  {
    "path": "API_PARITY_VALIDATION_REPORT.md",
    "size": 1389,
    "classification": "LEGACY",
    "purpose": "dev-era report, superseded"
   },
   {
+   "path": "API_REFERENCE.md",
+   "size": 8238,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "api reference"
+  },
+  {
+   "path": "ARCHITECTURE.md",
+   "size": 6353,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "architecture"
+  },
+  {
    "path": "AUTHORS",
    "size": 14,
    "classification": "REQUIRED_CONTRIBUTOR",
    "purpose": "authors"
+  },
+  {
+   "path": "CERTIFICATION.md",
+   "size": 4067,
+   "classification": "REQUIRED_DOCUMENTATION",
+   "purpose": "certification guide"
   },
   {
    "path": "CHANGELOG.md",
@@ -268,7 +293,7 @@
   },
   {
    "path": "README.md",
-   "size": 16736,
+   "size": 18687,
    "classification": "REQUIRED_DOCUMENTATION",
    "purpose": "front page"
   },
@@ -2703,6 +2728,12 @@
    "purpose": "matrix/manifest/report generators (reproducibility)"
   },
   {
+   "path": "tools/gen_api_reference.py",
+   "size": 1689,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "matrix/manifest/report generators (reproducibility)"
+  },
+  {
    "path": "tools/gen_executable_matrix.py",
    "size": 4840,
    "classification": "REQUIRED_CERTIFICATION",
@@ -3041,6 +3072,48 @@
   {
    "path": "validation/reconstruction/validate_reconstruction.dart",
    "size": 994,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/build_inventory.py",
+   "size": 10228,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/dart_inventory.json",
+   "size": 92281,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/dart_oss_audit.json",
+   "size": 4717,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/javascript_inventory.json",
+   "size": 471434,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/javascript_oss_audit.json",
+   "size": 2632,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/python_inventory.json",
+   "size": 441203,
+   "classification": "REQUIRED_CERTIFICATION",
+   "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
+  },
+  {
+   "path": "validation/release/python_oss_audit.json",
+   "size": 5833,
    "classification": "REQUIRED_CERTIFICATION",
    "purpose": "family validators + executed-Python vectors (referenced by tests/CI)"
   },
