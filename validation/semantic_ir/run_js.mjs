@@ -266,6 +266,11 @@ import { collectSuppressedSpeculation } from "./src/evidence/speculativeInferenc
 import { collectUnsupportedContinuity } from "./src/evidence/unsupportedContinuityEngine.ts";
 import { reasonTopologySemantic } from "./src/reasoning/topologyReasoningEngine.ts";
 import { analyzeDeploymentSemantics } from "./src/repository/deploymentSemanticsEngine.ts";
+// Phase D — third layer
+import { modelConceptTransitions } from "./src/documents/conceptTransitionEngine.ts";
+import { applyConfidenceCollapse } from "./src/evidence/confidenceCollapseEngine.ts";
+import { applyRealityAlignment } from "./src/evidence/realityAlignmentEngine.ts";
+import { detectSemanticSpeculation } from "./src/evidence/semanticSpeculationEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -486,6 +491,11 @@ const A3_REGISTRY = {
   collect_unsupported_continuity: collectUnsupportedContinuity,
   reason_topology_semantic: reasonTopologySemantic,
   analyze_deployment_semantics: analyzeDeploymentSemantics,
+  // Phase D — third layer
+  model_concept_transitions: modelConceptTransitions,
+  apply_confidence_collapse: applyConfidenceCollapse,
+  apply_reality_alignment: applyRealityAlignment,
+  detect_semantic_speculation: detectSemanticSpeculation,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.
@@ -508,6 +518,12 @@ const KW_ORDER = {
     ["parser_gap", false], ["boundary_pressure", py.F(0.0)],
     ["contradiction_count", 0], ["ambiguity_count", 0],
     ["uncertainty_count", 0],
+  ],
+  apply_confidence_collapse: [
+    ["reinforcement_count", 0], ["stabilization_count", 0],
+    ["decay_pressure", py.F(0.0)], ["truth_boundary_pressure", py.F(0.0)],
+    ["contradiction_count", 0], ["ambiguity_count", 0],
+    ["uncertainty_count", 0], ["incompleteness", false],
   ],
 };
 

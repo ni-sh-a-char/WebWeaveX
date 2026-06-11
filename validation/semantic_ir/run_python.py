@@ -265,6 +265,11 @@ REGISTRY = {
     "collect_unsupported_continuity": "core.evidence.unsupported_continuity_engine",
     "reason_topology_semantic": "core.reasoning.topology_reasoning_engine",
     "analyze_deployment_semantics": "core.repository.deployment_semantics_engine",
+    # Phase D — third layer (parse_source-gated engines deferred)
+    "model_concept_transitions": "core.documents.concept_transition_engine",
+    "apply_confidence_collapse": "core.evidence.confidence_collapse_engine",
+    "apply_reality_alignment": "core.evidence.reality_alignment_engine",
+    "detect_semantic_speculation": "core.evidence.semantic_speculation_engine",
 }
 
 

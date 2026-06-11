@@ -6326,5 +6326,200 @@
    },
    {}
   ]
+ },
+ {
+  "id": "d-transitions-doc",
+  "fn": "model_concept_transitions",
+  "args": [
+   "# Alpha\nintro line\n\n## Beta\nbody because reasons\n\n## Gamma\nend\n"
+  ]
+ },
+ {
+  "id": "d-transitions-empty",
+  "fn": "model_concept_transitions",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "d-spec-gap",
+  "fn": "detect_semantic_speculation",
+  "args": [
+   [
+    "e1"
+   ],
+   {
+    "i1": 1,
+    "i2": 2
+   },
+   {
+    "r": 1
+   }
+  ]
+ },
+ {
+  "id": "d-spec-ok",
+  "fn": "detect_semantic_speculation",
+  "args": [
+   [
+    "e1",
+    "e2"
+   ],
+   {},
+   {}
+  ]
+ },
+ {
+  "id": "d-collapse-plain",
+  "fn": "apply_confidence_collapse",
+  "args": [
+   0.8,
+   {}
+  ]
+ },
+ {
+  "id": "d-collapse-full",
+  "fn": "apply_confidence_collapse",
+  "args": [
+   0.9,
+   {
+    "confidence_limits": {
+     "max": 0.7
+    }
+   }
+  ],
+  "kwargs": {
+   "reinforcement_count": 2,
+   "stabilization_count": 1,
+   "decay_pressure": 0.4,
+   "truth_boundary_pressure": 0.3,
+   "contradiction_count": 1,
+   "ambiguity_count": 1,
+   "uncertainty_count": 2,
+   "incompleteness": true
+  }
+ },
+ {
+  "id": "d-collapse-partial",
+  "fn": "apply_confidence_collapse",
+  "args": [
+   0.5,
+   {}
+  ],
+  "kwargs": {
+   "reinforcement_count": 3,
+   "incompleteness": true
+  }
+ },
+ {
+  "id": "d-align-full",
+  "fn": "apply_reality_alignment",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "uncertainties": {
+     "u1": 1
+    },
+    "observed": {
+     "o1": 1
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2
+    },
+    "reconciled": {
+     "i1": 1,
+     "i2": 2
+    },
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.85
+    },
+    "parser_basis": {
+     "symbol_count": 2
+    },
+    "noninferable_regions": [
+     "zone1"
+    ],
+    "fragility": {
+     "level": "high",
+     "confidence_limits": {
+      "max_score": 0.6
+     }
+    },
+    "termination_reasons": [
+     "seed_reason"
+    ],
+    "semantic_limits": {
+     "existing": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "d-align-ungrounded",
+  "fn": "apply_reality_alignment",
+  "args": [
+   {
+    "evidence": [],
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {},
+    "uncertain": [
+     "u-list"
+    ],
+    "fragility": "notadict",
+    "confidence_basis": {
+     "score": 0.4
+    }
+   }
+  ]
+ },
+ {
+  "id": "d-align-empty",
+  "fn": "apply_reality_alignment",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "d-align-grounding",
+  "fn": "apply_reality_alignment",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2"
+    ],
+    "observed": {
+     "o": 1
+    },
+    "inferred": {
+     "o": 1
+    },
+    "reconciled": {
+     "o": 1
+    },
+    "grounding": {
+     "language": "python"
+    },
+    "confidence_basis": {
+     "score": 0.65
+    }
+   }
+  ]
  }
 ]

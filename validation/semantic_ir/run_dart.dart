@@ -20,6 +20,7 @@ import 'package:webweavex/src/semantic_ir/evidence_leaves_2.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_3.dart';
 import 'package:webweavex/src/semantic_ir/evidence_leaves_4.dart';
 import 'package:webweavex/src/semantic_ir/graph_engines.dart';
+import 'package:webweavex/src/semantic_ir/layer_d.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
 import 'package:webweavex/src/semantic_ir/py_compat.dart' show pyFloatStr;
@@ -319,6 +320,11 @@ final Map<String, Function> a3Registry = <String, Function>{
   'collect_unsupported_continuity': collectUnsupportedContinuity,
   'reason_topology_semantic': reasonTopologySemantic,
   'analyze_deployment_semantics': analyzeDeploymentSemantics,
+  // Phase D — third layer
+  'model_concept_transitions': modelConceptTransitions,
+  'apply_confidence_collapse': applyConfidenceCollapse,
+  'apply_reality_alignment': applyRealityAlignment,
+  'detect_semantic_speculation': detectSemanticSpeculation,
 };
 
 /// Python kw-only params, flattened to trailing positionals in py2ts order.
@@ -351,6 +357,16 @@ const Map<String, List<List<dynamic>>> kwOrder = <String, List<List<dynamic>>>{
     <dynamic>['contradiction_count', 0],
     <dynamic>['ambiguity_count', 0],
     <dynamic>['uncertainty_count', 0],
+  ],
+  'apply_confidence_collapse': <List<dynamic>>[
+    <dynamic>['reinforcement_count', 0],
+    <dynamic>['stabilization_count', 0],
+    <dynamic>['decay_pressure', 0.0],
+    <dynamic>['truth_boundary_pressure', 0.0],
+    <dynamic>['contradiction_count', 0],
+    <dynamic>['ambiguity_count', 0],
+    <dynamic>['uncertainty_count', 0],
+    <dynamic>['incompleteness', false],
   ],
 };
 

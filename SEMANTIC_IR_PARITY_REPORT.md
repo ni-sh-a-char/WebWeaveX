@@ -25,7 +25,9 @@
 | — | 4 `parse_source`-gated Phase-B engines (`model_execution_dependencies`, `analyze_runtime_semantics`, `build_service_runtime_graph`, `build_repository_semantic_ir` — the last reaches `parse_source` via a function-local import invisible to the DAG generator) | deferred | blocked on the `core.parsers` subsystem closure (plan correction 1) | deferred |
 | C | second layer: the five heavy bundle-mutating civilizational engines (cognitive integrity, formal semantic foundation, civilizational epistemic openness, cognitive anti-capture, epistemic civilization stability, recursive epistemic sovereignty — incl. the shared private `_depth` ×4), reality-bounded confidence, the speculation/continuity collectors, semantic-AST IR, coreference graph, instructional semantics, semantic discourse, topology-semantic reasoning, deployment semantics | 15 | Python ≡ JS ≡ Dart, 38 fixtures (531/531 cumulative, hash + deep equality) | ✅ proven |
 | — | 2 `parse_source`-gated Phase-C engines (`analyze_runtime_execution`, `reason_runtime_flow`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
-| D–O | higher layers (evidence integrity assembly, semantic IR assembly, IR dispatchers) | 0 | — | pending |
+| D | third layer: `apply_reality_alignment` (84L drift/stability/boundary bundle mutation), `apply_confidence_collapse`, `detect_semantic_speculation`, `model_concept_transitions` | 4 | Python ≡ JS ≡ Dart, 11 fixtures (542/542 cumulative, hash + deep equality) | ✅ proven |
+| — | 2 `parse_source`-gated Phase-D engines (`build_repository_execution_ir`, `model_runtime_state`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
+| E–O | higher layers (cognitive humility, truth preservation, recursive confidence decay, document graphs, `compile_repository_ir`, IR dispatchers) | 0 | — | pending |
 
 **Phase A is CLOSED.** All 212 plan rows accounted (verified programmatically by
 diffing the harness REGISTRY against the plan table): **197 leaves executable-proven**
@@ -202,6 +204,23 @@ mix JSON `Map<String,dynamic>` with `Map<dynamic,dynamic>` literal fallbacks;
 - Test: `test/parity/semantic_ir_c_test.dart` (+43 tests → 1424 total, all passing).
 - Cumulative proof: **531/531 fixtures** pass 3-way hash + deep equality.
 
+## Phase D — third layer (proven)
+
+4 portable engines ported to `lib/src/semantic_ir/layer_d.dart`
+(`build_repository_execution_ir`/`model_runtime_state` are parse_source-gated,
+deferred). Determinism sites proven bit-exact by execution:
+`apply_reality_alignment` (Python's `X and 1.0 or 0.0` boundary-pressure
+idiom, non-dict `fragility` → `{"level": "medium", confidence_limits:{max_score:0.7}}`
+default, sorted-set `termination_reasons` merge, two computed-but-unused pure
+calls kept for fidelity), `apply_confidence_collapse` (penalty ladder over
+`apply_reality_bounded_confidence` with `incomplete=True` f-string rendering),
+`detect_semantic_speculation` (`round(n / max(1, len+1), 3)` true division).
+
+- Vectors: `validation/parity/semantic_ir_d_vectors.json` (11, from executed
+  Python; fixture provenance: `validation/semantic_ir/gen_phase_d_fixtures.py`).
+- Test: `test/parity/semantic_ir_d_test.dart` (+15 tests → 1439 total, all passing).
+- Cumulative proof: **542/542 fixtures** pass 3-way hash + deep equality.
+
 ## Finding — JS-branch python-AST scanner diverges from CPython on `async def`
 
 CPython's `ast.walk` summary collects `ast.FunctionDef` only; `async def`
@@ -281,9 +300,11 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-Phase D (6 fns, 170 lines): the next topological layer (notably
-`build_semantic_integrity_object` over `_ground_parser` and the now-proven
-`apply_formal_semantic_foundation`/`attach_epistemic_state` chain). Also
-outstanding: the `core.parsers` subsystem closure (gates `parse_source` + 6
-deferred B/C engines). Then ascend E→O until the 6 dispatchers close with
+Phase E (6 fns, 234 lines): `apply_cognitive_humility`,
+`apply_truth_preservation`, `apply_recursive_confidence_decay`,
+`build_document_dependency_graph`, `model_semantic_transitions` (all portable)
++ `compile_repository_ir` (parse_source-gated via
+`build_repository_execution_ir`). The `core.parsers` subsystem closure now
+gates 9 deferred engines and is the critical path to the repository-side
+dispatchers — map it next. Then ascend F→O until the 6 dispatchers close with
 executable parity.
