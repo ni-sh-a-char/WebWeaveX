@@ -26,11 +26,13 @@ function syntaxError(line: number): Error {
   return py.err("SyntaxError", `invalid syntax (<unknown>, line ${line})`);
 }
 
-/** crude Python-validity gate: rejects clearly non-Python statements. */
+/** Python-validity gate: rejects lines that cannot begin a valid Python
+ *  logical line (CPython ast.parse raises on all of these). Extended
+ *  after real-world testing hit `/**`-led TypeScript sources that
+ *  CPython rejects but the original narrow gate accepted. */
 function validateLine(stripped: string, lineno: number): void {
   if (!stripped.length) return;
-  if (/^[<>%?\\]/.test(stripped)) throw syntaxError(lineno);
-  if (/^[)\]}]/.test(stripped)) throw syntaxError(lineno);
+  if (/^[<>%?\\/,;:=&|!)\]}]/.test(stripped)) throw syntaxError(lineno);
 }
 
 function logicalLines(code: string): { text: string; lineno: number; end_lineno: number; indent: number }[] {
