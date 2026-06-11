@@ -44,7 +44,10 @@ export function runReconstructionRuntime(sources: any = null, stored: any = null
   var identity: any = reconstructRuntimeIdentity(py.get(sources, "identity", {}), py.get(sources, "session", {}), py.get(runtime, "runtime_id", ""), py.toStr((py.truthy(py.get(execution_ir, "transactions")) ? py.get(py.at(py.get(execution_ir, "transactions", [{}]), 0), "transaction_id", "") : "")), py.toStr(py.get(py.at(py.or2(py.get(sources, "workers"), () => ([{}])), 0), "worker_id", "")));
   var connectors: any = reconstructConnectorRuntime(py.get(sources, "connectors", []), py.get(sources, "live", py.get(sources, "live_ir", {})));
   var actions: any = py.get(execution_ir, "actions", []);
-  var timeline: any = py.callKw(buildRuntimeTimeline as (...a: any[]) => any, ["events", "propagation"], {"actions": actions, "mutations": py.get(state, "mutations", []), "synchronization": (((sync_ir !== null && typeof sync_ir === "object" && !Array.isArray(sync_ir) && !(sync_ir instanceof Set) && !(sync_ir instanceof Map))) ? py.enumerate(py.slice(py.get(sync_ir, "lineage", []), null, 100)).map(([i, _]: any) => ({"id": `sync:${py.toStr(i)}`, "tick": tick})) : []), "execution": actions, "tick": tick});
+  // Direct kwargs->positional call (signature: events, actions, mutations,
+  // synchronization, execution, recovery, replay, tick). The previous callKw
+  // used a wrong parameter-order list, dropping every argument.
+  var timeline: any = buildRuntimeTimeline(null, actions, py.get(state, "mutations", []), (((sync_ir !== null && typeof sync_ir === "object" && !Array.isArray(sync_ir) && !(sync_ir instanceof Set) && !(sync_ir instanceof Map))) ? py.enumerate(py.slice(py.get(sync_ir, "lineage", []), null, 100)).map(([i, _]: any) => ({"id": `sync:${py.toStr(i)}`, "tick": tick})) : []), actions, null, null, tick);
   var replay: any = buildRuntimeReplay(actions, py.get(execution_ir, "transactions", []), timeline, tick);
   var clone_result: Record<string, any> = {};
   if (py.truthy(clone)) {

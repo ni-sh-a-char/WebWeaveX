@@ -39,7 +39,9 @@ export function runSynchronizedRuntime(tick: any = 0, browser: any = null, nativ
   var snapshot: any = captureRuntimeSnapshot(browser, native, semantic_result, workflow_result, causality_result, py.get(memory, "continuity", {}), tick);
   var drift: any = detectRuntimeDrift({"selectors": py.get(previous_view, "dom", {}), "semantic": py.get(previous_view, "semantic", {}), "workflow": py.get(previous_view, "workflow", {}), "topology": py.get(previous_view, "runtime", {}), "application": py.get(previous_view, "workflow", {}), "runtime": py.get(previous_view, "runtime", {})}, {"selectors": py.get(current_view, "dom", {}), "semantic": py.get(current_view, "semantic", {}), "workflow": py.get(current_view, "workflow", {}), "topology": py.get(current_view, "runtime", {}), "application": py.get(current_view, "workflow", {}), "runtime": py.get(current_view, "runtime", {})});
   var state_diff: any = diffRuntimeState(previous_view, current_view);
-  var mutations: any = py.callKw(trackRuntimeMutations as (...a: any[]) => any, ["prior", "mutation"], {"prior": py.get(delta, "changes", []), "tick": tick});
+  // Direct call (signature: changes, tick). The previous callKw used a wrong
+  // parameter-order list, dropping both arguments.
+  var mutations: any = trackRuntimeMutations(py.get(delta, "changes", []), tick);
   var realities: any = [{"reality_id": "primary", "tick": tick, "semantic": py.get(current_view, "semantic", {}), "workflow": py.get(current_view, "workflow", {}), "application": py.get(current_view, "workflow", {})}];
   if (py.truthy(distributed_result)) {
     py.listAppend(realities, {"reality_id": "distributed", "tick": tick, "semantic": {}, "workflow": distributed_result, "application": {}});

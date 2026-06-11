@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Python semantics parity layer for the WebWeaveX JavaScript implementation.
  *
  * Hand-written production module (protected). Generated modules import this as
@@ -1011,22 +1011,33 @@ function escapeCharClass(chars: string): string {
   return chars.replace(/[.*+?^${}()|[\]\\\-]/g, "\\$&");
 }
 
+// Python str.strip()/regex-\s whitespace — NOT ECMAScript \s: U+FEFF is not
+// whitespace in Python, U+001C–U+001F are.
+const PY_WS = "\\t-\\r\\x1c-\\x1f \\x85\\xa0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000";
+const PY_WS_LEAD = new RegExp(`^[${PY_WS}]+`);
+const PY_WS_TRAIL = new RegExp(`[${PY_WS}]+$`);
+
+/** Python str.strip() with Python's whitespace definition. */
+export function pyStrip(s: string): string {
+  return s.replace(PY_WS_LEAD, "").replace(PY_WS_TRAIL, "");
+}
+
 export function strip(base: unknown, chars?: string): string {
   const s = String(base);
-  if (chars === undefined || chars === null) return s.trim();
+  if (chars === undefined || chars === null) return pyStrip(s);
   const cc = escapeCharClass(chars);
   return s.replace(new RegExp(`^[${cc}]+`), "").replace(new RegExp(`[${cc}]+$`), "");
 }
 
 export function lstrip(base: unknown, chars?: string): string {
   const s = String(base);
-  if (chars === undefined || chars === null) return s.replace(/^\s+/, "");
+  if (chars === undefined || chars === null) return s.replace(PY_WS_LEAD, "");
   return s.replace(new RegExp(`^[${escapeCharClass(chars)}]+`), "");
 }
 
 export function rstrip(base: unknown, chars?: string): string {
   const s = String(base);
-  if (chars === undefined || chars === null) return s.replace(/\s+$/, "");
+  if (chars === undefined || chars === null) return s.replace(PY_WS_TRAIL, "");
   return s.replace(new RegExp(`[${escapeCharClass(chars)}]+$`), "");
 }
 
@@ -2608,12 +2619,10 @@ const VOID_ELEMENTS = new Set([
   "link", "meta", "param", "source", "track", "wbr",
 ]);
 
-const HTML_ENTITIES: Record<string, string> = {
-  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
-  copy: "©", reg: "®", trade: "™", hellip: "…",
-  mdash: "—", ndash: "–", lsquo: "‘", rsquo: "’",
-  ldquo: "â€œ", rdquo: "â€",
-};
+// Full HTML5 named-entity table, @generated from Python html.entities.html5
+// (the previous 16-entry inline table was incomplete and two entries were
+// mojibake-corrupted: ldquo/rdquo).
+import { HTML_ENTITIES } from "./htmlEntities.js";
 
 export function htmlUnescape(s: string): string {
   return s.replace(/&(#x?[0-9a-fA-F]+|\w+);/g, (m, ent: string) => {
@@ -2653,11 +2662,21 @@ export class PyTag {
     const partsArr: string[] = [];
     const walk = (node: PyTag | string): void => {
       if (typeof node === "string") {
-        const t = stripFlag ? node.trim() : node;
+        const t = stripFlag ? pyStrip(node) : node;
         if (stripFlag ? t.length : node.length) partsArr.push(t);
         return;
       }
-      if (node.name === "script" || node.name === "style") return;
+      // bs4 _all_strings excludes Script/Stylesheet/TemplateString and the
+      // ruby annotation strings RubyTextString/RubyParenthesisString
+      // (exact-type filter), so script/style/template/rt/rp contents never
+      // reach get_text.
+      if (
+        node.name === "script" ||
+        node.name === "style" ||
+        node.name === "template" ||
+        node.name === "rt" ||
+        node.name === "rp"
+      ) return;
       for (const c of node.children) walk(c);
     };
     for (const c of this.children) walk(c);
@@ -2679,7 +2698,12 @@ export class PyTag {
 
   find_all(name: unknown, limit?: number): PyTag[] {
     const names = Array.isArray(name) ? new Set(name.map((n) => String(n).toLowerCase())) : null;
-    const single = names ? null : name === null || name === undefined ? null : String(name).toLowerCase();
+    // bs4 find_all(True) matches every tag.
+    const single = names
+      ? null
+      : name === null || name === undefined || name === true
+        ? null
+        : String(name).toLowerCase();
     const out: PyTag[] = [];
     const walk = (node: PyTag | string): void => {
       if (typeof node === "string") return;
@@ -2711,36 +2735,90 @@ export class PySoup extends PyTag {
     let cur: PyTag = this;
     let i = 0;
     const n = html.length;
+    // Pending character data, flushed at tag/comment/declaration boundaries —
+    // mirrors html.parser data coalescing + bs4 endData (whitespace-only
+    // nodes collapse to "\n" or " " outside pre/textarea).
+    let buf = "";
+    const flush = (): void => {
+      if (!buf) return;
+      let text = buf;
+      buf = "";
+      // bs4 ASCII_SPACES check — NBSP and other Unicode whitespace are NOT
+      // strippable and stay verbatim.
+      let strippable = true;
+      for (const ch of text) {
+        if (ch !== " " && ch !== "\n" && ch !== "\t" && ch !== "\f" && ch !== "\r") {
+          strippable = false;
+          break;
+        }
+      }
+      if (strippable) {
+        let node: PyTag | null = cur;
+        let preserve = false;
+        while (node) {
+          if (node.name === "pre" || node.name === "textarea") {
+            preserve = true;
+            break;
+          }
+          node = node.parent;
+        }
+        if (!preserve) text = text.includes("\n") ? "\n" : " ";
+      }
+      cur.children.push(text);
+    };
     while (i < n) {
       const lt2 = html.indexOf("<", i);
       if (lt2 < 0) {
-        const text = htmlUnescape(html.slice(i));
-        if (text) cur.children.push(text);
+        buf += htmlUnescape(html.slice(i));
         break;
       }
       if (lt2 > i) {
-        const text = htmlUnescape(html.slice(i, lt2));
-        if (text) cur.children.push(text);
+        buf += htmlUnescape(html.slice(i, lt2));
+      }
+      // html.parser: "<" not followed by a letter, "/", "!" or "?" is data.
+      const nxt = html.charAt(lt2 + 1);
+      if (!(/[a-zA-Z]/.test(nxt) || nxt === "/" || nxt === "!" || nxt === "?")) {
+        buf += "<";
+        i = lt2 + 1;
+        continue;
       }
       if (html.startsWith("<!--", lt2)) {
+        flush();
         const end = html.indexOf("-->", lt2 + 4);
         i = end < 0 ? n : end + 3;
         continue;
       }
       if (html.startsWith("<!", lt2) || html.startsWith("<?", lt2)) {
+        flush();
         const end = html.indexOf(">", lt2);
         i = end < 0 ? n : end + 1;
         continue;
       }
-      const gt2 = html.indexOf(">", lt2);
+      // Quote-aware tag-end scan: ">" inside a quoted attribute value does
+      // not terminate the tag (html.parser semantics).
+      let gt2 = -1;
+      {
+        let q: string | null = null;
+        for (let k = lt2 + 1; k < n; k++) {
+          const c = html[k]!;
+          if (q) {
+            if (c === q) q = null;
+          } else if (c === '"' || c === "'") {
+            q = c;
+          } else if (c === ">") {
+            gt2 = k;
+            break;
+          }
+        }
+      }
       if (gt2 < 0) {
-        const text = htmlUnescape(html.slice(lt2));
-        if (text) cur.children.push(text);
+        buf += htmlUnescape(html.slice(lt2));
         break;
       }
       const raw = html.slice(lt2 + 1, gt2);
       i = gt2 + 1;
       if (raw.startsWith("/")) {
+        flush();
         const closeName = raw.slice(1).trim().toLowerCase();
         let node: PyTag | null = cur;
         while (node && node.name !== closeName) node = node.parent;
@@ -2748,15 +2826,26 @@ export class PySoup extends PyTag {
         else if (node === cur && cur.parent) cur = cur.parent;
         continue;
       }
-      const selfClose = raw.endsWith("/");
-      const inner = selfClose ? raw.slice(0, -1) : raw;
-      const nameM = inner.match(/^\s*([a-zA-Z][a-zA-Z0-9:-]*)/);
+      flush();
+      const nameM = raw.match(/^\s*([a-zA-Z][a-zA-Z0-9:-]*)/);
       if (!nameM) continue;
       const tagName = nameM[1]!.toLowerCase();
       const tag = new PyTag(tagName);
       tag.parent = cur;
+      // html.parser: a trailing "/" is self-closing only when it is NOT glued
+      // to an unquoted attribute value (href=/dev/ keeps its slash).
+      let attrStr = raw.slice(nameM[0].length);
+      let selfClose = false;
+      if (/\/\s*$/.test(attrStr)) {
+        const beforeSlash = attrStr.replace(/\/\s*$/, "");
+        if (beforeSlash === "" || /[\s"']$/.test(beforeSlash)) {
+          selfClose = true;
+          attrStr = beforeSlash;
+        }
+      } else if (attrStr === "" && raw.endsWith("/")) {
+        selfClose = true;
+      }
       const attrRe = /([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*(?:=\s*("([^"]*)"|'([^']*)'|[^\s"'>]+))?/g;
-      const attrStr = inner.slice(nameM[0].length);
       let am: RegExpExecArray | null;
       while ((am = attrRe.exec(attrStr)) !== null) {
         const key = am[1]!.toLowerCase();
@@ -2770,7 +2859,12 @@ export class PySoup extends PyTag {
       }
       cur.children.push(tag);
       if (tagName === "script" || tagName === "style") {
-        const closeIdx = html.toLowerCase().indexOf(`</${tagName}`, i);
+        // Case-insensitive close search WITHOUT toLowerCase() on the whole
+        // document: Unicode lowercasing can change string length (U+0130 →
+        // "i̇"), shifting every index after it. html.parser CDATA mode
+        // uses /<\/\s*name/i.
+        const closeM = new RegExp(`</\\s*${tagName}`, "i").exec(html.slice(i));
+        const closeIdx = closeM ? i + closeM.index : -1;
         const rawText = html.slice(i, closeIdx < 0 ? n : closeIdx);
         if (rawText) tag.children.push(rawText);
         if (closeIdx < 0) break;
@@ -2780,6 +2874,7 @@ export class PySoup extends PyTag {
       }
       if (!selfClose && !VOID_ELEMENTS.has(tagName)) cur = tag;
     }
+    flush();
   }
 }
 

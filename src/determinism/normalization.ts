@@ -63,13 +63,22 @@ export const VOLATILE_RUNTIME_KEYS = new Set([
   "uuid",
 ]);
 
+/**
+ * Python `re` `\s` for str patterns — the canonical trailing-whitespace set.
+ * ECMAScript `\s` additionally matches U+FEFF and misses U+001C–U+001F, so a
+ * literal `\s+$` here would diverge from Python.
+ */
+const TRAILING_WHITESPACE = new RegExp(
+  "[\\t-\\r\\x1c-\\x1f \\x85\\xa0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]+$",
+);
+
 /** NFKC + CRLF normalization — applied before Kaalka hash/encrypt. */
 export function normalizeRuntimeValue(value: string): string {
   return value
     .normalize("NFKC")
     .replace(/\r\n/g, "\n")
     .replace(/\r/g, "\n")
-    .replace(/\s+$/, "");
+    .replace(TRAILING_WHITESPACE, "");
 }
 
 export function stableSortKeys(obj: Record<string, unknown>): Record<string, unknown> {
