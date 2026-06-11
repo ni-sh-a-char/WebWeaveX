@@ -276,6 +276,21 @@ REGISTRY = {
     "apply_cognitive_humility": "core.evidence.cognitive_humility_engine",
     "apply_recursive_confidence_decay": "core.evidence.recursive_confidence_decay_engine",
     "apply_truth_preservation": "core.evidence.truth_preservation_engine",
+    # Phases F-O (document side) — final ladder to the dispatchers
+    "model_concept_progression": "core.documents.concept_progression_engine",
+    "apply_recursive_reality_integrity": "core.evidence.recursive_reality_integrity_engine",
+    "attach_epistemic_state": "core.evidence.epistemic_evidence_engine",
+    "build_semantic_integrity_object": "core.evidence.semantic_integrity_engine",
+    "apply_semantic_uncertainty": "core.semantic.semantic_uncertainty_engine",
+    "structure_cognition": "core.evidence.grounding_engine",
+    "extract_tutorial_flow": "core.documents.tutorial_reasoning_engine",
+    "reconstruct_tutorial_dependencies": "core.documents.tutorial_dependency_engine",
+    "infer_tutorial_prerequisites": "core.documents.tutorial_prerequisite_engine",
+    "build_document_semantic_ir": "core.documents.document_semantic_ir_engine",
+    "analyze_long_range_discourse": "core.documents.long_range_discourse_engine",
+    "compile_document_ir": "core.ir.document_ir",
+    "query_documents": "core.query.document_query_engine",
+    "reason_discourse_semantic": "core.reasoning.discourse_reasoning_engine",
 }
 
 

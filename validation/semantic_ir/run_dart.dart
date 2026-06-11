@@ -22,6 +22,7 @@ import 'package:webweavex/src/semantic_ir/evidence_leaves_4.dart';
 import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/layer_d.dart';
 import 'package:webweavex/src/semantic_ir/layer_e.dart';
+import 'package:webweavex/src/semantic_ir/layer_f_o.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
 import 'package:webweavex/src/semantic_ir/py_compat.dart' show pyFloatStr;
@@ -332,6 +333,21 @@ final Map<String, Function> a3Registry = <String, Function>{
   'apply_cognitive_humility': applyCognitiveHumility,
   'apply_recursive_confidence_decay': applyRecursiveConfidenceDecay,
   'apply_truth_preservation': applyTruthPreservation,
+  // Phases F-O (document side)
+  'model_concept_progression': modelConceptProgression,
+  'apply_recursive_reality_integrity': applyRecursiveRealityIntegrity,
+  'attach_epistemic_state': attachEpistemicState,
+  'build_semantic_integrity_object': buildSemanticIntegrityObject,
+  'apply_semantic_uncertainty': applySemanticUncertainty,
+  'structure_cognition': structureCognition,
+  'extract_tutorial_flow': extractTutorialFlow,
+  'reconstruct_tutorial_dependencies': reconstructTutorialDependencies,
+  'infer_tutorial_prerequisites': inferTutorialPrerequisites,
+  'build_document_semantic_ir': buildDocumentSemanticIr,
+  'analyze_long_range_discourse': analyzeLongRangeDiscourse,
+  'compile_document_ir': compileDocumentIr,
+  'query_documents': queryDocumentsIr,
+  'reason_discourse_semantic': reasonDiscourseSemantic,
 };
 
 /// Python kw-only params, flattened to trailing positionals in py2ts order.

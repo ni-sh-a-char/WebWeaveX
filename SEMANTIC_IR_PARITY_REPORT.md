@@ -29,7 +29,8 @@
 | — | 2 `parse_source`-gated Phase-D engines (`build_repository_execution_ir`, `model_runtime_state`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
 | E | fourth layer: `apply_cognitive_humility` (75L), `apply_truth_preservation` (74L), `apply_recursive_confidence_decay`, `build_document_dependency_graph`, `model_semantic_transitions` | 5 | Python ≡ JS ≡ Dart, 13 fixtures (555/555 cumulative, hash + deep equality) | ✅ proven |
 | — | 1 `parse_source`-gated Phase-E engine (`compile_repository_ir`, via `build_repository_execution_ir`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
-| F–O | higher layers (evidence integrity assembly, semantic IR assembly, IR dispatchers) | 0 | — | pending |
+| F–O (document side) | the closing ladder: `apply_recursive_reality_integrity` (+`_lineage_depth`), `attach_epistemic_state` (the full 15-engine epistemic chain), `build_semantic_integrity_object`, `structure_cognition` + `apply_semantic_uncertainty` (function-local import, invisible to the DAG), tutorial chain (extract/reconstruct/infer), `build_document_semantic_ir`, `analyze_long_range_discourse`, `model_concept_progression`, **`compile_document_ir`, `query_documents`, `reason_discourse_semantic`** | 14 | Python ≡ JS ≡ Dart, 26 fixtures (581/581 cumulative, hash + deep equality) | ✅ proven |
+| — | 4 `parse_source`-gated F–O engines (`query_repository`, `reason_runtime_semantic`, `compile_repository_ir`, plus the B/C/D deferrals) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
 
 **Phase A is CLOSED.** All 212 plan rows accounted (verified programmatically by
 diffing the harness REGISTRY against the plan table): **197 leaves executable-proven**
@@ -320,7 +321,14 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-Phase F (4 fns, 96 lines) and beyond. The `core.parsers` subsystem closure now
-gates 9 deferred engines and is the critical path to the repository-side
-dispatchers — map it next. Then ascend G→O until the 6 dispatchers close with
-executable parity.
+**The document-side dispatcher closure is COMPLETE**: `compile_document_ir`,
+`query_documents`, and `reason_discourse_semantic` are executable-proven
+3-way end-to-end, including the full `attach_epistemic_state` chain over
+every civilizational engine and the entire `core.evidence` closure.
+`reason_topology_semantic` was proven in Phase C. Remaining for the 6 public
+dispatchers: the **repository/runtime side** (`compile_repository_ir`,
+`query_repository`, `reason_runtime_semantic`), all gated on the
+`core.parsers` subsystem (`parse_source` closure — map with a
+parse_source-rooted DAG including ParserRegistry static methods and
+function-local imports). Public-API promotion (Partial→Complete) follows once
+those close.

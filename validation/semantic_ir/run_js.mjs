@@ -277,6 +277,21 @@ import { modelSemanticTransitions } from "./src/documents/semanticTransitionEngi
 import { applyCognitiveHumility } from "./src/evidence/cognitiveHumilityEngine.ts";
 import { applyRecursiveConfidenceDecay } from "./src/evidence/recursiveConfidenceDecayEngine.ts";
 import { applyTruthPreservation } from "./src/evidence/truthPreservationEngine.ts";
+// Phases F-O (document side)
+import { modelConceptProgression } from "./src/documents/conceptProgressionEngine.ts";
+import { applyRecursiveRealityIntegrity } from "./src/evidence/recursiveRealityIntegrityEngine.ts";
+import { attachEpistemicState } from "./src/evidence/epistemicEvidenceEngine.ts";
+import { buildSemanticIntegrityObject } from "./src/evidence/semanticIntegrityEngine.ts";
+import { applySemanticUncertainty } from "./src/semantic/semanticUncertaintyEngine.ts";
+import { structureCognition } from "./src/evidence/groundingEngine.ts";
+import { extractTutorialFlow } from "./src/documents/tutorialReasoningEngine.ts";
+import { reconstructTutorialDependencies } from "./src/documents/tutorialDependencyEngine.ts";
+import { inferTutorialPrerequisites } from "./src/documents/tutorialPrerequisiteEngine.ts";
+import { buildDocumentSemanticIr } from "./src/documents/documentSemanticIrEngine.ts";
+import { analyzeLongRangeDiscourse } from "./src/documents/longRangeDiscourseEngine.ts";
+import { compileDocumentIr } from "./src/ir/documentIr.ts";
+import { queryDocuments } from "./src/query/documentQueryEngine.ts";
+import { reasonDiscourseSemantic } from "./src/reasoning/discourseReasoningEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -508,6 +523,21 @@ const A3_REGISTRY = {
   apply_cognitive_humility: applyCognitiveHumility,
   apply_recursive_confidence_decay: applyRecursiveConfidenceDecay,
   apply_truth_preservation: applyTruthPreservation,
+  // Phases F-O (document side)
+  model_concept_progression: modelConceptProgression,
+  apply_recursive_reality_integrity: applyRecursiveRealityIntegrity,
+  attach_epistemic_state: attachEpistemicState,
+  build_semantic_integrity_object: buildSemanticIntegrityObject,
+  apply_semantic_uncertainty: applySemanticUncertainty,
+  structure_cognition: structureCognition,
+  extract_tutorial_flow: extractTutorialFlow,
+  reconstruct_tutorial_dependencies: reconstructTutorialDependencies,
+  infer_tutorial_prerequisites: inferTutorialPrerequisites,
+  build_document_semantic_ir: buildDocumentSemanticIr,
+  analyze_long_range_discourse: analyzeLongRangeDiscourse,
+  compile_document_ir: compileDocumentIr,
+  query_documents: queryDocuments,
+  reason_discourse_semantic: reasonDiscourseSemantic,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.

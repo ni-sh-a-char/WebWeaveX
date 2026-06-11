@@ -6748,5 +6748,419 @@
     }
    }
   ]
+ },
+ {
+  "id": "f-progress-doc",
+  "fn": "model_concept_progression",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "f-progress-empty",
+  "fn": "model_concept_progression",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "f-rri-deep",
+  "fn": "apply_recursive_reality_integrity",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "uncertainties": {
+     "u1": 1
+    },
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {
+     "a": 1
+    },
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ]
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "a"
+      },
+      {
+       "stage": "b"
+      },
+      {
+       "stage": "c"
+      }
+     ]
+    },
+    "sources": [
+     "src1"
+    ],
+    "confidence_basis": {
+     "score": 0.9
+    }
+   }
+  ]
+ },
+ {
+  "id": "f-rri-instab",
+  "fn": "apply_recursive_reality_integrity",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2"
+    ],
+    "uncertain": [
+     "u-list"
+    ],
+    "inferred": {
+     "a": 1,
+     "b": 2
+    },
+    "reconciled": {},
+    "instability": {
+     "regions": [
+      "zone1"
+     ]
+    },
+    "fragility": "notadict",
+    "lineage": {
+     "depth": 2,
+     "stages": []
+    }
+   }
+  ]
+ },
+ {
+  "id": "f-rri-empty",
+  "fn": "apply_recursive_reality_integrity",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "g-attach-full",
+  "fn": "attach_epistemic_state",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "observed": {
+     "o1": 1
+    },
+    "inferred": {
+     "i1": 1
+    },
+    "reconciled": {
+     "i1": 1
+    },
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ],
+     "preserved": true
+    },
+    "parser_basis": {
+     "symbol_count": 2,
+     "flags": {
+      "ast": true
+     }
+    },
+    "lineage": {
+     "stages": [
+      {
+       "stage": "s1"
+      }
+     ],
+     "depth": 1
+    },
+    "confidence_basis": {
+     "score": 0.8
+    }
+   }
+  ]
+ },
+ {
+  "id": "g-attach-empty",
+  "fn": "attach_epistemic_state",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "h-bsio-min",
+  "fn": "build_semantic_integrity_object",
+  "args": []
+ },
+ {
+  "id": "h-bsio-full",
+  "fn": "build_semantic_integrity_object",
+  "args": [
+   {
+    "o1": 1
+   },
+   {
+    "language": "python"
+   },
+   {
+    "i1": 1
+   },
+   {
+    "i1": 1
+   },
+   {
+    "pairs": [
+     [
+      "p",
+      "q"
+     ]
+    ]
+   },
+   {
+    "structure": "x"
+   },
+   [
+    "amb1",
+    "amb1",
+    "amb2"
+   ],
+   {
+    "language": "python",
+    "parser_evidence": {
+     "ast": true,
+     "symbols": true,
+     "imports": false
+    },
+    "symbols": {
+     "classes": [
+      "A",
+      "B"
+     ],
+     "functions": [
+      "f"
+     ],
+     "imports": [
+      "os"
+     ]
+    }
+   },
+   [
+    {
+     "stage": "parse",
+     "inputs": [],
+     "outputs": [
+      "parser:ast"
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "id": "i-uncertain-full",
+  "fn": "apply_semantic_uncertainty",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "a1"
+    ],
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ]
+    },
+    "confidence_basis": {
+     "score": 0.9
+    }
+   }
+  ]
+ },
+ {
+  "id": "i-uncertain-empty",
+  "fn": "apply_semantic_uncertainty",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "i-structure-plain",
+  "fn": "structure_cognition",
+  "args": [
+   {
+    "o": 1
+   },
+   {
+    "i": 1
+   },
+   {
+    "o": 1,
+    "i": 1
+   }
+  ]
+ },
+ {
+  "id": "i-structure-parsed",
+  "fn": "structure_cognition",
+  "args": [
+   {
+    "o": 1
+   },
+   {
+    "i": 1
+   },
+   {
+    "r": 2
+   },
+   {
+    "language": "python",
+    "parser_evidence": {
+     "ast": true,
+     "symbols": true,
+     "imports": false
+    },
+    "symbols": {
+     "classes": [
+      "A",
+      "B"
+     ],
+     "functions": [
+      "f"
+     ],
+     "imports": [
+      "os"
+     ]
+    }
+   },
+   {
+    "pairs": [
+     [
+      "a",
+      "b"
+     ]
+    ]
+   },
+   [
+    "ambX"
+   ]
+  ]
+ },
+ {
+  "id": "i-structure-inferonly",
+  "fn": "structure_cognition",
+  "args": [
+   {},
+   {
+    "i": 1
+   },
+   {}
+  ]
+ },
+ {
+  "id": "j-tutflow-doc",
+  "fn": "extract_tutorial_flow",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "j-tutflow-numbered",
+  "fn": "extract_tutorial_flow",
+  "args": [
+   "intro text\n1. first step\n2. second step\n3. third step\n"
+  ]
+ },
+ {
+  "id": "j-tutflow-empty",
+  "fn": "extract_tutorial_flow",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "k-tutdep-doc",
+  "fn": "reconstruct_tutorial_dependencies",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "l-tutprereq-doc",
+  "fn": "infer_tutorial_prerequisites",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "m-docir-doc",
+  "fn": "build_document_semantic_ir",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "m-docir-empty",
+  "fn": "build_document_semantic_ir",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "n-longrange-doc",
+  "fn": "analyze_long_range_discourse",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "n-compile-doc",
+  "fn": "compile_document_ir",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "n-compile-empty",
+  "fn": "compile_document_ir",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "o-query-doc",
+  "fn": "query_documents",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
+ },
+ {
+  "id": "o-discourse-doc",
+  "fn": "reason_discourse_semantic",
+  "args": [
+   "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
+  ]
  }
 ]
