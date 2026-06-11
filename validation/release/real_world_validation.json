@@ -1,11 +1,7 @@
 {
  "scenarios": 8,
- "pass": 5,
- "fails": [
-  "doc_readme",
-  "query_doc_readme",
-  "reason_discourse"
- ],
+ "pass": 8,
+ "fails": [],
  "hashes": {
   "app_cognition_real_page": "9d0b04026c08c07276dae58f170287d25c6afe3f7401cad4a12f6417ec5ae399",
   "doc_readme": "a2d988657874cfbe1fe8410a10a4de6b38f74529632f45705ae6faa137b8acda",
