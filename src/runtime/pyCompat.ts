@@ -1874,8 +1874,56 @@ export class PyRegex {
         if (ch === "m" && !f.includes("m")) f += "m";
       }
     }
-    this.pattern = translatePattern(p);
+    let translated = translatePattern(p);
+    if (f.includes("m")) {
+      // CPython MULTILINE: ^ matches at start/after \n, $ before \n/at end.
+      // JS additionally treats \r (and U+2028/29) as line terminators, which
+      // diverges on CRLF text (Python captures the trailing \r). Rewrite the
+      // anchors explicitly and drop the JS flag.
+      translated = PyRegex.pyMultilineAnchors(translated);
+      f = f.replace(/m/g, "");
+    }
+    this.pattern = translated;
     this.flags = f;
+  }
+
+  private static pyMultilineAnchors(p: string): string {
+    let out = "";
+    let inClass = false;
+    for (let i = 0; i < p.length; i++) {
+      const ch = p[i]!;
+      if (ch === "\\") {
+        out += ch + (p[i + 1] ?? "");
+        i++;
+        continue;
+      }
+      if (inClass) {
+        if (ch === "]") inClass = false;
+        out += ch;
+        continue;
+      }
+      if (ch === "[") {
+        inClass = true;
+        out += ch;
+        continue;
+      }
+      if (ch === "^") {
+        out += "(?:^|(?<=\\n))";
+        continue;
+      }
+      if (ch === "$") {
+        out += "(?=\\n|$)";
+        continue;
+      }
+      if (ch === ".") {
+        // CPython dot excludes only \n; JS dot also excludes \r and
+        // U+2028/29 line terminators.
+        out += "[^\\n]";
+        continue;
+      }
+      out += ch;
+    }
+    return out;
   }
 
   private rx(extra = ""): RegExp {
