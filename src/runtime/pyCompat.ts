@@ -794,10 +794,25 @@ export function repr(value: unknown): string {
   if (value instanceof PyFloat) return floatStr(value.v);
   if (typeof value === "number") return String(value);
   if (typeof value === "string") {
+    // CPython repr escapes backslash, the quote, and control chars
+    // (\n \r \t; other C0 as \xNN); printable non-ASCII stays raw.
+    const esc = (s: string, q: string) =>
+      [...s].map((ch) => {
+        if (ch === "\\") return "\\\\";
+        if (ch === q) return "\\" + q;
+        if (ch === "\n") return "\\n";
+        if (ch === "\r") return "\\r";
+        if (ch === "\t") return "\\t";
+        const c = ch.codePointAt(0)!;
+        if (c < 0x20 || c === 0x7f) {
+          return "\\x" + c.toString(16).padStart(2, "0");
+        }
+        return ch;
+      }).join("");
     if (value.includes("'") && !value.includes('"')) {
-      return `"${value.replace(/\\/g, "\\\\")}"`;
+      return `"${esc(value, '"')}"`;
     }
-    return `'${value.replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`;
+    return `'${esc(value, "'")}'`;
   }
   if (Array.isArray(value)) {
     if (REPR_SEEN.has(value)) return "[...]";
