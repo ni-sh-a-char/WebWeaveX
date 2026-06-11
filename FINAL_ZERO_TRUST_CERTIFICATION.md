@@ -70,3 +70,41 @@ unresolved mismatches.
 
 Root cause of FAIL: absence, not divergence. The path to PASS is the planned
 Dart extraction + semantic-IR port; no other open parity defect remains.
+
+---
+
+## ADDENDUM — Extraction-gap closure run (commits: dart 6419e58, javascript fb09003)
+
+The blocker above is now substantially closed with executed evidence
+(`cross_language_verifier/extraction_certification.json`,
+`dart_extraction_gap_report.json`):
+
+```
+Extraction engines   : PASS 3-WAY — Python == JavaScript == Dart byte-identical on
+                       10,000 synthetic HTML torture documents (10000/10000),
+                       14 malformed-HTML cases (14/14), and
+                       1,006 real internet pages fetched once (1006/1006).
+```
+
+- Dart gained a bs4-parity soup engine (`lib/src/soup/`) certified at
+  html.parser-internals depth (including the two-pass failed-`&#` raw-dump
+  buffering behavior, parse-time string-container typing, cp1252
+  invalid-charref mapping, semicolonless entity resolution).
+- Both JS and Dart parsers were upgraded to full Python `html.unescape` +
+  bs4 text-tokenization semantics; JS re-certified (vitest 399/399), Dart
+  re-certified (1288/1288), prior 130-page certification re-run green.
+- 6 missing extraction APIs implemented and hash-verified vs live Python:
+  `extract_semantic_html`, `extract_semantic_content`, `ingest_input`,
+  `extract_multimodal`, `extract_paginated_content`, `recover_modal_runtime`.
+- Remaining Dart API gap: 13 portable APIs (the `extract`/`universal_extract`/
+  `stream_extract` orchestrator family and 7 smaller engines — porting was
+  interrupted by an external session-usage limit that terminated 5 of 6
+  parallel port agents; their partial output was quarantined per the
+  no-partial-ports rule) and 6 platform-bound APIs (live browser / OS-coupled,
+  unportable by design). Per-API module lists, signatures, sizes, and blocking
+  statuses: `dart_extraction_gap_report.json`.
+
+Updated verdict: unchanged in kind (FAIL-BY-ABSENCE for the remaining 13
+portable APIs), but the extraction ENGINE capability — the core of
+"Extract Anything" — is now certified byte-identical in all three languages
+at 11,020 executed extraction comparisons with zero unresolved mismatches.

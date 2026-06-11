@@ -42,11 +42,15 @@ CURATED = [
     "https://commons.wikimedia.org/wiki/Main_Page",
 ]
 RANDOM_SOURCES = [
-    ("https://en.wikipedia.org/wiki/Special:Random", 40),
-    ("https://de.wikipedia.org/wiki/Spezial:Zuf%C3%A4llige_Seite", 15),
-    ("https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard", 15),
-    ("https://es.wikipedia.org/wiki/Especial:Aleatoria", 15),
-    ("https://ja.wikipedia.org/wiki/%E7%89%B9%E5%88%A5:%E3%81%8A%E3%81%BE%E3%81%8B%E3%81%9B%E8%A1%A8%E7%A4%BA", 15),
+    ("https://en.wikipedia.org/wiki/Special:Random", 330),
+    ("https://de.wikipedia.org/wiki/Spezial:Zuf%C3%A4llige_Seite", 120),
+    ("https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard", 120),
+    ("https://es.wikipedia.org/wiki/Especial:Aleatoria", 120),
+    ("https://ja.wikipedia.org/wiki/%E7%89%B9%E5%88%A5:%E3%81%8A%E3%81%BE%E3%81%8B%E3%81%9B%E8%A1%A8%E7%A4%BA", 100),
+    ("https://ru.wikipedia.org/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0", 60),
+    ("https://zh.wikipedia.org/wiki/Special:%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2", 50),
+    ("https://ar.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B5:%D8%B5%D9%81%D8%AD%D8%A9_%D8%B9%D8%B4%D9%88%D8%A7%D8%A6%D9%8A%D8%A9", 40),
+    ("https://it.wikipedia.org/wiki/Speciale:PaginaCasuale", 40),
 ]
 
 HEADERS = {"User-Agent": "WebWeaveX-parity-verifier/1.0 (cross-language extraction certification)"}
