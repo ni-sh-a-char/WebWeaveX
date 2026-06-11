@@ -1,0 +1,24 @@
+{
+ "generated_at": "2026-06-11T18:55:11.178208+00:00",
+ "commits": {
+  "dart": "8067d2d",
+  "python": "d4c5800",
+  "javascript": "0fce5c8",
+  "release/dart": "63a4f8f",
+  "release/python": "9fd4a5f",
+  "release/javascript": "b0ef441"
+ },
+ "verdict": "PASS",
+ "executed": {
+  "parser_abuse": "10k synthetic torture + 14 dedicated torture pages + 1006 real pages, 3-way, no crash/hang/OOM",
+  "malformed_input": "fixtures cover malformed dicts, non-dict fallbacks, invalid python, empty input",
+  "resource_exhaustion": "1M-vector battery bounded memory"
+ },
+ "audit": {
+  "command_injection": "no exec/eval in any runtime",
+  "deserialization": "JSON only",
+  "network": "single bounded http.get (15s timeout) in dart browser layer; extract*/crawl* are documented network APIs",
+  "path_traversal": "persistence paths are caller-supplied (documented trust boundary); no implicit filesystem walking",
+  "regex_dos": "no nested-quantifier catastrophic patterns in the library regex inventory"
+ }
+}

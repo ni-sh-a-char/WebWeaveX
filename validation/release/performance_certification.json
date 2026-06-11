@@ -1,0 +1,33 @@
+{
+ "generated_at": "2026-06-11T18:55:11.178208+00:00",
+ "commits": {
+  "dart": "8067d2d",
+  "python": "d4c5800",
+  "javascript": "0fce5c8",
+  "release/dart": "63a4f8f",
+  "release/python": "9fd4a5f",
+  "release/javascript": "b0ef441"
+ },
+ "verdict": "PASS",
+ "benchmarks_ops_per_s": {
+  "python": {
+   "serialize": 3093,
+   "hash": 2967,
+   "encrypt": 1332
+  },
+  "javascript": {
+   "serialize": 6043,
+   "hash": 5791,
+   "encrypt": 4245
+  },
+  "dart": {
+   "serialize": 3938,
+   "hash": 3488,
+   "encrypt": 899
+  }
+ },
+ "scale_evidence": "1,000,000-vector battery, 10k torture corpus and 1006-page real corpus complete without blow-up; release-clone full suites in seconds",
+ "notes": [
+  "dart Kaalka encrypt ~4.7x below JS \u2014 optimization opportunity, not a blocker"
+ ]
+}

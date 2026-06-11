@@ -1,1 +1,0 @@
-"{'source': '/**\r\n * Parser registry — faithful port of core/parsers/parser_regis"

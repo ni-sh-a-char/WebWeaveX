@@ -1,0 +1,50 @@
+{
+ "generated_at": "2026-06-11T18:55:11.178208+00:00",
+ "commits": {
+  "dart": "8067d2d",
+  "python": "d4c5800",
+  "javascript": "0fce5c8",
+  "release/dart": "63a4f8f",
+  "release/python": "9fd4a5f",
+  "release/javascript": "b0ef441"
+ },
+ "portable_api_gap_count": 0,
+ "python_js_parity": "PASS",
+ "python_dart_parity": "PASS",
+ "js_dart_parity": "PASS",
+ "semantic_ir": "PASS",
+ "repository_ir": "PASS",
+ "runtime_ir": "PASS",
+ "application_ir": "PASS",
+ "security_certification": "PASS",
+ "performance_certification": "PASS",
+ "publication_readiness": "PASS",
+ "all_public_apis": "PASS",
+ "all_real_world_tests": "PASS",
+ "overall_verdict": "PASS",
+ "evidence": {
+  "clean_clone_semantic_ir": "667/667 fixtures 3-way (Desktop release clones)",
+  "clean_clone_extraction": "1006/1006 real pages + 14/14 torture 3-way",
+  "clean_clone_executable": "35/35",
+  "real_world": "8/8 scenarios (real README, real TypeScript engine source, real corpus page through the public dispatchers)",
+  "determinism_double_run": "second invocation byte-identical",
+  "dart_suite": "1583/1583 from release clone; analyzer zero issues",
+  "install": "python venv+pip+wheel(twine PASSED); npm pack+ESM+CJS+TS types; dart pub get/analyze/JIT+AOT compile"
+ },
+ "failure_loop_fixes": [
+  "dart 25a937c: dispatcher wrappers passed repr-quoted strings; raw now",
+  "dart 25a937c + js 59c936a: python-validity gate widened to the CPython rejection set (real '/**'-led TS source diverged semantic_ast)",
+  "js e2dd831: py.repr now escapes control characters like CPython",
+  "dart 8067d2d + js 0fce5c8: CPython MULTILINE/dot regex semantics \u2014 JS/Dart treat \\r as a line terminator and '.' excludes \\r; anchors/dot rewritten so CRLF sources behave like Python"
+ ],
+ "artifacts": [
+  "validation/release/{inventory,oss_audit} x3 (zero UNKNOWN)",
+  "removed_files_report.json on each release branch",
+  "public_api_validation.json",
+  "cross_language_certification.json",
+  "performance_certification.json",
+  "security_certification.json",
+  "publication_readiness.json",
+  "real_world_validation.json"
+ ]
+}
