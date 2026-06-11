@@ -2,9 +2,9 @@
   "generated_by": "tools/generate_parity_manifest.py",
   "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
   "counts": {
-    "Complete": 98,
-    "Partial": 24,
-    "Deferred": 6
+    "Complete": 105,
+    "Partial": 18,
+    "Deferred": 5
   },
   "executable_proven_apis": [
     "build_browser_identity",
@@ -245,11 +245,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "compileDocument",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "compile_repository",
@@ -257,11 +257,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "compileRepository",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "compile_unified_runtime_ir",
@@ -857,11 +857,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "queryDocuments",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "query_graph",
@@ -905,11 +905,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "queryRepository",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "query_runtime_graph",
@@ -941,11 +941,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "querySemantics",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "reason_semantically",
@@ -953,11 +953,11 @@
       "javascript": true,
       "dart": true,
       "dart_symbol": "reasonSemantically",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Partial",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "reconstruct_runtime",
@@ -1071,13 +1071,13 @@
       "api": "run_application_cognition",
       "python": true,
       "javascript": true,
-      "dart": false,
-      "dart_symbol": "",
-      "contract_parity": false,
-      "behavior_parity": false,
+      "dart": true,
+      "dart_symbol": "runApplicationCognition",
+      "contract_parity": true,
+      "behavior_parity": true,
       "executable_parity": false,
-      "classification": "Deferred",
-      "proof_type": "NONE"
+      "classification": "Complete",
+      "proof_type": ""
     },
     {
       "api": "run_autonomous_extraction",

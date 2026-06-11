@@ -42,6 +42,9 @@ export 'src/reconstruction_runtime/reconstruction_runtime_engines.dart'
 // Canonical Python-aligned build_browser_identity(profileId). The captured-map
 // variant is buildBrowserIdentityFromCapture in src/browser/browser_identity.dart.
 export 'src/identity/browser_identity_canonical.dart' show buildBrowserIdentity;
+// Application cognition — executable-proven 3-way over the bs4-parity soup.
+export 'src/application/application_cognition.dart'
+    show runApplicationCognition;
 // Group D — snapshot/data/persistence-input application & native runtime APIs.
 export 'src/application/runtime_application.dart'
     show

@@ -1,31 +1,23 @@
 # PARTIAL_API_AUDIT.md
 
-> **Generated from `PARITY_MANIFEST.json`** (26 Partial APIs). Re-audited against `origin/python` source (not report descriptions). Category: **A** = pure & portable (executable parity achievable, port pending) · **B** = bounded parity only (documented limitation) · **C** = platform-impossible (network/live runtime).
+> **Generated from `PARITY_MANIFEST.json`** (18 Partial APIs). Re-audited against `origin/python` source (not report descriptions). Category: **A** = pure & portable (executable parity achievable, port pending) · **B** = bounded parity only (documented limitation) · **C** = platform-impossible (network/live runtime).
 
-**Category split: A=6 · B=4 · C=16**
+**Category split: A=0 · B=4 · C=14**
 
 | API | Category | Blocker |
 |-----|:--------:|---------|
 | `analyze` | B | graph-edges path is pure (analyze_graph); the no-edges path delegates to the network extract() |
-| `compile_document` | A | pure document semantic-IR (regex/line heuristics, no NLP/AST); port pending of the ~550-line document-IR subsystem |
-| `compile_repository` | A | pure repository semantic-IR (no AST lib); port pending of the ~490-line repository-IR subsystem |
 | `crawl` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `crawl_async` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_async` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_docs` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_document_runtime` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
-| `extract_multimodal` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_recursive` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_repo` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_repository` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `extract_web` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `heal_selector` | B | DOM-node strategies full-fidelity (vectors); semantic_anchor HTML sub-path bounds nested markup vs BeautifulSoup |
-| `ingest_input` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
-| `query_documents` | A | pure; calls compile_document_ir — same document-IR subsystem port |
-| `query_repository` | A | pure; calls query_repository_ir / query_repo — repository-IR subsystem port |
-| `query_semantics` | A | pure dispatch (graph/knowledge paths already Complete; document/repository paths need the IR subsystems) |
-| `reason_semantically` | A | pure dispatch (topology path pure; runtime/discourse paths need the IR subsystems) |
 | `replay_interactions` | B | returned structure full-fidelity (vectors); live-page action dispatch is the bounded edge |
 | `run_autonomous_extraction` | C | bounded HTTP surface; full parity needs live network fetch + Python-identical HTML/content extraction |
 | `run_canonical_pipeline` | C | deterministic kernel core proven; full pipeline drives live network/extraction phases |

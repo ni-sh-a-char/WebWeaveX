@@ -10,6 +10,10 @@
 /// topology paths are ported with proven hash parity.
 library;
 
+import '../semantic_ir/layer_f_o.dart'
+    show compileDocumentIr, queryDocumentsIr, reasonDiscourseSemantic;
+import '../semantic_ir/layer_repo.dart'
+    show compileRepositoryIr, queryRepositoryIr, reasonRuntimeSemantic;
 import 'graph_ir.dart';
 import 'knowledge_ir.dart';
 import 'python_repr.dart';
@@ -95,32 +99,28 @@ Map<String, dynamic> queryKnowledge(
 /// ported (heavy source parsing). Only the [result] dict-extraction path has
 /// proven parity.
 Map<String, dynamic> queryRepository(
-    {Map<String, dynamic>? result, String source = '', String path = ''}) {
+    {Map<String, dynamic>? result,
+    String source = '',
+    String path = '',
+    List<dynamic>? files}) {
   if (result != null && source.isEmpty) {
     return queryRepo(result);
   }
-  throw UnsupportedError(
-      'query_repository source path delegates to compile_repository_ir '
-      '(unported: heavy source parsing)');
+  return queryRepositoryIr(source, path, files);
 }
 
 /// Port of the `webweavex.query_documents` body wrapper.
-///
-/// The `text`-driven path delegates to `compile_document_ir`, which is NOT
-/// ported (heavy NLP). Only the [result] dict-extraction path has proven parity.
+/// All paths proven: text -> document-IR dispatcher; result -> dict
+/// extraction; neither -> empty-text document IR (Python fallthrough).
 Map<String, dynamic> queryDocuments(
     {Map<String, dynamic>? result, String text = ''}) {
   if (text.isNotEmpty) {
-    throw UnsupportedError(
-        'query_documents text path delegates to compile_document_ir '
-        '(unported: heavy NLP)');
+    return queryDocumentsIr(text);
   }
   if (result != null) {
     return _asMap(_asMap(result['content'])['documents']);
   }
-  throw UnsupportedError(
-      'query_documents empty path delegates to compile_document_ir '
-      '(unported: heavy NLP)');
+  return queryDocumentsIr('');
 }
 
 /// Port of `core.query.semantic_query_engine.query_semantics`.
@@ -139,9 +139,12 @@ Map<String, dynamic> querySemantics(
           _asList(payload['entities']), _asList(payload['edges']));
       break;
     case 'repository':
+      result = queryRepositoryIr(pythonStr(payload['source'] ?? ''),
+          pythonStr(payload['path'] ?? ''));
+      break;
     case 'document':
-      throw UnsupportedError(
-          'query_semantics "$queryType" delegates to unported IR compiler');
+      result = queryDocumentsIr(pythonStr(payload['text'] ?? ''));
+      break;
     default:
       return _compileSemanticQueryIr(
           queryType, '', <String, dynamic>{'error': 'unknown_query_type'});
@@ -177,9 +180,12 @@ Map<String, dynamic> reasonSemantically(
       result = reasonTopologySemantic(_asMap(payload['graph']));
       break;
     case 'runtime':
+      result = reasonRuntimeSemantic(pythonStr(payload['source'] ?? ''),
+          pythonStr(payload['path'] ?? ''));
+      break;
     case 'discourse':
-      throw UnsupportedError(
-          'reason_semantically "$domain" delegates to unported IR compiler');
+      result = reasonDiscourseSemantic(pythonStr(payload['text'] ?? ''));
+      break;
     default:
       return <String, dynamic>{'error': 'unknown_domain', 'explainable': true};
   }
@@ -230,16 +236,14 @@ Map<String, dynamic> analyze(List<dynamic> nodes, List<dynamic> edges) {
   };
 }
 
-/// `compile_document` — NOT ported (heavy NLP discourse pipeline).
-Never compileDocument(String text) => throw UnsupportedError(
-    'compile_document is unported: requires the document_semantic_ir NLP '
-    'pipeline (rhetorical/argument/progression/coreference parsers) with no '
-    'bundled Dart equivalent.');
+/// Port of the `webweavex.compile_document` wrapper — the full document
+/// semantic-IR pipeline (executable-proven 3-way).
+Map<String, dynamic> compileDocument(String text) => compileDocumentIr(text);
 
-/// `compile_repository` — NOT ported (heavy source-AST parsing).
-Never compileRepository(String source, {String path = ''}) =>
-    throw UnsupportedError(
-        'compile_repository is unported: requires the repository_execution_ir '
-        'AST/source-parsing pipeline with no bundled Dart equivalent.');
+/// Port of the `webweavex.compile_repository` wrapper — the full repository
+/// execution-IR pipeline (executable-proven 3-way).
+Map<String, dynamic> compileRepository(String source,
+        {String path = '', List<dynamic>? files}) =>
+    compileRepositoryIr(source, path, files);
 
 String _truncate(String s, int n) => s.length <= n ? s : s.substring(0, n);

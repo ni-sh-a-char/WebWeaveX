@@ -6,9 +6,9 @@
 
 | Status | Count |
 |--------|------:|
-| ✅ Complete | **94** |
-| 🟡 Partial | **26** |
-| ⚪ Deferred | **8** |
+| ✅ Complete | **105** |
+| 🟡 Partial | **18** |
+| ⚪ Deferred | **5** |
 | ❌ Missing | **0** |
 | **Total Python APIs** | **128** |
 
@@ -41,5 +41,5 @@ Proven **Python ≡ JavaScript ≡ Dart** by execution on shared fixtures (`vali
 
 ## Verdict
 
-- **0 Missing.** 94 Complete, 26 Partial, 8 Deferred of 128 canonical APIs.
+- **0 Missing.** 105 Complete, 18 Partial, 5 Deferred of 128 canonical APIs.
 - Every Complete API has executable or vector/roundtrip proof (`COMPLETE_API_PROOF_MATRIX.md`). Every Partial/Deferred is classified with a reason (`PARTIAL_API_AUDIT.md`, `DEFERRED_API_AUDIT.md`).

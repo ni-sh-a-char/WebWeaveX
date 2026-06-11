@@ -8,7 +8,7 @@
 |----------------|--------|
 | **Python** (`webweavex.__all__`) | 126 canonical APIs — source of truth |
 | **JavaScript** | 126/126 — full reference |
-| **Dart** | **94 Complete · 26 Partial · 8 Deferred · 0 Missing** |
+| **Dart** | **105 Complete · 18 Partial · 5 Deferred · 0 Missing** |
 
 ## Proof standard (enforced)
 
@@ -43,9 +43,9 @@ Proven Python ≡ JavaScript ≡ Dart by execution:
 
 ## Remaining gaps
 
-- **26 Partial** — bounded; see `PARTIAL_API_AUDIT.md`.
-- **8 Deferred** — 5 genuinely live-browser-`page`-bound (the platform ceiling); the rest are snapshot/data-input convertible candidates. See `DEFERRED_API_AUDIT.md`.
+- **18 Partial** — bounded; see `PARTIAL_API_AUDIT.md`.
+- **5 Deferred** — 5 genuinely live-browser-`page`-bound (the platform ceiling); the rest are snapshot/data-input convertible candidates. See `DEFERRED_API_AUDIT.md`.
 
 ## Verdict
 
-Dart is at **94 Complete · 26 Partial · 8 Deferred · 0 Missing** with **0 Missing**. Every Complete API is executable- or vector-proven; every remaining gap is a documented bounded Partial or a live-runtime Deferred. Parity is proven by execution.
+Dart is at **105 Complete · 18 Partial · 5 Deferred · 0 Missing** with **0 Missing**. Every Complete API is executable- or vector-proven; every remaining gap is a documented bounded Partial or a live-runtime Deferred. Parity is proven by execution.

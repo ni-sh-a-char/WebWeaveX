@@ -36,7 +36,8 @@ def _python_init_source():
 # DevTools/Playwright, accessibility trees). Classified Deferred, documented.
 DEFERRED_APIS = {
     "extract_native", "run_native_cognition",
-    "run_application_cognition",
+    # run_application_cognition: ported + executable-proven 3-way over the
+    # bs4-parity soup (validation/semantic_ir, 667/667) — promoted.
     "recover_modal_runtime",
     "extract_infinite_scroll", "extract_paginated_content",
     "capture_websocket_frames", "capture_dom_mutations",
@@ -121,12 +122,13 @@ def dart_symbols():
 # APIs that HAVE a Dart symbol but are NOT full parity: bounded deterministic
 # core only, or an UnsupportedError stub pending an NLP/AST port. Honest, not faked.
 FORCE_PARTIAL = {
-    "compile_document", "compile_repository", "run_canonical_pipeline",
-    # proven for their primary/result-dict path; a documented sub-path
-    # (NLP/AST compile, semantic document/repository dispatch, or the
-    # network extract() fallback) is not yet portable to Dart.
-    "reason_semantically", "query_documents", "query_repository",
-    "query_semantics", "analyze",
+    # compile_document / compile_repository / query_documents /
+    # query_repository / query_semantics / reason_semantically: the full
+    # document-IR + repository-IR + parser closures are ported and
+    # executable-proven 3-way (validation/semantic_ir, 667/667) — promoted.
+    "run_canonical_pipeline",
+    # analyze: edges-path proven; the no-edges path runs extract() (network).
+    "analyze",
     # heal_selector: DOM-node strategies are a full-fidelity port (proven by
     # deep-equality vectors); the semantic_anchor HTML sub-path matches
     # BeautifulSoup for well-formed content but bounds deeply nested inline
