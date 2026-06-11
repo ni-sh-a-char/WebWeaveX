@@ -25,6 +25,7 @@ import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/layer_d.dart';
 import 'package:webweavex/src/semantic_ir/layer_e.dart';
 import 'package:webweavex/src/semantic_ir/layer_f_o.dart';
+import 'package:webweavex/src/semantic_ir/layer_repo.dart';
 import 'package:webweavex/src/semantic_ir/parsers.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
@@ -371,6 +372,18 @@ final Map<String, Function> a3Registry = <String, Function>{
   'parsers.analyze_repository_source': analyzeRepositorySource,
   'parsers.stream_parse': streamParse,
   'ground_parser_output': groundParserOutput,
+  // repository-IR closure
+  'build_repository_semantic_ir': buildRepositorySemanticIr,
+  'model_execution_dependencies': modelExecutionDependencies,
+  'analyze_runtime_semantics': analyzeRuntimeSemantics,
+  'build_service_runtime_graph': buildServiceRuntimeGraph,
+  'analyze_runtime_execution': analyzeRuntimeExecution,
+  'reason_runtime_flow': reasonRuntimeFlow,
+  'build_repository_execution_ir': buildRepositoryExecutionIr,
+  'model_runtime_state': modelRuntimeState,
+  'compile_repository_ir': compileRepositoryIr,
+  'query_repository': queryRepositoryIr,
+  'reason_runtime_semantic': reasonRuntimeSemantic,
 };
 
 /// Python kw-only params, flattened to trailing positionals in py2ts order.

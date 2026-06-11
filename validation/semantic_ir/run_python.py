@@ -311,6 +311,18 @@ REGISTRY = {
     "parsers.analyze_repository_source": "core.parsers.repository_semantic_engine",
     "parsers.stream_parse": "core.parsers.parser_streaming_engine",
     "ground_parser_output": "core.evidence.grounding_engine",
+    # repository-IR closure (formerly parse_source-gated)
+    "build_repository_semantic_ir": "core.repository.repository_semantic_ir_engine",
+    "model_execution_dependencies": "core.repository.execution_dependency_engine",
+    "analyze_runtime_semantics": "core.repository.runtime_semantics_engine",
+    "build_service_runtime_graph": "core.repository.service_runtime_graph_engine",
+    "analyze_runtime_execution": "core.repository.runtime_execution_engine",
+    "reason_runtime_flow": "core.repository.runtime_flow_reasoner",
+    "build_repository_execution_ir": "core.repository.repository_execution_ir_engine",
+    "model_runtime_state": "core.repository.runtime_state_engine",
+    "compile_repository_ir": "core.ir.repository_ir",
+    "query_repository": "core.query.repository_query_engine",
+    "reason_runtime_semantic": "core.reasoning.runtime_reasoning_engine",
 }
 
 

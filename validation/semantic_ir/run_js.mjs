@@ -313,6 +313,18 @@ import { buildParserCognitionEvidence } from "./src/parsers/parserCognitionEngin
 import { analyzeRepositorySource } from "./src/parsers/repositorySemanticEngine.ts";
 import { streamParse } from "./src/parsers/parserStreamingEngine.ts";
 import { groundParserOutput } from "./src/evidence/groundingEngine.ts";
+// repository-IR closure
+import { buildRepositorySemanticIr } from "./src/repository/repositorySemanticIrEngine.ts";
+import { modelExecutionDependencies } from "./src/repository/executionDependencyEngine.ts";
+import { analyzeRuntimeSemantics } from "./src/repository/runtimeSemanticsEngine.ts";
+import { buildServiceRuntimeGraph } from "./src/repository/serviceRuntimeGraphEngine.ts";
+import { analyzeRuntimeExecution } from "./src/repository/runtimeExecutionEngine.ts";
+import { reasonRuntimeFlow } from "./src/repository/runtimeFlowReasoner.ts";
+import { buildRepositoryExecutionIr } from "./src/repository/repositoryExecutionIrEngine.ts";
+import { modelRuntimeState } from "./src/repository/runtimeStateEngine.ts";
+import { compileRepositoryIr } from "./src/ir/repositoryIr.ts";
+import { queryRepository } from "./src/query/repositoryQueryEngine.ts";
+import { reasonRuntimeSemantic } from "./src/reasoning/runtimeReasoningEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -579,6 +591,18 @@ const A3_REGISTRY = {
   "parsers.analyze_repository_source": analyzeRepositorySource,
   "parsers.stream_parse": (...args) => [...streamParse(...args)],
   ground_parser_output: groundParserOutput,
+  // repository-IR closure
+  build_repository_semantic_ir: buildRepositorySemanticIr,
+  model_execution_dependencies: modelExecutionDependencies,
+  analyze_runtime_semantics: analyzeRuntimeSemantics,
+  build_service_runtime_graph: buildServiceRuntimeGraph,
+  analyze_runtime_execution: analyzeRuntimeExecution,
+  reason_runtime_flow: reasonRuntimeFlow,
+  build_repository_execution_ir: buildRepositoryExecutionIr,
+  model_runtime_state: modelRuntimeState,
+  compile_repository_ir: compileRepositoryIr,
+  query_repository: queryRepository,
+  reason_runtime_semantic: reasonRuntimeSemantic,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.

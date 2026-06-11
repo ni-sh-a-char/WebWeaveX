@@ -7923,5 +7923,242 @@
    "import { api } from './api';\nclass UserService {\n  constructor() { this.cache = init(); }\n}\nfunction loadUser(id) { return fetchUser(id); }\nfunction fetchUser(id) { return api.get(id); }\nloadUser(1);\n",
    "src/app.js"
   ]
+ },
+ {
+  "id": "r-semir-js",
+  "fn": "build_repository_semantic_ir",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ]
+  ]
+ },
+ {
+  "id": "r-semir-empty",
+  "fn": "build_repository_semantic_ir",
+  "args": [
+   "",
+   "",
+   null
+  ]
+ },
+ {
+  "id": "r-execdeps-js",
+  "fn": "model_execution_dependencies",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js"
+  ]
+ },
+ {
+  "id": "r-execdeps-go",
+  "fn": "model_execution_dependencies",
+  "args": [
+   "func main() { serve() }\nfunc serve() { listen() }\n",
+   "main.go"
+  ]
+ },
+ {
+  "id": "r-execdeps-empty",
+  "fn": "model_execution_dependencies",
+  "args": [
+   "",
+   ""
+  ]
+ },
+ {
+  "id": "r-runtsem-js",
+  "fn": "analyze_runtime_semantics",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js"
+  ]
+ },
+ {
+  "id": "r-runtsem-empty",
+  "fn": "analyze_runtime_semantics",
+  "args": [
+   "",
+   ""
+  ]
+ },
+ {
+  "id": "r-svcgraph-js",
+  "fn": "build_service_runtime_graph",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ]
+  ]
+ },
+ {
+  "id": "r-svcgraph-empty",
+  "fn": "build_service_runtime_graph",
+  "args": [
+   "",
+   "",
+   []
+  ]
+ },
+ {
+  "id": "r-runtexec-js",
+  "fn": "analyze_runtime_execution",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js"
+  ]
+ },
+ {
+  "id": "r-runtflow-js",
+  "fn": "reason_runtime_flow",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ]
+  ]
+ },
+ {
+  "id": "r-execir-js",
+  "fn": "build_repository_execution_ir",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ],
+   {
+    "paths": {
+     "/orders": {
+      "get": {},
+      "post": {}
+     },
+     "/health": {
+      "delete": {}
+     }
+    }
+   }
+  ]
+ },
+ {
+  "id": "r-execir-noapi",
+  "fn": "build_repository_execution_ir",
+  "args": [
+   "func main() { serve() }\nfunc serve() { listen() }\n",
+   "main.go",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ],
+   null
+  ]
+ },
+ {
+  "id": "r-state-js",
+  "fn": "model_runtime_state",
+  "args": [
+   "import { db } from './db';\nclass OrderService {\n  create(order) { return persist(order); }\n}\nfunction persist(o) { return db.save(o); }\nfunction notify(o) { publish(o); }\npersist(notify({}));\n",
+   "services/order.js"
+  ]
+ },
+ {
+  "id": "r-state-empty",
+  "fn": "model_runtime_state",
+  "args": [
+   "",
+   ""
+  ]
+ },
+ {
+  "id": "r-compile-empty",
+  "fn": "compile_repository_ir",
+  "args": [
+   "",
+   "",
+   null,
+   null
+  ]
+ },
+ {
+  "id": "r-compile-jsx",
+  "fn": "compile_repository_ir",
+  "args": [
+   "<template>\n  <div class='app'>{render()}</div>\n</template>\nfunction render() { return view(); }\nfunction view() { return fetchData(); }\n",
+   "src/App.jsx",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ],
+   {
+    "paths": {
+     "/orders": {
+      "get": {},
+      "post": {}
+     },
+     "/health": {
+      "delete": {}
+     }
+    }
+   }
+  ]
+ },
+ {
+  "id": "r-query-jsx",
+  "fn": "query_repository",
+  "args": [
+   "<template>\n  <div class='app'>{render()}</div>\n</template>\nfunction render() { return view(); }\nfunction view() { return fetchData(); }\n",
+   "src/App.jsx",
+   [
+    "src\\Dockerfile",
+    "k8s/deploy.yaml",
+    "services/order.js",
+    "services/billing.js",
+    ".github/workflows/ci.yml"
+   ]
+  ]
+ },
+ {
+  "id": "r-query-empty",
+  "fn": "query_repository",
+  "args": [
+   "",
+   "",
+   null
+  ]
+ },
+ {
+  "id": "r-reason-jsx",
+  "fn": "reason_runtime_semantic",
+  "args": [
+   "<template>\n  <div class='app'>{render()}</div>\n</template>\nfunction render() { return view(); }\nfunction view() { return fetchData(); }\n",
+   "src/App.jsx"
+  ]
  }
 ]
