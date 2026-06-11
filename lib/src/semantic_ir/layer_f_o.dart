@@ -462,7 +462,7 @@ Map<dynamic, dynamic> structureCognition(
 // ---------------------------------------------------------------------------
 
 final RegExp _numberedItem =
-    RegExp(r'^\s*\d+\.\s+(.+)$', multiLine: true);
+    pyMultiLineRegExp(r'^\s*\d+\.\s+(.+)$');
 
 /// Port of core.documents.tutorial_reasoning_engine.extract_tutorial_flow.
 Map<dynamic, dynamic> extractTutorialFlow(String? text) {

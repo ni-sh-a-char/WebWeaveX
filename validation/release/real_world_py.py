@@ -16,7 +16,9 @@ JS = sys.argv[2]
 
 
 def read(p):
-    return io.open(p, encoding='utf-8', errors='replace').read()
+    # newline='' preserves CRLF: universal-newline collapsing would shift
+    # code-point caps relative to Dart/JS readers
+    return io.open(p, encoding='utf-8', errors='replace', newline='').read()
 
 
 readme = read(f"{DART}/README.md")

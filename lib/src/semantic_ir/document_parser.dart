@@ -4,14 +4,16 @@
 /// heuristics — bit-faithful to the Python source.
 library;
 
+import 'py_compat.dart' show pyMultiLineRegExp;
+
 const int maxArgumentEdges = 300;
 
 final RegExp _headingLine = RegExp(r'^(#{1,6})\s+(.+)$');
 final RegExp _listItem = RegExp(r'^[-*]\s+');
-final RegExp _mdHeading = RegExp(r'^(#{1,6})\s+(.+)$', multiLine: true);
+final RegExp _mdHeading = pyMultiLineRegExp(r'^(#{1,6})\s+(.+)$');
 final RegExp _htmlHeading =
     RegExp(r'<h([1-6])[^>]*>(.*?)</h\1>', caseSensitive: false, dotAll: true);
-final RegExp _headingTextOnly = RegExp(r'^#{1,6}\s+(.+)$', multiLine: true);
+final RegExp _headingTextOnly = pyMultiLineRegExp(r'^#{1,6}\s+(.+)$');
 final RegExp _pronoun =
     RegExp(r'\b(it|this|that|they|these|those)\b', caseSensitive: false);
 
