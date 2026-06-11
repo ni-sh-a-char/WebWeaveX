@@ -2721,10 +2721,50 @@ export class PyTag {
     return t.length ? t : null;
   }
 
+  /** bs4 has_attr. */
+  has_attr(key: string): boolean {
+    return Object.prototype.hasOwnProperty.call(this.attrs, key);
+  }
+
   find_all(name: unknown, limit?: number): PyTag[] {
+    // Generated-call contract (matching the python engines' bs4 usage):
+    //  - RegExp        -> class_=re.compile(...): search on EACH class token
+    //  - function      -> class_=lambda: called per class token, and with
+    //                     undefined for tags without a class (bs4 None)
+    //  - plain object  -> attrs={...}: equality on the space-joined value
+    //  - string/list/True/null -> tag-name matching (original behavior)
+    let matcher: ((node: PyTag) => boolean) | null = null;
+    if (name instanceof RegExp) {
+      const re = name;
+      matcher = (node) => {
+        const cls = node.attrs["class"];
+        return Array.isArray(cls) && cls.some((c) => re.test(String(c)));
+      };
+    } else if (typeof name === "function") {
+      const fn = name as (v: unknown) => unknown;
+      matcher = (node) => {
+        const cls = node.attrs["class"];
+        if (Array.isArray(cls)) return cls.some((c) => truthy(fn(String(c))));
+        return truthy(fn(undefined));
+      };
+    } else if (
+      name !== null && typeof name === "object" && !Array.isArray(name) &&
+      !(name instanceof Set) && !(name instanceof Map)
+    ) {
+      const want = name as Record<string, unknown>;
+      matcher = (node) => {
+        for (const [k, v] of Object.entries(want)) {
+          if (!node.has_attr(k)) return false;
+          const got = node.attrs[k];
+          const joined = Array.isArray(got) ? got.join(" ") : String(got);
+          if (joined !== String(v)) return false;
+        }
+        return true;
+      };
+    }
     const names = Array.isArray(name) ? new Set(name.map((n) => String(n).toLowerCase())) : null;
     // bs4 find_all(True) matches every tag.
-    const single = names
+    const single = names || matcher
       ? null
       : name === null || name === undefined || name === true
         ? null
@@ -2733,7 +2773,13 @@ export class PyTag {
     const walk = (node: PyTag | string): void => {
       if (!(node instanceof PyTag)) return;
       if (limit !== undefined && out.length >= limit) return;
-      const matches = names ? names.has(node.name) : single === null ? true : node.name === single;
+      const matches = matcher
+        ? matcher(node)
+        : names
+          ? names.has(node.name)
+          : single === null
+            ? true
+            : node.name === single;
       if (matches) out.push(node);
       for (const c of node.children) walk(c);
     };
