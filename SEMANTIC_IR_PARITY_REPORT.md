@@ -27,7 +27,9 @@
 | — | 2 `parse_source`-gated Phase-C engines (`analyze_runtime_execution`, `reason_runtime_flow`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
 | D | third layer: `apply_reality_alignment` (84L drift/stability/boundary bundle mutation), `apply_confidence_collapse`, `detect_semantic_speculation`, `model_concept_transitions` | 4 | Python ≡ JS ≡ Dart, 11 fixtures (542/542 cumulative, hash + deep equality) | ✅ proven |
 | — | 2 `parse_source`-gated Phase-D engines (`build_repository_execution_ir`, `model_runtime_state`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
-| E–O | higher layers (cognitive humility, truth preservation, recursive confidence decay, document graphs, `compile_repository_ir`, IR dispatchers) | 0 | — | pending |
+| E | fourth layer: `apply_cognitive_humility` (75L), `apply_truth_preservation` (74L), `apply_recursive_confidence_decay`, `build_document_dependency_graph`, `model_semantic_transitions` | 5 | Python ≡ JS ≡ Dart, 13 fixtures (555/555 cumulative, hash + deep equality) | ✅ proven |
+| — | 1 `parse_source`-gated Phase-E engine (`compile_repository_ir`, via `build_repository_execution_ir`) | deferred | blocked on the `core.parsers` subsystem closure | deferred |
+| F–O | higher layers (evidence integrity assembly, semantic IR assembly, IR dispatchers) | 0 | — | pending |
 
 **Phase A is CLOSED.** All 212 plan rows accounted (verified programmatically by
 diffing the harness REGISTRY against the plan table): **197 leaves executable-proven**
@@ -221,6 +223,24 @@ calls kept for fidelity), `apply_confidence_collapse` (penalty ladder over
 - Test: `test/parity/semantic_ir_d_test.dart` (+15 tests → 1439 total, all passing).
 - Cumulative proof: **542/542 fixtures** pass 3-way hash + deep equality.
 
+## Phase E — fourth layer (proven)
+
+5 portable engines ported to `lib/src/semantic_ir/layer_e.dart`
+(`compile_repository_ir` is parse_source-gated, deferred). Determinism sites
+proven bit-exact by execution: `apply_cognitive_humility` (non-dict fragility
+→ live `model_fragility` recomputation, escalation-capped score through the
+degradation ladder, `noninferences or noninference_reasons` fallback chain),
+`apply_truth_preservation` (echo-collapse score rewrite gate, decay-rate-fed
+collapse, `{**instability, **sem_instability}` merge, sorted-set
+`termination_reasons` accumulation across phases),
+`apply_recursive_confidence_decay` (`truth_boundary_pressure=depth*0.05`
+float-typed kw flow, `entropy=0.0` f-string rendering).
+
+- Vectors: `validation/parity/semantic_ir_e_vectors.json` (13, from executed
+  Python; fixture provenance: `validation/semantic_ir/gen_phase_e_fixtures.py`).
+- Test: `test/parity/semantic_ir_e_test.dart` (+17 tests → 1456 total, all passing).
+- Cumulative proof: **555/555 fixtures** pass 3-way hash + deep equality.
+
 ## Finding — JS-branch python-AST scanner diverges from CPython on `async def`
 
 CPython's `ast.walk` summary collects `ast.FunctionDef` only; `async def`
@@ -300,11 +320,7 @@ promotion without end-to-end executable proof; no approximation. State unchanged
 
 ## Next
 
-Phase E (6 fns, 234 lines): `apply_cognitive_humility`,
-`apply_truth_preservation`, `apply_recursive_confidence_decay`,
-`build_document_dependency_graph`, `model_semantic_transitions` (all portable)
-+ `compile_repository_ir` (parse_source-gated via
-`build_repository_execution_ir`). The `core.parsers` subsystem closure now
+Phase F (4 fns, 96 lines) and beyond. The `core.parsers` subsystem closure now
 gates 9 deferred engines and is the critical path to the repository-side
-dispatchers — map it next. Then ascend F→O until the 6 dispatchers close with
+dispatchers — map it next. Then ascend G→O until the 6 dispatchers close with
 executable parity.

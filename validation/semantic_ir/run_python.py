@@ -270,6 +270,12 @@ REGISTRY = {
     "apply_confidence_collapse": "core.evidence.confidence_collapse_engine",
     "apply_reality_alignment": "core.evidence.reality_alignment_engine",
     "detect_semantic_speculation": "core.evidence.semantic_speculation_engine",
+    # Phase E — fourth layer (compile_repository_ir parse_source-gated, deferred)
+    "build_document_dependency_graph": "core.documents.document_dependency_graph_engine",
+    "model_semantic_transitions": "core.documents.semantic_transition_engine",
+    "apply_cognitive_humility": "core.evidence.cognitive_humility_engine",
+    "apply_recursive_confidence_decay": "core.evidence.recursive_confidence_decay_engine",
+    "apply_truth_preservation": "core.evidence.truth_preservation_engine",
 }
 
 

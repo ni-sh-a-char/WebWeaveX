@@ -6521,5 +6521,232 @@
     }
    }
   ]
+ },
+ {
+  "id": "e-docgraph-doc",
+  "fn": "build_document_dependency_graph",
+  "args": [
+   "# Setup guide\nintro because reasons\n\n## Step one: install\nbody\n\n## Step two: verify\nTherefore done.\n"
+  ]
+ },
+ {
+  "id": "e-docgraph-empty",
+  "fn": "build_document_dependency_graph",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "e-semtrans-doc",
+  "fn": "model_semantic_transitions",
+  "args": [
+   "# Setup guide\nintro because reasons\n\n## Step one: install\nbody\n\n## Step two: verify\nTherefore done.\n"
+  ]
+ },
+ {
+  "id": "e-semtrans-empty",
+  "fn": "model_semantic_transitions",
+  "args": [
+   ""
+  ]
+ },
+ {
+  "id": "e-recdecay-plain",
+  "fn": "apply_recursive_confidence_decay",
+  "args": [
+   0.8,
+   {}
+  ]
+ },
+ {
+  "id": "e-recdecay-full",
+  "fn": "apply_recursive_confidence_decay",
+  "args": [
+   0.95,
+   {
+    "confidence_limits": {
+     "max": 0.8
+    }
+   }
+  ],
+  "kwargs": {
+   "depth": 3,
+   "closure_count": 2,
+   "drift_pressure": 0.3,
+   "entropy": 0.5,
+   "contradiction_count": 1,
+   "ambiguity_count": 1,
+   "uncertainty_count": 1
+  }
+ },
+ {
+  "id": "e-recdecay-partial",
+  "fn": "apply_recursive_confidence_decay",
+  "args": [
+   0.6,
+   {}
+  ],
+  "kwargs": {
+   "depth": 5,
+   "entropy": 0.9
+  }
+ },
+ {
+  "id": "e-humility-full",
+  "fn": "apply_cognitive_humility",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1",
+     "amb2"
+    ],
+    "uncertainties": {
+     "u1": 1
+    },
+    "inferred": {
+     "i1": 1,
+     "i2": 2
+    },
+    "reconciled": {
+     "i1": 1
+    },
+    "noninference_reasons": [
+     "nr1"
+    ],
+    "contradicted": {
+     "pairs": [
+      [
+       "x",
+       "y"
+      ]
+     ]
+    },
+    "parser_basis": {
+     "symbol_count": 0
+    },
+    "confidence_basis": {
+     "score": 0.9
+    },
+    "unsupported_expansions": [
+     "ux1"
+    ],
+    "refused_inferences": [
+     "ri1"
+    ],
+    "fragility": "notadict",
+    "boundaries": {
+     "existing": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "e-humility-empty",
+  "fn": "apply_cognitive_humility",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "e-humility-grounded",
+  "fn": "apply_cognitive_humility",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2",
+     "e3"
+    ],
+    "inferred": {
+     "i": 1
+    },
+    "parser_basis": {
+     "symbol_count": 4
+    },
+    "confidence_basis": {
+     "score": 0.55
+    }
+   }
+  ]
+ },
+ {
+  "id": "e-truth-full",
+  "fn": "apply_truth_preservation",
+  "args": [
+   {
+    "evidence": [
+     "e1"
+    ],
+    "ambiguities": [
+     "amb1"
+    ],
+    "uncertain": [
+     "u-list"
+    ],
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {
+     "a": 1
+    },
+    "contradictions": {
+     "pairs": [
+      [
+       "p",
+       "q"
+      ]
+     ]
+    },
+    "unstable_regions": [
+     "zone1"
+    ],
+    "semantic_fragility": {
+     "level": "high",
+     "confidence_limits": {
+      "max_score": 0.6
+     }
+    },
+    "confidence_basis": {
+     "score": 0.97
+    },
+    "termination_reasons": [
+     "seed"
+    ],
+    "semantic_limits": {
+     "existing": true
+    }
+   }
+  ]
+ },
+ {
+  "id": "e-truth-empty",
+  "fn": "apply_truth_preservation",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "e-truth-echo",
+  "fn": "apply_truth_preservation",
+  "args": [
+   {
+    "evidence": [
+     "e1",
+     "e2"
+    ],
+    "inferred": {
+     "a": 1
+    },
+    "reconciled": {
+     "b": 2
+    },
+    "confidence_basis": {
+     "score": 0.99
+    }
+   }
+  ]
  }
 ]

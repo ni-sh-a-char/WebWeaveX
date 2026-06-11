@@ -271,6 +271,12 @@ import { modelConceptTransitions } from "./src/documents/conceptTransitionEngine
 import { applyConfidenceCollapse } from "./src/evidence/confidenceCollapseEngine.ts";
 import { applyRealityAlignment } from "./src/evidence/realityAlignmentEngine.ts";
 import { detectSemanticSpeculation } from "./src/evidence/semanticSpeculationEngine.ts";
+// Phase E — fourth layer
+import { buildDocumentDependencyGraph } from "./src/documents/documentDependencyGraphEngine.ts";
+import { modelSemanticTransitions } from "./src/documents/semanticTransitionEngine.ts";
+import { applyCognitiveHumility } from "./src/evidence/cognitiveHumilityEngine.ts";
+import { applyRecursiveConfidenceDecay } from "./src/evidence/recursiveConfidenceDecayEngine.ts";
+import { applyTruthPreservation } from "./src/evidence/truthPreservationEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -496,6 +502,12 @@ const A3_REGISTRY = {
   apply_confidence_collapse: applyConfidenceCollapse,
   apply_reality_alignment: applyRealityAlignment,
   detect_semantic_speculation: detectSemanticSpeculation,
+  // Phase E — fourth layer
+  build_document_dependency_graph: buildDocumentDependencyGraph,
+  model_semantic_transitions: modelSemanticTransitions,
+  apply_cognitive_humility: applyCognitiveHumility,
+  apply_recursive_confidence_decay: applyRecursiveConfidenceDecay,
+  apply_truth_preservation: applyTruthPreservation,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.
@@ -524,6 +536,11 @@ const KW_ORDER = {
     ["decay_pressure", py.F(0.0)], ["truth_boundary_pressure", py.F(0.0)],
     ["contradiction_count", 0], ["ambiguity_count", 0],
     ["uncertainty_count", 0], ["incompleteness", false],
+  ],
+  apply_recursive_confidence_decay: [
+    ["depth", 0], ["closure_count", 0], ["drift_pressure", py.F(0.0)],
+    ["entropy", py.F(0.0)], ["contradiction_count", 0],
+    ["ambiguity_count", 0], ["uncertainty_count", 0],
   ],
 };
 
