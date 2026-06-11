@@ -7162,5 +7162,766 @@
   "args": [
    "# Setup guide\nThis is because of reasons. It matters.\n\n## Step one: install\n- item alpha\n\n## Step two: verify\nTherefore we conclude. This builds on the engine.\n\n### Deep dive\nFor instance, an example.\n"
   ]
+ },
+ {
+  "id": "p-detect-js",
+  "fn": "parsers.parse_ast",
+  "args": [
+   "import { api } from './api';\nclass UserService {\n  constructor() { this.cache = init(); }\n}\nfunction loadUser(id) { return fetchUser(id); }\nfunction fetchUser(id) { return api.get(id); }\nloadUser(1);\n",
+   "javascript"
+  ]
+ },
+ {
+  "id": "p-ast-py-invalid",
+  "fn": "parsers.parse_ast",
+  "args": [
+   "def broken(:\n    return ]invalid[\nclass Orphan(\n",
+   "python"
+  ]
+ },
+ {
+  "id": "p-ast-empty",
+  "fn": "parsers.parse_ast",
+  "args": [
+   "",
+   ""
+  ]
+ },
+ {
+  "id": "p-recover-py",
+  "fn": "parsers.recover_syntax",
+  "args": [
+   "def f(a, (b\n  x = (1\n",
+   "python"
+  ]
+ },
+ {
+  "id": "p-recover-other",
+  "fn": "parsers.recover_syntax",
+  "args": [
+   "fn main( {",
+   "rust"
+  ]
+ },
+ {
+  "id": "p-budget-small",
+  "fn": "parsers.enforce_budget",
+  "args": [
+   "tiny source"
+  ]
+ },
+ {
+  "id": "p-symbols-js",
+  "fn": "parsers.resolve_symbols",
+  "args": [
+   "import { api } from './api';\nclass UserService {\n  constructor() { this.cache = init(); }\n}\nfunction loadUser(id) { return fetchUser(id); }\nfunction fetchUser(id) { return api.get(id); }\nloadUser(1);\n",
+   "javascript"
+  ]
+ },
+ {
+  "id": "p-symbols-ts",
+  "fn": "parsers.resolve_symbols",
+  "args": [
+   "interface Repo { id: string }\ntrait Marker\nclass RepoService {\n  public string getName() { return name(); }\n}\nfunction syncRepo(r: Repo) { validate(r); persist(r); }\n",
+   "typescript"
+  ]
+ },
+ {
+  "id": "p-symbols-pybad",
+  "fn": "parsers.resolve_symbols",
+  "args": [
+   "def broken(:\n    return ]invalid[\nclass Orphan(\n",
+   "python"
+  ]
+ },
+ {
+  "id": "p-symbols-empty",
+  "fn": "parsers.resolve_symbols",
+  "args": [
+   "",
+   "text"
+  ]
+ },
+ {
+  "id": "p-calls-js",
+  "fn": "parsers.build_call_graph",
+  "args": [
+   "import { api } from './api';\nclass UserService {\n  constructor() { this.cache = init(); }\n}\nfunction loadUser(id) { return fetchUser(id); }\nfunction fetchUser(id) { return api.get(id); }\nloadUser(1);\n",
+   "javascript"
+  ]
+ },
+ {
+  "id": "p-calls-go",
+  "fn": "parsers.build_call_graph",
+  "args": [
+   "module example.com/svc\n\nfunc handler(w http.ResponseWriter) { render(w) }\nfunc render(w io.Writer) { write(w) }\n",
+   "go"
+  ]
+ },
+ {
+  "id": "p-calls-pybad",
+  "fn": "parsers.build_call_graph",
+  "args": [
+   "def broken(:\n    return ]invalid[\nclass Orphan(\n",
+   "python"
+  ]
+ },
+ {
+  "id": "p-imports-sym",
+  "fn": "parsers.resolve_imports",
+  "args": [
+   {
+    "classes": [
+     "Svc"
+    ],
+    "functions": [
+     "run"
+    ],
+    "methods": [],
+    "interfaces": [],
+    "traits": [],
+    "imports": [
+     "express",
+     "react"
+    ],
+    "exports": [
+     "Svc"
+    ],
+    "decorators": [],
+    "symbols": [
+     "Svc",
+     "run"
+    ]
+   },
+   "src/app.js"
+  ]
+ },
+ {
+  "id": "p-imports-empty",
+  "fn": "parsers.resolve_imports",
+  "args": [
+   {},
+   "module"
+  ]
+ },
+ {
+  "id": "p-deps-pkgjson",
+  "fn": "parsers.resolve_dependencies",
+  "args": [
+   "{\n  \"name\": \"demo\",\n  \"dependencies\": {\"react\": \"^18.0.0\", \"express\": \"4.18.2\"},\n  \"devDependencies\": {\"vitest\": \"1.0.0\"}\n}\n",
+   "package.json"
+  ]
+ },
+ {
+  "id": "p-deps-reqs",
+  "fn": "parsers.resolve_dependencies",
+  "args": [
+   "flask==2.3.2\nfastapi>=0.100\nuvicorn\n# pip managed\n",
+   "requirements.txt"
+  ]
+ },
+ {
+  "id": "p-deps-gomod",
+  "fn": "parsers.resolve_dependencies",
+  "args": [
+   "module example.com/svc\nrequire (\n\texample.com/dep v1.2.3\n)\n",
+   "go.mod"
+  ]
+ },
+ {
+  "id": "p-runtime-node",
+  "fn": "parsers.resolve_runtime",
+  "args": [
+   [
+    "react",
+    "express"
+   ],
+   [
+    "react-dom"
+   ]
+  ]
+ },
+ {
+  "id": "p-runtime-py",
+  "fn": "parsers.resolve_runtime",
+  "args": [
+   [
+    "flask",
+    "fastapi"
+   ],
+   [
+    "python_json"
+   ]
+  ]
+ },
+ {
+  "id": "p-runtime-empty",
+  "fn": "parsers.resolve_runtime",
+  "args": [
+   [],
+   []
+  ]
+ },
+ {
+  "id": "p-frameworks-mixed",
+  "fn": "parsers.resolve_frameworks",
+  "args": [
+   [
+    "django",
+    "react"
+   ],
+   [
+    "next/router"
+   ],
+   [
+    "route"
+   ]
+  ]
+ },
+ {
+  "id": "p-frameworks-empty",
+  "fn": "parsers.resolve_frameworks",
+  "args": [
+   [],
+   [],
+   null
+  ]
+ },
+ {
+  "id": "p-api-routes",
+  "fn": "parsers.resolve_api_surface",
+  "args": [
+   "@app.get('/users')\ndef list_users(): ...\n@router.post('/items')\ndef add(): ...\nGET /health\ngraphql endpoint\n",
+   "python",
+   "app.py"
+  ]
+ },
+ {
+  "id": "p-api-none",
+  "fn": "parsers.resolve_api_surface",
+  "args": [
+   "plain text",
+   "text",
+   ""
+  ]
+ },
+ {
+  "id": "p-caps-ts",
+  "fn": "parsers.language_capabilities",
+  "args": [
+   "typescript"
+  ]
+ },
+ {
+  "id": "p-caps-unknown",
+  "fn": "parsers.language_capabilities",
+  "args": [
+   "cobol"
+  ]
+ },
+ {
+  "id": "p-graph-parsed",
+  "fn": "parsers.build_semantic_graph",
+  "args": [
+   {
+    "language": "javascript",
+    "source_id": "src/app.js",
+    "symbols": {
+     "classes": [
+      "Svc"
+     ],
+     "functions": [
+      "run"
+     ],
+     "methods": [],
+     "interfaces": [],
+     "traits": [],
+     "imports": [
+      "express",
+      "react"
+     ],
+     "exports": [
+      "Svc"
+     ],
+     "decorators": [],
+     "symbols": [
+      "Svc",
+      "run"
+     ]
+    },
+    "imports": {
+     "nodes": [
+      "express",
+      "react",
+      "src/app.js"
+     ],
+     "edges": [
+      {
+       "from": "src/app.js",
+       "to": "express"
+      },
+      {
+       "from": "src/app.js",
+       "to": "react"
+      }
+     ],
+     "exports": [
+      "Svc"
+     ]
+    },
+    "calls": {
+     "calls": [
+      {
+       "from": "<module>",
+       "to": "run"
+      }
+     ]
+    },
+    "dependencies": {
+     "dependencies": [
+      "express",
+      "react"
+     ],
+     "package_managers": [
+      "npm"
+     ]
+    },
+    "evidence": {
+     "ast": false,
+     "symbols": true,
+     "calls": true,
+     "dependencies": true,
+     "tree_sitter": false,
+     "parse_error": true
+    },
+    "semantic_graph": {
+     "nodes": [],
+     "edges": [],
+     "max_edges": 20000
+    }
+   }
+  ]
+ },
+ {
+  "id": "p-graph-empty",
+  "fn": "parsers.build_semantic_graph",
+  "args": [
+   {}
+  ]
+ },
+ {
+  "id": "p-cognition-parsed",
+  "fn": "parsers.build_parser_cognition_evidence",
+  "args": [
+   {
+    "language": "javascript",
+    "source_id": "src/app.js",
+    "symbols": {
+     "classes": [
+      "Svc"
+     ],
+     "functions": [
+      "run"
+     ],
+     "methods": [],
+     "interfaces": [],
+     "traits": [],
+     "imports": [
+      "express",
+      "react"
+     ],
+     "exports": [
+      "Svc"
+     ],
+     "decorators": [],
+     "symbols": [
+      "Svc",
+      "run"
+     ]
+    },
+    "imports": {
+     "nodes": [
+      "express",
+      "react",
+      "src/app.js"
+     ],
+     "edges": [
+      {
+       "from": "src/app.js",
+       "to": "express"
+      },
+      {
+       "from": "src/app.js",
+       "to": "react"
+      }
+     ],
+     "exports": [
+      "Svc"
+     ]
+    },
+    "calls": {
+     "calls": [
+      {
+       "from": "<module>",
+       "to": "run"
+      }
+     ]
+    },
+    "dependencies": {
+     "dependencies": [
+      "express",
+      "react"
+     ],
+     "package_managers": [
+      "npm"
+     ]
+    },
+    "evidence": {
+     "ast": false,
+     "symbols": true,
+     "calls": true,
+     "dependencies": true,
+     "tree_sitter": false,
+     "parse_error": true
+    },
+    "semantic_graph": {
+     "nodes": [],
+     "edges": [],
+     "max_edges": 20000
+    }
+   }
+  ]
+ },
+ {
+  "id": "p-cognition-nondict",
+  "fn": "parsers.build_parser_cognition_evidence",
+  "args": [
+   "notadict"
+  ]
+ },
+ {
+  "id": "p-grounding-parsed",
+  "fn": "ground_parser_output",
+  "args": [
+   {
+    "language": "javascript",
+    "source_id": "src/app.js",
+    "symbols": {
+     "classes": [
+      "Svc"
+     ],
+     "functions": [
+      "run"
+     ],
+     "methods": [],
+     "interfaces": [],
+     "traits": [],
+     "imports": [
+      "express",
+      "react"
+     ],
+     "exports": [
+      "Svc"
+     ],
+     "decorators": [],
+     "symbols": [
+      "Svc",
+      "run"
+     ]
+    },
+    "imports": {
+     "nodes": [
+      "express",
+      "react",
+      "src/app.js"
+     ],
+     "edges": [
+      {
+       "from": "src/app.js",
+       "to": "express"
+      },
+      {
+       "from": "src/app.js",
+       "to": "react"
+      }
+     ],
+     "exports": [
+      "Svc"
+     ]
+    },
+    "calls": {
+     "calls": [
+      {
+       "from": "<module>",
+       "to": "run"
+      }
+     ]
+    },
+    "dependencies": {
+     "dependencies": [
+      "express",
+      "react"
+     ],
+     "package_managers": [
+      "npm"
+     ]
+    },
+    "evidence": {
+     "ast": false,
+     "symbols": true,
+     "calls": true,
+     "dependencies": true,
+     "tree_sitter": false,
+     "parse_error": true
+    },
+    "semantic_graph": {
+     "nodes": [],
+     "edges": [],
+     "max_edges": 20000
+    }
+   }
+  ]
+ },
+ {
+  "id": "p-grounding-nondict",
+  "fn": "ground_parser_output",
+  "args": [
+   "notadict"
+  ]
+ },
+ {
+  "id": "p-normalize-parsed",
+  "fn": "parsers.normalize_parser_output",
+  "args": [
+   {
+    "language": "javascript",
+    "source_id": "src/app.js",
+    "symbols": {
+     "classes": [
+      "Svc"
+     ],
+     "functions": [
+      "run"
+     ],
+     "methods": [],
+     "interfaces": [],
+     "traits": [],
+     "imports": [
+      "express",
+      "react"
+     ],
+     "exports": [
+      "Svc"
+     ],
+     "decorators": [],
+     "symbols": [
+      "Svc",
+      "run"
+     ]
+    },
+    "imports": {
+     "nodes": [
+      "express",
+      "react",
+      "src/app.js"
+     ],
+     "edges": [
+      {
+       "from": "src/app.js",
+       "to": "express"
+      },
+      {
+       "from": "src/app.js",
+       "to": "react"
+      }
+     ],
+     "exports": [
+      "Svc"
+     ]
+    },
+    "calls": {
+     "calls": [
+      {
+       "from": "<module>",
+       "to": "run"
+      }
+     ]
+    },
+    "dependencies": {
+     "dependencies": [
+      "express",
+      "react"
+     ],
+     "package_managers": [
+      "npm"
+     ]
+    },
+    "evidence": {
+     "ast": false,
+     "symbols": true,
+     "calls": true,
+     "dependencies": true,
+     "tree_sitter": false,
+     "parse_error": true
+    },
+    "semantic_graph": {
+     "nodes": [],
+     "edges": [],
+     "max_edges": 20000
+    }
+   }
+  ]
+ },
+ {
+  "id": "p-require-parsed",
+  "fn": "parsers.require_parser_evidence",
+  "args": [
+   {
+    "language": "javascript",
+    "source_id": "src/app.js",
+    "symbols": {
+     "classes": [
+      "Svc"
+     ],
+     "functions": [
+      "run"
+     ],
+     "methods": [],
+     "interfaces": [],
+     "traits": [],
+     "imports": [
+      "express",
+      "react"
+     ],
+     "exports": [
+      "Svc"
+     ],
+     "decorators": [],
+     "symbols": [
+      "Svc",
+      "run"
+     ]
+    },
+    "imports": {
+     "nodes": [
+      "express",
+      "react",
+      "src/app.js"
+     ],
+     "edges": [
+      {
+       "from": "src/app.js",
+       "to": "express"
+      },
+      {
+       "from": "src/app.js",
+       "to": "react"
+      }
+     ],
+     "exports": [
+      "Svc"
+     ]
+    },
+    "calls": {
+     "calls": [
+      {
+       "from": "<module>",
+       "to": "run"
+      }
+     ]
+    },
+    "dependencies": {
+     "dependencies": [
+      "express",
+      "react"
+     ],
+     "package_managers": [
+      "npm"
+     ]
+    },
+    "evidence": {
+     "ast": false,
+     "symbols": true,
+     "calls": true,
+     "dependencies": true,
+     "tree_sitter": false,
+     "parse_error": true
+    },
+    "semantic_graph": {
+     "nodes": [],
+     "edges": [],
+     "max_edges": 20000
+    }
+   }
+  ]
+ },
+ {
+  "id": "p-require-text",
+  "fn": "parsers.require_parser_evidence",
+  "args": [
+   {
+    "language": "text",
+    "symbols": {}
+   }
+  ]
+ },
+ {
+  "id": "p-source-js",
+  "fn": "parsers.parse_source",
+  "args": [
+   "import { api } from './api';\nclass UserService {\n  constructor() { this.cache = init(); }\n}\nfunction loadUser(id) { return fetchUser(id); }\nfunction fetchUser(id) { return api.get(id); }\nloadUser(1);\n",
+   "src/app.js"
+  ]
+ },
+ {
+  "id": "p-source-ts-hint",
+  "fn": "parsers.parse_source",
+  "args": [
+   "interface Repo { id: string }\ntrait Marker\nclass RepoService {\n  public string getName() { return name(); }\n}\nfunction syncRepo(r: Repo) { validate(r); persist(r); }\n",
+   "",
+   "typescript"
+  ]
+ },
+ {
+  "id": "p-source-pybad",
+  "fn": "parsers.parse_source",
+  "args": [
+   "def broken(:\n    return ]invalid[\nclass Orphan(\n",
+   "broken.py"
+  ]
+ },
+ {
+  "id": "p-source-pkgjson",
+  "fn": "parsers.parse_source",
+  "args": [
+   "{\n  \"name\": \"demo\",\n  \"dependencies\": {\"react\": \"^18.0.0\", \"express\": \"4.18.2\"},\n  \"devDependencies\": {\"vitest\": \"1.0.0\"}\n}\n",
+   "package.json"
+  ]
+ },
+ {
+  "id": "p-source-empty",
+  "fn": "parsers.parse_source",
+  "args": [
+   "",
+   ""
+  ]
+ },
+ {
+  "id": "p-stream-2chunks",
+  "fn": "parsers.stream_parse",
+  "args": [
+   "module example.com/svc\n\nfunc handler(w http.ResponseWriter) { render(w) }\nfunc render(w io.Writer) { write(w) }\n\nmodule example.com/svc\n\nfunc handler(w http.ResponseWriter) { render(w) }\nfunc render(w io.Writer) { write(w) }\n",
+   "svc/go.mod",
+   "",
+   3
+  ]
+ },
+ {
+  "id": "p-repoanalyze-js",
+  "fn": "parsers.analyze_repository_source",
+  "args": [
+   "import { api } from './api';\nclass UserService {\n  constructor() { this.cache = init(); }\n}\nfunction loadUser(id) { return fetchUser(id); }\nfunction fetchUser(id) { return api.get(id); }\nloadUser(1);\n",
+   "src/app.js"
+  ]
  }
 ]

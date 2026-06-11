@@ -25,6 +25,7 @@ import 'package:webweavex/src/semantic_ir/graph_engines.dart';
 import 'package:webweavex/src/semantic_ir/layer_d.dart';
 import 'package:webweavex/src/semantic_ir/layer_e.dart';
 import 'package:webweavex/src/semantic_ir/layer_f_o.dart';
+import 'package:webweavex/src/semantic_ir/parsers.dart';
 import 'package:webweavex/src/semantic_ir/ir_base.dart';
 import 'package:webweavex/src/semantic_ir/pressure_engines.dart';
 import 'package:webweavex/src/semantic_ir/py_compat.dart' show pyFloatStr;
@@ -350,6 +351,26 @@ final Map<String, Function> a3Registry = <String, Function>{
   'compile_document_ir': compileDocumentIr,
   'query_documents': queryDocumentsIr,
   'reason_discourse_semantic': reasonDiscourseSemantic,
+  // core.parsers closure
+  'parsers.parse_source': parseSource,
+  'parsers.parse_ast': parseAst,
+  'parsers.recover_syntax': recoverSyntax,
+  'parsers.enforce_budget': enforceBudget,
+  'parsers.resolve_symbols': resolveParserSymbols,
+  'parsers.build_call_graph': buildParserCallGraph,
+  'parsers.resolve_imports': resolveImports,
+  'parsers.resolve_dependencies': resolveDependencies,
+  'parsers.resolve_runtime': resolveRuntime,
+  'parsers.resolve_frameworks': resolveFrameworks,
+  'parsers.resolve_api_surface': resolveApiSurface,
+  'parsers.language_capabilities': languageCapabilities,
+  'parsers.build_semantic_graph': buildParserSemanticGraph,
+  'parsers.normalize_parser_output': normalizeParserOutput,
+  'parsers.require_parser_evidence': requireParserEvidence,
+  'parsers.build_parser_cognition_evidence': buildParserCognitionEvidence,
+  'parsers.analyze_repository_source': analyzeRepositorySource,
+  'parsers.stream_parse': streamParse,
+  'ground_parser_output': groundParserOutput,
 };
 
 /// Python kw-only params, flattened to trailing positionals in py2ts order.

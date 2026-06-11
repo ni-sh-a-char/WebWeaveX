@@ -293,6 +293,26 @@ import { analyzeLongRangeDiscourse } from "./src/documents/longRangeDiscourseEng
 import { compileDocumentIr } from "./src/ir/documentIr.ts";
 import { queryDocuments } from "./src/query/documentQueryEngine.ts";
 import { reasonDiscourseSemantic } from "./src/reasoning/discourseReasoningEngine.ts";
+// core.parsers closure
+import { parseSource } from "./src/parsers/parserRegistry.ts";
+import { parseAst } from "./src/parsers/astEngine.ts";
+import { recoverSyntax } from "./src/parsers/syntaxRecoveryEngine.ts";
+import { enforceBudget } from "./src/parsers/parserBudgetEngine.ts";
+import { resolveSymbols as resolveParserSymbols } from "./src/parsers/symbolResolutionEngine.ts";
+import { buildCallGraph as buildParserCallGraph } from "./src/parsers/callGraphEngine.ts";
+import { resolveImports as resolveParserImports } from "./src/parsers/importResolutionEngine.ts";
+import { resolveDependencies as resolveParserDependencies } from "./src/parsers/dependencyResolutionEngine.ts";
+import { resolveRuntime as resolveParserRuntime } from "./src/parsers/runtimeResolutionEngine.ts";
+import { resolveFrameworks } from "./src/parsers/frameworkResolutionEngine.ts";
+import { resolveApiSurface } from "./src/parsers/apiResolutionEngine.ts";
+import { languageCapabilities } from "./src/parsers/parserCapabilityEngine.ts";
+import { buildSemanticGraph as buildParserSemanticGraph } from "./src/parsers/semanticGraphEngine.ts";
+import { normalizeParserOutput } from "./src/parsers/parserOutputEngine.ts";
+import { requireParserEvidence } from "./src/parsers/formalParserGroundingEngine.ts";
+import { buildParserCognitionEvidence } from "./src/parsers/parserCognitionEngine.ts";
+import { analyzeRepositorySource } from "./src/parsers/repositorySemanticEngine.ts";
+import { streamParse } from "./src/parsers/parserStreamingEngine.ts";
+import { groundParserOutput } from "./src/evidence/groundingEngine.ts";
 
 // A.3 leaves take plain positional args — dispatch generically.
 const A3_REGISTRY = {
@@ -539,6 +559,26 @@ const A3_REGISTRY = {
   compile_document_ir: compileDocumentIr,
   query_documents: queryDocuments,
   reason_discourse_semantic: reasonDiscourseSemantic,
+  // core.parsers closure
+  "parsers.parse_source": parseSource,
+  "parsers.parse_ast": parseAst,
+  "parsers.recover_syntax": recoverSyntax,
+  "parsers.enforce_budget": enforceBudget,
+  "parsers.resolve_symbols": resolveParserSymbols,
+  "parsers.build_call_graph": buildParserCallGraph,
+  "parsers.resolve_imports": resolveParserImports,
+  "parsers.resolve_dependencies": resolveParserDependencies,
+  "parsers.resolve_runtime": resolveParserRuntime,
+  "parsers.resolve_frameworks": resolveFrameworks,
+  "parsers.resolve_api_surface": resolveApiSurface,
+  "parsers.language_capabilities": languageCapabilities,
+  "parsers.build_semantic_graph": buildParserSemanticGraph,
+  "parsers.normalize_parser_output": normalizeParserOutput,
+  "parsers.require_parser_evidence": requireParserEvidence,
+  "parsers.build_parser_cognition_evidence": buildParserCognitionEvidence,
+  "parsers.analyze_repository_source": analyzeRepositorySource,
+  "parsers.stream_parse": (...args) => [...streamParse(...args)],
+  ground_parser_output: groundParserOutput,
 };
 
 // Python kw-only params, flattened to trailing positionals in py2ts order.

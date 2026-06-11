@@ -291,6 +291,26 @@ REGISTRY = {
     "compile_document_ir": "core.ir.document_ir",
     "query_documents": "core.query.document_query_engine",
     "reason_discourse_semantic": "core.reasoning.discourse_reasoning_engine",
+    # core.parsers closure (dotted keys: attr = key after the last dot)
+    "parsers.parse_source": "core.parsers.parser_registry",
+    "parsers.parse_ast": "core.parsers.ast_engine",
+    "parsers.recover_syntax": "core.parsers.syntax_recovery_engine",
+    "parsers.enforce_budget": "core.parsers.parser_budget_engine",
+    "parsers.resolve_symbols": "core.parsers.symbol_resolution_engine",
+    "parsers.build_call_graph": "core.parsers.call_graph_engine",
+    "parsers.resolve_imports": "core.parsers.import_resolution_engine",
+    "parsers.resolve_dependencies": "core.parsers.dependency_resolution_engine",
+    "parsers.resolve_runtime": "core.parsers.runtime_resolution_engine",
+    "parsers.resolve_frameworks": "core.parsers.framework_resolution_engine",
+    "parsers.resolve_api_surface": "core.parsers.api_resolution_engine",
+    "parsers.language_capabilities": "core.parsers.parser_capability_engine",
+    "parsers.build_semantic_graph": "core.parsers.semantic_graph_engine",
+    "parsers.normalize_parser_output": "core.parsers.parser_output_engine",
+    "parsers.require_parser_evidence": "core.parsers.formal_parser_grounding_engine",
+    "parsers.build_parser_cognition_evidence": "core.parsers.parser_cognition_engine",
+    "parsers.analyze_repository_source": "core.parsers.repository_semantic_engine",
+    "parsers.stream_parse": "core.parsers.parser_streaming_engine",
+    "ground_parser_output": "core.evidence.grounding_engine",
 }
 
 
@@ -301,7 +321,11 @@ def main():
         fn = fx["fn"]
         try:
             mod = importlib.import_module(REGISTRY[fn])
-            result = getattr(mod, fn)(*fx["args"], **fx.get("kwargs", {}))
+            attr = fn.rsplit(".", 1)[-1]
+            result = getattr(mod, attr)(*fx["args"], **fx.get("kwargs", {}))
+            if not isinstance(result, (dict, list, str, int, float, bool,
+                                       type(None))):
+                result = list(result)  # materialize generators (stream_parse)
             out.append({"id": fx["id"], "fn": fn, "output": result, "hash": H(result)})
         except Exception as e:  # noqa: BLE001
             out.append({"id": fx["id"], "fn": fn,
