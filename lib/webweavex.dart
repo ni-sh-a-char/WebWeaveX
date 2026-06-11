@@ -1,6 +1,19 @@
 /// WebWeaveX — deterministic runtime cognition infrastructure (Dart).
 library;
 
+// Extraction subsystem (bs4-parity soup engine + semantic extraction +
+// ingestion/multimodal/pagination/modal-recovery), byte-certified vs
+// Python and JavaScript (cross_language_verifier/).
+export 'src/adaptive/modal_recovery_engine.dart' show recoverModalRuntime;
+export 'src/extraction/html_semantic_extraction.dart'
+    show extractSemanticHtml, extractSemanticContent;
+export 'src/ingestion/universal_ingestion_engine.dart'
+    show ingestInput, detectInputType;
+export 'src/interaction/pagination_engine.dart' show extractPaginatedContent;
+export 'src/multimodal/universal_multimodal_extraction_engine.dart'
+    show extractMultimodal;
+export 'src/soup/soup.dart' show Soup, SoupTag, htmlUnescape;
+
 export 'src/browser/authenticated_runtime.dart';
 export 'src/browser/browser_identity.dart';
 export 'src/browser/capture_runtime.dart';
