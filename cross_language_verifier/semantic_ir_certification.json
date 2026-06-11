@@ -1,0 +1,7 @@
+{
+ "fixtures": 405,
+ "hash_match_3way": 405,
+ "mismatches": 0,
+ "verdict": "PASS",
+ "failures": []
+}

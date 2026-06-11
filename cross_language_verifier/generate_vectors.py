@@ -35,7 +35,15 @@ SAMPLES = {
     "astral_math": U(map(chr, [0x1D400, 0x1D401, 0x1D7D8])),
     "combining_stack": "e" + U(map(chr, [0x0301, 0x0316, 0x0327, 0x0334])),
     "rtl_mixed": "abc " + U(map(chr, [0x05E9, 0x05DC, 0x05D5, 0x05DD])) + " def",
+    "hebrew_points": U(map(chr, [0x05E9, 0x05B8, 0x05DC, 0x05D5, 0x05B9, 0x05DD])),
+    "thai": U(map(chr, [0x0E2A, 0x0E27, 0x0E31, 0x0E2A, 0x0E14, 0x0E35, 0x0E04, 0x0E23, 0x0E31, 0x0E1A])),
+    "thai_sara_am": U(map(chr, [0x0E19, 0x0E33])),
+    "zwj_zwnj": "a" + chr(0x200D) + "b" + chr(0x200C) + "c" + chr(0x200B) + "d",
+    "zero_width": chr(0xFEFF) + "bom-ish" + chr(0x2060) + "wj",
+    "devanagari_zwnj": U(map(chr, [0x0915, 0x094D, 0x200C, 0x0937])),
+    "arabic_zwnj": U(map(chr, [0x0645, 0x200C, 0x062D])),
     "bidi_controls": chr(0x202E) + "reversed" + chr(0x202C),
+    "bidi_isolates": chr(0x2066) + "ltr" + chr(0x2067) + "rtl" + chr(0x2069),
     "line_seps": "a" + chr(0x2028) + "b" + chr(0x2029) + "c",
     "controls": "tab\tnl\nbell\x07esc\x1bdel\x7f",
     "whitespace_tail": "trailing  \t ",
@@ -137,9 +145,9 @@ def main():
         "rows": [{"id": i, "score": i / 7.0, "name": f"row-{i}"} for i in range(200)],
     }
 
-    # 6. seeded random structures -> 1000+ total
-    while len(vectors) < 1100:
-        vid = f"rand_{len(vectors):04d}"
+    # 6. seeded random structures -> 10,000+ total (Phase 9 minimum)
+    while len(vectors) < 10000:
+        vid = f"rand_{len(vectors):05d}"
         vectors[vid] = rnd_value(rng)
 
     spec = {"key": ENCRYPTION_KEY, "vectors": vectors}

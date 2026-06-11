@@ -9,6 +9,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import '../crypto/kaalka_runtime.dart';
+import '../crypto/utf8_parity.dart';
 import '../crypto/kaalka_v5_proc.dart';
 
 /// json.dumps(value, sort_keys=True) — DEFAULT separators ", " and ": ".
@@ -101,7 +102,7 @@ String _rawDecrypt(String encrypted, String key) {
   // Mirror crypto/kaalka_runtime.dart decrypt path without the jsonDecode.
   final String timeKey = deriveKaalkaTimeKey(key);
   final List<int> raw = decodeKaalkaCiphertext(encrypted);
-  return utf8.decode(kaalkaV5DecryptBytes(raw, timeKey));
+  return utf8DecodeParity(kaalkaV5DecryptBytes(raw, timeKey));
 }
 
 Map<String, dynamic> _emptyStore() => <String, dynamic>{

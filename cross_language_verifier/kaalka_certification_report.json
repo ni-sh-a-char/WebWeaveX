@@ -1,0 +1,33 @@
+{
+  "claim": "All three branches use the published Kaalka 5.0.0 algorithm; the local byte bridges are byte-equivalent to the published packages",
+  "why_a_bridge_exists": "The published packages' public byte APIs route ciphertext through utf8.decode/encode, which is lossy for arbitrary binary; each branch therefore mirrors the package's _proc byte transform exactly (same formula, same h%12 time parsing) to obtain a lossless byte path. The pub.dev Kaalka registry class is still instantiated as a declared dependency.",
+  "executed_evidence": {
+    "python_vs_pypi": {
+      "method": "direct _proc comparison (published kaalka.Kaalka()._proc vs core/crypto/kaalka_v5_proc.py)",
+      "trials": 1400,
+      "time_keys": ["0:0:0", "3:0:0", "12:34:56", "11:59:59", "23:45:1", "1:2:3", "12:0:0"],
+      "mismatches": 0,
+      "verdict": "PASS",
+      "artifact": "kaalka_pkg_python.json"
+    },
+    "javascript_vs_npm": {
+      "method": "direct _proc comparison (npm kaalka 5.0.0 installed fresh vs src/crypto/kaalkaV5Client.ts)",
+      "trials": 1400,
+      "mismatches": 0,
+      "verdict": "PASS",
+      "artifact": "kaalka_pkg_js.json"
+    },
+    "dart_vs_pubdev": {
+      "method": "published Kaalka.encrypt(List<int>) with ASCII-safe designed vectors vs lib/src/crypto/kaalka_v5_proc.dart, plus source-level identity of _proc in pub cache kaalka-5.0.0",
+      "trials": 30,
+      "mismatches": 0,
+      "verdict": "PASS",
+      "artifact": "kaalka_pkg_dart.json"
+    },
+    "cross_language_encryption": {
+      "method": "cross_language_verifier full pipeline (encrypt_value/decrypt_value/time keys/fingerprints)",
+      "verdict": "PASS (see certification_report.json)"
+    }
+  },
+  "verdict": "PASS"
+}

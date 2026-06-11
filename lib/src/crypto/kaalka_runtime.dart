@@ -6,6 +6,7 @@ import '../determinism/stable_serialize.dart';
 import 'hashing.dart';
 import 'kaalka_v5_proc.dart';
 import 'time_key.dart';
+import 'utf8_parity.dart';
 
 export '../determinism/normalization.dart'
     show normalizeRuntimeValue, volatileRuntimeKeys;
@@ -35,7 +36,7 @@ String encryptValue(dynamic value, String key) {
 dynamic decryptValue(String encrypted, String key) {
   final timeKey = deriveKaalkaTimeKey(key);
   final raw = decodeKaalkaCiphertext(encrypted);
-  final decrypted = utf8.decode(kaalkaV5DecryptBytes(raw, timeKey));
+  final decrypted = utf8DecodeParity(kaalkaV5DecryptBytes(raw, timeKey));
   try {
     return jsonDecode(decrypted);
   } catch (_) {

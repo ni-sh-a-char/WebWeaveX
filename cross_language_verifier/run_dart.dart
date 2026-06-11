@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:webweavex/src/crypto/hashing.dart';
+import 'package:webweavex/src/crypto/utf8_parity.dart';
 import 'package:webweavex/src/crypto/kaalka_runtime.dart' show encryptValue;
 import 'package:webweavex/src/crypto/kaalka_v5_proc.dart';
 import 'package:webweavex/src/crypto/time_key.dart';
@@ -26,7 +27,7 @@ void main(List<String> argv) {
     final v = vectors[vid];
     final enc = encryptValue(v, key);
     final decStr =
-        utf8.decode(kaalkaV5DecryptBytes(base64Decode(enc), timeKey));
+        utf8DecodeParity(kaalkaV5DecryptBytes(base64Decode(enc), timeKey));
     (out['vectors'] as Map)[vid] = {
       'stable': stableSerialize(v),
       'canonical': dumpsDeterministic(v),

@@ -1,0 +1,1806 @@
+{
+ "summary": {
+  "total_apis": 256,
+  "full_parity": 104,
+  "missing_in_dart": 58,
+  "missing_in_javascript": 28,
+  "missing_in_python": 128,
+  "python_public": 128,
+  "js_public": 229,
+  "dart_public": 198
+ },
+ "matrix": [
+  {
+   "api": "__version__",
+   "python": "__version__",
+   "javascript": null,
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "analyze",
+   "python": "analyze",
+   "javascript": "analyze",
+   "dart": "analyze",
+   "parity": "FULL"
+  },
+  {
+   "api": "authenticate_runtime",
+   "python": "authenticate_runtime",
+   "javascript": "authenticateRuntime",
+   "dart": "authenticateRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_browser_identity",
+   "python": "build_browser_identity",
+   "javascript": "buildBrowserIdentity",
+   "dart": "buildBrowserIdentity",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_browser_identity_from_capture",
+   "python": null,
+   "javascript": null,
+   "dart": "buildBrowserIdentityFromCapture",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_interaction_graph",
+   "python": "build_interaction_graph",
+   "javascript": "buildInteractionGraph",
+   "dart": "buildInteractionGraph",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_memory_lineage",
+   "python": null,
+   "javascript": "buildMemoryLineage",
+   "dart": "buildMemoryLineage",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_runtime_delta",
+   "python": "build_runtime_delta",
+   "javascript": "buildRuntimeDelta",
+   "dart": "buildRuntimeDelta",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_runtime_evolution",
+   "python": "build_runtime_evolution",
+   "javascript": "buildRuntimeEvolution",
+   "dart": "buildRuntimeEvolution",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_runtime_goal",
+   "python": null,
+   "javascript": null,
+   "dart": "buildRuntimeGoal",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_runtime_graph",
+   "python": "build_runtime_graph",
+   "javascript": "buildRuntimeGraph",
+   "dart": "buildRuntimeGraph",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_runtime_graph_lineage",
+   "python": null,
+   "javascript": "buildRuntimeGraphLineage",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_runtime_memory",
+   "python": "build_runtime_memory",
+   "javascript": "buildRuntimeMemory",
+   "dart": "buildRuntimeMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_runtime_memory_fabric",
+   "python": null,
+   "javascript": null,
+   "dart": "buildRuntimeMemoryFabric",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_runtime_memory_graph",
+   "python": null,
+   "javascript": "buildRuntimeMemoryGraph",
+   "dart": "buildRuntimeMemoryGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_runtime_objective",
+   "python": "build_runtime_objective",
+   "javascript": "buildRuntimeObjective",
+   "dart": "buildRuntimeObjective",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_runtime_sandbox",
+   "python": "build_runtime_sandbox",
+   "javascript": "buildRuntimeSandbox",
+   "dart": "buildRuntimeSandbox",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_semantic_anchor",
+   "python": null,
+   "javascript": null,
+   "dart": "buildSemanticAnchor",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_semantic_memory",
+   "python": null,
+   "javascript": "buildSemanticMemory",
+   "dart": "buildSemanticMemory",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_stream_timeline",
+   "python": "build_stream_timeline",
+   "javascript": "buildStreamTimeline",
+   "dart": "buildStreamTimeline",
+   "parity": "FULL"
+  },
+  {
+   "api": "build_unified_runtime_ir",
+   "python": null,
+   "javascript": "buildUnifiedRuntimeIR",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "build_workflow_plan",
+   "python": "build_workflow_plan",
+   "javascript": "buildWorkflowPlan",
+   "dart": "buildWorkflowPlan",
+   "parity": "FULL"
+  },
+  {
+   "api": "capture_dom",
+   "python": null,
+   "javascript": "captureDom",
+   "dart": "captureDom",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "capture_dom_mutations",
+   "python": "capture_dom_mutations",
+   "javascript": "captureDomMutations",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "capture_runtime",
+   "python": null,
+   "javascript": "captureRuntime",
+   "dart": "captureRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "capture_runtime_snapshot",
+   "python": null,
+   "javascript": "captureRuntimeSnapshot",
+   "dart": "captureRuntimeSnapshot",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "capture_websocket_frames",
+   "python": "capture_websocket_frames",
+   "javascript": "captureWebsocketFrames",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "clone_runtime_environment",
+   "python": "clone_runtime_environment",
+   "javascript": "cloneRuntimeEnvironment",
+   "dart": "cloneRuntimeEnvironment",
+   "parity": "FULL"
+  },
+  {
+   "api": "compare_browser_identity",
+   "python": null,
+   "javascript": "compareBrowserIdentity",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compare_runtime_snapshots",
+   "python": null,
+   "javascript": "compareRuntimeSnapshots",
+   "dart": "compareRuntimeSnapshots",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compile_document",
+   "python": "compile_document",
+   "javascript": "compileDocument",
+   "dart": "compileDocument",
+   "parity": "FULL"
+  },
+  {
+   "api": "compile_repository",
+   "python": "compile_repository",
+   "javascript": "compileRepository",
+   "dart": "compileRepository",
+   "parity": "FULL"
+  },
+  {
+   "api": "compile_runtime_ir",
+   "python": null,
+   "javascript": "compileRuntimeIR",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compile_unified_runtime_ir",
+   "python": "compile_unified_runtime_ir",
+   "javascript": "compileUnifiedRuntimeIr",
+   "dart": "compileUnifiedRuntimeIr",
+   "parity": "FULL"
+  },
+  {
+   "api": "compute_deterministic_hash",
+   "python": null,
+   "javascript": "computeDeterministicHash",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_deterministic_hash_payload",
+   "python": null,
+   "javascript": "computeDeterministicHashPayload",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_global_runtime_fingerprint",
+   "python": "compute_global_runtime_fingerprint",
+   "javascript": "computeGlobalRuntimeFingerprint",
+   "dart": "computeGlobalRuntimeFingerprint",
+   "parity": "FULL"
+  },
+  {
+   "api": "compute_graph_lineage_fingerprint",
+   "python": null,
+   "javascript": "computeGraphLineageFingerprint",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_kaalka_hash",
+   "python": "compute_kaalka_hash",
+   "javascript": "computeKaalkaHash",
+   "dart": "computeKaalkaHash",
+   "parity": "FULL"
+  },
+  {
+   "api": "compute_kaalka_hash_payload",
+   "python": null,
+   "javascript": "computeKaalkaHashPayload",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_replay_fingerprint",
+   "python": null,
+   "javascript": "computeReplayFingerprint",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_runtime_fingerprint",
+   "python": null,
+   "javascript": "computeRuntimeFingerprint",
+   "dart": "computeRuntimeFingerprint",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_runtime_pipeline_fingerprint",
+   "python": null,
+   "javascript": null,
+   "dart": "computeRuntimePipelineFingerprint",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_spa_fingerprint",
+   "python": null,
+   "javascript": "computeSpaFingerprint",
+   "dart": "computeSpaFingerprint",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "compute_stable_dom_hash",
+   "python": null,
+   "javascript": "computeStableDomHash",
+   "dart": "computeStableDomHash",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "continue_authenticated_runtime",
+   "python": null,
+   "javascript": "continueAuthenticatedRuntime",
+   "dart": "continueAuthenticatedRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "crawl",
+   "python": "crawl",
+   "javascript": "crawl",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "crawl_async",
+   "python": "crawl_async",
+   "javascript": "crawlAsync",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "create_extraction_worker",
+   "python": null,
+   "javascript": null,
+   "dart": "createExtractionWorker",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "create_runtime_session",
+   "python": null,
+   "javascript": "createRuntimeSession",
+   "dart": "createRuntimeSession",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "create_semantic_journal",
+   "python": null,
+   "javascript": "createSemanticJournal",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "create_semantic_snapshot",
+   "python": null,
+   "javascript": "createSemanticSnapshot",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "decode_kaalka_ciphertext",
+   "python": null,
+   "javascript": null,
+   "dart": "decodeKaalkaCiphertext",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "decrypt_session_state",
+   "python": "decrypt_session_state",
+   "javascript": "decryptSessionState",
+   "dart": "decryptSessionState",
+   "parity": "FULL"
+  },
+  {
+   "api": "decrypt_value",
+   "python": "decrypt_value",
+   "javascript": "decryptValue",
+   "dart": "decryptValue",
+   "parity": "FULL"
+  },
+  {
+   "api": "decrypt_value_envelope",
+   "python": null,
+   "javascript": null,
+   "dart": "decryptValueEnvelope",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "derive_kaalka_time_key",
+   "python": null,
+   "javascript": "deriveKaalkaTimeKey",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "detect_build_systems",
+   "python": null,
+   "javascript": "detectBuildSystems",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "detect_spa_framework",
+   "python": null,
+   "javascript": "detectSpaFramework",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "encode_kaalka_ciphertext",
+   "python": null,
+   "javascript": null,
+   "dart": "encodeKaalkaCiphertext",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "encrypt_session_state",
+   "python": "encrypt_session_state",
+   "javascript": "encryptSessionState",
+   "dart": "encryptSessionState",
+   "parity": "FULL"
+  },
+  {
+   "api": "encrypt_value",
+   "python": "encrypt_value",
+   "javascript": "encryptValue",
+   "dart": "encryptValue",
+   "parity": "FULL"
+  },
+  {
+   "api": "encrypt_value_envelope",
+   "python": null,
+   "javascript": null,
+   "dart": "encryptValueEnvelope",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "evolve_selector_runtime",
+   "python": "evolve_selector_runtime",
+   "javascript": "evolveSelectorRuntime",
+   "dart": "evolveSelectorRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "execute_runtime_action",
+   "python": "execute_runtime_action",
+   "javascript": "executeRuntimeAction",
+   "dart": "executeRuntimeAction",
+   "parity": "FULL"
+  },
+  {
+   "api": "execute_runtime_objective",
+   "python": "execute_runtime_objective",
+   "javascript": "executeRuntimeObjective",
+   "dart": "executeRuntimeObjective",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract",
+   "python": "extract",
+   "javascript": "extract",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_api_runtime",
+   "python": "extract_api_runtime",
+   "javascript": "extractApiRuntime",
+   "dart": "extractApiRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_async",
+   "python": "extract_async",
+   "javascript": "extractAsync",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_cicd_runtime",
+   "python": null,
+   "javascript": "extractCicdRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_citations",
+   "python": null,
+   "javascript": "extractCitations",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_container_runtime",
+   "python": "extract_container_runtime",
+   "javascript": "extractContainerRuntime",
+   "dart": "extractContainerRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_database_runtime",
+   "python": "extract_database_runtime",
+   "javascript": "extractDatabaseRuntime",
+   "dart": "extractDatabaseRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_docker_runtime",
+   "python": null,
+   "javascript": "extractDockerRuntime",
+   "dart": "extractDockerRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_docs",
+   "python": "extract_docs",
+   "javascript": "extractDocs",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_document_runtime",
+   "python": "extract_document_runtime",
+   "javascript": "extractDocumentRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_filesystem_runtime",
+   "python": null,
+   "javascript": "extractFilesystemRuntime",
+   "dart": "extractFilesystemRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_graphql_runtime",
+   "python": null,
+   "javascript": "extractGraphqlRuntime",
+   "dart": "extractGraphqlRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_grpc_runtime",
+   "python": null,
+   "javascript": "extractGrpcRuntime",
+   "dart": "extractGrpcRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_ide_runtime",
+   "python": "extract_ide_runtime",
+   "javascript": "extractIdeRuntime",
+   "dart": "extractIdeRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_infinite_scroll",
+   "python": "extract_infinite_scroll",
+   "javascript": "extractInfiniteScroll",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_kafka_runtime",
+   "python": null,
+   "javascript": "extractKafkaRuntime",
+   "dart": "extractKafkaRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_kubernetes_runtime",
+   "python": "extract_kubernetes_runtime",
+   "javascript": "extractKubernetesRuntime",
+   "dart": "extractKubernetesRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_multimodal",
+   "python": "extract_multimodal",
+   "javascript": "extractMultimodal",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_mysql_runtime",
+   "python": null,
+   "javascript": "extractMysqlRuntime",
+   "dart": "extractMysqlRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_native",
+   "python": "extract_native",
+   "javascript": "extractNative",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_paginated_content",
+   "python": "extract_paginated_content",
+   "javascript": "extractPaginatedContent",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_postgres_runtime",
+   "python": null,
+   "javascript": "extractPostgresRuntime",
+   "dart": "extractPostgresRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_recursive",
+   "python": "extract_recursive",
+   "javascript": "extractRecursive",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_redis_runtime",
+   "python": null,
+   "javascript": "extractRedisRuntime",
+   "dart": "extractRedisRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_repo",
+   "python": "extract_repo",
+   "javascript": "extractRepo",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_repository",
+   "python": "extract_repository",
+   "javascript": "extractRepository",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_runtime_stream_runtime",
+   "python": null,
+   "javascript": "extractRuntimeStreamRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_runtime_streams",
+   "python": "extract_runtime_streams",
+   "javascript": "extractRuntimeStreams",
+   "dart": "extractRuntimeStreams",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_sqlite_runtime",
+   "python": null,
+   "javascript": "extractSqliteRuntime",
+   "dart": "extractSqliteRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_telemetry_runtime",
+   "python": "extract_telemetry_runtime",
+   "javascript": "extractTelemetryRuntime",
+   "dart": "extractTelemetryRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_web",
+   "python": "extract_web",
+   "javascript": "extractWeb",
+   "dart": "extractWeb",
+   "parity": "FULL"
+  },
+  {
+   "api": "extract_websocket_runtime",
+   "python": null,
+   "javascript": "extractWebsocketRuntime",
+   "dart": "extractWebsocketRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "extract_with_session",
+   "python": null,
+   "javascript": "extractWithSession",
+   "dart": "extractWithSession",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "fabricate_runtime_reality",
+   "python": "fabricate_runtime_reality",
+   "javascript": "fabricateRuntimeReality",
+   "dart": "fabricateRuntimeReality",
+   "parity": "FULL"
+  },
+  {
+   "api": "fingerprint",
+   "python": "fingerprint",
+   "javascript": "fingerprint",
+   "dart": "fingerprint",
+   "parity": "FULL"
+  },
+  {
+   "api": "get_runtime_kernel",
+   "python": "get_runtime_kernel",
+   "javascript": "getRuntimeKernel",
+   "dart": "getRuntimeKernel",
+   "parity": "FULL"
+  },
+  {
+   "api": "graph_fingerprint",
+   "python": null,
+   "javascript": "graphFingerprint",
+   "dart": "graphFingerprint",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "graph_reconstruction_fingerprint",
+   "python": null,
+   "javascript": null,
+   "dart": "graphReconstructionFingerprint",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "graph_replay_hash",
+   "python": null,
+   "javascript": "graphReplayHash",
+   "dart": "graphReplayHash",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "heal_selector",
+   "python": "heal_selector",
+   "javascript": "healSelector",
+   "dart": "healSelector",
+   "parity": "FULL"
+  },
+  {
+   "api": "identity_from_extraction",
+   "python": null,
+   "javascript": "identityFromExtraction",
+   "dart": "identityFromExtraction",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "infer_from_evidence",
+   "python": null,
+   "javascript": "inferFromEvidence",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "ingest_input",
+   "python": "ingest_input",
+   "javascript": "ingestInput",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "kaalka_algorithm",
+   "python": null,
+   "javascript": "KAALKA_ALGORITHM",
+   "dart": "kaalkaAlgorithm",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "kaalka_npm_version",
+   "python": null,
+   "javascript": "KAALKA_NPM_VERSION",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "kaalka_package_version",
+   "python": null,
+   "javascript": null,
+   "dart": "kaalkaPackageVersion",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "load_adaptive_memory",
+   "python": "load_adaptive_memory",
+   "javascript": "loadAdaptiveMemory",
+   "dart": "loadAdaptiveMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_application_memory",
+   "python": "load_application_memory",
+   "javascript": "loadApplicationMemory",
+   "dart": "loadApplicationMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_authenticated_runtime",
+   "python": null,
+   "javascript": "loadAuthenticatedRuntime",
+   "dart": "loadAuthenticatedRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "load_browser_identity",
+   "python": "load_browser_identity",
+   "javascript": "loadBrowserIdentity",
+   "dart": "loadBrowserIdentity",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_causal_memory",
+   "python": "load_causal_memory",
+   "javascript": "loadCausalMemory",
+   "dart": "loadCausalMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_distributed_checkpoint",
+   "python": "load_distributed_checkpoint",
+   "javascript": "loadDistributedCheckpoint",
+   "dart": "loadDistributedCheckpoint",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_encrypted_session",
+   "python": "load_encrypted_session",
+   "javascript": "loadEncryptedSession",
+   "dart": "loadEncryptedSession",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_evolution_runtime",
+   "python": "load_evolution_runtime",
+   "javascript": "loadEvolutionRuntime",
+   "dart": "loadEvolutionRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_live_runtime",
+   "python": "load_live_runtime",
+   "javascript": "loadLiveRuntime",
+   "dart": "loadLiveRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_live_runtime_memory",
+   "python": null,
+   "javascript": "loadLiveRuntimeMemory",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "load_native_runtime",
+   "python": "load_native_runtime",
+   "javascript": "loadNativeRuntime",
+   "dart": "loadNativeRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_runtime_memory",
+   "python": "load_runtime_memory",
+   "javascript": "loadRuntimeMemory",
+   "dart": "loadRuntimeMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_semantic_memory",
+   "python": "load_semantic_memory",
+   "javascript": "loadSemanticMemory",
+   "dart": "loadSemanticMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_stream_runtime",
+   "python": null,
+   "javascript": "loadStreamRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "load_sync_memory",
+   "python": "load_sync_memory",
+   "javascript": "loadSyncMemory",
+   "dart": "loadSyncMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "load_workflow_memory",
+   "python": "load_workflow_memory",
+   "javascript": "loadWorkflowMemory",
+   "dart": "loadWorkflowMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "make_stream_event",
+   "python": null,
+   "javascript": "makeStreamEvent",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "memory_replay_hash",
+   "python": null,
+   "javascript": "memoryReplayHash",
+   "dart": "memoryReplayHash",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "merge_graph_replay",
+   "python": null,
+   "javascript": "mergeGraphReplay",
+   "dart": "mergeGraphReplay",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "merge_runtime_memories",
+   "python": null,
+   "javascript": "mergeRuntimeMemories",
+   "dart": "mergeRuntimeMemories",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "merge_stream_runtimes",
+   "python": null,
+   "javascript": "mergeStreamRuntimes",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "normalize_runtime_graph",
+   "python": null,
+   "javascript": "normalizeRuntimeGraph",
+   "dart": "normalizeRuntimeGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "normalize_runtime_state",
+   "python": null,
+   "javascript": "normalizeRuntimeState",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "normalize_runtime_value",
+   "python": null,
+   "javascript": "normalizeRuntimeValue",
+   "dart": "normalizeRuntimeValue",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "orchestrate",
+   "python": null,
+   "javascript": "orchestrate",
+   "dart": "orchestrate",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "persist_runtime_session",
+   "python": null,
+   "javascript": "persistRuntimeSession",
+   "dart": "persistRuntimeSession",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "query_documents",
+   "python": "query_documents",
+   "javascript": "queryDocuments",
+   "dart": "queryDocuments",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_graph",
+   "python": "query_graph",
+   "javascript": "queryGraph",
+   "dart": "queryGraph",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_knowledge",
+   "python": "query_knowledge",
+   "javascript": "queryKnowledge",
+   "dart": "queryKnowledge",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_memory_history",
+   "python": null,
+   "javascript": null,
+   "dart": "queryMemoryHistory",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "query_repo",
+   "python": "query_repo",
+   "javascript": "queryRepo",
+   "dart": "queryRepo",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_repository",
+   "python": "query_repository",
+   "javascript": "queryRepository",
+   "dart": "queryRepository",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_runtime_graph",
+   "python": "query_runtime_graph",
+   "javascript": "queryRuntimeGraph",
+   "dart": "queryRuntimeGraph",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_runtime_graph_typed",
+   "python": null,
+   "javascript": null,
+   "dart": "queryRuntimeGraphTyped",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "query_runtime_memory",
+   "python": "query_runtime_memory",
+   "javascript": "queryRuntimeMemory",
+   "dart": "queryRuntimeMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "query_runtime_memory_fabric",
+   "python": null,
+   "javascript": null,
+   "dart": "queryRuntimeMemoryFabric",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "query_semantics",
+   "python": "query_semantics",
+   "javascript": "querySemantics",
+   "dart": "querySemantics",
+   "parity": "FULL"
+  },
+  {
+   "api": "reason_semantically",
+   "python": "reason_semantically",
+   "javascript": "reasonSemantically",
+   "dart": "reasonSemantically",
+   "parity": "FULL"
+  },
+  {
+   "api": "rebuild_execution_graph",
+   "python": null,
+   "javascript": "rebuildExecutionGraph",
+   "dart": "rebuildExecutionGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "rebuild_graph_from_partial",
+   "python": null,
+   "javascript": "rebuildGraphFromPartial",
+   "dart": "rebuildGraphFromPartial",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_browser_state",
+   "python": null,
+   "javascript": "reconstructBrowserState",
+   "dart": "reconstructBrowserState",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_graph_from_ir",
+   "python": null,
+   "javascript": "reconstructGraphFromIr",
+   "dart": "reconstructGraphFromIr",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_graph_from_sources",
+   "python": null,
+   "javascript": null,
+   "dart": "reconstructGraphFromSources",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_memory_from_envelope",
+   "python": null,
+   "javascript": "reconstructMemoryFromEnvelope",
+   "dart": "reconstructMemoryFromEnvelope",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_memory_graph",
+   "python": null,
+   "javascript": null,
+   "dart": "reconstructMemoryGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_replay_state",
+   "python": null,
+   "javascript": "reconstructReplayState",
+   "dart": "reconstructReplayState",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_runtime",
+   "python": "reconstruct_runtime",
+   "javascript": "reconstructRuntime",
+   "dart": "reconstructRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "reconstruct_runtime_from_envelope",
+   "python": null,
+   "javascript": null,
+   "dart": "reconstructRuntimeFromEnvelope",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "reconstruct_runtime_graph",
+   "python": null,
+   "javascript": "reconstructRuntimeGraph",
+   "dart": "reconstructRuntimeGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "record_interaction",
+   "python": null,
+   "javascript": null,
+   "dart": "recordInteraction",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "recover_modal_runtime",
+   "python": "recover_modal_runtime",
+   "javascript": "recoverModalRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "recover_runtime",
+   "python": null,
+   "javascript": "recoverRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "render_page",
+   "python": null,
+   "javascript": "renderPage",
+   "dart": "renderPage",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_causal_runtime",
+   "python": "replay_causal_runtime",
+   "javascript": "replayCausalRuntime",
+   "dart": "replayCausalRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "replay_dom_snapshot",
+   "python": null,
+   "javascript": "replayDomSnapshot",
+   "dart": "replayDomSnapshot",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_graph_lineage",
+   "python": null,
+   "javascript": "replayGraphLineage",
+   "dart": "replayGraphLineage",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_interactions",
+   "python": "replay_interactions",
+   "javascript": "replayInteractions",
+   "dart": "replayInteractions",
+   "parity": "FULL"
+  },
+  {
+   "api": "replay_memory_state",
+   "python": null,
+   "javascript": "replayMemoryState",
+   "dart": "replayMemoryState",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_runtime",
+   "python": null,
+   "javascript": "replayRuntime",
+   "dart": "replayRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_runtime_execution",
+   "python": "replay_runtime_execution",
+   "javascript": "replayRuntimeExecution",
+   "dart": "replayRuntimeExecution",
+   "parity": "FULL"
+  },
+  {
+   "api": "replay_runtime_graph",
+   "python": null,
+   "javascript": "replayRuntimeGraph",
+   "dart": "replayRuntimeGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_runtime_memory",
+   "python": null,
+   "javascript": "replayRuntimeMemory",
+   "dart": "replayRuntimeMemory",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_runtime_state",
+   "python": null,
+   "javascript": "replayRuntimeState",
+   "dart": "replayRuntimeState",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_semantic_events",
+   "python": null,
+   "javascript": "replaySemanticEvents",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "replay_semantic_runtime",
+   "python": "replay_semantic_runtime",
+   "javascript": "replaySemanticRuntime",
+   "dart": "replaySemanticRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "replay_stream_events",
+   "python": "replay_stream_events",
+   "javascript": "replayStreamEvents",
+   "dart": "replayStreamEvents",
+   "parity": "FULL"
+  },
+  {
+   "api": "replay_synchronized_runtime",
+   "python": "replay_synchronized_runtime",
+   "javascript": "replaySynchronizedRuntime",
+   "dart": "replaySynchronizedRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "replay_workflow_runtime",
+   "python": "replay_workflow_runtime",
+   "javascript": "replayWorkflowRuntime",
+   "dart": "replayWorkflowRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "replicate_runtime_memory",
+   "python": null,
+   "javascript": "replicateRuntimeMemory",
+   "dart": "replicateRuntimeMemory",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "restore_runtime_session",
+   "python": null,
+   "javascript": "restoreRuntimeSession",
+   "dart": "restoreRuntimeSession",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "restore_semantic_snapshot",
+   "python": null,
+   "javascript": "restoreSemanticSnapshot",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "rotate_authenticated_session",
+   "python": null,
+   "javascript": "rotateAuthenticatedSession",
+   "dart": "rotateAuthenticatedSession",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "rotate_runtime_session",
+   "python": null,
+   "javascript": "rotateRuntimeSession",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "routes_fingerprint",
+   "python": null,
+   "javascript": null,
+   "dart": "routesFingerprint",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_application_cognition",
+   "python": "run_application_cognition",
+   "javascript": "runApplicationCognition",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_autonomous_extraction",
+   "python": "run_autonomous_extraction",
+   "javascript": "runAutonomousExtraction",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_autonomous_workflow",
+   "python": "run_autonomous_workflow",
+   "javascript": "runAutonomousWorkflow",
+   "dart": "runAutonomousWorkflow",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_canonical_pipeline",
+   "python": "run_canonical_pipeline",
+   "javascript": "runCanonicalPipeline",
+   "dart": "runCanonicalPipeline",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_causality_for_extraction",
+   "python": "run_causality_for_extraction",
+   "javascript": "runCausalityForExtraction",
+   "dart": "runCausalityForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_causality_runtime",
+   "python": "run_causality_runtime",
+   "javascript": "runCausalityRuntime",
+   "dart": "runCausalityRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_distributed_extraction",
+   "python": null,
+   "javascript": "runDistributedExtraction",
+   "dart": "runDistributedExtraction",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_evolution_for_extraction",
+   "python": "run_evolution_for_extraction",
+   "javascript": "runEvolutionForExtraction",
+   "dart": "runEvolutionForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_evolution_runtime",
+   "python": "run_evolution_runtime",
+   "javascript": "runEvolutionRuntime",
+   "dart": "runEvolutionRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_execution_for_extraction",
+   "python": "run_execution_for_extraction",
+   "javascript": "runExecutionForExtraction",
+   "dart": "runExecutionForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_execution_runtime",
+   "python": "run_execution_runtime",
+   "javascript": "runExecutionRuntime",
+   "dart": "runExecutionRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_live_for_extraction",
+   "python": null,
+   "javascript": "runLiveForExtraction",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_live_runtime",
+   "python": "run_live_runtime",
+   "javascript": "runLiveRuntime",
+   "dart": "runLiveRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_memory_for_extraction",
+   "python": "run_memory_for_extraction",
+   "javascript": "runMemoryForExtraction",
+   "dart": "runMemoryForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_native_cognition",
+   "python": "run_native_cognition",
+   "javascript": "runNativeCognition",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_reconstruction_for_extraction",
+   "python": "run_reconstruction_for_extraction",
+   "javascript": "runReconstructionForExtraction",
+   "dart": "runReconstructionForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_reconstruction_pipeline",
+   "python": null,
+   "javascript": null,
+   "dart": "runReconstructionPipeline",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_reconstruction_runtime",
+   "python": "run_reconstruction_runtime",
+   "javascript": "runReconstructionRuntime",
+   "dart": "runReconstructionRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_replay_pipeline",
+   "python": null,
+   "javascript": null,
+   "dart": "runReplayPipeline",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_runtime_cognition_tick",
+   "python": null,
+   "javascript": "runRuntimeCognitionTick",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "run_runtime_memory",
+   "python": "run_runtime_memory",
+   "javascript": "runRuntimeMemory",
+   "dart": "runRuntimeMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_semantic_for_extraction",
+   "python": "run_semantic_for_extraction",
+   "javascript": "runSemanticForExtraction",
+   "dart": "runSemanticForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_semantic_runtime",
+   "python": "run_semantic_runtime",
+   "javascript": "runSemanticRuntime",
+   "dart": "runSemanticRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_sync_for_extraction",
+   "python": "run_sync_for_extraction",
+   "javascript": "runSyncForExtraction",
+   "dart": "runSyncForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_synchronized_runtime",
+   "python": "run_synchronized_runtime",
+   "javascript": "runSynchronizedRuntime",
+   "dart": "runSynchronizedRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "run_workflow_for_extraction",
+   "python": "run_workflow_for_extraction",
+   "javascript": "runWorkflowForExtraction",
+   "dart": "runWorkflowForExtraction",
+   "parity": "FULL"
+  },
+  {
+   "api": "runtime_edge",
+   "python": null,
+   "javascript": null,
+   "dart": "RuntimeEdge",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "runtime_graph",
+   "python": null,
+   "javascript": null,
+   "dart": "RuntimeGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "runtime_kernel",
+   "python": "RuntimeKernel",
+   "javascript": "RuntimeKernel",
+   "dart": "RuntimeKernel",
+   "parity": "FULL"
+  },
+  {
+   "api": "runtime_node",
+   "python": null,
+   "javascript": null,
+   "dart": "RuntimeNode",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "save_adaptive_memory",
+   "python": "save_adaptive_memory",
+   "javascript": "saveAdaptiveMemory",
+   "dart": "saveAdaptiveMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_application_memory",
+   "python": "save_application_memory",
+   "javascript": "saveApplicationMemory",
+   "dart": "saveApplicationMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_authenticated_runtime",
+   "python": null,
+   "javascript": "saveAuthenticatedRuntime",
+   "dart": "saveAuthenticatedRuntime",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "save_browser_identity",
+   "python": "save_browser_identity",
+   "javascript": "saveBrowserIdentity",
+   "dart": "saveBrowserIdentity",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_causal_memory",
+   "python": "save_causal_memory",
+   "javascript": "saveCausalMemory",
+   "dart": "saveCausalMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_distributed_checkpoint",
+   "python": "save_distributed_checkpoint",
+   "javascript": "saveDistributedCheckpoint",
+   "dart": "saveDistributedCheckpoint",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_encrypted_session",
+   "python": "save_encrypted_session",
+   "javascript": "saveEncryptedSession",
+   "dart": "saveEncryptedSession",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_evolution_runtime",
+   "python": "save_evolution_runtime",
+   "javascript": "saveEvolutionRuntime",
+   "dart": "saveEvolutionRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_live_runtime",
+   "python": "save_live_runtime",
+   "javascript": "saveLiveRuntime",
+   "dart": "saveLiveRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_live_runtime_memory",
+   "python": null,
+   "javascript": "saveLiveRuntimeMemory",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "save_native_runtime",
+   "python": "save_native_runtime",
+   "javascript": "saveNativeRuntime",
+   "dart": "saveNativeRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_runtime_memory",
+   "python": "save_runtime_memory",
+   "javascript": "saveRuntimeMemory",
+   "dart": "saveRuntimeMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_semantic_memory",
+   "python": "save_semantic_memory",
+   "javascript": "saveSemanticMemory",
+   "dart": "saveSemanticMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_stream_runtime",
+   "python": null,
+   "javascript": "saveStreamRuntime",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "save_sync_memory",
+   "python": "save_sync_memory",
+   "javascript": "saveSyncMemory",
+   "dart": "saveSyncMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "save_workflow_memory",
+   "python": "save_workflow_memory",
+   "javascript": "saveWorkflowMemory",
+   "dart": "saveWorkflowMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "search_runtime_memory",
+   "python": "search_runtime_memory",
+   "javascript": "searchRuntimeMemory",
+   "dart": "searchRuntimeMemory",
+   "parity": "FULL"
+  },
+  {
+   "api": "semantic_memory",
+   "python": null,
+   "javascript": "SemanticMemory",
+   "dart": "SemanticMemory",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "simulate_runtime_execution",
+   "python": "simulate_runtime_execution",
+   "javascript": "simulateRuntimeExecution",
+   "dart": "simulateRuntimeExecution",
+   "parity": "FULL"
+  },
+  {
+   "api": "stabilize_dom_html",
+   "python": null,
+   "javascript": "stabilizeDomHtml",
+   "dart": "stabilizeDomHtml",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "stabilize_spa_dom",
+   "python": null,
+   "javascript": "stabilizeSpaDom",
+   "dart": "stabilizeSpaDom",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "stable_memory_fabric_hash",
+   "python": null,
+   "javascript": null,
+   "dart": "stableMemoryFabricHash",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "stable_memory_hash",
+   "python": null,
+   "javascript": "stableMemoryHash",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "stable_serialize",
+   "python": null,
+   "javascript": "stableSerialize",
+   "dart": "stableSerialize",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "stream_extract",
+   "python": "stream_extract",
+   "javascript": "streamExtract",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "universal_extract",
+   "python": "universal_extract",
+   "javascript": "universalExtract",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "universal_input",
+   "python": "UniversalInput",
+   "javascript": "UniversalInput",
+   "dart": "UniversalInput",
+   "parity": "FULL"
+  },
+  {
+   "api": "validate_dom_replay_equivalence",
+   "python": null,
+   "javascript": "validateDomReplayEquivalence",
+   "dart": "validateDomReplayEquivalence",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_fingerprint_replay_equivalence",
+   "python": null,
+   "javascript": "validateFingerprintReplayEquivalence",
+   "dart": "validateFingerprintReplayEquivalence",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_full_runtime_replay",
+   "python": null,
+   "javascript": "validateFullRuntimeReplay",
+   "dart": "validateFullRuntimeReplay",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_graph_replay_equivalence",
+   "python": null,
+   "javascript": "validateGraphReplayEquivalence",
+   "dart": "validateGraphReplayEquivalence",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_memory_replay",
+   "python": null,
+   "javascript": "validateMemoryReplay",
+   "dart": "validateMemoryReplay",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_memory_replay_equivalence",
+   "python": null,
+   "javascript": "validateMemoryReplayEquivalence",
+   "dart": "validateMemoryReplayEquivalence",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_reconstructed_runtime",
+   "python": "validate_reconstructed_runtime",
+   "javascript": "validateReconstructedRuntime",
+   "dart": "validateReconstructedRuntime",
+   "parity": "FULL"
+  },
+  {
+   "api": "validate_replay_equivalence",
+   "python": "validate_replay_equivalence",
+   "javascript": "validateReplayEquivalence",
+   "dart": "validateReplayEquivalence",
+   "parity": "FULL"
+  },
+  {
+   "api": "validate_replay_equivalence_extended",
+   "python": null,
+   "javascript": null,
+   "dart": "validateReplayEquivalenceExtended",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "validate_runtime_graph",
+   "python": null,
+   "javascript": "validateRuntimeGraph",
+   "dart": "validateRuntimeGraph",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "verify_memory_lineage",
+   "python": null,
+   "javascript": "verifyMemoryLineage",
+   "dart": "verifyMemoryLineage",
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "version",
+   "python": "version",
+   "javascript": "version",
+   "dart": null,
+   "parity": "PARTIAL"
+  },
+  {
+   "api": "volatile_runtime_keys",
+   "python": null,
+   "javascript": "VOLATILE_RUNTIME_KEYS",
+   "dart": null,
+   "parity": "PARTIAL"
+  }
+ ]
+}

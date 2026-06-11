@@ -53,3 +53,8 @@ tools/_proof_matrix.tsv
 # Cross-language verifier regenerable artifacts
 cross_language_verifier/out_*.json
 cross_language_verifier/vectors.json
+cross_language_verifier/corpus/
+cross_language_verifier/extract_*_out.json
+cross_language_verifier/sir_*.json
+cross_language_verifier/probe_*.json
+cross_language_verifier/cross_*_results.json

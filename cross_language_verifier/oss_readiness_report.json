@@ -1,0 +1,22 @@
+{
+  "dart_pub_dev": {
+    "command": "dart pub publish --dry-run",
+    "result": "0 warnings, 1 hint (version 2.0.1 vs published 0.1.1 — non-incremental bump; maintainer decision)",
+    "package_contents": "lib/ only (verifier, validation, tests, docs excluded via .pubignore)",
+    "analyze": "no issues", "format": "clean", "tests": "1288/1288 pass",
+    "metadata": "name/description/version/homepage/repository/license/topics/funding present",
+    "verdict": "READY (publish requires maintainer credentials)"
+  },
+  "javascript_npm": {
+    "command": "npm pack --dry-run + npm run build",
+    "finding": "package.json files=['dist',...] but dist/ is not committed; a publish WITHOUT `npm run build` ships an empty package (4 files, 12 kB). After tsup build: 10 files, 1.2 MB (CJS+ESM+DTS).",
+    "recommendation": "add \"prepublishOnly\": \"npm run build\" to package.json scripts",
+    "tests": "399/399 pass",
+    "verdict": "READY-WITH-CAVEAT (must build before publish; no prepublishOnly guard)"
+  },
+  "python_pypi": {
+    "metadata": "pyproject.toml: name/version 2.0.1/requires-python >=3.10/license Apache-2.0/authors present; MANIFEST.in present",
+    "tests": "kaalka cross-language parity 13/13 + 69 targeted serializer/normalization tests pass (full suite not run this session; heavy browser deps)",
+    "verdict": "METADATA-READY"
+  }
+}

@@ -12,6 +12,7 @@ import 'dart:io';
 import '../crypto/kaalka_v5_proc.dart'
     show kaalkaV5EncryptBytes, kaalkaV5DecryptBytes;
 import '../crypto/time_key.dart' show deriveKaalkaTimeKey;
+import '../crypto/utf8_parity.dart';
 import '../determinism/stable_serialize.dart' show stableSerialize;
 import 'semantic_engines.dart';
 
@@ -94,7 +95,7 @@ Map<String, dynamic> loadSemanticMemory(String path, String key) {
   final wrapper = jsonDecode(target.readAsStringSync()) as Map<String, dynamic>;
   final timeKey = deriveKaalkaTimeKey(key);
   final raw = base64Decode(wrapper['encrypted'] as String);
-  final decrypted = utf8.decode(kaalkaV5DecryptBytes(raw, timeKey));
+  final decrypted = utf8DecodeParity(kaalkaV5DecryptBytes(raw, timeKey));
   final memory = jsonDecode(decrypted);
   return <String, dynamic>{
     'available': true,

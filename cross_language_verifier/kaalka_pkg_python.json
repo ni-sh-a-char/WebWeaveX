@@ -1,0 +1,16 @@
+{
+ "published_package": "kaalka 5.0.0 (PyPI, installed)",
+ "trials": 1400,
+ "time_keys": [
+  "0:0:0",
+  "3:0:0",
+  "12:34:56",
+  "11:59:59",
+  "23:45:1",
+  "1:2:3",
+  "12:0:0"
+ ],
+ "mismatches": 0,
+ "detail": [],
+ "verdict": "PASS"
+}

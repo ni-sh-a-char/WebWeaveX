@@ -11,9 +11,15 @@ const volatileRuntimeKeys = {
   'uuid',
 };
 
+/// Python `re` `\s` for str patterns — the canonical trailing-whitespace set.
+/// ECMAScript `\s` (Dart/JS RegExp) additionally matches U+FEFF and misses
+/// U+001C–U+001F, so a literal `\s+$` here would diverge from Python.
+final RegExp _trailingWhitespace = RegExp('[\\t-\\r\\x1c-\\x1f '
+    '\\x85\\xa0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]+\$');
+
 String normalizeRuntimeValueCore(String value) {
   var s = value.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
-  s = s.replaceAll(RegExp(r'\s+$'), '');
+  s = s.replaceAll(_trailingWhitespace, '');
   return s;
 }
 

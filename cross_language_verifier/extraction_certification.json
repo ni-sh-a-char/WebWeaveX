@@ -1,0 +1,17 @@
+{
+ "scope": "extract_semantic_html + extract_semantic_content, Python (bs4 html.parser) vs JavaScript (PySoup port), identical input bytes",
+ "dart": "FAIL-BY-ABSENCE: no HTML semantic extraction engine implemented (documented blocker; 22 extraction-family APIs unexported in Dart)",
+ "torture_cases": {
+  "total": 14,
+  "match": 14
+ },
+ "real_pages": {
+  "total": 130,
+  "match": 130
+ },
+ "python_vs_js_verdict": "PASS",
+ "failures": {
+  "torture": [],
+  "corpus": []
+ }
+}

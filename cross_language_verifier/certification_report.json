@@ -1,9 +1,9 @@
 {
  "verdict": "PASS",
  "claim": "Python == JavaScript == Dart, byte-identical, for all deterministic vectors",
- "vectors": 1100,
- "fields_compared": 6601,
- "byte_identical_fields": 6601,
+ "vectors": 10000,
+ "fields_compared": 60001,
+ "byte_identical_fields": 60001,
  "per_language_determinism_3_runs": true,
  "encryption_roundtrip_all_pass": true,
  "input_domain_contract": [

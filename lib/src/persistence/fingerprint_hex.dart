@@ -12,6 +12,7 @@ import 'dart:convert';
 
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
+import '../crypto/utf8_parity.dart';
 import '../determinism/normalization_core.dart' show codePointCompare;
 import '../determinism/py_float_repr.dart';
 
@@ -56,8 +57,8 @@ String hexFingerprint(dynamic payload, [String token = 'webweavex']) {
   if (payload is String) {
     rawText = payload;
   } else if (payload is List<int>) {
-    // bytes.decode("utf-8", errors="ignore")
-    rawText = utf8.decode(payload, allowMalformed: true);
+    // bytes.decode("utf-8", errors="ignore") — BOM-preserving (Python keeps it)
+    rawText = utf8DecodeParity(payload, allowMalformed: true);
   } else {
     rawText = dumpsDeterministic(payload);
   }
