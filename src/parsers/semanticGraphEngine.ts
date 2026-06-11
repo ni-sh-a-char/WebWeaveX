@@ -1,51 +1,79 @@
 /**
  * Converted from Python: core/parsers/semantic_graph_engine.py
- * @generated — WebWeaveX python→javascript library port
+ * Hand-fixed production module (protected): the generated version used
+ * tuple-valued dict keys, which coerce to "f,t" strings on plain JS objects
+ * and then destructure as characters — yielding zero edges. Edge metadata is
+ * now keyed by a JSON-encoded pair with the original pair kept alongside,
+ * preserving Python's tuple-sort and keep-if-present semantics exactly.
  */
 
 import * as py from "../runtime/pyCompat.js";
 
 export let MAX_GRAPH_NODES: any = 5000;
 export let MAX_GRAPH_EDGES: any = 20000;
+
 export function buildSemanticGraph(parsed: any): any {
-  var symbols: any = py.or2(py.get(parsed, "symbols", {}), () => ({}));
-  var imports: any = py.or2(py.get(parsed, "imports", {}), () => ({}));
-  var calls: any = py.or2(py.get(parsed, "calls", {}), () => ({}));
-  var source_id: any = py.toStr(py.or2(py.get(parsed, "source_id"), () => (py.or2(py.get(parsed, "language"), () => ("module")))));
-  var node_ids: any = new Set([source_id]);
-  var key: any;
-  for (key of py.iter(["classes", "functions", "interfaces", "symbols"])) {
-    var name: any;
-    for (name of py.iter(py.or2(py.get(symbols, key, []), () => ([])))) {
-      py.setAdd(node_ids, py.toStr(name));
+  const symbols: any = py.or2(py.get(parsed, "symbols", {}), () => ({}));
+  const imports: any = py.or2(py.get(parsed, "imports", {}), () => ({}));
+  const calls: any = py.or2(py.get(parsed, "calls", {}), () => ({}));
+  const source_id: any = py.toStr(
+    py.or2(py.get(parsed, "source_id"), () =>
+      py.or2(py.get(parsed, "language"), () => "module"),
+    ),
+  );
+  const node_ids: Set<string> = new Set([source_id]);
+  for (const key of ["classes", "functions", "interfaces", "symbols"]) {
+    for (const name of py.or2(py.get(symbols, key, []), () => []) as any[]) {
+      node_ids.add(py.toStr(name));
     }
   }
-  var edge: any;
-  for (edge of py.iter(py.or2(py.get(imports, "edges", []), () => ([])))) {
-    if (((edge !== null && typeof edge === "object" && !Array.isArray(edge) && !(edge instanceof Set) && !(edge instanceof Map)))) {
-      py.setAdd(node_ids, py.toStr(py.get(edge, "to", "")));
+  const isDict = (e: any) =>
+    e !== null && typeof e === "object" && !Array.isArray(e) &&
+    !(e instanceof Set) && !(e instanceof Map);
+  for (const edge of py.or2(py.get(imports, "edges", []), () => []) as any[]) {
+    if (isDict(edge)) node_ids.add(py.toStr(py.get(edge, "to", "")));
+  }
+
+  const edge_meta: Map<string, { pair: [string, string]; basis: string }> =
+    new Map();
+  for (const edge of py.or2(py.get(imports, "edges", []), () => []) as any[]) {
+    if (isDict(edge) && py.truthy(py.get(edge, "from")) && py.truthy(py.get(edge, "to"))) {
+      const pair: [string, string] = [py.toStr(edge["from"]), py.toStr(edge["to"])];
+      edge_meta.set(JSON.stringify(pair), { pair, basis: "observed" });
     }
   }
-  var edge_meta: Record<string, any> = {};
-  for (edge of py.iter(py.or2(py.get(imports, "edges", []), () => ([])))) {
-    if ((((edge !== null && typeof edge === "object" && !Array.isArray(edge) && !(edge instanceof Set) && !(edge instanceof Map))) && py.truthy(py.get(edge, "from")) && py.truthy(py.get(edge, "to")))) {
-      key = [py.toStr(py.at(edge, "from")), py.toStr(py.at(edge, "to"))];
-      py.setItem(edge_meta, key, "observed");
+  for (const edge of py.or2(py.get(calls, "calls", []), () => []) as any[]) {
+    if (isDict(edge) && py.truthy(py.get(edge, "from")) && py.truthy(py.get(edge, "to"))) {
+      const f = py.toStr(edge["from"]);
+      const t = py.toStr(edge["to"]);
+      node_ids.add(f);
+      node_ids.add(t);
+      const k = JSON.stringify([f, t]);
+      // Python: keep existing meta if present, else "observed".
+      if (!edge_meta.has(k)) edge_meta.set(k, { pair: [f, t], basis: "observed" });
     }
   }
-  for (edge of py.iter(py.or2(py.get(calls, "calls", []), () => ([])))) {
-    if ((((edge !== null && typeof edge === "object" && !Array.isArray(edge) && !(edge instanceof Set) && !(edge instanceof Map))) && py.truthy(py.get(edge, "from")) && py.truthy(py.get(edge, "to")))) {
-      const _d1 = py.iter([py.toStr(py.at(edge, "from")), py.toStr(py.at(edge, "to"))]) as any[];
-      var f: any = _d1[0];
-      var t: any = _d1[1];
-      py.setAdd(node_ids, f);
-      py.setAdd(node_ids, t);
-      key = [f, t];
-      py.setItem(edge_meta, key, (py.contains(edge_meta, key) ? py.get(edge_meta, key, "inferred") : "observed"));
+
+  const nodes: any[] = py
+    .slice(py.sorted([...node_ids].filter((n) => py.truthy(n))), null, MAX_GRAPH_NODES)
+    .map((nid: any) => ({ id: nid, kind: "symbol", metadata: {} }));
+  const allowed = new Set(nodes.map((n: any) => n.id));
+  // Python sorts the (from, to) tuples lexicographically by element.
+  const sortedPairs = [...edge_meta.values()].sort((a, b) => {
+    const f = a.pair[0] < b.pair[0] ? -1 : a.pair[0] > b.pair[0] ? 1 : 0;
+    if (f !== 0) return f;
+    return a.pair[1] < b.pair[1] ? -1 : a.pair[1] > b.pair[1] ? 1 : 0;
+  });
+  const edge_list: any[] = [];
+  for (const { pair, basis } of sortedPairs) {
+    if (edge_list.length >= MAX_GRAPH_EDGES) break;
+    if (allowed.has(pair[0]) && allowed.has(pair[1])) {
+      edge_list.push({
+        from: pair[0],
+        to: pair[1],
+        metadata: { edge_basis: basis, evidence: ["parser:graph"] },
+      });
     }
   }
-  var nodes: any = py.iter(py.slice(py.sorted(py.iter(node_ids).filter((n: any) => py.truthy(n)).map((n: any) => n)), null, MAX_GRAPH_NODES)).map((nid: any) => ({"id": nid, "kind": "symbol", "metadata": {}}));
-  var allowed: any = py.toSet(py.iter(nodes).map((n: any) => py.at(n, "id")));
-  var edge_list: any = py.slice(py.iter(py.sorted(py.keys(edge_meta))).filter(([f, t]: any) => (py.contains(allowed, f) && py.contains(allowed, t))).map(([f, t]: any) => ({"from": f, "to": t, "metadata": {"edge_basis": py.get(edge_meta, [f, t], "observed"), "evidence": ["parser:graph"]}})), null, MAX_GRAPH_EDGES);
-  return {"nodes": nodes, "edges": edge_list, "max_edges": MAX_GRAPH_EDGES};
+  return { nodes, edges: edge_list, max_edges: MAX_GRAPH_EDGES };
 }
