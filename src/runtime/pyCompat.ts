@@ -2622,15 +2622,46 @@ const VOID_ELEMENTS = new Set([
 // Full HTML5 named-entity table, @generated from Python html.entities.html5
 // (the previous 16-entry inline table was incomplete and two entries were
 // mojibake-corrupted: ldquo/rdquo).
-import { HTML_ENTITIES } from "./htmlEntities.js";
+import {
+  HTML_ENTITIES,
+  HTML_ENTITIES_NO_SEMI,
+  INVALID_CHARREFS,
+  INVALID_CODEPOINTS,
+} from "./htmlEntities.js";
 
+// Python html._charref — semicolon optional, exact name charset.
+const CHARREF = /&(#[0-9]+;?|#[xX][0-9a-fA-F]+;?|[^\t\n\f <&#;]{1,32};?)/g;
+
+/** Full Python html.unescape (used by html.parser convert_charrefs and for
+ * attribute values). */
 export function htmlUnescape(s: string): string {
-  return s.replace(/&(#x?[0-9a-fA-F]+|\w+);/g, (m, ent: string) => {
-    if (ent.startsWith("#x") || ent.startsWith("#X")) {
-      return String.fromCodePoint(parseInt(ent.slice(2), 16));
+  if (!s.includes("&")) return s;
+  return s.replace(CHARREF, (_m, ent: string) => {
+    if (ent[0] === "#") {
+      const hex = ent[1] === "x" || ent[1] === "X";
+      const digits = ent.slice(hex ? 2 : 1).replace(/;$/, "");
+      const num = parseInt(digits, hex ? 16 : 10);
+      if (num in INVALID_CHARREFS) return INVALID_CHARREFS[num]!;
+      if ((num >= 0xd800 && num <= 0xdfff) || num > 0x10ffff) {
+        return String.fromCodePoint(0xfffd);
+      }
+      if (INVALID_CODEPOINTS.has(num)) return "";
+      return String.fromCodePoint(num);
     }
-    if (ent.startsWith("#")) return String.fromCodePoint(parseInt(ent.slice(1), 10));
-    return HTML_ENTITIES[ent] ?? m;
+    // named charref: exact match first (with or without semicolon) ...
+    if (ent.endsWith(";")) {
+      const v = HTML_ENTITIES[ent.slice(0, -1)];
+      if (v !== undefined) return v;
+    } else {
+      const v = HTML_ENTITIES_NO_SEMI[ent];
+      if (v !== undefined) return v;
+    }
+    // ... else longest matching semicolonless name (Python prefix scan).
+    for (let x = ent.length - 1; x >= 2; x--) {
+      const v = HTML_ENTITIES_NO_SEMI[ent.slice(0, x)];
+      if (v !== undefined) return v + ent.slice(x);
+    }
+    return "&" + ent;
   });
 }
 
@@ -2661,22 +2692,16 @@ export class PyTag {
     const stripFlag = typeof opts === "boolean" ? opts : Boolean(opts?.strip);
     const partsArr: string[] = [];
     const walk = (node: PyTag | string): void => {
+      // bs4 exact-type string filter: HiddenStr (Script/Stylesheet/
+      // TemplateString/RubyTextString/RubyParenthesisString) never reaches
+      // get_text — decided at parse time from the ancestor chain.
+      if (node instanceof HiddenStr) return;
       if (typeof node === "string") {
         const t = stripFlag ? pyStrip(node) : node;
         if (stripFlag ? t.length : node.length) partsArr.push(t);
         return;
       }
-      // bs4 _all_strings excludes Script/Stylesheet/TemplateString and the
-      // ruby annotation strings RubyTextString/RubyParenthesisString
-      // (exact-type filter), so script/style/template/rt/rp contents never
-      // reach get_text.
-      if (
-        node.name === "script" ||
-        node.name === "style" ||
-        node.name === "template" ||
-        node.name === "rt" ||
-        node.name === "rp"
-      ) return;
+      if (!(node instanceof PyTag)) return;
       for (const c of node.children) walk(c);
     };
     for (const c of this.children) walk(c);
@@ -2706,7 +2731,7 @@ export class PyTag {
         : String(name).toLowerCase();
     const out: PyTag[] = [];
     const walk = (node: PyTag | string): void => {
-      if (typeof node === "string") return;
+      if (!(node instanceof PyTag)) return;
       if (limit !== undefined && out.length >= limit) return;
       const matches = names ? names.has(node.name) : single === null ? true : node.name === single;
       if (matches) out.push(node);
@@ -2719,6 +2744,13 @@ export class PyTag {
   find(name: unknown): PyTag | null {
     return this.find_all(name, 1)[0] ?? null;
   }
+}
+
+/** A text node typed as Script/Stylesheet/TemplateString/RubyTextString/
+ * RubyParenthesisString at parse time (bs4 string-container stack) —
+ * invisible to get_text. */
+export class HiddenStr {
+  constructor(public text: string) {}
 }
 
 export class PySoup extends PyTag {
@@ -2734,6 +2766,7 @@ export class PySoup extends PyTag {
   private parseInto(html: string): void {
     let cur: PyTag = this;
     let i = 0;
+    let ampFails = 0;
     const n = html.length;
     // Pending character data, flushed at tag/comment/declaration boundaries —
     // mirrors html.parser data coalescing + bs4 endData (whitespace-only
@@ -2764,17 +2797,116 @@ export class PySoup extends PyTag {
         }
         if (!preserve) text = text.includes("\n") ? "\n" : " ";
       }
-      cur.children.push(text);
+      // bs4 string-container typing: any script/style/template/rt/rp
+      // ancestor makes the string invisible to get_text.
+      let anc: PyTag | null = cur;
+      let hidden = false;
+      while (anc) {
+        const a = anc.name;
+        if (a === "script" || a === "style" || a === "template" || a === "rt" || a === "rp") {
+          hidden = true;
+          break;
+        }
+        anc = anc.parent;
+      }
+      cur.children.push(hidden ? (new HiddenStr(text) as unknown as string) : text);
+    };
+    const charrefChr = (num: number): string => {
+      if (num in INVALID_CHARREFS) return INVALID_CHARREFS[num]!;
+      if ((num >= 0xd800 && num <= 0xdfff) || num > 0x10ffff) {
+        return String.fromCodePoint(0xfffd);
+      }
+      return String.fromCodePoint(num);
+    };
+    // html.parser TEXT tokenization for "&" (bs4 handle_charref /
+    // handle_entityref — differs from html.unescape, which still applies to
+    // attribute values). Returns next index, or -1 to defer the rest of the
+    // document as raw data (incomplete charref with no ";" remaining).
+    const handleAmp = (pos: number): number => {
+      const c2 = pos + 1 < n ? html[pos + 1]! : "";
+      if (c2 === "#") {
+        let k = pos + 2;
+        const isHex = k < n && (html[k] === "x" || html[k] === "X");
+        if (isHex) k++;
+        const dstart = k;
+        const dre = isHex ? /[0-9a-fA-F]/ : /[0-9]/;
+        while (k < n && dre.test(html[k]!)) k++;
+        const hasDigits = k > dstart;
+        const next = k < n ? html[k]! : null;
+        if (hasDigits && next === ";") {
+          buf += charrefChr(parseInt(html.slice(dstart, k), isHex ? 16 : 10));
+          return k + 1;
+        }
+        if (hasDigits && next !== null && !/[0-9a-fA-F]/.test(next)) {
+          buf += charrefChr(parseInt(html.slice(dstart, k), isHex ? 16 : 10));
+          return k;
+        }
+        // Failed charref: html.parser consumes "&#" (when a ";" remains
+        // anywhere) and BREAKS the parsing pass. bs4 drives two passes
+        // (feed + close), so the SECOND failed "&#" dumps the rest of the
+        // document as raw data; with no ";" remaining, the dump is
+        // immediate and includes the "&#".
+        if (html.indexOf(";", pos) >= 0) {
+          buf += "&#";
+          ampFails++;
+          if (ampFails >= 2) {
+            buf += html.slice(pos + 2);
+            return -2; // defer: "&#" already consumed
+          }
+          return pos + 2;
+        }
+        return -1;
+      }
+      if (c2 && /[a-zA-Z]/.test(c2)) {
+        let k = pos + 2;
+        while (k < n && /[-.a-zA-Z0-9]/.test(html[k]!)) k++;
+        const name = html.slice(pos + 1, k);
+        if (k >= n) return -1; // incomplete entityref at EOF -> defer
+        const value = HTML_ENTITIES[name];
+        if (html[k] === ";") {
+          buf += value !== undefined ? value : "&" + name;
+          return k + 1;
+        }
+        buf += value !== undefined ? value : "&" + name;
+        return k;
+      }
+      buf += "&";
+      return pos + 1;
     };
     while (i < n) {
-      const lt2 = html.indexOf("<", i);
-      if (lt2 < 0) {
-        buf += htmlUnescape(html.slice(i));
-        break;
+      // Scan text, handling "&" inline.
+      let lt2 = -1;
+      let t = i;
+      let deferred = false;
+      while (t < n) {
+        const ltp = html.indexOf("<", t);
+        const amp = html.indexOf("&", t);
+        if (amp < 0 || (ltp >= 0 && ltp < amp)) {
+          if (ltp < 0) {
+            buf += html.slice(t);
+            t = n;
+          } else {
+            buf += html.slice(t, ltp);
+            lt2 = ltp;
+          }
+          break;
+        }
+        buf += html.slice(t, amp);
+        const nt = handleAmp(amp);
+        if (nt === -1) {
+          buf += html.slice(amp);
+          deferred = true;
+          break;
+        }
+        if (nt === -2) {
+          deferred = true;
+          break;
+        }
+        t = nt;
       }
-      if (lt2 > i) {
-        buf += htmlUnescape(html.slice(i, lt2));
-      }
+      if (deferred) break;
+      if (lt2 < 0) break;
+      i = lt2;
       // html.parser: "<" not followed by a letter, "/", "!" or "?" is data.
       const nxt = html.charAt(lt2 + 1);
       if (!(/[a-zA-Z]/.test(nxt) || nxt === "/" || nxt === "!" || nxt === "?")) {
@@ -2866,7 +2998,7 @@ export class PySoup extends PyTag {
         const closeM = new RegExp(`</\\s*${tagName}`, "i").exec(html.slice(i));
         const closeIdx = closeM ? i + closeM.index : -1;
         const rawText = html.slice(i, closeIdx < 0 ? n : closeIdx);
-        if (rawText) tag.children.push(rawText);
+        if (rawText) tag.children.push(new HiddenStr(rawText) as unknown as string);
         if (closeIdx < 0) break;
         const closeGt = html.indexOf(">", closeIdx);
         i = closeGt < 0 ? n : closeGt + 1;
