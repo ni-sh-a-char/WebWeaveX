@@ -139,6 +139,45 @@ bool pyDeepEq(dynamic a, dynamic b) {
 }
 
 /// Python `sorted(items, key=...)` — stable (Dart's List.sort is not).
+/// Python-faithful MULTILINE regex: CPython's `^` matches only at start
+/// or after newline, and `$` only before newline or at end - Dart (like
+/// JS) also treats carriage return as a line terminator, which diverges
+/// on CRLF text (Python captures the trailing CR; Dart would not).
+/// Rewrites the anchors and compiles WITHOUT multiLine.
+RegExp pyMultiLineRegExp(String pattern, {bool caseSensitive = true}) {
+  var p = pattern;
+  if (p.startsWith('^')) {
+    p = '(?:^|(?<=\n))${p.substring(1)}';
+  }
+  if (p.endsWith(r'$') && !p.endsWith(r'\$')) {
+    p = '${p.substring(0, p.length - 1)}(?=\n|\$)';
+  }
+  // CPython '.' excludes only newline; Dart (like JS) also excludes CR and
+  // U+2028/29 — rewrite unescaped dots outside character classes.
+  final buf = StringBuffer();
+  var inClass = false;
+  for (var i = 0; i < p.length; i++) {
+    final ch = p[i];
+    if (ch == r'\') {
+      buf.write(ch);
+      if (i + 1 < p.length) buf.write(p[++i]);
+      continue;
+    }
+    if (inClass) {
+      if (ch == ']') inClass = false;
+      buf.write(ch);
+      continue;
+    }
+    if (ch == '[') {
+      inClass = true;
+      buf.write(ch);
+      continue;
+    }
+    buf.write(ch == '.' ? '[^\n]' : ch);
+  }
+  return RegExp(buf.toString(), caseSensitive: caseSensitive);
+}
+
 List<T> pyStableSortedBy<T>(List<T> items, Comparable<dynamic> Function(T) key) {
   final indices = List<int>.generate(items.length, (i) => i);
   indices.sort((a, b) {

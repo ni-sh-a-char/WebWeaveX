@@ -1,0 +1,19 @@
+{
+ "scenarios": 8,
+ "pass": 5,
+ "fails": [
+  "doc_readme",
+  "query_doc_readme",
+  "reason_discourse"
+ ],
+ "hashes": {
+  "app_cognition_real_page": "9d0b04026c08c07276dae58f170287d25c6afe3f7401cad4a12f6417ec5ae399",
+  "doc_readme": "a2d988657874cfbe1fe8410a10a4de6b38f74529632f45705ae6faa137b8acda",
+  "query_doc_readme": "2e02eadfb7f8ae27bb547d4bde0044a56f9b41501a31feba571e7c055aec63cf",
+  "query_repo_ts": "506583e38e819033a5907d9d2ba98b5fb7fe024e7218eca26ce5bc102d168019",
+  "reason_discourse": "e39b38952291ccf974303c54a370aeea7b88820d3abdc1510c2da47a18798367",
+  "reason_runtime": "144523e9e9598def0df38208500f7b5aca5d85a8914e0844b1b8666473ac0c27",
+  "repo_ts_engine": "641bf642b43e547095067da913b297ce96b4a79c1edaa8fe12edd2a581ebd4dd",
+  "semantics_repo": "01eaadc4b274ef0448c95eef126e19b49d83a880f29f0d8c6d77aa42be96e90c"
+ }
+}
