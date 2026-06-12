@@ -1,0 +1,49 @@
+{
+  "phase": "3 - Documentation Consistency",
+  "generated_at_utc": "2026-06-12",
+  "branches": {
+    "python": "9fd4a5f77b370a12b0a2d51d6eb5af7f01e5a3bb",
+    "javascript": "899f553810502f2ca6fe845b1d3bad0ff281825f",
+    "dart": "0e9e8e59f316aa5f201975ac3d3111c06fb5369a"
+  },
+  "required_docs_present": {
+    "README.md": { "python": true, "javascript": true, "dart": true },
+    "ARCHITECTURE.md": { "python": true, "javascript": true, "dart": true },
+    "CERTIFICATION.md": { "python": true, "javascript": true, "dart": true },
+    "AI_AGENT_GUIDE.md": { "python": true, "javascript": true, "dart": true },
+    "API_REFERENCE.md": { "python": true, "javascript": true, "dart": true },
+    "LICENSE": { "python": true, "javascript": true, "dart": true }
+  },
+  "shared_docs_identical": {
+    "method": "git blob object id compared across python/javascript/dart refs (content source of truth)",
+    "ARCHITECTURE.md": { "status": "IDENTICAL", "blob": "957d53d2b5ff940dc13098ecd00f4ec78bd81744" },
+    "CERTIFICATION.md": { "status": "IDENTICAL", "blob": "679ed7b09a087208d40569cc77000594d0512ad7" },
+    "AI_AGENT_GUIDE.md": { "status": "IDENTICAL", "blob": "da7ff9e6c90e6c9579f7e4867d22e0ccd66e8c88" },
+    "API_REFERENCE.md": { "status": "IDENTICAL", "blob": "5b700de4b93630eb943a7a1758d88480783b5fde" },
+    "LICENSE": { "status": "IDENTICAL", "blob": "01e7769d7f717c79365034414876cd51647348cc" }
+  },
+  "readme_intentionally_language_specific": true,
+  "readme_structural_equivalence": {
+    "required_sections_present_in_all": [
+      "What is WebWeaveX? / Overview",
+      "Who is it for (Humans and AI agents)",
+      "Why WebWeaveX Exists / Vision",
+      "Core Capabilities (grouped: Extraction, Documents, Repositories, Runtime, Applications, Cognition, Determinism, Cross-language parity)",
+      "Installation",
+      "Quick Start",
+      "Common Workflows (Extract structured content, Analyze documents, Analyze repositories, Query semantic IR, Runtime reasoning, Application cognition)",
+      "Architecture",
+      "Determinism",
+      "Certification",
+      "API Reference",
+      "AI Agent Usage",
+      "Supported Platforms",
+      "Versioning",
+      "Contributing",
+      "License"
+    ],
+    "differences_allowed": "installation commands and language-specific code examples only"
+  },
+  "line_ending_note": "Committed blob content is byte-identical across branches. Local working-tree line endings vary by checkout (CRLF vs LF) which is a git checkout artifact and does not affect committed/published content.",
+  "verdict": "CONSISTENT"
+}

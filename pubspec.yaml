@@ -2,7 +2,7 @@ name: webweavex
 description: >-
   Deterministic runtime cognition infrastructure for humans and AI agents —
   replay-safe operational runtime substrate with cross-language Kaalka parity.
-version: 2.0.1
+version: 2.1.0
 homepage: https://github.com/ni-sh-a-char/WebWeaveX/tree/dart
 repository: https://github.com/ni-sh-a-char/WebWeaveX
 issue_tracker: https://github.com/ni-sh-a-char/WebWeaveX/issues

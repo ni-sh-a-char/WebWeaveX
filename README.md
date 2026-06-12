@@ -39,9 +39,9 @@ wrapper, not AGI hype. It is byte-for-byte parity-aligned with the Python (PyPI)
 | Branch | Role |
 |--------|------|
 | [`main`](https://github.com/ni-sh-a-char/WebWeaveX) | Ecosystem portal |
-| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | **Canonical** PyPI runtime (2.0.1) |
-| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | npm runtime (2.0.1) |
-| **`dart`** (this) | pub.dev runtime (2.0.1) |
+| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | **Canonical** PyPI runtime (2.1.0) |
+| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | npm runtime (2.1.0) |
+| **`dart`** (this) | pub.dev runtime (2.1.0) |
 
 Spec: [CANONICAL_RUNTIME_SPEC.md](docs/architecture/CANONICAL_RUNTIME_SPEC.md) · Matrix: [ECOSYSTEM_MATRIX.md](docs/architecture/ECOSYSTEM_MATRIX.md)
 
@@ -128,7 +128,7 @@ or add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  webweavex: ^2.0.1
+  webweavex: ^2.1.0
   kaalka: ^5.0.0
 ```
 
@@ -150,6 +150,78 @@ Future<void> main() async {
   print('$hash ${pipeline['bounded']}');
 }
 ```
+
+---
+
+## Core Capabilities
+
+WebWeaveX exposes one deterministic engine across six cognition domains. Every
+output is a bounded, hashable, replayable IR.
+
+| Domain | Capabilities | Representative public APIs |
+|--------|--------------|----------------------------|
+| **Extraction** | Bounded web/runtime capture, structured content, runtime envelopes | `extractWeb`, `runCanonicalPipeline`, `captureRuntime` |
+| **Documents** | Document IR queries over unified extraction | `queryDocuments`, `queryKnowledge` |
+| **Repositories** | Repository IR + dependency/topology queries | `queryRepository`, `queryGraph` |
+| **Runtime** | Runtime graphs, memory fabric, replay equivalence, reconstruction | `buildRuntimeGraph`, `validateReplayEquivalence`, `reconstructRuntime` |
+| **Applications** | Application cognition, runtime objectives | `runApplicationCognition`, `executeRuntimeObjective` |
+| **Cognition** | Causality, semantic, synchronization, evolution, workflows, execution | `runSemanticRuntime`, `runCausalityRuntime`, `runAutonomousWorkflow` |
+| **Determinism** | Canonical normalization, stable serialization, fingerprints, Kaalka v5 | `computeGlobalRuntimeFingerprint`, `computeDeterministicHash` |
+| **Cross-language parity** | Byte-identical hashes across Python · JavaScript · Dart | `computeDeterministicHash` |
+
+---
+
+## Common Workflows
+
+```dart
+import 'package:webweavex/webweavex.dart';
+
+Future<void> main() async {
+  // Extract structured content
+  final content = await extractWeb('https://example.com');
+
+  // Analyze documents
+  final docs = queryDocuments('...document text...');
+
+  // Analyze repositories
+  final repo = queryRepository('my-project', '', null);
+
+  // Query semantic IR
+  final semantics = querySemantics('entities', content);
+
+  // Runtime reasoning
+  final pipeline = await runCanonicalPipeline({
+    'url': 'https://example.com',
+    'sourceType': 'web',
+  });
+  print(pipeline['pipeline_hash']);
+
+  // Application cognition
+  final app = runApplicationCognition('https://app.example.com', '<html>...</html>');
+}
+```
+
+---
+
+## Supported Platforms
+
+| Aspect | Detail |
+|--------|--------|
+| SDK | Dart **>= 3.3.0 < 4.0.0** |
+| Platforms | Linux · macOS · Windows · any Dart-supported target |
+| Install | `dart pub add webweavex` |
+| Dependency | `kaalka ^5.0.0` (crypto substrate) |
+
+---
+
+## Versioning
+
+WebWeaveX follows [Semantic Versioning](https://semver.org) — **MAJOR.MINOR.PATCH**.
+The version is **synchronized across all three implementations**: pub.dev, PyPI, and
+npm share the same `2.1.0`, so a given version number denotes the same certified
+deterministic contract in every language. MAJOR marks a breaking change, MINOR adds
+backward-compatible capability, PATCH is a fix. The crypto substrate pin
+(`kaalka 5.0.0`) is independent of the package version.
 
 ---
 
@@ -328,7 +400,7 @@ final result = await extractWeb('https://example.com',
 
 WebWeaveX is CPU-bound deterministic serialization + hashing; there is no network in the core
 path. Typical operations (graph build, fingerprint, hash, replay-equivalence) complete in
-sub-millisecond to low-millisecond time on commodity hardware. The full 779-test suite runs in
+sub-millisecond to low-millisecond time on commodity hardware. The full 1,583-test suite runs in
 ~54 s including coverage instrumentation. No allocation-heavy hot loops; `List.sort` uses
 index-tiebreak comparators to match Python's stable `sorted` without extra passes.
 
@@ -340,7 +412,7 @@ index-tiebreak comparators to match Python's stable `sorted` without extra passe
 dart test
 ```
 
-**850 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel,
+**1,583 tests** across crypto, determinism, graph, replay, memory, reconstruction, kernel,
 browser, connectors, selector-healing, interaction-replay, and the 12 ported runtime families
 (`test/parity/`, `test/engines/`).
 See [`TEST_INVENTORY.md`](TEST_INVENTORY.md) and [`TEST_VALIDATION_REPORT.md`](CERTIFICATION.md).
@@ -382,7 +454,7 @@ See [`CI_VALIDATION_REPORT.md`](CERTIFICATION.md).
 | Field | Value |
 |-------|-------|
 | Package | `webweavex` |
-| Version | **2.0.1** (aligned with Python & JavaScript) |
+| Version | **2.1.0** (aligned with Python & JavaScript) |
 | License | Apache-2.0 |
 | Dry-run | `dart pub publish --dry-run` → 0 warnings (1 benign version hint) |
 

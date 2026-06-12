@@ -1,6 +1,6 @@
 {
   "generated_by": "tools/generate_parity_manifest.py",
-  "source_of_truth": "Python 2.0.1 (canonical), JavaScript (reference), Dart",
+  "source_of_truth": "Python 2.1.0 (canonical), JavaScript (reference), Dart",
   "counts": {
     "Complete": 105,
     "Partial": 18,

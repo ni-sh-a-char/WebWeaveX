@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.0] — 2026-06-12 — Synchronized cross-language release
+
+### Changed
+- Synchronized version **2.1.0** across pub.dev (Dart), PyPI (Python), and npm (JavaScript).
+- Standardized README structure across all three implementations (equivalent sections:
+  Core Capabilities, Common Workflows, Supported Platforms, Versioning) and reconciled
+  internal test-count metrics with the certified suite (1583 tests).
+- Consolidated release staging into the canonical `python` / `javascript` / `dart` branches and
+  removed the `release/*` staging branches.
+- Re-ran cross-language parity, determinism, and publication validation against this version.
+
+### Notes
+- **No public API behavior changes.** The cross-language deterministic contract and hashes are
+  unchanged from 2.0.x; the crypto substrate pin (`kaalka 5.0.0`) is intentionally unchanged.
+- Shared docs (`ARCHITECTURE.md`, `CERTIFICATION.md`, `AI_AGENT_GUIDE.md`, `API_REFERENCE.md`,
+  `LICENSE`) are byte-identical across all three implementations.
+
 ## [Unreleased] — Cross-language canonical contract + standalone Dart
 
 ### Added
