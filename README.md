@@ -542,7 +542,7 @@ const content = await extractWeb("https://example.com");
 const citations = extractCitations(documentText);
 
 // Analyze repositories
-const build = detectBuildSystems(repoManifestText);
+const build = detectBuildSystems([{ path: "package.json" }, { path: "pyproject.toml" }]);
 
 // Query semantic IR
 const semantics = runSemanticRuntime({ extraction: content });
