@@ -6,6 +6,6 @@ void main() {
     expect(wwx.extractWeb, isNotNull);
     expect(wwx.encryptValue, isNotNull);
     expect(wwx.validateReplayEquivalence, isNotNull);
-    expect(wwx.version, '2.0.1');
+    expect(wwx.version, '2.1.0');
   });
 }
