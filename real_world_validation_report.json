@@ -1,0 +1,42 @@
+{
+  "phase": "7 - Real Usage Validation",
+  "generated_at_utc": "2026-06-12",
+  "constraint": "public package APIs only (top-level exports); no internal/private modules",
+  "headline_cross_language_hash_parity": {
+    "function": "Python compute_kaalka_hash  ==  JavaScript/Dart computeDeterministicHash",
+    "input": "{alpha:1, beta:[true,null,'x'], gamma:{k:2.0}, txt:'naïve—café'}",
+    "python": "8817fea61c33d7098d2568e6d55ae28223635e578e2b91768d630651b8217f1c",
+    "javascript": "8817fea61c33d7098d2568e6d55ae28223635e578e2b91768d630651b8217f1c",
+    "dart": "8817fea61c33d7098d2568e6d55ae28223635e578e2b91768d630651b8217f1c",
+    "byte_identical": true,
+    "note": "Exercises v2 integral-float canonicalization (2.0 -> 2) and Unicode NFKC across all three languages."
+  },
+  "python_workflows": {
+    "extraction_document (extract_docs)": "PASS",
+    "repository_analysis (extract_repository)": "PASS",
+    "semantic_querying (query_semantics)": "PASS",
+    "runtime_reasoning (run_canonical_pipeline + UniversalInput)": "PASS",
+    "runtime_graph (build_runtime_graph)": "PASS",
+    "application_cognition (run_application_cognition)": "PASS"
+  },
+  "javascript_workflows": {
+    "documents (extractCitations)": "PASS",
+    "semantic_querying (runSemanticRuntime)": "PASS",
+    "runtime_cognition (runRuntimeCognitionTick)": "PASS",
+    "determinism_fingerprint (computeGlobalRuntimeFingerprint)": "PASS",
+    "deterministic_hash (computeDeterministicHash)": "PASS"
+  },
+  "dart_workflows": {
+    "deterministic_hash (computeDeterministicHash)": "PASS",
+    "semantic_querying (querySemantics)": "PASS",
+    "document_querying (queryDocuments)": "PASS",
+    "repository_querying (queryRepository)": "PASS",
+    "application_cognition (runApplicationCognition)": "PASS",
+    "reconstruction (reconstructRuntime)": "PASS"
+  },
+  "notes": [
+    "Each language exposes a language-idiomatic public surface (Python/Dart expose the broad document/repository/semantic/application query family; JavaScript is runtime/browser-focused). Workflows were run with each language's real exported signatures.",
+    "README 'Common Workflows' code examples were corrected to match real public signatures during this phase (Dart named params; JS detectBuildSystems array-of-{path})."
+  ],
+  "overall": "PASS"
+}

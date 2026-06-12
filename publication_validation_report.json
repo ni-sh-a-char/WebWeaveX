@@ -1,0 +1,40 @@
+{
+  "phase": "6 - Publication Validation",
+  "generated_at_utc": "2026-06-12",
+  "method": "fresh git clone from origin per branch, updated to the committed 2.1.0 state, built and tested with local toolchains",
+  "toolchains": {
+    "python": "CPython 3.11.0, build 1.5.0, twine 6.2.0",
+    "node": "Node v22.15.0, npm 10.9.2",
+    "dart": "Dart SDK 3.8.2"
+  },
+  "validated_commits": {
+    "python": "9625f4ad3126c14b56314ff9b55eac15ab71cda6",
+    "javascript": "487fbd64d78424922ac8bf06801009f249c97c30",
+    "dart": "b5780155a775d88a23724aebd98e882d55729675"
+  },
+  "python": {
+    "build": "PASS - webweavex-2.1.0-py3-none-any.whl + webweavex-2.1.0.tar.gz",
+    "twine_check": "PASS - both wheel and sdist PASSED",
+    "wheel_reinstall_fresh_venv": "PASS - import webweavex, __version__ == '2.1.0', 128 public names in __all__",
+    "pytest": "PASS - 772 passed, 1 skipped; total coverage 90.32% (>= 90% gate)",
+    "status": "READY"
+  },
+  "javascript": {
+    "npm_ci": "PASS - 257 packages installed clean from lockfile",
+    "build": "PASS - tsup ESM (dist/index.js) + CJS (dist/index.cjs) + DTS (index.d.ts, index.d.cts)",
+    "npm_pack": "PASS - webweavex-2.1.0.tgz",
+    "esm_load": "PASS - VERSION 2.1.0, 229 exports, runCanonicalPipeline is function",
+    "cjs_load": "PASS - VERSION 2.1.0, 229 exports, extractWeb is function",
+    "typescript_types": "PASS - dist/index.d.ts and dist/index.d.cts present",
+    "vitest": "PASS - 399 tests passed across 238 test files",
+    "status": "READY"
+  },
+  "dart": {
+    "pub_get": "PASS",
+    "analyze": "PASS - No issues found!",
+    "test": "PASS - 1583 tests passed",
+    "publish_dry_run": "PASS - 0 warnings, 1 hint (benign version-increment note: pub.dev currently has 0.1.1; 2.1.0 is the synchronized cross-language version)",
+    "status": "READY"
+  },
+  "overall": "PASS"
+}
