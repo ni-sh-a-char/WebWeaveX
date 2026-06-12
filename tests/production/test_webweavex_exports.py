@@ -6,7 +6,7 @@ import webweavex as wwx
 
 
 def test_version_and_fingerprint():
-    assert wwx.__version__ == "2.0.1"
+    assert wwx.__version__ == "2.1.0"
     assert isinstance(wwx.fingerprint({"a": 1}), str)
 
 
