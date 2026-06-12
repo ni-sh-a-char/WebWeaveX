@@ -181,10 +181,10 @@ Future<void> main() async {
   final content = await extractWeb('https://example.com');
 
   // Analyze documents
-  final docs = queryDocuments('...document text...');
+  final docs = queryDocuments(text: '...document text...');
 
   // Analyze repositories
-  final repo = queryRepository('my-project', '', null);
+  final repo = queryRepository(source: 'my-project');
 
   // Query semantic IR
   final semantics = querySemantics('entities', content);
