@@ -164,7 +164,7 @@ from core.replay import validate_replay_equivalence
 from core.ir.unified_runtime_ir import compile_unified_runtime_ir
 import asyncio
 
-__version__ = "2.0.1"
+__version__ = "2.1.0"
 version = __version__  # PEP 440 public version alias
 
 

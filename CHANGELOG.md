@@ -2,6 +2,22 @@
 
 All notable changes to WebWeaveX are documented here.
 
+## [2.1.0] — 2026-06-12 — Synchronized cross-language release
+
+### Changed
+- Synchronized version **2.1.0** across PyPI (Python), npm (JavaScript), and pub.dev (Dart).
+- Standardized README structure across all three implementations (equivalent sections:
+  Core Capabilities, Common Workflows, Supported Platforms, Versioning).
+- Consolidated release staging into the canonical `python` / `javascript` / `dart` branches and
+  removed the `release/*` staging branches.
+- Re-ran cross-language parity, determinism, and publication validation against this version.
+
+### Notes
+- **No public API behavior changes.** The cross-language deterministic contract and hashes are
+  unchanged from 2.0.x; the internal engine version (`v1_phase_14`) is intentionally unchanged.
+- Shared docs (`ARCHITECTURE.md`, `CERTIFICATION.md`, `AI_AGENT_GUIDE.md`, `API_REFERENCE.md`,
+  `LICENSE`) are byte-identical across all three implementations.
+
 ## [2.0.0] — 2026-05-21 — Official open-source release
 
 ### Added

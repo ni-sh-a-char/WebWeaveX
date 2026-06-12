@@ -4,7 +4,7 @@
 
 ```python
 import webweavex
-webweavex.__version__  # "2.0.0"
+webweavex.__version__  # "2.1.0"
 ```
 
 ## Recommended ingress

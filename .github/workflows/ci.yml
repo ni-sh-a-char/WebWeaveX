@@ -28,7 +28,7 @@ jobs:
           pip install -e ".[dev]"
 
       - name: Import validation
-        run: python -c "import webweavex; assert webweavex.__version__ == '2.0.0'"
+        run: python -c "import webweavex; assert webweavex.__version__ == '2.1.0'"
 
       - name: Run tests with scoped coverage
         run: python -m pytest -q
@@ -37,4 +37,4 @@ jobs:
         run: python -m build
 
       - name: Verify wheel artifact
-        run: test -f dist/webweavex-2.0.0-py3-none-any.whl
+        run: test -f dist/webweavex-2.1.0-py3-none-any.whl

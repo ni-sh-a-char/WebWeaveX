@@ -1,6 +1,6 @@
 <p align="center">
   <br/>
-  <img src="https://img.shields.io/badge/WebWeaveX-v2.0.1-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v2.0.1"/>
+  <img src="https://img.shields.io/badge/WebWeaveX-v2.1.0-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v2.1.0"/>
   <br/><br/>
   <strong>Production-grade deterministic runtime cognition infrastructure<br/>for humans and AI agents</strong>
   <br/>
@@ -415,8 +415,85 @@ pip install "webweavex[full]"
 
 ```bash
 python -c "import webweavex; print(webweavex.__version__)"
-# 2.0.1
+# 2.1.0
 ```
+
+---
+
+## Core Capabilities
+
+WebWeaveX exposes one deterministic engine across six cognition domains. Every
+output is a bounded, hashable, replayable IR.
+
+| Domain | Capabilities | Representative public APIs |
+|--------|--------------|----------------------------|
+| **Extraction** | Bounded web/SPA/Electron capture, structured content, runtime envelopes | `extract_web`, `run_canonical_pipeline`, `universal_extract` |
+| **Documents** | Document IR; structure, citation, and discourse analysis | `extract_docs`, `compile_document`, `query_documents` |
+| **Repositories** | Repository IR; dependency, build, and topology intelligence | `extract_repository`, `compile_repository`, `query_repository` |
+| **Runtime** | Runtime graphs, memory fabric, replay equivalence, reconstruction | `build_runtime_graph`, `validate_replay_equivalence`, `run_reconstruction_runtime` |
+| **Applications** | Application cognition, runtime objectives, session memory | `run_application_cognition`, `execute_runtime_objective` |
+| **Cognition** | Causality, semantic, synchronization, evolution, workflows, execution | `run_semantic_runtime`, `run_causality_runtime`, `run_autonomous_workflow` |
+| **Determinism** | Canonical normalization, stable serialization, fingerprints, Kaalka v5 | `compute_global_runtime_fingerprint`, `encrypt_value` |
+| **Cross-language parity** | Byte-identical hashes across Python · JavaScript · Dart | `fingerprint`, `compute_kaalka_hash` |
+
+---
+
+## Common Workflows
+
+```python
+from webweavex import (
+    UniversalInput, run_canonical_pipeline,
+    extract_web, extract_docs, extract_repository,
+    query_semantics, run_application_cognition,
+)
+
+# Extract structured content
+content = extract_web("https://example.com")
+
+# Analyze documents
+doc_ir = extract_docs("./report.pdf")
+
+# Analyze repositories
+repo_ir = extract_repository("./my-project")
+
+# Query semantic IR
+semantics = query_semantics("entities", repo_ir)
+
+# Runtime reasoning
+pipeline = run_canonical_pipeline(
+    UniversalInput(source="https://example.com", source_type="web"),
+)
+print(pipeline["pipeline_hash"])
+
+# Application cognition
+app = run_application_cognition(
+    url="https://app.example.com",
+    html="<html>...</html>",
+)
+```
+
+---
+
+## Supported Platforms
+
+| Aspect | Detail |
+|--------|--------|
+| Runtime | CPython **3.10 – 3.13** |
+| Operating systems | Linux · macOS · Windows (OS-independent core) |
+| Install | `pip install webweavex` (extras: `[browser]`, `[full]`) |
+| Optional | Playwright (browser), tree-sitter (parsers), OCR / ingestion extras |
+
+---
+
+## Versioning
+
+WebWeaveX follows [Semantic Versioning](https://semver.org) — **MAJOR.MINOR.PATCH**.
+The version is **synchronized across all three implementations**: PyPI, npm, and
+pub.dev share the same `2.1.0`, so a given version number denotes the same
+certified deterministic contract in every language. MAJOR marks a breaking change,
+MINOR adds backward-compatible capability, PATCH is a fix. The internal engine
+contract version (`v1_phase_14`) is independent of the package version and changes
+only when the deterministic wire format changes.
 
 ---
 
@@ -552,7 +629,7 @@ This is **not** full machine cloning or sci-fi simulation—it is **auditable op
 |--------|--------|
 | Tests | **760+ passing** (`pytest -q`) |
 | Scoped coverage | **≥ 90%** (production packages in `pyproject.toml`) |
-| Wheel | `webweavex-2.0.1-py3-none-any.whl` |
+| Wheel | `webweavex-2.1.0-py3-none-any.whl` |
 | Replay | `validate_replay_equivalence` suite |
 | Determinism | Kaalka cross-language + fingerprint tests |
 | Playwright | Browser extraction paths (optional extra) |
@@ -674,6 +751,15 @@ See [ROADMAP.md](ROADMAP.md).
 - Stronger SPA normalization
 - Real connector runtimes (live Postgres, Redis, K8s validation)
 - Native OS integrations behind optional extras
+
+---
+
+## API Reference
+
+The complete public API surface — every function, its parameters, and its
+cross-language parity classification (Complete / Partial / Deferred) — is in
+[API_REFERENCE.md](API_REFERENCE.md), generated from `PARITY_MANIFEST.json`
+(portable-API parity gap: **0**).
 
 ---
 
