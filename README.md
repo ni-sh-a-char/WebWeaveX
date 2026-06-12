@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/WebWeaveX-2.0.1-0f172a?style=for-the-badge&labelColor=1e293b" alt="WebWeaveX"/>
+  <img src="https://img.shields.io/badge/WebWeaveX-2.1.0-0f172a?style=for-the-badge&labelColor=1e293b" alt="WebWeaveX"/>
 </p>
 
 <p align="center">
@@ -505,6 +505,84 @@ console.log(computeDeterministicHash({ status: "ok" }));
 
 ---
 
+## Core Capabilities
+
+WebWeaveX exposes one deterministic engine across six cognition domains. Every
+output is a bounded, hashable, replayable IR.
+
+| Domain | Capabilities | Representative public APIs |
+|--------|--------------|----------------------------|
+| **Extraction** | Bounded Playwright/browser capture, structured content, runtime envelopes | `extractWeb`, `runCanonicalPipeline`, `captureRuntime` |
+| **Documents** | Document extraction, citation grounding, unified IR | `extractCitations`, `buildUnifiedRuntimeIR` |
+| **Repositories** | Build-system detection, repository runtime IR | `detectBuildSystems`, `compileRuntimeIR` |
+| **Runtime** | Runtime graphs, memory fabric, replay equivalence, reconstruction | `buildRuntimeGraph`, `validateReplayEquivalence`, `reconstructRuntime` |
+| **Applications** | Runtime cognition ticks, allowlisted execution runtime | `runRuntimeCognitionTick`, `runExecutionRuntime` |
+| **Cognition** | Semantic runtime, workflows, distributed orchestration | `runSemanticRuntime`, `runAutonomousWorkflow`, `runDistributedExtraction` |
+| **Determinism** | Canonical normalization, stable serialization, fingerprints, Kaalka v5 | `computeGlobalRuntimeFingerprint`, `computeDeterministicHash` |
+| **Cross-language parity** | Byte-identical hashes across Python · JavaScript · Dart | `computeDeterministicHash` |
+
+---
+
+## Common Workflows
+
+```ts
+import {
+  extractWeb,
+  extractCitations,
+  detectBuildSystems,
+  runSemanticRuntime,
+  runCanonicalPipeline,
+  runRuntimeCognitionTick,
+} from "webweavex";
+
+// Extract structured content
+const content = await extractWeb("https://example.com");
+
+// Analyze documents
+const citations = extractCitations(documentText);
+
+// Analyze repositories
+const build = detectBuildSystems(repoManifestText);
+
+// Query semantic IR
+const semantics = runSemanticRuntime({ extraction: content });
+
+// Runtime reasoning
+const pipeline = await runCanonicalPipeline({
+  source: "https://example.com",
+  sourceType: "web",
+});
+
+// Application / runtime cognition
+const tick = runRuntimeCognitionTick(/* current runtime state */);
+```
+
+---
+
+## Supported Platforms
+
+| Aspect | Detail |
+|--------|--------|
+| Runtime | Node.js **>= 18** |
+| Module formats | ESM + CommonJS (dual), with bundled TypeScript types |
+| Types | `dist/index.d.ts` / `dist/index.d.cts` |
+| Install | `npm install webweavex` |
+| Optional | `npx playwright install chromium` for live browser capture |
+
+---
+
+## Versioning
+
+WebWeaveX follows [Semantic Versioning](https://semver.org) — **MAJOR.MINOR.PATCH**.
+The version is **synchronized across all three implementations**: npm, PyPI, and
+pub.dev share the same `2.1.0`, so a given version number denotes the same
+certified deterministic contract in every language. MAJOR marks a breaking change,
+MINOR adds backward-compatible capability, PATCH is a fix. The internal engine
+contract version (`v1_phase_14`) is independent of the package version and changes
+only when the deterministic wire format changes.
+
+---
+
 ## Authenticated Runtime Continuation Example
 
 A common operational workflow spans multiple sessions.
@@ -825,6 +903,15 @@ See [ROADMAP.md](ROADMAP.md). Highlights:
 - Additional language ports (Rust, Go) on separate branches  
 - Deeper connector ecosystem  
 - Published npm cadence for `webweavex@2.x`  
+
+---
+
+## API Reference
+
+The complete public API surface — every function, its parameters, and its
+cross-language parity classification (Complete / Partial / Deferred) — is in
+[API_REFERENCE.md](API_REFERENCE.md), generated from `PARITY_MANIFEST.json`
+(portable-API parity gap: **0**).
 
 ---
 

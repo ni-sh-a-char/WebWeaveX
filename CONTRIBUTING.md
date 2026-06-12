@@ -16,7 +16,7 @@ playwright install chromium   # optional, for browser tests
 ```bash
 pytest -q
 python -m build
-python -c "import webweavex; assert webweavex.__version__ == '2.0.0'"
+python -c "import webweavex; assert webweavex.__version__ == '2.1.0'"
 ```
 
 Scoped production coverage must remain **≥ 90%** (see `pyproject.toml`).
