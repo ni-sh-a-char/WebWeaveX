@@ -562,3 +562,4 @@ the cross-language pitfalls catalogue, and the certification workflow.
 Apache 2.0 — [LICENSE](LICENSE)
 
 <p align="center"><strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable scraper.</strong></p>
+<p align="center"><strong><a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Coffee"/></a></strong></p>
