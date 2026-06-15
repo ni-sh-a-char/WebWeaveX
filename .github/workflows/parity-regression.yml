@@ -1,0 +1,55 @@
+name: parity-regression
+
+# Regression gate: fails the PR on parity-vector mismatch, coverage drop below
+# the established floor, manifest drift, or a removed/renamed proven API.
+
+on:
+  pull_request:
+    paths: ['java/**', 'tools/**', 'PARITY_MANIFEST.json', '.github/workflows/parity-regression.yml']
+
+env:
+  COVERAGE_FLOOR: '94.0'   # instruction-coverage floor; raise as coverage grows
+  PROVEN_FLOOR: '17'       # minimum parity-proven manifest APIs (never decrease)
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build + test + coverage (parity mismatch fails here)
+        working-directory: java
+        run: mvn -B -ntp clean verify
+
+      - name: Manifest governance (drift / removed API / missing mapping)
+        run: python tools/validate_java_manifest.py
+
+      - name: Coverage floor + proven-count floor + signature presence
+        run: |
+          python - <<'PY'
+          import csv, json, os, re, sys
+          floor = float(os.environ["COVERAGE_FLOOR"]); proven_floor = int(os.environ["PROVEN_FLOOR"])
+          rows = list(csv.DictReader(open("java/target/site/jacoco/jacoco.csv")))
+          im = sum(int(r["INSTRUCTION_MISSED"]) for r in rows); ic = sum(int(r["INSTRUCTION_COVERED"]) for r in rows)
+          cov = 100 * ic / (ic + im)
+          print(f"instruction coverage: {cov:.2f}% (floor {floor}%)")
+          fails = []
+          if cov + 1e-9 < floor:
+              fails.append(f"coverage {cov:.2f}% below floor {floor}%")
+          matrix = open("java/JAVA_PARITY_MATRIX.md", encoding="utf-8").read()
+          proven = matrix.count("Implemented (parity-proven)")
+          print(f"parity-proven APIs: {proven} (floor {proven_floor})")
+          if proven < proven_floor:
+              fails.append(f"proven APIs {proven} below floor {proven_floor} (API removed?)")
+          if fails:
+              print("REGRESSION GATE: FAIL"); [print("  -", f) for f in fails]; sys.exit(1)
+          print("REGRESSION GATE: PASS")
+          PY

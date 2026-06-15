@@ -1,0 +1,27 @@
+name: java-parity
+
+on:
+  push:
+    branches: [java]
+    paths: ['java/**', 'tools/**', 'PARITY_MANIFEST.json', '.github/workflows/java-parity.yml']
+  pull_request:
+    paths: ['java/**', 'tools/**', 'PARITY_MANIFEST.json', '.github/workflows/java-parity.yml']
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Cross-language parity tests (Java == Python golden vectors)
+        working-directory: java
+        run: mvn -B -ntp test -Dtest='CrossLanguageParity*Test'
+      - name: Manifest governance validator
+        run: python tools/validate_java_manifest.py

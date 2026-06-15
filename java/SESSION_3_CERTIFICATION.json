@@ -1,0 +1,73 @@
+{
+  "session": 3,
+  "artifact": "io.webweavex:webweavex:2.1.0",
+  "scope": "query / memory / reconstruction (+ graph/ir/knowledge sub-engines)",
+  "canonical_source": "Python 2.1.0 core/ (ported directly; Dart wrappers NOT used as source)",
+  "apis_completed_this_session": [
+    "query_graph",
+    "query_knowledge",
+    "query_runtime_graph",
+    "build_runtime_memory",
+    "query_runtime_memory",
+    "search_runtime_memory",
+    "reconstruct_runtime",
+    "validate_reconstructed_runtime"
+  ],
+  "supporting_engines_ported": [
+    "reason_topology",
+    "reconstruct_runtime_memory",
+    "reconstruct_graph",
+    "reconstruct_browser_runtime",
+    "compile_semantic_graph_ir",
+    "compile_knowledge_ir",
+    "prove_topology",
+    "model_graph_entropy",
+    "reconcile_ontology_edges",
+    "build_contradiction_lattice",
+    "resolve_semantic_identities",
+    "validate_semantic_graph",
+    "check_graph_invariants"
+  ],
+  "apis_proven_total": 17,
+  "manifest_total": 128,
+  "apis_deferred": {
+    "query_semantics": "needs query_repository + query_documents (unported)",
+    "reconstruct_replay": "no canonical Python function (Dart-only)"
+  },
+  "parity_proof": {
+    "s3_golden_vectors": 42,
+    "test_total": 179,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS",
+    "method": "Java output == recorded Python output (stable_serialize + compute_kaalka_hash), cross-language only"
+  },
+  "coverage": {
+    "instruction_pct": 94.51,
+    "target_pct": 95.0,
+    "gap_justified_in": "java/COVERAGE_EXCEPTION_REPORT.md"
+  },
+  "governance": {
+    "ci_workflows": [
+      ".github/workflows/java-build.yml",
+      ".github/workflows/java-parity.yml",
+      ".github/workflows/parity-regression.yml"
+    ],
+    "manifest_validator": "tools/validate_java_manifest.py (PASS)",
+    "regression_floors": {
+      "coverage": 94.0,
+      "proven_apis": 17
+    }
+  },
+  "build": {
+    "mvn_clean_verify": "PASS",
+    "jar": true,
+    "sources_jar": true,
+    "javadoc_jar": true
+  },
+  "risks": [
+    "residual 0.49% coverage gap (documented, defensive/bounded only)",
+    "query_semantics + repository/document subsystems remain the next dependency block"
+  ],
+  "next_dependency_slice": "repository + document extraction -> query_repository, query_documents, query_semantics; then semantic/evidence + workflow"
+}

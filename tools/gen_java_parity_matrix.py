@@ -28,6 +28,15 @@ JAVA_PROVEN = {
     "compute_global_runtime_fingerprint": "io.webweavex.determinism.GlobalRuntimeFingerprint#compute",
     "fingerprint": "io.webweavex.persistence.FingerprintHex#fingerprint",
     "validate_replay_equivalence": "io.webweavex.replay.ReplayEquivalence#validate",
+    # Session 3 — query / memory / reconstruction
+    "query_graph": "io.webweavex.query.GraphQuery#queryGraph",
+    "query_knowledge": "io.webweavex.query.OntologyQuery#queryKnowledge",
+    "query_runtime_graph": "io.webweavex.query.GraphQuery#queryRuntimeGraph",
+    "build_runtime_memory": "io.webweavex.memory.RuntimeMemory#build",
+    "query_runtime_memory": "io.webweavex.memory.MemoryQuery#queryRuntimeMemory",
+    "search_runtime_memory": "io.webweavex.memory.MemorySearch#searchRuntimeMemory",
+    "reconstruct_runtime": "io.webweavex.reconstruction.RuntimeReconstruction#reconstructRuntime",
+    "validate_reconstructed_runtime": "io.webweavex.reconstruction.RuntimeValidation#validateReconstructedRuntime",
 }
 
 PACKAGES = [
@@ -99,7 +108,7 @@ def main() -> None:
                  "`lib/src/` layouts:")
     lines.append("")
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
-                        "persistence", "replay")
+                        "persistence", "replay", "query", "memory", "reconstruction")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")

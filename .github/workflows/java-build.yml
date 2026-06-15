@@ -1,0 +1,32 @@
+name: java-build
+
+on:
+  push:
+    branches: [java]
+    paths: ['java/**', '.github/workflows/java-build.yml']
+  pull_request:
+    paths: ['java/**', '.github/workflows/java-build.yml']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: ['17', '21']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+          cache: maven
+      - name: mvn clean verify
+        working-directory: java
+        run: mvn -B -ntp clean verify
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-java-${{ matrix.java }}
+          path: java/target/site/jacoco/
