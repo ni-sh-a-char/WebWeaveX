@@ -20,11 +20,24 @@ Python  =  Java  =  JavaScript  =  Dart
 
 | Package | Contents |
 | --- | --- |
-| `io.webweavex.determinism` | `Normalization` (NFKC + CRLF + trailing-whitespace strip, code-point key ordering, volatile-key stripping, numeric canonicalization), `PyFloat` (Python `repr(float)`), `CanonicalJson` (compact sorted-key `ensure_ascii=False` encoder), `StableSerialize` |
-| `io.webweavex.crypto` | `Hashing` (`sha256(utf8(stableSerialize))`), `KaalkaV5Proc` (Kaalka v5 byte cipher), `TimeKey` (time-key derivation), `Kaalka` (`computeKaalkaHash`, `encryptValue`, `decryptValue`, envelopes) |
+| `io.webweavex.determinism` | `Normalization`, `PyFloat` (Python `repr(float)`), `CanonicalJson`, `StableSerialize`, `PyJson` (faithful `json.dumps`), `Py` (Python `str`/truthiness), `GlobalRuntimeFingerprint` |
+| `io.webweavex.crypto` | `Hashing` (`sha256(utf8(stableSerialize))`), `KaalkaV5Proc` (Kaalka v5 byte cipher), `TimeKey`, `Kaalka` (`computeKaalkaHash`, `encryptValue`, `decryptValue`, envelopes) |
+| `io.webweavex.kernel` | `UniversalInput` (canonical ingress descriptor, `to_dict` parity) |
+| `io.webweavex.graph` | `RuntimeGraph` (`buildParityRuntimeGraph`, `normalizeRuntimeGraph`, `normalizeContract`, `graphFingerprint`) |
+| `io.webweavex.ir` | `UnifiedRuntimeIr` (`compile`, `toGraph`), `MultimodalIr` |
+| `io.webweavex.persistence` | `FingerprintHex` (Kaalka v1 `hex_fingerprint` + NFC `dumps_deterministic`) |
+| `io.webweavex.replay` | `ReplayEquivalence` (`validate_replay_equivalence`) |
 
-Public APIs from `PARITY_MANIFEST.json` now live: `compute_kaalka_hash`,
-`encrypt_value`, `decrypt_value`.
+Public APIs from `PARITY_MANIFEST.json` now live (9): `compute_kaalka_hash`,
+`encrypt_value`, `decrypt_value`, `UniversalInput`, `build_runtime_graph`,
+`compile_unified_runtime_ir`, `compute_global_runtime_fingerprint`,
+`fingerprint`, `validate_replay_equivalence`.
+
+> **Conform-to-Python rule:** session-2 APIs are ported directly from the Python
+> `core/` canon (e.g. `core.determinism.runtime_graph_parity`,
+> `core.ir.unified_runtime_ir`, `core.crypto.kaalka_engine`), not from the Dart
+> wrappers — some Dart public symbols diverge from Python. Every output is
+> verified byte-exact against Python via `golden_vectors_s2.json`.
 
 ## Parity proof
 
@@ -40,9 +53,11 @@ asserts Java is byte-identical for:
 - Python `repr(float)` (positional / scientific thresholds, integral collapse)
 - Kaalka time-key derivation, base64 ciphertext, and decrypt round-trips
 
-**98 tests pass** (80 cross-language byte-exact assertions + 18 unit). Because
-Python ≡ JavaScript ≡ Dart is already certified (70k+ byte-identical
-comparisons), proving Java ≡ Python proves Java ≡ JS ≡ Dart for these primitives.
+**132 tests pass** (102 cross-language byte-exact assertions + 30 unit), across
+both `CrossLanguageParityTest` (determinism/crypto) and
+`CrossLanguageParityS2Test` (kernel/graph/ir/persistence/fingerprint/replay).
+Because Python ≡ JavaScript ≡ Dart is already certified (70k+ byte-identical
+comparisons), proving Java ≡ Python proves Java ≡ JS ≡ Dart for these APIs.
 
 ## Build
 

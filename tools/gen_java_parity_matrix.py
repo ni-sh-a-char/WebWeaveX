@@ -17,9 +17,17 @@ OUT = os.path.join(ROOT, "java", "JAVA_PARITY_MATRIX.md")
 # Public manifest APIs implemented AND cross-language parity-proven in this
 # foundation slice (see CrossLanguageParityTest — 80 byte-exact assertions).
 JAVA_PROVEN = {
+    # Session 1 — determinism + crypto foundation
     "compute_kaalka_hash": "io.webweavex.crypto.Kaalka#computeKaalkaHash",
     "encrypt_value": "io.webweavex.crypto.Kaalka#encryptValue",
     "decrypt_value": "io.webweavex.crypto.Kaalka#decryptValue",
+    # Session 2 — kernel / graph / ir / persistence / fingerprint / replay
+    "UniversalInput": "io.webweavex.kernel.UniversalInput",
+    "build_runtime_graph": "io.webweavex.graph.RuntimeGraph#buildParityRuntimeGraph",
+    "compile_unified_runtime_ir": "io.webweavex.ir.UnifiedRuntimeIr#compile",
+    "compute_global_runtime_fingerprint": "io.webweavex.determinism.GlobalRuntimeFingerprint#compute",
+    "fingerprint": "io.webweavex.persistence.FingerprintHex#fingerprint",
+    "validate_replay_equivalence": "io.webweavex.replay.ReplayEquivalence#validate",
 }
 
 PACKAGES = [
@@ -90,9 +98,10 @@ def main() -> None:
     lines.append("Mirrors the Python `core/`, JavaScript `src/`, and Dart "
                  "`lib/src/` layouts:")
     lines.append("")
+    implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
+                        "persistence", "replay")
     for pkg in PACKAGES:
-        built = pkg in ("determinism", "crypto", "parity")
-        mark = " — **implemented**" if pkg in ("determinism", "crypto") else (
+        mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")
         lines.append(f"- `io.webweavex.{pkg}`{mark}")
     lines.append("")
