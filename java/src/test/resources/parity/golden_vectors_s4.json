@@ -1,0 +1,472 @@
+{
+  "source": "Python 2.1.0 canonical (session 4: connector-runtime extraction)",
+  "extract_database_runtime": [
+    {
+      "name": "db_pg_default",
+      "inputs": {
+        "database_type": "postgresql",
+        "snapshot": null
+      },
+      "serialized": "{\"active_connections\":0,\"bounded\":true,\"database_type\":\"postgresql\",\"degraded\":false,\"indexes\":[],\"metrics\":{},\"replication_state\":\"unknown\",\"schemas\":[\"public\"],\"tables\":[]}",
+      "hash": "04e85875e2d2a4d272705f95759caa8649799b5528782bbb17d4948b5669e588"
+    },
+    {
+      "name": "db_pg_alias",
+      "inputs": {
+        "database_type": "postgres",
+        "snapshot": {
+          "schemas": [
+            "public",
+            "audit"
+          ],
+          "tables": [
+            "zeta",
+            "alpha",
+            "Mu",
+            "alpha"
+          ],
+          "indexes": [
+            {
+              "name": "ix_a"
+            }
+          ],
+          "metrics": {
+            "qps": 12,
+            "cache_hit": 0.9
+          },
+          "active_connections": 7,
+          "replication_state": "streaming",
+          "degraded": false
+        }
+      },
+      "serialized": "{\"active_connections\":7,\"bounded\":true,\"database_type\":\"postgresql\",\"degraded\":false,\"indexes\":[{\"name\":\"ix_a\"}],\"metrics\":{\"cache_hit\":0.9,\"qps\":12},\"replication_state\":\"streaming\",\"schemas\":[\"public\",\"audit\"],\"tables\":[\"Mu\",\"alpha\",\"alpha\",\"zeta\"]}",
+      "hash": "45bfc0ca59368ad45460d80b6018cbe4ae2225c47a1b99a0527f6429ce8ec98f"
+    },
+    {
+      "name": "db_mysql",
+      "inputs": {
+        "database_type": "mysql",
+        "snapshot": {
+          "tables": [
+            "t2",
+            "t10",
+            "t1"
+          ],
+          "active_connections": 3,
+          "replication_state": "semi-sync"
+        }
+      },
+      "serialized": "{\"active_connections\":3,\"bounded\":true,\"database_type\":\"mysql\",\"degraded\":false,\"indexes\":[],\"metrics\":{},\"replication_state\":\"semi-sync\",\"schemas\":[],\"tables\":[\"t1\",\"t10\",\"t2\"]}",
+      "hash": "5ec95d6f695441bdddd124ca9cf8e1dc2463eacdf4454bb6ada1926e3a1fb0b7"
+    },
+    {
+      "name": "db_sqlite",
+      "inputs": {
+        "database_type": "sqlite",
+        "snapshot": {
+          "tables": [
+            "b",
+            "a"
+          ],
+          "indexes": [
+            {
+              "name": "x"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"active_connections\":1,\"bounded\":true,\"database_type\":\"sqlite\",\"degraded\":false,\"indexes\":[{\"name\":\"x\"}],\"metrics\":{},\"replication_state\":\"local\",\"schemas\":[\"main\"],\"tables\":[\"a\",\"b\"]}",
+      "hash": "e9695d7d7482a1f723d76445b289723e2d8543f520f609aaf3d56ab4e1bd5ff7"
+    },
+    {
+      "name": "db_redis",
+      "inputs": {
+        "database_type": "redis",
+        "snapshot": {
+          "keys": [
+            "k2",
+            "k1"
+          ],
+          "clients": 4,
+          "role": "replica",
+          "streams": [
+            "s1"
+          ],
+          "metrics": {
+            "mem": 100
+          }
+        }
+      },
+      "serialized": "{\"active_connections\":4,\"bounded\":true,\"database_type\":\"redis\",\"degraded\":false,\"indexes\":[],\"metrics\":{\"mem\":100},\"replication_state\":\"replica\",\"schemas\":[],\"streams\":[\"s1\"],\"tables\":[\"k2\",\"k1\"]}",
+      "hash": "f6b0f7f199b5a5c04aa1e0579ab9fad3e005bdbac8b5d86c6ff050b87f1a6c15"
+    },
+    {
+      "name": "db_redis_floatconn",
+      "inputs": {
+        "database_type": "redis",
+        "snapshot": {
+          "clients": 4.9
+        }
+      },
+      "serialized": "{\"active_connections\":4,\"bounded\":true,\"database_type\":\"redis\",\"degraded\":false,\"indexes\":[],\"metrics\":{},\"replication_state\":\"master\",\"schemas\":[],\"streams\":[],\"tables\":[]}",
+      "hash": "68bcf39d9896c89aa261249bc2b750575f0d9949d13715592ff2ea5a5ad9bd23"
+    },
+    {
+      "name": "db_unknown",
+      "inputs": {
+        "database_type": "MongoDB",
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"database_type\":\"mongodb\",\"degraded\":true,\"metrics\":{},\"reason\":\"connector_unavailable\",\"schemas\":[],\"tables\":[]}",
+      "hash": "4e3d78ee96dc90dc02d1d70b85038f46532054cf07fb9a9836a7010304fd2510"
+    },
+    {
+      "name": "db_empty_snap",
+      "inputs": {
+        "database_type": "postgresql",
+        "snapshot": {}
+      },
+      "serialized": "{\"active_connections\":0,\"bounded\":true,\"database_type\":\"postgresql\",\"degraded\":false,\"indexes\":[],\"metrics\":{},\"replication_state\":\"unknown\",\"schemas\":[\"public\"],\"tables\":[]}",
+      "hash": "04e85875e2d2a4d272705f95759caa8649799b5528782bbb17d4948b5669e588"
+    }
+  ],
+  "extract_api_runtime": [
+    {
+      "name": "api_rest_default",
+      "inputs": {
+        "api_type": "rest",
+        "snapshot": null
+      },
+      "serialized": "{\"api_type\":\"rest\",\"auth_state\":{},\"bounded\":true,\"endpoints\":[],\"pagination_models\":[],\"rate_limits\":{},\"response_topology\":[],\"schemas\":[]}",
+      "hash": "cf5ad8f854af4fff153a523c04c372385da5bdce6c2ab3cf0e19d49c161e9481"
+    },
+    {
+      "name": "api_rest_full",
+      "inputs": {
+        "api_type": "REST",
+        "snapshot": {
+          "endpoints": [
+            "/z",
+            "/a",
+            "/m"
+          ],
+          "schemas": [
+            {
+              "name": "S"
+            }
+          ],
+          "auth": {
+            "type": "oauth"
+          },
+          "rate_limits": {
+            "rpm": 600
+          },
+          "responses": [
+            {
+              "code": 200
+            }
+          ],
+          "pagination": [
+            {
+              "kind": "cursor"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"api_type\":\"rest\",\"auth_state\":{\"type\":\"oauth\"},\"bounded\":true,\"endpoints\":[\"/a\",\"/m\",\"/z\"],\"pagination_models\":[{\"kind\":\"cursor\"}],\"rate_limits\":{\"rpm\":600},\"response_topology\":[{\"code\":200}],\"schemas\":[{\"name\":\"S\"}]}",
+      "hash": "0ee73294cd1a113eec4507bbf2a3abd602aa32f08409d0ba6377ef2e2fb1f82b"
+    },
+    {
+      "name": "api_graphql",
+      "inputs": {
+        "api_type": "graphql",
+        "snapshot": {
+          "endpoints": [
+            "/gql",
+            "/graphql"
+          ],
+          "graphql": {
+            "endpoints": [
+              "/v2/graphql"
+            ],
+            "schemas": [
+              {
+                "t": 1
+              }
+            ],
+            "types": [
+              "User",
+              "Account",
+              "user"
+            ]
+          }
+        }
+      },
+      "serialized": "{\"api_type\":\"graphql\",\"auth_state\":{},\"bounded\":true,\"endpoints\":[\"/gql\",\"/graphql\"],\"graphql\":{\"bounded\":true,\"endpoints\":[\"/v2/graphql\"],\"protocol\":\"graphql\",\"schemas\":[{\"t\":1}],\"types\":[\"Account\",\"User\",\"user\"]},\"pagination_models\":[],\"rate_limits\":{},\"response_topology\":[],\"schemas\":[]}",
+      "hash": "98313631f239857eee6f28ce9aec8366987b2676cb48a950043bdb544242f8a6"
+    },
+    {
+      "name": "api_graphql_default_sub",
+      "inputs": {
+        "api_type": "graphql",
+        "snapshot": null
+      },
+      "serialized": "{\"api_type\":\"graphql\",\"auth_state\":{},\"bounded\":true,\"endpoints\":[],\"graphql\":{\"bounded\":true,\"endpoints\":[\"/graphql\"],\"protocol\":\"graphql\",\"schemas\":[],\"types\":[]},\"pagination_models\":[],\"rate_limits\":{},\"response_topology\":[],\"schemas\":[]}",
+      "hash": "418bae5fa094fcfa0f85848fa1e1de09ac9e87040b9088c85058079437de7528"
+    },
+    {
+      "name": "api_grpc",
+      "inputs": {
+        "api_type": "grpc",
+        "snapshot": {
+          "grpc": {
+            "services": [
+              "Svc.B",
+              "Svc.A"
+            ],
+            "methods": [
+              "m2",
+              "m1"
+            ],
+            "protobuf": [
+              "a.proto"
+            ]
+          }
+        }
+      },
+      "serialized": "{\"api_type\":\"grpc\",\"auth_state\":{},\"bounded\":true,\"endpoints\":[],\"grpc\":{\"bounded\":true,\"methods\":[\"m1\",\"m2\"],\"protocol\":\"grpc\",\"schemas\":[\"a.proto\"],\"services\":[\"Svc.A\",\"Svc.B\"]},\"pagination_models\":[],\"rate_limits\":{},\"response_topology\":[],\"schemas\":[]}",
+      "hash": "9d34bd9ad3b0f2ccb8ff3d084ae71bd0ec6ac0d301b6d370a1d8cd27eaf86243"
+    }
+  ],
+  "extract_runtime_streams": [
+    {
+      "name": "st_default",
+      "inputs": {
+        "stream_types": null,
+        "snapshot": {
+          "kafka": {
+            "topics": [
+              "t-b",
+              "t-a"
+            ],
+            "consumers": [
+              {
+                "g": "c1"
+              }
+            ],
+            "offsets": {
+              "t-a": 5
+            },
+            "state": "rebalancing",
+            "lineage": [
+              {
+                "e": 1
+              }
+            ]
+          },
+          "redis": {
+            "streams": [
+              "rs1",
+              "rs2"
+            ]
+          },
+          "websocket": {
+            "connections": [
+              {
+                "id": "w1"
+              }
+            ],
+            "frames": 12
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"count\":3,\"streams\":[{\"bounded\":true,\"consumers\":[{\"g\":\"c1\"}],\"degraded\":false,\"event_lineage\":[{\"e\":1}],\"offsets\":{\"t-a\":5},\"propagation_state\":\"rebalancing\",\"stream_type\":\"kafka\",\"topics\":[\"t-a\",\"t-b\"]},{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"redis_streams\",\"topics\":[\"rs1\",\"rs2\"]},{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"websocket\",\"topics\":[{\"id\":\"w1\"}]}]}",
+      "hash": "95ad96c662f8a15e0b59d1360baae40eda8054f5c4c246a27d7fa4a0342e5501"
+    },
+    {
+      "name": "st_kafka_only",
+      "inputs": {
+        "stream_types": [
+          "kafka"
+        ],
+        "snapshot": {
+          "kafka": {
+            "topics": [
+              "b",
+              "a"
+            ]
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"count\":1,\"streams\":[{\"bounded\":true,\"consumers\":[],\"degraded\":false,\"event_lineage\":[],\"offsets\":{},\"propagation_state\":\"stable\",\"stream_type\":\"kafka\",\"topics\":[\"a\",\"b\"]}]}",
+      "hash": "2e8c17c598d416cf30a6c50eab612509ee52beb5c88f1ee896fa8e483c1b546f"
+    },
+    {
+      "name": "st_sse_queue",
+      "inputs": {
+        "stream_types": [
+          "sse",
+          "queue"
+        ],
+        "snapshot": {
+          "sse": {
+            "topics": [
+              "e1"
+            ]
+          },
+          "queue": {
+            "topics": [
+              "q1",
+              "q2"
+            ]
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"count\":2,\"streams\":[{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"queue\",\"topics\":[\"q1\",\"q2\"]},{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"sse\",\"topics\":[\"e1\"]}]}",
+      "hash": "0484051ca03f18cd6ac08f540a4be46aa7c9f5f2179114e7ad105bbbf2aa0543"
+    },
+    {
+      "name": "st_unknown",
+      "inputs": {
+        "stream_types": [
+          "mqtt",
+          "amqp"
+        ],
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"count\":0,\"streams\":[]}",
+      "hash": "37ae39a97e027ff318de6d2e2e127828445353f5ab5bf215df6ef82c9201ec49"
+    },
+    {
+      "name": "st_empty_param",
+      "inputs": {
+        "stream_types": [],
+        "snapshot": {
+          "kafka": {
+            "topics": [
+              "t-b",
+              "t-a"
+            ],
+            "consumers": [
+              {
+                "g": "c1"
+              }
+            ],
+            "offsets": {
+              "t-a": 5
+            },
+            "state": "rebalancing",
+            "lineage": [
+              {
+                "e": 1
+              }
+            ]
+          },
+          "redis": {
+            "streams": [
+              "rs1",
+              "rs2"
+            ]
+          },
+          "websocket": {
+            "connections": [
+              {
+                "id": "w1"
+              }
+            ],
+            "frames": 12
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"count\":3,\"streams\":[{\"bounded\":true,\"consumers\":[{\"g\":\"c1\"}],\"degraded\":false,\"event_lineage\":[{\"e\":1}],\"offsets\":{\"t-a\":5},\"propagation_state\":\"rebalancing\",\"stream_type\":\"kafka\",\"topics\":[\"t-a\",\"t-b\"]},{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"redis_streams\",\"topics\":[\"rs1\",\"rs2\"]},{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"websocket\",\"topics\":[{\"id\":\"w1\"}]}]}",
+      "hash": "95ad96c662f8a15e0b59d1360baae40eda8054f5c4c246a27d7fa4a0342e5501"
+    },
+    {
+      "name": "st_ws_default",
+      "inputs": {
+        "stream_types": [
+          "websocket"
+        ],
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"count\":1,\"streams\":[{\"bounded\":true,\"event_lineage\":[],\"offsets\":{},\"stream_type\":\"websocket\",\"topics\":[]}]}",
+      "hash": "3a654d988cfe39dde0df8eecd7fbfe7edb08c5af860af6fef96d51f35914ae10"
+    }
+  ],
+  "extract_telemetry_runtime": [
+    {
+      "name": "tel_default",
+      "inputs": {
+        "backends": null,
+        "snapshot": null
+      },
+      "serialized": "{\"backends\":[\"jaeger\",\"opentelemetry\",\"prometheus\"],\"bounded\":true,\"degraded\":false,\"distributed_correlations\":[],\"logs\":[],\"metrics\":[],\"spans\":[],\"traces\":[]}",
+      "hash": "38f6b97f3fdd02c66e0bf1121820df3faa5885a3cd77dc70adf60e064868f54d"
+    },
+    {
+      "name": "tel_full",
+      "inputs": {
+        "backends": [
+          "jaeger",
+          "prometheus",
+          "datadog"
+        ],
+        "snapshot": {
+          "metrics": [
+            {
+              "m": 1
+            }
+          ],
+          "traces": [
+            {
+              "t": 1
+            }
+          ],
+          "spans": [
+            {
+              "s": 1
+            },
+            {
+              "s": 2
+            }
+          ],
+          "logs": [
+            {
+              "l": 1
+            }
+          ],
+          "correlations": [
+            {
+              "c": 1
+            }
+          ],
+          "degraded": false
+        }
+      },
+      "serialized": "{\"backends\":[\"datadog\",\"jaeger\",\"prometheus\"],\"bounded\":true,\"degraded\":false,\"distributed_correlations\":[{\"c\":1}],\"logs\":[{\"l\":1}],\"metrics\":[{\"m\":1}],\"spans\":[{\"s\":1},{\"s\":2}],\"traces\":[{\"t\":1}]}",
+      "hash": "5efb625c2198b60f2c19223b3cd5f1c8636d940b6855d0cad8f5418ba43701de"
+    },
+    {
+      "name": "tel_empty_backends",
+      "inputs": {
+        "backends": [],
+        "snapshot": null
+      },
+      "serialized": "{\"backends\":[\"jaeger\",\"opentelemetry\",\"prometheus\"],\"bounded\":true,\"degraded\":false,\"distributed_correlations\":[],\"logs\":[],\"metrics\":[],\"spans\":[],\"traces\":[]}",
+      "hash": "38f6b97f3fdd02c66e0bf1121820df3faa5885a3cd77dc70adf60e064868f54d"
+    },
+    {
+      "name": "tel_degraded",
+      "inputs": {
+        "backends": [
+          "prometheus"
+        ],
+        "snapshot": {
+          "degraded": true
+        }
+      },
+      "serialized": "{\"backends\":[\"prometheus\"],\"bounded\":true,\"degraded\":true,\"distributed_correlations\":[],\"logs\":[],\"metrics\":[],\"spans\":[],\"traces\":[]}",
+      "hash": "9e5b2ffccb23333611a8e19ed2be46f5198a8849881765c060ac291fc83fa788"
+    }
+  ]
+}

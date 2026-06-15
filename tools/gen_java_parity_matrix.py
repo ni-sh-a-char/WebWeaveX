@@ -37,6 +37,11 @@ JAVA_PROVEN = {
     "search_runtime_memory": "io.webweavex.memory.MemorySearch#searchRuntimeMemory",
     "reconstruct_runtime": "io.webweavex.reconstruction.RuntimeReconstruction#reconstructRuntime",
     "validate_reconstructed_runtime": "io.webweavex.reconstruction.RuntimeValidation#validateReconstructedRuntime",
+    # Session 4 — connector-runtime extraction (deterministic Extraction layer)
+    "extract_database_runtime": "io.webweavex.connectors.DatabaseConnectors#extractDatabaseRuntime",
+    "extract_api_runtime": "io.webweavex.connectors.ApiConnectors#extractApiRuntime",
+    "extract_runtime_streams": "io.webweavex.connectors.StreamConnectors#extractRuntimeStreams",
+    "extract_telemetry_runtime": "io.webweavex.connectors.TelemetryConnector#extractTelemetryRuntime",
 }
 
 PACKAGES = [
@@ -108,7 +113,8 @@ def main() -> None:
                  "`lib/src/` layouts:")
     lines.append("")
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
-                        "persistence", "replay", "query", "memory", "reconstruction")
+                        "persistence", "replay", "query", "memory", "reconstruction",
+                        "connectors")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")

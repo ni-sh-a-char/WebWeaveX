@@ -1,10 +1,11 @@
 # COVERAGE_EXCEPTION_REPORT
 
-Target: **≥95% instruction coverage**. Actual (this slice): **94.51%**
-(484 of 8,814 instructions uncovered, 179 tests). This report justifies the
-gap line-class by line-class. **No defensive code was deleted to inflate the
-number, and no internal-consistency tests were used** — every covered branch is
-proven against canonical Python.
+Target: **≥95% instruction coverage**. Actual (after session 4): **94.91%**
+(208 tests). This report justifies the gap line-class by line-class. **No
+defensive code was deleted to inflate the number, and no internal-consistency
+tests were used for parity** — every parity-covered branch is proven against
+canonical Python (the only unit tests cover internal helper coercion, clearly
+labelled as such).
 
 ## Why a residual gap exists
 
@@ -51,6 +52,17 @@ hand-fabricated values rather than real Python output.
 - `graph.GraphReconstruction` — the `max_nodes` (5,000) and `max_edges` (20,000)
   slice branches. Reaching them needs >5k node ids / >20k edges, far beyond any
   realistic or test corpus; the bound itself is the safety contract.
+
+### E. Connector degraded-fallback catches (unreachable defensive mirrors)
+- `connectors.DatabaseConnectors` (4 missed) and `connectors.StreamConnectors`
+  (26 missed) — the per-branch `catch (RuntimeException) → degraded` arms are 1:1
+  mirrors of Python's `try/except Exception` in `database_connector_engine` and
+  `runtime_stream_connector_engine`. The dispatched sub-engines are pure
+  deterministic dict/list transforms that never throw, so the catch arms cannot
+  execute; they are retained as exact structural mirrors of the canonical source.
+  All happy-path branches (every database type incl. unknown→degraded, every
+  stream type incl. sse/queue/unknown) and the `Connectors` helper coercion paths
+  are fully covered (100% / 99.1%).
 
 ## Reachable branches that ARE covered (added this session)
 Other-query-type, other-search-type, topology/else memory queries, validation
