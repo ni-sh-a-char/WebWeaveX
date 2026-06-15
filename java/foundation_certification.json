@@ -1,0 +1,37 @@
+{
+  "artifact": "io.webweavex:webweavex:2.1.0",
+  "phase": "foundation-slice",
+  "canonical_source": "Python 2.1.0 (compute_kaalka_hash == compute_deterministic_hash)",
+  "parity_claim": "Java == Python (byte-exact) for determinism + crypto primitives; transitively == JS == Dart",
+  "golden_vectors": {
+    "serialization": 29,
+    "special_scalars": 3,
+    "crypto": 4
+  },
+  "tests": {
+    "total": 98,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS"
+  },
+  "coverage": {
+    "instruction_pct": 92.95,
+    "note": "uncovered remainder is unreachable defensive code (JDK SHA-256 catch, cipher-always-round-trips time-key fallback, float-format safety branches)"
+  },
+  "implemented_public_apis": [
+    "compute_kaalka_hash",
+    "encrypt_value",
+    "decrypt_value"
+  ],
+  "implemented_packages": [
+    "io.webweavex.determinism",
+    "io.webweavex.crypto"
+  ],
+  "build": {
+    "mvn_clean_verify": "PASS",
+    "jar": true,
+    "sources_jar": true,
+    "javadoc_jar": true
+  },
+  "manifest_total_apis": 128
+}

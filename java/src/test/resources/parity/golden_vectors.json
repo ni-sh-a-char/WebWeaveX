@@ -1,0 +1,297 @@
+{
+  "source": "Python 2.1.0 canonical (compute_kaalka_hash == compute_deterministic_hash)",
+  "algorithm": "webweavex-formula+kaalka@5.0.0",
+  "vectors": [
+    {
+      "name": "string_plain",
+      "input": "hello",
+      "serialized": "hello",
+      "hash": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    },
+    {
+      "name": "string_unicode",
+      "input": "café 🚀 中文",
+      "serialized": "café 🚀 中文",
+      "hash": "87b4112271097fad4039aef8262bb0c7626195108632b3baa666f434d29d4ac9"
+    },
+    {
+      "name": "string_crlf",
+      "input": "a\r\nb\rc\n",
+      "serialized": "a\nb\nc",
+      "hash": "ea7fb08b7a2dc4619ffb7c7bb38d95a2047935fa165d71b12efd3852a2e6d0cc"
+    },
+    {
+      "name": "string_trailing_ws",
+      "input": "trim me   \t  ",
+      "serialized": "trim me",
+      "hash": "151b5556e179b83385c46f805f4c1644c213b387c471004a662cfdb596ba82b5"
+    },
+    {
+      "name": "string_nfkc",
+      "input": "ﬁ ① ²",
+      "serialized": "fi 1 2",
+      "hash": "3e00283e95d2bb899ddd50cb2893f26df099b74a37ca1893f7919d06bc2437e6"
+    },
+    {
+      "name": "int_zero",
+      "input": 0,
+      "serialized": "0",
+      "hash": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "name": "int_pos",
+      "input": 42,
+      "serialized": "42",
+      "hash": "73475cb40a568e8da8a045ced110137e159f890ac4da883b6b17dc651b3a8049"
+    },
+    {
+      "name": "int_neg",
+      "input": -987654321,
+      "serialized": "-987654321",
+      "hash": "bd7debca3ed59381aafc7d0b0d9ec243abc3ee319e190ff695bb77e0244b8edd"
+    },
+    {
+      "name": "int_big",
+      "input": 9007199254740993,
+      "serialized": "9007199254740993",
+      "hash": "a1c367c29158357e62a3ff5d3e800fb7698a22396439dbc0a9d4929322afd35d"
+    },
+    {
+      "name": "float_simple",
+      "input": 0.1,
+      "serialized": "0.1",
+      "hash": "14be4b45f18e0d8c67b4f719b5144eee88497e413709d11d85b096d8e2346310"
+    },
+    {
+      "name": "float_neg",
+      "input": -2.5,
+      "serialized": "-2.5",
+      "hash": "20fb508cd069b7fbaf72c798394a7995c9a3ded09ccf19a294fdb9415fd03317"
+    },
+    {
+      "name": "float_repr",
+      "input": 1234567.89,
+      "serialized": "1234567.89",
+      "hash": "3b1ff895d2562d2fd5af9c6868370fb954997d8d863abd0e28bdd981b3ba6cd2"
+    },
+    {
+      "name": "float_sci_large",
+      "input": 1e+20,
+      "serialized": "1e+20",
+      "hash": "7c18c9fbdcc8281573e9db9e04f04c3790b10696f3706f0f03fa87427d33e28b"
+    },
+    {
+      "name": "float_sci_small",
+      "input": 1e-07,
+      "serialized": "1e-07",
+      "hash": "e485fac25775a7da830698e7daac582737fc8b43ba4b351467a16cf8ed83122a"
+    },
+    {
+      "name": "float_integral",
+      "input": 2.0,
+      "serialized": "2",
+      "hash": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "name": "float_integral_big",
+      "input": 9007199254740991.0,
+      "serialized": "9007199254740991",
+      "hash": "f40b423c2dd95ff2b2f027e22208f438cf7242862e5e746860e697308c9add26"
+    },
+    {
+      "name": "bool_true",
+      "input": true,
+      "serialized": "true",
+      "hash": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    {
+      "name": "bool_false",
+      "input": false,
+      "serialized": "false",
+      "hash": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    {
+      "name": "null",
+      "input": null,
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "empty_obj",
+      "input": {},
+      "serialized": "{}",
+      "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "name": "empty_arr",
+      "input": [],
+      "serialized": "{}",
+      "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "name": "obj_sorted",
+      "input": {
+        "b": 1,
+        "a": 2.0,
+        "c": "x"
+      },
+      "serialized": "{\"a\":2,\"b\":1,\"c\":\"x\"}",
+      "hash": "38b5d9a6be58441e40ba736c50ec9ac004336e9818b647f78fabfd53c64cd302"
+    },
+    {
+      "name": "obj_volatile",
+      "input": {
+        "timestamp": 99,
+        "data": 1,
+        "nonce": "z",
+        "keep": true
+      },
+      "serialized": "{\"data\":1,\"keep\":true}",
+      "hash": "ff1b2455213bd71e1c99141f2264558050da586e1cd62b71f5c292ae18ff45a3"
+    },
+    {
+      "name": "obj_nested",
+      "input": {
+        "z": {
+          "y": 2,
+          "x": 1
+        },
+        "a": [
+          3,
+          2,
+          1
+        ]
+      },
+      "serialized": "{\"a\":[3,2,1],\"z\":{\"x\":1,\"y\":2}}",
+      "hash": "5ab032a6e12d488e242d5ee616bdc3345c2a212c8e530c113e783ee95e0e2d93"
+    },
+    {
+      "name": "arr_scalars",
+      "input": [
+        3,
+        "x",
+        true,
+        null,
+        2.0
+      ],
+      "serialized": "{\"0\":3,\"1\":\"x\",\"2\":true,\"3\":null,\"4\":2}",
+      "hash": "756ca037a7508ebbad77dedbec9dac97b76db6aa684207fe6b50b67beaa91541"
+    },
+    {
+      "name": "arr_of_objs",
+      "input": [
+        {
+          "z": 1,
+          "a": 2
+        },
+        {
+          "timestamp": 5,
+          "b": 9
+        }
+      ],
+      "serialized": "{\"0\":{\"a\":2,\"z\":1},\"1\":{\"b\":9}}",
+      "hash": "b28f2c720d30e9f3a34772a5b04f7fcd8003a46d84b16e4dbb2bacc00996d27f"
+    },
+    {
+      "name": "arr_nested",
+      "input": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          {
+            "k": 1
+          }
+        ]
+      ],
+      "serialized": "{\"0\":[1,2],\"1\":[3,{\"k\":1}]}",
+      "hash": "41368be9b82ce42fb3e6807bde26ea037a8e57fd6d84c90c56f2aa53770fd7f5"
+    },
+    {
+      "name": "deep_unicode_keys",
+      "input": {
+        "😀": 1,
+        "a": 2,
+        "é": 3
+      },
+      "serialized": "{\"a\":2,\"é\":3,\"😀\":1}",
+      "hash": "c3c3e60d8ad2e88650a66e1e5c29473eb46ec2bbedc605e37e90de2238663cee"
+    },
+    {
+      "name": "mixed_numbers",
+      "input": {
+        "i": 7,
+        "f": 3.14,
+        "big_int_float": 1e+16,
+        "neg": -0.5
+      },
+      "serialized": "{\"big_int_float\":10000000000000000,\"f\":3.14,\"i\":7,\"neg\":-0.5}",
+      "hash": "a4262afa3aefcdf9e7878b6fb373281dbfca58d4fe30580d8bc29040475838d8"
+    }
+  ],
+  "special_scalars": [
+    {
+      "name": "nan",
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "inf",
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "neg_inf",
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    }
+  ],
+  "crypto": [
+    {
+      "name": "crypt_obj",
+      "input": {
+        "k": "v"
+      },
+      "key": "secret",
+      "time_key": "7:4:13",
+      "encrypted": "6JDakquU6Zby",
+      "hash": "666c1aa02e8068c6d5cc1d3295009432c16790bec28ec8ce119d0d1a18d61319"
+    },
+    {
+      "name": "crypt_string",
+      "input": "payload",
+      "key": "another-key",
+      "time_key": "7:16:43",
+      "encrypted": "y73Wys7BxQ==",
+      "hash": "239f59ed55e737c77147cf55ad0c1b030b6d7ee748a7426952f9b852d5a935e5"
+    },
+    {
+      "name": "crypt_unicode",
+      "input": {
+        "msg": "café 🚀"
+      },
+      "key": "kéy",
+      "time_key": "10:14:2",
+      "encrypted": "ZQ1ZYFURKhNVVFq4nxfomJR7Hno=",
+      "hash": "0ff2acf8b37d2b3f57905f2c26e6d65e0b40b22bdb8cdba8742b6998ece634b1"
+    },
+    {
+      "name": "crypt_nested",
+      "input": {
+        "a": [
+          1,
+          2,
+          {
+            "b": 3
+          }
+        ]
+      },
+      "key": "p@ss",
+      "time_key": "8:4:20",
+      "encrypted": "/6fnqcLku7e+uQmx8rPMxhHyEw==",
+      "hash": "7957b7d64a0a355a7615a671bc8b201f55952619e199c5cf32ff209bf71d910e"
+    }
+  ]
+}
