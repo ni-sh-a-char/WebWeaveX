@@ -133,6 +133,25 @@ Detail: [`java/SESSION_8_CERTIFICATION.md`](java/SESSION_8_CERTIFICATION.md) · 
 [`java/JAVA_PARITY_RISK_REGISTER.md`](java/JAVA_PARITY_RISK_REGISTER.md) · Next:
 [`java/JAVA_SESSION_9_PLAN.md`](java/JAVA_SESSION_9_PLAN.md).
 
+## Behavioural parity (Session 9 — execution family)
+
+The entire dependency-clean `core.execution` family (revalidated: 26 modules / 0 forbidden).
+
+| Metric | Value |
+| --- | --- |
+| Java parity-proven APIs | **31 → 37** / 128 |
+| New APIs | `build_runtime_sandbox`, `execute_runtime_action`, `replay_runtime_execution`, `simulate_runtime_execution`, `run_execution_runtime`, `run_execution_for_extraction` |
+| Ported sub-engines | ~20 (sandbox/action/permissions/policy/mutation/transaction/transition/queue/scheduler/worker/federation/coordination/recovery/rollback/state/replay/simulation + execution IR + runtime-graph IR-merge) |
+| Session-9 golden vectors | 89 byte-exact (38 top-level + 51 engine-level, Python oracle) |
+| Full suite | **454 tests, 0 failures, 0 errors** |
+| Instruction coverage | **95.88 %** (floor 94 %; ExecutionRuntime 96.5 %) |
+| `PROVEN_FLOOR` | 31 → 37 |
+
+Detail: [`java/SESSION_9_CERTIFICATION.md`](java/SESSION_9_CERTIFICATION.md) · State:
+[`java/JAVA_SESSION_9_STATE.md`](java/JAVA_SESSION_9_STATE.md) · Surface:
+[`java/JAVA_PARITY_SURFACE_MAP.md`](java/JAVA_PARITY_SURFACE_MAP.md) · Next:
+[`java/JAVA_SESSION_10_PLAN.md`](java/JAVA_SESSION_10_PLAN.md).
+
 ## Governance (machine-enforced)
 
 `tools/validate_java_manifest.py` → **PASS** (`21/128 proven; mapped/exist/tested/
@@ -158,7 +177,7 @@ Python ≡ Java is proven for all 21 APIs (byte-exact `stable_serialize` +
 certified (70k+ comparisons), therefore **Java ≡ JavaScript ≡ Dart** transitively.
 
 ```
-Python  =  Java  =  JavaScript  =  Dart        (31 / 128 APIs, byte-exact)
+Python  =  Java  =  JavaScript  =  Dart        (37 / 128 APIs, byte-exact)
 ```
 
 ## Reproduce

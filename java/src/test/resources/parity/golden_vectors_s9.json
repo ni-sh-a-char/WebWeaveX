@@ -1,0 +1,1915 @@
+{
+  "source": "Python 2.1.0 canonical (session 9: execution family)",
+  "build_runtime_sandbox": [
+    {
+      "name": "sb_browser",
+      "inputs": {
+        "runtime": "browser"
+      },
+      "serialized": "{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "f7abd6e9523da44187023208e56acc165839c93226bea24edad8bcf2ee5368f9"
+    },
+    {
+      "name": "sb_terminal",
+      "inputs": {
+        "runtime": "terminal"
+      },
+      "serialized": "{\"allowed_actions\":[\"terminal_command\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"terminal\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "75e313c16eda7766e38bd3cfdbdacb2909488fe874ba6a1b502d9ec4a49416b3"
+    },
+    {
+      "name": "sb_native",
+      "inputs": {
+        "runtime": "native"
+      },
+      "serialized": "{\"allowed_actions\":[\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"native\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "836d25abc05ec83a7aad8f278f9c96d9f3a9aac64db22760a22664308ae03ab4"
+    },
+    {
+      "name": "sb_vm",
+      "inputs": {
+        "runtime": "vm"
+      },
+      "serialized": "{\"allowed_actions\":[\"vm_execute\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"vm\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "1028bb7a32e80eb86a2c7156cbd033551db4d4b5d1739de4351a28b4957e692b"
+    },
+    {
+      "name": "sb_unknown",
+      "inputs": {
+        "runtime": "exotic"
+      },
+      "serialized": "{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"exotic\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "8e21c4be1b312eb12402baa10f214238c853db158b97564e92bceba4321d7a52"
+    },
+    {
+      "name": "sb_custom_allowed",
+      "inputs": {
+        "runtime": "browser",
+        "allowed_actions": [
+          "zeta",
+          "alpha",
+          "Mu"
+        ]
+      },
+      "serialized": "{\"allowed_actions\":[\"Mu\",\"alpha\",\"zeta\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "dff75e7445b1697854823e4c701469ada54967f005558bac5d28e77e5a806c6f"
+    },
+    {
+      "name": "sb_custom_params",
+      "inputs": {
+        "runtime": "browser",
+        "rollback_enabled": false,
+        "max_actions": 50,
+        "timeout_ticks": 200,
+        "replay_policy": "lenient"
+      },
+      "serialized": "{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":200},\"max_actions\":50,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"lenient\",\"rollback_enabled\":false,\"rollback_policy\":{\"enabled\":false},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":200}}",
+      "hash": "86fbdc92eda38aea8cf720e8921abe0c52414f3cc91e5dba0dcf25740e9308c0"
+    },
+    {
+      "name": "sb_unicode_allowed",
+      "inputs": {
+        "runtime": "browser",
+        "allowed_actions": [
+          "按钮",
+          "a",
+          "😀"
+        ]
+      },
+      "serialized": "{\"allowed_actions\":[\"a\",\"按钮\",\"😀\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}}",
+      "hash": "e92fa25f949fc19bc4da8d724b4ade10c8c590e31cd6ac4c7c4348d543d864f1"
+    }
+  ],
+  "execute_runtime_action": [
+    {
+      "name": "ea_click_ok",
+      "inputs": {
+        "raw_action": {
+          "type": "browser_click",
+          "selector": "#submit"
+        },
+        "sandbox": {
+          "runtime": "browser",
+          "allowed_actions": [
+            "browser_click",
+            "browser_focus",
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"},\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"bounded\":true,\"executed\":true,\"runtime\":\"browser\"}",
+      "hash": "4d1906871e7a76c60b17ea2661f9d91bc8507c29bbc5d51c50ced8bc962bb926"
+    },
+    {
+      "name": "ea_no_selector",
+      "inputs": {
+        "raw_action": {
+          "type": "browser_click",
+          "selector": ""
+        },
+        "sandbox": {
+          "runtime": "browser",
+          "allowed_actions": [
+            "browser_click",
+            "browser_focus",
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action_id\":\"c1a0102b103fddc764df849898df2359\",\"bounded\":true,\"executed\":false,\"reason\":\"invalid_selector\",\"runtime\":\"browser\"}",
+      "hash": "64ca1e6a32564d74117dd56158761b3ac2cf7fe7a5ea370638768c45a8d369f9"
+    },
+    {
+      "name": "ea_terminal_safe",
+      "inputs": {
+        "raw_action": {
+          "type": "terminal_command",
+          "command": "pwd"
+        },
+        "sandbox": {
+          "runtime": "terminal",
+          "allowed_actions": [
+            "terminal_command"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": true,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": false,
+            "native": false,
+            "filesystem": false,
+            "connector": false,
+            "terminal": true,
+            "vm": false
+          },
+          "active_scopes": [
+            "terminal"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action\":{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"},\"action_id\":\"af59518e23f97db39514f85324492a81\",\"bounded\":true,\"executed\":true,\"runtime\":\"terminal\"}",
+      "hash": "fa7caced08a7fbcb8a3f9845a669d03f258f7bfd6834e7e073051cecbf407cf4"
+    },
+    {
+      "name": "ea_terminal_unsafe",
+      "inputs": {
+        "raw_action": {
+          "type": "terminal_command",
+          "command": "rm -rf /"
+        },
+        "sandbox": {
+          "runtime": "terminal",
+          "allowed_actions": [
+            "terminal_command"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": true,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": false,
+            "native": false,
+            "filesystem": false,
+            "connector": false,
+            "terminal": true,
+            "vm": false
+          },
+          "active_scopes": [
+            "terminal"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action_id\":\"8a4ff5083ee345bfcddae14b186b6263\",\"bounded\":true,\"executed\":false,\"reason\":\"unsafe_terminal\",\"runtime\":\"terminal\"}",
+      "hash": "eda210617b6800fdb476a380124123b83db286b19ec8353f7ef23c12b3583211"
+    },
+    {
+      "name": "ea_native_focus",
+      "inputs": {
+        "raw_action": {
+          "type": "native_focus",
+          "window": "app"
+        },
+        "sandbox": {
+          "runtime": "native",
+          "allowed_actions": [
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": false,
+            "native": true,
+            "filesystem": false,
+            "connector": false,
+            "terminal": false,
+            "vm": false
+          },
+          "active_scopes": [
+            "native"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action\":{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"96e9ee1422f3a151ed2b3f28e4e55664\",\"payload\":{\"window\":\"app\"},\"runtime\":\"native\"},\"action_id\":\"96e9ee1422f3a151ed2b3f28e4e55664\",\"bounded\":true,\"executed\":true,\"runtime\":\"native\"}",
+      "hash": "5f3a627777b027b90cc5c20fcf6192ec1fd0ea84360122d20d9911b937f3b051"
+    },
+    {
+      "name": "ea_sandbox_forbidden",
+      "inputs": {
+        "raw_action": {
+          "type": "vm_execute",
+          "payload": {
+            "cmd": "x"
+          }
+        },
+        "sandbox": {
+          "runtime": "browser",
+          "allowed_actions": [
+            "browser_click",
+            "browser_focus",
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action_id\":\"30fb2acb8655045825d43c3c973c6cac\",\"bounded\":true,\"executed\":false,\"reason\":\"sandbox_forbidden\",\"runtime\":\"browser\"}",
+      "hash": "2caea739b89d98710c6906fe8233d4d256a179c1e05264373af7f0acdea62551"
+    },
+    {
+      "name": "ea_permission_denied",
+      "inputs": {
+        "raw_action": {
+          "type": "browser_click",
+          "selector": "#x"
+        },
+        "sandbox": {
+          "runtime": "browser",
+          "allowed_actions": [
+            "browser_click",
+            "browser_focus",
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": false,
+            "native": false,
+            "filesystem": true,
+            "connector": false,
+            "terminal": false,
+            "vm": false
+          },
+          "active_scopes": [
+            "filesystem"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action_id\":\"ddf3943b4c043f3a9a56946dd0c8fe83\",\"bounded\":true,\"executed\":false,\"reason\":\"permission_denied\",\"runtime\":\"browser\"}",
+      "hash": "c5153546aad18896277b4e6de598f2dd3343eebc869dd3070e353ea570582145"
+    },
+    {
+      "name": "ea_no_permissions",
+      "inputs": {
+        "raw_action": {
+          "type": "browser_click",
+          "selector": "#x"
+        },
+        "sandbox": {
+          "runtime": "browser",
+          "allowed_actions": [
+            "browser_click",
+            "browser_focus",
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": null,
+        "tick": 0
+      },
+      "serialized": "{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"ddf3943b4c043f3a9a56946dd0c8fe83\",\"payload\":{\"selector\":\"#x\"},\"runtime\":\"browser\"},\"action_id\":\"ddf3943b4c043f3a9a56946dd0c8fe83\",\"bounded\":true,\"executed\":true,\"runtime\":\"browser\"}",
+      "hash": "4cc29fbb0decda19964c680f53e8ff475f3a8178b1bf8a10283bbf8e99882366"
+    },
+    {
+      "name": "ea_unicode",
+      "inputs": {
+        "raw_action": {
+          "type": "browser_click",
+          "selector": ".café-😀"
+        },
+        "sandbox": {
+          "runtime": "browser",
+          "allowed_actions": [
+            "browser_click",
+            "browser_focus",
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"2a1cb239a938ed9798edcb66fe64e636\",\"payload\":{\"selector\":\".café-😀\"},\"runtime\":\"browser\"},\"action_id\":\"2a1cb239a938ed9798edcb66fe64e636\",\"bounded\":true,\"executed\":true,\"runtime\":\"browser\"}",
+      "hash": "1af2dc30a96182047a23682469a872fbd3e29d4bc5a8ba37bf1c25761424a85f"
+    }
+  ],
+  "replay_runtime_execution": [
+    {
+      "name": "rp_empty",
+      "inputs": {
+        "actions": [],
+        "transactions": null,
+        "mutations": null,
+        "tick": 0
+      },
+      "serialized": "{\"actions\":[],\"bounded\":true,\"identical\":true,\"mutations\":[],\"replayed\":true,\"tick\":0,\"transactions\":[]}",
+      "hash": "21e3b1469357747cca49316314e783ddc5aa837d09b23e597b01955f6a75ad73"
+    },
+    {
+      "name": "rp_actions_order",
+      "inputs": {
+        "actions": [
+          {
+            "id": "z"
+          },
+          {
+            "id": "a"
+          },
+          {
+            "id": "m"
+          }
+        ],
+        "transactions": null,
+        "mutations": null,
+        "tick": 0
+      },
+      "serialized": "{\"actions\":[{\"id\":\"a\"},{\"id\":\"m\"},{\"id\":\"z\"}],\"bounded\":true,\"identical\":true,\"mutations\":[],\"replayed\":true,\"tick\":0,\"transactions\":[]}",
+      "hash": "d11f24928800fd8fe82eac6e19beffba54a06054e9e03613ad3e3e4bd6cd4ccc"
+    },
+    {
+      "name": "rp_mutations_tick",
+      "inputs": {
+        "actions": [],
+        "transactions": null,
+        "mutations": [
+          {
+            "tick": 2,
+            "ordered_index": 0
+          },
+          {
+            "tick": 1,
+            "ordered_index": 1
+          },
+          {
+            "tick": 1,
+            "ordered_index": 0
+          }
+        ],
+        "tick": 0
+      },
+      "serialized": "{\"actions\":[],\"bounded\":true,\"identical\":true,\"mutations\":[{\"ordered_index\":0,\"tick\":1},{\"ordered_index\":1,\"tick\":1},{\"ordered_index\":0,\"tick\":2}],\"replayed\":true,\"tick\":0,\"transactions\":[]}",
+      "hash": "53241f4e3f3fe083bf9bbf5928e8c197c460510934b7e8c91821c8cfd2b3b4aa"
+    },
+    {
+      "name": "rp_full",
+      "inputs": {
+        "actions": [
+          {
+            "id": "a2"
+          },
+          {
+            "id": "a1"
+          }
+        ],
+        "transactions": [
+          {
+            "transaction_id": "t2"
+          },
+          {
+            "transaction_id": "t1"
+          }
+        ],
+        "mutations": [
+          {
+            "tick": 0,
+            "ordered_index": 1
+          },
+          {
+            "tick": 0,
+            "ordered_index": 0
+          }
+        ],
+        "tick": 5
+      },
+      "serialized": "{\"actions\":[{\"id\":\"a1\"},{\"id\":\"a2\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"ordered_index\":0,\"tick\":0},{\"ordered_index\":1,\"tick\":0}],\"replayed\":true,\"tick\":5,\"transactions\":[{\"transaction_id\":\"t1\"},{\"transaction_id\":\"t2\"}]}",
+      "hash": "f09cf2816fd5cf6e53b0511b6dbd14e24b4b9e0fa79db4658489dc9edeb289c8"
+    }
+  ],
+  "simulate_runtime_execution": [
+    {
+      "name": "sim_empty",
+      "inputs": {
+        "actions": [],
+        "sandbox": null,
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true}",
+      "hash": "ba5336a314721b73a87c518ec578e45b52edaa3c16f1addedf792dd7083cb07b"
+    },
+    {
+      "name": "sim_clicks",
+      "inputs": {
+        "actions": [
+          {
+            "type": "browser_click",
+            "selector": "#a"
+          },
+          {
+            "type": "browser_click",
+            "selector": "#b"
+          }
+        ],
+        "sandbox": null,
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#a\",\"tick\":0},{\"kind\":\"browser_click\",\"target\":\"#b\",\"tick\":1}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true}",
+      "hash": "3e65ec7307b388a038a5be564aa2d88d7499a9dee56cadba160fdff1560ce7f9"
+    },
+    {
+      "name": "sim_mixed",
+      "inputs": {
+        "actions": [
+          {
+            "type": "browser_click",
+            "selector": "#a"
+          },
+          {
+            "type": "browser_click",
+            "selector": ""
+          },
+          {
+            "type": "vm_execute"
+          }
+        ],
+        "sandbox": null,
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#a\",\"tick\":0}],\"rollback_required\":true,\"runtime_mutated\":false,\"simulated\":true}",
+      "hash": "925e8f32584ebe7100172b62e508b6e75269023d6e26f18c098e3f1acdb2381b"
+    },
+    {
+      "name": "sim_native",
+      "inputs": {
+        "actions": [
+          {
+            "type": "native_focus",
+            "window": "w"
+          }
+        ],
+        "sandbox": {
+          "runtime": "native",
+          "allowed_actions": [
+            "native_focus"
+          ],
+          "rollback_enabled": true,
+          "max_actions": 1000,
+          "execution_boundaries": {
+            "max_depth": 50,
+            "max_mutations": 100,
+            "timeout_ticks": 10000
+          },
+          "mutation_limits": {
+            "max_mutations": 100
+          },
+          "rollback_policy": {
+            "enabled": true
+          },
+          "timeout_policy": {
+            "ticks": 10000
+          },
+          "replay_policy": "strict",
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"native_focus\",\"target\":\"w\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true}",
+      "hash": "20e745f774f2e6a03954f5adb4ae1f587a7392d43ad62142604dff7fb5adc33c"
+    }
+  ],
+  "run_execution_runtime": [
+    {
+      "name": "run_default",
+      "inputs": {},
+      "serialized": "{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "1cb572c5bf4d2e467f8dcc42b0688badad94d1ed0bd964bc8e0ed376a3f26455"
+    },
+    {
+      "name": "run_browser_actions",
+      "inputs": {
+        "sources": {
+          "actions": [
+            {
+              "type": "browser_click",
+              "selector": "#go"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "a914658fa0a2c39cb12f28ec5009797f392fc05c2395c746337dfc73f5f4bd28"
+    },
+    {
+      "name": "run_terminal",
+      "inputs": {
+        "runtime": "terminal",
+        "sources": {
+          "actions": [
+            {
+              "type": "terminal_command",
+              "command": "pwd"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"af59518e23f97db39514f85324492a81\",\"route_order\":0,\"runtime\":\"terminal\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"af59518e23f97db39514f85324492a81\",\"route_order\":0,\"runtime\":\"terminal\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"terminal\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"af59518e23f97db39514f85324492a81\",\"route_order\":0,\"runtime\":\"terminal\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"terminal\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"af59518e23f97db39514f85324492a81\",\"route_order\":0,\"runtime\":\"terminal\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"terminal\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"af59518e23f97db39514f85324492a81\",\"route_order\":0,\"runtime\":\"terminal\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"terminal\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"terminal\"],\"bounded\":true,\"scopes\":{\"browser\":false,\"connector\":false,\"filesystem\":false,\"native\":false,\"terminal\":true,\"vm\":false}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":true,\"bounded\":true,\"forbidden_actions\":[],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"terminal_command\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"terminal\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"terminal\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"af59518e23f97db39514f85324492a81\",\"route_order\":0,\"runtime\":\"terminal\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"terminal\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"terminal_command\",\"bounded\":true,\"id\":\"af59518e23f97db39514f85324492a81\",\"payload\":{\"command\":\"pwd\"},\"runtime\":\"terminal\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"terminal\",\"ordered_index\":0,\"target\":\"af59518e23f97db39514f85324492a81\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "3200b5b6e88b81fbd4f2c63a431a4b18f7fb33c9d84bdeade5b7a9da307c5dca"
+    },
+    {
+      "name": "run_native",
+      "inputs": {
+        "runtime": "native"
+      },
+      "serialized": "{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"637a01e996368bdc7ba6b86c17394885\",\"route_order\":0,\"runtime\":\"native\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"637a01e996368bdc7ba6b86c17394885\",\"route_order\":0,\"runtime\":\"native\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"native\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"637a01e996368bdc7ba6b86c17394885\",\"route_order\":0,\"runtime\":\"native\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"native\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"637a01e996368bdc7ba6b86c17394885\",\"route_order\":0,\"runtime\":\"native\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"native\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"637a01e996368bdc7ba6b86c17394885\",\"route_order\":0,\"runtime\":\"native\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"native\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"native\"],\"bounded\":true,\"scopes\":{\"browser\":false,\"connector\":false,\"filesystem\":false,\"native\":true,\"terminal\":false,\"vm\":false}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"native\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"native\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"637a01e996368bdc7ba6b86c17394885\",\"route_order\":0,\"runtime\":\"native\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"native\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"native_focus\",\"bounded\":true,\"id\":\"637a01e996368bdc7ba6b86c17394885\",\"payload\":{\"window\":\"application\"},\"runtime\":\"native\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"637a01e996368bdc7ba6b86c17394885\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "ea29543b6f54de8902dd86359621cc202248eb52bfdaf9c73690755053a76b49"
+    },
+    {
+      "name": "run_simulate",
+      "inputs": {
+        "simulate": true,
+        "sources": {
+          "actions": [
+            {
+              "type": "browser_click",
+              "selector": "#s"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"execution_ir\":{\"actions\":[],\"bounded\":true,\"checkpoints\":[],\"coordination\":{},\"execution_state\":{},\"federation\":{},\"ir\":\"execution_runtime\",\"mutations\":{},\"queues\":{},\"simulation\":{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#s\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true},\"synchronization\":{},\"transactions\":[]},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"simulation\":{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#s\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true},\"transition\":{\"bounded\":true,\"event\":\"simulate\",\"from\":\"idle\",\"to\":\"simulating\",\"valid\":true}}",
+      "hash": "f70fdd2c9f910e240582990f87409f853b1acd78ab4aad0f9fa57e8ae28c580b"
+    },
+    {
+      "name": "run_checkpoint",
+      "inputs": {
+        "stored": {
+          "checkpoint": {
+            "state": {
+              "browser": {
+                "url": "x"
+              }
+            }
+          }
+        }
+      },
+      "serialized": "{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[{\"browser\":{\"url\":\"x\"}}],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[{\"browser\":{\"url\":\"x\"}}],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{\"browser\":{\"url\":\"x\"}},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":true,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{\"bounded\":true,\"current\":{\"active_actions\":[],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{},\"mutations\":[],\"pending_queues\":[],\"transaction\":{}},\"prior\":{\"browser\":{\"url\":\"x\"}},\"replay_safe\":true,\"restored_state\":{\"bounded\":true,\"browser\":{\"url\":\"x\"},\"interaction\":{},\"memory\":{},\"native\":{},\"restored\":true,\"synchronization\":{},\"workflow\":{}},\"rolled_back\":true},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{\"browser\":{\"url\":\"x\"}},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "ef3c9e8e27f137f47fb820c2402d4d30cec798287816dbaa5d2bde3d7e471f09"
+    },
+    {
+      "name": "run_workers",
+      "inputs": {
+        "workers": [
+          {
+            "worker_id": "w2"
+          },
+          {
+            "worker_id": "w1"
+          }
+        ],
+        "sources": {
+          "actions": [
+            {
+              "type": "browser_click",
+              "selector": "#m"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"w2\",\"w1\"],\"routes\":[{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"w2\",\"w1\"],\"routes\":[{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w1\"},{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w2\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w1\"},{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w2\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w1\"},{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w2\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w1\"},{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w2\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"payload\":{\"selector\":\"#m\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"5564fb4b1f863aa938f53d66911f8c4b\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "b87ea445828ec7145fec337e2d7653cb8ee3f1a48ac447cdcb3f1e406b0a8c90"
+    },
+    {
+      "name": "run_tick",
+      "inputs": {
+        "tick": 7,
+        "sources": {
+          "actions": [
+            {
+              "type": "browser_click",
+              "selector": "#t"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4692b736348f23f1ad1c2346bb03a271\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4692b736348f23f1ad1c2346bb03a271\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4692b736348f23f1ad1c2346bb03a271\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"rolled_back\":false,\"transaction_id\":\"a3f1480160acded110ebdb286cc8cc6b\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4692b736348f23f1ad1c2346bb03a271\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"rolled_back\":false,\"transaction_id\":\"a3f1480160acded110ebdb286cc8cc6b\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4692b736348f23f1ad1c2346bb03a271\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"replayed\":true,\"tick\":7,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"rolled_back\":false,\"transaction_id\":\"a3f1480160acded110ebdb286cc8cc6b\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":7,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4692b736348f23f1ad1c2346bb03a271\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"rolled_back\":false,\"transaction_id\":\"a3f1480160acded110ebdb286cc8cc6b\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4692b736348f23f1ad1c2346bb03a271\",\"payload\":{\"selector\":\"#t\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4692b736348f23f1ad1c2346bb03a271\",\"tick\":7}],\"rolled_back\":false,\"transaction_id\":\"a3f1480160acded110ebdb286cc8cc6b\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}}",
+      "hash": "9dca2da58ea9cc0e0aa572f4190d17395ad89d3398ced9d372b5b1ef6ddbb5b4"
+    }
+  ],
+  "run_execution_for_extraction": [
+    {
+      "name": "rfe_disabled",
+      "inputs": {
+        "execution_runtime": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":false}",
+      "hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+    },
+    {
+      "name": "rfe_default",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"execution\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}},\"execution_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"execution:root\",\"relation\":\"executes\",\"to\":\"action:4d51b50b340549f6f4e0d3caef2ae0d0\"},{\"from\":\"worker:primary\",\"relation\":\"coordinates\",\"to\":\"execution:root\"},{\"from\":\"mutation:4d51b50b340549f6f4e0d3caef2ae0d0\",\"relation\":\"mutates\",\"to\":\"execution:root\"}],\"ir\":\"execution_runtime_graph\",\"nodes\":[{\"id\":\"action:4d51b50b340549f6f4e0d3caef2ae0d0\",\"type\":\"action\"},{\"id\":\"execution:root\",\"runtime\":\"operational\",\"type\":\"execution\"},{\"id\":\"mutation:4d51b50b340549f6f4e0d3caef2ae0d0\",\"type\":\"mutation\"},{\"id\":\"worker:primary\",\"type\":\"worker\"}]},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"execution_persisted\":false,\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"simulation\":{},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"execution:root\",\"relation\":\"executes\",\"runtime_type\":\"execution_runtime_graph\",\"to\":\"action:4d51b50b340549f6f4e0d3caef2ae0d0\"},{\"from\":\"mutation:4d51b50b340549f6f4e0d3caef2ae0d0\",\"relation\":\"mutates\",\"runtime_type\":\"execution_runtime_graph\",\"to\":\"execution:root\"},{\"from\":\"worker:primary\",\"relation\":\"coordinates\",\"runtime_type\":\"execution_runtime_graph\",\"to\":\"execution:root\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"action:4d51b50b340549f6f4e0d3caef2ae0d0\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"action\"},{\"id\":\"execution:root\",\"runtime\":\"operational\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"execution\"},{\"id\":\"mutation:4d51b50b340549f6f4e0d3caef2ae0d0\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"mutation\"},{\"id\":\"worker:primary\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"worker\"}]}}",
+      "hash": "56dac6d222bd5a7d0f1bef87361bc50799bdee4dee9b28ac8d7b3ad7472b1e5c"
+    },
+    {
+      "name": "rfe_no_merge",
+      "inputs": {
+        "merge_graph": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"execution\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}},\"execution_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"execution:root\",\"relation\":\"executes\",\"to\":\"action:4d51b50b340549f6f4e0d3caef2ae0d0\"},{\"from\":\"worker:primary\",\"relation\":\"coordinates\",\"to\":\"execution:root\"},{\"from\":\"mutation:4d51b50b340549f6f4e0d3caef2ae0d0\",\"relation\":\"mutates\",\"to\":\"execution:root\"}],\"ir\":\"execution_runtime_graph\",\"nodes\":[{\"id\":\"action:4d51b50b340549f6f4e0d3caef2ae0d0\",\"type\":\"action\"},{\"id\":\"execution:root\",\"runtime\":\"operational\",\"type\":\"execution\"},{\"id\":\"mutation:4d51b50b340549f6f4e0d3caef2ae0d0\",\"type\":\"mutation\"},{\"id\":\"worker:primary\",\"type\":\"worker\"}]},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"execution_persisted\":false,\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"payload\":{\"selector\":\"#submit\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"4d51b50b340549f6f4e0d3caef2ae0d0\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"simulation\":{},\"unified_graph\":{}}",
+      "hash": "3e2b7cd19924329655024a7d9b46f5f0c86097ca63f785d0bb7d72ecf51f3b4a"
+    },
+    {
+      "name": "rfe_simulate",
+      "inputs": {
+        "simulate_execution": true
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"execution\":{\"bounded\":true,\"execution_ir\":{\"actions\":[],\"bounded\":true,\"checkpoints\":[],\"coordination\":{},\"execution_state\":{},\"federation\":{},\"ir\":\"execution_runtime\",\"mutations\":{},\"queues\":{},\"simulation\":{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#submit\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true},\"synchronization\":{},\"transactions\":[]},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"simulation\":{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#submit\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true},\"transition\":{\"bounded\":true,\"event\":\"simulate\",\"from\":\"idle\",\"to\":\"simulating\",\"valid\":true}},\"execution_graph_ir\":{\"bounded\":true,\"edges\":[],\"ir\":\"execution_runtime_graph\",\"nodes\":[{\"id\":\"execution:root\",\"runtime\":\"operational\",\"type\":\"execution\"}]},\"execution_ir\":{\"actions\":[],\"bounded\":true,\"checkpoints\":[],\"coordination\":{},\"execution_state\":{},\"federation\":{},\"ir\":\"execution_runtime\",\"mutations\":{},\"queues\":{},\"simulation\":{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#submit\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true},\"synchronization\":{},\"transactions\":[]},\"execution_persisted\":false,\"replay\":{},\"simulation\":{\"bounded\":true,\"mutation_preview\":[{\"kind\":\"simulated\",\"ordered_index\":0,\"target\":\"dry_run\",\"tick\":0}],\"predicted_mutations\":[{\"kind\":\"browser_click\",\"target\":\"#submit\",\"tick\":0}],\"rollback_required\":false,\"runtime_mutated\":false,\"simulated\":true},\"unified_graph\":{\"bounded\":true,\"edges\":[],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"execution:root\",\"runtime\":\"operational\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"execution\"}]}}",
+      "hash": "fe32a19db616c0f21f159dfa566433e5a7fab46e85b01db8986db6044f74f4ee"
+    },
+    {
+      "name": "rfe_actions",
+      "inputs": {
+        "sources": {
+          "actions": [
+            {
+              "type": "browser_click",
+              "selector": "#go"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"execution\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}]},\"permissions\":{\"active_scopes\":[\"browser\",\"connector\",\"native\",\"terminal\",\"vm\"],\"bounded\":true,\"scopes\":{\"browser\":true,\"connector\":true,\"filesystem\":false,\"native\":true,\"terminal\":true,\"vm\":true}},\"policy\":{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true},\"queue\":{\"queue\":[],\"size\":0},\"recovery\":{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0},\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"rollback\":{},\"sandbox\":{\"allowed_actions\":[\"browser_click\",\"browser_focus\",\"native_focus\"],\"bounded\":true,\"execution_boundaries\":{\"max_depth\":50,\"max_mutations\":100,\"timeout_ticks\":10000},\"max_actions\":1000,\"mutation_limits\":{\"max_mutations\":100},\"replay_policy\":\"strict\",\"rollback_enabled\":true,\"rollback_policy\":{\"enabled\":true},\"runtime\":\"browser\",\"timeout_policy\":{\"ticks\":10000}},\"schedule\":{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":0,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"},\"state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}],\"transition\":{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}},\"execution_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"execution:root\",\"relation\":\"executes\",\"to\":\"action:98f4fa338dca2762f47c7720e03c38e6\"},{\"from\":\"worker:primary\",\"relation\":\"coordinates\",\"to\":\"execution:root\"},{\"from\":\"mutation:98f4fa338dca2762f47c7720e03c38e6\",\"relation\":\"mutates\",\"to\":\"execution:root\"}],\"ir\":\"execution_runtime_graph\",\"nodes\":[{\"id\":\"action:98f4fa338dca2762f47c7720e03c38e6\",\"type\":\"action\"},{\"id\":\"execution:root\",\"runtime\":\"operational\",\"type\":\"execution\"},{\"id\":\"mutation:98f4fa338dca2762f47c7720e03c38e6\",\"type\":\"mutation\"},{\"id\":\"worker:primary\",\"type\":\"worker\"}]},\"execution_ir\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"coordination\":{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"primary\"],\"routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"sync_bound\":false,\"workflow_bound\":false},\"execution_state\":{\"active_actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoint\":{},\"current_runtime\":\"browser\",\"federation_state\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"pending_queues\":[],\"transaction\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}},\"federation\":{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"primary\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"primary\"}]},\"ir\":\"execution_runtime\",\"mutations\":{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}]},\"queues\":{\"queue\":[],\"size\":0},\"simulation\":{},\"synchronization\":{},\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"execution_persisted\":false,\"replay\":{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"identical\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"replayed\":true,\"tick\":0,\"transactions\":[{\"actions\":[{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"98f4fa338dca2762f47c7720e03c38e6\",\"payload\":{\"selector\":\"#go\"},\"runtime\":\"browser\"}],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[{\"kind\":\"browser\",\"ordered_index\":0,\"target\":\"98f4fa338dca2762f47c7720e03c38e6\",\"tick\":0}],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}]},\"simulation\":{},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"execution:root\",\"relation\":\"executes\",\"runtime_type\":\"execution_runtime_graph\",\"to\":\"action:98f4fa338dca2762f47c7720e03c38e6\"},{\"from\":\"mutation:98f4fa338dca2762f47c7720e03c38e6\",\"relation\":\"mutates\",\"runtime_type\":\"execution_runtime_graph\",\"to\":\"execution:root\"},{\"from\":\"worker:primary\",\"relation\":\"coordinates\",\"runtime_type\":\"execution_runtime_graph\",\"to\":\"execution:root\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"action:98f4fa338dca2762f47c7720e03c38e6\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"action\"},{\"id\":\"execution:root\",\"runtime\":\"operational\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"execution\"},{\"id\":\"mutation:98f4fa338dca2762f47c7720e03c38e6\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"mutation\"},{\"id\":\"worker:primary\",\"runtime_type\":\"execution_runtime_graph\",\"type\":\"worker\"}]}}",
+      "hash": "18e14fb05a56d35bc4f4e745d8a607d45bd2f9faba26ce5ce84bb4c6a4d18f97"
+    }
+  ],
+  "apply_runtime_transition": [
+    {
+      "name": "t_idle_enqueue",
+      "inputs": {
+        "state": "idle",
+        "event": "enqueue"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"enqueue\",\"from\":\"idle\",\"to\":\"queued\",\"valid\":true}",
+      "hash": "a4560f1032fa321914e984ca9939b10625a6982b1479987150686066c409557f"
+    },
+    {
+      "name": "t_idle_simulate",
+      "inputs": {
+        "state": "idle",
+        "event": "simulate"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"simulate\",\"from\":\"idle\",\"to\":\"simulating\",\"valid\":true}",
+      "hash": "02dd6c40c3e6044ed6c9d53bfc903bc444d1daa3a2586ae558703d08b893d0e7"
+    },
+    {
+      "name": "t_queued_execute",
+      "inputs": {
+        "state": "queued",
+        "event": "execute"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"execute\",\"from\":\"queued\",\"to\":\"executing\",\"valid\":true}",
+      "hash": "c2d0465181116f7498cf33f4adac063bca273f64cb8483cda7dd294ebce8774c"
+    },
+    {
+      "name": "t_queued_rollback",
+      "inputs": {
+        "state": "queued",
+        "event": "rollback"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"rollback\",\"from\":\"queued\",\"to\":\"rolled_back\",\"valid\":true}",
+      "hash": "2e6aa5140467c48f539cbf1aff3325a93bd9a1f07517168b1933caf4a0d63d50"
+    },
+    {
+      "name": "t_executing_commit",
+      "inputs": {
+        "state": "executing",
+        "event": "commit"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"commit\",\"from\":\"executing\",\"to\":\"committed\",\"valid\":true}",
+      "hash": "e2983390070dbb98727e3acb5e3a10249cf61ea43d2de9559d409a44ee62b8d6"
+    },
+    {
+      "name": "t_executing_fail",
+      "inputs": {
+        "state": "executing",
+        "event": "fail"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"fail\",\"from\":\"executing\",\"to\":\"failed\",\"valid\":true}",
+      "hash": "ff8c4ee46750e68316d9336f0e6747a129321e74193ce15b38a3af2a2be60f2c"
+    },
+    {
+      "name": "t_failed_recover",
+      "inputs": {
+        "state": "failed",
+        "event": "recover"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"recover\",\"from\":\"failed\",\"to\":\"recovering\",\"valid\":true}",
+      "hash": "68fd5ef770013de45110fe7558f4732cde3592ec800231c476f789736520a696"
+    },
+    {
+      "name": "t_committed_noop",
+      "inputs": {
+        "state": "committed",
+        "event": "noop"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"noop\",\"from\":\"committed\",\"to\":\"idle\",\"valid\":true}",
+      "hash": "dcc44efadd6b4c7aca078f3a38d002d068eeefc9846cd1bc41207c6afaeaf9f5"
+    },
+    {
+      "name": "t_unknown_enqueue",
+      "inputs": {
+        "state": "unknown",
+        "event": "enqueue"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"enqueue\",\"from\":\"idle\",\"to\":\"queued\",\"valid\":true}",
+      "hash": "a4560f1032fa321914e984ca9939b10625a6982b1479987150686066c409557f"
+    },
+    {
+      "name": "t_recovering_x",
+      "inputs": {
+        "state": "recovering",
+        "event": "x"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"x\",\"from\":\"recovering\",\"to\":\"idle\",\"valid\":true}",
+      "hash": "7f810ba84b405329866799f38ed82f7bd4192cb401c93eb024e0456de9a97b7f"
+    },
+    {
+      "name": "t_simulating_execute",
+      "inputs": {
+        "state": "simulating",
+        "event": "execute"
+      },
+      "serialized": "{\"bounded\":true,\"event\":\"execute\",\"from\":\"simulating\",\"to\":\"idle\",\"valid\":true}",
+      "hash": "7ec2cdfc38f43f785fdc7e03318e8955f58b44fb59b9aad26aa0061e51eb0db2"
+    }
+  ],
+  "build_runtime_policy": [
+    {
+      "name": "pol_default",
+      "inputs": {
+        "allow_terminal": false
+      },
+      "serialized": "{\"allow_browser_mutation\":true,\"allow_terminal\":false,\"bounded\":true,\"forbidden_actions\":[\"terminal_command\"],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true}",
+      "hash": "8859f1fe468275c6c1a744124d4e6b3f973310485801ae0cc9c35186e0b54cc4"
+    },
+    {
+      "name": "pol_terminal",
+      "inputs": {
+        "allow_terminal": true
+      },
+      "serialized": "{\"allow_browser_mutation\":true,\"allow_terminal\":true,\"bounded\":true,\"forbidden_actions\":[],\"max_actions\":1000,\"max_depth\":50,\"max_mutations\":100,\"replay_guaranteed\":true,\"rollback_required\":true}",
+      "hash": "e8bbff1d8e76473b798ce6202c1aa14917b1598e5ea10f3a1aada3c8b338b55c"
+    }
+  ],
+  "enforce_runtime_policy": [
+    {
+      "name": "enf_ok",
+      "inputs": {
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "action": {
+          "action_type": "browser_click"
+        },
+        "mutation_count": 0,
+        "action_count": 0
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"policy_violation\":false,\"within_bounds\":true}",
+      "hash": "a06ac1fcdda573bc2b116c6189e710cdd715645c0ef1a9a2c00bbb11face3971"
+    },
+    {
+      "name": "enf_forbidden",
+      "inputs": {
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "action": {
+          "action_type": "terminal_command"
+        },
+        "mutation_count": 0,
+        "action_count": 0
+      },
+      "serialized": "{\"allowed\":false,\"bounded\":true,\"policy_violation\":true,\"within_bounds\":true}",
+      "hash": "0180bdaca4d523e5035784a986453fbd8a9367d6d9bf1dd63af8d91a814553f4"
+    },
+    {
+      "name": "enf_over_mut",
+      "inputs": {
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "action": {
+          "action_type": "browser_click"
+        },
+        "mutation_count": 500,
+        "action_count": 0
+      },
+      "serialized": "{\"allowed\":false,\"bounded\":true,\"policy_violation\":false,\"within_bounds\":false}",
+      "hash": "76b6fe059ca50c7735f092716a1effa4ce3b0a8210eee844bf91c5c05ba3f840"
+    },
+    {
+      "name": "enf_no_browser_mut",
+      "inputs": {
+        "policy": {
+          "allow_terminal": false,
+          "allow_browser_mutation": true,
+          "max_mutations": 100,
+          "max_actions": 1000,
+          "max_depth": 50,
+          "forbidden_actions": [
+            "terminal_command"
+          ],
+          "rollback_required": true,
+          "replay_guaranteed": true,
+          "bounded": true
+        },
+        "action": {
+          "action_type": "browser_click"
+        },
+        "mutation_count": 0,
+        "action_count": 2000
+      },
+      "serialized": "{\"allowed\":false,\"bounded\":true,\"policy_violation\":false,\"within_bounds\":false}",
+      "hash": "76b6fe059ca50c7735f092716a1effa4ce3b0a8210eee844bf91c5c05ba3f840"
+    }
+  ],
+  "validate_runtime_permissions": [
+    {
+      "name": "vp_browser_click",
+      "inputs": {
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "runtime": "browser",
+        "action_type": "browser_click"
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"deterministic\":true,\"scope\":\"browser\"}",
+      "hash": "d50e0feaf43dcd512df5d30e7a6632f41690699856d50b206af961ac3faef183"
+    },
+    {
+      "name": "vp_terminal_command",
+      "inputs": {
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "runtime": "browser",
+        "action_type": "terminal_command"
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"deterministic\":true,\"scope\":\"terminal\"}",
+      "hash": "8d184cb30f55e429993c20dbf460db96d64d008e1b6418854e5a9040123b20b2"
+    },
+    {
+      "name": "vp_native_focus",
+      "inputs": {
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "runtime": "browser",
+        "action_type": "native_focus"
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"deterministic\":true,\"scope\":\"native\"}",
+      "hash": "a6f32734e531dfbfaf12ec7887cc9537ab9af80908cfe12d602c29a9a6caac54"
+    },
+    {
+      "name": "vp_vm_execute",
+      "inputs": {
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "runtime": "browser",
+        "action_type": "vm_execute"
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"deterministic\":true,\"scope\":\"vm\"}",
+      "hash": "d1604858ac1ce83f5ca7cf1e6a88f4affd7fa2a631fa7b933ae8cbb0c4cea5cf"
+    },
+    {
+      "name": "vp_connector_x",
+      "inputs": {
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "runtime": "browser",
+        "action_type": "connector_x"
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"deterministic\":true,\"scope\":\"connector\"}",
+      "hash": "8a4b2c3bf694bdcd9a6a538d38c6adecb5edbe5df6fa0a7f2c8dc1dd6c262104"
+    },
+    {
+      "name": "vp_other",
+      "inputs": {
+        "permissions": {
+          "scopes": {
+            "browser": true,
+            "native": true,
+            "filesystem": false,
+            "connector": true,
+            "terminal": true,
+            "vm": true
+          },
+          "active_scopes": [
+            "browser",
+            "connector",
+            "native",
+            "terminal",
+            "vm"
+          ],
+          "bounded": true
+        },
+        "runtime": "browser",
+        "action_type": "other"
+      },
+      "serialized": "{\"allowed\":true,\"bounded\":true,\"deterministic\":true,\"scope\":\"browser\"}",
+      "hash": "d50e0feaf43dcd512df5d30e7a6632f41690699856d50b206af961ac3faef183"
+    }
+  ],
+  "track_runtime_mutations": [
+    {
+      "name": "tm_dom",
+      "inputs": {
+        "prior": [],
+        "mutation": {
+          "kind": "dom",
+          "target": "x",
+          "tick": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[{\"kind\":\"dom\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"dom\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]}",
+      "hash": "90aa7a0a40d9d27a2b4403cd2b206c1b18c3834528440cc4594f3d3e9c5b748f"
+    },
+    {
+      "name": "tm_native",
+      "inputs": {
+        "prior": [],
+        "mutation": {
+          "kind": "native",
+          "target": "x",
+          "tick": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"native\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]}",
+      "hash": "3c3e8ec48ee3117cf7e5b701b78f154ce5bd6bccf57e9f75e0da71e21f175b75"
+    },
+    {
+      "name": "tm_workflow",
+      "inputs": {
+        "prior": [],
+        "mutation": {
+          "kind": "workflow",
+          "target": "x",
+          "tick": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[{\"kind\":\"workflow\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"workflow\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]}",
+      "hash": "43103aa34b3010eabc1a77eafe0e89cfacf8635365e42507fa168568552046a2"
+    },
+    {
+      "name": "tm_sync",
+      "inputs": {
+        "prior": [],
+        "mutation": {
+          "kind": "sync",
+          "target": "x",
+          "tick": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[{\"kind\":\"sync\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"sync\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]}",
+      "hash": "71f759c26cf9f5a98303663fb556dc2247b50308be25b8c1ad418566886a45ab"
+    },
+    {
+      "name": "tm_memory",
+      "inputs": {
+        "prior": [],
+        "mutation": {
+          "kind": "memory",
+          "target": "x",
+          "tick": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[{\"kind\":\"memory\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"memory\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]}",
+      "hash": "6f835c3d31bb149318740993f6d0176b7da76bbf616e9955979c4dd3f4f24529"
+    },
+    {
+      "name": "tm_other",
+      "inputs": {
+        "prior": [],
+        "mutation": {
+          "kind": "other",
+          "target": "x",
+          "tick": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"other\",\"ordered_index\":0,\"target\":\"x\",\"tick\":1}]}",
+      "hash": "a9facb92cc6bd9fe1aac92350fac7401498a4757bf35a5f1680cfbb16de3e509"
+    },
+    {
+      "name": "tm_none",
+      "inputs": {
+        "prior": [
+          {
+            "kind": "dom",
+            "tick": 0,
+            "ordered_index": 0
+          }
+        ],
+        "mutation": null
+      },
+      "serialized": "{\"bounded\":true,\"by_kind\":{\"dom\":[{\"kind\":\"dom\",\"ordered_index\":0,\"tick\":0}],\"memory\":[],\"native\":[],\"synchronization\":[],\"workflow\":[]},\"count\":1,\"deterministic_order\":true,\"mutations\":[{\"kind\":\"dom\",\"ordered_index\":0,\"tick\":0}]}",
+      "hash": "ba5a8c71beb61203f4336e8178803ff0af31fb91a1af02fb66c4dbf812e19b50"
+    }
+  ],
+  "enqueue_runtime_action": [
+    {
+      "name": "enq_empty",
+      "inputs": {
+        "queue": [],
+        "action": {
+          "id": "8d4d64dcedb27f812a3bbe5d685b9b21",
+          "runtime": "browser",
+          "action_type": "browser_click",
+          "payload": {
+            "selector": "#a"
+          },
+          "timestamp": 0,
+          "bounded": true
+        },
+        "priority": 0
+      },
+      "serialized": "{\"bounded\":true,\"queue\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"8d4d64dcedb27f812a3bbe5d685b9b21\",\"payload\":{\"selector\":\"#a\"},\"runtime\":\"browser\"},\"order\":0,\"priority\":0}],\"size\":1}",
+      "hash": "676dfc47656cc35c3580af010b7b60b072c03651ec2d49ce60881845a3aa465e"
+    },
+    {
+      "name": "enq_priority",
+      "inputs": {
+        "queue": [
+          {
+            "action": {
+              "id": "8d4d64dcedb27f812a3bbe5d685b9b21",
+              "runtime": "browser",
+              "action_type": "browser_click",
+              "payload": {
+                "selector": "#a"
+              },
+              "timestamp": 0,
+              "bounded": true
+            },
+            "priority": 0,
+            "order": 0
+          }
+        ],
+        "action": {
+          "id": "8d4d64dcedb27f812a3bbe5d685b9b21",
+          "runtime": "browser",
+          "action_type": "browser_click",
+          "payload": {
+            "selector": "#a"
+          },
+          "timestamp": 0,
+          "bounded": true
+        },
+        "priority": 5
+      },
+      "serialized": "{\"bounded\":true,\"queue\":[{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"8d4d64dcedb27f812a3bbe5d685b9b21\",\"payload\":{\"selector\":\"#a\"},\"runtime\":\"browser\"},\"order\":1,\"priority\":5},{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"8d4d64dcedb27f812a3bbe5d685b9b21\",\"payload\":{\"selector\":\"#a\"},\"runtime\":\"browser\"},\"order\":0,\"priority\":0}],\"size\":2}",
+      "hash": "ccda0c9739d292b88bfeafc3c0b1f53907b17d13c1fdad10c5d907e8e7517688"
+    }
+  ],
+  "dequeue_runtime_action": [
+    {
+      "name": "deq_empty",
+      "inputs": {
+        "queue": []
+      },
+      "serialized": "{\"action\":null,\"bounded\":true,\"queue\":[]}",
+      "hash": "51c0455fc971979af92bdc14fea57d608b09948498562c2f2bedcb2926fec645"
+    },
+    {
+      "name": "deq_one",
+      "inputs": {
+        "queue": [
+          {
+            "action": {
+              "id": "8d4d64dcedb27f812a3bbe5d685b9b21",
+              "runtime": "browser",
+              "action_type": "browser_click",
+              "payload": {
+                "selector": "#a"
+              },
+              "timestamp": 0,
+              "bounded": true
+            },
+            "priority": 0,
+            "order": 0
+          }
+        ]
+      },
+      "serialized": "{\"action\":{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"8d4d64dcedb27f812a3bbe5d685b9b21\",\"payload\":{\"selector\":\"#a\"},\"runtime\":\"browser\"},\"bounded\":true,\"queue\":[]}",
+      "hash": "461a4c38fe43810886a780a04dd76016c87aa22404813845868c786d9c2377f0"
+    }
+  ],
+  "schedule_runtime_execution": [
+    {
+      "name": "sch_empty",
+      "inputs": {
+        "actions": [],
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[],\"worker_id\":\"worker:0\"}",
+      "hash": "908dc5abe6ac1a96d182460f6c5eb3b7bc6ecae359771760eb41b8a755e27fe2"
+    },
+    {
+      "name": "sch_actions",
+      "inputs": {
+        "actions": [
+          {
+            "id": "z"
+          },
+          {
+            "id": "a"
+          }
+        ],
+        "tick": 3
+      },
+      "serialized": "{\"bounded\":true,\"cooldown_ticks\":0,\"deterministic\":true,\"scheduled\":[{\"action\":{\"id\":\"a\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":3,\"worker_id\":\"worker:0\"},{\"action\":{\"id\":\"z\"},\"paced\":true,\"priority\":0,\"retry\":0,\"tick\":3,\"worker_id\":\"worker:0\"}],\"worker_id\":\"worker:0\"}",
+      "hash": "18e72ce3dfe4072f697c54bd0497f345a9d0b06886c0ba4b321f09bcea97a58e"
+    }
+  ],
+  "begin_runtime_transaction": [
+    {
+      "name": "tx_begin",
+      "inputs": {
+        "tick": 0,
+        "checkpoint_id": ""
+      },
+      "serialized": "{\"actions\":[],\"bounded\":true,\"checkpoints\":[],\"committed\":false,\"mutations\":[],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}",
+      "hash": "94305ba2affc37ac35409efd6d6ab62eb5e163ff01ec63c44732e178416b9a05"
+    },
+    {
+      "name": "tx_begin_cp",
+      "inputs": {
+        "tick": 4,
+        "checkpoint_id": "cp1"
+      },
+      "serialized": "{\"actions\":[],\"bounded\":true,\"checkpoints\":[\"cp1\"],\"committed\":false,\"mutations\":[],\"rolled_back\":false,\"transaction_id\":\"a89417c447ed7dda52bd414c824588bb\",\"transitions\":[]}",
+      "hash": "6394b4799d9d90f22ebe1c218862792e5838e7ad31191a87b9980737c4f102e7"
+    }
+  ],
+  "commit_runtime_transaction": [
+    {
+      "name": "tx_commit",
+      "inputs": {
+        "transaction": {
+          "transaction_id": "a69424e58d2826e3bee2cfbdabde3dfd",
+          "actions": [],
+          "mutations": [],
+          "transitions": [],
+          "checkpoints": [],
+          "committed": false,
+          "rolled_back": false,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"actions\":[],\"bounded\":true,\"checkpoints\":[],\"committed\":true,\"mutations\":[],\"rolled_back\":false,\"transaction_id\":\"a69424e58d2826e3bee2cfbdabde3dfd\",\"transitions\":[]}",
+      "hash": "cb9ee588405b4a4b13b08b9f8f86ccae306f2147b325c083a903f9e33481624c"
+    }
+  ],
+  "build_runtime_workers": [
+    {
+      "name": "wk_empty",
+      "inputs": {
+        "nodes": []
+      },
+      "serialized": "{}",
+      "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "name": "wk_nodes",
+      "inputs": {
+        "nodes": [
+          {
+            "worker_id": "w2"
+          },
+          {
+            "node_id": "w1",
+            "runtime": "native",
+            "synced": false
+          }
+        ]
+      },
+      "serialized": "{\"0\":{\"bounded\":true,\"runtime\":\"native\",\"synced\":false,\"worker_id\":\"w1\"},\"1\":{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w2\"}}",
+      "hash": "d576bfc143ea03b1ca0c90245c2144a5af76eabdfdff37df9188cf508421ca9f"
+    }
+  ],
+  "federate_runtime_execution": [
+    {
+      "name": "fed_empty",
+      "inputs": {
+        "workers": [],
+        "actions": null
+      },
+      "serialized": "{\"bounded\":true,\"execution_routes\":[],\"federated\":true,\"workers\":[]}",
+      "hash": "66bbb13304c0ff1359c0f66a0ad93719589a15fed86e0ee1bcb0a19e301f8da0"
+    },
+    {
+      "name": "fed_actions",
+      "inputs": {
+        "workers": [
+          {
+            "worker_id": "w1"
+          },
+          {
+            "worker_id": "w2"
+          }
+        ],
+        "actions": [
+          {
+            "id": "a1"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"execution_routes\":[{\"action_id\":\"a1\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"a1\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"federated\":true,\"workers\":[{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w1\"},{\"bounded\":true,\"runtime\":\"browser\",\"synced\":true,\"worker_id\":\"w2\"}]}",
+      "hash": "9f8b61ab2164b00305fc5dc23cbee5d927bbf3e86538c8b9fff0c525cb62d3da"
+    }
+  ],
+  "coordinate_runtime_execution": [
+    {
+      "name": "coord_full",
+      "inputs": {
+        "queue": [
+          {
+            "priority": 1,
+            "order": 0
+          }
+        ],
+        "federation": {
+          "workers": [
+            {
+              "worker_id": "w1",
+              "runtime": "browser",
+              "synced": true,
+              "bounded": true
+            },
+            {
+              "worker_id": "w2",
+              "runtime": "browser",
+              "synced": true,
+              "bounded": true
+            }
+          ],
+          "execution_routes": [
+            {
+              "worker_id": "w1",
+              "runtime": "browser",
+              "action_id": "a1",
+              "route_order": 0
+            },
+            {
+              "worker_id": "w2",
+              "runtime": "browser",
+              "action_id": "a1",
+              "route_order": 1
+            }
+          ],
+          "federated": true,
+          "bounded": true
+        },
+        "workflow": {
+          "id": "wf"
+        },
+        "sync_state": {
+          "s": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":1,\"rollback_order\":[\"w2\",\"w1\"],\"routes\":[{\"action_id\":\"a1\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"a1\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"sync_bound\":true,\"workflow_bound\":true}",
+      "hash": "8b4537c445927854bf6cdd0f8e136dbf42c591e98a70d3e7802ffe42b21e21f4"
+    },
+    {
+      "name": "coord_empty",
+      "inputs": {
+        "queue": [],
+        "federation": {
+          "workers": [
+            {
+              "worker_id": "w1",
+              "runtime": "browser",
+              "synced": true,
+              "bounded": true
+            },
+            {
+              "worker_id": "w2",
+              "runtime": "browser",
+              "synced": true,
+              "bounded": true
+            }
+          ],
+          "execution_routes": [
+            {
+              "worker_id": "w1",
+              "runtime": "browser",
+              "action_id": "a1",
+              "route_order": 0
+            },
+            {
+              "worker_id": "w2",
+              "runtime": "browser",
+              "action_id": "a1",
+              "route_order": 1
+            }
+          ],
+          "federated": true,
+          "bounded": true
+        },
+        "workflow": null,
+        "sync_state": null
+      },
+      "serialized": "{\"bounded\":true,\"coordinated\":true,\"deterministic\":true,\"queue_size\":0,\"rollback_order\":[\"w2\",\"w1\"],\"routes\":[{\"action_id\":\"a1\",\"route_order\":0,\"runtime\":\"browser\",\"worker_id\":\"w1\"},{\"action_id\":\"a1\",\"route_order\":1,\"runtime\":\"browser\",\"worker_id\":\"w2\"}],\"sync_bound\":false,\"workflow_bound\":false}",
+      "hash": "bb6b3b44a2111b706de5064184407cc2e9bcdd4bf5c7da5911c75dd05412d0c2"
+    }
+  ],
+  "recover_runtime_execution": [
+    {
+      "name": "rec_empty",
+      "inputs": {
+        "failed_actions": null,
+        "checkpoint": null,
+        "interrupted_workflows": null
+      },
+      "serialized": "{\"bounded\":true,\"checkpoint_restored\":false,\"recovered_actions\":[],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":0}",
+      "hash": "dd41703fb8e6dea00bc3b66efdff84b689608b987afa1b214155a13021d51f57"
+    },
+    {
+      "name": "rec_failed",
+      "inputs": {
+        "failed_actions": [
+          {
+            "id": "z"
+          },
+          {
+            "id": "a"
+          }
+        ],
+        "checkpoint": {
+          "state": 1
+        },
+        "interrupted_workflows": [
+          {
+            "w": 1
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"checkpoint_restored\":true,\"recovered_actions\":[{\"id\":\"a\",\"recovered\":true,\"replay_index\":0},{\"id\":\"z\",\"recovered\":true,\"replay_index\":1}],\"replay_safe\":true,\"sync_divergence_resolved\":true,\"workflows_resumed\":1}",
+      "hash": "15414fdaaeb7e34dd7e8bf35ea33a82e87ff5a29fa45ec17359a82d80e3bf6b1"
+    }
+  ],
+  "build_runtime_action": [
+    {
+      "name": "ba_browser",
+      "inputs": {
+        "action_type": "browser_click",
+        "runtime": "browser",
+        "payload": {
+          "selector": "#x"
+        },
+        "tick": 2
+      },
+      "serialized": "{\"action_type\":\"browser_click\",\"bounded\":true,\"id\":\"54c4edd162d7623aba0724cad34c37fa\",\"payload\":{\"selector\":\"#x\"},\"runtime\":\"browser\"}",
+      "hash": "a30cf856979f5c6175dcdf1412ba84f1295dc93244cb1df0d5592885617f394e"
+    },
+    {
+      "name": "ba_empty",
+      "inputs": {
+        "action_type": "noop",
+        "runtime": "browser",
+        "payload": null,
+        "tick": 0
+      },
+      "serialized": "{\"action_type\":\"noop\",\"bounded\":true,\"id\":\"7176361bc272574ee321387c48636508\",\"payload\":{},\"runtime\":\"browser\"}",
+      "hash": "ab077d9e0b9c5aed78ed96502a23aa846fb1527fa4eb38e02e1a25d37b2f3136"
+    }
+  ],
+  "build_unified_runtime_graph": [
+    {
+      "name": "ug_empty",
+      "inputs": {
+        "runtime_irs": []
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[],\"ir\":\"unified_runtime_graph\",\"nodes\":[]}",
+      "hash": "cba67b198a42e7483034146e4a4a4805e11b3b2ba9f9a9680967b6fc42005cf8"
+    },
+    {
+      "name": "ug_merge",
+      "inputs": {
+        "runtime_irs": [
+          {
+            "ir": "a",
+            "nodes": [
+              {
+                "id": "n2"
+              },
+              {
+                "id": "n1"
+              }
+            ],
+            "edges": [
+              {
+                "from": "n1",
+                "to": "n2",
+                "relation": "r"
+              }
+            ]
+          },
+          {
+            "ir": "b",
+            "nodes": [
+              {
+                "id": "n1"
+              },
+              {
+                "id": ""
+              }
+            ],
+            "edges": [
+              {
+                "from": "n2",
+                "to": "n1"
+              }
+            ]
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"n1\",\"relation\":\"r\",\"runtime_type\":\"a\",\"to\":\"n2\"},{\"from\":\"n2\",\"runtime_type\":\"b\",\"to\":\"n1\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"n1\",\"runtime_type\":\"a\"},{\"id\":\"n2\",\"runtime_type\":\"a\"}]}",
+      "hash": "97a5a6f7e34ecd47b6ce9a50ee083771a95591d6b77957ba491b37b890232c4d"
+    }
+  ]
+}

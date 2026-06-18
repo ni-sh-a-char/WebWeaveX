@@ -56,6 +56,13 @@ JAVA_PROVEN = {
     "decrypt_session_state": "io.webweavex.crypto.KaalkaSession#decryptSessionState",
     "save_encrypted_session": "io.webweavex.session.EncryptedSessionStore#saveEncryptedSession",
     "load_encrypted_session": "io.webweavex.session.EncryptedSessionStore#loadEncryptedSession",
+    # Session 9 — execution family (dependency-clean, 26-module closure)
+    "build_runtime_sandbox": "io.webweavex.execution.ExecutionRuntime#buildRuntimeSandbox",
+    "execute_runtime_action": "io.webweavex.execution.ExecutionRuntime#executeRuntimeAction",
+    "replay_runtime_execution": "io.webweavex.execution.ExecutionRuntime#replayRuntimeExecution",
+    "simulate_runtime_execution": "io.webweavex.execution.ExecutionRuntime#simulateRuntimeExecution",
+    "run_execution_runtime": "io.webweavex.execution.ExecutionRuntime#runExecutionRuntime",
+    "run_execution_for_extraction": "io.webweavex.execution.ExecutionRuntime#runExecutionForExtraction",
 }
 
 PACKAGES = [
@@ -128,7 +135,7 @@ def main() -> None:
     lines.append("")
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
-                        "connectors", "documents", "interaction", "session")
+                        "connectors", "documents", "execution", "interaction", "session")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")

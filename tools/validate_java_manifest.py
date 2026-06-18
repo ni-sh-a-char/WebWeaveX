@@ -71,6 +71,13 @@ MAPPING = {
     "decrypt_session_state": ("io.webweavex.crypto.KaalkaSession", "golden_vectors_s8.json", "decrypt_session_state"),
     "save_encrypted_session": ("io.webweavex.session.EncryptedSessionStore", "golden_vectors_s8.json", "save_encrypted_session"),
     "load_encrypted_session": ("io.webweavex.session.EncryptedSessionStore", "golden_vectors_s8.json", "load_encrypted_session"),
+    # Session 9 — execution family (dependency-clean, 26-module closure)
+    "build_runtime_sandbox": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "build_runtime_sandbox"),
+    "execute_runtime_action": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "execute_runtime_action"),
+    "replay_runtime_execution": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "replay_runtime_execution"),
+    "simulate_runtime_execution": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "simulate_runtime_execution"),
+    "run_execution_runtime": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "run_execution_runtime"),
+    "run_execution_for_extraction": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "run_execution_for_extraction"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
