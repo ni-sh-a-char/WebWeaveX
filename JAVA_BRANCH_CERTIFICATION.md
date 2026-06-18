@@ -113,6 +113,26 @@ Detail: [`java/SESSION_7_CERTIFICATION.md`](java/SESSION_7_CERTIFICATION.md). St
 [`java/JAVA_REAL_STATUS.md`](java/JAVA_REAL_STATUS.md) · Governance:
 [`java/JAVA_GOVERNANCE_AUDIT.md`](java/JAVA_GOVERNANCE_AUDIT.md).
 
+## Behavioural parity (Session 8 — session crypto + json.loads substrate)
+
+Machine-derived selection (score 106.7) chose the session-crypto cluster because it forces the
+broadly-reusable `json.loads` substrate (`PyJsonParse`) — the highest blocker-reduction action.
+
+| Metric | Value |
+| --- | --- |
+| Java parity-proven APIs | **27 → 31** / 128 |
+| New APIs | `encrypt_session_state`, `decrypt_session_state`, `save_encrypted_session`, `load_encrypted_session` |
+| New substrate | `io.webweavex.determinism.PyJsonParse` (JDK-only `json.loads`, 100 % covered) — unlocks ~30 future `decrypt_*`/`load_*` APIs |
+| Session-8 golden vectors | 77 byte-exact (incl. 40 `json_loads` substrate vectors) |
+| Full suite | **365 tests, 0 failures, 0 errors** |
+| Instruction coverage | **95.68 %** (floor 94 %) |
+| `PROVEN_FLOOR` | 27 → 31 |
+
+Detail: [`java/SESSION_8_CERTIFICATION.md`](java/SESSION_8_CERTIFICATION.md) · Audit:
+[`java/JAVA_SESSION_CRYPTO_AUDIT.md`](java/JAVA_SESSION_CRYPTO_AUDIT.md) · Risk:
+[`java/JAVA_PARITY_RISK_REGISTER.md`](java/JAVA_PARITY_RISK_REGISTER.md) · Next:
+[`java/JAVA_SESSION_9_PLAN.md`](java/JAVA_SESSION_9_PLAN.md).
+
 ## Governance (machine-enforced)
 
 `tools/validate_java_manifest.py` → **PASS** (`21/128 proven; mapped/exist/tested/
@@ -138,7 +158,7 @@ Python ≡ Java is proven for all 21 APIs (byte-exact `stable_serialize` +
 certified (70k+ comparisons), therefore **Java ≡ JavaScript ≡ Dart** transitively.
 
 ```
-Python  =  Java  =  JavaScript  =  Dart        (27 / 128 APIs, byte-exact)
+Python  =  Java  =  JavaScript  =  Dart        (31 / 128 APIs, byte-exact)
 ```
 
 ## Reproduce

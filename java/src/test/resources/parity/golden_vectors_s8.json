@@ -1,0 +1,781 @@
+{
+  "source": "Python 2.1.0 canonical (session 8: session crypto + json.loads substrate)",
+  "encrypt_session_state": [
+    {
+      "name": "sess_empty",
+      "inputs": {
+        "session": {},
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fhk=\",\"payload_type\":\"session\"}",
+      "hash": "7058a133c719ebb83f48b68195274ab60d874ad0c3d11000fafb05f8fcab3486"
+    },
+    {
+      "name": "sess_flags",
+      "inputs": {
+        "session": {
+          "authenticated": true,
+          "version": 1
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr7+ExMIBhAXDQgHGw0NzOUgHyMU3NMoGCYoHyYm2/TsOQ==\",\"payload_type\":\"session\"}",
+      "hash": "6e227f1713cf0c1ccea90bd7df3dd41cce85ffeffe645991f9714b8f577c90cd"
+    },
+    {
+      "name": "sess_cookies",
+      "inputs": {
+        "session": {
+          "cookies": [
+            {
+              "name": "sid",
+              "value": "abc"
+            },
+            {
+              "name": "csrf",
+              "value": "z"
+            }
+          ],
+          "authenticated": false
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr7+ExMIBhAXDQgHGw0NzOUSDhoiFd3UFiMkISAdLNz1FzjgLSEuJ+X+5zkwLOv27UIuOkQ18wz1NTc5+VUFVf1KPktEAhsERldXTAkUC2BMWGJTESoTbBVxUnM=\",\"payload_type\":\"session\"}",
+      "hash": "d9280ecf11f1eac84b648c14d8688934db8fa83771bf5914f23bb4d2cb8a6c79"
+    },
+    {
+      "name": "sess_nested_headers",
+      "inputs": {
+        "session": {
+          "headers": {
+            "User-Agent": "wx",
+            "Accept": "*/*"
+          },
+          "auth_tokens": [
+            "t1",
+            "t2"
+          ],
+          "local_storage": {
+            "k": "v"
+          }
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr7+ExMIABYSDwoUGsrjBc0g3tDb0iXk1RHh2B8dGh4gLjDg+TvjAyYnKjY76gPs9fv38PvyJkU4RgIXPj1HTv0W/1VXAl4OBVBUSUhUSF1fW19PVlUTLG4WYBgxGm8ceHk=\",\"payload_type\":\"session\"}",
+      "hash": "c540b3f8782a8a959651803496aa9d8be4c88db177b9fbcf363fed9d5bd0132c"
+    },
+    {
+      "name": "sess_unicode",
+      "inputs": {
+        "session": {
+          "user": "用户",
+          "note": "café 😀",
+          "ключ": "значение"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr4LDRMFw9zFBwYMalHJmkpELdDb0iYlGCbX8NmfTWKhRHTg6+KRfJN/llSYT+sE7ZyEnoyggaNapIqmlKiRqpD+Wg==\",\"payload_type\":\"session\"}",
+      "hash": "5b533e1ec069c7637b30e5d22e01f98a66e20596f8e537413db559c389c7105a"
+    },
+    {
+      "name": "sess_numbers",
+      "inputs": {
+        "session": {
+          "count": 42,
+          "ratio": 0.5,
+          "scientific": 1000.0,
+          "neg": -7,
+          "zero": 0
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr4ADRQOFcTd2NfSyRYOEc3m2uXb0iMTJx0k2PHo5+/n3jAhKCUvNiwqLinpAvr6+/z7/vvySzdFQ/cQB1U=\",\"payload_type\":\"session\"}",
+      "hash": "e7c2c24d0759a0a3f405dc2bf4de3f1f53c38c8e7793b20bf990e7e48fe1aa23"
+    },
+    {
+      "name": "sess_bigint",
+      "inputs": {
+        "session": {
+          "id": 10000000000000000000000000,
+          "small": 1
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr4GAsHa0tLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6ern3jArICwt5P31Qg==\",\"payload_type\":\"session\"}",
+      "hash": "6abe9905309a56e1047c8265f1d253ae085d2d12c4a60a2883f29611bfb5adb4"
+    },
+    {
+      "name": "sess_nonfinite",
+      "inputs": {
+        "session": {
+          "inf": Infinity,
+          "ninf": -Infinity
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr4GDAXC2+sRCg4UEBwi1s0aFhwV0uvf/CIbHyUhLTM4\",\"payload_type\":\"session\"}",
+      "hash": "2149bfcdf0565cb9e2037cce7c564f2932e1040eca04f037eb99c6b83fa093b3"
+    },
+    {
+      "name": "sess_bool_null",
+      "inputs": {
+        "session": {
+          "x": null,
+          "y": true,
+          "z": false,
+          "list": [
+            null,
+            true,
+            false
+          ]
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr4JBxIUw9z+EhoSE9QdHCAR2RQQHCQXEODXLtnyJy8nKOngOOL7NjU5KvLpQusEMS05QTRN\",\"payload_type\":\"session\"}",
+      "hash": "6e7ad67aa509ca40fefcab5cc0a64b0354cbca0797446257b43a54b1f948d183"
+    },
+    {
+      "name": "sess_ordering",
+      "inputs": {
+        "session": {
+          "z": 1,
+          "a": 2,
+          "m": 3,
+          "B": 4
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr7fwNnUzcQExt/Y08oWzOXf2dAp0uvjMA==\",\"payload_type\":\"session\"}",
+      "hash": "2727f1c1bc85daf69a413dd95505bdb54bac00becfd66f1db9748bf5f820b3e5"
+    },
+    {
+      "name": "sess_deep_nested",
+      "inputs": {
+        "session": {
+          "a": {
+            "b": {
+              "c": [
+                1,
+                2,
+                {
+                  "d": "deep"
+                }
+              ]
+            }
+          }
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr7+wNkbwwTF3iDICsrjBdzY39oq0hXU7dYZGxwo2zcYOTo7\",\"payload_type\":\"session\"}",
+      "hash": "c5fe00145c41dbf736d64187685a68e7ce25a8fdf59841af97f6081c54f60e50"
+    },
+    {
+      "name": "sess_escapes",
+      "inputs": {
+        "session": {
+          "path": "a\tb\nc\"d\\e",
+          "ctrl": "x\u0001y"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"webweavex-formula+kaalka@5.0.0\",\"bounded\":true,\"deterministic\":true,\"encrypted\":\"Fr4AEhEMw9zFHAEb19jZ2yTO2dAfESUa1e7XFxMsGxYpHxngIxwdJ+VB\",\"payload_type\":\"session\"}",
+      "hash": "82e7bdf84de2a2eb42f8dd0a962946f8d26c3bcb86d935f0f54b00a8be63731f"
+    }
+  ],
+  "decrypt_session_state": [
+    {
+      "name": "sess_empty",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fhk=",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{}}",
+      "hash": "56da42b5b41c1385dabf878f7c164f2b9b26f4c967ac431271251d5a0ec21658"
+    },
+    {
+      "name": "sess_flags",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr7+ExMIBhAXDQgHGw0NzOUgHyMU3NMoGCYoHyYm2/TsOQ==",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"authenticated\":true,\"version\":1}}",
+      "hash": "006abdf16e91d91b70b055ff7ccda497f9f5b2e6c381e64061704b77896ce94c"
+    },
+    {
+      "name": "sess_cookies",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr7+ExMIBhAXDQgHGw0NzOUSDhoiFd3UFiMkISAdLNz1FzjgLSEuJ+X+5zkwLOv27UIuOkQ18wz1NTc5+VUFVf1KPktEAhsERldXTAkUC2BMWGJTESoTbBVxUnM=",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"authenticated\":false,\"cookies\":[{\"name\":\"sid\",\"value\":\"abc\"},{\"name\":\"csrf\",\"value\":\"z\"}]}}",
+      "hash": "1e9e56af121cc9c9177013f47710235a9823f192a083a7da01d9bafc611bc4a6"
+    },
+    {
+      "name": "sess_nested_headers",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr7+ExMIABYSDwoUGsrjBc0g3tDb0iXk1RHh2B8dGh4gLjDg+TvjAyYnKjY76gPs9fv38PvyJkU4RgIXPj1HTv0W/1VXAl4OBVBUSUhUSF1fW19PVlUTLG4WYBgxGm8ceHk=",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"auth_tokens\":[\"t1\",\"t2\"],\"headers\":{\"Accept\":\"*/*\",\"User-Agent\":\"wx\"},\"local_storage\":{\"k\":\"v\"}}}",
+      "hash": "caa1be5c8abf9a0faa239808aff4688e85e4beae6e425f617a04e90c40414f5e"
+    },
+    {
+      "name": "sess_unicode",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr4LDRMFw9zFBwYMalHJmkpELdDb0iYlGCbX8NmfTWKhRHTg6+KRfJN/llSYT+sE7ZyEnoyggaNapIqmlKiRqpD+Wg==",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"note\":\"café 😀\",\"user\":\"用户\",\"ключ\":\"значение\"}}",
+      "hash": "c9bfaf137da63cda79043355838ac8253486440ac4cbb9b145e56badaa3db069"
+    },
+    {
+      "name": "sess_numbers",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr4ADRQOFcTd2NfSyRYOEc3m2uXb0iMTJx0k2PHo5+/n3jAhKCUvNiwqLinpAvr6+/z7/vvySzdFQ/cQB1U=",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"count\":42,\"neg\":-7,\"ratio\":0.5,\"scientific\":1000,\"zero\":0}}",
+      "hash": "f9db8731678c351a36993e03dbe16c427932f0438d7eb849993c05d83efd67e0"
+    },
+    {
+      "name": "sess_bigint",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr4GAsHa0tLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6ern3jArICwt5P31Qg==",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"id\":10000000000000000000000000,\"small\":1}}",
+      "hash": "0a348ee6d36fe650528a514b254b4a85eece8f9d9b9d3f581102370d2c333889"
+    },
+    {
+      "name": "sess_nonfinite",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr4GDAXC2+sRCg4UEBwi1s0aFhwV0uvf/CIbHyUhLTM4",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"inf\":null,\"ninf\":null}}",
+      "hash": "bc64fe98124667a42fe01889b9574463ad87aa8280cfa1d81194ce9e6e232040"
+    },
+    {
+      "name": "sess_bool_null",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr4JBxIUw9z+EhoSE9QdHCAR2RQQHCQXEODXLtnyJy8nKOngOOL7NjU5KvLpQusEMS05QTRN",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"list\":[null,true,false],\"x\":null,\"y\":true,\"z\":false}}",
+      "hash": "6edcb42a09343d64291b7c9e6f049717c551724855a2eff464bf0d4e7e3e08f8"
+    },
+    {
+      "name": "sess_ordering",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr7fwNnUzcQExt/Y08oWzOXf2dAp0uvjMA==",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"B\":4,\"a\":2,\"m\":3,\"z\":1}}",
+      "hash": "47b0bc36080c63edf54e936e1ac48f6068e14f4e189a642d5f7a68dcb020de55"
+    },
+    {
+      "name": "sess_deep_nested",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr7+wNkbwwTF3iDICsrjBdzY39oq0hXU7dYZGxwo2zcYOTo7",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"a\":{\"b\":{\"c\":[1,2,{\"d\":\"deep\"}]}}}}",
+      "hash": "0f8e553b1f7b0806c4d96133fabeec8238d7292bfdcbd9b41777ef662b4d7d5a"
+    },
+    {
+      "name": "sess_escapes",
+      "inputs": {
+        "payload": {
+          "encrypted": "Fr4AEhEMw9zFHAEb19jZ2yTO2dAfESUa1e7XFxMsGxYpHxngIxwdJ+VB",
+          "algorithm": "webweavex-formula+kaalka@5.0.0",
+          "deterministic": true,
+          "bounded": true,
+          "payload_type": "session"
+        },
+        "key": "session-key-2024"
+      },
+      "serialized": "{\"algorithm\":\"kaalka\",\"bounded\":true,\"deterministic\":true,\"session\":{\"ctrl\":\"x\\u0001y\",\"path\":\"a\\tb\\nc\\\"d\\\\e\"}}",
+      "hash": "30e3d57e322348dfef96e4d0e204336cb0195284fc97cd58852dc837c0e2f9b7"
+    }
+  ],
+  "save_encrypted_session": [
+    {
+      "name": "sess_empty",
+      "inputs": {
+        "filename": "sess_empty.json",
+        "session": {},
+        "key": "session-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fhk=\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "sess_flags",
+      "inputs": {
+        "filename": "sess_flags.json",
+        "session": {
+          "authenticated": true,
+          "version": 1
+        },
+        "key": "session-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr7+ExMIBhAXDQgHGw0NzOUgHyMU3NMoGCYoHyYm2/TsOQ==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "sess_cookies",
+      "inputs": {
+        "filename": "sess_cookies.json",
+        "session": {
+          "cookies": [
+            {
+              "name": "sid",
+              "value": "abc"
+            },
+            {
+              "name": "csrf",
+              "value": "z"
+            }
+          ],
+          "authenticated": false
+        },
+        "key": "session-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr7+ExMIBhAXDQgHGw0NzOUSDhoiFd3UFiMkISAdLNz1FzjgLSEuJ+X+5zkwLOv27UIuOkQ18wz1NTc5+VUFVf1KPktEAhsERldXTAkUC2BMWGJTESoTbBVxUnM=\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "sess_nested_headers",
+      "inputs": {
+        "filename": "sess_nested_headers.json",
+        "session": {
+          "headers": {
+            "User-Agent": "wx",
+            "Accept": "*/*"
+          },
+          "auth_tokens": [
+            "t1",
+            "t2"
+          ],
+          "local_storage": {
+            "k": "v"
+          }
+        },
+        "key": "session-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr7+ExMIABYSDwoUGsrjBc0g3tDb0iXk1RHh2B8dGh4gLjDg+TvjAyYnKjY76gPs9fv38PvyJkU4RgIXPj1HTv0W/1VXAl4OBVBUSUhUSF1fW19PVlUTLG4WYBgxGm8ceHk=\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "sess_unicode",
+      "inputs": {
+        "filename": "sess_unicode.json",
+        "session": {
+          "user": "用户",
+          "note": "café 😀",
+          "ключ": "значение"
+        },
+        "key": "session-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr4LDRMFw9zFBwYMalHJmkpELdDb0iYlGCbX8NmfTWKhRHTg6+KRfJN/llSYT+sE7ZyEnoyggaNapIqmlKiRqpD+Wg==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "sess_numbers",
+      "inputs": {
+        "filename": "sess_numbers.json",
+        "session": {
+          "count": 42,
+          "ratio": 0.5,
+          "scientific": 1000.0,
+          "neg": -7,
+          "zero": 0
+        },
+        "key": "session-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr4ADRQOFcTd2NfSyRYOEc3m2uXb0iMTJx0k2PHo5+/n3jAhKCUvNiwqLinpAvr6+/z7/vvySzdFQ/cQB1U=\", \"payload_type\": \"session\"}"
+    }
+  ],
+  "load_encrypted_session": [
+    {
+      "name": "load_sess_empty",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fhk=\", \"payload_type\": \"session\"}",
+      "key": "session-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"session\":{}}",
+      "hash": "3410ece81d4ef14ec165ae592beddd5840a86e0f257dd3dce3c1227ec3630dd8"
+    },
+    {
+      "name": "load_sess_flags",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr7+ExMIBhAXDQgHGw0NzOUgHyMU3NMoGCYoHyYm2/TsOQ==\", \"payload_type\": \"session\"}",
+      "key": "session-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"session\":{\"authenticated\":true,\"version\":1}}",
+      "hash": "79a425e7760f95ca27a5d62b7a797a2c0e6ee077665d2ae613606efe7d77c35e"
+    },
+    {
+      "name": "load_sess_cookies",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr7+ExMIBhAXDQgHGw0NzOUSDhoiFd3UFiMkISAdLNz1FzjgLSEuJ+X+5zkwLOv27UIuOkQ18wz1NTc5+VUFVf1KPktEAhsERldXTAkUC2BMWGJTESoTbBVxUnM=\", \"payload_type\": \"session\"}",
+      "key": "session-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"session\":{\"authenticated\":false,\"cookies\":[{\"name\":\"sid\",\"value\":\"abc\"},{\"name\":\"csrf\",\"value\":\"z\"}]}}",
+      "hash": "5f7809ef81e2b54496bfaed1937257a4cfc8a13e28a0554af94211ed8963165e"
+    },
+    {
+      "name": "load_sess_nested_headers",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr7+ExMIABYSDwoUGsrjBc0g3tDb0iXk1RHh2B8dGh4gLjDg+TvjAyYnKjY76gPs9fv38PvyJkU4RgIXPj1HTv0W/1VXAl4OBVBUSUhUSF1fW19PVlUTLG4WYBgxGm8ceHk=\", \"payload_type\": \"session\"}",
+      "key": "session-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"session\":{\"auth_tokens\":[\"t1\",\"t2\"],\"headers\":{\"Accept\":\"*/*\",\"User-Agent\":\"wx\"},\"local_storage\":{\"k\":\"v\"}}}",
+      "hash": "b92db076eafd39887c42da6c68b6b4411c1b7b97e19bce603648404fd3ee9bb4"
+    },
+    {
+      "name": "load_sess_unicode",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr4LDRMFw9zFBwYMalHJmkpELdDb0iYlGCbX8NmfTWKhRHTg6+KRfJN/llSYT+sE7ZyEnoyggaNapIqmlKiRqpD+Wg==\", \"payload_type\": \"session\"}",
+      "key": "session-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"session\":{\"note\":\"café 😀\",\"user\":\"用户\",\"ключ\":\"значение\"}}",
+      "hash": "b5c23db4a2b4c159f402378d28c4d5e510c6675a199ba80b63fc9704c4bef8fd"
+    },
+    {
+      "name": "load_sess_numbers",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"Fr4ADRQOFcTd2NfSyRYOEc3m2uXb0iMTJx0k2PHo5+/n3jAhKCUvNiwqLinpAvr6+/z7/vvySzdFQ/cQB1U=\", \"payload_type\": \"session\"}",
+      "key": "session-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"session\":{\"count\":42,\"neg\":-7,\"ratio\":0.5,\"scientific\":1000,\"zero\":0}}",
+      "hash": "931d59f095351540b77792ed824ed3b67f8806d40ba55b3af23fabf2397df9fe"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "session-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"session\":{\"auth_tokens\":[],\"authenticated\":false,\"bounded\":true,\"cookies\":[],\"headers\":{},\"local_storage\":{},\"session_storage\":{}}}",
+      "hash": "997225500d39458c59d4a530874db74b05a203c983d29538cc939263025fc051"
+    }
+  ],
+  "json_loads": [
+    {
+      "name": "valid_0",
+      "text": "null",
+      "error": false,
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "valid_1",
+      "text": "true",
+      "error": false,
+      "serialized": "true",
+      "hash": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    {
+      "name": "valid_2",
+      "text": "false",
+      "error": false,
+      "serialized": "false",
+      "hash": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    {
+      "name": "valid_3",
+      "text": "0",
+      "error": false,
+      "serialized": "0",
+      "hash": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "name": "valid_4",
+      "text": "123",
+      "error": false,
+      "serialized": "123",
+      "hash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+    },
+    {
+      "name": "valid_5",
+      "text": "-5",
+      "error": false,
+      "serialized": "-5",
+      "hash": "37aa1ccf80e481832b2db282d4d4f895ee1e31219b7d0f6aee8dc8968828341b"
+    },
+    {
+      "name": "valid_6",
+      "text": "3.14",
+      "error": false,
+      "serialized": "3.14",
+      "hash": "2efff1261c25d94dd6698ea1047f5c0a7107ca98b0a6c2427ee6614143500215"
+    },
+    {
+      "name": "valid_7",
+      "text": "-2.5",
+      "error": false,
+      "serialized": "-2.5",
+      "hash": "20fb508cd069b7fbaf72c798394a7995c9a3ded09ccf19a294fdb9415fd03317"
+    },
+    {
+      "name": "valid_8",
+      "text": "1e10",
+      "error": false,
+      "serialized": "10000000000",
+      "hash": "e476a1537b03d06db3ffffdbe4ac07a137333c5f6ef58d7375a4238751d7c3d8"
+    },
+    {
+      "name": "valid_9",
+      "text": "1E-3",
+      "error": false,
+      "serialized": "0.001",
+      "hash": "9fca51987c96ba92d35f303353b7065f31114501c9f2afa37463ff1fdffe8f1f"
+    },
+    {
+      "name": "valid_10",
+      "text": "1.0",
+      "error": false,
+      "serialized": "1",
+      "hash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "name": "valid_11",
+      "text": "\"hi\"",
+      "error": false,
+      "serialized": "hi",
+      "hash": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4"
+    },
+    {
+      "name": "valid_12",
+      "text": "\"\\u00e9\"",
+      "error": false,
+      "serialized": "é",
+      "hash": "4a99557e4033c3539de2eb65472017cad5f9557f7a0625a09f1c3f6e2ba69c4c"
+    },
+    {
+      "name": "valid_13",
+      "text": "\"\\ud83d\\ude00\"",
+      "error": false,
+      "serialized": "😀",
+      "hash": "f0443a342c5ef54783a111b51ba56c938e474c32324d90c3a60c9c8e3a37e2d9"
+    },
+    {
+      "name": "valid_14",
+      "text": "\"a\\tb\\nc\"",
+      "error": false,
+      "serialized": "a\tb\nc",
+      "hash": "6c956051557dd1d3c6b1e4f602f10b7030dcd5862f5727e7e67bfce3670b3852"
+    },
+    {
+      "name": "valid_15",
+      "text": "\"\"",
+      "error": false,
+      "serialized": "",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "valid_16",
+      "text": "[]",
+      "error": false,
+      "serialized": "{}",
+      "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "name": "valid_17",
+      "text": "{}",
+      "error": false,
+      "serialized": "{}",
+      "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "name": "valid_18",
+      "text": "[1, 2, 3]",
+      "error": false,
+      "serialized": "{\"0\":1,\"1\":2,\"2\":3}",
+      "hash": "04f9a0d0a5e0a289d3b6d98e2e3361989146c8bbab3ec6bdc0226c219f971d17"
+    },
+    {
+      "name": "valid_19",
+      "text": "[1,2.5,true,null,\"x\"]",
+      "error": false,
+      "serialized": "{\"0\":1,\"1\":2.5,\"2\":true,\"3\":null,\"4\":\"x\"}",
+      "hash": "4c13cd4cfe31ca4612bdafb2faf8febf090f127b1cb3ed518708b87ba21f5e87"
+    },
+    {
+      "name": "valid_20",
+      "text": "{\"a\":1,\"b\":[true,null],\"c\":{\"d\":\"e\"}}",
+      "error": false,
+      "serialized": "{\"a\":1,\"b\":[true,null],\"c\":{\"d\":\"e\"}}",
+      "hash": "c7f5ca67a0fda11469ad7f504d5cbbff48fbb88fa6e8fd2dd34b585933e6f170"
+    },
+    {
+      "name": "valid_21",
+      "text": "  42  ",
+      "error": false,
+      "serialized": "42",
+      "hash": "73475cb40a568e8da8a045ced110137e159f890ac4da883b6b17dc651b3a8049"
+    },
+    {
+      "name": "valid_22",
+      "text": "123456789012345678901234567890",
+      "error": false,
+      "serialized": "123456789012345678901234567890",
+      "hash": "f54e5c8f810648e7638d25eb7ed6d24b7e5999d588e88826f2aa837d2ee52ecd"
+    },
+    {
+      "name": "valid_23",
+      "text": "NaN",
+      "error": false,
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "valid_24",
+      "text": "Infinity",
+      "error": false,
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "valid_25",
+      "text": "-Infinity",
+      "error": false,
+      "serialized": "null",
+      "hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "name": "valid_26",
+      "text": "{\"\\u00fc\":\"\\u00f1\"}",
+      "error": false,
+      "serialized": "{\"ü\":\"ñ\"}",
+      "hash": "bd80616e0adf7a195e3f574ffe41900f0386b88eb63d05150f0f71e737da834a"
+    },
+    {
+      "name": "valid_27",
+      "text": "[[[[1]]]]",
+      "error": false,
+      "serialized": "{\"0\":[[[1]]]}",
+      "hash": "db41c891ec098d4013800399e7b12827599120be99e20b0070863a19e27b9861"
+    },
+    {
+      "name": "invalid_0",
+      "text": "",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_1",
+      "text": "{",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_2",
+      "text": "[1,2",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_3",
+      "text": "{\"a\"}",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_4",
+      "text": "{\"a\":}",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_5",
+      "text": "tru",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_6",
+      "text": "123abc",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_7",
+      "text": "[,]",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_8",
+      "text": "\"unterminated",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_9",
+      "text": "{\"a\":1,}",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_10",
+      "text": "nul",
+      "error": true,
+      "raises_in_python": true
+    },
+    {
+      "name": "invalid_11",
+      "text": "[1 2]",
+      "error": true,
+      "raises_in_python": true
+    }
+  ]
+}

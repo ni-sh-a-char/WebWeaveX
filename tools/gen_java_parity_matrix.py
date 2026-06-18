@@ -51,6 +51,11 @@ JAVA_PROVEN = {
     "extract_container_runtime": "io.webweavex.connectors.ContainerConnector#extractContainerRuntime",
     "extract_ide_runtime": "io.webweavex.connectors.IdeConnector#extractIdeRuntime",
     "extract_kubernetes_runtime": "io.webweavex.connectors.KubernetesConnector#extractKubernetesRuntime",
+    # Session 8 — session-crypto cluster + json.loads substrate (PyJsonParse)
+    "encrypt_session_state": "io.webweavex.crypto.KaalkaSession#encryptSessionState",
+    "decrypt_session_state": "io.webweavex.crypto.KaalkaSession#decryptSessionState",
+    "save_encrypted_session": "io.webweavex.session.EncryptedSessionStore#saveEncryptedSession",
+    "load_encrypted_session": "io.webweavex.session.EncryptedSessionStore#loadEncryptedSession",
 }
 
 PACKAGES = [
@@ -59,7 +64,7 @@ PACKAGES = [
     "extraction", "graph", "identity", "ingestion", "interaction", "ir",
     "kernel", "layout", "memory", "multimodal", "ocr", "orchestration",
     "parity", "persistence", "query", "reasoning", "reconstruction", "replay",
-    "repository", "runtime", "semantic", "streaming", "synchronization",
+    "repository", "runtime", "semantic", "session", "streaming", "synchronization",
     "tables", "vision", "workflow",
 ]
 
@@ -123,7 +128,7 @@ def main() -> None:
     lines.append("")
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
-                        "connectors", "documents", "interaction")
+                        "connectors", "documents", "interaction", "session")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")

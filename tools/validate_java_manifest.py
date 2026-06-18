@@ -66,6 +66,11 @@ MAPPING = {
     "extract_container_runtime": ("io.webweavex.connectors.ContainerConnector", "golden_vectors_s7.json", "extract_container_runtime"),
     "extract_ide_runtime": ("io.webweavex.connectors.IdeConnector", "golden_vectors_s7.json", "extract_ide_runtime"),
     "extract_kubernetes_runtime": ("io.webweavex.connectors.KubernetesConnector", "golden_vectors_s7.json", "extract_kubernetes_runtime"),
+    # Session 8 — session-crypto cluster + json.loads substrate
+    "encrypt_session_state": ("io.webweavex.crypto.KaalkaSession", "golden_vectors_s8.json", "encrypt_session_state"),
+    "decrypt_session_state": ("io.webweavex.crypto.KaalkaSession", "golden_vectors_s8.json", "decrypt_session_state"),
+    "save_encrypted_session": ("io.webweavex.session.EncryptedSessionStore", "golden_vectors_s8.json", "save_encrypted_session"),
+    "load_encrypted_session": ("io.webweavex.session.EncryptedSessionStore", "golden_vectors_s8.json", "load_encrypted_session"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
