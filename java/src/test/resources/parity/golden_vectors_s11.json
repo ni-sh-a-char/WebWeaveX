@@ -1,0 +1,1122 @@
+{
+  "source": "Python 2.1.0 canonical (session 11: workflows family)",
+  "build_runtime_objective": [
+    {
+      "name": "obj_dashboard",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "priority": 0
+      },
+      "serialized": "{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]}",
+      "hash": "e96703c80167d2f1b798d84a3ffc5ca1e77eb39fb46290fc65f0569a2667048a"
+    },
+    {
+      "name": "obj_unknown",
+      "inputs": {
+        "objective": "custom_thing",
+        "priority": 5
+      },
+      "serialized": "{\"bounded\":true,\"objective\":\"custom_thing\",\"priority\":5,\"steps\":[\"observe\",\"extract\",\"checkpoint\"]}",
+      "hash": "38e66a137890db93130e8bb618e0bef76fbf66832e7811c9a54aa971469317ce"
+    },
+    {
+      "name": "obj_repo",
+      "inputs": {
+        "objective": "extract_repository",
+        "priority": 2
+      },
+      "serialized": "{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":2,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]}",
+      "hash": "4c738e57c5d73801bda4a0a540f66d8199acaba7b3572f2623cb7f5d89ef8f68"
+    },
+    {
+      "name": "obj_terminal",
+      "inputs": {
+        "objective": "capture_terminal",
+        "priority": 0
+      },
+      "serialized": "{\"bounded\":true,\"objective\":\"capture_terminal\",\"priority\":0,\"steps\":[\"open_terminal\",\"capture_output\",\"checkpoint\"]}",
+      "hash": "ac2e4d5026091d8ae594bce5bf597bf7803f49469c43a4045168e047406a07d5"
+    }
+  ],
+  "build_workflow_plan": [
+    {
+      "name": "plan_default",
+      "inputs": {
+        "objective": "extract_dashboard"
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]}",
+      "hash": "7c210cd2cd1420b9d34f12f3ae293d38424c2fd68a9be190fe3884772a4a55f1"
+    },
+    {
+      "name": "plan_repo",
+      "inputs": {
+        "objective": "extract_repository"
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_repository\",\"steps\":[{\"action\":\"scan_repository\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"repository\"},{\"action\":\"extract_structure\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"compile_graph\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]}",
+      "hash": "bdfc9cddf6198636f5789a3a6e60e46a215bf884daee376eeb2b4d17fcc8f689"
+    },
+    {
+      "name": "plan_domain",
+      "inputs": {
+        "objective": "monitor_infrastructure",
+        "semantic_runtime": {
+          "domain": {
+            "domain": "infrastructure"
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"infrastructure\",\"objective\":\"monitor_infrastructure\",\"steps\":[{\"action\":\"observe_infra\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"native\"},{\"action\":\"capture_status\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"native\"},{\"action\":\"checkpoint\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"native\"}]}",
+      "hash": "6e3219cd4be4292992a9a007bf8a031d906dc0b22471809ff76d6bd57e7cea83"
+    },
+    {
+      "name": "plan_application",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "application_runtime": {
+          "workflow": {
+            "edges": [
+              {
+                "relation": "click"
+              },
+              {
+                "relation": "fill"
+              }
+            ]
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"},{\"action\":\"click\",\"depends_on\":\"step:2\",\"id\":\"app:3\",\"runtime\":\"application\"},{\"action\":\"fill\",\"depends_on\":\"app:3\",\"id\":\"app:4\",\"runtime\":\"application\"}]}",
+      "hash": "7af5baec1c077a79fb1667103100ed51bac9759551e783f617ffa73fe40c394b"
+    },
+    {
+      "name": "plan_causality",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "causality": {
+          "causality": {
+            "propagation": {
+              "handoffs": [
+                {
+                  "to": "native"
+                },
+                {
+                  "to": "terminal"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"},{\"action\":\"cross_runtime_handoff\",\"depends_on\":\"step:2\",\"id\":\"causal:3\",\"runtime\":\"native\"},{\"action\":\"cross_runtime_handoff\",\"depends_on\":\"causal:3\",\"id\":\"causal:4\",\"runtime\":\"terminal\"}]}",
+      "hash": "b1109517b2cf97f408d9548cf7ff883e6299993f4ded08f2bfe1c0f083ed0af7"
+    }
+  ],
+  "replay_workflow_runtime": [
+    {
+      "name": "replay_empty",
+      "inputs": {
+        "memory": {}
+      },
+      "serialized": "{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{},\"objectives\":{},\"replayed\":true,\"runtime_transitions\":[],\"semantic_workflows\":{}}",
+      "hash": "84ed7c18438295493ea565beb1c82dba92bddf3dd71f7dc02f08c31657d8bc7d"
+    },
+    {
+      "name": "replay_full",
+      "inputs": {
+        "memory": {
+          "objectives": {
+            "objective": "x"
+          },
+          "execution_graphs": {
+            "e": 1
+          },
+          "runtime_transitions": [
+            {
+              "from": "a",
+              "to": "b"
+            }
+          ],
+          "workflow_states": {
+            "s": 1
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"e\":1},\"objectives\":{\"objective\":\"x\"},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"a\",\"to\":\"b\"}],\"semantic_workflows\":{\"s\":1}}",
+      "hash": "9e8ec9a80ce0657b384c165c00bc4a33f064e5fc2e836fad469c20589ff74160"
+    }
+  ],
+  "run_autonomous_workflow": [
+    {
+      "name": "run_default",
+      "inputs": {},
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_dashboard\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "676011833aa4a371a8c9c65b745d93396510a82bef836cb213f4e087dea4c306"
+    },
+    {
+      "name": "run_priority",
+      "inputs": {
+        "objective": "extract_invoices",
+        "priority": 3,
+        "tick": 2
+      },
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_invoices\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"open_invoices\",\"step\":\"step:0\"},{\"action\":\"paginate\",\"step\":\"step:1\"},{\"action\":\"extract_rows\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_invoices\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":2},{\"action\":\"paginate\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":3},{\"action\":\"extract_rows\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":4}],\"objective\":\"extract_invoices\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_invoices\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":2},{\"action\":\"paginate\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":3},{\"action\":\"extract_rows\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":4}],\"objective\":\"extract_invoices\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_invoices\",\"priority\":3,\"steps\":[\"open_invoices\",\"paginate\",\"extract_rows\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_invoices\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_invoices\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_invoices\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"open_invoices\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":2},{\"action\":\"paginate\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":3},{\"action\":\"extract_rows\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":4}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_invoices\",\"priority\":3,\"steps\":[\"open_invoices\",\"paginate\",\"extract_rows\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_invoices\",\"priority\":3,\"steps\":[{\"action\":\"open_invoices\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"paginate\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"extract_rows\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_invoices\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_invoices\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":2},{\"action\":\"paginate\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":3},{\"action\":\"extract_rows\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":4}],\"objective\":\"extract_invoices\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_invoices\",\"priority\":3,\"steps\":[\"open_invoices\",\"paginate\",\"extract_rows\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_invoices\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_invoices\",\"pacing\":0,\"priority\":3,\"retries\":0,\"tick\":2}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_invoices\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_invoices\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_invoices\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"open_invoices\",\"step\":\"step:0\"},{\"action\":\"paginate\",\"step\":\"step:1\"},{\"action\":\"extract_rows\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_invoices\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":2},{\"action\":\"paginate\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":3},{\"action\":\"extract_rows\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":4}],\"objective\":\"extract_invoices\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_invoices\",\"priority\":3,\"steps\":[\"open_invoices\",\"paginate\",\"extract_rows\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_invoices\",\"priority\":3,\"steps\":[{\"action\":\"open_invoices\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"paginate\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"extract_rows\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_invoices\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_invoices\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_invoices\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_invoices\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_invoices\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "0f2ca6370131bc676d4baa977882d4267ab0cbd7153b501da32f71fe1f88621b"
+    },
+    {
+      "name": "run_application",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "application_result": {
+          "workflow": {
+            "edges": [
+              {
+                "relation": "click"
+              }
+            ]
+          }
+        }
+      },
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"},{\"depends_on\":\"step:2\",\"step\":\"app:3\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"},{\"action\":\"click\",\"step\":\"app:3\"}],\"runtime_dependencies\":[{\"from\":\"browser\",\"to\":\"application\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"},{\"requires\":\"step:2\",\"step\":\"app:3\"}]},\"execution\":{\"bounded\":true,\"completed_count\":4,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2},{\"action\":\"click\",\"completed\":true,\"replay_index\":3,\"runtime\":\"application\",\"step_id\":\"app:3\",\"tick\":3}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":4,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2},{\"action\":\"click\",\"completed\":true,\"replay_index\":3,\"runtime\":\"application\",\"step_id\":\"app:3\",\"tick\":3}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"},{\"from\":\"step:2\",\"relation\":\"transitions\",\"to\":\"app:3\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"app:3\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"},{\"from\":\"step:2\",\"relation\":\"depends_on\",\"to\":\"app:3\"},{\"from\":\"step:2\",\"relation\":\"transitions\",\"to\":\"app:3\"}],\"nodes\":[{\"id\":\"app:3\",\"runtime\":\"application\",\"type\":\"step\"},{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\",\"app:3\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":4},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":4,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2},{\"action\":\"click\",\"navigator\":\"application_navigation\",\"runtime\":\"application\",\"step_id\":\"app:3\",\"tick\":3}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"},{\"action\":\"click\",\"depends_on\":\"step:2\",\"id\":\"app:3\",\"runtime\":\"application\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\",\"app:3\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":4},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":4,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2},{\"action\":\"click\",\"completed\":true,\"replay_index\":3,\"runtime\":\"application\",\"step_id\":\"app:3\",\"tick\":3}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"},{\"from\":\"step:2\",\"relation\":\"transitions\",\"to\":\"app:3\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\",\"app:3\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":4},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_dashboard\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\",\"app:3\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":4},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"},{\"from\":\"step:2\",\"relation\":\"transitions\",\"to\":\"app:3\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"app:3\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"},{\"from\":\"step:2\",\"relation\":\"depends_on\",\"to\":\"app:3\"},{\"from\":\"step:2\",\"relation\":\"transitions\",\"to\":\"app:3\"}],\"nodes\":[{\"id\":\"app:3\",\"runtime\":\"application\",\"type\":\"step\"},{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"},{\"depends_on\":\"step:2\",\"step\":\"app:3\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"},{\"action\":\"click\",\"step\":\"app:3\"}],\"runtime_dependencies\":[{\"from\":\"browser\",\"to\":\"application\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"},{\"requires\":\"step:2\",\"step\":\"app:3\"}]},\"execution\":{\"bounded\":true,\"completed_count\":4,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2},{\"action\":\"click\",\"completed\":true,\"replay_index\":3,\"runtime\":\"application\",\"step_id\":\"app:3\",\"tick\":3}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"},{\"action\":\"click\",\"depends_on\":\"step:2\",\"id\":\"app:3\",\"runtime\":\"application\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\",\"app:3\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":4},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\",\"app:3\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":4},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"app:3\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"},{\"from\":\"step:2\",\"relation\":\"depends_on\",\"to\":\"app:3\"},{\"from\":\"step:2\",\"relation\":\"transitions\",\"to\":\"app:3\"}],\"nodes\":[{\"id\":\"app:3\",\"runtime\":\"application\",\"type\":\"step\"},{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "e23d6b2857d03fecb4e9444a5ed9b1dd1ba77380bc9f314096c3de980844c2cf"
+    },
+    {
+      "name": "run_distributed",
+      "inputs": {
+        "objective": "monitor_metrics",
+        "distributed_result": {
+          "workers": [
+            {
+              "worker_id": "w2"
+            },
+            {
+              "worker_id": "w1"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"monitor_metrics\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"open_dashboard\",\"step\":\"step:0\"},{\"action\":\"observe_metrics\",\"step\":\"step:1\"},{\"action\":\"checkpoint\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"observe_metrics\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"checkpoint\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"monitor_metrics\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":true,\"extraction_agents\":2,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[{\"synced\":true,\"worker_id\":\"w2\"},{\"synced\":true,\"worker_id\":\"w1\"}]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"observe_metrics\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"checkpoint\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"monitor_metrics\"},\"objectives\":{\"bounded\":true,\"objective\":\"monitor_metrics\",\"priority\":0,\"steps\":[\"open_dashboard\",\"observe_metrics\",\"checkpoint\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"monitor_metrics\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:monitor_metrics\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"monitor_metrics\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"open_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"observe_metrics\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"checkpoint\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"monitor_metrics\",\"priority\":0,\"steps\":[\"open_dashboard\",\"observe_metrics\",\"checkpoint\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"monitor_metrics\",\"priority\":0,\"steps\":[{\"action\":\"open_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"observe_metrics\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"checkpoint\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"monitor_metrics\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"observe_metrics\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"checkpoint\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"monitor_metrics\"},\"objectives\":{\"bounded\":true,\"objective\":\"monitor_metrics\",\"priority\":0,\"steps\":[\"open_dashboard\",\"observe_metrics\",\"checkpoint\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"monitor_metrics\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"monitor_metrics\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"monitor_metrics\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"monitor_metrics\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:monitor_metrics\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"open_dashboard\",\"step\":\"step:0\"},{\"action\":\"observe_metrics\",\"step\":\"step:1\"},{\"action\":\"checkpoint\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"open_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"observe_metrics\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"checkpoint\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"monitor_metrics\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":true,\"extraction_agents\":2,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[{\"synced\":true,\"worker_id\":\"w2\"},{\"synced\":true,\"worker_id\":\"w1\"}]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"monitor_metrics\",\"priority\":0,\"steps\":[\"open_dashboard\",\"observe_metrics\",\"checkpoint\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"monitor_metrics\",\"priority\":0,\"steps\":[{\"action\":\"open_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"observe_metrics\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"checkpoint\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"monitor_metrics\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"monitor_metrics\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"monitor_metrics\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:monitor_metrics\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:monitor_metrics\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "bba7f6a0ba2b955f0290603cf5deb3fcee21b397dc043d4d0444ecfd14e9d28f"
+    },
+    {
+      "name": "run_failures",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "failures": [
+          "selector_drift",
+          "modal_interruption"
+        ]
+      },
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[{\"action\":\"heal_selector\",\"failure\":\"selector_drift\",\"recovered\":true},{\"action\":\"recover_modal\",\"failure\":\"modal_interruption\",\"recovered\":true}],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":2,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_dashboard\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[{\"action\":\"heal_selector\",\"failure\":\"selector_drift\",\"recovered\":true},{\"action\":\"recover_modal\",\"failure\":\"modal_interruption\",\"recovered\":true}],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":2,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "a3657000c843bf8ba172f54a49e217fa6e65afacb12a7687f55bfc85bb4e89d7"
+    },
+    {
+      "name": "run_url_unicode",
+      "inputs": {
+        "objective": "extract_repository",
+        "url": "https://例.com/path"
+      },
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_repository\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"repository\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"https://例.com/path\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"scan_repository\",\"step\":\"step:0\"},{\"action\":\"extract_structure\",\"step\":\"step:1\"},{\"action\":\"compile_graph\",\"step\":\"step:2\"}],\"runtime_dependencies\":[{\"from\":\"repository\",\"to\":\"browser\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"scan_repository\",\"navigator\":\"repository_navigation\",\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[{\"action\":\"scan_repository\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"repository\"},{\"action\":\"extract_structure\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"compile_graph\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_repository\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"scan_repository\",\"step\":\"step:0\"},{\"action\":\"extract_structure\",\"step\":\"step:1\"},{\"action\":\"compile_graph\",\"step\":\"step:2\"}],\"runtime_dependencies\":[{\"from\":\"repository\",\"to\":\"browser\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[{\"action\":\"scan_repository\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"repository\"},{\"action\":\"extract_structure\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"compile_graph\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "ca0a7877b897614c28652b3ae5b856de8e63d96546fab1245084a47b1f889028"
+    },
+    {
+      "name": "run_semantic",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "semantic_runtime": {
+          "semantic": {
+            "domain": {
+              "domain": "saas"
+            },
+            "ontology": {
+              "o": 1
+            }
+          }
+        }
+      },
+      "serialized": "{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{\"domain\":\"saas\"},\"extraction_semantics\":{},\"ontology\":{\"o\":1},\"workflow_objective\":\"extract_dashboard\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_dashboard\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{\"domain\":\"saas\"},\"extraction_semantics\":{},\"ontology\":{\"o\":1},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{\"domain\":\"saas\"},\"extraction_semantics\":{},\"ontology\":{\"o\":1},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "f6a8016dab0dfc0efe858a70b4acda5d01e3a4c7c8495e463ca6e192b0eb84e5"
+    }
+  ],
+  "run_workflow_for_extraction": [
+    {
+      "name": "rfe_disabled",
+      "inputs": {
+        "autonomous_workflow": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":false}",
+      "hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+    },
+    {
+      "name": "rfe_default",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"memory_persisted\":false,\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:2\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"step\"}]},\"workflow\":{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_dashboard\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}},\"workflow_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"ir\":\"workflow_runtime_graph\",\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "319e60b37cee64d0a6d7b2b4d6e5f4e97df38fe0f2a2da0affbb4d970c379a59"
+    },
+    {
+      "name": "rfe_no_merge",
+      "inputs": {
+        "merge_graph": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"memory_persisted\":false,\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"unified_graph\":{},\"workflow\":{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_dashboard\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}},\"workflow_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"ir\":\"workflow_runtime_graph\",\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_dashboard\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_dashboard\",\"priority\":0,\"steps\":[{\"action\":\"navigate_dashboard\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"browser\"},{\"action\":\"capture_widgets\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"capture_tables\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "4ec15a8c02482c0225c1f9c0af7754e569151864498fa851510b0ab9f74c9903"
+    },
+    {
+      "name": "rfe_repo",
+      "inputs": {
+        "objective": "extract_repository",
+        "url": "https://x.io"
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"memory_persisted\":false,\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"runtime_type\":\"workflow_runtime_graph\",\"to\":\"step:2\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"objective:extract_repository\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"runtime_type\":\"workflow_runtime_graph\",\"type\":\"step\"}]},\"workflow\":{\"alignment\":{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_repository\",\"state_step\":0,\"steps_aligned\":true},\"bounded\":true,\"context\":{\"bounded\":true,\"primary_runtime\":\"repository\",\"sources\":[\"application\",\"causality\",\"distributed\",\"semantic\"],\"url\":\"https://x.io\"},\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"scan_repository\",\"step\":\"step:0\"},{\"action\":\"extract_structure\",\"step\":\"step:1\"},{\"action\":\"compile_graph\",\"step\":\"step:2\"}],\"runtime_dependencies\":[{\"from\":\"repository\",\"to\":\"browser\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"memory\":{\"bounded\":true,\"execution_graphs\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_checkpoints\":[{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_states\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"navigation\":{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"scan_repository\",\"navigator\":\"repository_navigation\",\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]},\"objective\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[{\"action\":\"scan_repository\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"repository\"},{\"action\":\"extract_structure\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"compile_graph\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"replay\":{\"bounded\":true,\"distributed_execution\":[],\"execution_steps\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"objectives\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"replayed\":true,\"runtime_transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"semantic_workflows\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"schedule\":{\"bounded\":true,\"count\":1,\"schedule\":[{\"distributed_order\":0,\"objective\":\"extract_repository\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0}]},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"scan_repository\",\"step\":\"step:0\"},{\"action\":\"extract_structure\",\"step\":\"step:1\"},{\"action\":\"compile_graph\",\"step\":\"step:2\"}],\"runtime_dependencies\":[{\"from\":\"repository\",\"to\":\"browser\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[{\"action\":\"scan_repository\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"repository\"},{\"action\":\"extract_structure\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"compile_graph\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}},\"workflow_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"ir\":\"workflow_runtime_graph\",\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]},\"workflow_ir\":{\"bounded\":true,\"dependencies\":{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"scan_repository\",\"step\":\"step:0\"},{\"action\":\"extract_structure\",\"step\":\"step:1\"},{\"action\":\"compile_graph\",\"step\":\"step:2\"}],\"runtime_dependencies\":[{\"from\":\"repository\",\"to\":\"browser\"}],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]},\"execution\":{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"scan_repository\",\"completed\":true,\"replay_index\":0,\"runtime\":\"repository\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"extract_structure\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"compile_graph\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}],\"objective\":\"extract_repository\"},\"federation\":{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]},\"ir\":\"workflow_runtime\",\"objective\":{\"bounded\":true,\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[\"scan_repository\",\"extract_structure\",\"compile_graph\"]},\"plan\":{\"bounded\":true,\"domain\":\"saas\",\"objective\":\"extract_repository\",\"priority\":0,\"steps\":[{\"action\":\"scan_repository\",\"depends_on\":\"\",\"id\":\"step:0\",\"runtime\":\"repository\"},{\"action\":\"extract_structure\",\"depends_on\":\"step:0\",\"id\":\"step:1\",\"runtime\":\"browser\"},{\"action\":\"compile_graph\",\"depends_on\":\"step:1\",\"id\":\"step:2\",\"runtime\":\"browser\"}]},\"recovery\":{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]}},\"semantic_alignment\":{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_repository\"},\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_repository\",\"total_steps\":3},\"semantic_checkpoints\":[]},\"workflow_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_repository\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_repository\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"repository\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}}}",
+      "hash": "de1aed0e678fb553a86f76ff08f71fa404d016ba24a0affe0ad0f6334bc802df"
+    }
+  ],
+  "save_workflow_memory": [
+    {
+      "name": "mem_simple",
+      "inputs": {
+        "filename": "mem_simple.json",
+        "memory": {
+          "objectives": {
+            "o": 1
+          },
+          "bounded": true
+        },
+        "key": "wf-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"HsYHFRwWDQ8PzufOIyImF9/U1yUZIh4dLyUzIzLi++I+5jToAej6R0g=\"}"
+    },
+    {
+      "name": "mem_unicode",
+      "inputs": {
+        "filename": "mem_unicode.json",
+        "memory": {
+          "note": "café 😀",
+          "用户": 1,
+          "bounded": true
+        },
+        "key": "wf-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"HsYHFRwWDQ8PzufOIyImF9/U1yQmLB7c9dzfISAmHTfz9Cr/5yQ+LgP/MSpENDYCA/YB9vk0ThEQDhU6VBYTFRoGHwYYZQ==\"}"
+    },
+    {
+      "name": "mem_nested",
+      "inputs": {
+        "filename": "mem_nested.json",
+        "memory": {
+          "workflow_states": {
+            "s": {
+              "deep": [
+                1,
+                2
+              ]
+            }
+          },
+          "runtime_transitions": []
+        },
+        "key": "wf-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"HsYXGxUcEhcQCyEgEB4kGycdJCQq2vPaFhnp3uE3MDQuKjE1Pic8PixAMkHxCvFN9Uf3EPdT+z5AQU0AGQA8Ew8EF0NkZWY=\"}"
+    }
+  ],
+  "load_workflow_memory": [
+    {
+      "name": "load_mem_simple",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"HsYHFRwWDQ8PzufOIyImF9/U1yUZIh4dLyUzIzLi++I+5jToAej6R0g=\"}",
+      "key": "wf-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"objectives\":{\"o\":1}}}",
+      "hash": "4206b17c8a08979ec2cb708abaeaedf4a23325d5a304115964d2598f6a6044f3"
+    },
+    {
+      "name": "load_mem_unicode",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"HsYHFRwWDQ8PzufOIyImF9/U1yQmLB7c9dzfISAmHTfz9Cr/5yQ+LgP/MSpENDYCA/YB9vk0ThEQDhU6VBYTFRoGHwYYZQ==\"}",
+      "key": "wf-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "894d024682261ce3ed53747da0e6e06c95111e584d88f804c237b4ba0c80112f"
+    },
+    {
+      "name": "load_mem_nested",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"HsYXGxUcEhcQCyEgEB4kGycdJCQq2vPaFhnp3uE3MDQuKjE1Pic8PixAMkHxCvFN9Uf3EPdT+z5AQU0AGQA8Ew8EF0NkZWY=\"}",
+      "key": "wf-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"runtime_transitions\":[],\"workflow_states\":{\"s\":{\"deep\":[1,2]}}}}",
+      "hash": "6e85483ec68acf073cc7fe0a3dd8c9057c0579dbca63ab1baa3990df5e1257d9"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "wf-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"memory\":{\"bounded\":true,\"execution_graphs\":{},\"objectives\":{},\"runtime_transitions\":[],\"semantic_checkpoints\":[],\"workflow_states\":{}}}",
+      "hash": "02d6205c45ca212a28f03e6154e93f049d3189f208d2f49b44fd1750ea30cc2c"
+    }
+  ],
+  "execute_workflow_plan": [
+    {
+      "name": "exec_empty",
+      "inputs": {
+        "plan": {
+          "steps": []
+        },
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"completed_count\":0,\"executed\":[],\"objective\":\"\"}",
+      "hash": "a16b4c66ba371d2503ec436e17b4658bdcf624b50439cc12bca743590c6d4dad"
+    },
+    {
+      "name": "exec_plan",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "tick": 1
+      },
+      "serialized": "{\"bounded\":true,\"completed_count\":3,\"executed\":[{\"action\":\"navigate_dashboard\",\"completed\":true,\"replay_index\":0,\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":1},{\"action\":\"capture_widgets\",\"completed\":true,\"replay_index\":1,\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":2},{\"action\":\"capture_tables\",\"completed\":true,\"replay_index\":2,\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":3}],\"objective\":\"extract_dashboard\"}",
+      "hash": "6fcf90517aca2acb8af406fc89f0e7c7a11a83cb2ef47af67104e5b8faabf2de"
+    }
+  ],
+  "build_workflow_state": [
+    {
+      "name": "state",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "execution": {
+          "objective": "extract_dashboard",
+          "executed": [
+            {
+              "step_id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 1,
+              "replay_index": 0
+            },
+            {
+              "step_id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 2,
+              "replay_index": 1
+            },
+            {
+              "step_id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 3,
+              "replay_index": 2
+            }
+          ],
+          "completed_count": 3,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":0,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}",
+      "hash": "831aae0b1ed8d0cffd09eca7eabeb41963d5e331fd782244640e704f56ee433f"
+    }
+  ],
+  "navigate_runtime_workflow": [
+    {
+      "name": "nav",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "tick": 2
+      },
+      "serialized": "{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"navigate_dashboard\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:0\",\"tick\":2},{\"action\":\"capture_widgets\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":3},{\"action\":\"capture_tables\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":4}]}",
+      "hash": "a3828311bad2833bf2c0a97e9f7f73897d4c3168113c442982d575cbf0ced3a9"
+    },
+    {
+      "name": "nav_terminal",
+      "inputs": {
+        "plan": {
+          "objective": "capture_terminal",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "open_terminal",
+              "runtime": "terminal",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_output",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "checkpoint",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"count\":3,\"navigations\":[{\"action\":\"open_terminal\",\"navigator\":\"terminal_progression\",\"runtime\":\"terminal\",\"step_id\":\"step:0\",\"tick\":0},{\"action\":\"capture_output\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:1\",\"tick\":1},{\"action\":\"checkpoint\",\"navigator\":\"browser_navigation\",\"runtime\":\"browser\",\"step_id\":\"step:2\",\"tick\":2}]}",
+      "hash": "9213775a8536a904da99bda33242f93c95fe9fae494139df482bc9938f690196"
+    }
+  ],
+  "build_workflow_transitions": [
+    {
+      "name": "trans",
+      "inputs": {
+        "execution": {
+          "objective": "extract_dashboard",
+          "executed": [
+            {
+              "step_id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 1,
+              "replay_index": 0
+            },
+            {
+              "step_id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 2,
+              "replay_index": 1
+            },
+            {
+              "step_id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 3,
+              "replay_index": 2
+            }
+          ],
+          "completed_count": 3,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"transitions\":[{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}]}",
+      "hash": "b78c83c823bdb6dd7db1ab13646e54c578d8bfd0acfee34bc8be5d75862d603d"
+    }
+  ],
+  "build_workflow_dependencies": [
+    {
+      "name": "deps",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"execution_ordering\":[{\"depends_on\":\"step:0\",\"step\":\"step:1\"},{\"depends_on\":\"step:1\",\"step\":\"step:2\"}],\"extraction_chains\":[{\"action\":\"navigate_dashboard\",\"step\":\"step:0\"},{\"action\":\"capture_widgets\",\"step\":\"step:1\"},{\"action\":\"capture_tables\",\"step\":\"step:2\"}],\"runtime_dependencies\":[],\"semantic_prerequisites\":[{\"requires\":\"step:0\",\"step\":\"step:1\"},{\"requires\":\"step:1\",\"step\":\"step:2\"}]}",
+      "hash": "1cc9c89203502c813875a9007a61fc21d9f27fd13e4587734f5ead08fcdc8798"
+    }
+  ],
+  "recover_workflow_runtime": [
+    {
+      "name": "rec_failures",
+      "inputs": {
+        "state": {
+          "current_step": 0,
+          "completed_steps": [
+            "step:0",
+            "step:1",
+            "step:2"
+          ],
+          "retries": 0,
+          "runtime_state": {
+            "objective": "extract_dashboard",
+            "total_steps": 3
+          },
+          "extraction_outputs": [],
+          "semantic_checkpoints": [],
+          "bounded": true
+        },
+        "failures": [
+          "selector_drift",
+          "worker_failure",
+          "unknown_thing"
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[{\"action\":\"heal_selector\",\"failure\":\"selector_drift\",\"recovered\":true},{\"action\":\"redispatch_worker\",\"failure\":\"worker_failure\",\"recovered\":true},{\"action\":\"retry_step\",\"failure\":\"unknown_thing\",\"recovered\":true}],\"state\":{\"bounded\":true,\"completed_steps\":[\"step:0\",\"step:1\",\"step:2\"],\"current_step\":0,\"extraction_outputs\":[],\"retries\":3,\"runtime_state\":{\"objective\":\"extract_dashboard\",\"total_steps\":3},\"semantic_checkpoints\":[]}}",
+      "hash": "d220c72ddf9296c89208ec2d7a2623a94c45f2b02c089089c791f3c7d49bea8e"
+    },
+    {
+      "name": "rec_implicit",
+      "inputs": {
+        "state": {
+          "current_step": 2,
+          "retries": 1
+        },
+        "failures": null
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[{\"action\":\"retry_step\",\"failure\":\"implicit_retry\",\"recovered\":true}],\"state\":{\"current_step\":2,\"retries\":2}}",
+      "hash": "4e6d1197dbcf245610fc085d1c06eb1692b26deee6679aa5ee5784edf6724b77"
+    },
+    {
+      "name": "rec_none",
+      "inputs": {
+        "state": {
+          "current_step": 0
+        },
+        "failures": null
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":true,\"recovered_steps\":[],\"state\":{\"current_step\":0,\"retries\":0}}",
+      "hash": "4566656bf28465a337a6337c2a87f2bb6830d2349a8421524d6ad057bad160be"
+    }
+  ],
+  "align_workflow_runtime": [
+    {
+      "name": "align",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "state": {
+          "current_step": 0,
+          "completed_steps": [
+            "step:0",
+            "step:1",
+            "step:2"
+          ],
+          "retries": 0,
+          "runtime_state": {
+            "objective": "extract_dashboard",
+            "total_steps": 3
+          },
+          "extraction_outputs": [],
+          "semantic_checkpoints": [],
+          "bounded": true
+        },
+        "execution": {
+          "objective": "extract_dashboard",
+          "executed": [
+            {
+              "step_id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 1,
+              "replay_index": 0
+            },
+            {
+              "step_id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 2,
+              "replay_index": 1
+            },
+            {
+              "step_id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 3,
+              "replay_index": 2
+            }
+          ],
+          "completed_count": 3,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"aligned\":true,\"bounded\":true,\"objective\":\"extract_dashboard\",\"state_step\":0,\"steps_aligned\":true}",
+      "hash": "242e214676db733f12adbcb36b2857c5923883b4998a6b251a38cce6044ddd17"
+    }
+  ],
+  "align_workflow_semantics": [
+    {
+      "name": "sem_empty",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        }
+      },
+      "serialized": "{\"aligned\":true,\"bounded\":true,\"causality_chains\":{},\"domain\":{},\"extraction_semantics\":{},\"ontology\":{},\"workflow_objective\":\"extract_dashboard\"}",
+      "hash": "b0b40a58891d904ee1d3b90fcbfd395f03c1343e7d4ce3daeda3e55e9dd185ae"
+    },
+    {
+      "name": "sem_full",
+      "inputs": {
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "semantic_runtime": {
+          "semantic": {
+            "ontology": {
+              "o": 1
+            },
+            "domain": {
+              "d": 1
+            },
+            "semantic_graph": {
+              "g": 1
+            }
+          }
+        },
+        "causality": {
+          "causality": {
+            "propagation": {
+              "h": 1
+            }
+          }
+        }
+      },
+      "serialized": "{\"aligned\":true,\"bounded\":true,\"causality_chains\":{\"h\":1},\"domain\":{\"d\":1},\"extraction_semantics\":{\"g\":1},\"ontology\":{\"o\":1},\"workflow_objective\":\"extract_dashboard\"}",
+      "hash": "475b950e6c2a4e85b98c12dbee73c0f9b93b43e43dddc45507e29f40a0456f6a"
+    }
+  ],
+  "federate_workflow_runtime": [
+    {
+      "name": "fed_empty",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"browser_runtime\":false,\"distributed_sync\":false,\"extraction_agents\":0,\"native_runtime\":false,\"semantic_checkpoints\":{},\"workers\":[]}",
+      "hash": "ce47e26d4d497d41931165acfb1739cf1e52bc37b560afc6268d1643f1de6d11"
+    },
+    {
+      "name": "fed_full",
+      "inputs": {
+        "browser": {
+          "url": "x"
+        },
+        "native": {
+          "n": 1
+        },
+        "distributed": {
+          "d": 1
+        },
+        "semantic": {
+          "semantic": {
+            "memory": {
+              "m": 1
+            }
+          }
+        },
+        "workers": [
+          {
+            "worker_id": "w1"
+          },
+          {
+            "id": "w2"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"browser_runtime\":true,\"distributed_sync\":true,\"extraction_agents\":2,\"native_runtime\":true,\"semantic_checkpoints\":{\"m\":1},\"workers\":[{\"synced\":true,\"worker_id\":\"w1\"},{\"synced\":true,\"worker_id\":\"w2\"}]}",
+      "hash": "6f700066f0001924e9cb01dd9934edd84a135e46f10b9a9a4d116570b4830cec"
+    }
+  ],
+  "schedule_workflow_execution": [
+    {
+      "name": "sched_empty",
+      "inputs": {
+        "plans": [],
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"count\":0,\"schedule\":[]}",
+      "hash": "ffb74b188d8af79661a9696968624d25268daf00527415483bf4704775997fbd"
+    },
+    {
+      "name": "sched_order",
+      "inputs": {
+        "plans": [
+          {
+            "objective": "b",
+            "priority": 1
+          },
+          {
+            "objective": "a",
+            "priority": 1
+          },
+          {
+            "objective": "c",
+            "priority": 0
+          }
+        ],
+        "tick": 0
+      },
+      "serialized": "{\"bounded\":true,\"count\":3,\"schedule\":[{\"distributed_order\":0,\"objective\":\"c\",\"pacing\":0,\"priority\":0,\"retries\":0,\"tick\":0},{\"distributed_order\":1,\"objective\":\"a\",\"pacing\":1,\"priority\":1,\"retries\":0,\"tick\":1},{\"distributed_order\":2,\"objective\":\"b\",\"pacing\":2,\"priority\":1,\"retries\":0,\"tick\":2}]}",
+      "hash": "242fa629ea9b24ab66166e718c2e7607857a84da484c26ec22b125f318d914ea"
+    }
+  ],
+  "build_workflow_runtime_context": [
+    {
+      "name": "ctx",
+      "inputs": {
+        "url": "https://x",
+        "runtime": "browser",
+        "sources": {
+          "semantic": true,
+          "causality": false,
+          "application": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"primary_runtime\":\"browser\",\"sources\":[\"application\",\"causality\",\"semantic\"],\"url\":\"https://x\"}",
+      "hash": "b1bfc76dd17990924ae63b9c88b22be248c393d12f78fc3c602525acdc5caf14"
+    }
+  ],
+  "build_workflow_graph": [
+    {
+      "name": "graph",
+      "inputs": {
+        "objective": {
+          "objective": "extract_dashboard",
+          "priority": 0,
+          "steps": [
+            "navigate_dashboard",
+            "capture_widgets",
+            "capture_tables"
+          ],
+          "bounded": true
+        },
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "state": {
+          "current_step": 0,
+          "completed_steps": [
+            "step:0",
+            "step:1",
+            "step:2"
+          ],
+          "retries": 0,
+          "runtime_state": {
+            "objective": "extract_dashboard",
+            "total_steps": 3
+          },
+          "extraction_outputs": [],
+          "semantic_checkpoints": [],
+          "bounded": true
+        },
+        "execution": {
+          "objective": "extract_dashboard",
+          "executed": [
+            {
+              "step_id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 1,
+              "replay_index": 0
+            },
+            {
+              "step_id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 2,
+              "replay_index": 1
+            },
+            {
+              "step_id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 3,
+              "replay_index": 2
+            }
+          ],
+          "completed_count": 3,
+          "bounded": true
+        },
+        "transitions": [
+          {
+            "from": "step:0",
+            "to": "step:1",
+            "relation": "transitions"
+          },
+          {
+            "from": "step:1",
+            "to": "step:2",
+            "relation": "transitions"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}",
+      "hash": "79c1c32b9ba8558832fe4361b55a55630487e98942ad990d88d32d1013d6431f"
+    },
+    {
+      "name": "graph_retries",
+      "inputs": {
+        "objective": {
+          "objective": "extract_dashboard",
+          "priority": 0,
+          "steps": [
+            "navigate_dashboard",
+            "capture_widgets",
+            "capture_tables"
+          ],
+          "bounded": true
+        },
+        "plan": {
+          "objective": "extract_dashboard",
+          "domain": "saas",
+          "steps": [
+            {
+              "id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "depends_on": ""
+            },
+            {
+              "id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "depends_on": "step:0"
+            },
+            {
+              "id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "depends_on": "step:1"
+            }
+          ],
+          "bounded": true
+        },
+        "state": {
+          "retries": 2
+        },
+        "execution": {
+          "objective": "extract_dashboard",
+          "executed": [
+            {
+              "step_id": "step:0",
+              "action": "navigate_dashboard",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 1,
+              "replay_index": 0
+            },
+            {
+              "step_id": "step:1",
+              "action": "capture_widgets",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 2,
+              "replay_index": 1
+            },
+            {
+              "step_id": "step:2",
+              "action": "capture_tables",
+              "runtime": "browser",
+              "completed": true,
+              "tick": 3,
+              "replay_index": 2
+            }
+          ],
+          "completed_count": 3,
+          "bounded": true
+        },
+        "transitions": [
+          {
+            "from": "step:0",
+            "to": "step:1",
+            "relation": "transitions"
+          },
+          {
+            "from": "step:1",
+            "to": "step:2",
+            "relation": "transitions"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"checkpoint:recovery\",\"relation\":\"recovers\",\"to\":\"objective:extract_dashboard\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:0\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:1\"},{\"from\":\"objective:extract_dashboard\",\"relation\":\"executes\",\"to\":\"step:2\"},{\"from\":\"step:0\",\"relation\":\"depends_on\",\"to\":\"step:1\"},{\"from\":\"step:0\",\"relation\":\"transitions\",\"to\":\"step:1\"},{\"from\":\"step:1\",\"relation\":\"depends_on\",\"to\":\"step:2\"},{\"from\":\"step:1\",\"relation\":\"transitions\",\"to\":\"step:2\"}],\"nodes\":[{\"id\":\"checkpoint:recovery\",\"type\":\"checkpoint\"},{\"id\":\"objective:extract_dashboard\",\"type\":\"objective\"},{\"id\":\"semantic:state\",\"type\":\"semantic_state\"},{\"id\":\"step:0\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:1\",\"runtime\":\"browser\",\"type\":\"step\"},{\"id\":\"step:2\",\"runtime\":\"browser\",\"type\":\"step\"}]}",
+      "hash": "f59bf76aa69166ee956d2e2d3a54c9763f3e50b7192b862a3e1619fd4f1668c8"
+    }
+  ],
+  "remember_workflow_runtime": [
+    {
+      "name": "remember",
+      "inputs": {
+        "memory": {
+          "objectives": {
+            "o": 1
+          }
+        },
+        "update": {
+          "workflow_states": {
+            "s": 1
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"execution_graphs\":{},\"objectives\":{\"o\":1},\"runtime_transitions\":{},\"semantic_checkpoints\":{},\"workflow_states\":{\"s\":1}}",
+      "hash": "de6546927f563054830b3afe15544cc8d700a991858bb9e6bb9877227b4357ac"
+    }
+  ]
+}

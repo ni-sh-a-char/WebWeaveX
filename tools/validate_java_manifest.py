@@ -85,6 +85,14 @@ MAPPING = {
     "run_sync_for_extraction": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "run_sync_for_extraction"),
     "save_sync_memory": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "save_sync_memory"),
     "load_sync_memory": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "load_sync_memory"),
+    # Session 11 — workflows family (dependency-clean, 23-module closure)
+    "build_runtime_objective": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "build_runtime_objective"),
+    "build_workflow_plan": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "build_workflow_plan"),
+    "run_autonomous_workflow": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "run_autonomous_workflow"),
+    "replay_workflow_runtime": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "replay_workflow_runtime"),
+    "run_workflow_for_extraction": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "run_workflow_for_extraction"),
+    "save_workflow_memory": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "save_workflow_memory"),
+    "load_workflow_memory": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "load_workflow_memory"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
