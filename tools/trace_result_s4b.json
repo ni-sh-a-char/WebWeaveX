@@ -1,0 +1,95 @@
+{
+  "extract_document_runtime": {
+    "entry": "core.documents.universal_document_extraction_engine",
+    "first_party_modules": [
+      "core.documents.citation_extraction_engine",
+      "core.documents.document_hierarchy_engine",
+      "core.documents.document_structure_engine",
+      "core.documents.document_table_engine",
+      "core.documents.reference_extraction_engine",
+      "core.documents.universal_document_extraction_engine",
+      "core.ir.document_runtime_ir",
+      "core.knowledge.document_knowledge_graph_engine",
+      "core.presentation.presentation_extraction_engine",
+      "core.spreadsheets.spreadsheet_extraction_engine"
+    ],
+    "first_party_count": 10,
+    "forbidden_hits": [],
+    "clean": true,
+    "non_first_party_imports": [
+      "__future__",
+      "re",
+      "typing"
+    ]
+  },
+  "extract_paginated_content": {
+    "entry": "core.interaction.pagination_engine",
+    "first_party_modules": [
+      "core.interaction.pagination_engine"
+    ],
+    "first_party_count": 1,
+    "forbidden_hits": [],
+    "clean": true,
+    "non_first_party_imports": [
+      "__future__",
+      "typing"
+    ]
+  },
+  "heal_selector": {
+    "entry": "core.adaptive.selector_healing_engine",
+    "first_party_modules": [
+      "core.adaptive.selector_healing_engine",
+      "core.adaptive.semantic_anchor_engine"
+    ],
+    "first_party_count": 2,
+    "forbidden_hits": [
+      {
+        "in": "core.adaptive.semantic_anchor_engine",
+        "imports": "bs4",
+        "category": "BeautifulSoup"
+      }
+    ],
+    "clean": false,
+    "non_first_party_imports": [
+      "__future__",
+      "bs4",
+      "re",
+      "typing"
+    ]
+  },
+  "ingest_input": {
+    "entry": "core.ingestion.universal_ingestion_engine",
+    "first_party_modules": [
+      "core.ingestion.universal_ingestion_engine",
+      "core.ir.multimodal_ir",
+      "core.layout.layout_detection_engine",
+      "core.multimodal.universal_multimodal_extraction_engine",
+      "core.ocr.ocr_engine",
+      "core.tables.table_extraction_engine",
+      "core.vision.chart_detection_engine",
+      "core.vision.form_extraction_engine",
+      "core.vision.ui_component_detection_engine"
+    ],
+    "first_party_count": 9,
+    "forbidden_hits": [
+      {
+        "in": "core.ocr.ocr_engine",
+        "imports": "pytesseract",
+        "category": "OCR"
+      },
+      {
+        "in": "core.ocr.ocr_engine",
+        "imports": "PIL",
+        "category": "OCR/image"
+      }
+    ],
+    "clean": false,
+    "non_first_party_imports": [
+      "PIL",
+      "__future__",
+      "pathlib",
+      "pytesseract",
+      "typing"
+    ]
+  }
+}

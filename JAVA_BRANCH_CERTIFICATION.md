@@ -52,6 +52,26 @@ Removed artifacts are preserved in git history and on the sibling
 Detail: [`java/SESSION_4_CERTIFICATION.md`](java/SESSION_4_CERTIFICATION.md) /
 [`.json`](java/SESSION_4_CERTIFICATION.json).
 
+## Behavioural parity (Session 4B — pure document + pagination extraction)
+
+Gated by a transitive-import dependency proof
+([`java/JAVA_SESSION_4B_DEPENDENCY_PROOF.md`](java/JAVA_SESSION_4B_DEPENDENCY_PROOF.md)):
+`heal_selector` (bs4) and `ingest_input` (OCR) were **removed** for carrying forbidden
+dependencies; only the two genuinely pure APIs were implemented.
+
+| Metric | Value |
+| --- | --- |
+| Java parity-proven APIs | **21 → 23** / 128 |
+| New APIs | `extract_document_runtime`, `extract_paginated_content` |
+| Supporting internal (no stubs) | `determinism.PyText`, `interaction.PageView` |
+| Session-4B golden vectors | 26 byte-exact vs canonical Python (Unicode/normalization/empty/malformed/edge/replay) |
+| Full suite | **249 tests, 0 failures, 0 errors** |
+| Instruction coverage | **95.37 %** (floor 94 %; new code 99.06 %) |
+| `PROVEN_FLOOR` | 21 → 23 |
+
+Detail: [`java/SESSION_4B_CERTIFICATION.md`](java/SESSION_4B_CERTIFICATION.md) /
+[`.json`](java/SESSION_4B_CERTIFICATION.json).
+
 ## Governance (machine-enforced)
 
 `tools/validate_java_manifest.py` → **PASS** (`21/128 proven; mapped/exist/tested/
@@ -77,7 +97,7 @@ Python ≡ Java is proven for all 21 APIs (byte-exact `stable_serialize` +
 certified (70k+ comparisons), therefore **Java ≡ JavaScript ≡ Dart** transitively.
 
 ```
-Python  =  Java  =  JavaScript  =  Dart        (21 / 128 APIs, byte-exact)
+Python  =  Java  =  JavaScript  =  Dart        (23 / 128 APIs, byte-exact)
 ```
 
 ## Reproduce

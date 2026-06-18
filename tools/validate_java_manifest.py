@@ -57,6 +57,9 @@ MAPPING = {
     "extract_api_runtime": ("io.webweavex.connectors.ApiConnectors", "golden_vectors_s4.json", "extract_api_runtime"),
     "extract_runtime_streams": ("io.webweavex.connectors.StreamConnectors", "golden_vectors_s4.json", "extract_runtime_streams"),
     "extract_telemetry_runtime": ("io.webweavex.connectors.TelemetryConnector", "golden_vectors_s4.json", "extract_telemetry_runtime"),
+    # Session 4B — pure document + pagination extraction (dependency-proof survivors)
+    "extract_document_runtime": ("io.webweavex.documents.DocumentRuntime", "golden_vectors_s4b.json", "extract_document_runtime"),
+    "extract_paginated_content": ("io.webweavex.interaction.Pagination", "golden_vectors_s4b.json", "extract_paginated_content"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

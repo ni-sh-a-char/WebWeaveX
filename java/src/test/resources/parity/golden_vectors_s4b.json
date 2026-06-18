@@ -1,0 +1,507 @@
+{
+  "source": "Python 2.1.0 canonical (session 4B: pure document + pagination extraction)",
+  "extract_document_runtime": [
+    {
+      "name": "doc_empty",
+      "inputs": {
+        "text": "",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "d3246abdf60f337692b09b8d5c3a234b72682328920c0ea0eff47a400b0bf5c9"
+    },
+    {
+      "name": "doc_whitespace",
+      "inputs": {
+        "text": "   \n\t\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "08107955b8e662e30f17f6f5448c9f55af93dea70dd7520b6426fcd26df83a3c"
+    },
+    {
+      "name": "doc_nested_headings",
+      "inputs": {
+        "text": "# Title\nintro line\n## Section A\nbody a1\nbody a2\n### Sub\ndeep\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"intro line\"],\"title\":\"Title\"},{\"content\":[\"body a1\",\"body a2\"],\"title\":\"Section A\"},{\"content\":[\"deep\"],\"title\":\"Sub\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Title\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Section A\"},{\"children\":[],\"id\":\"section_2\",\"title\":\"Sub\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"},{\"from\":\"section_1\",\"relation\":\"next_section\",\"to\":\"section_2\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Title\"},{\"id\":\"section_1\",\"title\":\"Section A\"},{\"id\":\"section_2\",\"title\":\"Sub\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"intro line\"],\"title\":\"Title\"},{\"content\":[\"body a1\",\"body a2\"],\"title\":\"Section A\"},{\"content\":[\"deep\"],\"title\":\"Sub\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"intro line\"],\"title\":\"Title\"},{\"content\":[\"body a1\",\"body a2\"],\"title\":\"Section A\"},{\"content\":[\"deep\"],\"title\":\"Sub\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Title\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Section A\"},{\"children\":[],\"id\":\"section_2\",\"title\":\"Sub\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"},{\"from\":\"section_1\",\"relation\":\"next_section\",\"to\":\"section_2\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Title\"},{\"id\":\"section_1\",\"title\":\"Section A\"},{\"id\":\"section_2\",\"title\":\"Sub\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"intro line\"],\"title\":\"Title\"},{\"content\":[\"body a1\",\"body a2\"],\"title\":\"Section A\"},{\"content\":[\"deep\"],\"title\":\"Sub\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "6fabb0fe712dd696dc8b6c41a0c9cc03646d8f5491373868f50a7a6dedf0ff30"
+    },
+    {
+      "name": "doc_citations",
+      "inputs": {
+        "text": "see [1] and [2] also [12] and [007]\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"1\"},{\"citation\":\"2\"},{\"citation\":\"12\"},{\"citation\":\"007\"}]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"1\"},{\"citation\":\"2\"},{\"citation\":\"12\"},{\"citation\":\"007\"}]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"see [1] and [2] also [12] and [007]\"],\"title\":\"root\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"see [1] and [2] also [12] and [007]\"],\"title\":\"root\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"see [1] and [2] also [12] and [007]\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"see [1] and [2] also [12] and [007]\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "05e183287eb78f5541531b610c06c2b886472fa2f26501d068ee0ebd94e86b37"
+    },
+    {
+      "name": "doc_references",
+      "inputs": {
+        "text": "# Doc\npreamble\n## References\n[1] First ref\n[2] Second ref\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"1\"},{\"citation\":\"2\"}]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"1\"},{\"citation\":\"2\"}]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"preamble\"],\"title\":\"Doc\"},{\"content\":[\"[1] First ref\",\"[2] Second ref\"],\"title\":\"References\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Doc\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"References\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Doc\"},{\"id\":\"section_1\",\"title\":\"References\"}]},\"references\":{\"bounded\":true,\"references\":[\"[1] First ref\",\"[2] Second ref\"]},\"sections\":[{\"content\":[\"preamble\"],\"title\":\"Doc\"},{\"content\":[\"[1] First ref\",\"[2] Second ref\"],\"title\":\"References\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"preamble\"],\"title\":\"Doc\"},{\"content\":[\"[1] First ref\",\"[2] Second ref\"],\"title\":\"References\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Doc\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"References\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Doc\"},{\"id\":\"section_1\",\"title\":\"References\"}]},\"references\":{\"bounded\":true,\"references\":[\"[1] First ref\",\"[2] Second ref\"]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"preamble\"],\"title\":\"Doc\"},{\"content\":[\"[1] First ref\",\"[2] Second ref\"],\"title\":\"References\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "98945a22dc037025f051371d484507cbfc8dead8ed21b565bcf8b3726b47127d"
+    },
+    {
+      "name": "doc_bibliography",
+      "inputs": {
+        "text": "# Doc\ntext\n## Bibliography\nSmith 2020\nJones 2021\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"text\"],\"title\":\"Doc\"},{\"content\":[\"Smith 2020\",\"Jones 2021\"],\"title\":\"Bibliography\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Doc\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Bibliography\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Doc\"},{\"id\":\"section_1\",\"title\":\"Bibliography\"}]},\"references\":{\"bounded\":true,\"references\":[\"Smith 2020\",\"Jones 2021\"]},\"sections\":[{\"content\":[\"text\"],\"title\":\"Doc\"},{\"content\":[\"Smith 2020\",\"Jones 2021\"],\"title\":\"Bibliography\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"text\"],\"title\":\"Doc\"},{\"content\":[\"Smith 2020\",\"Jones 2021\"],\"title\":\"Bibliography\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Doc\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Bibliography\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Doc\"},{\"id\":\"section_1\",\"title\":\"Bibliography\"}]},\"references\":{\"bounded\":true,\"references\":[\"Smith 2020\",\"Jones 2021\"]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"text\"],\"title\":\"Doc\"},{\"content\":[\"Smith 2020\",\"Jones 2021\"],\"title\":\"Bibliography\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "ee2816eb83c40587f2a8136b4c3f90c7c14e1aa84030244f9d263e416641633a"
+    },
+    {
+      "name": "doc_table",
+      "inputs": {
+        "text": "name | value\nalpha | 1\nbeta | 2\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"name | value\",\"alpha | 1\",\"beta | 2\"],\"title\":\"root\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"name | value\",\"alpha | 1\",\"beta | 2\"],\"title\":\"root\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"name | value\",\"alpha | 1\",\"beta | 2\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[{\"rows\":[[\"name\",\"value\"],[\"alpha\",\"1\"],[\"beta\",\"2\"]]}]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"name | value\",\"alpha | 1\",\"beta | 2\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[{\"rows\":[[\"name\",\"value\"],[\"alpha\",\"1\"],[\"beta\",\"2\"]]}]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "a2ae6cd3c43b4a7dbaac86526cc921131edc65815cad9e1c9738d54447984c4f"
+    },
+    {
+      "name": "doc_unicode",
+      "inputs": {
+        "text": "# 标题 😀\ncafé line\n## 参考\n[٤] arabic-indic digit cite\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"٤\"}]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"٤\"}]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"café line\"],\"title\":\"标题 😀\"},{\"content\":[\"[٤] arabic-indic digit cite\"],\"title\":\"参考\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"标题 😀\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"参考\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"标题 😀\"},{\"id\":\"section_1\",\"title\":\"参考\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"café line\"],\"title\":\"标题 😀\"},{\"content\":[\"[٤] arabic-indic digit cite\"],\"title\":\"参考\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"café line\"],\"title\":\"标题 😀\"},{\"content\":[\"[٤] arabic-indic digit cite\"],\"title\":\"参考\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"标题 😀\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"参考\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"标题 😀\"},{\"id\":\"section_1\",\"title\":\"参考\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"café line\"],\"title\":\"标题 😀\"},{\"content\":[\"[٤] arabic-indic digit cite\"],\"title\":\"参考\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "59f9a944f554def3b404631c34405ac38b76f626cc2f86c5976b89b4d0479c37"
+    },
+    {
+      "name": "doc_normalization",
+      "inputs": {
+        "text": "# Heading   \r\nbody with trailing space  \r\n## Next\t\r\nx​\r\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"body with trailing space\"],\"title\":\"Heading\"},{\"content\":[\"x​\"],\"title\":\"Next\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Heading\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Next\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Heading\"},{\"id\":\"section_1\",\"title\":\"Next\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"body with trailing space\"],\"title\":\"Heading\"},{\"content\":[\"x​\"],\"title\":\"Next\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"body with trailing space\"],\"title\":\"Heading\"},{\"content\":[\"x​\"],\"title\":\"Next\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Heading\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Next\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Heading\"},{\"id\":\"section_1\",\"title\":\"Next\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"body with trailing space\"],\"title\":\"Heading\"},{\"content\":[\"x​\"],\"title\":\"Next\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "0b7a7ecbcfba4cd4abc3e22c481b80fe40bff5f26ac1727b58bdbcc29f989cdf"
+    },
+    {
+      "name": "doc_malformed",
+      "inputs": {
+        "text": "#\n## \n[] [abc] [42]\n|||\n# A\n# B\ncontent under B\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"42\"}]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[{\"citation\":\"42\"}]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"[] [abc] [42]\",\"|||\"],\"title\":\"\"},{\"content\":[\"content under B\"],\"title\":\"B\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"B\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"\"},{\"id\":\"section_1\",\"title\":\"B\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"[] [abc] [42]\",\"|||\"],\"title\":\"\"},{\"content\":[\"content under B\"],\"title\":\"B\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"[] [abc] [42]\",\"|||\"],\"title\":\"\"},{\"content\":[\"content under B\"],\"title\":\"B\"}]},\"tables\":{\"bounded\":true,\"tables\":[{\"rows\":[[\"\",\"\",\"\",\"\"]]}]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"B\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"\"},{\"id\":\"section_1\",\"title\":\"B\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"[] [abc] [42]\",\"|||\"],\"title\":\"\"},{\"content\":[\"content under B\"],\"title\":\"B\"}]},\"tables\":{\"bounded\":true,\"tables\":[{\"rows\":[[\"\",\"\",\"\",\"\"]]}]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "8b9ffdaa8c5d5757cd54f70acf93d262e69ab1a7f693864d314b850ad894a0ec"
+    },
+    {
+      "name": "doc_leading_blanks",
+      "inputs": {
+        "text": "\n\n# Only Heading\n\n\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"},{\"content\":[\"\",\"\"],\"title\":\"Only Heading\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Only Heading\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"},{\"id\":\"section_1\",\"title\":\"Only Heading\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"},{\"content\":[\"\",\"\"],\"title\":\"Only Heading\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"},{\"content\":[\"\",\"\"],\"title\":\"Only Heading\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"},{\"children\":[],\"id\":\"section_1\",\"title\":\"Only Heading\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"section_0\",\"relation\":\"next_section\",\"to\":\"section_1\"}],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"},{\"id\":\"section_1\",\"title\":\"Only Heading\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"\",\"\"],\"title\":\"root\"},{\"content\":[\"\",\"\"],\"title\":\"Only Heading\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "7b5b21f1775b30a39260006d99ba26112fc88961cb93a0ace4e6a0776213e002"
+    },
+    {
+      "name": "doc_with_slides",
+      "inputs": {
+        "text": "# Deck\nintro\n",
+        "slides": [
+          {
+            "title": "Slide 1",
+            "content": "hello"
+          },
+          {
+            "title": "Slide 2",
+            "content": "world"
+          },
+          {
+            "content": "no title"
+          }
+        ],
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"intro\"],\"title\":\"Deck\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Deck\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Deck\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"intro\"],\"title\":\"Deck\"}],\"slides\":{\"bounded\":true,\"slides\":[{\"content\":\"hello\",\"slide\":0,\"title\":\"Slide 1\"},{\"content\":\"world\",\"slide\":1,\"title\":\"Slide 2\"},{\"content\":\"no title\",\"slide\":2,\"title\":null}]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"intro\"],\"title\":\"Deck\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Deck\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Deck\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[{\"content\":\"hello\",\"slide\":0,\"title\":\"Slide 1\"},{\"content\":\"world\",\"slide\":1,\"title\":\"Slide 2\"},{\"content\":\"no title\",\"slide\":2,\"title\":null}]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"intro\"],\"title\":\"Deck\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "60ed517b67a7670ca69ac01b46d89433614a64aa582f81bc08ec66f4a1859ec2"
+    },
+    {
+      "name": "doc_with_workbook",
+      "inputs": {
+        "text": "# Book\n",
+        "slides": null,
+        "workbook": {
+          "Sheet1": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c",
+              "d"
+            ]
+          ],
+          "Sheet2": [
+            [
+              "x"
+            ]
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[{\"rows\":[[\"a\",\"b\"],[\"c\",\"d\"]],\"sheet\":\"Sheet1\"},{\"rows\":[[\"x\"]],\"sheet\":\"Sheet2\"}]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[{\"rows\":[[\"a\",\"b\"],[\"c\",\"d\"]],\"sheet\":\"Sheet1\"},{\"rows\":[[\"x\"]],\"sheet\":\"Sheet2\"}]}}",
+      "hash": "fee50e326beec040e78fb90543c2c5fe74c87b9398aade533765dfa66eec120e"
+    },
+    {
+      "name": "doc_slides_and_workbook",
+      "inputs": {
+        "text": "# Both\ntext\n",
+        "slides": [
+          {
+            "title": "S",
+            "content": "c"
+          }
+        ],
+        "workbook": {
+          "Only": [
+            [
+              "1",
+              "2",
+              "3"
+            ]
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"text\"],\"title\":\"Both\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Both\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Both\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"text\"],\"title\":\"Both\"}],\"slides\":{\"bounded\":true,\"slides\":[{\"content\":\"c\",\"slide\":0,\"title\":\"S\"}]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"text\"],\"title\":\"Both\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[{\"rows\":[[\"1\",\"2\",\"3\"]],\"sheet\":\"Only\"}]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"Both\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"Both\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[{\"content\":\"c\",\"slide\":0,\"title\":\"S\"}]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"text\"],\"title\":\"Both\"}]},\"tables\":{\"bounded\":true,\"tables\":[]},\"worksheets\":{\"bounded\":true,\"worksheets\":[{\"rows\":[[\"1\",\"2\",\"3\"]],\"sheet\":\"Only\"}]}}",
+      "hash": "bc8d88c5e7328b098e42224dd5cdb047cf766964d6c7c87562749e14b101246b"
+    },
+    {
+      "name": "doc_table_ragged",
+      "inputs": {
+        "text": "| a | b |\n|c|\nd | e | f | g\n",
+        "slides": null,
+        "workbook": null
+      },
+      "serialized": "{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_ir\":{\"bounded\":true,\"citations\":{\"bounded\":true,\"citations\":[]},\"document_structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"| a | b |\",\"|c|\",\"d | e | f | g\"],\"title\":\"root\"}]},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"ir\":\"document_runtime\",\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"sections\":[{\"content\":[\"| a | b |\",\"|c|\",\"d | e | f | g\"],\"title\":\"root\"}],\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"| a | b |\",\"|c|\",\"d | e | f | g\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[{\"rows\":[[\"\",\"a\",\"b\",\"\"],[\"\",\"c\",\"\"],[\"d\",\"e\",\"f\",\"g\"]]}]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}},\"hierarchy\":{\"bounded\":true,\"hierarchy\":[{\"children\":[],\"id\":\"section_0\",\"title\":\"root\"}]},\"knowledge_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"section_0\",\"title\":\"root\"}]},\"references\":{\"bounded\":true,\"references\":[]},\"slides\":{\"bounded\":true,\"slides\":[]},\"structure\":{\"bounded\":true,\"sections\":[{\"content\":[\"| a | b |\",\"|c|\",\"d | e | f | g\"],\"title\":\"root\"}]},\"tables\":{\"bounded\":true,\"tables\":[{\"rows\":[[\"\",\"a\",\"b\",\"\"],[\"\",\"c\",\"\"],[\"d\",\"e\",\"f\",\"g\"]]}]},\"worksheets\":{\"bounded\":true,\"worksheets\":[]}}",
+      "hash": "35a4342ee68431b458aa7d00390df1890f8c9fde17ba5aa00a894579e2eaec5b"
+    }
+  ],
+  "extract_paginated_content": [
+    {
+      "name": "pg_none",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": null
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"\"}],\"visited_count\":1}",
+      "hash": "c91fb0401d2d8bad596ecf0c5c66449f2538edd20e459a7adf5f79f1efcdcd7c"
+    },
+    {
+      "name": "pg_no_selector",
+      "inputs": {
+        "next_selector": "",
+        "page": {
+          "test_url": "p0",
+          "paginate": {
+            "p0": "p1",
+            "p1": "p2",
+            "p2": ""
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"}],\"visited_count\":1}",
+      "hash": "6cbac8a437e05d235cfaea78593ebce9ccdf1f5deddec2d869fbcaca22c3adff"
+    },
+    {
+      "name": "pg_linear",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "paginate": {
+            "p0": "p1",
+            "p1": "p2",
+            "p2": ""
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"},{\"order\":1,\"url\":\"p1\"},{\"order\":2,\"url\":\"p2\"}],\"visited_count\":3}",
+      "hash": "f49bb88f0e7dca7d27e2f2c31ee40cc0a4ae5d21c7ad98a81ad19d9a1d401da1"
+    },
+    {
+      "name": "pg_cycle",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "paginate": {
+            "p0": "p1",
+            "p1": "p2",
+            "p2": "p0"
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"},{\"order\":1,\"url\":\"p1\"},{\"order\":2,\"url\":\"p2\"}],\"visited_count\":3}",
+      "hash": "f49bb88f0e7dca7d27e2f2c31ee40cc0a4ae5d21c7ad98a81ad19d9a1d401da1"
+    },
+    {
+      "name": "pg_max_pages",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "paginate": {
+            "p0": "p1",
+            "p1": "p2",
+            "p2": "p3",
+            "p3": "p4",
+            "p4": "p5",
+            "p5": "p6",
+            "p6": "p7",
+            "p7": "p8",
+            "p8": "p9",
+            "p9": "p10",
+            "p10": "p11",
+            "p11": "p12",
+            "p12": "p13",
+            "p13": "p14",
+            "p14": "p15",
+            "p15": "p16",
+            "p16": "p17",
+            "p17": "p18",
+            "p18": "p19",
+            "p19": "p20",
+            "p20": "p21",
+            "p21": "p22",
+            "p22": "p23",
+            "p23": "p24",
+            "p24": "p25",
+            "p25": "p26",
+            "p26": "p27",
+            "p27": "p28",
+            "p28": "p29",
+            "p29": "p30",
+            "p30": "p31",
+            "p31": "p32",
+            "p32": "p33",
+            "p33": "p34",
+            "p34": "p35",
+            "p35": "p36",
+            "p36": "p37",
+            "p37": "p38",
+            "p38": "p39",
+            "p39": "p40",
+            "p40": "p41",
+            "p41": "p42",
+            "p42": "p43",
+            "p43": "p44",
+            "p44": "p45",
+            "p45": "p46",
+            "p46": "p47",
+            "p47": "p48",
+            "p48": "p49",
+            "p49": "p50",
+            "p50": "p51",
+            "p51": "p52",
+            "p52": "p53",
+            "p53": "p54",
+            "p54": "p55",
+            "p55": "p56",
+            "p56": "p57",
+            "p57": "p58",
+            "p58": "p59",
+            "p59": "p60",
+            "p60": "p61",
+            "p61": "p62",
+            "p62": "p63",
+            "p63": "p64",
+            "p64": "p65",
+            "p65": "p66",
+            "p66": "p67",
+            "p67": "p68",
+            "p68": "p69",
+            "p69": "p70",
+            "p70": "p71",
+            "p71": "p72",
+            "p72": "p73",
+            "p73": "p74",
+            "p74": "p75",
+            "p75": "p76",
+            "p76": "p77",
+            "p77": "p78",
+            "p78": "p79",
+            "p79": "p80",
+            "p80": "p81",
+            "p81": "p82",
+            "p82": "p83",
+            "p83": "p84",
+            "p84": "p85",
+            "p85": "p86",
+            "p86": "p87",
+            "p87": "p88",
+            "p88": "p89",
+            "p89": "p90",
+            "p90": "p91",
+            "p91": "p92",
+            "p92": "p93",
+            "p93": "p94",
+            "p94": "p95",
+            "p95": "p96",
+            "p96": "p97",
+            "p97": "p98",
+            "p98": "p99",
+            "p99": "p100",
+            "p100": "p101",
+            "p101": "p102",
+            "p102": "p103",
+            "p103": "p104",
+            "p104": "p105",
+            "p105": "p106",
+            "p106": "p107",
+            "p107": "p108",
+            "p108": "p109",
+            "p109": "p110",
+            "p110": "p111",
+            "p111": "p112",
+            "p112": "p113",
+            "p113": "p114",
+            "p114": "p115",
+            "p115": "p116",
+            "p116": "p117",
+            "p117": "p118",
+            "p118": "p119",
+            "p119": "p120",
+            "p120": "p121",
+            "p121": "p122",
+            "p122": "p123",
+            "p123": "p124",
+            "p124": "p125",
+            "p125": "p126",
+            "p126": "p127",
+            "p127": "p128",
+            "p128": "p129",
+            "p129": "p130",
+            "p130": "p131",
+            "p131": "p132",
+            "p132": "p133",
+            "p133": "p134",
+            "p134": "p135",
+            "p135": "p136",
+            "p136": "p137",
+            "p137": "p138",
+            "p138": "p139",
+            "p139": "p140",
+            "p140": "p141",
+            "p141": "p142",
+            "p142": "p143",
+            "p143": "p144",
+            "p144": "p145",
+            "p145": "p146",
+            "p146": "p147",
+            "p147": "p148",
+            "p148": "p149",
+            "p149": "p150"
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":false,\"pages\":[{\"order\":0,\"url\":\"p0\"},{\"order\":1,\"url\":\"p1\"},{\"order\":2,\"url\":\"p2\"},{\"order\":3,\"url\":\"p3\"},{\"order\":4,\"url\":\"p4\"},{\"order\":5,\"url\":\"p5\"},{\"order\":6,\"url\":\"p6\"},{\"order\":7,\"url\":\"p7\"},{\"order\":8,\"url\":\"p8\"},{\"order\":9,\"url\":\"p9\"},{\"order\":10,\"url\":\"p10\"},{\"order\":11,\"url\":\"p11\"},{\"order\":12,\"url\":\"p12\"},{\"order\":13,\"url\":\"p13\"},{\"order\":14,\"url\":\"p14\"},{\"order\":15,\"url\":\"p15\"},{\"order\":16,\"url\":\"p16\"},{\"order\":17,\"url\":\"p17\"},{\"order\":18,\"url\":\"p18\"},{\"order\":19,\"url\":\"p19\"},{\"order\":20,\"url\":\"p20\"},{\"order\":21,\"url\":\"p21\"},{\"order\":22,\"url\":\"p22\"},{\"order\":23,\"url\":\"p23\"},{\"order\":24,\"url\":\"p24\"},{\"order\":25,\"url\":\"p25\"},{\"order\":26,\"url\":\"p26\"},{\"order\":27,\"url\":\"p27\"},{\"order\":28,\"url\":\"p28\"},{\"order\":29,\"url\":\"p29\"},{\"order\":30,\"url\":\"p30\"},{\"order\":31,\"url\":\"p31\"},{\"order\":32,\"url\":\"p32\"},{\"order\":33,\"url\":\"p33\"},{\"order\":34,\"url\":\"p34\"},{\"order\":35,\"url\":\"p35\"},{\"order\":36,\"url\":\"p36\"},{\"order\":37,\"url\":\"p37\"},{\"order\":38,\"url\":\"p38\"},{\"order\":39,\"url\":\"p39\"},{\"order\":40,\"url\":\"p40\"},{\"order\":41,\"url\":\"p41\"},{\"order\":42,\"url\":\"p42\"},{\"order\":43,\"url\":\"p43\"},{\"order\":44,\"url\":\"p44\"},{\"order\":45,\"url\":\"p45\"},{\"order\":46,\"url\":\"p46\"},{\"order\":47,\"url\":\"p47\"},{\"order\":48,\"url\":\"p48\"},{\"order\":49,\"url\":\"p49\"},{\"order\":50,\"url\":\"p50\"},{\"order\":51,\"url\":\"p51\"},{\"order\":52,\"url\":\"p52\"},{\"order\":53,\"url\":\"p53\"},{\"order\":54,\"url\":\"p54\"},{\"order\":55,\"url\":\"p55\"},{\"order\":56,\"url\":\"p56\"},{\"order\":57,\"url\":\"p57\"},{\"order\":58,\"url\":\"p58\"},{\"order\":59,\"url\":\"p59\"},{\"order\":60,\"url\":\"p60\"},{\"order\":61,\"url\":\"p61\"},{\"order\":62,\"url\":\"p62\"},{\"order\":63,\"url\":\"p63\"},{\"order\":64,\"url\":\"p64\"},{\"order\":65,\"url\":\"p65\"},{\"order\":66,\"url\":\"p66\"},{\"order\":67,\"url\":\"p67\"},{\"order\":68,\"url\":\"p68\"},{\"order\":69,\"url\":\"p69\"},{\"order\":70,\"url\":\"p70\"},{\"order\":71,\"url\":\"p71\"},{\"order\":72,\"url\":\"p72\"},{\"order\":73,\"url\":\"p73\"},{\"order\":74,\"url\":\"p74\"},{\"order\":75,\"url\":\"p75\"},{\"order\":76,\"url\":\"p76\"},{\"order\":77,\"url\":\"p77\"},{\"order\":78,\"url\":\"p78\"},{\"order\":79,\"url\":\"p79\"},{\"order\":80,\"url\":\"p80\"},{\"order\":81,\"url\":\"p81\"},{\"order\":82,\"url\":\"p82\"},{\"order\":83,\"url\":\"p83\"},{\"order\":84,\"url\":\"p84\"},{\"order\":85,\"url\":\"p85\"},{\"order\":86,\"url\":\"p86\"},{\"order\":87,\"url\":\"p87\"},{\"order\":88,\"url\":\"p88\"},{\"order\":89,\"url\":\"p89\"},{\"order\":90,\"url\":\"p90\"},{\"order\":91,\"url\":\"p91\"},{\"order\":92,\"url\":\"p92\"},{\"order\":93,\"url\":\"p93\"},{\"order\":94,\"url\":\"p94\"},{\"order\":95,\"url\":\"p95\"},{\"order\":96,\"url\":\"p96\"},{\"order\":97,\"url\":\"p97\"},{\"order\":98,\"url\":\"p98\"},{\"order\":99,\"url\":\"p99\"}],\"visited_count\":100}",
+      "hash": "6647689260fc9a40c68606b3bfb1d0f00bd5076564de443da383ef8f5acb25e6"
+    },
+    {
+      "name": "pg_click_ok",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "paginate": {
+            "p0": "p1",
+            "p1": ""
+          },
+          "has_click": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"},{\"order\":1,\"url\":\"p1\"}],\"visited_count\":2}",
+      "hash": "48d2a5b678b90d0a751b3aa2200a356f940d4018bf8e5aa7bed131fd0c9caabf"
+    },
+    {
+      "name": "pg_click_raises",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "paginate": {
+            "p0": "p1"
+          },
+          "has_click": true,
+          "click_raises": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"}],\"visited_count\":1}",
+      "hash": "6cbac8a437e05d235cfaea78593ebce9ccdf1f5deddec2d869fbcaca22c3adff"
+    },
+    {
+      "name": "pg_const_next",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "next_url": "p1"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"},{\"order\":1,\"url\":\"p1\"}],\"visited_count\":2}",
+      "hash": "48d2a5b678b90d0a751b3aa2200a356f940d4018bf8e5aa7bed131fd0c9caabf"
+    },
+    {
+      "name": "pg_next_eq_current",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "p0",
+          "next_url": "p0",
+          "paginate": {
+            "p0": "p1",
+            "p1": ""
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"p0\"},{\"order\":1,\"url\":\"p1\"}],\"visited_count\":2}",
+      "hash": "48d2a5b678b90d0a751b3aa2200a356f940d4018bf8e5aa7bed131fd0c9caabf"
+    },
+    {
+      "name": "pg_unicode_urls",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "😀",
+          "paginate": {
+            "😀": "中",
+            "中": ""
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"😀\"},{\"order\":1,\"url\":\"中\"}],\"visited_count\":2}",
+      "hash": "338756c739241a06f2cc3005c6cdb9245ca8d45b7461a5e3e418dad9cc4c8280"
+    },
+    {
+      "name": "pg_single",
+      "inputs": {
+        "next_selector": "a.next",
+        "page": {
+          "test_url": "only",
+          "paginate": {
+            "only": ""
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"loop_prevented\":true,\"pages\":[{\"order\":0,\"url\":\"only\"}],\"visited_count\":1}",
+      "hash": "3e2d1f3fb045406a241f10b330936e0eed8ce041a168160c941e35bc20a9ae7f"
+    }
+  ]
+}

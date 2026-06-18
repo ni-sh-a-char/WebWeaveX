@@ -42,6 +42,9 @@ JAVA_PROVEN = {
     "extract_api_runtime": "io.webweavex.connectors.ApiConnectors#extractApiRuntime",
     "extract_runtime_streams": "io.webweavex.connectors.StreamConnectors#extractRuntimeStreams",
     "extract_telemetry_runtime": "io.webweavex.connectors.TelemetryConnector#extractTelemetryRuntime",
+    # Session 4B — pure document + pagination extraction (dependency-proof survivors)
+    "extract_document_runtime": "io.webweavex.documents.DocumentRuntime#extractDocumentRuntime",
+    "extract_paginated_content": "io.webweavex.interaction.Pagination#extractPaginatedContent",
 }
 
 PACKAGES = [
@@ -114,7 +117,7 @@ def main() -> None:
     lines.append("")
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
-                        "connectors")
+                        "connectors", "documents", "interaction")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")
