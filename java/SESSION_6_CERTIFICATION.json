@@ -1,0 +1,66 @@
+{
+  "session": "6",
+  "slice": "build_interaction_graph (interaction graph)",
+  "branch": "java",
+  "python_canon": "origin/python@9625f4a (2.1.0)",
+  "phase0_blocker_audit": {
+    "doc": "java/JAVA_SESSION_6_BLOCKER_AUDIT.md",
+    "tracer": "tools/runtime_trace_s6.py",
+    "api": "compile_document",
+    "verdict": "A — import-time blocked only (NOT behavioral)",
+    "import_without_bs4": false,
+    "behaviorally_reaches_bs4": false,
+    "executed_core_modules": 238,
+    "executed_core_functions": 311,
+    "core_semantic_executed": 12,
+    "bs4_call_hits": 0
+  },
+  "analysis": {
+    "doc": "java/JAVA_SESSION_6_ANALYSIS.md",
+    "closure_modules": 5,
+    "closure_lines": 326,
+    "forbidden": 0,
+    "new_modules_to_port": 1
+  },
+  "traceability": "java/JAVA_SESSION_6_TRACEABILITY.md",
+  "implemented_apis": [
+    {
+      "api": "build_interaction_graph",
+      "java": "io.webweavex.interaction.InteractionGraph#buildInteractionGraph",
+      "python": "core.interaction.interaction_graph_engine.build_interaction_graph"
+    }
+  ],
+  "excluded_sibling": "interaction_graph_to_runtime_ir (out of scope)",
+  "parity": {
+    "generator": "tools/gen_java_parity_vectors_s6.py",
+    "vectors_file": "java/src/test/resources/parity/golden_vectors_s6.json",
+    "vectors": 20,
+    "test": "io.webweavex.parity.CrossLanguageParityS6Test",
+    "proof": "stable_serialize + compute_kaalka_hash byte-exact vs Python",
+    "result": "20/20 PASS"
+  },
+  "counts": {
+    "parity_proven_before": 23,
+    "parity_proven_after": 24,
+    "remaining_of_128": 104,
+    "tests_before": 249,
+    "tests_after": 269,
+    "instruction_coverage_before": "95.37%",
+    "instruction_coverage_after": "95.45%",
+    "interaction_graph_coverage": "99.19%"
+  },
+  "governance": {
+    "validator": "tools/validate_java_manifest.py (MAPPING +1) -> PASS 24/128",
+    "matrix": "java/JAVA_PARITY_MATRIX.md regenerated (24 proven)",
+    "proven_floor": "23 -> 24",
+    "manifest_modified": false
+  },
+  "quality_gates": {
+    "coverage_increased": true,
+    "synthetic_tests": false,
+    "self_consistency_tests": false,
+    "only_parity_backed_tests": true,
+    "mvn_verify": "BUILD SUCCESS (269/0/0)",
+    "validator": "PASS"
+  }
+}

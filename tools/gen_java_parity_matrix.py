@@ -45,6 +45,8 @@ JAVA_PROVEN = {
     # Session 4B — pure document + pagination extraction (dependency-proof survivors)
     "extract_document_runtime": "io.webweavex.documents.DocumentRuntime#extractDocumentRuntime",
     "extract_paginated_content": "io.webweavex.interaction.Pagination#extractPaginatedContent",
+    # Session 6 — interaction graph (dependency-clean)
+    "build_interaction_graph": "io.webweavex.interaction.InteractionGraph#buildInteractionGraph",
 }
 
 PACKAGES = [

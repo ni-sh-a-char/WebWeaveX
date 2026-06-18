@@ -1,0 +1,328 @@
+{
+  "source": "Python 2.1.0 canonical (session 6: build_interaction_graph)",
+  "build_interaction_graph": [
+    {
+      "name": "ig_empty",
+      "inputs": {
+        "interactions": []
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[],\"graph_hash\":\"28f274cf20861269b48b2b667fc368301ab83535e724fdd64065216e562baf20\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"}]}",
+      "hash": "4bd17614312215e68055d9d9d06e8f23ecae3640e3e6921e47d52d55e23dbf9b"
+    },
+    {
+      "name": "ig_single_click",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "n1",
+            "action": "click",
+            "selector": "#submit"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"n1\"}],\"graph_hash\":\"3b38c43e4f60c2fe3d3f2ecc40cc06057de0e2b985644254125615c08fcfc5f0\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"n1\",\"selector\":\"#submit\",\"type\":\"page\"}]}",
+      "hash": "3ce8e328fc6a333d2e1f584b83e9e2ee2326e1977e99f5281185620c34e33057"
+    },
+    {
+      "name": "ig_single_fill_form",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "fill",
+            "selector": "input#name"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"submission\",\"to\":\"interaction_0\"}],\"graph_hash\":\"0b6a63824a990871e668ac09b1a409e1e97790213307ac2e495ff2965dbec12c\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"fill\",\"id\":\"interaction_0\",\"selector\":\"input#name\",\"type\":\"form\"}]}",
+      "hash": "a34ba8a2ace10fb0851b1f5e783f94462bcae486eb16e6ccfc56aaa1923a8e5b"
+    },
+    {
+      "name": "ig_select_submission",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "select",
+            "selector": "select#country"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"submission\",\"to\":\"interaction_0\"}],\"graph_hash\":\"c371aaea253ab8baf48e9ce8957d3bdbbc177b005f2911b889ee5020ae4c5b20\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"select\",\"id\":\"interaction_0\",\"selector\":\"select#country\",\"type\":\"page\"}]}",
+      "hash": "0a54024f3d266e535264996f60d70f95b85f5399cf11c7a24c9bb1ffaf332587"
+    },
+    {
+      "name": "ig_wait_navigation",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "wait",
+            "selector": ""
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"navigation\",\"to\":\"interaction_0\"}],\"graph_hash\":\"dd8b81c91fc084ea4c46d41a1d6c745f6baa6c0b58d5ff175c2b67e83a7db9df\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"wait\",\"id\":\"interaction_0\",\"selector\":\"\",\"type\":\"page\"}]}",
+      "hash": "e84d0db733e26cae943d2317aa108a594a14720bd6ce4aa52bcfae8b85c3db22"
+    },
+    {
+      "name": "ig_hover_passthrough",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "hover",
+            "selector": ".menu"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"hover\",\"to\":\"interaction_0\"}],\"graph_hash\":\"96528c2202e853c77dea49338c0213b1684d3b82d7025525bd8b9788faa32e09\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"hover\",\"id\":\"interaction_0\",\"selector\":\".menu\",\"type\":\"page\"}]}",
+      "hash": "967b2cfcd77cd9a007e6f47d5790cc6596ff04e12d7d91796713ee36598fa09a"
+    },
+    {
+      "name": "ig_empty_action_transition",
+      "inputs": {
+        "interactions": [
+          {
+            "selector": ".x"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"transition\",\"to\":\"interaction_0\"}],\"graph_hash\":\"82e39ed1f1e7b925cb5e88eb859fb5684b67ccfc718d06f091c212d5e7aff5d1\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"\",\"id\":\"interaction_0\",\"selector\":\".x\",\"type\":\"page\"}]}",
+      "hash": "fbf2e6da3ca6d4c1017a85537075262297b6ddd0776fdfb01913823a1e04de35"
+    },
+    {
+      "name": "ig_modal",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "click",
+            "selector": ".Modal-Dialog"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"interaction_0\"}],\"graph_hash\":\"12cea6389147ac5e2bf973c94ac181ead5c8ab33a1acc59a1b8a88cfaeaf279f\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"interaction_0\",\"selector\":\".Modal-Dialog\",\"type\":\"modal\"}]}",
+      "hash": "df1e28155fca436309a498557d18104530578b48f188d6c11e9b02eda1145a30"
+    },
+    {
+      "name": "ig_tab",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "click",
+            "selector": "#TabPanel"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"interaction_0\"}],\"graph_hash\":\"a6efd4544c6411b45ebe71ec4d29945a29ea5a0efb72001cf55ef84fa627f073\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"interaction_0\",\"selector\":\"#TabPanel\",\"type\":\"tab\"}]}",
+      "hash": "bd127bd29140e2700a57f7f9359e6afe6e5022a105901cc84abf4a1a838075d1"
+    },
+    {
+      "name": "ig_modal_and_tab",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "click",
+            "selector": "modal-tab"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"interaction_0\"}],\"graph_hash\":\"7b040a647c9988517a49f2eb6f616a55e0dc7bc4be8a4b41e127d4ec3b7ac35f\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"interaction_0\",\"selector\":\"modal-tab\",\"type\":\"tab\"}]}",
+      "hash": "c9e6d0666af251f37e309b54d209c77564a829297584511552702d23be076345"
+    },
+    {
+      "name": "ig_multiple_chain",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "a",
+            "action": "click",
+            "selector": "#a"
+          },
+          {
+            "id": "b",
+            "action": "fill",
+            "selector": "input#b"
+          },
+          {
+            "id": "c",
+            "action": "select",
+            "selector": "select#c"
+          },
+          {
+            "id": "d",
+            "action": "wait",
+            "selector": ""
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"a\"},{\"from\":\"a\",\"relation\":\"submission\",\"to\":\"b\"},{\"from\":\"b\",\"relation\":\"submission\",\"to\":\"c\"},{\"from\":\"c\",\"relation\":\"navigation\",\"to\":\"d\"}],\"graph_hash\":\"aa5fa54f0569217adabd669bc99ae52aee25faf4e73889f8ff29e3405bcd2a77\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"a\",\"selector\":\"#a\",\"type\":\"page\"},{\"action\":\"fill\",\"id\":\"b\",\"selector\":\"input#b\",\"type\":\"form\"},{\"action\":\"select\",\"id\":\"c\",\"selector\":\"select#c\",\"type\":\"page\"},{\"action\":\"wait\",\"id\":\"d\",\"selector\":\"\",\"type\":\"page\"}]}",
+      "hash": "9fc449b2242f547fb7bd14c546a9280e63e59c148b5d58bc56996225c6c6b3e3"
+    },
+    {
+      "name": "ig_order_ab",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "x",
+            "action": "click",
+            "selector": "#x"
+          },
+          {
+            "id": "y",
+            "action": "fill",
+            "selector": "#y"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"x\"},{\"from\":\"x\",\"relation\":\"submission\",\"to\":\"y\"}],\"graph_hash\":\"275b7ec81b60a000515b3cbf8f0c7d0a087e10ba0e6e751f7330a7a7f214536f\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"x\",\"selector\":\"#x\",\"type\":\"page\"},{\"action\":\"fill\",\"id\":\"y\",\"selector\":\"#y\",\"type\":\"form\"}]}",
+      "hash": "df45edff37ea671544f315d0d1ebe87f0ec66670d7b86f91e8c9fd5179218f70"
+    },
+    {
+      "name": "ig_order_ba",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "y",
+            "action": "fill",
+            "selector": "#y"
+          },
+          {
+            "id": "x",
+            "action": "click",
+            "selector": "#x"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"submission\",\"to\":\"y\"},{\"from\":\"y\",\"relation\":\"click\",\"to\":\"x\"}],\"graph_hash\":\"85c714056bee7b0154cdb2413182746cc0c8d36f681cb3ec000c5e2cfd544d85\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"fill\",\"id\":\"y\",\"selector\":\"#y\",\"type\":\"form\"},{\"action\":\"click\",\"id\":\"x\",\"selector\":\"#x\",\"type\":\"page\"}]}",
+      "hash": "9291268e9cec42798fbd080263da5444b1fdabc6bd7cd9ba497ead5f1243db97"
+    },
+    {
+      "name": "ig_malformed_missing",
+      "inputs": {
+        "interactions": [
+          {},
+          {
+            "action": "click"
+          },
+          {
+            "selector": "#z",
+            "extra": "ignored"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"transition\",\"to\":\"interaction_0\"},{\"from\":\"interaction_0\",\"relation\":\"click\",\"to\":\"interaction_1\"},{\"from\":\"interaction_1\",\"relation\":\"transition\",\"to\":\"interaction_2\"}],\"graph_hash\":\"8e016d017a6b3607acb4075704cb118a538f852cd6c01a012a17f8f7f1fedf61\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"\",\"id\":\"interaction_0\",\"selector\":\"\",\"type\":\"page\"},{\"action\":\"click\",\"id\":\"interaction_1\",\"selector\":\"\",\"type\":\"page\"},{\"action\":\"\",\"id\":\"interaction_2\",\"selector\":\"#z\",\"type\":\"page\"}]}",
+      "hash": "65e6db073a3152c65b507fb8447f4952ac497d390d157e52fad479215e28fc9b"
+    },
+    {
+      "name": "ig_id_int",
+      "inputs": {
+        "interactions": [
+          {
+            "id": 5,
+            "action": "click",
+            "selector": "#a"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"5\"}],\"graph_hash\":\"38f687fc4784bf97ec1bef0b3037b21466355e3658f8063c2541b6e774ad6158\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"5\",\"selector\":\"#a\",\"type\":\"page\"}]}",
+      "hash": "0f3d2a742ca9dc4bad50c679ec926e5605bce40fd9c55faac0b72d4cec401e8e"
+    },
+    {
+      "name": "ig_id_none",
+      "inputs": {
+        "interactions": [
+          {
+            "id": null,
+            "action": "click",
+            "selector": "#a"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"None\"}],\"graph_hash\":\"2b9ca6c5884933605902135a8f988eac2c3fec5d96d011004830eb6b21922742\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"None\",\"selector\":\"#a\",\"type\":\"page\"}]}",
+      "hash": "b5cccfaff5a0b105b480f36c12b030d302015cf0d2928e2d4341ce417f2ea40b"
+    },
+    {
+      "name": "ig_repeated_ids",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "loop",
+            "action": "click",
+            "selector": "#a"
+          },
+          {
+            "id": "loop",
+            "action": "fill",
+            "selector": "#b"
+          },
+          {
+            "id": "loop",
+            "action": "click",
+            "selector": "#a"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"loop\"},{\"from\":\"loop\",\"relation\":\"submission\",\"to\":\"loop\"},{\"from\":\"loop\",\"relation\":\"click\",\"to\":\"loop\"}],\"graph_hash\":\"f26d3adac5f243ef61adab12e1a251311f1321ce499d462336cc9b01b326e5c3\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"loop\",\"selector\":\"#a\",\"type\":\"page\"},{\"action\":\"fill\",\"id\":\"loop\",\"selector\":\"#b\",\"type\":\"form\"},{\"action\":\"click\",\"id\":\"loop\",\"selector\":\"#a\",\"type\":\"page\"}]}",
+      "hash": "5dedf544306255b3be800df60f2f2a08f5bee1146378ffa33e0f2575b4a3140c"
+    },
+    {
+      "name": "ig_unicode",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "按钮",
+            "action": "click",
+            "selector": ".café-😀"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"按钮\"}],\"graph_hash\":\"cf6efffd38df94a95dc143f2c6c9ffe8f78ec87534d95b73c194b34b7a0bc595\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"按钮\",\"selector\":\".café-😀\",\"type\":\"page\"}]}",
+      "hash": "032362f248604f85825a410317af01f1b7e83cb13f4e0f4c40e9c3dcca1f8ec4"
+    },
+    {
+      "name": "ig_normalization",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "ñ",
+            "action": "click",
+            "selector": "ﬁle  "
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"click\",\"to\":\"ñ\"}],\"graph_hash\":\"198d9d6d75ae39c2e5348eb842dbb447182dc0ad8ad71764c688977e158613d5\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"click\",\"id\":\"ñ\",\"selector\":\"ﬁle  \",\"type\":\"page\"}]}",
+      "hash": "a2abd8fa7ef31b2a6c62a85612248fc29d6a2a1ed54b79ec12d86e85671b2d87"
+    },
+    {
+      "name": "ig_replay_log",
+      "inputs": {
+        "interactions": [
+          {
+            "id": "nav",
+            "action": "wait",
+            "selector": "body"
+          },
+          {
+            "id": "email",
+            "action": "fill",
+            "selector": "input#email"
+          },
+          {
+            "id": "pass",
+            "action": "fill",
+            "selector": "input#password"
+          },
+          {
+            "id": "remember",
+            "action": "click",
+            "selector": "input.remember-tab"
+          },
+          {
+            "id": "submit",
+            "action": "click",
+            "selector": "button#login"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"state_root\",\"relation\":\"navigation\",\"to\":\"nav\"},{\"from\":\"nav\",\"relation\":\"submission\",\"to\":\"email\"},{\"from\":\"email\",\"relation\":\"submission\",\"to\":\"pass\"},{\"from\":\"pass\",\"relation\":\"click\",\"to\":\"remember\"},{\"from\":\"remember\",\"relation\":\"click\",\"to\":\"submit\"}],\"graph_hash\":\"4cf9127b8dbdf62516eeff12cda7545c52735df8d3f5171fc91f3997638a6446\",\"ir\":\"interaction_graph\",\"nodes\":[{\"id\":\"state_root\",\"name\":\"root\",\"type\":\"state\"},{\"action\":\"wait\",\"id\":\"nav\",\"selector\":\"body\",\"type\":\"page\"},{\"action\":\"fill\",\"id\":\"email\",\"selector\":\"input#email\",\"type\":\"form\"},{\"action\":\"fill\",\"id\":\"pass\",\"selector\":\"input#password\",\"type\":\"form\"},{\"action\":\"click\",\"id\":\"remember\",\"selector\":\"input.remember-tab\",\"type\":\"tab\"},{\"action\":\"click\",\"id\":\"submit\",\"selector\":\"button#login\",\"type\":\"page\"}]}",
+      "hash": "e1253013942bc28a06c3907b1df3aebfb867efbe1553ac1e879ec6b99ee29016"
+    }
+  ]
+}

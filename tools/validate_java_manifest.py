@@ -60,6 +60,8 @@ MAPPING = {
     # Session 4B — pure document + pagination extraction (dependency-proof survivors)
     "extract_document_runtime": ("io.webweavex.documents.DocumentRuntime", "golden_vectors_s4b.json", "extract_document_runtime"),
     "extract_paginated_content": ("io.webweavex.interaction.Pagination", "golden_vectors_s4b.json", "extract_paginated_content"),
+    # Session 6 — interaction graph (dependency-clean)
+    "build_interaction_graph": ("io.webweavex.interaction.InteractionGraph", "golden_vectors_s6.json", "build_interaction_graph"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

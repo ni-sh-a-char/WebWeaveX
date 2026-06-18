@@ -72,6 +72,27 @@ dependencies; only the two genuinely pure APIs were implemented.
 Detail: [`java/SESSION_4B_CERTIFICATION.md`](java/SESSION_4B_CERTIFICATION.md) /
 [`.json`](java/SESSION_4B_CERTIFICATION.json).
 
+## Behavioural parity (Session 6 — interaction graph)
+
+Session 5 stopped at the gate (`compile_document` transitively imports BeautifulSoup —
+[`java/JAVA_SESSION_5_ANALYSIS.md`](java/JAVA_SESSION_5_ANALYSIS.md)); Session 6's Phase-0
+runtime audit ([`java/JAVA_SESSION_6_BLOCKER_AUDIT.md`](java/JAVA_SESSION_6_BLOCKER_AUDIT.md))
+proved that block is **import-time only** (bs4 never executes), then implemented the largest
+**proven dependency-clean** subsystem remaining.
+
+| Metric | Value |
+| --- | --- |
+| Java parity-proven APIs | **23 → 24** / 128 |
+| New API | `build_interaction_graph` (`io.webweavex.interaction.InteractionGraph`) |
+| Closure | 5 modules / 326 lines / 0 forbidden (1 new module ported) |
+| Session-6 golden vectors | 20 byte-exact (empty/single/multiple/malformed/cyclic/unicode/normalization/ordering/replay) |
+| Full suite | **269 tests, 0 failures, 0 errors** |
+| Instruction coverage | **95.45 %** (floor 94 %; InteractionGraph 99.19 %) |
+| `PROVEN_FLOOR` | 23 → 24 |
+
+Detail: [`java/SESSION_6_CERTIFICATION.md`](java/SESSION_6_CERTIFICATION.md) /
+[`.json`](java/SESSION_6_CERTIFICATION.json).
+
 ## Governance (machine-enforced)
 
 `tools/validate_java_manifest.py` → **PASS** (`21/128 proven; mapped/exist/tested/
@@ -97,7 +118,7 @@ Python ≡ Java is proven for all 21 APIs (byte-exact `stable_serialize` +
 certified (70k+ comparisons), therefore **Java ≡ JavaScript ≡ Dart** transitively.
 
 ```
-Python  =  Java  =  JavaScript  =  Dart        (23 / 128 APIs, byte-exact)
+Python  =  Java  =  JavaScript  =  Dart        (24 / 128 APIs, byte-exact)
 ```
 
 ## Reproduce
