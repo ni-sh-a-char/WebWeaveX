@@ -1,0 +1,3179 @@
+{
+  "entry": "core.ir.document_ir (compile_document_ir) — relative-aware",
+  "module_count": 275,
+  "total_lines": 6571,
+  "forbidden": [
+    {
+      "module": "core.semantic.table_semantics_engine",
+      "notes": [
+        "FORBIDDEN:BeautifulSoup"
+      ]
+    },
+    {
+      "module": "core.semantic.ui_semantics_engine",
+      "notes": [
+        "FORBIDDEN:BeautifulSoup"
+      ]
+    }
+  ],
+  "modules": {
+    "core.ir.document_ir": {
+      "lines": 50,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.document_semantic_ir_engine",
+        "core.ir._base"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.document_semantic_ir_engine": {
+      "lines": 28,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.argument_dependency_engine",
+        "core.documents.concept_progression_engine",
+        "core.documents.coreference_graph_engine",
+        "core.documents.document_dependency_graph_engine",
+        "core.documents.rhetorical_parser_engine",
+        "core.documents.tutorial_prerequisite_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.ir._base": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.argument_dependency_engine": {
+      "lines": 44,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.concept_progression_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.semantic_transition_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.coreference_graph_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.coreference_resolution_engine",
+        "core.documents.rhetorical_parser_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.document_dependency_graph_engine": {
+      "lines": 15,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.concept_transition_engine",
+        "core.documents.instructional_flow_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.rhetorical_parser_engine": {
+      "lines": 24,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.rhetorical_structure_engine",
+        "core.documents.semantic_role_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.tutorial_prerequisite_engine": {
+      "lines": 26,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.instructional_semantics_engine",
+        "core.documents.tutorial_dependency_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.semantic_transition_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.concept_transition_engine",
+        "core.documents.rhetorical_parser_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.coreference_resolution_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents": {
+      "lines": 1,
+      "third_party": [],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.instructional_flow_engine": {
+      "lines": 19,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.rhetorical_structure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.concept_transition_engine": {
+      "lines": 15,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.semantic_discourse_parser"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.rhetorical_structure_engine": {
+      "lines": 23,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.semantic_role_engine": {
+      "lines": 23,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.instructional_semantics_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.instructional_flow_engine",
+        "core.documents.semantic_role_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.tutorial_dependency_engine": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.tutorial_reasoning_engine",
+        "core.evidence"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.semantic_discourse_parser": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.argument_graph_engine",
+        "core.documents.rhetorical_structure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.tutorial_reasoning_engine": {
+      "lines": 33,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.section_engine",
+        "core.evidence"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence": {
+      "lines": 77,
+      "third_party": [],
+      "first_party": [
+        "core.evidence.civilizational_epistemic_openness_engine",
+        "core.evidence.cognitive_anti_capture_engine",
+        "core.evidence.cognitive_humility_engine",
+        "core.evidence.cognitive_integrity_engine",
+        "core.evidence.confidence_cap_engine",
+        "core.evidence.confidence_degradation_engine",
+        "core.evidence.contradiction_evidence_engine",
+        "core.evidence.corroboration_engine",
+        "core.evidence.derivation_lineage_engine",
+        "core.evidence.epistemic_civilization_stability_engine",
+        "core.evidence.epistemic_confidence_engine",
+        "core.evidence.epistemic_evidence_engine",
+        "core.evidence.evidence_graph_engine",
+        "core.evidence.evidence_sufficiency_engine",
+        "core.evidence.explainability_engine",
+        "core.evidence.formal_semantic_foundation_engine",
+        "core.evidence.grounding_engine",
+        "core.evidence.lineage_engine",
+        "core.evidence.noninference_engine",
+        "core.evidence.parser_evidence_graph_engine",
+        "core.evidence.provenance_engine",
+        "core.evidence.reality_alignment_engine",
+        "core.evidence.reconciliation_evidence_engine",
+        "core.evidence.recursive_epistemic_sovereignty_engine",
+        "core.evidence.recursive_reality_integrity_engine",
+        "core.evidence.semantic_confidence_engine",
+        "core.evidence.semantic_conservatism_engine",
+        "core.evidence.semantic_fragility_engine",
+        "core.evidence.semantic_honesty_engine",
+        "core.evidence.semantic_integrity_engine",
+        "core.evidence.semantic_restraint_engine",
+        "core.evidence.semantic_trace_engine",
+        "core.evidence.semantic_weighting_engine",
+        "core.evidence.traceability_engine",
+        "core.evidence.truth_preservation_engine",
+        "core.evidence.uncertainty_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.argument_graph_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.rhetorical_structure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.section_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.documents.heading_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core": {
+      "lines": 20,
+      "third_party": [],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.provenance_engine": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.grounding_engine": {
+      "lines": 71,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.provenance_engine",
+        "core.evidence.semantic_conservatism_engine",
+        "core.evidence.semantic_integrity_engine",
+        "core.semantic.semantic_uncertainty_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_confidence_engine": {
+      "lines": 43,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.lineage_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.evidence_graph_engine": {
+      "lines": 28,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_trace_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.contradiction_evidence_engine": {
+      "lines": 37,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.reconciliation_evidence_engine": {
+      "lines": 29,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_integrity_engine": {
+      "lines": 75,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.epistemic_evidence_engine",
+        "core.evidence.explainability_engine",
+        "core.evidence.formal_semantic_foundation_engine",
+        "core.evidence.lineage_engine",
+        "core.evidence.provenance_engine",
+        "core.evidence.semantic_confidence_engine",
+        "core.evidence.traceability_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explainability_engine": {
+      "lines": 38,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_weighting_engine": {
+      "lines": 15,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.corroboration_engine": {
+      "lines": 27,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.derivation_lineage_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.lineage_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.parser_evidence_graph_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.evidence_graph_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_conservatism_engine": {
+      "lines": 35,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.traceability_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.uncertainty_engine": {
+      "lines": 27,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.epistemic_evidence_engine": {
+      "lines": 77,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.civilizational_epistemic_openness_engine",
+        "core.evidence.cognitive_anti_capture_engine",
+        "core.evidence.cognitive_humility_engine",
+        "core.evidence.cognitive_integrity_engine",
+        "core.evidence.epistemic_civilization_stability_engine",
+        "core.evidence.epistemic_confidence_engine",
+        "core.evidence.evidence_sufficiency_engine",
+        "core.evidence.incompleteness_engine",
+        "core.evidence.insufficiency_engine",
+        "core.evidence.reality_alignment_engine",
+        "core.evidence.recursive_epistemic_sovereignty_engine",
+        "core.evidence.recursive_reality_integrity_engine",
+        "core.evidence.semantic_reliability_engine",
+        "core.evidence.semantic_restraint_engine",
+        "core.evidence.semantic_support_engine",
+        "core.evidence.semantic_uncertainty_propagation_engine",
+        "core.evidence.semantic_weakness_engine",
+        "core.evidence.truth_preservation_engine",
+        "core.semantic.contradiction_restraint_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.cognitive_integrity_engine": {
+      "lines": 76,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.epistemic_limit_engine",
+        "core.evidence.inference_integrity_engine",
+        "core.evidence.inference_limit_engine",
+        "core.evidence.semantic_fragility_engine",
+        "core.evidence.semantic_honesty_engine",
+        "core.evidence.semantic_overreach_engine",
+        "core.evidence.unsupported_inference_engine",
+        "core.evidence.unsupported_scope_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_honesty_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_fragility_engine": {
+      "lines": 41,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.epistemic_confidence_engine": {
+      "lines": 46,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.evidence_sufficiency_engine",
+        "core.evidence.semantic_support_engine",
+        "core.evidence.semantic_weakness_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.evidence_sufficiency_engine": {
+      "lines": 16,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_restraint_engine": {
+      "lines": 73,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.confidence_cap_engine",
+        "core.evidence.inference_refusal_engine",
+        "core.evidence.noninference_engine",
+        "core.evidence.semantic_boundary_engine",
+        "core.evidence.unsupported_expansion_engine",
+        "core.evidence.unsupported_scope_engine",
+        "core.semantic.contradiction_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.confidence_cap_engine": {
+      "lines": 33,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.noninference_engine": {
+      "lines": 29,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.cognitive_humility_engine": {
+      "lines": 95,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.ambiguity_visibility_engine",
+        "core.evidence.confidence_degradation_engine",
+        "core.evidence.inference_termination_engine",
+        "core.evidence.noninferable_scope_engine",
+        "core.evidence.semantic_fragility_engine",
+        "core.evidence.semantic_limit_engine",
+        "core.evidence.semantic_refusal_engine",
+        "core.evidence.semantic_self_limitation_engine",
+        "core.evidence.semantic_speculation_engine",
+        "core.evidence.uncertainty_visibility_engine",
+        "core.evidence.unsupported_confidence_engine",
+        "core.semantic.ambiguity_pressure_engine",
+        "core.semantic.uncertainty_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.confidence_degradation_engine": {
+      "lines": 46,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.confidence_cap_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.reality_alignment_engine": {
+      "lines": 112,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.continuity_refusal_engine",
+        "core.evidence.epistemic_boundary_engine",
+        "core.evidence.evidence_boundary_engine",
+        "core.evidence.narrative_hallucination_engine",
+        "core.evidence.ontology_boundary_engine",
+        "core.evidence.ontology_limit_engine",
+        "core.evidence.reality_bounded_confidence_engine",
+        "core.evidence.reality_constraint_engine",
+        "core.evidence.semantic_boundary_engine",
+        "core.evidence.semantic_drift_engine",
+        "core.evidence.semantic_momentum_engine",
+        "core.evidence.semantic_stability_engine",
+        "core.evidence.semantic_stability_limit_engine",
+        "core.evidence.semantic_termination_engine",
+        "core.evidence.speculative_coherence_engine",
+        "core.evidence.stability_boundary_engine",
+        "core.evidence.topology_boundary_engine",
+        "core.evidence.topology_limit_engine",
+        "core.evidence.unsupported_continuity_engine",
+        "core.semantic.evidence_boundary_pressure_engine",
+        "core.semantic.semantic_boundary_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.truth_preservation_engine": {
+      "lines": 96,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.confidence_collapse_engine",
+        "core.evidence.confidence_echo_engine",
+        "core.evidence.evidence_decay_engine",
+        "core.evidence.instability_preservation_engine",
+        "core.evidence.semantic_decay_engine",
+        "core.evidence.semantic_entropy_engine",
+        "core.evidence.semantic_instability_engine",
+        "core.evidence.semantic_self_reinforcement_engine",
+        "core.evidence.semantic_truth_limit_engine",
+        "core.evidence.stabilization_termination_engine",
+        "core.evidence.truth_boundary_engine",
+        "core.evidence.truth_refusal_engine",
+        "core.evidence.unsupported_stabilization_engine",
+        "core.semantic.evidence_decay_pressure_engine",
+        "core.semantic.truth_boundary_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_reality_integrity_engine": {
+      "lines": 113,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.recursive_coherence_inflation_engine",
+        "core.evidence.recursive_confidence_decay_engine",
+        "core.evidence.recursive_confidence_echo_engine",
+        "core.evidence.recursive_drift_engine",
+        "core.evidence.recursive_entropy_engine",
+        "core.evidence.recursive_evidence_ancestry_engine",
+        "core.evidence.recursive_instability_engine",
+        "core.evidence.recursive_lineage_engine",
+        "core.evidence.recursive_ontology_limit_engine",
+        "core.evidence.recursive_provenance_engine",
+        "core.evidence.recursive_reality_limit_engine",
+        "core.evidence.recursive_self_confirmation_engine",
+        "core.evidence.recursive_semantic_closure_engine",
+        "core.evidence.recursive_stabilization_termination_engine",
+        "core.evidence.recursive_topology_limit_engine",
+        "core.evidence.recursive_truth_boundary_engine",
+        "core.evidence.recursive_truth_refusal_engine",
+        "core.evidence.recursive_uncertainty_preservation_engine",
+        "core.semantic.recursive_boundary_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.epistemic_civilization_stability_engine": {
+      "lines": 100,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.authority_diffusion_engine",
+        "core.evidence.causal_plurality_engine",
+        "core.evidence.epistemic_openness_engine",
+        "core.evidence.explanatory_diversity_engine",
+        "core.evidence.interpretive_closure_engine",
+        "core.evidence.interpretive_decay_engine",
+        "core.evidence.interpretive_distribution_engine",
+        "core.evidence.interpretive_diversity_engine",
+        "core.evidence.ontology_alternative_engine",
+        "core.evidence.ontology_hardening_engine",
+        "core.evidence.ontology_instability_engine",
+        "core.evidence.plurality_decay_engine",
+        "core.evidence.recursive_consensus_engine",
+        "core.evidence.semantic_alternative_engine",
+        "core.evidence.semantic_decentralization_engine",
+        "core.evidence.semantic_diversity_engine",
+        "core.evidence.semantic_homogenization_engine",
+        "core.evidence.semantic_monoculture_engine",
+        "core.evidence.semantic_orthodoxy_engine",
+        "core.evidence.semantic_plurality_engine",
+        "core.evidence.semantic_uniformity_engine",
+        "core.evidence.worldview_convergence_engine",
+        "core.evidence.worldview_diversity_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.cognitive_anti_capture_engine": {
+      "lines": 110,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.authority_concentration_engine",
+        "core.evidence.autonomy_erosion_engine",
+        "core.evidence.cognitive_decentralization_engine",
+        "core.evidence.explanatory_competition_engine",
+        "core.evidence.explanatory_freedom_engine",
+        "core.evidence.interpretive_autonomy_engine",
+        "core.evidence.interpretive_freedom_engine",
+        "core.evidence.ontology_competition_engine",
+        "core.evidence.ontology_freedom_engine",
+        "core.evidence.ontology_monopoly_engine",
+        "core.evidence.recursive_authority_diffusion_engine",
+        "core.evidence.recursive_capture_resistance_engine",
+        "core.evidence.recursive_centralization_engine",
+        "core.evidence.recursive_cognitive_distribution_engine",
+        "core.evidence.recursive_narrative_monopoly_engine",
+        "core.evidence.recursive_semantic_decentralization_engine",
+        "core.evidence.recursive_semantic_distribution_engine",
+        "core.evidence.recursive_trust_monopoly_engine",
+        "core.evidence.semantic_autonomy_engine",
+        "core.evidence.semantic_freedom_engine",
+        "core.evidence.semantic_governance_engine",
+        "core.evidence.semantic_hierarchy_engine",
+        "core.evidence.semantic_monopoly_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_epistemic_sovereignty_engine": {
+      "lines": 118,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.cognitive_sovereignty_engine",
+        "core.evidence.explanatory_nondomestication_engine",
+        "core.evidence.explanatory_self_determination_engine",
+        "core.evidence.interpretive_nondomestication_engine",
+        "core.evidence.interpretive_self_determination_engine",
+        "core.evidence.ontology_nondomestication_engine",
+        "core.evidence.ontology_self_determination_engine",
+        "core.evidence.recursive_agency_decay_engine",
+        "core.evidence.recursive_agency_engine",
+        "core.evidence.recursive_agency_preservation_engine",
+        "core.evidence.recursive_autonomy_preservation_engine",
+        "core.evidence.recursive_dependency_engine",
+        "core.evidence.recursive_domestication_engine",
+        "core.evidence.recursive_guardianship_engine",
+        "core.evidence.recursive_independence_decay_engine",
+        "core.evidence.recursive_interpretive_independence_engine",
+        "core.evidence.recursive_obedience_engine",
+        "core.evidence.recursive_semantic_independence_engine",
+        "core.evidence.recursive_sovereignty_stability_engine",
+        "core.evidence.recursive_submission_engine",
+        "core.evidence.semantic_dependency_suppression_engine",
+        "core.evidence.semantic_nondomestication_engine",
+        "core.evidence.semantic_self_determination_engine",
+        "core.semantic.recursive_dependency_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.civilizational_epistemic_openness_engine": {
+      "lines": 121,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.cognitive_gravity_engine",
+        "core.evidence.explanatory_antigravity_engine",
+        "core.evidence.explanatory_divergence_engine",
+        "core.evidence.explanatory_fixation_engine",
+        "core.evidence.interpretive_divergence_engine",
+        "core.evidence.ontology_antigravity_engine",
+        "core.evidence.ontology_divergence_engine",
+        "core.evidence.ontology_fixation_engine",
+        "core.evidence.recursive_divergence_preservation_engine",
+        "core.evidence.recursive_entropy_preservation_engine",
+        "core.evidence.recursive_exploration_decay_engine",
+        "core.evidence.recursive_novelty_decay_engine",
+        "core.evidence.recursive_novelty_engine",
+        "core.evidence.recursive_novelty_preservation_engine",
+        "core.evidence.recursive_openness_stability_engine",
+        "core.evidence.recursive_phase_space_engine",
+        "core.evidence.recursive_stabilization_engine",
+        "core.evidence.semantic_antigravity_engine",
+        "core.evidence.semantic_attractor_engine",
+        "core.evidence.semantic_divergence_engine",
+        "core.evidence.semantic_fixation_engine",
+        "core.evidence.worldview_antigravity_engine",
+        "core.evidence.worldview_variance_engine",
+        "core.semantic.recursive_convergence_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.formal_semantic_foundation_engine": {
+      "lines": 59,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.contradiction_lattice_engine",
+        "core.evidence.deterministic_reasoning_engine",
+        "core.evidence.evidence_weighting_calculus",
+        "core.evidence.inference_validation_engine",
+        "core.evidence.semantic_consistency_engine",
+        "core.evidence.semantic_entropy_engine",
+        "core.evidence.semantic_justification_engine",
+        "core.evidence.semantic_proof_engine",
+        "core.evidence.uncertainty_propagation_math"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.documents.heading_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_uncertainty_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.semantic_conservatism_engine",
+        "core.evidence.uncertainty_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.incompleteness_engine": {
+      "lines": 32,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.semantic_incompleteness_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.insufficiency_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_reliability_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.evidence_sufficiency_engine",
+        "core.evidence.semantic_support_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_support_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_uncertainty_propagation_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.uncertainty_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.contradiction_restraint_engine": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.semantic.contradiction_pressure_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_weakness_engine": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.epistemic_limit_engine": {
+      "lines": 25,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.inference_integrity_engine": {
+      "lines": 24,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.inference_limit_engine": {
+      "lines": 16,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.semantic_boundary_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_overreach_engine": {
+      "lines": 23,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.unsupported_inference_engine": {
+      "lines": 25,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.unsupported_scope_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.inference_refusal_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_boundary_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.unsupported_expansion_engine": {
+      "lines": 19,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.contradiction_pressure_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ambiguity_visibility_engine": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.inference_termination_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.noninferable_scope_engine": {
+      "lines": 26,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_limit_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_refusal_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_self_limitation_engine": {
+      "lines": 26,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_speculation_engine": {
+      "lines": 19,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.speculative_inference_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.uncertainty_visibility_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.unsupported_confidence_engine": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.ambiguity_pressure_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.uncertainty_pressure_engine": {
+      "lines": 15,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.continuity_refusal_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.epistemic_boundary_engine": {
+      "lines": 19,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.evidence_boundary_engine": {
+      "lines": 15,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.narrative_hallucination_engine": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_boundary_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_limit_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.reality_bounded_confidence_engine": {
+      "lines": 44,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.confidence_degradation_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.reality_constraint_engine": {
+      "lines": 24,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.evidence_boundary_engine",
+        "core.evidence.ontology_boundary_engine",
+        "core.evidence.topology_boundary_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_drift_engine": {
+      "lines": 27,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_momentum_engine": {
+      "lines": 15,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_stability_engine": {
+      "lines": 29,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_stability_limit_engine": {
+      "lines": 11,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_termination_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.speculative_coherence_engine": {
+      "lines": 17,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.stability_boundary_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.topology_boundary_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.topology_limit_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.unsupported_continuity_engine": {
+      "lines": 44,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.evidence_boundary_pressure_engine": {
+      "lines": 10,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_boundary_pressure_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.confidence_collapse_engine": {
+      "lines": 46,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.reality_bounded_confidence_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.confidence_echo_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.evidence_decay_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.instability_preservation_engine": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_decay_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_entropy_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_instability_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_self_reinforcement_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_truth_limit_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.stabilization_termination_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.truth_boundary_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.truth_refusal_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.unsupported_stabilization_engine": {
+      "lines": 35,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.evidence_decay_pressure_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.truth_boundary_pressure_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_coherence_inflation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_confidence_decay_engine": {
+      "lines": 43,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.confidence_collapse_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_confidence_echo_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_drift_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_entropy_engine": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_evidence_ancestry_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_instability_engine": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_lineage_engine": {
+      "lines": 26,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_provenance_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_reality_limit_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_self_confirmation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_semantic_closure_engine": {
+      "lines": 34,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_stabilization_termination_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_truth_boundary_engine": {
+      "lines": 16,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_truth_refusal_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_uncertainty_preservation_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_ontology_limit_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_topology_limit_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.recursive_boundary_pressure_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.authority_diffusion_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.epistemic_openness_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_diversity_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_decay_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_closure_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_diversity_engine": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_distribution_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_alternative_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_hardening_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_instability_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.plurality_decay_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_consensus_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_alternative_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_decentralization_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_diversity_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_homogenization_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_monoculture_engine": {
+      "lines": 27,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_orthodoxy_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_plurality_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_uniformity_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.worldview_convergence_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.worldview_diversity_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.causal_plurality_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.authority_concentration_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.autonomy_erosion_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.cognitive_decentralization_engine": {
+      "lines": 14,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_competition_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_freedom_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_autonomy_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_freedom_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_competition_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_freedom_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_monopoly_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_authority_diffusion_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_capture_resistance_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_centralization_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_cognitive_distribution_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_narrative_monopoly_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_semantic_decentralization_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_semantic_distribution_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_trust_monopoly_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_autonomy_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_freedom_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_governance_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_hierarchy_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_monopoly_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.cognitive_sovereignty_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_nondomestication_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_self_determination_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_nondomestication_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_self_determination_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_nondomestication_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_self_determination_engine": {
+      "lines": 12,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_agency_decay_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_agency_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_agency_preservation_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_autonomy_preservation_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_dependency_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_domestication_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_guardianship_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_independence_decay_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_interpretive_independence_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_obedience_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_semantic_independence_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_sovereignty_stability_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_submission_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_dependency_suppression_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_nondomestication_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_self_determination_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.recursive_dependency_pressure_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.cognitive_gravity_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_antigravity_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_divergence_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.explanatory_fixation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.interpretive_divergence_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_antigravity_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_divergence_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.ontology_fixation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_divergence_preservation_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_entropy_preservation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_exploration_decay_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_novelty_decay_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_novelty_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_novelty_preservation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_openness_stability_engine": {
+      "lines": 13,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_phase_space_engine": {
+      "lines": 10,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.recursive_stabilization_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_antigravity_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_attractor_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_divergence_engine": {
+      "lines": 10,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_fixation_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.worldview_antigravity_engine": {
+      "lines": 8,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.worldview_variance_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.recursive_convergence_pressure_engine": {
+      "lines": 9,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.contradiction_lattice_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.deterministic_reasoning_engine": {
+      "lines": 26,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.evidence_algebra_engine",
+        "core.evidence.semantic_inference_calculus"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.evidence_weighting_calculus": {
+      "lines": 24,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_consistency_engine": {
+      "lines": 25,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_justification_engine": {
+      "lines": 30,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.uncertainty_propagation_math": {
+      "lines": 28,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.uncertainty_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.inference_validation_engine": {
+      "lines": 16,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.evidence.semantic_inference_calculus"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_proof_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_incompleteness_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic": {
+      "lines": 21,
+      "third_party": [],
+      "first_party": [
+        "core.semantic.domain_classification_engine",
+        "core.semantic.entity_extraction_engine",
+        "core.semantic.semantic_graph_engine",
+        "core.semantic.semantic_memory_engine",
+        "core.semantic.semantic_orchestrator",
+        "core.semantic.semantic_replay_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.speculative_inference_engine": {
+      "lines": 64,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.evidence_algebra_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.evidence.semantic_inference_calculus": {
+      "lines": 22,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_orchestrator": {
+      "lines": 200,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [
+        "core.ir.semantic_runtime_ir",
+        "core.runtime_graph.runtime_graph_engine",
+        "core.semantic.application_semantics_engine",
+        "core.semantic.browser_semantics_engine",
+        "core.semantic.causality_semantics_engine",
+        "core.semantic.document_semantics_engine",
+        "core.semantic.domain_classification_engine",
+        "core.semantic.entity_extraction_engine",
+        "core.semantic.entity_resolution_engine",
+        "core.semantic.ontology_engine",
+        "core.semantic.repository_semantics_engine",
+        "core.semantic.runtime_semantics_engine",
+        "core.semantic.semantic_alignment_engine",
+        "core.semantic.semantic_diff_engine",
+        "core.semantic.semantic_graph_engine",
+        "core.semantic.semantic_memory_engine",
+        "core.semantic.semantic_replay_engine",
+        "core.semantic.table_semantics_engine",
+        "core.semantic.ui_semantics_engine",
+        "core.semantic.workflow_semantics_engine"
+      ],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.entity_extraction_engine": {
+      "lines": 71,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.domain_classification_engine": {
+      "lines": 45,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_graph_engine": {
+      "lines": 65,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_memory_engine": {
+      "lines": 73,
+      "third_party": [
+        "__future__",
+        "json",
+        "pathlib",
+        "typing"
+      ],
+      "first_party": [
+        "core.crypto.kaalka_runtime_engine"
+      ],
+      "class": "REVIEW",
+      "notes": [
+        "third?:pathlib"
+      ]
+    },
+    "core.semantic.semantic_replay_engine": {
+      "lines": 18,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.ir.semantic_runtime_ir": {
+      "lines": 50,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.application_semantics_engine": {
+      "lines": 26,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.browser_semantics_engine": {
+      "lines": 19,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.causality_semantics_engine": {
+      "lines": 31,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.document_semantics_engine": {
+      "lines": 32,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.entity_resolution_engine": {
+      "lines": 30,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.ontology_engine": {
+      "lines": 28,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.repository_semantics_engine": {
+      "lines": 41,
+      "third_party": [
+        "__future__",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.runtime_semantics_engine": {
+      "lines": 20,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_alignment_engine": {
+      "lines": 37,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.semantic_diff_engine": {
+      "lines": 32,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.semantic.table_semantics_engine": {
+      "lines": 53,
+      "third_party": [
+        "__future__",
+        "bs4",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "FORBIDDEN",
+      "notes": [
+        "FORBIDDEN:BeautifulSoup"
+      ]
+    },
+    "core.semantic.ui_semantics_engine": {
+      "lines": 56,
+      "third_party": [
+        "__future__",
+        "bs4",
+        "re",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "FORBIDDEN",
+      "notes": [
+        "FORBIDDEN:BeautifulSoup"
+      ]
+    },
+    "core.semantic.workflow_semantics_engine": {
+      "lines": 21,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.runtime_graph.runtime_graph_engine": {
+      "lines": 93,
+      "third_party": [
+        "__future__",
+        "typing"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.crypto.kaalka_runtime_engine": {
+      "lines": 92,
+      "third_party": [
+        "__future__",
+        "base64",
+        "hashlib",
+        "typing"
+      ],
+      "first_party": [
+        "core.crypto.kaalka_v5_proc",
+        "core.determinism.normalization"
+      ],
+      "class": "REVIEW",
+      "notes": [
+        "third?:base64",
+        "third?:hashlib"
+      ]
+    },
+    "core.crypto.kaalka_v5_proc": {
+      "lines": 40,
+      "third_party": [
+        "__future__"
+      ],
+      "first_party": [],
+      "class": "PURE",
+      "notes": []
+    },
+    "core.determinism.normalization": {
+      "lines": 99,
+      "third_party": [
+        "__future__",
+        "json",
+        "re",
+        "typing",
+        "unicodedata"
+      ],
+      "first_party": [],
+      "class": "REVIEW",
+      "notes": [
+        "third?:unicodedata"
+      ]
+    }
+  }
+}
