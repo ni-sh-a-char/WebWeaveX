@@ -100,6 +100,12 @@ MAPPING = {
     "run_evolution_for_extraction": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "run_evolution_for_extraction"),
     "save_evolution_runtime": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "save_evolution_runtime"),
     "load_evolution_runtime": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "load_evolution_runtime"),
+    # Session 13 — causality family (dependency-clean, 25-module closure)
+    "run_causality_runtime": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "run_causality_runtime"),
+    "replay_causal_runtime": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "replay_causal_runtime"),
+    "run_causality_for_extraction": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "run_causality_for_extraction"),
+    "save_causal_memory": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "save_causal_memory"),
+    "load_causal_memory": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "load_causal_memory"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

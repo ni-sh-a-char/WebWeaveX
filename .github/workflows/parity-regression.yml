@@ -9,7 +9,7 @@ on:
 
 env:
   COVERAGE_FLOOR: '94.0'   # instruction-coverage floor; raise as coverage grows
-  PROVEN_FLOOR: '56'       # minimum parity-proven manifest APIs (never decrease)
+  PROVEN_FLOOR: '61'       # minimum parity-proven manifest APIs (never decrease)
 
 jobs:
   regression:

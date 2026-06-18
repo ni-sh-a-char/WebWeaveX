@@ -85,6 +85,12 @@ JAVA_PROVEN = {
     "run_evolution_for_extraction": "io.webweavex.evolution.EvolutionRuntime#runEvolutionForExtraction",
     "save_evolution_runtime": "io.webweavex.evolution.EvolutionRuntime#saveEvolutionRuntime",
     "load_evolution_runtime": "io.webweavex.evolution.EvolutionRuntime#loadEvolutionRuntime",
+    # Session 13 — causality family (dependency-clean, 25-module closure)
+    "run_causality_runtime": "io.webweavex.causality.CausalityRuntime#runCausalityRuntime",
+    "replay_causal_runtime": "io.webweavex.causality.CausalityRuntime#replayCausalRuntime",
+    "run_causality_for_extraction": "io.webweavex.causality.CausalityRuntime#runCausalityForExtraction",
+    "save_causal_memory": "io.webweavex.causality.CausalityRuntime#saveCausalMemory",
+    "load_causal_memory": "io.webweavex.causality.CausalityRuntime#loadCausalMemory",
 }
 
 PACKAGES = [
@@ -158,7 +164,7 @@ def main() -> None:
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
                         "connectors", "documents", "execution", "interaction", "session",
-                        "synchronization", "workflow", "evolution")
+                        "synchronization", "workflow", "evolution", "causality")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")
