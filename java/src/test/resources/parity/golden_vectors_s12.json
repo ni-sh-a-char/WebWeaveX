@@ -1,0 +1,1157 @@
+{
+  "source": "Python 2.1.0 canonical (session 12: evolution_runtime family)",
+  "build_runtime_evolution": [
+    {
+      "name": "evo_empty",
+      "inputs": {
+        "mutations": [],
+        "lineage": []
+      },
+      "serialized": "{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[],\"mutations\":[]}",
+      "hash": "7c27a56f3ecc2166b19705ca02ead3fd830e74d772b69ab02df71bef1300e888"
+    },
+    {
+      "name": "evo_mutations",
+      "inputs": {
+        "mutations": [
+          {
+            "kind": "selector",
+            "target": "#z"
+          },
+          {
+            "kind": "workflow",
+            "target": "execution_ordering"
+          },
+          {
+            "kind": "selector",
+            "target": "#a"
+          }
+        ],
+        "lineage": [
+          {
+            "id": "b1"
+          },
+          {
+            "id": "a1"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"evolution_id\":\"381e3894f807af6fc3303643036bb571\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"a1\"},{\"id\":\"b1\"}],\"mutations\":[{\"kind\":\"selector\",\"target\":\"#a\"},{\"kind\":\"selector\",\"target\":\"#z\"},{\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]}",
+      "hash": "d727c70cc4be690a1084bb1a1e9b9f62f39426f98fa9d3d98885e7b6c060b3ce"
+    }
+  ],
+  "evolve_selector_runtime": [
+    {
+      "name": "sel_empty",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"count\":0,\"selectors\":[]}",
+      "hash": "ec2a5fb6cf955054f6fa79f61dc74fd3f072ac5c446d987c3850a5c12a86a4d6"
+    },
+    {
+      "name": "sel_healed",
+      "inputs": {
+        "selectors": {
+          "#a": ".a2",
+          "#b": ".b2"
+        },
+        "healed": {
+          "#a": ".healed-a"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"count\":2,\"selectors\":[{\"evolved\":\".healed-a\",\"fallback\":\"[data-evolved='.healed-a']\",\"original\":\"#a\",\"strategy\":\"healed_promotion\"},{\"evolved\":\".b2\",\"fallback\":\".b2\",\"original\":\"#b\",\"strategy\":\"structural_upgrade\"}]}",
+      "hash": "af51947b8e3d1e89f14b9aeef23cf2b6c414ef75d209a983acbf104cf37d57e5"
+    },
+    {
+      "name": "sel_unicode",
+      "inputs": {
+        "selectors": {
+          "按钮": ".btn"
+        },
+        "healed": {
+          "café": ".c2"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"count\":2,\"selectors\":[{\"evolved\":\".c2\",\"fallback\":\"[data-evolved='.c2']\",\"original\":\"café\",\"strategy\":\"healed_promotion\"},{\"evolved\":\".btn\",\"fallback\":\".btn\",\"original\":\"按钮\",\"strategy\":\"structural_upgrade\"}]}",
+      "hash": "127f26258a721e42cd78f4304af6e68bdb12c96cad6728515e7ac86c97030f31"
+    }
+  ],
+  "run_evolution_runtime": [
+    {
+      "name": "run_default",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "07f54ef4246ce5554a2ce8f8d077b1511f431dec337c6511992832dc90193f5e"
+    },
+    {
+      "name": "run_workflow",
+      "inputs": {
+        "workflow_result": {
+          "workflow": {
+            "plan": {
+              "steps": [
+                {
+                  "id": "s1",
+                  "priority": 1
+                },
+                {
+                  "id": "s2",
+                  "priority": 0
+                }
+              ]
+            },
+            "execution": {
+              "executed": [
+                {
+                  "step_id": "s1"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":2,\"mutation_count\":1,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"converges\",\"to\":\"4736295cee301da0b37d3964634aa636\"},{\"from\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"evolves\",\"to\":\"mutation:workflow:execution_ordering\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"4736295cee301da0b37d3964634aa636\"}],\"nodes\":[{\"id\":\"4736295cee301da0b37d3964634aa636\",\"type\":\"evolution\"},{\"id\":\"mutation:workflow:execution_ordering\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"current\"},{\"ancestor\":\"4736295cee301da0b37d3964634aa636\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":2,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[\"s1\",\"s2\"],\"pacing\":1,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":1,\"sync_timing\":2}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"converges\",\"to\":\"4736295cee301da0b37d3964634aa636\"},{\"from\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"evolves\",\"to\":\"mutation:workflow:execution_ordering\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"4736295cee301da0b37d3964634aa636\"}],\"nodes\":[{\"id\":\"4736295cee301da0b37d3964634aa636\",\"type\":\"evolution\"},{\"id\":\"mutation:workflow:execution_ordering\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"current\"},{\"ancestor\":\"4736295cee301da0b37d3964634aa636\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]},\"last_evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":2,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"current\"},{\"ancestor\":\"4736295cee301da0b37d3964634aa636\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[\"s1\",\"s2\"],\"pacing\":1,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":1,\"sync_timing\":2}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":2,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"4736295cee301da0b37d3964634aa636\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":1},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]},\"lineage\":[{\"id\":\"4736295cee301da0b37d3964634aa636\",\"relation\":\"current\"},{\"ancestor\":\"4736295cee301da0b37d3964634aa636\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[\"s1\",\"s2\"],\"pacing\":1,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":1,\"sync_timing\":2}}",
+      "hash": "39d3ea14f323e8baba34d33e7099d43e5088eb7d0329bab4d33c69fe587f55e9"
+    },
+    {
+      "name": "run_semantic",
+      "inputs": {
+        "semantic_result": {
+          "semantic": {
+            "entities": {
+              "entities": [
+                {
+                  "label": "User"
+                },
+                {
+                  "label": "Account"
+                },
+                {
+                  "type": "Order"
+                }
+              ]
+            },
+            "domain": {
+              "domain": "saas"
+            },
+            "ontology": {
+              "o": 1
+            }
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":1,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":1,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":1,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"converges\",\"to\":\"be87f843634e209c9a162139ed92a08e\"},{\"from\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"evolves\",\"to\":\"mutation:semantic:domain\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"be87f843634e209c9a162139ed92a08e\"}],\"nodes\":[{\"id\":\"be87f843634e209c9a162139ed92a08e\",\"type\":\"evolution\"},{\"id\":\"mutation:semantic:domain\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"current\"},{\"ancestor\":\"be87f843634e209c9a162139ed92a08e\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[\"semantic\"],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"domain_stabilized\":true,\"history_length\":0,\"recurring_entities\":[\"Account\",\"Order\",\"User\"],\"semantic_convergence\":3,\"stable_ontology\":{\"o\":1}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"converges\",\"to\":\"be87f843634e209c9a162139ed92a08e\"},{\"from\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"evolves\",\"to\":\"mutation:semantic:domain\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"be87f843634e209c9a162139ed92a08e\"}],\"nodes\":[{\"id\":\"be87f843634e209c9a162139ed92a08e\",\"type\":\"evolution\"},{\"id\":\"mutation:semantic:domain\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"current\"},{\"ancestor\":\"be87f843634e209c9a162139ed92a08e\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":1,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":1,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":1,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}]},\"last_evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"current\"},{\"ancestor\":\"be87f843634e209c9a162139ed92a08e\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"saas\",\"domain_stabilized\":true,\"history_length\":0,\"recurring_entities\":[\"Account\",\"Order\",\"User\"],\"semantic_convergence\":3,\"stable_ontology\":{\"o\":1}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[\"semantic\"],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"be87f843634e209c9a162139ed92a08e\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":1,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"}]},\"lineage\":[{\"id\":\"be87f843634e209c9a162139ed92a08e\",\"relation\":\"current\"},{\"ancestor\":\"be87f843634e209c9a162139ed92a08e\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"domain_stabilized\":true,\"history_length\":0,\"recurring_entities\":[\"Account\",\"Order\",\"User\"],\"semantic_convergence\":3,\"stable_ontology\":{\"o\":1}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "ef34c748c2edb31aeee87f3ff46cbeddbf6c51eb8a635acaf8c43b0757050eca"
+    },
+    {
+      "name": "run_failures",
+      "inputs": {
+        "failures": [
+          "broken_selector",
+          "failed_workflow",
+          "failed_workflow",
+          "sync_divergence"
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":4,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:reorder_workflow\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:reorder_workflow\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:resync_runtime\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"},{\"id\":\"repair:reorder_workflow\",\"type\":\"repair\"},{\"id\":\"repair:reorder_workflow\",\"type\":\"repair\"},{\"id\":\"repair:resync_runtime\",\"type\":\"repair\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":4,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"repaired\":true},{\"action\":\"reorder_workflow\",\"failure\":\"failed_workflow\",\"repaired\":true},{\"action\":\"reorder_workflow\",\"failure\":\"failed_workflow\",\"repaired\":true},{\"action\":\"resync_runtime\",\"failure\":\"sync_divergence\",\"repaired\":true}]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:reorder_workflow\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:reorder_workflow\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:resync_runtime\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"},{\"id\":\"repair:reorder_workflow\",\"type\":\"repair\"},{\"id\":\"repair:reorder_workflow\",\"type\":\"repair\"},{\"id\":\"repair:resync_runtime\",\"type\":\"repair\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[\"heal_selector\",\"reorder_workflow\",\"reorder_workflow\",\"resync_runtime\"]},\"repairs\":{\"bounded\":true,\"repair_count\":4,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"repaired\":true},{\"action\":\"reorder_workflow\",\"failure\":\"failed_workflow\",\"repaired\":true},{\"action\":\"reorder_workflow\",\"failure\":\"failed_workflow\",\"repaired\":true},{\"action\":\"resync_runtime\",\"failure\":\"sync_divergence\",\"repaired\":true}]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "c918864803e3a28fbf0a9f61bea7bd4a2e84858e8bb38d5503ca90af276d67c8"
+    },
+    {
+      "name": "run_distributed",
+      "inputs": {
+        "distributed_result": {
+          "workers": [
+            {
+              "worker_id": "w2"
+            },
+            {
+              "worker_id": "w1"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":2,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[\"w1\",\"w2\"],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":2,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[\"w1\",\"w2\"],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "95fe42fc515ad6e136aa4e6978469231778d5394a0a1d772b2df0234831124c0"
+    },
+    {
+      "name": "run_sync",
+      "inputs": {
+        "sync_result": {
+          "synchronization": {
+            "drift": {
+              "drifts": [
+                {
+                  "d": 1
+                }
+              ]
+            },
+            "deltas": [
+              {
+                "x": 1
+              }
+            ],
+            "convergence": {
+              "converged": true
+            }
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":false,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":1},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"repair_then_extract\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":false,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":1}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":false,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":1},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"repair_then_extract\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "c678360d623b41108db9df1dcbd6b62b440e8b1906ea70a9fc81a35263e38484"
+    },
+    {
+      "name": "run_memory",
+      "inputs": {
+        "memory": {
+          "last_evolution_id": "prev123",
+          "last_evolution": {
+            "evolution_id": "prev123",
+            "mutations": []
+          },
+          "evolution_histories": [
+            {
+              "evolution_id": "h1"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"bounded\":true,\"current_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"evolution_changed\":true,\"mutation_delta\":0,\"previous_id\":\"prev123\",\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":1,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":1,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":1,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"mutations\":[]}],\"evolution_histories\":[{\"evolution_id\":\"h1\"},{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":1,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":1,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":1,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"},{\"id\":\"prev123\",\"relation\":\"parent\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":1,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":1,\"score\":0,\"sync_timing\":0}}",
+      "hash": "d81816035702747ab258d59ceb09e7910bed6d726552f9bddb0dc11fc3f43e80"
+    },
+    {
+      "name": "run_adaptive",
+      "inputs": {
+        "adaptive_memory": {
+          "selectors": {
+            "#x": ".x2"
+          },
+          "healed_selectors": {
+            "#y": ".healed-y"
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":2,\"repair_count\":1,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"converges\",\"to\":\"df4964bf40a1daafe141099cf038e364\"},{\"from\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"evolves\",\"to\":\"mutation:selector:#x\"},{\"from\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"evolves\",\"to\":\"mutation:selector:#y\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"df4964bf40a1daafe141099cf038e364\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"df4964bf40a1daafe141099cf038e364\"}],\"nodes\":[{\"id\":\"df4964bf40a1daafe141099cf038e364\",\"type\":\"evolution\"},{\"id\":\"mutation:selector:#x\",\"type\":\"mutation\"},{\"id\":\"mutation:selector:#y\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"current\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"healed\":\".healed-y\",\"repaired\":true,\"selector\":\"#y\"}]},\"selector\":{\"bounded\":true,\"count\":2,\"selectors\":[{\"evolved\":\".healed-y\",\"fallback\":\"[data-evolved='.healed-y']\",\"original\":\"#y\",\"strategy\":\"healed_promotion\"},{\"evolved\":\".x2\",\"fallback\":\".x2\",\"original\":\"#x\",\"strategy\":\"structural_upgrade\"}]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"converges\",\"to\":\"df4964bf40a1daafe141099cf038e364\"},{\"from\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"evolves\",\"to\":\"mutation:selector:#x\"},{\"from\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"evolves\",\"to\":\"mutation:selector:#y\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"df4964bf40a1daafe141099cf038e364\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"df4964bf40a1daafe141099cf038e364\"}],\"nodes\":[{\"id\":\"df4964bf40a1daafe141099cf038e364\",\"type\":\"evolution\"},{\"id\":\"mutation:selector:#x\",\"type\":\"mutation\"},{\"id\":\"mutation:selector:#y\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"}]},\"lineage\":[{\"id\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"current\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}]},\"last_evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"current\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[\"heal_selector\"]},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"healed\":\".healed-y\",\"repaired\":true,\"selector\":\"#y\"}]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"df4964bf40a1daafe141099cf038e364\",\"improvements\":{\"selector_repairs\":2,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"},{\"ancestor\":\"\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"mutations\":[{\"evolved\":\".x2\",\"kind\":\"selector\",\"target\":\"#x\"},{\"evolved\":\".healed-y\",\"kind\":\"selector\",\"target\":\"#y\"}]},\"lineage\":[{\"id\":\"df4964bf40a1daafe141099cf038e364\",\"relation\":\"current\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#x\",\"relation\":\"mutation\"},{\"ancestor\":\"df4964bf40a1daafe141099cf038e364\",\"id\":\"selector:#y\",\"relation\":\"mutation\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":2,\"selectors\":[{\"evolved\":\".healed-y\",\"fallback\":\"[data-evolved='.healed-y']\",\"original\":\"#y\",\"strategy\":\"healed_promotion\"},{\"evolved\":\".x2\",\"fallback\":\".x2\",\"original\":\"#x\",\"strategy\":\"structural_upgrade\"}]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "32793c920193dca7f800e13d613e7dabe11af392c66bf72969c59e8c8fc2e280"
+    },
+    {
+      "name": "run_dist_memory",
+      "inputs": {
+        "memory": {
+          "distributed_evolutions": [
+            {
+              "evolution_id": "d0"
+            },
+            {
+              "evolution_id": "d1"
+            },
+            {
+              "evolution_id": "d2"
+            },
+            {
+              "evolution_id": "d3"
+            },
+            {
+              "evolution_id": "d4"
+            },
+            {
+              "evolution_id": "d5"
+            },
+            {
+              "evolution_id": "d6"
+            },
+            {
+              "evolution_id": "d7"
+            },
+            {
+              "evolution_id": "d8"
+            },
+            {
+              "evolution_id": "d9"
+            },
+            {
+              "evolution_id": "d10"
+            },
+            {
+              "evolution_id": "d11"
+            }
+          ],
+          "last_evolution": {
+            "evolution_id": "prev",
+            "mutations": [
+              {
+                "kind": "x",
+                "target": "t"
+              }
+            ]
+          }
+        },
+        "failures": [
+          "failed_workflow"
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":13},\"diff\":{\"bounded\":true,\"current_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"evolution_changed\":true,\"mutation_delta\":-1,\"previous_id\":\"prev\",\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":1,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:reorder_workflow\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:reorder_workflow\",\"type\":\"repair\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"reorder_workflow\",\"failure\":\"failed_workflow\",\"repaired\":true}]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:reorder_workflow\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:reorder_workflow\",\"type\":\"repair\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"evolution_id\":\"d2\"},{\"evolution_id\":\"d3\"},{\"evolution_id\":\"d4\"},{\"evolution_id\":\"d5\"},{\"evolution_id\":\"d6\"},{\"evolution_id\":\"d7\"},{\"evolution_id\":\"d8\"},{\"evolution_id\":\"d9\"},{\"evolution_id\":\"d10\"},{\"evolution_id\":\"d11\"}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[\"reorder_workflow\"]},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"reorder_workflow\",\"failure\":\"failed_workflow\",\"repaired\":true}]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}}",
+      "hash": "83be9814affc8b755896c6ccc280278530246a3ac56a8079b7e1e5dada95cd66"
+    }
+  ],
+  "run_evolution_for_extraction": [
+    {
+      "name": "rfe_disabled",
+      "inputs": {
+        "evolving_runtime": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":false}",
+      "hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+    },
+    {
+      "name": "rfe_default",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"evolution\":{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"evolution_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"ir\":\"evolution_runtime_graph\",\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"memory_persisted\":false,\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"runtime_type\":\"evolution_runtime_graph\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"runtime_type\":\"evolution_runtime_graph\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"runtime_type\":\"evolution_runtime_graph\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"runtime_type\":\"evolution_runtime_graph\",\"type\":\"optimization\"}]}}",
+      "hash": "da833335dd8019724885a51d40e1e1d46ec4108ea785c31bec4cc6d0b20fb169"
+    },
+    {
+      "name": "rfe_no_merge",
+      "inputs": {
+        "merge_graph": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"evolution\":{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":0,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[]},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"evolution_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"ir\":\"evolution_runtime_graph\",\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":0,\"repairs\":[]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"memory_persisted\":false,\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"unified_graph\":{}}",
+      "hash": "f7594a5c2c76f505b1d166ff232069b34d2145d5a879dbc3330f915543a1d931"
+    },
+    {
+      "name": "rfe_failures",
+      "inputs": {
+        "failures": [
+          "broken_selector"
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"evolution\":{\"bounded\":true,\"convergence\":{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[],\"evolution_count\":1},\"diff\":{\"revertible\":true},\"enforcement\":{\"bounded\":true,\"depth\":0,\"mutation_count\":0,\"repair_count\":1,\"within_bounds\":true},\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"repaired\":true}]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"}]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"memory\":{\"bounded\":true,\"distributed_evolutions\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"evolution_histories\":[{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]}],\"last_evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"last_evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"optimization_histories\":[{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}],\"selector_lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"semantic_evolution\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"workflow_evolution\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"recovery\":{\"bounded\":true,\"evolved\":true,\"recovery_order\":[\"heal_selector\"]},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"repaired\":true}]},\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"tick\":0,\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"evolution_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"ir\":\"evolution_runtime_graph\",\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"}]},\"evolution_ir\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"}]},\"ir\":\"evolution_runtime\",\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"optimization\":{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0},\"patterns\":{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"\"]},\"policy\":{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000},\"repairs\":{\"bounded\":true,\"repair_count\":1,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"repaired\":true}]},\"selector\":{\"bounded\":true,\"count\":0,\"selectors\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}},\"strategy\":{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"},\"topology\":{\"bounded\":true,\"causality_propagation\":false,\"federation\":0,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[],\"workflow_routing\":[\"primary\",\"distributed\"]},\"workflow\":{\"bounded\":true,\"execution_ordering\":[],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":0,\"score\":0,\"sync_timing\":0}},\"memory_persisted\":false,\"replay\":{\"bounded\":true,\"evolution\":{\"bounded\":true,\"evolution_id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"improvements\":{\"selector_repairs\":0,\"semantic_convergence\":0,\"sync_improvements\":0,\"workflow_optimizations\":0},\"lineage\":[{\"id\":\"\",\"relation\":\"current\"}],\"mutations\":[]},\"lineage\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"current\"}],\"replayed\":true},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"relation\":\"converges\",\"runtime_type\":\"evolution_runtime_graph\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"runtime_type\":\"evolution_runtime_graph\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"runtime_type\":\"evolution_runtime_graph\",\"to\":\"e3b0c44298fc1c149afbf4c8996fb924\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"e3b0c44298fc1c149afbf4c8996fb924\",\"runtime_type\":\"evolution_runtime_graph\",\"type\":\"evolution\"},{\"id\":\"optimization:root\",\"runtime_type\":\"evolution_runtime_graph\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"runtime_type\":\"evolution_runtime_graph\",\"type\":\"repair\"}]}}",
+      "hash": "00661c95e1515f09e211e85ed12ae0cc0547a1b8ab57f1f15c6ac0de65743190"
+    }
+  ],
+  "save_evolution_runtime": [
+    {
+      "name": "mem_simple",
+      "inputs": {
+        "filename": "mem_simple.json",
+        "memory": {
+          "evolution_histories": [],
+          "bounded": true
+        },
+        "key": "evo-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"eiJjcXhyaWtrKkMqf36CczswM3eJg4GLi4GIiHqEhpGTj5OLiJdHYEeDhqc=\"}"
+    },
+    {
+      "name": "mem_unicode",
+      "inputs": {
+        "filename": "mem_unicode.json",
+        "memory": {
+          "note": "café 😀",
+          "用户": 1,
+          "bounded": true
+        },
+        "key": "evo-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"eiJjcXhyaWtrKkMqf36CczswM4CCiHo4UTg7fXyCeZNPUIZbQ4Cail9bjYagkJJeX1JdUlWQqm1sanGWsHJvcXZie2J0wQ==\"}"
+    },
+    {
+      "name": "mem_nested",
+      "inputs": {
+        "filename": "mem_nested.json",
+        "memory": {
+          "selector_lineage": [
+            {
+              "id": "a"
+            }
+          ],
+          "last_evolution_id": "x"
+        },
+        "key": "evo-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"eiJtY3Z4ZGt9d3V/f3V8fG55dTRNNDeOOUQ5PI6BiYOClJCUgpCOlIyJkI9NZk2JqlKallVuVViYWraXuA==\"}"
+    }
+  ],
+  "load_evolution_runtime": [
+    {
+      "name": "load_mem_simple",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"eiJjcXhyaWtrKkMqf36CczswM3eJg4GLi4GIiHqEhpGTj5OLiJdHYEeDhqc=\"}",
+      "key": "evo-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"evolution_histories\":[]}}",
+      "hash": "6bdd296adb1ec0c6d44f674cb48c1f168042f92c5248ed884e4020b3a3c59f40"
+    },
+    {
+      "name": "load_mem_unicode",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"eiJjcXhyaWtrKkMqf36CczswM4CCiHo4UTg7fXyCeZNPUIZbQ4Cail9bjYagkJJeX1JdUlWQqm1sanGWsHJvcXZie2J0wQ==\"}",
+      "key": "evo-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "894d024682261ce3ed53747da0e6e06c95111e584d88f804c237b4ba0c80112f"
+    },
+    {
+      "name": "load_mem_nested",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"eiJtY3Z4ZGt9d3V/f3V8fG55dTRNNDeOOUQ5PI6BiYOClJCUgpCOlIyJkI9NZk2JqlKallVuVViYWraXuA==\"}",
+      "key": "evo-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"last_evolution_id\":\"x\",\"selector_lineage\":[{\"id\":\"a\"}]}}",
+      "hash": "27dd53b22e13b2ed483d6e2c0b96e160f1c2f05294a130990b0866910c19066d"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "evo-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"memory\":{\"bounded\":true,\"evolution_histories\":[],\"optimization_histories\":[],\"selector_lineage\":[],\"semantic_evolution\":{},\"workflow_evolution\":{}}}",
+      "hash": "b93d5d1674113694fbf8ac9eb94b4f51048feb430c1a43acc7caa64ec27263fa"
+    }
+  ],
+  "evolve_workflow_runtime": [
+    {
+      "name": "wf",
+      "inputs": {
+        "plan": {
+          "steps": [
+            {
+              "id": "s2",
+              "priority": 0
+            },
+            {
+              "id": "s1",
+              "priority": 1
+            }
+          ]
+        },
+        "execution": {
+          "executed": [
+            {
+              "step_id": "s1"
+            },
+            {
+              "step_id": "s2"
+            }
+          ]
+        },
+        "history": [
+          {
+            "h": 1
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"execution_ordering\":[\"s1\",\"s2\"],\"pacing\":0,\"recovery_ordering\":[\"retry_step\",\"realign_runtime\",\"checkpoint\"],\"retries\":1,\"score\":2,\"sync_timing\":2}",
+      "hash": "975df0fa9b8f4ff4ac3e67659af7e898c43874b4c9333b487cc7d9ba0dcbdab3"
+    }
+  ],
+  "evolve_semantic_runtime": [
+    {
+      "name": "sem_empty",
+      "inputs": {
+        "semantic": {},
+        "history": []
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[],\"semantic_convergence\":0,\"stable_ontology\":{}}",
+      "hash": "6a4926ab6dee81adf7a037e285ac9fdfa93b797dca36af8565541f041c41469b"
+    },
+    {
+      "name": "sem_full",
+      "inputs": {
+        "semantic": {
+          "semantic": {
+            "entities": {
+              "entities": [
+                {
+                  "label": "A"
+                },
+                {
+                  "type": "B"
+                },
+                {
+                  "label": "A"
+                }
+              ]
+            },
+            "ontology": {
+              "o": 1
+            },
+            "domain": {
+              "domain": "saas"
+            }
+          }
+        },
+        "history": [
+          {
+            "h": 1
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"saas\",\"domain_stabilized\":true,\"history_length\":1,\"recurring_entities\":[\"A\",\"B\"],\"semantic_convergence\":2,\"stable_ontology\":{\"o\":1}}",
+      "hash": "ea8debf4e091bcfe182b7ca8f686215a1099e0a80dd9fd34d33900421d37e4c4"
+    },
+    {
+      "name": "sem_type",
+      "inputs": {
+        "semantic": {
+          "entities": {
+            "entities": [
+              {
+                "type": "T1"
+              },
+              {
+                "type": "T2"
+              }
+            ]
+          }
+        },
+        "history": []
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"\",\"domain_stabilized\":false,\"history_length\":0,\"recurring_entities\":[\"T1\",\"T2\"],\"semantic_convergence\":2,\"stable_ontology\":{}}",
+      "hash": "fded9d082bf9fd6c88a7e10c38692c91ea5b3e29cc8a483f8103a062a48749ff"
+    }
+  ],
+  "evolve_runtime_topology": [
+    {
+      "name": "topo",
+      "inputs": {
+        "workers": [
+          {
+            "worker_id": "w2"
+          },
+          {
+            "id": "w1"
+          }
+        ],
+        "sync": {},
+        "causality": {
+          "c": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"causality_propagation\":true,\"federation\":2,\"sync_paths\":[\"browser\",\"native\",\"distributed\"],\"worker_routing\":[\"w1\",\"w2\"],\"workflow_routing\":[\"primary\",\"distributed\"]}",
+      "hash": "3cc5169c048886320c8a75f722bf1b3a27f0550a228951002f2d417850ce4000"
+    }
+  ],
+  "build_runtime_strategy": [
+    {
+      "name": "strat_clean",
+      "inputs": {
+        "evidence": {
+          "drift_count": 0,
+          "failed_steps": 0
+        }
+      },
+      "serialized": "{\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"}",
+      "hash": "285ba1578171e0926c14d664ecda657f076a9234ab732aef2ccaa4fd5110eb75"
+    },
+    {
+      "name": "strat_drift",
+      "inputs": {
+        "evidence": {
+          "drift_count": 3,
+          "failed_steps": 2
+        }
+      },
+      "serialized": "{\"bounded\":true,\"extraction_path\":\"repair_then_extract\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"converge_then_sync\",\"workflow_order\":\"priority_asc\"}",
+      "hash": "3fe2936e63eccad6e13012411baa7bc23344e6e5193f299bb1efdaedf9fb91b4"
+    }
+  ],
+  "repair_runtime_failures": [
+    {
+      "name": "repair",
+      "inputs": {
+        "failures": [
+          "sync_divergence",
+          "broken_selector",
+          "unknown"
+        ],
+        "selectors": {
+          "#a": ".a2"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"repair_count\":4,\"repairs\":[{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"repaired\":true},{\"action\":\"resync_runtime\",\"failure\":\"sync_divergence\",\"repaired\":true},{\"action\":\"retry_step\",\"failure\":\"unknown\",\"repaired\":true},{\"action\":\"heal_selector\",\"failure\":\"broken_selector\",\"healed\":\".a2\",\"repaired\":true,\"selector\":\"#a\"}]}",
+      "hash": "eff586b9b07c3b98a30fec309ddfdc38ce94c85202a446049de2060d470f41bb"
+    }
+  ],
+  "evolve_recovery_order": [
+    {
+      "name": "recovery",
+      "inputs": {
+        "repairs": [
+          {
+            "failure": "broken_selector",
+            "action": "heal_selector",
+            "repaired": true
+          },
+          {
+            "failure": "sync_divergence",
+            "action": "resync_runtime",
+            "repaired": true
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"evolved\":true,\"recovery_order\":[\"heal_selector\",\"resync_runtime\"]}",
+      "hash": "124c5c65c55bdd8c58b27e0164e33d312714309b9a0420cf72e1cdd1b548c71c"
+    }
+  ],
+  "optimize_runtime_execution": [
+    {
+      "name": "opt_zero",
+      "inputs": {
+        "depth": 0,
+        "replay_cost": 0,
+        "sync_overhead": 0
+      },
+      "serialized": "{\"bounded\":true,\"convergence_gain\":true,\"execution_depth\":1,\"replay_cost\":0,\"runtime_pressure\":0,\"synchronization_overhead\":0}",
+      "hash": "27ceb4d8f463018527f850402a09edc7122882d5685dfc8b052aa1fbac67a191"
+    },
+    {
+      "name": "opt_vals",
+      "inputs": {
+        "depth": 150,
+        "replay_cost": 3,
+        "sync_overhead": 2
+      },
+      "serialized": "{\"bounded\":true,\"convergence_gain\":false,\"execution_depth\":100,\"replay_cost\":2,\"runtime_pressure\":50,\"synchronization_overhead\":1}",
+      "hash": "737036b8475a37870bfe09bfc1230e879db51c5fba5c0c88de72b210f2af5cc2"
+    }
+  ],
+  "adapt_runtime_strategy": [
+    {
+      "name": "adapt",
+      "inputs": {
+        "strategy": {
+          "extraction_path": "browser_first",
+          "synchronization_path": "continuous",
+          "workflow_order": "priority_asc",
+          "selector_hierarchy": [
+            "healed",
+            "structural",
+            "fallback"
+          ],
+          "recovery_order": [
+            "heal_selector",
+            "recover_workflow",
+            "resync_runtime"
+          ],
+          "bounded": true
+        },
+        "optimization": {
+          "execution_depth": 5,
+          "replay_cost": 0,
+          "synchronization_overhead": 0,
+          "runtime_pressure": 0,
+          "convergence_gain": true,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"browser_first\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"}",
+      "hash": "d13e29c41f72b70187afd265056d4695a8a31ebefd56a5c1286c8face65e49f3"
+    },
+    {
+      "name": "adapt_pressure",
+      "inputs": {
+        "strategy": {
+          "extraction_path": "browser_first",
+          "synchronization_path": "continuous",
+          "workflow_order": "priority_asc",
+          "selector_hierarchy": [
+            "healed",
+            "structural",
+            "fallback"
+          ],
+          "recovery_order": [
+            "heal_selector",
+            "recover_workflow",
+            "resync_runtime"
+          ],
+          "bounded": true
+        },
+        "optimization": {
+          "execution_depth": 100,
+          "replay_cost": 0,
+          "synchronization_overhead": 0,
+          "runtime_pressure": 50,
+          "convergence_gain": true,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"adapted\":true,\"bounded\":true,\"extraction_path\":\"repair_then_extract\",\"recovery_order\":[\"heal_selector\",\"recover_workflow\",\"resync_runtime\"],\"selector_hierarchy\":[\"healed\",\"structural\",\"fallback\"],\"synchronization_path\":\"continuous\",\"workflow_order\":\"priority_asc\"}",
+      "hash": "34532280fb7711b1cf9804cbaf2aad40568e235e5ad7b7613dd58c24e8600fad"
+    }
+  ],
+  "build_runtime_mutations": [
+    {
+      "name": "muts",
+      "inputs": {
+        "selector": {
+          "selectors": [
+            {
+              "original": "#b",
+              "evolved": ".healed-b",
+              "strategy": "healed_promotion",
+              "fallback": "[data-evolved='.healed-b']"
+            },
+            {
+              "original": "#a",
+              "evolved": ".a2",
+              "strategy": "structural_upgrade",
+              "fallback": ".a2"
+            }
+          ],
+          "count": 2,
+          "bounded": true
+        },
+        "workflow": {
+          "execution_ordering": [
+            "s1",
+            "s2"
+          ],
+          "retries": 0,
+          "pacing": 0,
+          "sync_timing": 2,
+          "recovery_ordering": [
+            "retry_step",
+            "realign_runtime",
+            "checkpoint"
+          ],
+          "score": 2,
+          "bounded": true
+        },
+        "semantic": {
+          "recurring_entities": [
+            "A",
+            "B"
+          ],
+          "stable_ontology": {
+            "o": 1
+          },
+          "domain": "saas",
+          "semantic_convergence": 2,
+          "domain_stabilized": true,
+          "history_length": 0,
+          "bounded": true
+        },
+        "sync": {
+          "convergence": {
+            "c": 1
+          }
+        }
+      },
+      "serialized": "{\"mutations\":[{\"evolved\":\".a2\",\"kind\":\"selector\",\"target\":\"#a\"},{\"evolved\":\".healed-b\",\"kind\":\"selector\",\"target\":\"#b\"},{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"},{\"evolved\":true,\"kind\":\"sync\",\"target\":\"convergence\"},{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}]}",
+      "hash": "4732cdc191fa83d45f476a6f44a45827e7577d750ac55ba00ae454b8f0daea2d"
+    }
+  ],
+  "build_runtime_lineage": [
+    {
+      "name": "lin_parent",
+      "inputs": {
+        "evolution_id": "e1",
+        "mutations": [
+          {
+            "kind": "selector",
+            "target": "#a",
+            "evolved": ".a2"
+          },
+          {
+            "kind": "selector",
+            "target": "#b",
+            "evolved": ".healed-b"
+          },
+          {
+            "kind": "semantic",
+            "target": "domain",
+            "evolved": "saas"
+          },
+          {
+            "kind": "sync",
+            "target": "convergence",
+            "evolved": true
+          },
+          {
+            "kind": "workflow",
+            "target": "execution_ordering",
+            "evolved": [
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "parent_id": "p1"
+      },
+      "serialized": "{\"lineage\":[{\"id\":\"e1\",\"relation\":\"current\"},{\"id\":\"p1\",\"relation\":\"parent\"},{\"ancestor\":\"e1\",\"id\":\"selector:#a\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"selector:#b\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"sync:convergence\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}]}",
+      "hash": "48704f85521933e55eada907e16aa59074abccacf4db907ada7204852438b382"
+    },
+    {
+      "name": "lin_noparent",
+      "inputs": {
+        "evolution_id": "e1",
+        "mutations": [
+          {
+            "kind": "selector",
+            "target": "#a",
+            "evolved": ".a2"
+          },
+          {
+            "kind": "selector",
+            "target": "#b",
+            "evolved": ".healed-b"
+          },
+          {
+            "kind": "semantic",
+            "target": "domain",
+            "evolved": "saas"
+          },
+          {
+            "kind": "sync",
+            "target": "convergence",
+            "evolved": true
+          },
+          {
+            "kind": "workflow",
+            "target": "execution_ordering",
+            "evolved": [
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "parent_id": ""
+      },
+      "serialized": "{\"lineage\":[{\"id\":\"e1\",\"relation\":\"current\"},{\"ancestor\":\"e1\",\"id\":\"selector:#a\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"selector:#b\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"semantic:domain\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"sync:convergence\",\"relation\":\"mutation\"},{\"ancestor\":\"e1\",\"id\":\"workflow:execution_ordering\",\"relation\":\"mutation\"}]}",
+      "hash": "1d462b6f0da4c599adf7c6414c7135ddcc55d4fa2bd8106e082427e2ba921eae"
+    }
+  ],
+  "build_runtime_policy": [
+    {
+      "name": "policy",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"evolution_bounds\":10000,\"mutation_constraints\":{\"allow_code_synthesis\":false,\"allow_selector\":true,\"allow_semantic\":true,\"allow_sync\":true,\"allow_workflow\":true},\"optimization_ceiling\":100,\"repair_limits\":1000,\"synchronization_threshold\":1000}",
+      "hash": "f0fe21505c19fcd7c40d51d8fbea30e7732e75939f92d0d2fa20fa897e1121e6"
+    }
+  ],
+  "enforce_runtime_policy": [
+    {
+      "name": "enforce",
+      "inputs": {
+        "policy": {
+          "evolution_bounds": 10000,
+          "repair_limits": 1000,
+          "synchronization_threshold": 1000,
+          "optimization_ceiling": 100,
+          "mutation_constraints": {
+            "allow_selector": true,
+            "allow_workflow": true,
+            "allow_semantic": true,
+            "allow_sync": true,
+            "allow_code_synthesis": false
+          },
+          "bounded": true
+        },
+        "mutations": [
+          {
+            "kind": "selector",
+            "target": "#a",
+            "evolved": ".a2"
+          },
+          {
+            "kind": "selector",
+            "target": "#b",
+            "evolved": ".healed-b"
+          },
+          {
+            "kind": "semantic",
+            "target": "domain",
+            "evolved": "saas"
+          },
+          {
+            "kind": "sync",
+            "target": "convergence",
+            "evolved": true
+          },
+          {
+            "kind": "workflow",
+            "target": "execution_ordering",
+            "evolved": [
+              "s1",
+              "s2"
+            ]
+          }
+        ],
+        "repairs": [
+          {
+            "failure": "broken_selector",
+            "action": "heal_selector",
+            "repaired": true
+          },
+          {
+            "failure": "sync_divergence",
+            "action": "resync_runtime",
+            "repaired": true
+          }
+        ],
+        "depth": 5
+      },
+      "serialized": "{\"bounded\":true,\"depth\":5,\"mutation_count\":5,\"repair_count\":2,\"within_bounds\":true}",
+      "hash": "d35a1d6d4a95463fb3f90106dcec73b9133d8eaede1a54329663877afee540d4"
+    }
+  ],
+  "build_runtime_patterns": [
+    {
+      "name": "patterns",
+      "inputs": {
+        "ui": {
+          "z": 1,
+          "a": 1
+        },
+        "workflows": [
+          {
+            "objective": "extract"
+          }
+        ],
+        "semantic": {
+          "s": 1
+        },
+        "sync_history": [
+          {
+            "h": 1
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"semantic_layouts\":[\"s\"],\"sync_histories\":1,\"ui_structures\":[\"a\",\"z\"],\"workflow_patterns\":[\"extract\"]}",
+      "hash": "5a7daeae11f39ab5257abb165a8693ad9ddbed569bb6668086ecea3c20eb988a"
+    },
+    {
+      "name": "patterns_no_semantic",
+      "inputs": {
+        "ui": {},
+        "workflows": [
+          {
+            "action": "a"
+          }
+        ],
+        "semantic": null,
+        "sync_history": []
+      },
+      "serialized": "{\"bounded\":true,\"semantic_layouts\":[],\"sync_histories\":0,\"ui_structures\":[],\"workflow_patterns\":[\"a\"]}",
+      "hash": "ed089381acfbe8ad95064cb039fbfd7c0bb90d7993e7576baf91e8298240223b"
+    }
+  ],
+  "converge_runtime_evolution": [
+    {
+      "name": "converge",
+      "inputs": {
+        "evolutions": [
+          {
+            "evolution_id": "412590c7fac06e6df026ebd6f80c4d25",
+            "mutations": [
+              {
+                "kind": "selector",
+                "target": "#a",
+                "evolved": ".a2"
+              },
+              {
+                "kind": "selector",
+                "target": "#b",
+                "evolved": ".healed-b"
+              },
+              {
+                "kind": "sync",
+                "target": "convergence",
+                "evolved": true
+              },
+              {
+                "kind": "semantic",
+                "target": "domain",
+                "evolved": "saas"
+              },
+              {
+                "kind": "workflow",
+                "target": "execution_ordering",
+                "evolved": [
+                  "s1",
+                  "s2"
+                ]
+              }
+            ],
+            "lineage": [],
+            "improvements": {
+              "selector_repairs": 2,
+              "workflow_optimizations": 1,
+              "semantic_convergence": 1,
+              "sync_improvements": 1
+            },
+            "bounded": true
+          },
+          {
+            "evolution_id": "7b259501e27c830c555712c733b8110c",
+            "mutations": [
+              {
+                "kind": "sync",
+                "target": "convergence"
+              }
+            ],
+            "lineage": [],
+            "improvements": {
+              "selector_repairs": 0,
+              "workflow_optimizations": 0,
+              "semantic_convergence": 0,
+              "sync_improvements": 1
+            },
+            "bounded": true
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"consistent\":true,\"converged_mutations\":[{\"evolved\":\".a2\",\"kind\":\"selector\",\"target\":\"#a\"},{\"evolved\":\".healed-b\",\"kind\":\"selector\",\"target\":\"#b\"},{\"evolved\":\"saas\",\"kind\":\"semantic\",\"target\":\"domain\"},{\"evolved\":true,\"kind\":\"sync\",\"target\":\"convergence\"},{\"evolved\":[\"s1\",\"s2\"],\"kind\":\"workflow\",\"target\":\"execution_ordering\"}],\"evolution_count\":2}",
+      "hash": "00efcefeb3ffc1add67a1677a21713ef6cc4e7d0b095ecd006259fcc36f0b7f7"
+    }
+  ],
+  "diff_evolution_runtime": [
+    {
+      "name": "diff",
+      "inputs": {
+        "previous": {
+          "evolution_id": "7b259501e27c830c555712c733b8110c",
+          "mutations": [
+            {
+              "kind": "sync",
+              "target": "convergence"
+            }
+          ],
+          "lineage": [],
+          "improvements": {
+            "selector_repairs": 0,
+            "workflow_optimizations": 0,
+            "semantic_convergence": 0,
+            "sync_improvements": 1
+          },
+          "bounded": true
+        },
+        "current": {
+          "evolution_id": "412590c7fac06e6df026ebd6f80c4d25",
+          "mutations": [
+            {
+              "kind": "selector",
+              "target": "#a",
+              "evolved": ".a2"
+            },
+            {
+              "kind": "selector",
+              "target": "#b",
+              "evolved": ".healed-b"
+            },
+            {
+              "kind": "sync",
+              "target": "convergence",
+              "evolved": true
+            },
+            {
+              "kind": "semantic",
+              "target": "domain",
+              "evolved": "saas"
+            },
+            {
+              "kind": "workflow",
+              "target": "execution_ordering",
+              "evolved": [
+                "s1",
+                "s2"
+              ]
+            }
+          ],
+          "lineage": [],
+          "improvements": {
+            "selector_repairs": 2,
+            "workflow_optimizations": 1,
+            "semantic_convergence": 1,
+            "sync_improvements": 1
+          },
+          "bounded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"current_id\":\"412590c7fac06e6df026ebd6f80c4d25\",\"evolution_changed\":true,\"mutation_delta\":4,\"previous_id\":\"7b259501e27c830c555712c733b8110c\",\"revertible\":true}",
+      "hash": "ee52692a31caa6f56e43229bbc9bb7b0c43406d7f2397a8c17952cf62c3661c5"
+    }
+  ],
+  "build_runtime_evolution_graph": [
+    {
+      "name": "graph",
+      "inputs": {
+        "evolution": {
+          "evolution_id": "412590c7fac06e6df026ebd6f80c4d25",
+          "mutations": [
+            {
+              "kind": "selector",
+              "target": "#a",
+              "evolved": ".a2"
+            },
+            {
+              "kind": "selector",
+              "target": "#b",
+              "evolved": ".healed-b"
+            },
+            {
+              "kind": "sync",
+              "target": "convergence",
+              "evolved": true
+            },
+            {
+              "kind": "semantic",
+              "target": "domain",
+              "evolved": "saas"
+            },
+            {
+              "kind": "workflow",
+              "target": "execution_ordering",
+              "evolved": [
+                "s1",
+                "s2"
+              ]
+            }
+          ],
+          "lineage": [],
+          "improvements": {
+            "selector_repairs": 2,
+            "workflow_optimizations": 1,
+            "semantic_convergence": 1,
+            "sync_improvements": 1
+          },
+          "bounded": true
+        },
+        "repairs": {
+          "repairs": [
+            {
+              "failure": "broken_selector",
+              "action": "heal_selector",
+              "repaired": true
+            },
+            {
+              "failure": "sync_divergence",
+              "action": "resync_runtime",
+              "repaired": true
+            }
+          ],
+          "repair_count": 2,
+          "bounded": true
+        },
+        "optimization": {
+          "execution_depth": 5,
+          "replay_cost": 0,
+          "synchronization_overhead": 0,
+          "runtime_pressure": 0,
+          "convergence_gain": true,
+          "bounded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"412590c7fac06e6df026ebd6f80c4d25\",\"relation\":\"converges\",\"to\":\"412590c7fac06e6df026ebd6f80c4d25\"},{\"from\":\"412590c7fac06e6df026ebd6f80c4d25\",\"relation\":\"evolves\",\"to\":\"mutation:selector:#a\"},{\"from\":\"412590c7fac06e6df026ebd6f80c4d25\",\"relation\":\"evolves\",\"to\":\"mutation:selector:#b\"},{\"from\":\"412590c7fac06e6df026ebd6f80c4d25\",\"relation\":\"evolves\",\"to\":\"mutation:semantic:domain\"},{\"from\":\"412590c7fac06e6df026ebd6f80c4d25\",\"relation\":\"evolves\",\"to\":\"mutation:sync:convergence\"},{\"from\":\"412590c7fac06e6df026ebd6f80c4d25\",\"relation\":\"evolves\",\"to\":\"mutation:workflow:execution_ordering\"},{\"from\":\"optimization:root\",\"relation\":\"optimizes\",\"to\":\"412590c7fac06e6df026ebd6f80c4d25\"},{\"from\":\"repair:heal_selector\",\"relation\":\"repairs\",\"to\":\"412590c7fac06e6df026ebd6f80c4d25\"},{\"from\":\"repair:resync_runtime\",\"relation\":\"repairs\",\"to\":\"412590c7fac06e6df026ebd6f80c4d25\"}],\"nodes\":[{\"id\":\"412590c7fac06e6df026ebd6f80c4d25\",\"type\":\"evolution\"},{\"id\":\"mutation:selector:#a\",\"type\":\"mutation\"},{\"id\":\"mutation:selector:#b\",\"type\":\"mutation\"},{\"id\":\"mutation:semantic:domain\",\"type\":\"mutation\"},{\"id\":\"mutation:sync:convergence\",\"type\":\"mutation\"},{\"id\":\"mutation:workflow:execution_ordering\",\"type\":\"mutation\"},{\"id\":\"optimization:root\",\"type\":\"optimization\"},{\"id\":\"repair:heal_selector\",\"type\":\"repair\"},{\"id\":\"repair:resync_runtime\",\"type\":\"repair\"}]}",
+      "hash": "bf8804ea24946aba7536602426dceb25aacab99d09d7a13a677a976a0400a822"
+    }
+  ],
+  "remember_evolution_runtime": [
+    {
+      "name": "remember",
+      "inputs": {
+        "memory": {
+          "evolution_histories": [
+            1
+          ]
+        },
+        "update": {
+          "last_evolution_id": "x"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"evolution_histories\":[1],\"last_evolution_id\":\"x\",\"optimization_histories\":{},\"selector_lineage\":{},\"semantic_evolution\":{},\"workflow_evolution\":{}}",
+      "hash": "c327354be0f57d73a68967f8ca1eeb923f1d6d7e76d5f5766e9fd38a0c5d5339"
+    }
+  ]
+}

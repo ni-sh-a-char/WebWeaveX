@@ -8,9 +8,9 @@
   <img src="https://img.shields.io/badge/build-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white" alt="Maven"/>
   <img src="https://img.shields.io/badge/Maven%20Central-io.webweavex%3Awebweavex-blue?style=flat-square" alt="Maven Central"/>
   <img src="https://img.shields.io/badge/parity-PASS-22c55e?style=flat-square" alt="Parity"/>
-  <img src="https://img.shields.io/badge/tests-553%20passing-22c55e?style=flat-square" alt="Tests"/>
-  <img src="https://img.shields.io/badge/coverage-96.29%25%20instruction-22c55e?style=flat-square" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/API%20parity-50%20%2F%20128%20proven-3b82f6?style=flat-square" alt="API parity"/>
+  <img src="https://img.shields.io/badge/tests-602%20passing-22c55e?style=flat-square" alt="Tests"/>
+  <img src="https://img.shields.io/badge/coverage-96.35%25%20instruction-22c55e?style=flat-square" alt="Coverage"/>
+  <img src="https://img.shields.io/badge/API%20parity-56%20%2F%20128%20proven-3b82f6?style=flat-square" alt="API parity"/>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="License"/>
 </p>
 
@@ -150,6 +150,8 @@ io.webweavex
 │                   ~18 engines)
 ├── workflow        WorkflowRuntime (objective/plan/run/replay/     [implemented]
 │                   save/load + ~15 engines)
+├── evolution       EvolutionRuntime (evolution/selector/run/save/  [implemented]
+│                   load + ~17 engines)
 └── … extraction(HTML) · semantic · vision · ocr · …               [planned]
 ```
 
@@ -288,12 +290,12 @@ Single source of truth for the 128-API surface: [`PARITY_MANIFEST.json`](PARITY_
 | Metric | Value |
 | --- | --- |
 | Total tracked public APIs (Python/JS/Dart) | **128** |
-| Java implemented (parity-proven) | **50** |
-| Java planned | 78 |
-| Parity tests | **553 passing**, 0 failures, 0 errors |
-| Instruction coverage (JaCoCo) | **96.29 %** |
+| Java implemented (parity-proven) | **56** |
+| Java planned | 72 |
+| Parity tests | **602 passing**, 0 failures, 0 errors |
+| Instruction coverage (JaCoCo) | **96.35 %** |
 
-Proven APIs today (50) span the determinism + crypto foundation, kernel/graph/IR,
+Proven APIs today (56) span the determinism + crypto foundation, kernel/graph/IR,
 query/memory/reconstruction, the connector-runtime extraction family
 (`extract_database/api/runtime_streams/telemetry/container/ide/kubernetes_runtime`),
 the document/interaction layer (`extract_document_runtime`, `extract_paginated_content`,
@@ -345,7 +347,7 @@ GitHub Actions gate every push and PR touching `java/**`, `tools/**`, or
 |----------|------|
 | [`java-build.yml`](.github/workflows/java-build.yml) | `mvn clean verify` on JDK 17 + 21, coverage artifact upload |
 | [`java-parity.yml`](.github/workflows/java-parity.yml) | `CrossLanguageParity*Test` + `validate_java_manifest.py` |
-| [`parity-regression.yml`](.github/workflows/parity-regression.yml) | Coverage floor (94 %) + proven-API floor (50) + manifest drift |
+| [`parity-regression.yml`](.github/workflows/parity-regression.yml) | Coverage floor (94 %) + proven-API floor (56) + manifest drift |
 
 ---
 

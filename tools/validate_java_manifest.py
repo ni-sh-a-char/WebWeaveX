@@ -93,6 +93,13 @@ MAPPING = {
     "run_workflow_for_extraction": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "run_workflow_for_extraction"),
     "save_workflow_memory": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "save_workflow_memory"),
     "load_workflow_memory": ("io.webweavex.workflow.WorkflowRuntime", "golden_vectors_s11.json", "load_workflow_memory"),
+    # Session 12 — evolution_runtime family (dependency-clean, 25-module closure)
+    "build_runtime_evolution": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "build_runtime_evolution"),
+    "evolve_selector_runtime": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "evolve_selector_runtime"),
+    "run_evolution_runtime": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "run_evolution_runtime"),
+    "run_evolution_for_extraction": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "run_evolution_for_extraction"),
+    "save_evolution_runtime": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "save_evolution_runtime"),
+    "load_evolution_runtime": ("io.webweavex.evolution.EvolutionRuntime", "golden_vectors_s12.json", "load_evolution_runtime"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

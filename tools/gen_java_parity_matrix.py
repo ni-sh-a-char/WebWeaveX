@@ -78,6 +78,13 @@ JAVA_PROVEN = {
     "run_workflow_for_extraction": "io.webweavex.workflow.WorkflowRuntime#runWorkflowForExtraction",
     "save_workflow_memory": "io.webweavex.workflow.WorkflowRuntime#saveWorkflowMemory",
     "load_workflow_memory": "io.webweavex.workflow.WorkflowRuntime#loadWorkflowMemory",
+    # Session 12 — evolution_runtime family (dependency-clean, 25-module closure)
+    "build_runtime_evolution": "io.webweavex.evolution.EvolutionRuntime#buildRuntimeEvolution",
+    "evolve_selector_runtime": "io.webweavex.evolution.EvolutionRuntime#evolveSelectorRuntime",
+    "run_evolution_runtime": "io.webweavex.evolution.EvolutionRuntime#runEvolutionRuntime",
+    "run_evolution_for_extraction": "io.webweavex.evolution.EvolutionRuntime#runEvolutionForExtraction",
+    "save_evolution_runtime": "io.webweavex.evolution.EvolutionRuntime#saveEvolutionRuntime",
+    "load_evolution_runtime": "io.webweavex.evolution.EvolutionRuntime#loadEvolutionRuntime",
 }
 
 PACKAGES = [
@@ -151,7 +158,7 @@ def main() -> None:
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
                         "connectors", "documents", "execution", "interaction", "session",
-                        "synchronization", "workflow")
+                        "synchronization", "workflow", "evolution")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")
