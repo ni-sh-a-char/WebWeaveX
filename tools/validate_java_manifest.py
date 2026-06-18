@@ -78,6 +78,13 @@ MAPPING = {
     "simulate_runtime_execution": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "simulate_runtime_execution"),
     "run_execution_runtime": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "run_execution_runtime"),
     "run_execution_for_extraction": ("io.webweavex.execution.ExecutionRuntime", "golden_vectors_s9.json", "run_execution_for_extraction"),
+    # Session 10 — synchronization family (dependency-clean, 25-module closure)
+    "build_runtime_delta": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "build_runtime_delta"),
+    "replay_synchronized_runtime": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "replay_synchronized_runtime"),
+    "run_synchronized_runtime": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "run_synchronized_runtime"),
+    "run_sync_for_extraction": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "run_sync_for_extraction"),
+    "save_sync_memory": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "save_sync_memory"),
+    "load_sync_memory": ("io.webweavex.synchronization.SyncRuntime", "golden_vectors_s10.json", "load_sync_memory"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

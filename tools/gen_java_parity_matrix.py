@@ -63,6 +63,13 @@ JAVA_PROVEN = {
     "simulate_runtime_execution": "io.webweavex.execution.ExecutionRuntime#simulateRuntimeExecution",
     "run_execution_runtime": "io.webweavex.execution.ExecutionRuntime#runExecutionRuntime",
     "run_execution_for_extraction": "io.webweavex.execution.ExecutionRuntime#runExecutionForExtraction",
+    # Session 10 — synchronization family (dependency-clean, 25-module closure)
+    "build_runtime_delta": "io.webweavex.synchronization.SyncRuntime#buildRuntimeDelta",
+    "replay_synchronized_runtime": "io.webweavex.synchronization.SyncRuntime#replaySynchronizedRuntime",
+    "run_synchronized_runtime": "io.webweavex.synchronization.SyncRuntime#runSynchronizedRuntime",
+    "run_sync_for_extraction": "io.webweavex.synchronization.SyncRuntime#runSyncForExtraction",
+    "save_sync_memory": "io.webweavex.synchronization.SyncRuntime#saveSyncMemory",
+    "load_sync_memory": "io.webweavex.synchronization.SyncRuntime#loadSyncMemory",
 }
 
 PACKAGES = [
