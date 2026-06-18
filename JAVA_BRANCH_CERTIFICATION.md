@@ -93,6 +93,26 @@ proved that block is **import-time only** (bs4 never executes), then implemented
 Detail: [`java/SESSION_6_CERTIFICATION.md`](java/SESSION_6_CERTIFICATION.md) /
 [`.json`](java/SESSION_6_CERTIFICATION.json).
 
+## Behavioural parity (Session 7 — remaining connector-runtime cluster)
+
+Autonomous-continuation slice. A machine-derived ranking of all 101 remaining APIs
+([`tools/rank_remaining_apis.py`](tools/rank_remaining_apis.py),
+[`java/JAVA_NEXT_TARGET_RANKING.md`](java/JAVA_NEXT_TARGET_RANKING.md)) classified 56 clean /
+42 forbidden (re-proving every blocker), then implemented the highest-confidence clean cluster.
+
+| Metric | Value |
+| --- | --- |
+| Java parity-proven APIs | **24 → 27** / 128 |
+| New APIs | `extract_container_runtime`, `extract_ide_runtime`, `extract_kubernetes_runtime` (manifest Complete + executable_proven) |
+| Session-7 golden vectors | 18 byte-exact (empty/full/ordering/unicode/nested/malformed/mutation/boundary/edge/regression) |
+| Full suite | **287 tests, 0 failures, 0 errors** |
+| Instruction coverage | **95.57 %** (floor 94 %) |
+| `PROVEN_FLOOR` | 24 → 27 |
+
+Detail: [`java/SESSION_7_CERTIFICATION.md`](java/SESSION_7_CERTIFICATION.md). Status:
+[`java/JAVA_REAL_STATUS.md`](java/JAVA_REAL_STATUS.md) · Governance:
+[`java/JAVA_GOVERNANCE_AUDIT.md`](java/JAVA_GOVERNANCE_AUDIT.md).
+
 ## Governance (machine-enforced)
 
 `tools/validate_java_manifest.py` → **PASS** (`21/128 proven; mapped/exist/tested/
@@ -118,7 +138,7 @@ Python ≡ Java is proven for all 21 APIs (byte-exact `stable_serialize` +
 certified (70k+ comparisons), therefore **Java ≡ JavaScript ≡ Dart** transitively.
 
 ```
-Python  =  Java  =  JavaScript  =  Dart        (24 / 128 APIs, byte-exact)
+Python  =  Java  =  JavaScript  =  Dart        (27 / 128 APIs, byte-exact)
 ```
 
 ## Reproduce

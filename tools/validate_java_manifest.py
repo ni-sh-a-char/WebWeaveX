@@ -62,6 +62,10 @@ MAPPING = {
     "extract_paginated_content": ("io.webweavex.interaction.Pagination", "golden_vectors_s4b.json", "extract_paginated_content"),
     # Session 6 — interaction graph (dependency-clean)
     "build_interaction_graph": ("io.webweavex.interaction.InteractionGraph", "golden_vectors_s6.json", "build_interaction_graph"),
+    # Session 7 — remaining connector-runtime cluster (dependency-clean)
+    "extract_container_runtime": ("io.webweavex.connectors.ContainerConnector", "golden_vectors_s7.json", "extract_container_runtime"),
+    "extract_ide_runtime": ("io.webweavex.connectors.IdeConnector", "golden_vectors_s7.json", "extract_ide_runtime"),
+    "extract_kubernetes_runtime": ("io.webweavex.connectors.KubernetesConnector", "golden_vectors_s7.json", "extract_kubernetes_runtime"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

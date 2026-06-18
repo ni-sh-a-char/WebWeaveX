@@ -1,0 +1,304 @@
+{
+  "source": "Python 2.1.0 canonical (session 7: container/ide/kubernetes connectors)",
+  "extract_container_runtime": [
+    {
+      "name": "ct_docker_default",
+      "inputs": {
+        "runtime": "docker",
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[],\"degraded\":false,\"health\":{},\"images\":[],\"networks\":[],\"runtime\":\"docker\",\"states\":{},\"volumes\":[]}",
+      "hash": "93cca76cebd059adf101d209e7de0a9e9d19715cbb12dac9e7af34074499639f"
+    },
+    {
+      "name": "ct_docker_full",
+      "inputs": {
+        "runtime": "docker",
+        "snapshot": {
+          "containers": [
+            {
+              "id": "c1"
+            }
+          ],
+          "images": [
+            "img-z",
+            "img-a",
+            "Img-M"
+          ],
+          "volumes": [
+            "v1"
+          ],
+          "networks": [
+            "n1"
+          ],
+          "states": {
+            "c1": "running"
+          },
+          "health": {
+            "c1": "healthy"
+          },
+          "degraded": false
+        }
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[{\"id\":\"c1\"}],\"degraded\":false,\"health\":{\"c1\":\"healthy\"},\"images\":[\"Img-M\",\"img-a\",\"img-z\"],\"networks\":[\"n1\"],\"runtime\":\"docker\",\"states\":{\"c1\":\"running\"},\"volumes\":[\"v1\"]}",
+      "hash": "8be131b285f730fd228c73a2027f1ff3098a607f69b30b11f6b7b4928412005b"
+    },
+    {
+      "name": "ct_podman_alias",
+      "inputs": {
+        "runtime": "podman",
+        "snapshot": {
+          "images": [
+            "z",
+            "a"
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[],\"degraded\":false,\"health\":{},\"images\":[\"a\",\"z\"],\"networks\":[],\"runtime\":\"podman\",\"states\":{},\"volumes\":[]}",
+      "hash": "d1127881fb239ac012c2a3b227704403eb52f1bab273172bab0223f780bb297d"
+    },
+    {
+      "name": "ct_oci_alias",
+      "inputs": {
+        "runtime": "OCI",
+        "snapshot": {}
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[],\"degraded\":false,\"health\":{},\"images\":[],\"networks\":[],\"runtime\":\"oci\",\"states\":{},\"volumes\":[]}",
+      "hash": "50ca40323781b8b7e081818afc30b7903321e95182c9292c6681542575903195"
+    },
+    {
+      "name": "ct_unknown_degraded",
+      "inputs": {
+        "runtime": "containerd",
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[],\"degraded\":true,\"images\":[],\"networks\":[],\"runtime\":\"containerd\",\"volumes\":[]}",
+      "hash": "6181602971ccb70c666926ea2c97607b3f4bd7287bf098b2b75463f7cf456047"
+    },
+    {
+      "name": "ct_unicode_images",
+      "inputs": {
+        "runtime": "docker",
+        "snapshot": {
+          "images": [
+            "镜像",
+            "😀img",
+            "aaa"
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[],\"degraded\":false,\"health\":{},\"images\":[\"aaa\",\"镜像\",\"😀img\"],\"networks\":[],\"runtime\":\"docker\",\"states\":{},\"volumes\":[]}",
+      "hash": "e3ec373cf1d4c372b2d81d10a8620b4d557d6984709d5e00703c2e0d524176bf"
+    },
+    {
+      "name": "ct_degraded_passthrough",
+      "inputs": {
+        "runtime": "docker",
+        "snapshot": {
+          "degraded": "partial"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"containers\":[],\"degraded\":\"partial\",\"health\":{},\"images\":[],\"networks\":[],\"runtime\":\"docker\",\"states\":{},\"volumes\":[]}",
+      "hash": "894d18c9ca8d1cb101f50646c1f900aa823286e919a8ebed5387646be8f7bb82"
+    }
+  ],
+  "extract_ide_runtime": [
+    {
+      "name": "ide_default",
+      "inputs": {
+        "ide": "vscode",
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"debug_sessions\":[],\"degraded\":false,\"ide\":\"vscode\",\"open_files\":[],\"tabs\":[],\"terminals\":[],\"workspace_topology\":{}}",
+      "hash": "359dc36b917e040beacaa745ad0868529d4b16f4568fc76c6fe784cf77745292"
+    },
+    {
+      "name": "ide_full",
+      "inputs": {
+        "ide": "intellij",
+        "snapshot": {
+          "open_files": [
+            "z.py",
+            "a.py",
+            "M.py"
+          ],
+          "terminals": [
+            {
+              "id": 1
+            }
+          ],
+          "tabs": [
+            "tab1",
+            "tab2"
+          ],
+          "workspace": {
+            "root": "/proj",
+            "name": "x"
+          },
+          "debug_sessions": [
+            {
+              "session": "s1"
+            }
+          ],
+          "degraded": false
+        }
+      },
+      "serialized": "{\"bounded\":true,\"debug_sessions\":[{\"session\":\"s1\"}],\"degraded\":false,\"ide\":\"intellij\",\"open_files\":[\"M.py\",\"a.py\",\"z.py\"],\"tabs\":[\"tab1\",\"tab2\"],\"terminals\":[{\"id\":1}],\"workspace_topology\":{\"name\":\"x\",\"root\":\"/proj\"}}",
+      "hash": "ad1953587759b2e7bd767ad518fa92df7ae37919cfa2308e2c645567f1bed58f"
+    },
+    {
+      "name": "ide_degraded_passthrough",
+      "inputs": {
+        "ide": "vscode",
+        "snapshot": {
+          "degraded": "partial"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"debug_sessions\":[],\"degraded\":\"partial\",\"ide\":\"vscode\",\"open_files\":[],\"tabs\":[],\"terminals\":[],\"workspace_topology\":{}}",
+      "hash": "05dd5a4b74684d325050a6ab54597d276d50a029bd0a56584905df144b93ed2e"
+    },
+    {
+      "name": "ide_unicode",
+      "inputs": {
+        "ide": "vscode",
+        "snapshot": {
+          "open_files": [
+            "文件.py",
+            "a.py",
+            "😀.py"
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"debug_sessions\":[],\"degraded\":false,\"ide\":\"vscode\",\"open_files\":[\"a.py\",\"文件.py\",\"😀.py\"],\"tabs\":[],\"terminals\":[],\"workspace_topology\":{}}",
+      "hash": "62a9866e02b19877037f4290c2ca259ad69a66a7e563a719ba550e14f27b60b4"
+    },
+    {
+      "name": "ide_empty_snapshot",
+      "inputs": {
+        "ide": "neovim",
+        "snapshot": {}
+      },
+      "serialized": "{\"bounded\":true,\"debug_sessions\":[],\"degraded\":false,\"ide\":\"neovim\",\"open_files\":[],\"tabs\":[],\"terminals\":[],\"workspace_topology\":{}}",
+      "hash": "62e0e5566f6c5a2e946aab99a897441ed8891f3633db8b2168b69ec3aaae0404"
+    }
+  ],
+  "extract_kubernetes_runtime": [
+    {
+      "name": "k8s_default",
+      "inputs": {
+        "snapshot": null
+      },
+      "serialized": "{\"bounded\":true,\"degraded\":false,\"deployments\":[],\"events\":[],\"ingress\":[],\"namespaces\":[\"default\"],\"pods\":[],\"services\":[],\"topology\":{}}",
+      "hash": "78dd9346c65c3dd8812041a53701cb3355c9955af899603e59b3b0da3b7e18d0"
+    },
+    {
+      "name": "k8s_full",
+      "inputs": {
+        "snapshot": {
+          "namespaces": [
+            "prod",
+            "default",
+            "Dev"
+          ],
+          "pods": [
+            {
+              "name": "zeta"
+            },
+            {
+              "name": "alpha"
+            },
+            {
+              "name": "Mu"
+            }
+          ],
+          "deployments": [
+            {
+              "name": "d2"
+            },
+            {
+              "name": "d1"
+            }
+          ],
+          "services": [
+            {
+              "name": "svc"
+            }
+          ],
+          "ingress": [
+            {
+              "host": "h"
+            }
+          ],
+          "topology": {
+            "prod": [
+              "zeta"
+            ]
+          },
+          "events": [
+            {
+              "e": 1
+            },
+            {
+              "e": 2
+            }
+          ],
+          "degraded": false
+        }
+      },
+      "serialized": "{\"bounded\":true,\"degraded\":false,\"deployments\":[{\"name\":\"d1\"},{\"name\":\"d2\"}],\"events\":[{\"e\":1},{\"e\":2}],\"ingress\":[{\"host\":\"h\"}],\"namespaces\":[\"Dev\",\"default\",\"prod\"],\"pods\":[{\"name\":\"Mu\"},{\"name\":\"alpha\"},{\"name\":\"zeta\"}],\"services\":[{\"name\":\"svc\"}],\"topology\":{\"prod\":[\"zeta\"]}}",
+      "hash": "1e3b2e7ce8928be31b49b950d60a98493a8e1dbd04f570a0e6b30b6011e4fb3b"
+    },
+    {
+      "name": "k8s_nameless_pod",
+      "inputs": {
+        "snapshot": {
+          "pods": [
+            {
+              "name": "b"
+            },
+            {
+              "x": 1
+            },
+            {
+              "name": "a"
+            }
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"degraded\":false,\"deployments\":[],\"events\":[],\"ingress\":[],\"namespaces\":[\"default\"],\"pods\":[{\"name\":\"a\"},{\"name\":\"b\"},{\"x\":1}],\"services\":[],\"topology\":{}}",
+      "hash": "e7b793d31d788f2354a4a12fa4a0f4706e6cac3c3c082f356e810c562123738c"
+    },
+    {
+      "name": "k8s_unicode_ns",
+      "inputs": {
+        "snapshot": {
+          "namespaces": [
+            "命名",
+            "alpha",
+            "😀"
+          ]
+        }
+      },
+      "serialized": "{\"bounded\":true,\"degraded\":false,\"deployments\":[],\"events\":[],\"ingress\":[],\"namespaces\":[\"alpha\",\"命名\",\"😀\"],\"pods\":[],\"services\":[],\"topology\":{}}",
+      "hash": "db9a4203f68c7f590c07852060a44a60835927a585555895b4c16491d2707b5b"
+    },
+    {
+      "name": "k8s_degraded",
+      "inputs": {
+        "snapshot": {
+          "degraded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"degraded\":true,\"deployments\":[],\"events\":[],\"ingress\":[],\"namespaces\":[\"default\"],\"pods\":[],\"services\":[],\"topology\":{}}",
+      "hash": "31fec012a1316b0c635f479e49c2b7ce3b8aba57277bcbbd5e6ac5f319119167"
+    },
+    {
+      "name": "k8s_empty_snapshot",
+      "inputs": {
+        "snapshot": {}
+      },
+      "serialized": "{\"bounded\":true,\"degraded\":false,\"deployments\":[],\"events\":[],\"ingress\":[],\"namespaces\":[\"default\"],\"pods\":[],\"services\":[],\"topology\":{}}",
+      "hash": "78dd9346c65c3dd8812041a53701cb3355c9955af899603e59b3b0da3b7e18d0"
+    }
+  ]
+}

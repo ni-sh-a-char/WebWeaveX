@@ -47,6 +47,10 @@ JAVA_PROVEN = {
     "extract_paginated_content": "io.webweavex.interaction.Pagination#extractPaginatedContent",
     # Session 6 — interaction graph (dependency-clean)
     "build_interaction_graph": "io.webweavex.interaction.InteractionGraph#buildInteractionGraph",
+    # Session 7 — remaining connector-runtime cluster (dependency-clean)
+    "extract_container_runtime": "io.webweavex.connectors.ContainerConnector#extractContainerRuntime",
+    "extract_ide_runtime": "io.webweavex.connectors.IdeConnector#extractIdeRuntime",
+    "extract_kubernetes_runtime": "io.webweavex.connectors.KubernetesConnector#extractKubernetesRuntime",
 }
 
 PACKAGES = [
