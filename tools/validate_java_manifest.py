@@ -106,6 +106,12 @@ MAPPING = {
     "run_causality_for_extraction": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "run_causality_for_extraction"),
     "save_causal_memory": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "save_causal_memory"),
     "load_causal_memory": ("io.webweavex.causality.CausalityRuntime", "golden_vectors_s13.json", "load_causal_memory"),
+    # Session 14 — streaming + live_runtime family (dependency-clean)
+    "build_stream_timeline": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s14.json", "build_stream_timeline"),
+    "replay_stream_events": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s14.json", "replay_stream_events"),
+    "run_live_runtime": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s14.json", "run_live_runtime"),
+    "save_live_runtime": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s14.json", "save_live_runtime"),
+    "load_live_runtime": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s14.json", "load_live_runtime"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
