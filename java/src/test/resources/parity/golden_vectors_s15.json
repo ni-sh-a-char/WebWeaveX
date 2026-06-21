@@ -1,0 +1,77 @@
+{
+  "source": "Python 2.1.0 canonical (session 15: modal recovery)",
+  "recover_modal_runtime": [
+    {
+      "name": "modal_none",
+      "inputs": {
+        "html": ""
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[],\"retries\":0}",
+      "hash": "228c96aac52101df1f604de162e96a432bec7868533f7e3e0b1b3c1ce839210b"
+    },
+    {
+      "name": "modal_cookie",
+      "inputs": {
+        "html": "<div id='cookie-accept'>Accept</div>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[{\"recovered\":true,\"selector\":\"#cookie-accept\"}],\"retries\":1}",
+      "hash": "95dfac84a93d6734d0c571e6aa9243e0b9c519c2b3e7f75e3ea368ab9f860801"
+    },
+    {
+      "name": "modal_aria_close",
+      "inputs": {
+        "html": "<button aria-label='Close'>x</button>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[{\"recovered\":true,\"selector\":\"[aria-label='Close']\"}],\"retries\":1}",
+      "hash": "394f880cb14481476c59b1adea193f016bba31f236961b8a52225e1cd4783bbd"
+    },
+    {
+      "name": "modal_button_accept",
+      "inputs": {
+        "html": "<button class='accept'>OK</button>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[],\"retries\":0}",
+      "hash": "228c96aac52101df1f604de162e96a432bec7868533f7e3e0b1b3c1ce839210b"
+    },
+    {
+      "name": "modal_modal_close",
+      "inputs": {
+        "html": "<span class='modal-close'></span>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[{\"recovered\":true,\"selector\":\".modal-close\"}],\"retries\":1}",
+      "hash": "bfe5521a789bdbc02968e8ea281c098d9dbf0753d15ee7c10694340a5e2582b7"
+    },
+    {
+      "name": "modal_first_wins",
+      "inputs": {
+        "html": "<div class='modal-close'></div><div id='cookie-accept'></div>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[{\"recovered\":true,\"selector\":\"#cookie-accept\"}],\"retries\":1}",
+      "hash": "95dfac84a93d6734d0c571e6aa9243e0b9c519c2b3e7f75e3ea368ab9f860801"
+    },
+    {
+      "name": "modal_no_match",
+      "inputs": {
+        "html": "<p>nothing here</p>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[],\"retries\":0}",
+      "hash": "228c96aac52101df1f604de162e96a432bec7868533f7e3e0b1b3c1ce839210b"
+    },
+    {
+      "name": "modal_case_insensitive",
+      "inputs": {
+        "html": "<DIV ID='COOKIE-ACCEPT'></DIV>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[{\"recovered\":true,\"selector\":\"#cookie-accept\"}],\"retries\":1}",
+      "hash": "95dfac84a93d6734d0c571e6aa9243e0b9c519c2b3e7f75e3ea368ab9f860801"
+    },
+    {
+      "name": "modal_unicode",
+      "inputs": {
+        "html": "<div id='cookie-accept'>café 😀</div>"
+      },
+      "serialized": "{\"bounded\":true,\"recovered\":[{\"recovered\":true,\"selector\":\"#cookie-accept\"}],\"retries\":1}",
+      "hash": "95dfac84a93d6734d0c571e6aa9243e0b9c519c2b3e7f75e3ea368ab9f860801"
+    }
+  ]
+}

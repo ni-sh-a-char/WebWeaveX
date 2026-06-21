@@ -97,10 +97,12 @@ JAVA_PROVEN = {
     "run_live_runtime": "io.webweavex.streaming.StreamingRuntime#runLiveRuntime",
     "save_live_runtime": "io.webweavex.streaming.StreamingRuntime#saveLiveRuntime",
     "load_live_runtime": "io.webweavex.streaming.StreamingRuntime#loadLiveRuntime",
+    # Session 15 — adaptive modal recovery (dependency-clean, 1 module)
+    "recover_modal_runtime": "io.webweavex.adaptive.ModalRecovery#recoverModalRuntime",
 }
 
 PACKAGES = [
-    "auth", "browser", "causality", "connectors", "crypto", "crawling",
+    "adaptive", "auth", "browser", "causality", "connectors", "crypto", "crawling",
     "determinism", "distributed", "documents", "evolution", "execution",
     "extraction", "graph", "identity", "ingestion", "interaction", "ir",
     "kernel", "layout", "memory", "multimodal", "ocr", "orchestration",
@@ -170,7 +172,7 @@ def main() -> None:
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
                         "connectors", "documents", "execution", "interaction", "session",
-                        "synchronization", "workflow", "evolution", "causality", "streaming")
+                        "synchronization", "workflow", "evolution", "causality", "streaming", "adaptive")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")
