@@ -8,9 +8,9 @@
   <img src="https://img.shields.io/badge/build-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white" alt="Maven"/>
   <img src="https://img.shields.io/badge/Maven%20Central-io.webweavex%3Awebweavex-blue?style=flat-square" alt="Maven Central"/>
   <img src="https://img.shields.io/badge/parity-PASS-22c55e?style=flat-square" alt="Parity"/>
-  <img src="https://img.shields.io/badge/tests-689%20passing-22c55e?style=flat-square" alt="Tests"/>
-  <img src="https://img.shields.io/badge/coverage-96.40%25%20instruction-22c55e?style=flat-square" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/API%20parity-67%20%2F%20128%20proven-3b82f6?style=flat-square" alt="API parity"/>
+  <img src="https://img.shields.io/badge/tests-732%20passing-22c55e?style=flat-square" alt="Tests"/>
+  <img src="https://img.shields.io/badge/coverage-96.42%25%20instruction-22c55e?style=flat-square" alt="Coverage"/>
+  <img src="https://img.shields.io/badge/API%20parity-69%20%2F%20128%20proven-3b82f6?style=flat-square" alt="API parity"/>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="License"/>
 </p>
 
@@ -294,12 +294,12 @@ Single source of truth for the 128-API surface: [`PARITY_MANIFEST.json`](PARITY_
 | Metric | Value |
 | --- | --- |
 | Total tracked public APIs (Python/JS/Dart) | **128** |
-| Java implemented (parity-proven) | **67** |
-| Java planned | 61 |
-| Parity tests | **689 passing**, 0 failures, 0 errors |
-| Instruction coverage (JaCoCo) | **96.40 %** |
+| Java implemented (parity-proven) | **69** |
+| Java planned | 59 |
+| Parity tests | **732 passing**, 0 failures, 0 errors |
+| Instruction coverage (JaCoCo) | **96.42 %** |
 
-Proven APIs today (67) span the determinism + crypto foundation, kernel/graph/IR,
+Proven APIs today (69) span the determinism + crypto foundation, kernel/graph/IR,
 query/memory/reconstruction, the connector-runtime extraction family
 (`extract_database/api/runtime_streams/telemetry/container/ide/kubernetes_runtime`),
 the document/interaction layer (`extract_document_runtime`, `extract_paginated_content`,
@@ -351,7 +351,7 @@ GitHub Actions gate every push and PR touching `java/**`, `tools/**`, or
 |----------|------|
 | [`java-build.yml`](.github/workflows/java-build.yml) | `mvn clean verify` on JDK 17 + 21, coverage artifact upload |
 | [`java-parity.yml`](.github/workflows/java-parity.yml) | `CrossLanguageParity*Test` + `validate_java_manifest.py` |
-| [`parity-regression.yml`](.github/workflows/parity-regression.yml) | Coverage floor (94 %) + proven-API floor (67) + manifest drift |
+| [`parity-regression.yml`](.github/workflows/parity-regression.yml) | Coverage floor (94 %) + proven-API floor (69) + manifest drift |
 
 ---
 

@@ -99,6 +99,9 @@ JAVA_PROVEN = {
     "load_live_runtime": "io.webweavex.streaming.StreamingRuntime#loadLiveRuntime",
     # Session 15 — adaptive modal recovery (dependency-clean, 1 module)
     "recover_modal_runtime": "io.webweavex.adaptive.ModalRecovery#recoverModalRuntime",
+    # Session 16 — reconstruction orchestrator (dependency-clean, 24-module closure)
+    "run_reconstruction_runtime": "io.webweavex.reconstruction.ReconstructionRuntime#runReconstructionRuntime",
+    "run_reconstruction_for_extraction": "io.webweavex.reconstruction.ReconstructionRuntime#runReconstructionForExtraction",
 }
 
 PACKAGES = [

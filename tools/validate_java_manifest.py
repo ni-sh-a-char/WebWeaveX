@@ -114,6 +114,9 @@ MAPPING = {
     "load_live_runtime": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s14.json", "load_live_runtime"),
     # Session 15 — adaptive modal recovery (dependency-clean, 1 module)
     "recover_modal_runtime": ("io.webweavex.adaptive.ModalRecovery", "golden_vectors_s15.json", "recover_modal_runtime"),
+    # Session 16 — reconstruction orchestrator (dependency-clean, 24-module closure)
+    "run_reconstruction_runtime": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "run_reconstruction_runtime"),
+    "run_reconstruction_for_extraction": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "run_reconstruction_for_extraction"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
