@@ -144,6 +144,8 @@ MAPPING = {
     # Session 20 — memory orchestrator (final clean slice)
     "run_runtime_memory": ("io.webweavex.memory.RuntimeMemoryRuntime", "golden_vectors_s20.json", "run_runtime_memory"),
     "run_memory_for_extraction": ("io.webweavex.memory.RuntimeMemoryRuntime", "golden_vectors_s20.json", "run_memory_for_extraction"),
+    # Session 21 — Tier-B start: heal_selector portable (empty-HTML) contract
+    "heal_selector": ("io.webweavex.adaptive.SelectorHealing", "golden_vectors_s21.json", "heal_selector"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

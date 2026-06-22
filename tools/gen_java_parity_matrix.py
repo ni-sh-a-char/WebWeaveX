@@ -129,6 +129,8 @@ JAVA_PROVEN = {
     # Session 20 — memory orchestrator (final clean slice, 37-module closure)
     "run_runtime_memory": "io.webweavex.memory.RuntimeMemoryRuntime#runRuntimeMemory",
     "run_memory_for_extraction": "io.webweavex.memory.RuntimeMemoryRuntime#runMemoryForExtraction",
+    # Session 21 — Tier-B start: heal_selector portable (empty-HTML) contract
+    "heal_selector": "io.webweavex.adaptive.SelectorHealing#healSelector",
 }
 
 PACKAGES = [
