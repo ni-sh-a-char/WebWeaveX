@@ -111,6 +111,10 @@ JAVA_PROVEN = {
     "load_adaptive_memory": "io.webweavex.memory.MemoryPersistence#loadAdaptiveMemory",
     "save_application_memory": "io.webweavex.memory.MemoryPersistence#saveApplicationMemory",
     "load_application_memory": "io.webweavex.memory.MemoryPersistence#loadApplicationMemory",
+    # Session 18 — browser identity (dependency-clean, 28-module closure)
+    "build_browser_identity": "io.webweavex.identity.IdentityRuntime#buildBrowserIdentity",
+    "save_browser_identity": "io.webweavex.identity.IdentityRuntime#saveBrowserIdentity",
+    "load_browser_identity": "io.webweavex.identity.IdentityRuntime#loadBrowserIdentity",
 }
 
 PACKAGES = [
@@ -184,7 +188,7 @@ def main() -> None:
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
                         "connectors", "documents", "execution", "interaction", "session",
-                        "synchronization", "workflow", "evolution", "causality", "streaming", "adaptive")
+                        "synchronization", "workflow", "evolution", "causality", "streaming", "adaptive", "identity")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")

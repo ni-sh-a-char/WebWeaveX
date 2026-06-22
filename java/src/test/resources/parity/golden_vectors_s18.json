@@ -1,0 +1,1129 @@
+{
+  "source": "Python 2.1.0 canonical (session 18: browser identity)",
+  "build_browser_identity": [
+    {
+      "name": "identity_default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d\",\"entropy_profile\":\"1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37\",\"fingerprint_hash\":\"3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c\",\"fonts\":[\"Arial\",\"Courier New\",\"Segoe UI\",\"Times New Roman\",\"Verdana\"],\"languages\":[\"en-US\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"video_inputs\":[\"Integrated Camera\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"Win32\",\"profile_id\":\"default\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":1080,\"width\":1920},\"timezone\":\"America/New_York\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}}",
+      "hash": "4ea9e25540e6c845a5703afef738798d15a955f34ef7b4481d63817223aa641a"
+    },
+    {
+      "name": "identity_profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"a0a0a908971d6c9d34160bfa7054871d11c2a82071260b65508064c799aa6044\",\"entropy_profile\":\"b7e8f948f859551a3777ef252077826679ddb780b119f796425a645d985efbb9\",\"fingerprint_hash\":\"5fc923388c8689dac041471ec3ffb38055a9a4cda89236b88020748389a8108c\",\"fonts\":[\"Arial\",\"Helvetica\",\"Menlo\",\"Times New Roman\"],\"languages\":[\"en-GB\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"MacBook Microphone\"],\"audio_outputs\":[\"MacBook Speakers\"],\"video_inputs\":[\"FaceTime HD Camera\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-GB\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"MacIntel\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"MacIntel\",\"profile_id\":\"profile_a\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":900,\"width\":1440},\"timezone\":\"Europe/London\",\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"WEBGL_debug_renderer_info\"],\"renderer\":\"Apple GPU\",\"vendor\":\"Apple Inc.\"}}",
+      "hash": "6c9a555b32d19249ce002dfb1723105d438621b5fc2aa0c011e10ca79f59fc63"
+    },
+    {
+      "name": "identity_profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"e43ef9f735303d4c26c62a5c1365ccb7c59dee8bf07dc599d61de38918d22c6d\",\"entropy_profile\":\"215ce5758ad591a756bce6be482b319efd85ec1f65f05f7716bc5e44cd428c25\",\"fingerprint_hash\":\"4e543d469b49c11a890531f4cbfce8ac55404fd631bbbcfa532578ad872d273d\",\"fonts\":[\"DejaVu Sans\",\"Liberation Sans\",\"Noto Sans\",\"Ubuntu\"],\"languages\":[\"en-US\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"USB Audio Device\"],\"audio_outputs\":[\"HDMI Output\"],\"video_inputs\":[\"HD Pro Webcam\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Linux x86_64\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"Linux x86_64\",\"profile_id\":\"profile_b\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":1440,\"width\":2560},\"timezone\":\"America/Los_Angeles\",\"user_agent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"EXT_texture_filter_anisotropic\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (NVIDIA, NVIDIA GeForce GTX 1060)\",\"vendor\":\"Google Inc. (NVIDIA)\"}}",
+      "hash": "9cd3dffac690c3645033d13a57a72342cdbff0e1af0bfa2ad2b45d8792154f0e"
+    },
+    {
+      "name": "identity_unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d\",\"entropy_profile\":\"1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37\",\"fingerprint_hash\":\"3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c\",\"fonts\":[\"Arial\",\"Courier New\",\"Segoe UI\",\"Times New Roman\",\"Verdana\"],\"languages\":[\"en-US\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"video_inputs\":[\"Integrated Camera\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"Win32\",\"profile_id\":\"default\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":1080,\"width\":1920},\"timezone\":\"America/New_York\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}}",
+      "hash": "4ea9e25540e6c845a5703afef738798d15a955f34ef7b4481d63817223aa641a"
+    }
+  ],
+  "build_browser_profile": [
+    {
+      "name": "build_browser_profile:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"profile_id\":\"default\",\"profile_seed\":\"37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\",\"rotation_index\":0}",
+      "hash": "183148d049988b534b5a497367758425b5364e0a034c7631776aa5b9e3a82139"
+    },
+    {
+      "name": "build_browser_profile:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"profile_id\":\"profile_a\",\"profile_seed\":\"ed8ba1cf7a68b2dc46952746a38edc3935554c6790a4c42ac6abba8b025c297c\",\"rotation_index\":0}",
+      "hash": "ca7976fd7c6965f31504d6d79cc6250977464a792f5d297a7e169238bf39eb12"
+    },
+    {
+      "name": "build_browser_profile:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"profile_id\":\"profile_b\",\"profile_seed\":\"da2bb3a0b8ec75f25a391a4db13f902e272ad689a73d5f2268cf8eda8b63b254\",\"rotation_index\":0}",
+      "hash": "25c941821837dee870121ab926ebd71bfd2793d3015f70aac2855ac8ed3ff831"
+    },
+    {
+      "name": "build_browser_profile:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"profile_id\":\"default\",\"profile_seed\":\"37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\",\"rotation_index\":0}",
+      "hash": "183148d049988b534b5a497367758425b5364e0a034c7631776aa5b9e3a82139"
+    }
+  ],
+  "build_user_agent_runtime": [
+    {
+      "name": "build_user_agent_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\"}",
+      "hash": "0b7ff3b33cc7c89371d1537725d720dc98f895adffd9db8dfd6cea025f8da18f"
+    },
+    {
+      "name": "build_user_agent_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\"}",
+      "hash": "7f820f1f386234d25c4b9d1afa9dbdb94d1964e3d2bac5d3aa566850d6d39ce7"
+    },
+    {
+      "name": "build_user_agent_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"user_agent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\"}",
+      "hash": "541b17817ef1414dc2de40ad84d47b7ecd3c58652f67353c5d5710cc49affdaa"
+    },
+    {
+      "name": "build_user_agent_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\"}",
+      "hash": "0b7ff3b33cc7c89371d1537725d720dc98f895adffd9db8dfd6cea025f8da18f"
+    }
+  ],
+  "build_platform_runtime": [
+    {
+      "name": "build_platform_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"platform\":\"Win32\"}",
+      "hash": "b6952159624fe755d0dc1d1d99da37d06c9bd06f2e6c5bb1a218d264fbc9d1ae"
+    },
+    {
+      "name": "build_platform_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"platform\":\"MacIntel\"}",
+      "hash": "88b0235fa9c653023b645bd0bea5c42a41f5b9539d14ec61fbeb93582485d213"
+    },
+    {
+      "name": "build_platform_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"platform\":\"Linux x86_64\"}",
+      "hash": "700d471e486d800a4953b9e68f58cb54359efed3300588680ea47846512d466c"
+    },
+    {
+      "name": "build_platform_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"platform\":\"Win32\"}",
+      "hash": "b6952159624fe755d0dc1d1d99da37d06c9bd06f2e6c5bb1a218d264fbc9d1ae"
+    }
+  ],
+  "build_language_runtime": [
+    {
+      "name": "build_language_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"languages\":[\"en-US\",\"en\"]}",
+      "hash": "2a83dce753fe16997bfd7097844b5f434f9922b0644c3e0c94f00f2d5322c662"
+    },
+    {
+      "name": "build_language_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"languages\":[\"en-GB\",\"en\"]}",
+      "hash": "8f3f76734bc9851beae80255f49362893e49a55a2283a02afef68977d21a7103"
+    },
+    {
+      "name": "build_language_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"languages\":[\"en-US\",\"en\"]}",
+      "hash": "2a83dce753fe16997bfd7097844b5f434f9922b0644c3e0c94f00f2d5322c662"
+    },
+    {
+      "name": "build_language_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"languages\":[\"en-US\",\"en\"]}",
+      "hash": "2a83dce753fe16997bfd7097844b5f434f9922b0644c3e0c94f00f2d5322c662"
+    }
+  ],
+  "build_timezone_runtime": [
+    {
+      "name": "build_timezone_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"timezone\":\"America/New_York\"}",
+      "hash": "7f4ce29e098b8a732f25679dfe305da035653f2ccc252d8c4ce0323d3f1c7f54"
+    },
+    {
+      "name": "build_timezone_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"timezone\":\"Europe/London\"}",
+      "hash": "98a83bc459489473506357a6be37acf7c21c94f1149a278855392564b549aeff"
+    },
+    {
+      "name": "build_timezone_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"timezone\":\"America/Los_Angeles\"}",
+      "hash": "6d27fa810863f03ce86c34c6fee4157c0f2dc11509018c06c38d074c021773f4"
+    },
+    {
+      "name": "build_timezone_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"timezone\":\"America/New_York\"}",
+      "hash": "7f4ce29e098b8a732f25679dfe305da035653f2ccc252d8c4ce0323d3f1c7f54"
+    }
+  ],
+  "build_webgl_runtime": [
+    {
+      "name": "build_webgl_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}",
+      "hash": "4115cf7fedac68e1ca2b9c49916e2f237ea3bc2b71f9a16e7473ab4bdbf72035"
+    },
+    {
+      "name": "build_webgl_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"extensions\":[\"WEBGL_debug_renderer_info\"],\"renderer\":\"Apple GPU\",\"vendor\":\"Apple Inc.\"}",
+      "hash": "b0451c5153d8ae0fbba5bbaa16e01add5d42d0763a88bef88a7b89ed8d070178"
+    },
+    {
+      "name": "build_webgl_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"extensions\":[\"EXT_texture_filter_anisotropic\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (NVIDIA, NVIDIA GeForce GTX 1060)\",\"vendor\":\"Google Inc. (NVIDIA)\"}",
+      "hash": "e95ac7f31fb46a7663ae273c7553be4edb0c4eb5851a61a04465b4015a24f338"
+    },
+    {
+      "name": "build_webgl_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}",
+      "hash": "4115cf7fedac68e1ca2b9c49916e2f237ea3bc2b71f9a16e7473ab4bdbf72035"
+    }
+  ],
+  "build_canvas_runtime": [
+    {
+      "name": "build_canvas_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d\",\"canvas_seed\":\"webweavex-canvas:default\"}",
+      "hash": "43bdc1329e722c4237b4a5c8e6c9fec14d8c76fa110d5bf30c6a97e294ec4542"
+    },
+    {
+      "name": "build_canvas_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"a0a0a908971d6c9d34160bfa7054871d11c2a82071260b65508064c799aa6044\",\"canvas_seed\":\"webweavex-canvas:profile_a\"}",
+      "hash": "4226ff21062dfcba56dfb85a97bceb7ffad277bf1c44b7989146ebea05008613"
+    },
+    {
+      "name": "build_canvas_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"e43ef9f735303d4c26c62a5c1365ccb7c59dee8bf07dc599d61de38918d22c6d\",\"canvas_seed\":\"webweavex-canvas:profile_b\"}",
+      "hash": "edc4f739530f63f34a8090c51af628bb8e56c269f4160d7aed5eabd054747715"
+    },
+    {
+      "name": "build_canvas_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"canvas_fingerprint\":\"27a1cefdd3aa3a296010cd137570fcd14c6a29f254ce2a60916ec3a29487595e\",\"canvas_seed\":\"webweavex-canvas:unknown_profile\"}",
+      "hash": "77811c2c10a3ba18580e58b2b963ad3482f7efa7b3f361f8a02c72e9038a97a3"
+    }
+  ],
+  "build_font_runtime": [
+    {
+      "name": "build_font_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"fonts\":[\"Arial\",\"Courier New\",\"Segoe UI\",\"Times New Roman\",\"Verdana\"]}",
+      "hash": "e79351136f80d879be8ca26d46d0f7ea348434e43ce6a16f258fbd164a0fed47"
+    },
+    {
+      "name": "build_font_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"fonts\":[\"Arial\",\"Helvetica\",\"Menlo\",\"Times New Roman\"]}",
+      "hash": "88016bd27e104b57d51d06e80ad7162e1306cb6c088faff9fd1a36ef76504904"
+    },
+    {
+      "name": "build_font_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"fonts\":[\"DejaVu Sans\",\"Liberation Sans\",\"Noto Sans\",\"Ubuntu\"]}",
+      "hash": "174cc6b25fc486a415269364353697935d19d9f1dd85c36c0c037ceaf6b26d71"
+    },
+    {
+      "name": "build_font_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"fonts\":[\"Arial\",\"Courier New\",\"Segoe UI\",\"Times New Roman\",\"Verdana\"]}",
+      "hash": "e79351136f80d879be8ca26d46d0f7ea348434e43ce6a16f258fbd164a0fed47"
+    }
+  ],
+  "build_media_device_runtime": [
+    {
+      "name": "build_media_device_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"bounded\":true,\"video_inputs\":[\"Integrated Camera\"]}",
+      "hash": "df435bac23a4a4ca6e3f207c33248e8159fd14c2d8b4528e3c6f1aae5e823a45"
+    },
+    {
+      "name": "build_media_device_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"audio_inputs\":[\"MacBook Microphone\"],\"audio_outputs\":[\"MacBook Speakers\"],\"bounded\":true,\"video_inputs\":[\"FaceTime HD Camera\"]}",
+      "hash": "862e19480286f5c9419c55cbab25394dbe51c275e56d044011cef02decf756a4"
+    },
+    {
+      "name": "build_media_device_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"audio_inputs\":[\"USB Audio Device\"],\"audio_outputs\":[\"HDMI Output\"],\"bounded\":true,\"video_inputs\":[\"HD Pro Webcam\"]}",
+      "hash": "4bd1eb154578562492bc7e9e2639103d1eaf755d908eb1c804d8c71a0010d184"
+    },
+    {
+      "name": "build_media_device_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"bounded\":true,\"video_inputs\":[\"Integrated Camera\"]}",
+      "hash": "df435bac23a4a4ca6e3f207c33248e8159fd14c2d8b4528e3c6f1aae5e823a45"
+    }
+  ],
+  "build_navigator_runtime": [
+    {
+      "name": "build_navigator_runtime:default",
+      "inputs": {
+        "profile_id": "default"
+      },
+      "serialized": "{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false}",
+      "hash": "0e5e3e3b00ba44ef3aeeaf8154f758ddf49dc1897cf3d02962b204ada3c1d8f9"
+    },
+    {
+      "name": "build_navigator_runtime:profile_a",
+      "inputs": {
+        "profile_id": "profile_a"
+      },
+      "serialized": "{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-GB\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"MacIntel\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false}",
+      "hash": "e8d6910e00ce9bb778578037bfabfff67d4ffd117ca2603358a4f6ab9ff8d36d"
+    },
+    {
+      "name": "build_navigator_runtime:profile_b",
+      "inputs": {
+        "profile_id": "profile_b"
+      },
+      "serialized": "{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Linux x86_64\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false}",
+      "hash": "0b352871bd6c7f1e69b02290233d742fd16d8b36e44816cfa11a6e416f4f700b"
+    },
+    {
+      "name": "build_navigator_runtime:unknown_profile",
+      "inputs": {
+        "profile_id": "unknown_profile"
+      },
+      "serialized": "{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false}",
+      "hash": "0e5e3e3b00ba44ef3aeeaf8154f758ddf49dc1897cf3d02962b204ada3c1d8f9"
+    }
+  ],
+  "compute_runtime_entropy": [
+    {
+      "name": "entropy_baseline",
+      "inputs": {
+        "identity": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        },
+        "observed": null
+      },
+      "serialized": "{\"baseline_hash\":\"b96f9fc193e92ed4e4e61b03c3e928f3b6251743839f971253d05d020a801963\",\"bounded\":true,\"entropy_score\":0,\"stable\":true}",
+      "hash": "dd9e4a858777e540e2df48a1d21cb105e61f7edb911a5bcab15c54f74d5e1601"
+    },
+    {
+      "name": "entropy_stable",
+      "inputs": {
+        "identity": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        },
+        "observed": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        }
+      },
+      "serialized": "{\"baseline_hash\":\"b96f9fc193e92ed4e4e61b03c3e928f3b6251743839f971253d05d020a801963\",\"bounded\":true,\"entropy_score\":0,\"observed_hash\":\"b96f9fc193e92ed4e4e61b03c3e928f3b6251743839f971253d05d020a801963\",\"stable\":true}",
+      "hash": "d704b23c369e85be7bd2ae28847d9ddc9efcefc7df13424272f77e9961d50ebe"
+    },
+    {
+      "name": "entropy_drift",
+      "inputs": {
+        "identity": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        },
+        "observed": {
+          "profile_id": "profile_a",
+          "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "MacIntel",
+          "languages": [
+            "en-GB",
+            "en"
+          ],
+          "timezone": "Europe/London",
+          "screen": {
+            "width": 1440,
+            "height": 900,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Apple Inc.",
+            "renderer": "Apple GPU",
+            "extensions": [
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Helvetica",
+            "Menlo",
+            "Times New Roman"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "MacBook Microphone"
+            ],
+            "video_inputs": [
+              "FaceTime HD Camera"
+            ],
+            "audio_outputs": [
+              "MacBook Speakers"
+            ]
+          },
+          "canvas_fingerprint": "a0a0a908971d6c9d34160bfa7054871d11c2a82071260b65508064c799aa6044",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-GB",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "MacIntel",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "b7e8f948f859551a3777ef252077826679ddb780b119f796425a645d985efbb9",
+          "fingerprint_hash": "5fc923388c8689dac041471ec3ffb38055a9a4cda89236b88020748389a8108c"
+        }
+      },
+      "serialized": "{\"baseline_hash\":\"b96f9fc193e92ed4e4e61b03c3e928f3b6251743839f971253d05d020a801963\",\"bounded\":true,\"entropy_score\":1,\"observed_hash\":\"2e608b6d523295f3e02574fd1a36391a3ba9aa173c82296dc74411ff61f69afe\",\"stable\":false}",
+      "hash": "1b2bac1ac34697aa5a8e1e61c1bf7e486f298e6943c4ed11e017acfbd01f897c"
+    }
+  ],
+  "normalize_browser_fingerprint": [
+    {
+      "name": "normalize",
+      "inputs": {
+        "identity": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        }
+      },
+      "serialized": "{\"canvas_fingerprint\":\"32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d\",\"entropy_profile\":\"1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37\",\"fingerprint_hash\":\"3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c\",\"fonts\":[\"arial\",\"courier new\",\"segoe ui\",\"times new roman\",\"verdana\"],\"languages\":[\"en\",\"en-us\"],\"media_devices\":{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"video_inputs\":[\"Integrated Camera\"]},\"navigator\":{\"bounded\":true,\"devicememory\":8,\"hardwareconcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimetypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"win32\",\"profile_id\":\"default\",\"rotation_index\":\"0\",\"screen\":{\"colordepth\":24,\"height\":1080,\"width\":1920},\"timezone\":\"america/new_york\",\"user_agent\":\"mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/120.0.0.0 safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}}",
+      "hash": "b96f9fc193e92ed4e4e61b03c3e928f3b6251743839f971253d05d020a801963"
+    },
+    {
+      "name": "normalize_mixed",
+      "inputs": {
+        "identity": {
+          "A": "UPPER",
+          "list": [
+            "Z",
+            "a"
+          ],
+          "num": 8,
+          "flag": false,
+          "dict": {
+            "K2": 1,
+            "K1": 2
+          },
+          "bounded": true
+        }
+      },
+      "serialized": "{\"A\":\"upper\",\"dict\":{\"k1\":2,\"k2\":1},\"flag\":\"false\",\"list\":[\"a\",\"z\"],\"num\":\"8\"}",
+      "hash": "7f8c6e4315f7dcffdf3564d49a84d5538f73a3288c8cb00599ce9e5932c54f72"
+    }
+  ],
+  "fingerprint_browser_identity": [
+    {
+      "name": "fingerprint",
+      "inputs": {
+        "identity": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        }
+      },
+      "serialized": "{\"fingerprint_hash\":\"b96f9fc193e92ed4e4e61b03c3e928f3b6251743839f971253d05d020a801963\"}",
+      "hash": "2d0ca7a6a1527d4c0cadce3f1a100886d4c9a60e680b33bf94a895fde63895a7"
+    }
+  ],
+  "save_browser_identity": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "simple.json",
+        "identity": {
+          "profile_id": "default",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/New_York",
+          "screen": {
+            "width": 1920,
+            "height": 1080,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (Intel)",
+            "renderer": "ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)",
+            "extensions": [
+              "OES_texture_float",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "Arial",
+            "Courier New",
+            "Segoe UI",
+            "Times New Roman",
+            "Verdana"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "Default Microphone"
+            ],
+            "video_inputs": [
+              "Integrated Camera"
+            ],
+            "audio_outputs": [
+              "Default Speakers"
+            ]
+          },
+          "canvas_fingerprint": "32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Win32",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37",
+          "fingerprint_hash": "3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c"
+        },
+        "key": "id-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"TvY3RUxGPT8//hdSUVVGDgVHRlRdSVxJUVVbVVRiYWRcYmkYMRosLF1iYV9hNThkMz04ODs+bDxsQnE/RkRGRndFe055SVJPTU2ATlOChFZbWIeJiVyNYGJkYF6RZ2STl2VumWmcW2Zdoauysa+xu6K0t7WtsbWvbYZvf7G1hreEhLeNiI6OjZONjo+SlMLFmMmelqCgnJqdntKkn6DTqKekq9ms2bLcq9/er7K05Lazuri96L+5vu+/xLC7svf7Afv6CAcKAggP+wX/EgjD3MXXBgoL2dziENwTFBEW4+QYGO3n7use8e/wIPHv9SL49/gp+yr8LP4tMAU0BAEFODQLBQwQDBAQCz1DEhdEGRRGBhEITVdXXl4OJ0kRMWNbVGAXIhk7aG9tZWJwH05meSUwJ1lsb3hvK2FWMDsyZXuAeYg2ZX2QOm2Lin+NQk1EeYmXioiWikyIWE+akJ6Yp5SbmqlZcpRcoKpqk5JibWSosmejc2q2r6+1rq2ztce7trnIeJHTe7vQwMbNvsnP0tjY2Iihw4uu0NLO49vkkb/c1+fl5+Do6OCe2qqh4fbm7PPk9fz8+f///6/I6rLV9/n1CgILuOwKAP0IAxETw//PxhsPCw0YCRQaHSMjI9PsDtb+JCsdICwcMCIi3wMiLyg2JugkRfXsOS1DNzYxRUFF9g9R+TpIT0lAQkIBGlVUWEkRCEtNX1NOUTpTXF9jaxUuLSIZYFpsX3NecGRDcHBmeXd4bHZsgy1GRToxfHKAeol2fXyLO1R2PoKMTHV0RE9GipRJhVVMmJWak4OpoZemVm+RWZmpqqeloJ+zqbCwcrSprGmldWy7sb+7uMPEu8LCyHiR03vBwMvJzcLB1cvS0oegidjb2djc4ZCbkt/h593b39rZ7ePq6vCguaLl5+nl+vL7qga2rfz57wP2AAQAts+47gEHzc2+ycAPDBYJDBIYyOEDy+0THhwbFNAB9vnUBSIsHyIo3ejfAScyMC8o5BUKDegfMzBDMkDxLf30SEc6SDY5QD9JUP8YAS1QXExQUUcWHRcaCxREV11UYGlmFENKFykpKCs3HVVobjc2PiR9PDsxKUt7fHlzZnVzXXyIREtKT0dNUTxFaWd0bm5PRJGPko1JcZCPmJ1YUHSapaOim2Zpa2ppbGtubXBhlaSqpriwd359gnqAhHF8c8m4trnIwM6+zH2Ww7/L08bfj4bV0sjcz9nd2Y+okcfa4Kaml6KZ6Ovp4eXp497p5aS9punr7en+9v+uubAB/wXzB/0EBPYBB/4AFL/Yz8zDFQYWCgsVyuMlzQ8cGh4i9RcjKB3Y8ert5t0kIicmKDXk/fX1/vf060E0MEE28QoCCwUEUgL5TEJHQFZMTEQCGwQkUUpYUEtKGTlRZE1IX2NdFSAXa2pda1lcY2JscyI7JFBzf29zdGo5QDo9LjdneoB3g4yJN2ZtOkxMS05aQHiLkVpZYUegX15UTG6en5yWiZiWgJ+rZ25tcmpwdF9ojIqXkZFyZ7SytbBslLOyu8B7c5e9yMbFvomMjo2Mj46RkJOEuMfNydvTmqGgpZ2jp5Sfluzb2d/lnLX3n+Du9e/m6OinwPv6/u+3rvIGA/X/BfwDAwm50vS86uHw/RMFGRYYFgoFDRQYCx/O2dAG9fP5/xMZGxktIBktISsiJDImNCItMyw26ib27T4yPDM1QzdF9g/4GCYgJiD8BSdNVEZODwQuVFtNVRI9FQ1DNzQROWVVZV5gW2waP2VvY2J0NEY0NSV8emc+aTssfYFuRXBCPDZBOI19h36Kjj9YQWeQkYqQikZwloxYS1R2nKOVnVtVsbI=\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "profile_b",
+      "inputs": {
+        "filename": "profile_b.json",
+        "identity": {
+          "profile_id": "profile_b",
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "platform": "Linux x86_64",
+          "languages": [
+            "en-US",
+            "en"
+          ],
+          "timezone": "America/Los_Angeles",
+          "screen": {
+            "width": 2560,
+            "height": 1440,
+            "colorDepth": 24
+          },
+          "webgl": {
+            "vendor": "Google Inc. (NVIDIA)",
+            "renderer": "ANGLE (NVIDIA, NVIDIA GeForce GTX 1060)",
+            "extensions": [
+              "EXT_texture_filter_anisotropic",
+              "WEBGL_debug_renderer_info"
+            ],
+            "bounded": true
+          },
+          "fonts": [
+            "DejaVu Sans",
+            "Liberation Sans",
+            "Noto Sans",
+            "Ubuntu"
+          ],
+          "media_devices": {
+            "audio_inputs": [
+              "USB Audio Device"
+            ],
+            "video_inputs": [
+              "HD Pro Webcam"
+            ],
+            "audio_outputs": [
+              "HDMI Output"
+            ]
+          },
+          "canvas_fingerprint": "e43ef9f735303d4c26c62a5c1365ccb7c59dee8bf07dc599d61de38918d22c6d",
+          "navigator": {
+            "webdriver": false,
+            "plugins": [
+              "Chrome PDF Plugin",
+              "Chrome PDF Viewer"
+            ],
+            "mimeTypes": [
+              "application/pdf"
+            ],
+            "hardwareConcurrency": 8,
+            "deviceMemory": 8,
+            "languages": [
+              "en-US",
+              "en"
+            ],
+            "permissions": {
+              "notifications": "default",
+              "geolocation": "prompt"
+            },
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "platform": "Linux x86_64",
+            "bounded": true
+          },
+          "rotation_index": 0,
+          "bounded": true,
+          "entropy_profile": "215ce5758ad591a756bce6be482b319efd85ec1f65f05f7716bc5e44cd428c25",
+          "fingerprint_hash": "4e543d469b49c11a890531f4cbfce8ac55404fd631bbbcfa532578ad872d273d"
+        },
+        "key": "id-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"TvY3RUxGPT8//hdSUVVGDgVHRlRdSVxJUVVbVVRiYWRcYmkYMRpeLi5hYzdlNzQ3NjQ4ajtrO0BuQj9vRHNCRUlJeHl5T3xPVICCg1eCh1JaiIhbYGGNYFyQkmFnaWJql2ZnmW2cW2Zdoauysa+xu6K0t7WtsbWvbYZvgICFtLeIi4qOuLyOk4y9lJOVwsTHmcbKmp+ay52cpdLU06im19al26ys3qmv4bO0r7Xi5LfouLnp67y7wu6+wrC7svf7Afv6CAcKAggP+wX/EgjD3MXYCtvb2w3e4eUP4ugT4uMU7O7m7OvqIO8fHyQiJfkjJvn6+vf8Ly4B//4wMTI0ODQJCAgMDxE7PxQUEEMSGBVHBhEITVdXXl4OJ0kRNFZcVEpqFkpZZ20dKB9KaGJmdGR4bnV1KFxreX8vOjFegIaCNGh3hYs7Rj1xf5ONlJZEgFBHkoiWkJ+Mk5KhUWqMVJiiYouKWmVcoKpfm2tirqenraalq62/s66xwHCJy3OzyLi+xbbBx8rQ0NCAmbuDt7amhafczNLZi7DS5NjT1pTQoJfX7Nzi6drr8vLv9fX1pb7gqM/M1tOr2wIC/wUFtPDAtwwA/P4J+gULDhQUFMTd/8fu68j5HBrMBBMRExIf1REy4tkmGjAkIx4yLjLj/D7mJzU8Ni0vL+4HQkFFNv71ODpMQDs+J0BJTFBYAhsaDwZNR1lMYEtdUTBdXVNmZGVZY1lwGjMyJx5pX21ndmNqaXgoQWMrb3k5YmExPDN3gTZyQjmFgoeAcJaOhJNDXH5GhpaXlJKNjKCWnZ1foZaZVpJiWaierKilsLGor6+1ZX7AaK6tuLa6r67CuL+/dI12xcjGxcnOfYh/zM7UysjMx8ba0NfX3Y2mj9LU1tLn3+iX86Oa6ebc8OPt8e2jvKXQ7vT8AKkCw8LsxMOyvbQDAAr9AAYMvNX3v+EHEhAPCMT16u3I+RYgExYc0dzT9RsmJCMc2An+AdwTJyQ3JjTlIfHoPDsuPCotNDM9RPMM9SFEUEBERTsKEQsO/wg5ExQfBTJQVl5iC2QlJE4mJRsTNWVmY11QX11HZnIuNTQ5MTc7Ji9TUV5YWDkue3l8dzNbenmCh0I6XoSPjYyFUFNVVFNWVVhXWkt/jpSQopphaGdsZGpuW2Zds6Kgo7KquKi2Z4CtqbW9sMl5cL+8ssa5w8fDeZJ7psTK0tZ/2JmYwpqZiJOK2dza0tba1M/a1pWul+bp59/j5+Hc4KGso/Ty+Ob68Pf36fT68fMHssvCv7YI+Qn9/gi91hjAAg8NERXoChYbEMvk3eDZ0BcVGhkbKNfw6Ozt6ufeNCcjNCnk/fb6/PdF9ew/NTozST8/N/UO9xdEPUtDPj0MKk5TQCNRS0pSTFsLFg1hYFNhT1JZWGJpGDEaRml1ZWlqYC82MDMkLV44OUQqV3V7g4cwiUpJc0tKQDhaiouIgnWEgmyLl1NaWV5WXGBLVHh2g319XlOgnqGcWICfnqesZ1+DqbSysap1eHp5eHt6fXx/cKSzubXHv4aNjJGJj5OAi4LYx8XL0Yih44vM2uHb0tTUk6zn5urbo5re8u/h6/Ho7+/1pb7gqMzg3en/8QUCBAL28fn9AQr8Cvj7CQUQDRMSEBIMB8fSyf/u7PL4DBIUEiYZEiYaJBsdKx8tGyYsJS/jH+/mNys1LC48MD7vCPERHxkfGfX+JS4iHiQdCf4tNiomLCUFLUwuWFxOUQ01Q0gRIyMqJR8ZJBtwYGphbXEiOyRKc3Rtc20pU3lvOy43XmdbV11WPzmVlg==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "unicode.json",
+        "identity": {
+          "profile_id": "x",
+          "note": "café 😀",
+          "用户": 1,
+          "bounded": true
+        },
+        "key": "id-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"TvY3RUxGPT8//hdSUVVGDgVSVFpMCiMMTk1TsZgQ4ZGLdBciGWhraWFlaWNeaWUkPSZ9KDMq8J6z8pXFMUpCjw==\", \"payload_type\": \"session\"}"
+    }
+  ],
+  "load_browser_identity": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"TvY3RUxGPT8//hdSUVVGDgVHRlRdSVxJUVVbVVRiYWRcYmkYMRosLF1iYV9hNThkMz04ODs+bDxsQnE/RkRGRndFe055SVJPTU2ATlOChFZbWIeJiVyNYGJkYF6RZ2STl2VumWmcW2Zdoauysa+xu6K0t7WtsbWvbYZvf7G1hreEhLeNiI6OjZONjo+SlMLFmMmelqCgnJqdntKkn6DTqKekq9ms2bLcq9/er7K05Lazuri96L+5vu+/xLC7svf7Afv6CAcKAggP+wX/EgjD3MXXBgoL2dziENwTFBEW4+QYGO3n7use8e/wIPHv9SL49/gp+yr8LP4tMAU0BAEFODQLBQwQDBAQCz1DEhdEGRRGBhEITVdXXl4OJ0kRMWNbVGAXIhk7aG9tZWJwH05meSUwJ1lsb3hvK2FWMDsyZXuAeYg2ZX2QOm2Lin+NQk1EeYmXioiWikyIWE+akJ6Yp5SbmqlZcpRcoKpqk5JibWSosmejc2q2r6+1rq2ztce7trnIeJHTe7vQwMbNvsnP0tjY2Iihw4uu0NLO49vkkb/c1+fl5+Do6OCe2qqh4fbm7PPk9fz8+f///6/I6rLV9/n1CgILuOwKAP0IAxETw//PxhsPCw0YCRQaHSMjI9PsDtb+JCsdICwcMCIi3wMiLyg2JugkRfXsOS1DNzYxRUFF9g9R+TpIT0lAQkIBGlVUWEkRCEtNX1NOUTpTXF9jaxUuLSIZYFpsX3NecGRDcHBmeXd4bHZsgy1GRToxfHKAeol2fXyLO1R2PoKMTHV0RE9GipRJhVVMmJWak4OpoZemVm+RWZmpqqeloJ+zqbCwcrSprGmldWy7sb+7uMPEu8LCyHiR03vBwMvJzcLB1cvS0oegidjb2djc4ZCbkt/h593b39rZ7ePq6vCguaLl5+nl+vL7qga2rfz57wP2AAQAts+47gEHzc2+ycAPDBYJDBIYyOEDy+0THhwbFNAB9vnUBSIsHyIo3ejfAScyMC8o5BUKDegfMzBDMkDxLf30SEc6SDY5QD9JUP8YAS1QXExQUUcWHRcaCxREV11UYGlmFENKFykpKCs3HVVobjc2PiR9PDsxKUt7fHlzZnVzXXyIREtKT0dNUTxFaWd0bm5PRJGPko1JcZCPmJ1YUHSapaOim2Zpa2ppbGtubXBhlaSqpriwd359gnqAhHF8c8m4trnIwM6+zH2Ww7/L08bfj4bV0sjcz9nd2Y+okcfa4Kaml6KZ6Ovp4eXp497p5aS9punr7en+9v+uubAB/wXzB/0EBPYBB/4AFL/Yz8zDFQYWCgsVyuMlzQ8cGh4i9RcjKB3Y8ert5t0kIicmKDXk/fX1/vf060E0MEE28QoCCwUEUgL5TEJHQFZMTEQCGwQkUUpYUEtKGTlRZE1IX2NdFSAXa2pda1lcY2JscyI7JFBzf29zdGo5QDo9LjdneoB3g4yJN2ZtOkxMS05aQHiLkVpZYUegX15UTG6en5yWiZiWgJ+rZ25tcmpwdF9ojIqXkZFyZ7SytbBslLOyu8B7c5e9yMbFvomMjo2Mj46RkJOEuMfNydvTmqGgpZ2jp5Sfluzb2d/lnLX3n+Du9e/m6OinwPv6/u+3rvIGA/X/BfwDAwm50vS86uHw/RMFGRYYFgoFDRQYCx/O2dAG9fP5/xMZGxktIBktISsiJDImNCItMyw26ib27T4yPDM1QzdF9g/4GCYgJiD8BSdNVEZODwQuVFtNVRI9FQ1DNzQROWVVZV5gW2waP2VvY2J0NEY0NSV8emc+aTssfYFuRXBCPDZBOI19h36Kjj9YQWeQkYqQikZwloxYS1R2nKOVnVtVsbI=\", \"payload_type\": \"session\"}",
+      "key": "id-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"identity\":{\"bounded\":true,\"canvas_fingerprint\":\"32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d\",\"entropy_profile\":\"1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37\",\"fingerprint_hash\":\"3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c\",\"fonts\":[\"Arial\",\"Courier New\",\"Segoe UI\",\"Times New Roman\",\"Verdana\"],\"languages\":[\"en-US\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"video_inputs\":[\"Integrated Camera\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"Win32\",\"profile_id\":\"default\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":1080,\"width\":1920},\"timezone\":\"America/New_York\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}}}",
+      "hash": "dca28bc8be530915f4fb5d552e8f0022af20b70c452d55b6b65bca0032dd6386"
+    },
+    {
+      "name": "load_profile_b",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"TvY3RUxGPT8//hdSUVVGDgVHRlRdSVxJUVVbVVRiYWRcYmkYMRpeLi5hYzdlNzQ3NjQ4ajtrO0BuQj9vRHNCRUlJeHl5T3xPVICCg1eCh1JaiIhbYGGNYFyQkmFnaWJql2ZnmW2cW2Zdoauysa+xu6K0t7WtsbWvbYZvgICFtLeIi4qOuLyOk4y9lJOVwsTHmcbKmp+ay52cpdLU06im19al26ys3qmv4bO0r7Xi5LfouLnp67y7wu6+wrC7svf7Afv6CAcKAggP+wX/EgjD3MXYCtvb2w3e4eUP4ugT4uMU7O7m7OvqIO8fHyQiJfkjJvn6+vf8Ly4B//4wMTI0ODQJCAgMDxE7PxQUEEMSGBVHBhEITVdXXl4OJ0kRNFZcVEpqFkpZZ20dKB9KaGJmdGR4bnV1KFxreX8vOjFegIaCNGh3hYs7Rj1xf5ONlJZEgFBHkoiWkJ+Mk5KhUWqMVJiiYouKWmVcoKpfm2tirqenraalq62/s66xwHCJy3OzyLi+xbbBx8rQ0NCAmbuDt7amhafczNLZi7DS5NjT1pTQoJfX7Nzi6drr8vLv9fX1pb7gqM/M1tOr2wIC/wUFtPDAtwwA/P4J+gULDhQUFMTd/8fu68j5HBrMBBMRExIf1REy4tkmGjAkIx4yLjLj/D7mJzU8Ni0vL+4HQkFFNv71ODpMQDs+J0BJTFBYAhsaDwZNR1lMYEtdUTBdXVNmZGVZY1lwGjMyJx5pX21ndmNqaXgoQWMrb3k5YmExPDN3gTZyQjmFgoeAcJaOhJNDXH5GhpaXlJKNjKCWnZ1foZaZVpJiWaierKilsLGor6+1ZX7AaK6tuLa6r67CuL+/dI12xcjGxcnOfYh/zM7UysjMx8ba0NfX3Y2mj9LU1tLn3+iX86Oa6ebc8OPt8e2jvKXQ7vT8AKkCw8LsxMOyvbQDAAr9AAYMvNX3v+EHEhAPCMT16u3I+RYgExYc0dzT9RsmJCMc2An+AdwTJyQ3JjTlIfHoPDsuPCotNDM9RPMM9SFEUEBERTsKEQsO/wg5ExQfBTJQVl5iC2QlJE4mJRsTNWVmY11QX11HZnIuNTQ5MTc7Ji9TUV5YWDkue3l8dzNbenmCh0I6XoSPjYyFUFNVVFNWVVhXWkt/jpSQopphaGdsZGpuW2Zds6Kgo7KquKi2Z4CtqbW9sMl5cL+8ssa5w8fDeZJ7psTK0tZ/2JmYwpqZiJOK2dza0tba1M/a1pWul+bp59/j5+Hc4KGso/Ty+Ob68Pf36fT68fMHssvCv7YI+Qn9/gi91hjAAg8NERXoChYbEMvk3eDZ0BcVGhkbKNfw6Ozt6ufeNCcjNCnk/fb6/PdF9ew/NTozST8/N/UO9xdEPUtDPj0MKk5TQCNRS0pSTFsLFg1hYFNhT1JZWGJpGDEaRml1ZWlqYC82MDMkLV44OUQqV3V7g4cwiUpJc0tKQDhaiouIgnWEgmyLl1NaWV5WXGBLVHh2g319XlOgnqGcWICfnqesZ1+DqbSysap1eHp5eHt6fXx/cKSzubXHv4aNjJGJj5OAi4LYx8XL0Yih44vM2uHb0tTUk6zn5urbo5re8u/h6/Ho7+/1pb7gqMzg3en/8QUCBAL28fn9AQr8Cvj7CQUQDRMSEBIMB8fSyf/u7PL4DBIUEiYZEiYaJBsdKx8tGyYsJS/jH+/mNys1LC48MD7vCPERHxkfGfX+JS4iHiQdCf4tNiomLCUFLUwuWFxOUQ01Q0gRIyMqJR8ZJBtwYGphbXEiOyRKc3Rtc20pU3lvOy43XmdbV11WPzmVlg==\", \"payload_type\": \"session\"}",
+      "key": "id-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"identity\":{\"bounded\":true,\"canvas_fingerprint\":\"e43ef9f735303d4c26c62a5c1365ccb7c59dee8bf07dc599d61de38918d22c6d\",\"entropy_profile\":\"215ce5758ad591a756bce6be482b319efd85ec1f65f05f7716bc5e44cd428c25\",\"fingerprint_hash\":\"4e543d469b49c11a890531f4cbfce8ac55404fd631bbbcfa532578ad872d273d\",\"fonts\":[\"DejaVu Sans\",\"Liberation Sans\",\"Noto Sans\",\"Ubuntu\"],\"languages\":[\"en-US\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"USB Audio Device\"],\"audio_outputs\":[\"HDMI Output\"],\"video_inputs\":[\"HD Pro Webcam\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Linux x86_64\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"Linux x86_64\",\"profile_id\":\"profile_b\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":1440,\"width\":2560},\"timezone\":\"America/Los_Angeles\",\"user_agent\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"EXT_texture_filter_anisotropic\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (NVIDIA, NVIDIA GeForce GTX 1060)\",\"vendor\":\"Google Inc. (NVIDIA)\"}}}",
+      "hash": "f91cec1a6c0d27b0e59c80e9cf5b29d8818ff17be95167a481c4f5d7802f53d0"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"TvY3RUxGPT8//hdSUVVGDgVSVFpMCiMMTk1TsZgQ4ZGLdBciGWhraWFlaWNeaWUkPSZ9KDMq8J6z8pXFMUpCjw==\", \"payload_type\": \"session\"}",
+      "key": "id-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"identity\":{\"bounded\":true,\"note\":\"café 😀\",\"profile_id\":\"x\",\"用户\":1}}",
+      "hash": "d7b624cf8fb1e8bc63da3897c1c9c3dfd2b37aab0b39e3828724a24b4d8c8658"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "id-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"identity\":{\"bounded\":true,\"canvas_fingerprint\":\"32bfdab57b093246c2a6d17454d1f8b19521c04bc484bcb4d67830b73ad19c2d\",\"entropy_profile\":\"1be5e10b71653811134ac5e90983022e600b6406c5a9b0ca134c40637a704d37\",\"fingerprint_hash\":\"3add138e0ffbf22ed8173e744c305a644d5c4c4bd8f514fa70694760af48d82c\",\"fonts\":[\"Arial\",\"Courier New\",\"Segoe UI\",\"Times New Roman\",\"Verdana\"],\"languages\":[\"en-US\",\"en\"],\"media_devices\":{\"audio_inputs\":[\"Default Microphone\"],\"audio_outputs\":[\"Default Speakers\"],\"video_inputs\":[\"Integrated Camera\"]},\"navigator\":{\"bounded\":true,\"deviceMemory\":8,\"hardwareConcurrency\":8,\"languages\":[\"en-US\",\"en\"],\"mimeTypes\":[\"application/pdf\"],\"permissions\":{\"geolocation\":\"prompt\",\"notifications\":\"default\"},\"platform\":\"Win32\",\"plugins\":[\"Chrome PDF Plugin\",\"Chrome PDF Viewer\"],\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webdriver\":false},\"platform\":\"Win32\",\"profile_id\":\"default\",\"rotation_index\":0,\"screen\":{\"colorDepth\":24,\"height\":1080,\"width\":1920},\"timezone\":\"America/New_York\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\",\"webgl\":{\"bounded\":true,\"extensions\":[\"OES_texture_float\",\"WEBGL_debug_renderer_info\"],\"renderer\":\"ANGLE (Intel, Intel(R) UHD Graphics Direct3D11 vs_5_0 ps_5_0)\",\"vendor\":\"Google Inc. (Intel)\"}}}",
+      "hash": "ceac0472b1d0c34b95eaba240f754327b6e21f825e10eca1beab6cb60f4ae1b1"
+    }
+  ]
+}

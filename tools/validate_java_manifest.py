@@ -126,6 +126,10 @@ MAPPING = {
     "load_adaptive_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "load_adaptive_memory"),
     "save_application_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "save_application_memory"),
     "load_application_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "load_application_memory"),
+    # Session 18 — browser identity (dependency-clean, 28-module closure)
+    "build_browser_identity": ("io.webweavex.identity.IdentityRuntime", "golden_vectors_s18.json", "build_browser_identity"),
+    "save_browser_identity": ("io.webweavex.identity.IdentityRuntime", "golden_vectors_s18.json", "save_browser_identity"),
+    "load_browser_identity": ("io.webweavex.identity.IdentityRuntime", "golden_vectors_s18.json", "load_browser_identity"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
