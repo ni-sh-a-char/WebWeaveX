@@ -61,3 +61,32 @@ constants / async wrappers; handled separately.
 3. **Tier 3 lxml Soup engine** (Phase C, +~6, and unblocks much of Tier 5 → ~120s).
 4. **Tier 5** aggregators fall out as Tiers 2+3 land.
 5. **Tier 4** Playwright/platform harness last (or remain honest-Deferred, matching JS/Dart).
+
+---
+
+## ADDENDUM (Phase B2, S23) — runtime frontier corrections
+
+Frontier analysis (runtime call graph, not import closure) refined the Tier-2/3 picture:
+
+- **NEW non-portable blocker class — Python `ast`.** `query_semantics` (repository branch) and
+  `reason_semantically` (runtime branch) embed `compile_semantic_ast_ir` →
+  `core/parsers/ast_engine.py` → `import ast; ast.parse(source)` (CPython parser). Byte-exact parity
+  for arbitrary source is **impossible without a CPython-equivalent parser in Java** → formal
+  condition-B blockers. See `JAVA_RUNTIME_FRONTIER_query_semantics.md`,
+  `JAVA_RUNTIME_FRONTIER_reason_semantically.md`.
+- **`reason_semantically` discourse (514 L) + topology (115 L) branches are portable and
+  epistemic-free** — only the `runtime`/ast branch blocks the whole API.
+- **`run_semantic_runtime` (1179 L / 23 engines) is PORTABLE for the `html=""` contract**
+  (bs4 called but output bs4-independent on empty HTML, like `heal_selector`). No `ast`, no
+  epistemic engine. **Highest-ROI portable target remaining** → next executable slice
+  (`JAVA_RUNTIME_FRONTIER_run_semantic_runtime.md`).
+
+### Revised remaining-tally intuition
+
+| class | examples | certifiable? |
+| --- | --- | --- |
+| portable semantic orchestrator (`html=""`) | `run_semantic_runtime`, likely `run_semantic_for_extraction` | **yes — next** |
+| Python-`ast`-blocked | `query_semantics`, `reason_semantically`, repo/runtime reasoning | condition-B (canon change) |
+| lxml/bs4 HTML-parse | `extract*`, `crawl`, `stream_extract`, `run_application_cognition` (html paths) | Tier-C Soup engine |
+| OCR / Playwright / platform / FS | `extract_multimodal`, `ingest_input`, `capture_*`, `extract_native`, `run_native_cognition`, `extract_repository` | non-portable |
+| kernel aggregators | `get_runtime_kernel`, `run_canonical_pipeline`, `analyze`, `universal_extract`, … | unblock after the above |
