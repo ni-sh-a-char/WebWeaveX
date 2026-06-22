@@ -1,0 +1,2680 @@
+{
+  "source": "Python 2.1.0 canonical (session 20: memory orchestrator)",
+  "run_runtime_memory": [
+    {
+      "name": "empty",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"converged\":true,\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"replica_count\":1},\"diff\":{\"revertible\":true},\"distributed\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"enforcement\":{\"bounded\":true,\"history_count\":0,\"lineage_count\":2,\"replicas\":1,\"within_bounds\":true},\"federation\":{\"bounded\":true,\"federated_count\":1,\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"runtime_history\":[],\"semantic_relations\":[]},\"graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]},\"index\":{\"bounded\":true,\"connector_index\":{\"0\":{}},\"entity_index\":{},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]}},\"stream_index\":{},\"workflow_index\":{\"operate\":{\"id\":\"operate\"}}},\"knowledge\":{\"application_cognition\":{},\"bounded\":true,\"distributed_topology\":{},\"entities\":[],\"operational_structures\":[],\"runtime_graphs\":[{}],\"semantic_relations\":[]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[],\"sync_ancestry\":[],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{},\"bounded\":true,\"distributed_topology\":{},\"entities\":[],\"operational_structures\":[],\"runtime_graphs\":[{}],\"semantic_relations\":[]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[],\"sync_ancestry\":[],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[],\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"runtime_history\":[],\"semantic_relations\":[],\"stable_hash\":\"c7f1b6e36d8bf855037f643ccd1b878f0bebc9189c30359847677acecaf43c98\",\"synchronization_history\":[],\"workflow_history\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"recurring_concepts\":[],\"recurring_structures\":[],\"recurring_workflows\":[],\"semantic_convergence\":[]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{}},\"entity_index\":{},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]}},\"stream_index\":{},\"workflow_index\":{\"operate\":{\"id\":\"operate\"}}}},\"merged\":{\"bounded\":true,\"evolution_history\":[],\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"runtime_history\":[],\"semantic_relations\":[],\"stable_hash\":\"c7f1b6e36d8bf855037f643ccd1b878f0bebc9189c30359847677acecaf43c98\",\"synchronization_history\":[],\"workflow_history\":[]},\"policy\":{\"bounded\":true,\"federation_constraints\":1000,\"memory_bounds\":100000,\"replay_limits\":10000,\"replication_depth\":1000,\"synchronization_ceilings\":100000},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"replayed\":true,\"runtime_history\":[]},\"replication\":{\"bounded\":true,\"replica_count\":1,\"replicas\":[{\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"node_id\":\"primary\",\"replicated\":true,\"runtime_history\":[]}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[],\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"runtime_history\":[],\"semantic_relations\":[],\"stable_hash\":\"c7f1b6e36d8bf855037f643ccd1b878f0bebc9189c30359847677acecaf43c98\",\"synchronization_history\":[],\"workflow_history\":[]},\"semantic\":{\"bounded\":true,\"domain\":\"\",\"recurring_concepts\":[],\"recurring_structures\":[],\"recurring_workflows\":[],\"semantic_convergence\":[]},\"snapshot\":{\"bounded\":true,\"snapshot_id\":\"memory_snapshot:0\",\"state\":{\"graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]},\"knowledge\":{\"application_cognition\":{},\"bounded\":true,\"distributed_topology\":{},\"entities\":[],\"operational_structures\":[],\"runtime_graphs\":[{}],\"semantic_relations\":[]},\"runtime\":{\"bounded\":true,\"evolution_history\":[],\"lineage\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d22112b7629be899a7e17777e05d9bcf\",\"runtime_history\":[],\"semantic_relations\":[],\"stable_hash\":\"c7f1b6e36d8bf855037f643ccd1b878f0bebc9189c30359847677acecaf43c98\",\"synchronization_history\":[],\"workflow_history\":[]}},\"tick\":0}}",
+      "hash": "c5148edfc0493f4bb52edd0365add5fd3de74b60a5ca779acb5b3c436ccdbc52"
+    },
+    {
+      "name": "full",
+      "inputs": {
+        "sources": {
+          "semantic": {
+            "semantic": {
+              "entities": {
+                "entities": [
+                  {
+                    "id": "e2",
+                    "label": "User"
+                  },
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  }
+                ],
+                "relations": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ]
+              },
+              "domain": {
+                "domain": "saas"
+              }
+            }
+          },
+          "workflow": {
+            "objective": "extract_dashboard"
+          },
+          "sync": {
+            "lineage": [
+              {
+                "id": "s1"
+              }
+            ],
+            "drift": {}
+          },
+          "evolution": {
+            "selector": {
+              "selectors": [
+                {
+                  "original": "#a"
+                }
+              ]
+            },
+            "lineage": [
+              {
+                "id": "ev1"
+              }
+            ]
+          },
+          "live": {
+            "streams": {
+              "streams": [
+                {
+                  "stream_type": "kafka"
+                }
+              ]
+            }
+          },
+          "extraction": {
+            "x": 1
+          },
+          "graph": {
+            "nodes": [
+              {
+                "id": "g1"
+              }
+            ],
+            "edges": []
+          },
+          "distributed": {
+            "workers": [
+              {
+                "worker_id": "w1"
+              }
+            ]
+          },
+          "application": {
+            "app": 1
+          }
+        },
+        "nodes": [
+          {
+            "node_id": "n2",
+            "synced": true
+          },
+          {
+            "node_id": "n1",
+            "synced": true,
+            "conflicts_resolved": 2
+          }
+        ],
+        "tick": 2
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"converged\":true,\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"replica_count\":2},\"diff\":{\"revertible\":true},\"distributed\":{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true},\"enforcement\":{\"bounded\":true,\"history_count\":5,\"lineage_count\":5,\"replicas\":2,\"within_bounds\":true},\"federation\":{\"bounded\":true,\"federated_count\":1,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"index\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"bdcbcff7373d11677f2d8ab5b25aa4df671c6d12ba9da06a4988e6e399cc6787\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}},\"merged\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"89c45d444e4ade97509e150ed3b0a032\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"afe0327056bddb2a01cf7090648990344a195f4d59469b6e6a7887a999916359\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}]},\"policy\":{\"bounded\":true,\"federation_constraints\":1000,\"memory_bounds\":100000,\"replay_limits\":10000,\"replication_depth\":1000,\"synchronization_ceilings\":100000},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"replayed\":true,\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}]},\"replication\":{\"bounded\":true,\"replica_count\":2,\"replicas\":[{\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"node_id\":\"n2\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2}]},{\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"node_id\":\"n1\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2}]}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"bdcbcff7373d11677f2d8ab5b25aa4df671c6d12ba9da06a4988e6e399cc6787\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"snapshot\":{\"bounded\":true,\"snapshot_id\":\"memory_snapshot:2\",\"state\":{\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:2\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"1f6d00811e1220469335fcca66b9a1e4\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":2},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":2},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":2},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"bdcbcff7373d11677f2d8ab5b25aa4df671c6d12ba9da06a4988e6e399cc6787\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":2}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":2}]}},\"tick\":2}}",
+      "hash": "57a516a94d6306789394bc0c8e23f72286ef589cf520c03337751ceaf5e855c6"
+    },
+    {
+      "name": "stored",
+      "inputs": {
+        "sources": {
+          "semantic": {
+            "semantic": {
+              "entities": {
+                "entities": [
+                  {
+                    "id": "e2",
+                    "label": "User"
+                  },
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  }
+                ],
+                "relations": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ]
+              },
+              "domain": {
+                "domain": "saas"
+              }
+            }
+          },
+          "workflow": {
+            "objective": "extract_dashboard"
+          },
+          "sync": {
+            "lineage": [
+              {
+                "id": "s1"
+              }
+            ],
+            "drift": {}
+          },
+          "evolution": {
+            "selector": {
+              "selectors": [
+                {
+                  "original": "#a"
+                }
+              ]
+            },
+            "lineage": [
+              {
+                "id": "ev1"
+              }
+            ]
+          },
+          "live": {
+            "streams": {
+              "streams": [
+                {
+                  "stream_type": "kafka"
+                }
+              ]
+            }
+          },
+          "extraction": {
+            "x": 1
+          },
+          "graph": {
+            "nodes": [
+              {
+                "id": "g1"
+              }
+            ],
+            "edges": []
+          },
+          "distributed": {
+            "workers": [
+              {
+                "worker_id": "w1"
+              }
+            ]
+          },
+          "application": {
+            "app": 1
+          }
+        },
+        "tick": 1,
+        "stored": {
+          "runtime": {
+            "memory_id": "prev",
+            "runtime_history": [
+              {
+                "tick": 0,
+                "kind": "x"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "old1"
+              }
+            ]
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"convergence\":{\"bounded\":true,\"converged\":true,\"memory_id\":\"0d15351936b0251a626017173a753cf8\",\"replica_count\":1},\"diff\":{\"bounded\":true,\"history_delta\":5,\"lineage_added\":[\"ev1\",\"extract:1\",\"s1\",\"selector:0\",\"wf:0\"],\"lineage_removed\":[\"old1\"],\"memory_changed\":true,\"revertible\":true},\"distributed\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"enforcement\":{\"bounded\":true,\"history_count\":6,\"lineage_count\":5,\"replicas\":1,\"within_bounds\":true},\"federation\":{\"bounded\":true,\"federated_count\":2,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"id\":\"old1\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"x\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"index\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"0d15351936b0251a626017173a753cf8\",\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"d8b092cc2029500101c9460dcf14dc8c3f8d9419bb3660ef7b4b524dcc52a436\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}},\"merged\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"id\":\"old1\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"5a29f0f234adc9542322ee6b36b01f7f\",\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"x\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"cafc58ec3a8540ba0a507d0c53b4e3a06a5629cf2bcc1f2c6e579a14a7cc666f\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}]},\"policy\":{\"bounded\":true,\"federation_constraints\":1000,\"memory_bounds\":100000,\"replay_limits\":10000,\"replication_depth\":1000,\"synchronization_ceilings\":100000},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"0d15351936b0251a626017173a753cf8\",\"replayed\":true,\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}]},\"replication\":{\"bounded\":true,\"replica_count\":1,\"replicas\":[{\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"0d15351936b0251a626017173a753cf8\",\"node_id\":\"primary\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1}]}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"0d15351936b0251a626017173a753cf8\",\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"d8b092cc2029500101c9460dcf14dc8c3f8d9419bb3660ef7b4b524dcc52a436\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"snapshot\":{\"bounded\":true,\"snapshot_id\":\"memory_snapshot:1\",\"state\":{\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"0d15351936b0251a626017173a753cf8\",\"runtime_history\":[{\"kind\":\"x\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"d8b092cc2029500101c9460dcf14dc8c3f8d9419bb3660ef7b4b524dcc52a436\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}]}},\"tick\":1}}",
+      "hash": "0410636bf0093f7d2f4677b668653722b06e1c3f6d609a488ce8a64150e295dd"
+    }
+  ],
+  "run_memory_for_extraction": [
+    {
+      "name": "disabled",
+      "inputs": {
+        "federated_memory": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":false}",
+      "hash": "824f1bd1b15ce86e960683c9d2a2e391537b2884a972c323e2cb686d3c14b147"
+    },
+    {
+      "name": "default",
+      "inputs": {
+        "sources": {
+          "semantic": {
+            "semantic": {
+              "entities": {
+                "entities": [
+                  {
+                    "id": "e2",
+                    "label": "User"
+                  },
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  }
+                ],
+                "relations": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ]
+              },
+              "domain": {
+                "domain": "saas"
+              }
+            }
+          },
+          "workflow": {
+            "objective": "extract_dashboard"
+          },
+          "sync": {
+            "lineage": [
+              {
+                "id": "s1"
+              }
+            ],
+            "drift": {}
+          },
+          "evolution": {
+            "selector": {
+              "selectors": [
+                {
+                  "original": "#a"
+                }
+              ]
+            },
+            "lineage": [
+              {
+                "id": "ev1"
+              }
+            ]
+          },
+          "live": {
+            "streams": {
+              "streams": [
+                {
+                  "stream_type": "kafka"
+                }
+              ]
+            }
+          },
+          "extraction": {
+            "x": 1
+          },
+          "graph": {
+            "nodes": [
+              {
+                "id": "g1"
+              }
+            ],
+            "edges": []
+          },
+          "distributed": {
+            "workers": [
+              {
+                "worker_id": "w1"
+              }
+            ]
+          },
+          "application": {
+            "app": 1
+          }
+        },
+        "nodes": [
+          {
+            "node_id": "n2",
+            "synced": true
+          },
+          {
+            "node_id": "n1",
+            "synced": true,
+            "conflicts_resolved": 2
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"memory\":{\"bounded\":true,\"convergence\":{\"bounded\":true,\"converged\":true,\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"replica_count\":2},\"diff\":{\"revertible\":true},\"distributed\":{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true},\"enforcement\":{\"bounded\":true,\"history_count\":5,\"lineage_count\":5,\"replicas\":2,\"within_bounds\":true},\"federation\":{\"bounded\":true,\"federated_count\":1,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"index\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}},\"merged\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d4d660942c914425f6e39c07a6b6eb74\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"4bd9fa2388f77a123b8b9fd7ae3ff923c45437791dfd0a3cd2a94b50ab637d6c\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"policy\":{\"bounded\":true,\"federation_constraints\":1000,\"memory_bounds\":100000,\"replay_limits\":10000,\"replication_depth\":1000,\"synchronization_ceilings\":100000},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"replayed\":true,\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"replication\":{\"bounded\":true,\"replica_count\":2,\"replicas\":[{\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"node_id\":\"n2\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0}]},{\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"node_id\":\"n1\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0}]}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"snapshot\":{\"bounded\":true,\"snapshot_id\":\"memory_snapshot:0\",\"state\":{\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]}},\"tick\":0}},\"memory_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"ir\":\"runtime_memory_graph\",\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}},\"memory_persisted\":false,\"query\":{\"bounded\":true,\"count\":1,\"query_type\":\"semantic\",\"results\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"term\":\"\"},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"replayed\":true,\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"search\":{\"bounded\":true,\"count\":4,\"matches\":[{\"kind\":\"connector_index\",\"match\":\"0\",\"value\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},{\"kind\":\"entity_index\",\"match\":\"e1\",\"value\":{\"id\":\"e1\",\"type\":\"Order\"}},{\"kind\":\"entity_index\",\"match\":\"e2\",\"value\":{\"id\":\"e2\",\"label\":\"User\"}},{\"kind\":\"workflow_index\",\"match\":\"extract_dashboard\",\"value\":{\"id\":\"extract_dashboard\"}}],\"search_type\":\"structural\",\"term\":\"\"},\"unified_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"runtime_type\":\"runtime_memory_graph\",\"to\":\"e2\"}],\"ir\":\"unified_runtime_graph\",\"nodes\":[{\"id\":\"e1\",\"runtime_type\":\"runtime_memory_graph\",\"type\":\"Order\"},{\"id\":\"e2\",\"runtime_type\":\"runtime_memory_graph\",\"type\":\"entity\"}]}}",
+      "hash": "254f9789b7e21ca4b4373526b41e87b6ff4c92a513b0467ac26976cb1a5c0a89"
+    },
+    {
+      "name": "no_merge",
+      "inputs": {
+        "sources": {
+          "semantic": {
+            "semantic": {
+              "entities": {
+                "entities": [
+                  {
+                    "id": "e2",
+                    "label": "User"
+                  },
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  }
+                ],
+                "relations": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ]
+              },
+              "domain": {
+                "domain": "saas"
+              }
+            }
+          },
+          "workflow": {
+            "objective": "extract_dashboard"
+          },
+          "sync": {
+            "lineage": [
+              {
+                "id": "s1"
+              }
+            ],
+            "drift": {}
+          },
+          "evolution": {
+            "selector": {
+              "selectors": [
+                {
+                  "original": "#a"
+                }
+              ]
+            },
+            "lineage": [
+              {
+                "id": "ev1"
+              }
+            ]
+          },
+          "live": {
+            "streams": {
+              "streams": [
+                {
+                  "stream_type": "kafka"
+                }
+              ]
+            }
+          },
+          "extraction": {
+            "x": 1
+          },
+          "graph": {
+            "nodes": [
+              {
+                "id": "g1"
+              }
+            ],
+            "edges": []
+          },
+          "distributed": {
+            "workers": [
+              {
+                "worker_id": "w1"
+              }
+            ]
+          },
+          "application": {
+            "app": 1
+          }
+        },
+        "merge_graph": false
+      },
+      "serialized": "{\"bounded\":true,\"enabled\":true,\"memory\":{\"bounded\":true,\"convergence\":{\"bounded\":true,\"converged\":true,\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"replica_count\":1},\"diff\":{\"revertible\":true},\"distributed\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"enforcement\":{\"bounded\":true,\"history_count\":5,\"lineage_count\":5,\"replicas\":1,\"within_bounds\":true},\"federation\":{\"bounded\":true,\"federated_count\":1,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"index\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}},\"merged\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"d4d660942c914425f6e39c07a6b6eb74\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"4bd9fa2388f77a123b8b9fd7ae3ff923c45437791dfd0a3cd2a94b50ab637d6c\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"policy\":{\"bounded\":true,\"federation_constraints\":1000,\"memory_bounds\":100000,\"replay_limits\":10000,\"replication_depth\":1000,\"synchronization_ceilings\":100000},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"replayed\":true,\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"replication\":{\"bounded\":true,\"replica_count\":1,\"replicas\":[{\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"node_id\":\"primary\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0}]}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"snapshot\":{\"bounded\":true,\"snapshot_id\":\"memory_snapshot:0\",\"state\":{\"graph\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"runtime\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]}},\"tick\":0}},\"memory_graph_ir\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"ir\":\"runtime_memory_graph\",\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"memory_ir\":{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":0,\"converged\":true,\"nodes\":[{\"node_id\":\"primary\",\"synced\":true}],\"replication\":1,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"ded9dc337b93dbe96c3787e69d7069285191e8dd5444373546dcd9f7e4ff273a\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}},\"memory_persisted\":false,\"query\":{\"bounded\":true,\"count\":1,\"query_type\":\"semantic\",\"results\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"term\":\"\"},\"replay\":{\"bounded\":true,\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:0\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"9c2fc6ad4c3c4f797c2617e21436fae8\",\"replayed\":true,\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":0},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":0},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":0},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":0},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":0}]},\"search\":{\"bounded\":true,\"count\":4,\"matches\":[{\"kind\":\"connector_index\",\"match\":\"0\",\"value\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},{\"kind\":\"entity_index\",\"match\":\"e1\",\"value\":{\"id\":\"e1\",\"type\":\"Order\"}},{\"kind\":\"entity_index\",\"match\":\"e2\",\"value\":{\"id\":\"e2\",\"label\":\"User\"}},{\"kind\":\"workflow_index\",\"match\":\"extract_dashboard\",\"value\":{\"id\":\"extract_dashboard\"}}],\"search_type\":\"structural\",\"term\":\"\"},\"unified_graph\":{}}",
+      "hash": "c6f82b22f7d1c7ea827ffad73017df8422c43d21f3b300726272576845451d52"
+    }
+  ],
+  "append_runtime_history": [
+    {
+      "name": "append",
+      "inputs": {
+        "history": [
+          {
+            "tick": 2
+          }
+        ],
+        "entry": {
+          "tick": 1,
+          "kind": "x"
+        }
+      },
+      "serialized": "{\"history\":[{\"kind\":\"x\",\"tick\":1},{\"tick\":2}]}",
+      "hash": "6f003aa1554e4c7f97a5772bc47c73978aa414775cae3ea49b7edcfe07cb13ff"
+    }
+  ],
+  "build_knowledge_memory": [
+    {
+      "name": "knowledge",
+      "inputs": {
+        "entities": [
+          {
+            "id": "e2",
+            "label": "B"
+          },
+          {
+            "id": "e1",
+            "label": "A"
+          }
+        ],
+        "relations": [
+          {
+            "from": "e1",
+            "to": "e2",
+            "relation": "owns"
+          }
+        ],
+        "topology": {
+          "graphs": [
+            {
+              "g": 1
+            }
+          ],
+          "distributed": {
+            "d": 1
+          }
+        }
+      },
+      "serialized": "{\"application_cognition\":{},\"bounded\":true,\"distributed_topology\":{\"d\":1},\"entities\":[{\"id\":\"e1\",\"label\":\"A\"},{\"id\":\"e2\",\"label\":\"B\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"g\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]}",
+      "hash": "5cb9761e234ff08f534ae62ad6b59c7a5c70d720a68f709d2b4323e7bc9d9360"
+    },
+    {
+      "name": "knowledge_ties",
+      "inputs": {
+        "entities": [
+          {
+            "id": "e1",
+            "label": "A"
+          },
+          {
+            "id": "e1",
+            "label": "B"
+          },
+          {
+            "id": "e0"
+          }
+        ],
+        "relations": [
+          {
+            "from": "a",
+            "to": "b",
+            "relation": "z"
+          },
+          {
+            "from": "a",
+            "to": "b",
+            "relation": "a"
+          },
+          {
+            "from": "a",
+            "to": "c",
+            "relation": "x"
+          }
+        ],
+        "topology": {}
+      },
+      "serialized": "{\"application_cognition\":{},\"bounded\":true,\"distributed_topology\":{},\"entities\":[{\"id\":\"e0\"},{\"id\":\"e1\",\"label\":\"A\"},{\"id\":\"e1\",\"label\":\"B\"}],\"operational_structures\":[],\"runtime_graphs\":[],\"semantic_relations\":[{\"from\":\"a\",\"relation\":\"a\",\"to\":\"b\"},{\"from\":\"a\",\"relation\":\"z\",\"to\":\"b\"},{\"from\":\"a\",\"relation\":\"x\",\"to\":\"c\"}]}",
+      "hash": "6ff69e4ddcba67d16b0af6ce074a92318ce0588b43ccb384f7154f87b2556d72"
+    }
+  ],
+  "build_semantic_memory": [
+    {
+      "name": "sem_empty",
+      "inputs": {
+        "semantic": {},
+        "history": []
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"\",\"recurring_concepts\":[],\"recurring_structures\":[],\"recurring_workflows\":[],\"semantic_convergence\":[]}",
+      "hash": "04cee56e218505a2db4ae62aea18f799622dff01a9edfdb242a869c162b742f7"
+    },
+    {
+      "name": "sem_full",
+      "inputs": {
+        "semantic": {
+          "semantic": {
+            "entities": {
+              "entities": [
+                {
+                  "id": "e2",
+                  "label": "User"
+                },
+                {
+                  "id": "e1",
+                  "type": "Order"
+                }
+              ],
+              "relations": [
+                {
+                  "from": "e1",
+                  "to": "e2",
+                  "relation": "owns"
+                }
+              ]
+            },
+            "domain": {
+              "domain": "saas"
+            }
+          }
+        },
+        "history": [
+          {
+            "kind": "workflow",
+            "objective": "x"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"x\"],\"semantic_convergence\":[\"Order\",\"User\"]}",
+      "hash": "378fad3eeb6f86f0a6f047ae743b51f38337ccaadd87f80fee64924656fa6927"
+    }
+  ],
+  "build_runtime_lineage_memory": [
+    {
+      "name": "lineage",
+      "inputs": {
+        "selector": [
+          {
+            "original": "#a"
+          }
+        ],
+        "workflow": [
+          {
+            "id": "wf:0"
+          }
+        ],
+        "sync": [
+          {
+            "id": "s1"
+          }
+        ],
+        "evolution": [
+          {
+            "id": "ev1"
+          }
+        ],
+        "extraction": [
+          {
+            "id": "ex1"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"ex1\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"ex1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]}",
+      "hash": "db6a05118297b8b3e7af303c06fdfe9a5b8fe9b9bdd3f275a2890e091a051600"
+    },
+    {
+      "name": "lineage_ties",
+      "inputs": {
+        "selector": [
+          {
+            "id": "z"
+          },
+          {
+            "id": "a"
+          }
+        ],
+        "workflow": [],
+        "sync": [],
+        "evolution": [],
+        "extraction": []
+      },
+      "serialized": "{\"bounded\":true,\"evolution_ancestry\":[],\"extraction_ancestry\":[],\"lineage\":[{\"ancestor\":\"\",\"id\":\"a\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"z\",\"kind\":\"selector\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"z\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"a\",\"kind\":\"selector\"}],\"sync_ancestry\":[],\"workflow_ancestry\":[]}",
+      "hash": "a0cad7b43159e363204f466a74bd769d8f8828d243439df595605cb18b9a9cdd"
+    }
+  ],
+  "build_runtime_memory_graph": [
+    {
+      "name": "graph",
+      "inputs": {
+        "entities": [
+          {
+            "id": "e2",
+            "label": "B"
+          },
+          {
+            "id": "e1",
+            "label": "A"
+          }
+        ],
+        "relations": [
+          {
+            "from": "e1",
+            "to": "e2",
+            "relation": "owns"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"entity\"},{\"id\":\"e2\",\"type\":\"entity\"}]}",
+      "hash": "f9835ae57f88103c3d4f141ba1cf5bb009dfc0e89e557a2686c87436375344a9"
+    },
+    {
+      "name": "graph_empty",
+      "inputs": {
+        "entities": [],
+        "relations": []
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]}",
+      "hash": "45270e9966a0520b359e25a0ba3d1812ff4fb63491e4c6d43fa8b1f7203facb7"
+    },
+    {
+      "name": "graph_ties",
+      "inputs": {
+        "entities": [
+          {
+            "id": "e1",
+            "label": "A"
+          },
+          {
+            "id": "e1",
+            "label": "B"
+          },
+          {
+            "id": "e0"
+          }
+        ],
+        "relations": [
+          {
+            "from": "a",
+            "to": "b",
+            "relation": "z"
+          },
+          {
+            "from": "a",
+            "to": "b",
+            "relation": "a"
+          },
+          {
+            "from": "a",
+            "to": "c",
+            "relation": "x"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"a\",\"relation\":\"a\",\"to\":\"b\"},{\"from\":\"a\",\"relation\":\"z\",\"to\":\"b\"},{\"from\":\"a\",\"relation\":\"x\",\"to\":\"c\"}],\"nodes\":[{\"id\":\"e0\",\"type\":\"entity\"},{\"id\":\"e1\",\"type\":\"entity\"},{\"id\":\"e1\",\"type\":\"entity\"}]}",
+      "hash": "f77ff10c5fc55154c5d87ab80f0249692ebf70d5ac214f7e55b456bbcd9937c5"
+    }
+  ],
+  "build_runtime_index": [
+    {
+      "name": "index",
+      "inputs": {
+        "entities": [
+          {
+            "id": "e2",
+            "label": "B"
+          },
+          {
+            "id": "e1",
+            "label": "A"
+          }
+        ],
+        "workflows": [
+          {
+            "id": "w1"
+          }
+        ],
+        "graphs": [
+          {
+            "g": 1
+          }
+        ],
+        "streams": [
+          {
+            "s": 1
+          }
+        ],
+        "connectors": [
+          {
+            "c": 1
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"connector_index\":{\"0\":{\"c\":1}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"label\":\"A\"},\"e2\":{\"id\":\"e2\",\"label\":\"B\"}},\"graph_index\":{\"0\":{\"g\":1}},\"stream_index\":{\"0\":{\"s\":1}},\"workflow_index\":{\"w1\":{\"id\":\"w1\"}}}",
+      "hash": "87756c5304188d0aa5758adddb311282109a70ad24c36145b712a9fa4c1a23d3"
+    },
+    {
+      "name": "index_no_id",
+      "inputs": {
+        "entities": [
+          {
+            "x": 1
+          },
+          {
+            "label": "L"
+          }
+        ],
+        "workflows": [
+          {
+            "objective": "o"
+          }
+        ],
+        "graphs": [],
+        "streams": [],
+        "connectors": []
+      },
+      "serialized": "{\"bounded\":true,\"connector_index\":{},\"entity_index\":{\"L\":{\"label\":\"L\"}},\"graph_index\":{},\"stream_index\":{},\"workflow_index\":{\"o\":{\"objective\":\"o\"}}}",
+      "hash": "fc6030ccc3c25260cd8eefba68e583b984dde44f490dfe77d0ea655b9d8ea1fa"
+    }
+  ],
+  "replicate_runtime_memory": [
+    {
+      "name": "replicate",
+      "inputs": {
+        "source": {
+          "memory_id": "04336f698e5cb83542e476318da14b41",
+          "runtime_history": [
+            {
+              "tick": 1,
+              "kind": "sync"
+            }
+          ],
+          "workflow_history": [],
+          "synchronization_history": [
+            {
+              "tick": 1,
+              "kind": "sync"
+            }
+          ],
+          "evolution_history": [],
+          "lineage": [
+            {
+              "id": "l1"
+            }
+          ],
+          "semantic_relations": [
+            {
+              "from": "e1",
+              "to": "e2",
+              "relation": "owns"
+            }
+          ],
+          "bounded": true,
+          "stable_hash": "1b41050f755fcb41d216c8451227b80c44d9b60f6e7550729c4375ddabbea9e1"
+        },
+        "nodes": [
+          {
+            "node_id": "n2",
+            "synced": true
+          },
+          {
+            "node_id": "n1",
+            "synced": true,
+            "conflicts_resolved": 2
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"replica_count\":2,\"replicas\":[{\"lineage\":[{\"id\":\"l1\"}],\"memory_id\":\"04336f698e5cb83542e476318da14b41\",\"node_id\":\"n2\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"sync\",\"tick\":1}]},{\"lineage\":[{\"id\":\"l1\"}],\"memory_id\":\"04336f698e5cb83542e476318da14b41\",\"node_id\":\"n1\",\"replicated\":true,\"runtime_history\":[{\"kind\":\"sync\",\"tick\":1}]}]}",
+      "hash": "934a7332f4fd61ae2e0a40a8b1204e0bcddd67ad8dde36cad1ba34e88a18b9be"
+    }
+  ],
+  "converge_runtime_memory": [
+    {
+      "name": "converge",
+      "inputs": {
+        "replicas": [
+          {
+            "node_id": "n2",
+            "memory_id": "04336f698e5cb83542e476318da14b41",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "l1"
+              }
+            ],
+            "replicated": true
+          },
+          {
+            "node_id": "n1",
+            "memory_id": "04336f698e5cb83542e476318da14b41",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "l1"
+              }
+            ],
+            "replicated": true
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"converged\":true,\"memory_id\":\"04336f698e5cb83542e476318da14b41\",\"replica_count\":2}",
+      "hash": "6bb66507c12227ad8e821497fc503dd97d396919bc27d95e3da0ea375cda8aa5"
+    },
+    {
+      "name": "converge_empty",
+      "inputs": {
+        "replicas": []
+      },
+      "serialized": "{\"bounded\":true,\"converged\":true,\"memory_id\":\"\"}",
+      "hash": "496510af0694743c9da525c6d6ce5c0a2789583474da31337e95c9238f68e642"
+    },
+    {
+      "name": "converge_conflict",
+      "inputs": {
+        "replicas": [
+          {
+            "memory_id": "a"
+          },
+          {
+            "memory_id": "b"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"conflict\":true,\"converged\":false}",
+      "hash": "31feb613a2f8704f5dd92699dc3454503fde88722e55e1c525c7606d5005cd23"
+    }
+  ],
+  "build_distributed_memory": [
+    {
+      "name": "distributed",
+      "inputs": {
+        "nodes": [
+          {
+            "node_id": "n2",
+            "synced": true
+          },
+          {
+            "node_id": "n1",
+            "synced": true,
+            "conflicts_resolved": 2
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true}",
+      "hash": "ccc3effe9b8d0a5a299dc667779659398ade416d4a3317a3a70de56e91784eca"
+    }
+  ],
+  "federate_runtime_memory": [
+    {
+      "name": "federate",
+      "inputs": {
+        "memories": [
+          {
+            "memory_id": "04336f698e5cb83542e476318da14b41",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "workflow_history": [],
+            "synchronization_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "evolution_history": [],
+            "lineage": [
+              {
+                "id": "l1"
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true,
+            "stable_hash": "1b41050f755fcb41d216c8451227b80c44d9b60f6e7550729c4375ddabbea9e1"
+          },
+          {
+            "runtime_history": [
+              {
+                "tick": 0
+              }
+            ],
+            "lineage": [
+              {
+                "id": "x"
+              }
+            ]
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"federated_count\":2,\"lineage\":[{\"id\":\"l1\"},{\"id\":\"x\"}],\"runtime_history\":[{\"tick\":0},{\"kind\":\"sync\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]}",
+      "hash": "176ea9d8ab14538bbf9af56b9e4060c893a70408ea57fd002cd5fc5265e905c1"
+    },
+    {
+      "name": "federate_ties",
+      "inputs": {
+        "memories": [
+          {
+            "runtime_history": [
+              {
+                "tick": 1
+              },
+              {
+                "tick": 1
+              }
+            ],
+            "lineage": [
+              {
+                "id": "b"
+              },
+              {
+                "id": "a"
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "a",
+                "to": "b"
+              },
+              {
+                "from": "a",
+                "to": "a"
+              }
+            ]
+          },
+          {
+            "runtime_history": [
+              {
+                "tick": 0
+              }
+            ],
+            "lineage": [
+              {
+                "id": "c"
+              }
+            ],
+            "semantic_relations": []
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"federated_count\":2,\"lineage\":[{\"id\":\"a\"},{\"id\":\"b\"},{\"id\":\"c\"}],\"runtime_history\":[{\"tick\":0},{\"tick\":1},{\"tick\":1}],\"semantic_relations\":[{\"from\":\"a\",\"to\":\"a\"},{\"from\":\"a\",\"to\":\"b\"}]}",
+      "hash": "82039c977b3198da3d9d1a40c0ac6f476d94bbb562bbb923e07792e3be39cafe"
+    }
+  ],
+  "merge_runtime_memories": [
+    {
+      "name": "merge",
+      "inputs": {
+        "memories": [
+          {
+            "memory_id": "04336f698e5cb83542e476318da14b41",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "workflow_history": [],
+            "synchronization_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "evolution_history": [],
+            "lineage": [
+              {
+                "id": "l1"
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true,
+            "stable_hash": "1b41050f755fcb41d216c8451227b80c44d9b60f6e7550729c4375ddabbea9e1"
+          },
+          {
+            "memory_id": "z",
+            "runtime_history": [
+              {
+                "tick": 0,
+                "kind": "a"
+              }
+            ]
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"evolution_history\":[],\"lineage\":[{\"id\":\"l1\"}],\"memory_id\":\"d7277068be37ee5615cc441d7ec72a51\",\"runtime_history\":[{\"kind\":\"a\",\"tick\":0},{\"kind\":\"sync\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"6124e0bdf6490526886a441546b02bbaa5f909a2fd37f7a88f821a4f43b82ad3\",\"synchronization_history\":[{\"kind\":\"sync\",\"tick\":1}],\"workflow_history\":[]}",
+      "hash": "76d13024320694b3e1830b39cac6a879fc9a466fe066954f5c93277d85a4e595"
+    },
+    {
+      "name": "merge_ties",
+      "inputs": {
+        "memories": [
+          {
+            "memory_id": "b",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "b",
+                "source": "y"
+              },
+              {
+                "tick": 1,
+                "kind": "b",
+                "source": "x"
+              },
+              {
+                "tick": 1,
+                "kind": "a",
+                "source": "z"
+              }
+            ]
+          },
+          {
+            "memory_id": "a",
+            "runtime_history": [
+              {
+                "tick": 0
+              }
+            ]
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"evolution_history\":[],\"lineage\":[],\"memory_id\":\"ba07521947af9e48ea1543b7763104ed\",\"runtime_history\":[{\"tick\":0},{\"kind\":\"a\",\"source\":\"z\",\"tick\":1},{\"kind\":\"b\",\"source\":\"x\",\"tick\":1},{\"kind\":\"b\",\"source\":\"y\",\"tick\":1}],\"semantic_relations\":[],\"stable_hash\":\"a4d8114bb5497831cef6da170bc3b0cdf1652557f70cae88e06301e2aa70ff84\",\"synchronization_history\":[],\"workflow_history\":[]}",
+      "hash": "23fdb577b8b63873dade0e3311a6d1f1090fbda2b7df54b01a840fd89a20e9c9"
+    }
+  ],
+  "build_runtime_memory_policy": [
+    {
+      "name": "policy",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"federation_constraints\":1000,\"memory_bounds\":100000,\"replay_limits\":10000,\"replication_depth\":1000,\"synchronization_ceilings\":100000}",
+      "hash": "abfe8127a9d032f8968737b90b28b97f83b5fcafa4c3ca293be37fd8435da960"
+    }
+  ],
+  "enforce_memory_policy": [
+    {
+      "name": "enforce",
+      "inputs": {
+        "policy": {
+          "memory_bounds": 100000,
+          "replay_limits": 10000,
+          "synchronization_ceilings": 100000,
+          "replication_depth": 1000,
+          "federation_constraints": 1000,
+          "bounded": true
+        },
+        "history": [
+          {
+            "t": 1
+          }
+        ],
+        "lineage": [
+          {
+            "id": "l"
+          }
+        ],
+        "replicas": 2
+      },
+      "serialized": "{\"bounded\":true,\"history_count\":1,\"lineage_count\":1,\"replicas\":2,\"within_bounds\":true}",
+      "hash": "11bba86f17eefe7d91c3ecda9f32b932507454d6acf73f065d6490a44b1302e0"
+    }
+  ],
+  "diff_runtime_memory": [
+    {
+      "name": "diff",
+      "inputs": {
+        "previous": {
+          "memory_id": "a",
+          "lineage": [
+            {
+              "id": "l1"
+            }
+          ],
+          "runtime_history": []
+        },
+        "current": {
+          "memory_id": "04336f698e5cb83542e476318da14b41",
+          "runtime_history": [
+            {
+              "tick": 1,
+              "kind": "sync"
+            }
+          ],
+          "workflow_history": [],
+          "synchronization_history": [
+            {
+              "tick": 1,
+              "kind": "sync"
+            }
+          ],
+          "evolution_history": [],
+          "lineage": [
+            {
+              "id": "l1"
+            }
+          ],
+          "semantic_relations": [
+            {
+              "from": "e1",
+              "to": "e2",
+              "relation": "owns"
+            }
+          ],
+          "bounded": true,
+          "stable_hash": "1b41050f755fcb41d216c8451227b80c44d9b60f6e7550729c4375ddabbea9e1"
+        }
+      },
+      "serialized": "{\"bounded\":true,\"history_delta\":1,\"lineage_added\":[],\"lineage_removed\":[],\"memory_changed\":true,\"revertible\":true}",
+      "hash": "db4ea04743836a6da926b29b9040c759fcbc75c42ecfb729dfd405f6246309de"
+    }
+  ],
+  "capture_memory_snapshot": [
+    {
+      "name": "snapshot",
+      "inputs": {
+        "state": {
+          "runtime": {
+            "memory_id": "04336f698e5cb83542e476318da14b41",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "workflow_history": [],
+            "synchronization_history": [
+              {
+                "tick": 1,
+                "kind": "sync"
+              }
+            ],
+            "evolution_history": [],
+            "lineage": [
+              {
+                "id": "l1"
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true,
+            "stable_hash": "1b41050f755fcb41d216c8451227b80c44d9b60f6e7550729c4375ddabbea9e1"
+          },
+          "graph": {
+            "g": 1
+          }
+        },
+        "tick": 5
+      },
+      "serialized": "{\"bounded\":true,\"snapshot_id\":\"memory_snapshot:5\",\"state\":{\"graph\":{\"g\":1},\"runtime\":{\"bounded\":true,\"evolution_history\":[],\"lineage\":[{\"id\":\"l1\"}],\"memory_id\":\"04336f698e5cb83542e476318da14b41\",\"runtime_history\":[{\"kind\":\"sync\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"1b41050f755fcb41d216c8451227b80c44d9b60f6e7550729c4375ddabbea9e1\",\"synchronization_history\":[{\"kind\":\"sync\",\"tick\":1}],\"workflow_history\":[]}},\"tick\":5}",
+      "hash": "5a2547deb1a3bfc940fcf92b62bf4cb6c5ada828d379282a5e988e524a52019d"
+    }
+  ],
+  "compile_runtime_memory_ir": [
+    {
+      "name": "ir",
+      "inputs": {
+        "payload": {
+          "runtime": {
+            "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              },
+              {
+                "tick": 1,
+                "kind": "extraction",
+                "source": "browser"
+              },
+              {
+                "tick": 1,
+                "kind": "live",
+                "source": "connectors"
+              },
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              },
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "workflow_history": [
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "synchronization_history": [
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              }
+            ],
+            "evolution_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true,
+            "stable_hash": "8cadb6e0892350493779179b9a2479e11cfd30ec67ecfae9d7eb7c0ac67f78a9"
+          },
+          "knowledge": {
+            "entities": [
+              {
+                "id": "e1",
+                "type": "Order"
+              },
+              {
+                "id": "e2",
+                "label": "User"
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "runtime_graphs": [
+              {
+                "nodes": [
+                  {
+                    "id": "g1"
+                  }
+                ],
+                "edges": []
+              }
+            ],
+            "distributed_topology": {
+              "workers": [
+                {
+                  "worker_id": "w1"
+                }
+              ]
+            },
+            "application_cognition": {
+              "app": 1
+            },
+            "operational_structures": [],
+            "bounded": true
+          },
+          "semantic": {
+            "semantic_convergence": [
+              "Order",
+              "User"
+            ],
+            "recurring_concepts": [
+              "Order",
+              "User"
+            ],
+            "recurring_workflows": [
+              ""
+            ],
+            "recurring_structures": [
+              "domain",
+              "entities"
+            ],
+            "domain": "saas",
+            "bounded": true
+          },
+          "lineage": {
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "selector_ancestry": [
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              }
+            ],
+            "workflow_ancestry": [
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "sync_ancestry": [
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              }
+            ],
+            "evolution_ancestry": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              }
+            ],
+            "extraction_ancestry": [
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              }
+            ],
+            "bounded": true
+          },
+          "graph": {
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "Order"
+              },
+              {
+                "id": "e2",
+                "type": "entity"
+              }
+            ],
+            "edges": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true
+          },
+          "index": {
+            "entity_index": {
+              "e1": {
+                "id": "e1",
+                "type": "Order"
+              },
+              "e2": {
+                "id": "e2",
+                "label": "User"
+              }
+            },
+            "workflow_index": {
+              "extract_dashboard": {
+                "id": "extract_dashboard"
+              }
+            },
+            "graph_index": {
+              "0": {
+                "nodes": [
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  },
+                  {
+                    "id": "e2",
+                    "type": "entity"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ],
+                "bounded": true
+              }
+            },
+            "stream_index": {
+              "0": {
+                "stream_type": "kafka"
+              }
+            },
+            "connector_index": {
+              "0": {
+                "streams": {
+                  "streams": [
+                    {
+                      "stream_type": "kafka"
+                    }
+                  ]
+                }
+              }
+            },
+            "bounded": true
+          },
+          "distributed": {
+            "nodes": [
+              {
+                "node_id": "n1",
+                "synced": true,
+                "conflicts_resolved": 2
+              },
+              {
+                "node_id": "n2",
+                "synced": true
+              }
+            ],
+            "replication": 2,
+            "synchronized": true,
+            "conflicts_resolved": 2,
+            "converged": true,
+            "bounded": true
+          },
+          "federation": {
+            "federated_count": 1,
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              },
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              },
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              },
+              {
+                "tick": 1,
+                "kind": "live",
+                "source": "connectors"
+              },
+              {
+                "tick": 1,
+                "kind": "extraction",
+                "source": "browser"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true
+          },
+          "merged": {
+            "memory_id": "d0bf54c80b460c14fb9a8ec196647a01",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              },
+              {
+                "tick": 1,
+                "kind": "extraction",
+                "source": "browser"
+              },
+              {
+                "tick": 1,
+                "kind": "live",
+                "source": "connectors"
+              },
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              },
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "workflow_history": [
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "synchronization_history": [
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              }
+            ],
+            "evolution_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true,
+            "stable_hash": "04acc81979929e80ddbed28d4bee83169e35b7aad5cdec7277d25e5c47f78e74"
+          },
+          "replication": {
+            "replicas": [
+              {
+                "node_id": "n2",
+                "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+                "runtime_history": [
+                  {
+                    "tick": 1,
+                    "kind": "workflow",
+                    "source": "workflow"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "sync",
+                    "source": "sync"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "evolution",
+                    "source": "evolution"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "live",
+                    "source": "connectors"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "extraction",
+                    "source": "browser"
+                  }
+                ],
+                "lineage": [
+                  {
+                    "id": "ev1",
+                    "kind": "evolution",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "extract:1",
+                    "kind": "extraction",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "s1",
+                    "kind": "sync",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "selector:0",
+                    "kind": "selector",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "wf:0",
+                    "kind": "workflow",
+                    "ancestor": ""
+                  }
+                ],
+                "replicated": true
+              },
+              {
+                "node_id": "n1",
+                "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+                "runtime_history": [
+                  {
+                    "tick": 1,
+                    "kind": "workflow",
+                    "source": "workflow"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "sync",
+                    "source": "sync"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "evolution",
+                    "source": "evolution"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "live",
+                    "source": "connectors"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "extraction",
+                    "source": "browser"
+                  }
+                ],
+                "lineage": [
+                  {
+                    "id": "ev1",
+                    "kind": "evolution",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "extract:1",
+                    "kind": "extraction",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "s1",
+                    "kind": "sync",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "selector:0",
+                    "kind": "selector",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "wf:0",
+                    "kind": "workflow",
+                    "ancestor": ""
+                  }
+                ],
+                "replicated": true
+              }
+            ],
+            "replica_count": 2,
+            "bounded": true
+          },
+          "convergence": {
+            "converged": true,
+            "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+            "replica_count": 2,
+            "bounded": true
+          },
+          "policy": {
+            "memory_bounds": 100000,
+            "replay_limits": 10000,
+            "synchronization_ceilings": 100000,
+            "replication_depth": 1000,
+            "federation_constraints": 1000,
+            "bounded": true
+          },
+          "enforcement": {
+            "within_bounds": true,
+            "history_count": 5,
+            "lineage_count": 5,
+            "replicas": 2,
+            "bounded": true
+          },
+          "diff": {
+            "revertible": true
+          },
+          "snapshot": {
+            "snapshot_id": "memory_snapshot:1",
+            "tick": 1,
+            "state": {
+              "runtime": {
+                "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+                "runtime_history": [
+                  {
+                    "tick": 1,
+                    "kind": "evolution",
+                    "source": "evolution"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "extraction",
+                    "source": "browser"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "live",
+                    "source": "connectors"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "sync",
+                    "source": "sync"
+                  },
+                  {
+                    "tick": 1,
+                    "kind": "workflow",
+                    "source": "workflow"
+                  }
+                ],
+                "workflow_history": [
+                  {
+                    "tick": 1,
+                    "kind": "workflow",
+                    "source": "workflow"
+                  }
+                ],
+                "synchronization_history": [
+                  {
+                    "tick": 1,
+                    "kind": "sync",
+                    "source": "sync"
+                  }
+                ],
+                "evolution_history": [
+                  {
+                    "tick": 1,
+                    "kind": "evolution",
+                    "source": "evolution"
+                  }
+                ],
+                "lineage": [
+                  {
+                    "id": "ev1",
+                    "kind": "evolution",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "extract:1",
+                    "kind": "extraction",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "s1",
+                    "kind": "sync",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "selector:0",
+                    "kind": "selector",
+                    "ancestor": ""
+                  },
+                  {
+                    "id": "wf:0",
+                    "kind": "workflow",
+                    "ancestor": ""
+                  }
+                ],
+                "semantic_relations": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ],
+                "bounded": true,
+                "stable_hash": "8cadb6e0892350493779179b9a2479e11cfd30ec67ecfae9d7eb7c0ac67f78a9"
+              },
+              "knowledge": {
+                "entities": [
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  },
+                  {
+                    "id": "e2",
+                    "label": "User"
+                  }
+                ],
+                "semantic_relations": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ],
+                "runtime_graphs": [
+                  {
+                    "nodes": [
+                      {
+                        "id": "g1"
+                      }
+                    ],
+                    "edges": []
+                  }
+                ],
+                "distributed_topology": {
+                  "workers": [
+                    {
+                      "worker_id": "w1"
+                    }
+                  ]
+                },
+                "application_cognition": {
+                  "app": 1
+                },
+                "operational_structures": [],
+                "bounded": true
+              },
+              "graph": {
+                "nodes": [
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  },
+                  {
+                    "id": "e2",
+                    "type": "entity"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ],
+                "bounded": true
+              }
+            },
+            "bounded": true
+          },
+          "bounded": true,
+          "replay": {
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              },
+              {
+                "tick": 1,
+                "kind": "extraction",
+                "source": "browser"
+              },
+              {
+                "tick": 1,
+                "kind": "live",
+                "source": "connectors"
+              },
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              },
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+            "replayed": true,
+            "bounded": true
+          },
+          "memory_ir": {
+            "ir": "runtime_memory",
+            "memory_graphs": {
+              "nodes": [
+                {
+                  "id": "e1",
+                  "type": "Order"
+                },
+                {
+                  "id": "e2",
+                  "type": "entity"
+                }
+              ],
+              "edges": [
+                {
+                  "from": "e1",
+                  "to": "e2",
+                  "relation": "owns"
+                }
+              ],
+              "bounded": true
+            },
+            "semantic_indexes": {
+              "entity_index": {
+                "e1": {
+                  "id": "e1",
+                  "type": "Order"
+                },
+                "e2": {
+                  "id": "e2",
+                  "label": "User"
+                }
+              },
+              "workflow_index": {
+                "extract_dashboard": {
+                  "id": "extract_dashboard"
+                }
+              },
+              "graph_index": {
+                "0": {
+                  "nodes": [
+                    {
+                      "id": "e1",
+                      "type": "Order"
+                    },
+                    {
+                      "id": "e2",
+                      "type": "entity"
+                    }
+                  ],
+                  "edges": [
+                    {
+                      "from": "e1",
+                      "to": "e2",
+                      "relation": "owns"
+                    }
+                  ],
+                  "bounded": true
+                }
+              },
+              "stream_index": {
+                "0": {
+                  "stream_type": "kafka"
+                }
+              },
+              "connector_index": {
+                "0": {
+                  "streams": {
+                    "streams": [
+                      {
+                        "stream_type": "kafka"
+                      }
+                    ]
+                  }
+                }
+              },
+              "bounded": true
+            },
+            "lineage": {
+              "lineage": [
+                {
+                  "id": "ev1",
+                  "kind": "evolution",
+                  "ancestor": ""
+                },
+                {
+                  "id": "extract:1",
+                  "kind": "extraction",
+                  "ancestor": ""
+                },
+                {
+                  "id": "selector:0",
+                  "kind": "selector",
+                  "ancestor": ""
+                },
+                {
+                  "id": "s1",
+                  "kind": "sync",
+                  "ancestor": ""
+                },
+                {
+                  "id": "wf:0",
+                  "kind": "workflow",
+                  "ancestor": ""
+                }
+              ],
+              "selector_ancestry": [
+                {
+                  "id": "selector:0",
+                  "kind": "selector",
+                  "ancestor": ""
+                }
+              ],
+              "workflow_ancestry": [
+                {
+                  "id": "wf:0",
+                  "kind": "workflow",
+                  "ancestor": ""
+                }
+              ],
+              "sync_ancestry": [
+                {
+                  "id": "s1",
+                  "kind": "sync",
+                  "ancestor": ""
+                }
+              ],
+              "evolution_ancestry": [
+                {
+                  "id": "ev1",
+                  "kind": "evolution",
+                  "ancestor": ""
+                }
+              ],
+              "extraction_ancestry": [
+                {
+                  "id": "extract:1",
+                  "kind": "extraction",
+                  "ancestor": ""
+                }
+              ],
+              "bounded": true
+            },
+            "runtime_history": {
+              "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+              "runtime_history": [
+                {
+                  "tick": 1,
+                  "kind": "evolution",
+                  "source": "evolution"
+                },
+                {
+                  "tick": 1,
+                  "kind": "extraction",
+                  "source": "browser"
+                },
+                {
+                  "tick": 1,
+                  "kind": "live",
+                  "source": "connectors"
+                },
+                {
+                  "tick": 1,
+                  "kind": "sync",
+                  "source": "sync"
+                },
+                {
+                  "tick": 1,
+                  "kind": "workflow",
+                  "source": "workflow"
+                }
+              ],
+              "workflow_history": [
+                {
+                  "tick": 1,
+                  "kind": "workflow",
+                  "source": "workflow"
+                }
+              ],
+              "synchronization_history": [
+                {
+                  "tick": 1,
+                  "kind": "sync",
+                  "source": "sync"
+                }
+              ],
+              "evolution_history": [
+                {
+                  "tick": 1,
+                  "kind": "evolution",
+                  "source": "evolution"
+                }
+              ],
+              "lineage": [
+                {
+                  "id": "ev1",
+                  "kind": "evolution",
+                  "ancestor": ""
+                },
+                {
+                  "id": "extract:1",
+                  "kind": "extraction",
+                  "ancestor": ""
+                },
+                {
+                  "id": "s1",
+                  "kind": "sync",
+                  "ancestor": ""
+                },
+                {
+                  "id": "selector:0",
+                  "kind": "selector",
+                  "ancestor": ""
+                },
+                {
+                  "id": "wf:0",
+                  "kind": "workflow",
+                  "ancestor": ""
+                }
+              ],
+              "semantic_relations": [
+                {
+                  "from": "e1",
+                  "to": "e2",
+                  "relation": "owns"
+                }
+              ],
+              "bounded": true,
+              "stable_hash": "8cadb6e0892350493779179b9a2479e11cfd30ec67ecfae9d7eb7c0ac67f78a9"
+            },
+            "distributed_memory": {
+              "nodes": [
+                {
+                  "node_id": "n1",
+                  "synced": true,
+                  "conflicts_resolved": 2
+                },
+                {
+                  "node_id": "n2",
+                  "synced": true
+                }
+              ],
+              "replication": 2,
+              "synchronized": true,
+              "conflicts_resolved": 2,
+              "converged": true,
+              "bounded": true
+            },
+            "knowledge": {
+              "entities": [
+                {
+                  "id": "e1",
+                  "type": "Order"
+                },
+                {
+                  "id": "e2",
+                  "label": "User"
+                }
+              ],
+              "semantic_relations": [
+                {
+                  "from": "e1",
+                  "to": "e2",
+                  "relation": "owns"
+                }
+              ],
+              "runtime_graphs": [
+                {
+                  "nodes": [
+                    {
+                      "id": "g1"
+                    }
+                  ],
+                  "edges": []
+                }
+              ],
+              "distributed_topology": {
+                "workers": [
+                  {
+                    "worker_id": "w1"
+                  }
+                ]
+              },
+              "application_cognition": {
+                "app": 1
+              },
+              "operational_structures": [],
+              "bounded": true
+            },
+            "semantic": {
+              "semantic_convergence": [
+                "Order",
+                "User"
+              ],
+              "recurring_concepts": [
+                "Order",
+                "User"
+              ],
+              "recurring_workflows": [
+                ""
+              ],
+              "recurring_structures": [
+                "domain",
+                "entities"
+              ],
+              "domain": "saas",
+              "bounded": true
+            },
+            "bounded": true
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"distributed_memory\":{\"bounded\":true,\"conflicts_resolved\":2,\"converged\":true,\"nodes\":[{\"conflicts_resolved\":2,\"node_id\":\"n1\",\"synced\":true},{\"node_id\":\"n2\",\"synced\":true}],\"replication\":2,\"synchronized\":true},\"ir\":\"runtime_memory\",\"knowledge\":{\"application_cognition\":{\"app\":1},\"bounded\":true,\"distributed_topology\":{\"workers\":[{\"worker_id\":\"w1\"}]},\"entities\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"label\":\"User\"}],\"operational_structures\":[],\"runtime_graphs\":[{\"edges\":[],\"nodes\":[{\"id\":\"g1\"}]}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}]},\"lineage\":{\"bounded\":true,\"evolution_ancestry\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"}],\"extraction_ancestry\":[{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"selector_ancestry\":[{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"}],\"sync_ancestry\":[{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"}],\"workflow_ancestry\":[{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}]},\"memory_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]},\"runtime_history\":{\"bounded\":true,\"evolution_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1}],\"lineage\":[{\"ancestor\":\"\",\"id\":\"ev1\",\"kind\":\"evolution\"},{\"ancestor\":\"\",\"id\":\"extract:1\",\"kind\":\"extraction\"},{\"ancestor\":\"\",\"id\":\"s1\",\"kind\":\"sync\"},{\"ancestor\":\"\",\"id\":\"selector:0\",\"kind\":\"selector\"},{\"ancestor\":\"\",\"id\":\"wf:0\",\"kind\":\"workflow\"}],\"memory_id\":\"a4af90847f17c224d697f719ba76e4cb\",\"runtime_history\":[{\"kind\":\"evolution\",\"source\":\"evolution\",\"tick\":1},{\"kind\":\"extraction\",\"source\":\"browser\",\"tick\":1},{\"kind\":\"live\",\"source\":\"connectors\",\"tick\":1},{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1},{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}],\"semantic_relations\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"stable_hash\":\"8cadb6e0892350493779179b9a2479e11cfd30ec67ecfae9d7eb7c0ac67f78a9\",\"synchronization_history\":[{\"kind\":\"sync\",\"source\":\"sync\",\"tick\":1}],\"workflow_history\":[{\"kind\":\"workflow\",\"source\":\"workflow\",\"tick\":1}]},\"semantic\":{\"bounded\":true,\"domain\":\"saas\",\"recurring_concepts\":[\"Order\",\"User\"],\"recurring_structures\":[\"domain\",\"entities\"],\"recurring_workflows\":[\"\"],\"semantic_convergence\":[\"Order\",\"User\"]},\"semantic_indexes\":{\"bounded\":true,\"connector_index\":{\"0\":{\"streams\":{\"streams\":[{\"stream_type\":\"kafka\"}]}}},\"entity_index\":{\"e1\":{\"id\":\"e1\",\"type\":\"Order\"},\"e2\":{\"id\":\"e2\",\"label\":\"User\"}},\"graph_index\":{\"0\":{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}},\"stream_index\":{\"0\":{\"stream_type\":\"kafka\"}},\"workflow_index\":{\"extract_dashboard\":{\"id\":\"extract_dashboard\"}}}}",
+      "hash": "50a1d12641c886f9f6ad341a32b97569ac555b084e74bfb1030ebc2ed73c30d9"
+    }
+  ],
+  "runtime_memory_ir_to_graph": [
+    {
+      "name": "ir2graph",
+      "inputs": {
+        "ir": {
+          "ir": "runtime_memory",
+          "memory_graphs": {
+            "nodes": [
+              {
+                "id": "e1",
+                "type": "Order"
+              },
+              {
+                "id": "e2",
+                "type": "entity"
+              }
+            ],
+            "edges": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true
+          },
+          "semantic_indexes": {
+            "entity_index": {
+              "e1": {
+                "id": "e1",
+                "type": "Order"
+              },
+              "e2": {
+                "id": "e2",
+                "label": "User"
+              }
+            },
+            "workflow_index": {
+              "extract_dashboard": {
+                "id": "extract_dashboard"
+              }
+            },
+            "graph_index": {
+              "0": {
+                "nodes": [
+                  {
+                    "id": "e1",
+                    "type": "Order"
+                  },
+                  {
+                    "id": "e2",
+                    "type": "entity"
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "e1",
+                    "to": "e2",
+                    "relation": "owns"
+                  }
+                ],
+                "bounded": true
+              }
+            },
+            "stream_index": {
+              "0": {
+                "stream_type": "kafka"
+              }
+            },
+            "connector_index": {
+              "0": {
+                "streams": {
+                  "streams": [
+                    {
+                      "stream_type": "kafka"
+                    }
+                  ]
+                }
+              }
+            },
+            "bounded": true
+          },
+          "lineage": {
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "selector_ancestry": [
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              }
+            ],
+            "workflow_ancestry": [
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "sync_ancestry": [
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              }
+            ],
+            "evolution_ancestry": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              }
+            ],
+            "extraction_ancestry": [
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              }
+            ],
+            "bounded": true
+          },
+          "runtime_history": {
+            "memory_id": "a4af90847f17c224d697f719ba76e4cb",
+            "runtime_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              },
+              {
+                "tick": 1,
+                "kind": "extraction",
+                "source": "browser"
+              },
+              {
+                "tick": 1,
+                "kind": "live",
+                "source": "connectors"
+              },
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              },
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "workflow_history": [
+              {
+                "tick": 1,
+                "kind": "workflow",
+                "source": "workflow"
+              }
+            ],
+            "synchronization_history": [
+              {
+                "tick": 1,
+                "kind": "sync",
+                "source": "sync"
+              }
+            ],
+            "evolution_history": [
+              {
+                "tick": 1,
+                "kind": "evolution",
+                "source": "evolution"
+              }
+            ],
+            "lineage": [
+              {
+                "id": "ev1",
+                "kind": "evolution",
+                "ancestor": ""
+              },
+              {
+                "id": "extract:1",
+                "kind": "extraction",
+                "ancestor": ""
+              },
+              {
+                "id": "s1",
+                "kind": "sync",
+                "ancestor": ""
+              },
+              {
+                "id": "selector:0",
+                "kind": "selector",
+                "ancestor": ""
+              },
+              {
+                "id": "wf:0",
+                "kind": "workflow",
+                "ancestor": ""
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "bounded": true,
+            "stable_hash": "8cadb6e0892350493779179b9a2479e11cfd30ec67ecfae9d7eb7c0ac67f78a9"
+          },
+          "distributed_memory": {
+            "nodes": [
+              {
+                "node_id": "n1",
+                "synced": true,
+                "conflicts_resolved": 2
+              },
+              {
+                "node_id": "n2",
+                "synced": true
+              }
+            ],
+            "replication": 2,
+            "synchronized": true,
+            "conflicts_resolved": 2,
+            "converged": true,
+            "bounded": true
+          },
+          "knowledge": {
+            "entities": [
+              {
+                "id": "e1",
+                "type": "Order"
+              },
+              {
+                "id": "e2",
+                "label": "User"
+              }
+            ],
+            "semantic_relations": [
+              {
+                "from": "e1",
+                "to": "e2",
+                "relation": "owns"
+              }
+            ],
+            "runtime_graphs": [
+              {
+                "nodes": [
+                  {
+                    "id": "g1"
+                  }
+                ],
+                "edges": []
+              }
+            ],
+            "distributed_topology": {
+              "workers": [
+                {
+                  "worker_id": "w1"
+                }
+              ]
+            },
+            "application_cognition": {
+              "app": 1
+            },
+            "operational_structures": [],
+            "bounded": true
+          },
+          "semantic": {
+            "semantic_convergence": [
+              "Order",
+              "User"
+            ],
+            "recurring_concepts": [
+              "Order",
+              "User"
+            ],
+            "recurring_workflows": [
+              ""
+            ],
+            "recurring_structures": [
+              "domain",
+              "entities"
+            ],
+            "domain": "saas",
+            "bounded": true
+          },
+          "bounded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"e1\",\"relation\":\"owns\",\"to\":\"e2\"}],\"ir\":\"runtime_memory_graph\",\"nodes\":[{\"id\":\"e1\",\"type\":\"Order\"},{\"id\":\"e2\",\"type\":\"entity\"}]}",
+      "hash": "d3bd65cabaa0b684f9c544a93a4be6b733e24c84346a1bbb653c8362cec4af80"
+    },
+    {
+      "name": "ir2graph_empty",
+      "inputs": {
+        "ir": {}
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[],\"ir\":\"runtime_memory_graph\",\"nodes\":[{\"id\":\"memory:root\",\"type\":\"memory\"}]}",
+      "hash": "8849de18b1ac971007464d5ead388741186066ad18029e1b7c5b5ed8fbe0184b"
+    }
+  ]
+}

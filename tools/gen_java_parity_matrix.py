@@ -126,6 +126,9 @@ JAVA_PROVEN = {
     "authenticate_runtime": "io.webweavex.auth.AuthenticationRuntime#authenticateRuntime",
     "clone_runtime_environment": "io.webweavex.reconstruction.ReconstructionRuntime#cloneRuntimeEnvironment",
     "fabricate_runtime_reality": "io.webweavex.reconstruction.ReconstructionRuntime#fabricateRuntimeReality",
+    # Session 20 — memory orchestrator (final clean slice, 37-module closure)
+    "run_runtime_memory": "io.webweavex.memory.RuntimeMemoryRuntime#runRuntimeMemory",
+    "run_memory_for_extraction": "io.webweavex.memory.RuntimeMemoryRuntime#runMemoryForExtraction",
 }
 
 PACKAGES = [

@@ -141,6 +141,9 @@ MAPPING = {
     "authenticate_runtime": ("io.webweavex.auth.AuthenticationRuntime", "golden_vectors_s19.json", "authenticate_runtime"),
     "clone_runtime_environment": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "clone_runtime_environment"),
     "fabricate_runtime_reality": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "fabricate_runtime_reality"),
+    # Session 20 — memory orchestrator (final clean slice)
+    "run_runtime_memory": ("io.webweavex.memory.RuntimeMemoryRuntime", "golden_vectors_s20.json", "run_runtime_memory"),
+    "run_memory_for_extraction": ("io.webweavex.memory.RuntimeMemoryRuntime", "golden_vectors_s20.json", "run_memory_for_extraction"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
