@@ -133,6 +133,9 @@ JAVA_PROVEN = {
     "heal_selector": "io.webweavex.adaptive.SelectorHealing#healSelector",
     # Session 22 — Tier-B1: query_documents (pure document semantic IR; epistemic engine bypassed)
     "query_documents": "io.webweavex.documents.DocumentSemanticIr#queryDocuments",
+    # Session 25 — semantic runtime (portable html="" contract)
+    "run_semantic_runtime": "io.webweavex.semantic.SemanticRuntime#runSemanticRuntime",
+    "run_semantic_for_extraction": "io.webweavex.semantic.SemanticRuntime#runSemanticForExtraction",
 }
 
 PACKAGES = [
