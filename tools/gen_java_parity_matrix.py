@@ -136,6 +136,8 @@ JAVA_PROVEN = {
     # Session 25 — semantic runtime (portable html="" contract)
     "run_semantic_runtime": "io.webweavex.semantic.SemanticRuntime#runSemanticRuntime",
     "run_semantic_for_extraction": "io.webweavex.semantic.SemanticRuntime#runSemanticForExtraction",
+    # Session 26 — application cognition (portable html="" contract)
+    "run_application_cognition": "io.webweavex.application.ApplicationCognitionRuntime#runApplicationCognition",
 }
 
 PACKAGES = [

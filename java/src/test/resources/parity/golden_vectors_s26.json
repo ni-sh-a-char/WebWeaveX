@@ -1,0 +1,414 @@
+{
+  "source": "Python 2.1.0 canonical (session 26: application cognition, html='' contract)",
+  "run_application_cognition": [
+    {
+      "name": "default",
+      "inputs": {
+        "url": "https://app",
+        "html": ""
+      },
+      "serialized": "{\"action_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://app\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"context\":{\"authenticated\":false,\"bounded\":true,\"identity_profile\":\"default\",\"route\":\"https://app\",\"url\":\"https://app\"},\"dashboard\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"execution\":{\"bounded\":true,\"executed\":[{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"navigate_dashboard\",\"route\":\"https://app\",\"step\":0,\"workflow_nodes\":1},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"capture_widgets\",\"route\":\"https://app\",\"step\":1,\"workflow_nodes\":1},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"capture_tables\",\"route\":\"https://app\",\"step\":2,\"workflow_nodes\":1}],\"goal\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"objective\":\"extract_dashboard\"},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"intent\":{\"bounded\":true,\"intent\":\"observe_metrics\",\"objective\":\"extract_dashboard\"},\"memory\":{\"action_graphs\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://app\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"dashboard_structures\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"navigation_flows\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://app\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"objectives\":[\"extract_dashboard\"],\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflows\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"https://app\",\"type\":\"page\"}]}},\"navigation\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://app\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"recovery\":{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":true,\"route\":\"https://app\",\"session_valid\":false,\"workflow_resumed\":true},\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflow\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"https://app\",\"type\":\"page\"}]}}",
+      "hash": "9069fa2944702ab5cd9e8bac759ea33f736efc091e5e28ad98e9db0dfe1d6007"
+    },
+    {
+      "name": "full",
+      "inputs": {
+        "url": "https://app/dash",
+        "html": "",
+        "interactions": [
+          {
+            "action": "click",
+            "selector": "#a"
+          },
+          {
+            "action": "modal_open"
+          },
+          {
+            "action": "fill"
+          }
+        ],
+        "objective": "extract_dashboard",
+        "authenticated": true,
+        "identity": {
+          "profile_id": "p1"
+        },
+        "adaptive_runtime": {
+          "x": 1
+        },
+        "route_history": [
+          {
+            "path": "/a"
+          },
+          {
+            "path": "/b"
+          }
+        ],
+        "modals": [
+          {
+            "id": "m1"
+          }
+        ]
+      },
+      "serialized": "{\"action_graph\":{\"bounded\":true,\"edges\":[{\"from\":\"action_0\",\"relation\":\"sequential\",\"to\":\"action_1\"},{\"from\":\"action_1\",\"relation\":\"sequential\",\"to\":\"action_2\"}],\"nodes\":[{\"id\":\"action_0\",\"selector\":\"#a\",\"type\":\"click\"},{\"id\":\"action_1\",\"selector\":\"\",\"type\":\"modal_open\"},{\"id\":\"action_2\",\"selector\":\"\",\"type\":\"fill\"}]},\"application_state\":{\"authenticated\":true,\"bounded\":true,\"forms\":[],\"modals\":[{\"id\":\"m1\"}],\"route\":\"https://app/dash\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"context\":{\"authenticated\":true,\"bounded\":true,\"identity_profile\":\"p1\",\"route\":\"https://app/dash\",\"url\":\"https://app/dash\"},\"dashboard\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"execution\":{\"bounded\":true,\"executed\":[{\"action_nodes\":3,\"adaptive\":true,\"completed\":true,\"name\":\"navigate_dashboard\",\"route\":\"/a\",\"step\":0,\"workflow_nodes\":1},{\"action_nodes\":3,\"adaptive\":true,\"completed\":true,\"name\":\"capture_widgets\",\"route\":\"/a\",\"step\":1,\"workflow_nodes\":1},{\"action_nodes\":3,\"adaptive\":true,\"completed\":true,\"name\":\"capture_tables\",\"route\":\"/a\",\"step\":2,\"workflow_nodes\":1}],\"goal\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"objective\":\"extract_dashboard\"},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"intent\":{\"bounded\":true,\"intent\":\"observe_metrics\",\"objective\":\"extract_dashboard\"},\"memory\":{\"action_graphs\":{\"bounded\":true,\"edges\":[{\"from\":\"action_0\",\"relation\":\"sequential\",\"to\":\"action_1\"},{\"from\":\"action_1\",\"relation\":\"sequential\",\"to\":\"action_2\"}],\"nodes\":[{\"id\":\"action_0\",\"selector\":\"#a\",\"type\":\"click\"},{\"id\":\"action_1\",\"selector\":\"\",\"type\":\"modal_open\"},{\"id\":\"action_2\",\"selector\":\"\",\"type\":\"fill\"}]},\"application_state\":{\"authenticated\":true,\"bounded\":true,\"forms\":[],\"modals\":[{\"id\":\"m1\"}],\"route\":\"https://app/dash\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"dashboard_structures\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"navigation_flows\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"path\":\"/a\"},{\"path\":\"/b\"}],\"spa_transitions\":true,\"tab_hierarchy\":[]},\"objectives\":[\"extract_dashboard\"],\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflows\":{\"bounded\":true,\"edges\":[{\"from\":\"\",\"relation\":\"navigate\",\"to\":\"\"},{\"from\":\"\",\"relation\":\"open_modal\",\"to\":\"\"},{\"from\":\"\",\"relation\":\"submit\",\"to\":\"\"}],\"nodes\":[{\"id\":\"https://app/dash\",\"type\":\"page\"}]}},\"navigation\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"path\":\"/a\"},{\"path\":\"/b\"}],\"spa_transitions\":true,\"tab_hierarchy\":[]},\"recovery\":{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":false,\"route\":\"https://app/dash\",\"session_valid\":true,\"workflow_resumed\":true},\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflow\":{\"bounded\":true,\"edges\":[{\"from\":\"\",\"relation\":\"navigate\",\"to\":\"\"},{\"from\":\"\",\"relation\":\"open_modal\",\"to\":\"\"},{\"from\":\"\",\"relation\":\"submit\",\"to\":\"\"}],\"nodes\":[{\"id\":\"https://app/dash\",\"type\":\"page\"}]}}",
+      "hash": "27bbe410688f6c0b230e432c659f1777486144609e3c8b03a99ff53f01201c66"
+    },
+    {
+      "name": "login",
+      "inputs": {
+        "url": "https://x/login",
+        "html": "",
+        "objective": "login",
+        "interactions": [
+          {
+            "action": "fill"
+          }
+        ]
+      },
+      "serialized": "{\"action_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"action_0\",\"selector\":\"\",\"type\":\"fill\"}]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://x/login\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"context\":{\"authenticated\":false,\"bounded\":true,\"identity_profile\":\"default\",\"route\":\"https://x/login\",\"url\":\"https://x/login\"},\"dashboard\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"execution\":{\"bounded\":true,\"executed\":[{\"action_nodes\":1,\"adaptive\":false,\"completed\":true,\"name\":\"open_login\",\"route\":\"https://x/login\",\"step\":0,\"workflow_nodes\":1},{\"action_nodes\":1,\"adaptive\":false,\"completed\":true,\"name\":\"fill_credentials\",\"route\":\"https://x/login\",\"step\":1,\"workflow_nodes\":1},{\"action_nodes\":1,\"adaptive\":false,\"completed\":true,\"name\":\"submit\",\"route\":\"https://x/login\",\"step\":2,\"workflow_nodes\":1}],\"goal\":{\"bounded\":true,\"objective\":\"login\",\"steps\":[\"open_login\",\"fill_credentials\",\"submit\"]},\"objective\":\"login\"},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"intent\":{\"bounded\":true,\"intent\":\"authenticate\",\"objective\":\"login\"},\"memory\":{\"action_graphs\":{\"bounded\":true,\"edges\":[],\"nodes\":[{\"id\":\"action_0\",\"selector\":\"\",\"type\":\"fill\"}]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://x/login\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"dashboard_structures\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"navigation_flows\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://x/login\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"objectives\":[\"login\"],\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflows\":{\"bounded\":true,\"edges\":[{\"from\":\"\",\"relation\":\"submit\",\"to\":\"\"}],\"nodes\":[{\"id\":\"https://x/login\",\"type\":\"page\"}]}},\"navigation\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://x/login\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"recovery\":{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":true,\"route\":\"https://x/login\",\"session_valid\":false,\"workflow_resumed\":true},\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflow\":{\"bounded\":true,\"edges\":[{\"from\":\"\",\"relation\":\"submit\",\"to\":\"\"}],\"nodes\":[{\"id\":\"https://x/login\",\"type\":\"page\"}]}}",
+      "hash": "4f2893e9b68d2be202bc9bab634da8f263250de442d41df53139a754c999932b"
+    },
+    {
+      "name": "memory",
+      "inputs": {
+        "url": "https://x",
+        "html": "",
+        "objective": "monitor_metrics",
+        "memory": {
+          "application_state": {
+            "route": "https://prev",
+            "authenticated": true
+          }
+        }
+      },
+      "serialized": "{\"action_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://x\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"context\":{\"authenticated\":false,\"bounded\":true,\"identity_profile\":\"default\",\"route\":\"https://x\",\"url\":\"https://x\"},\"dashboard\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"execution\":{\"bounded\":true,\"executed\":[{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"open_dashboard\",\"route\":\"https://x\",\"step\":0,\"workflow_nodes\":2},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"observe_metrics\",\"route\":\"https://x\",\"step\":1,\"workflow_nodes\":2},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"checkpoint\",\"route\":\"https://x\",\"step\":2,\"workflow_nodes\":2}],\"goal\":{\"bounded\":true,\"objective\":\"monitor_metrics\",\"steps\":[\"open_dashboard\",\"observe_metrics\",\"checkpoint\"]},\"objective\":\"monitor_metrics\"},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"intent\":{\"bounded\":true,\"intent\":\"continuous_observe\",\"objective\":\"monitor_metrics\"},\"memory\":{\"action_graphs\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://x\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"dashboard_structures\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"navigation_flows\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://x\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"objectives\":[\"monitor_metrics\"],\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflows\":{\"bounded\":true,\"edges\":[{\"from\":\"https://prev\",\"relation\":\"transition\",\"to\":\"https://x\"}],\"nodes\":[{\"id\":\"https://prev\",\"type\":\"page\"},{\"id\":\"https://x\",\"type\":\"page\"}]}},\"navigation\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://x\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"recovery\":{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":true,\"route\":\"https://x\",\"session_valid\":false,\"workflow_resumed\":true},\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflow\":{\"bounded\":true,\"edges\":[{\"from\":\"https://prev\",\"relation\":\"transition\",\"to\":\"https://x\"}],\"nodes\":[{\"id\":\"https://prev\",\"type\":\"page\"},{\"id\":\"https://x\",\"type\":\"page\"}]}}",
+      "hash": "a723d3b025774158b4d91b4bd63da62cbdfd57a97d758b31f621dc2c310807ed"
+    },
+    {
+      "name": "mem_fields",
+      "inputs": {
+        "url": "https://x",
+        "html": "",
+        "objective": "login",
+        "memory": {
+          "workflows": {
+            "old": 1
+          },
+          "forms": {
+            "f": 9
+          },
+          "application_state": {
+            "route": "/p"
+          }
+        }
+      },
+      "serialized": "{\"action_graph\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://x\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"context\":{\"authenticated\":false,\"bounded\":true,\"identity_profile\":\"default\",\"route\":\"https://x\",\"url\":\"https://x\"},\"dashboard\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"execution\":{\"bounded\":true,\"executed\":[{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"open_login\",\"route\":\"https://x\",\"step\":0,\"workflow_nodes\":2},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"fill_credentials\",\"route\":\"https://x\",\"step\":1,\"workflow_nodes\":2},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"submit\",\"route\":\"https://x\",\"step\":2,\"workflow_nodes\":2}],\"goal\":{\"bounded\":true,\"objective\":\"login\",\"steps\":[\"open_login\",\"fill_credentials\",\"submit\"]},\"objective\":\"login\"},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"intent\":{\"bounded\":true,\"intent\":\"authenticate\",\"objective\":\"login\"},\"memory\":{\"action_graphs\":{\"bounded\":true,\"edges\":[],\"nodes\":[]},\"application_state\":{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"https://x\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]},\"bounded\":true,\"dashboard_structures\":{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]},\"forms\":{\"bounded\":true,\"form_count\":0,\"forms\":[]},\"navigation_flows\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://x\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"objectives\":[\"login\"],\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflows\":{\"bounded\":true,\"edges\":[{\"from\":\"/p\",\"relation\":\"transition\",\"to\":\"https://x\"}],\"nodes\":[{\"id\":\"/p\",\"type\":\"page\"},{\"id\":\"https://x\",\"type\":\"page\"}]}},\"navigation\":{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://x\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]},\"recovery\":{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":true,\"route\":\"https://x\",\"session_valid\":false,\"workflow_resumed\":true},\"ui_semantics\":{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}},\"workflow\":{\"bounded\":true,\"edges\":[{\"from\":\"/p\",\"relation\":\"transition\",\"to\":\"https://x\"}],\"nodes\":[{\"id\":\"/p\",\"type\":\"page\"},{\"id\":\"https://x\",\"type\":\"page\"}]}}",
+      "hash": "d465a22d6343a8ebb801ec65e534083253da5d0ca76a28f90017d8a80e6e0dc3"
+    }
+  ],
+  "extract_ui_semantics": [
+    {
+      "name": "ui_empty",
+      "inputs": {
+        "html": ""
+      },
+      "serialized": "{\"bounded\":true,\"semantics\":{\"charts\":[],\"dashboards\":[],\"filters\":[],\"forms\":[],\"navigation_menus\":[],\"search_bars\":[],\"sidebars\":[],\"tables\":[],\"tabs\":[]}}",
+      "hash": "1e5154ead470f13dec20620631f6515a3b4c5365d67bfea0a74686b236b29a90"
+    }
+  ],
+  "build_form_runtime": [
+    {
+      "name": "form_empty",
+      "inputs": {
+        "html": ""
+      },
+      "serialized": "{\"bounded\":true,\"form_count\":0,\"forms\":[]}",
+      "hash": "2b66869453121608ab11fe2d82b81a4199b34acb124a39fd4129d4159a99fd2f"
+    }
+  ],
+  "build_dashboard_runtime": [
+    {
+      "name": "dash_empty",
+      "inputs": {
+        "html": ""
+      },
+      "serialized": "{\"bounded\":true,\"charts\":[],\"filters\":[],\"metrics\":[],\"tables\":[],\"update_interval\":30,\"widgets\":[]}",
+      "hash": "322e5ee7d0ebb523ffc84974345936441deb86ff0e88eccf5d0047f3b5e95224"
+    }
+  ],
+  "build_navigation_semantics": [
+    {
+      "name": "nav_route",
+      "inputs": {
+        "route": "https://app",
+        "route_history": null
+      },
+      "serialized": "{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"order\":0,\"path\":\"https://app\"}],\"spa_transitions\":false,\"tab_hierarchy\":[]}",
+      "hash": "952f7e2c1cd961ede8f871380dfa9ad9aa073408d514c227ad2646ada7ba394d"
+    },
+    {
+      "name": "nav_history",
+      "inputs": {
+        "route": "https://app",
+        "route_history": [
+          {
+            "path": "/a"
+          },
+          {
+            "path": "/b"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"breadcrumbs\":[],\"menus\":[],\"routes\":[{\"path\":\"/a\"},{\"path\":\"/b\"}],\"spa_transitions\":true,\"tab_hierarchy\":[]}",
+      "hash": "743d099098df4411fa2172b98ff2245cd87864927098b1236b6f683a7b189646"
+    }
+  ],
+  "recover_application_runtime": [
+    {
+      "name": "recover",
+      "inputs": {
+        "state": {
+          "route": "https://app",
+          "forms": [],
+          "modals": [
+            {
+              "id": "m"
+            }
+          ],
+          "widgets": [],
+          "tabs": [],
+          "authenticated": true,
+          "runtime_state": {},
+          "bounded": true
+        }
+      },
+      "serialized": "{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":false,\"route\":\"https://app\",\"session_valid\":true,\"workflow_resumed\":true}",
+      "hash": "2d5360dc95e2d3ec91c03343814cfa3f8bc0dd3435ceaaa14a64cd0b17ed5409"
+    },
+    {
+      "name": "recover_empty",
+      "inputs": {
+        "state": {
+          "route": "/",
+          "modals": [],
+          "authenticated": false
+        }
+      },
+      "serialized": "{\"bounded\":true,\"forms_recovered\":[],\"modals_cleared\":true,\"route\":\"/\",\"session_valid\":false,\"workflow_resumed\":true}",
+      "hash": "e1a3f8491dfcac4ed4d84bf0975aae300bc913a61828a0b44885c4d25e71baf9"
+    }
+  ],
+  "build_application_state": [
+    {
+      "name": "state",
+      "inputs": {
+        "route": "https://app",
+        "forms": [
+          {
+            "f": 1
+          }
+        ],
+        "modals": [
+          {
+            "m": 1
+          }
+        ],
+        "widgets": [
+          {
+            "w": 1
+          }
+        ],
+        "tabs": [
+          {
+            "t": 1
+          }
+        ],
+        "authenticated": true
+      },
+      "serialized": "{\"authenticated\":true,\"bounded\":true,\"forms\":[{\"f\":1}],\"modals\":[{\"m\":1}],\"route\":\"https://app\",\"runtime_state\":{},\"tabs\":[{\"t\":1}],\"widgets\":[{\"w\":1}]}",
+      "hash": "e75fc5a1e3a646d825430436e02855fb1048698781e724051f0d3928411b0672"
+    },
+    {
+      "name": "minimal",
+      "inputs": {
+        "route": "r"
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"r\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]}",
+      "hash": "2129afcaeb8b60c40ac6f6ca16c12ae1b6e9382e006381b4b4c5047773667065"
+    },
+    {
+      "name": "long_route",
+      "inputs": {
+        "route": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "forms": [],
+        "modals": [],
+        "widgets": [],
+        "tabs": [],
+        "authenticated": false
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"forms\":[],\"modals\":[],\"route\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"runtime_state\":{},\"tabs\":[],\"widgets\":[]}",
+      "hash": "bb60aec6e7c74fa5174602c91fe385b46935ed4610a2e4ec2ff4ebd755da958c"
+    }
+  ],
+  "build_application_transitions": [
+    {
+      "name": "trans",
+      "inputs": {
+        "states": [
+          {
+            "route": "/a"
+          },
+          {
+            "route": "/b"
+          },
+          {
+            "route": "/c"
+          }
+        ]
+      },
+      "serialized": "{\"transitions\":[{\"from\":\"/a\",\"order\":0,\"relation\":\"transition\",\"to\":\"/b\"},{\"from\":\"/b\",\"order\":1,\"relation\":\"transition\",\"to\":\"/c\"}]}",
+      "hash": "1b2aaf889fd778acc86a8c8c444b4a4faa724964286a67a49c8a345ba0f9205b"
+    },
+    {
+      "name": "trans_one",
+      "inputs": {
+        "states": [
+          {
+            "route": "/a"
+          }
+        ]
+      },
+      "serialized": "{\"transitions\":[]}",
+      "hash": "38d1298dc6352e552ee210338ce037d33f820685012e7dfbfee3b586278cab1b"
+    }
+  ],
+  "build_action_graph": [
+    {
+      "name": "actions",
+      "inputs": {
+        "interactions": [
+          {
+            "action": "click",
+            "selector": "#a"
+          },
+          {
+            "action": "fill"
+          },
+          {
+            "action": "modal_open"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"action_0\",\"relation\":\"sequential\",\"to\":\"action_1\"},{\"from\":\"action_1\",\"relation\":\"sequential\",\"to\":\"action_2\"}],\"nodes\":[{\"id\":\"action_0\",\"selector\":\"#a\",\"type\":\"click\"},{\"id\":\"action_1\",\"selector\":\"\",\"type\":\"fill\"},{\"id\":\"action_2\",\"selector\":\"\",\"type\":\"modal_open\"}]}",
+      "hash": "a873cd8a83a3fa52ba7fc63f5a1bd957ef189e699f60513c7127d0bbcdca5c7a"
+    },
+    {
+      "name": "actions_empty",
+      "inputs": {
+        "interactions": []
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[],\"nodes\":[]}",
+      "hash": "3c31cfc8a69be767d8b403a0f54a82381ebf06e367ae390427d7714dc6fa4ee3"
+    }
+  ],
+  "build_workflow_graph": [
+    {
+      "name": "wf",
+      "inputs": {
+        "states": [
+          {
+            "route": "/a"
+          },
+          {
+            "route": "/b"
+          },
+          {
+            "route": "/c"
+          }
+        ],
+        "transitions": [
+          {
+            "from": "/a",
+            "to": "/b",
+            "relation": "transition",
+            "order": 0
+          },
+          {
+            "from": "/b",
+            "to": "/c",
+            "relation": "transition",
+            "order": 1
+          }
+        ],
+        "actions": [
+          {
+            "action": "click",
+            "selector": "#a"
+          },
+          {
+            "action": "fill"
+          },
+          {
+            "action": "modal_open"
+          }
+        ]
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[{\"from\":\"\",\"relation\":\"navigate\",\"to\":\"\"},{\"from\":\"\",\"relation\":\"open_modal\",\"to\":\"\"},{\"from\":\"\",\"relation\":\"submit\",\"to\":\"\"},{\"from\":\"/a\",\"relation\":\"transition\",\"to\":\"/b\"},{\"from\":\"/b\",\"relation\":\"transition\",\"to\":\"/c\"}],\"nodes\":[{\"id\":\"/a\",\"type\":\"page\"},{\"id\":\"/b\",\"type\":\"page\"},{\"id\":\"/c\",\"type\":\"page\"}]}",
+      "hash": "6227442a29710a51ae920e7f932a91070e513b8e2a802504759dd2476986befa"
+    },
+    {
+      "name": "wf_empty",
+      "inputs": {
+        "states": [],
+        "transitions": [],
+        "actions": []
+      },
+      "serialized": "{\"bounded\":true,\"edges\":[],\"nodes\":[]}",
+      "hash": "3c31cfc8a69be767d8b403a0f54a82381ebf06e367ae390427d7714dc6fa4ee3"
+    }
+  ],
+  "resolve_application_intent": [
+    {
+      "name": "intent_known",
+      "inputs": {
+        "objective": "extract_dashboard"
+      },
+      "serialized": "{\"bounded\":true,\"intent\":\"observe_metrics\",\"objective\":\"extract_dashboard\"}",
+      "hash": "af6c0bc2e1e3ed0e29e4419f20504b488ac2b196807e8152624db88e24b8d862"
+    },
+    {
+      "name": "intent_unknown",
+      "inputs": {
+        "objective": "custom"
+      },
+      "serialized": "{\"bounded\":true,\"intent\":\"observe\",\"objective\":\"custom\"}",
+      "hash": "d1b86e6131dc6a419afbc0c67c4438115a95dbe43b43623e3487c5e87230d105"
+    }
+  ],
+  "build_application_context": [
+    {
+      "name": "context",
+      "inputs": {
+        "url": "https://app",
+        "state": {
+          "route": "/r",
+          "authenticated": true
+        },
+        "identity": {
+          "profile_id": "p1"
+        }
+      },
+      "serialized": "{\"authenticated\":true,\"bounded\":true,\"identity_profile\":\"p1\",\"route\":\"/r\",\"url\":\"https://app\"}",
+      "hash": "0eb7f2290eb99062071553b8c879975dab4ba8542dde6ee78058a8ecc547d454"
+    },
+    {
+      "name": "context_default",
+      "inputs": {
+        "url": "https://app",
+        "state": {},
+        "identity": {}
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"identity_profile\":\"default\",\"route\":\"https://app\",\"url\":\"https://app\"}",
+      "hash": "951e8fc07d28a9855c5b585d301ade8203b4735023d2d6bfbe1e49e56f813423"
+    }
+  ]
+}

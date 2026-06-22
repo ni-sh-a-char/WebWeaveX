@@ -151,6 +151,8 @@ MAPPING = {
     # Session 25 — semantic runtime (portable html="" contract)
     "run_semantic_runtime": ("io.webweavex.semantic.SemanticRuntime", "golden_vectors_s25.json", "run_semantic_runtime"),
     "run_semantic_for_extraction": ("io.webweavex.semantic.SemanticRuntime", "golden_vectors_s25.json", "run_semantic_for_extraction"),
+    # Session 26 — application cognition (portable html="" contract)
+    "run_application_cognition": ("io.webweavex.application.ApplicationCognitionRuntime", "golden_vectors_s26.json", "run_application_cognition"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
