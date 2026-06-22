@@ -131,6 +131,8 @@ JAVA_PROVEN = {
     "run_memory_for_extraction": "io.webweavex.memory.RuntimeMemoryRuntime#runMemoryForExtraction",
     # Session 21 — Tier-B start: heal_selector portable (empty-HTML) contract
     "heal_selector": "io.webweavex.adaptive.SelectorHealing#healSelector",
+    # Session 22 — Tier-B1: query_documents (pure document semantic IR; epistemic engine bypassed)
+    "query_documents": "io.webweavex.documents.DocumentSemanticIr#queryDocuments",
 }
 
 PACKAGES = [

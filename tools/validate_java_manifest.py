@@ -146,6 +146,8 @@ MAPPING = {
     "run_memory_for_extraction": ("io.webweavex.memory.RuntimeMemoryRuntime", "golden_vectors_s20.json", "run_memory_for_extraction"),
     # Session 21 — Tier-B start: heal_selector portable (empty-HTML) contract
     "heal_selector": ("io.webweavex.adaptive.SelectorHealing", "golden_vectors_s21.json", "heal_selector"),
+    # Session 22 — Tier-B1: query_documents (pure document semantic IR)
+    "query_documents": ("io.webweavex.documents.DocumentSemanticIr", "golden_vectors_s22.json", "query_documents"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
