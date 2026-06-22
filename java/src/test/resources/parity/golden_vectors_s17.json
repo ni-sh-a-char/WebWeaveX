@@ -1,0 +1,303 @@
+{
+  "source": "Python 2.1.0 canonical (session 17: memory persistence x4)",
+  "save_runtime_memory": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "runtime_simple.json",
+        "memory": {
+          "runtime": {
+            "a": 1
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbb7CvMO5vrd1jnXRebl7lHuN2ts=\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "runtime_unicode.json",
+        "memory": {
+          "note": "café 😀",
+          "用户": 1,
+          "nested": {
+            "k": [
+              1,
+              2,
+              3
+            ]
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbbqywcO1tXSNdNB4wnqTeraNiX6RjIGVwOGRhonW2N7QjqeOkdPS2M/ppabcsZnW8OC1sePc9ubotLWos6ir5gDDwsDH7AbIxcfMuNG4yhc=\"}"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "filename": "runtime_empty.json",
+        "memory": {},
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tLc=\"}"
+    }
+  ],
+  "load_runtime_memory": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbb7CvMO5vrd1jnXRebl7lHuN2ts=\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"runtime\":{\"a\":1}}}",
+      "hash": "1512b47651339f27009746cd2d23f38bd52b6d542685ef5dbd4547102027f166"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbbqywcO1tXSNdNB4wnqTeraNiX6RjIGVwOGRhonW2N7QjqeOkdPS2M/ppabcsZnW8OC1sePc9ubotLWos6ir5gDDwsDH7AbIxcfMuNG4yhc=\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"nested\":{\"k\":[1,2,3]},\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "9a82b2afaa64ed03df6ad014c86d0690890eb6adad78a325933716cf3f5399fb"
+    },
+    {
+      "name": "load_empty",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tLc=\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{}}",
+      "hash": "fb78da34a84cac20bb1c391dfa35aad9e99ae8aaac14e9e1779fcddcd03e18ea"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "mem-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"memory\":{\"bounded\":true,\"graph\":{},\"index\":{},\"knowledge\":{},\"lineage\":{},\"runtime\":{},\"semantic\":{}}}",
+      "hash": "3ef7e135741692cfba089512f6982a212f0402f74d29fc1482f0b8f75721999d"
+    }
+  ],
+  "save_semantic_memory": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "semantic_simple.json",
+        "memory": {
+          "runtime": {
+            "a": 1
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbb7CvMO5vrd1jnXRebl7lHuN2ts=\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "semantic_unicode.json",
+        "memory": {
+          "note": "café 😀",
+          "用户": 1,
+          "nested": {
+            "k": [
+              1,
+              2,
+              3
+            ]
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbbqywcO1tXSNdNB4wnqTeraNiX6RjIGVwOGRhonW2N7QjqeOkdPS2M/ppabcsZnW8OC1sePc9ubotLWos6ir5gDDwsDH7AbIxcfMuNG4yhc=\"}"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "filename": "semantic_empty.json",
+        "memory": {},
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tLc=\"}"
+    }
+  ],
+  "load_semantic_memory": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbb7CvMO5vrd1jnXRebl7lHuN2ts=\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"runtime\":{\"a\":1}}}",
+      "hash": "1512b47651339f27009746cd2d23f38bd52b6d542685ef5dbd4547102027f166"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tFydq7Kso6WlZH1kubi8rXVqbbqywcO1tXSNdNB4wnqTeraNiX6RjIGVwOGRhonW2N7QjqeOkdPS2M/ppabcsZnW8OC1sePc9ubotLWos6ir5gDDwsDH7AbIxcfMuNG4yhc=\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"nested\":{\"k\":[1,2,3]},\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "9a82b2afaa64ed03df6ad014c86d0690890eb6adad78a325933716cf3f5399fb"
+    },
+    {
+      "name": "load_empty",
+      "file_content": "{\"algorithm\": \"kaalka\", \"encrypted\": \"tLc=\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{}}",
+      "hash": "fb78da34a84cac20bb1c391dfa35aad9e99ae8aaac14e9e1779fcddcd03e18ea"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "mem-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"memory\":{\"bounded\":true,\"entity_mappings\":{},\"ontology\":{},\"runtime_semantics\":{},\"semantic_graph\":{},\"semantic_workflows\":{}}}",
+      "hash": "031c45bdf7c546738945b57f824da0de63c18790ce168e905cbbbe7f72065c2b"
+    }
+  ],
+  "save_adaptive_memory": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "adaptive_simple.json",
+        "memory": {
+          "runtime": {
+            "a": 1
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu8wLrBt7y1c4zOdrZ4kYnW1w==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "adaptive_unicode.json",
+        "memory": {
+          "note": "café 😀",
+          "用户": 1,
+          "nested": {
+            "k": [
+              1,
+              2,
+              3
+            ]
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu4sL/Bs7Nyi811v3eQsomFjIePutuLgs/R18mHoInLytAuFY1eDgjxlJ+WXAofXgExnbau+w==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "filename": "adaptive_empty.json",
+        "memory": {},
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tLc=\", \"payload_type\": \"session\"}"
+    }
+  ],
+  "load_adaptive_memory": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu8wLrBt7y1c4zOdrZ4kYnW1w==\", \"payload_type\": \"session\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"runtime\":{\"a\":1}}}",
+      "hash": "1512b47651339f27009746cd2d23f38bd52b6d542685ef5dbd4547102027f166"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu4sL/Bs7Nyi811v3eQsomFjIePutuLgs/R18mHoInLytAuFY1eDgjxlJ+WXAofXgExnbau+w==\", \"payload_type\": \"session\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"nested\":{\"k\":[1,2,3]},\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "9a82b2afaa64ed03df6ad014c86d0690890eb6adad78a325933716cf3f5399fb"
+    },
+    {
+      "name": "load_empty",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tLc=\", \"payload_type\": \"session\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{}}",
+      "hash": "fb78da34a84cac20bb1c391dfa35aad9e99ae8aaac14e9e1779fcddcd03e18ea"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "mem-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"memory\":{\"bounded\":true,\"healed_selectors\":{},\"interaction_chains\":[],\"modal_solutions\":[],\"pagination_patterns\":[],\"selectors\":{}}}",
+      "hash": "a7d0a75f887c6eee983b3633ecd093234095811bf75c196134139962ba351f9e"
+    }
+  ],
+  "save_application_memory": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "application_simple.json",
+        "memory": {
+          "runtime": {
+            "a": 1
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu8wLrBt7y1c4zOdrZ4kYnW1w==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "application_unicode.json",
+        "memory": {
+          "note": "café 😀",
+          "用户": 1,
+          "nested": {
+            "k": [
+              1,
+              2,
+              3
+            ]
+          },
+          "bounded": true
+        },
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu4sL/Bs7Nyi811v3eQsomFjIePutuLgs/R18mHoInLytAuFY1eDgjxlJ+WXAofXgExnbau+w==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "filename": "application_empty.json",
+        "memory": {},
+        "key": "mem-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tLc=\", \"payload_type\": \"session\"}"
+    }
+  ],
+  "load_application_memory": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu8wLrBt7y1c4zOdrZ4kYnW1w==\", \"payload_type\": \"session\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"runtime\":{\"a\":1}}}",
+      "hash": "1512b47651339f27009746cd2d23f38bd52b6d542685ef5dbd4547102027f166"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tFydq7Kso6WlZH24t7usdGu4sL/Bs7Nyi811v3eQsomFjIePutuLgs/R18mHoInLytAuFY1eDgjxlJ+WXAofXgExnbau+w==\", \"payload_type\": \"session\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{\"bounded\":true,\"nested\":{\"k\":[1,2,3]},\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "9a82b2afaa64ed03df6ad014c86d0690890eb6adad78a325933716cf3f5399fb"
+    },
+    {
+      "name": "load_empty",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"tLc=\", \"payload_type\": \"session\"}",
+      "key": "mem-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"memory\":{}}",
+      "hash": "fb78da34a84cac20bb1c391dfa35aad9e99ae8aaac14e9e1779fcddcd03e18ea"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "mem-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"memory\":{\"action_graphs\":{},\"bounded\":true,\"dashboard_structures\":{},\"forms\":{},\"navigation_flows\":{},\"workflows\":{}}}",
+      "hash": "77ff7de54a72672c70b33a26abc10dbdd50e3dd7079c4d99833cdf49670a811e"
+    }
+  ]
+}

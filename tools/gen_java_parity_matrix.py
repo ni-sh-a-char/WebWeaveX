@@ -102,6 +102,15 @@ JAVA_PROVEN = {
     # Session 16 — reconstruction orchestrator (dependency-clean, 24-module closure)
     "run_reconstruction_runtime": "io.webweavex.reconstruction.ReconstructionRuntime#runReconstructionRuntime",
     "run_reconstruction_for_extraction": "io.webweavex.reconstruction.ReconstructionRuntime#runReconstructionForExtraction",
+    # Session 17 — memory persistence x4 (dependency-clean; runtime/semantic/adaptive/application)
+    "save_runtime_memory": "io.webweavex.memory.MemoryPersistence#saveRuntimeMemory",
+    "load_runtime_memory": "io.webweavex.memory.MemoryPersistence#loadRuntimeMemory",
+    "save_semantic_memory": "io.webweavex.memory.MemoryPersistence#saveSemanticMemory",
+    "load_semantic_memory": "io.webweavex.memory.MemoryPersistence#loadSemanticMemory",
+    "save_adaptive_memory": "io.webweavex.memory.MemoryPersistence#saveAdaptiveMemory",
+    "load_adaptive_memory": "io.webweavex.memory.MemoryPersistence#loadAdaptiveMemory",
+    "save_application_memory": "io.webweavex.memory.MemoryPersistence#saveApplicationMemory",
+    "load_application_memory": "io.webweavex.memory.MemoryPersistence#loadApplicationMemory",
 }
 
 PACKAGES = [

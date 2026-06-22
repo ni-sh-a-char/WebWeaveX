@@ -117,6 +117,15 @@ MAPPING = {
     # Session 16 — reconstruction orchestrator (dependency-clean, 24-module closure)
     "run_reconstruction_runtime": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "run_reconstruction_runtime"),
     "run_reconstruction_for_extraction": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "run_reconstruction_for_extraction"),
+    # Session 17 — memory persistence x4 (dependency-clean)
+    "save_runtime_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "save_runtime_memory"),
+    "load_runtime_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "load_runtime_memory"),
+    "save_semantic_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "save_semantic_memory"),
+    "load_semantic_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "load_semantic_memory"),
+    "save_adaptive_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "save_adaptive_memory"),
+    "load_adaptive_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "load_adaptive_memory"),
+    "save_application_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "save_application_memory"),
+    "load_application_memory": ("io.webweavex.memory.MemoryPersistence", "golden_vectors_s17.json", "load_application_memory"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
