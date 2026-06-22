@@ -115,10 +115,21 @@ JAVA_PROVEN = {
     "build_browser_identity": "io.webweavex.identity.IdentityRuntime#buildBrowserIdentity",
     "save_browser_identity": "io.webweavex.identity.IdentityRuntime#saveBrowserIdentity",
     "load_browser_identity": "io.webweavex.identity.IdentityRuntime#loadBrowserIdentity",
+    # Session 19 — clean remainder slice (persistence + pure transforms + S16 freebies)
+    "save_distributed_checkpoint": "io.webweavex.distributed.DistributedCheckpoint#saveDistributedCheckpoint",
+    "load_distributed_checkpoint": "io.webweavex.distributed.DistributedCheckpoint#loadDistributedCheckpoint",
+    "save_native_runtime": "io.webweavex.memory.NativeRuntimePersistence#saveNativeRuntime",
+    "load_native_runtime": "io.webweavex.memory.NativeRuntimePersistence#loadNativeRuntime",
+    "replay_semantic_runtime": "io.webweavex.semantic.SemanticReplay#replaySemanticRuntime",
+    "execute_runtime_objective": "io.webweavex.application.ObjectiveExecution#executeRuntimeObjective",
+    "query_repository": "io.webweavex.repository.RepositoryQuery#queryRepository",
+    "authenticate_runtime": "io.webweavex.auth.AuthenticationRuntime#authenticateRuntime",
+    "clone_runtime_environment": "io.webweavex.reconstruction.ReconstructionRuntime#cloneRuntimeEnvironment",
+    "fabricate_runtime_reality": "io.webweavex.reconstruction.ReconstructionRuntime#fabricateRuntimeReality",
 }
 
 PACKAGES = [
-    "adaptive", "auth", "browser", "causality", "connectors", "crypto", "crawling",
+    "adaptive", "agents", "application", "auth", "browser", "causality", "connectors", "crypto", "crawling",
     "determinism", "distributed", "documents", "evolution", "execution",
     "extraction", "graph", "identity", "ingestion", "interaction", "ir",
     "kernel", "layout", "memory", "multimodal", "ocr", "orchestration",
@@ -188,7 +199,8 @@ def main() -> None:
     implemented_pkgs = ("determinism", "crypto", "graph", "ir", "kernel",
                         "persistence", "replay", "query", "memory", "reconstruction",
                         "connectors", "documents", "execution", "interaction", "session",
-                        "synchronization", "workflow", "evolution", "causality", "streaming", "adaptive", "identity")
+                        "synchronization", "workflow", "evolution", "causality", "streaming", "adaptive", "identity",
+                        "distributed", "semantic", "application", "repository", "auth")
     for pkg in PACKAGES:
         mark = " — **implemented**" if pkg in implemented_pkgs else (
             " — **test harness**" if pkg == "parity" else "")

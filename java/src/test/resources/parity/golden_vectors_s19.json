@@ -1,0 +1,451 @@
+{
+  "source": "Python 2.1.0 canonical (session 19: clean remainder slice)",
+  "replay_semantic_runtime": [
+    {
+      "name": "empty",
+      "inputs": {
+        "memory": {}
+      },
+      "serialized": "{\"bounded\":true,\"entity_mappings\":{},\"ontology_mappings\":{},\"replayed\":true,\"semantic_graph\":{},\"semantic_propagation\":{},\"workflow_meaning\":{}}",
+      "hash": "6c9d61a8a6aa858a3ff854ef4c1acebac8ba6526e2aaf311898e8f6e4b6ab3b7"
+    },
+    {
+      "name": "null",
+      "inputs": {},
+      "serialized": "{\"bounded\":true,\"entity_mappings\":{},\"ontology_mappings\":{},\"replayed\":true,\"semantic_graph\":{},\"semantic_propagation\":{},\"workflow_meaning\":{}}",
+      "hash": "6c9d61a8a6aa858a3ff854ef4c1acebac8ba6526e2aaf311898e8f6e4b6ab3b7"
+    },
+    {
+      "name": "full",
+      "inputs": {
+        "memory": {
+          "semantic_graph": {
+            "g": 1
+          },
+          "ontology": {
+            "o": 1
+          },
+          "semantic_workflows": {
+            "w": 1
+          },
+          "runtime_semantics": {
+            "r": 1
+          },
+          "entity_mappings": {
+            "e": 1
+          }
+        }
+      },
+      "serialized": "{\"bounded\":true,\"entity_mappings\":{\"e\":1},\"ontology_mappings\":{\"o\":1},\"replayed\":true,\"semantic_graph\":{\"g\":1},\"semantic_propagation\":{\"r\":1},\"workflow_meaning\":{\"w\":1}}",
+      "hash": "058018386ddb00c14946673cf19f87a94d51a12155451df00bfdc3942a111b2d"
+    }
+  ],
+  "execute_runtime_objective": [
+    {
+      "name": "login",
+      "inputs": {
+        "objective": "login",
+        "workflow_graph": {
+          "nodes": [
+            {
+              "id": "n1"
+            },
+            {
+              "id": "n2"
+            }
+          ]
+        },
+        "action_graph": {
+          "nodes": [
+            {
+              "id": "a1"
+            }
+          ]
+        },
+        "navigation": {
+          "routes": [
+            {
+              "path": "/home"
+            }
+          ]
+        },
+        "adaptive_runtime": {
+          "x": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"executed\":[{\"action_nodes\":1,\"adaptive\":true,\"completed\":true,\"name\":\"open_login\",\"route\":\"/home\",\"step\":0,\"workflow_nodes\":2},{\"action_nodes\":1,\"adaptive\":true,\"completed\":true,\"name\":\"fill_credentials\",\"route\":\"/home\",\"step\":1,\"workflow_nodes\":2},{\"action_nodes\":1,\"adaptive\":true,\"completed\":true,\"name\":\"submit\",\"route\":\"/home\",\"step\":2,\"workflow_nodes\":2}],\"goal\":{\"bounded\":true,\"objective\":\"login\",\"steps\":[\"open_login\",\"fill_credentials\",\"submit\"]},\"objective\":\"login\"}",
+      "hash": "94606dd8c313908a61f0b140692ac653255b8dd047409e6d6fcb64df512494b9"
+    },
+    {
+      "name": "unknown",
+      "inputs": {
+        "objective": "custom",
+        "workflow_graph": {},
+        "action_graph": {},
+        "navigation": {},
+        "adaptive_runtime": null
+      },
+      "serialized": "{\"bounded\":true,\"executed\":[{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"observe\",\"route\":\"\",\"step\":0,\"workflow_nodes\":0},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"extract\",\"route\":\"\",\"step\":1,\"workflow_nodes\":0}],\"goal\":{\"bounded\":true,\"objective\":\"custom\",\"steps\":[\"observe\",\"extract\"]},\"objective\":\"custom\"}",
+      "hash": "3f54d48eeeea0aa4f885c1aeb89666220fe096f1b3ea044a6ef29dfaa5276b6e"
+    },
+    {
+      "name": "dashboard",
+      "inputs": {
+        "objective": "extract_dashboard",
+        "workflow_graph": {
+          "nodes": [
+            {
+              "id": "n1"
+            },
+            {
+              "id": "n2"
+            }
+          ]
+        },
+        "action_graph": {
+          "nodes": [
+            {
+              "id": "a1"
+            }
+          ]
+        },
+        "navigation": {
+          "routes": [
+            {
+              "path": "/d"
+            },
+            {
+              "path": "/x"
+            }
+          ]
+        },
+        "adaptive_runtime": {}
+      },
+      "serialized": "{\"bounded\":true,\"executed\":[{\"action_nodes\":1,\"adaptive\":false,\"completed\":true,\"name\":\"navigate_dashboard\",\"route\":\"/d\",\"step\":0,\"workflow_nodes\":2},{\"action_nodes\":1,\"adaptive\":false,\"completed\":true,\"name\":\"capture_widgets\",\"route\":\"/d\",\"step\":1,\"workflow_nodes\":2},{\"action_nodes\":1,\"adaptive\":false,\"completed\":true,\"name\":\"capture_tables\",\"route\":\"/d\",\"step\":2,\"workflow_nodes\":2}],\"goal\":{\"bounded\":true,\"objective\":\"extract_dashboard\",\"steps\":[\"navigate_dashboard\",\"capture_widgets\",\"capture_tables\"]},\"objective\":\"extract_dashboard\"}",
+      "hash": "9da0baaf928b79f6cafbac17c4f4fb0212c4a3f1360c9ca6043abfe3f2a65dcb"
+    },
+    {
+      "name": "null_graphs",
+      "inputs": {
+        "objective": "login"
+      },
+      "serialized": "{\"bounded\":true,\"executed\":[{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"open_login\",\"route\":\"\",\"step\":0,\"workflow_nodes\":0},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"fill_credentials\",\"route\":\"\",\"step\":1,\"workflow_nodes\":0},{\"action_nodes\":0,\"adaptive\":false,\"completed\":true,\"name\":\"submit\",\"route\":\"\",\"step\":2,\"workflow_nodes\":0}],\"goal\":{\"bounded\":true,\"objective\":\"login\",\"steps\":[\"open_login\",\"fill_credentials\",\"submit\"]},\"objective\":\"login\"}",
+      "hash": "a82f450b26bac806988f67acf88ad63be48d789e957b0f8fb267a52974c66091"
+    },
+    {
+      "name": "export",
+      "inputs": {
+        "objective": "export_report",
+        "workflow_graph": {
+          "nodes": [
+            {
+              "id": "n1"
+            },
+            {
+              "id": "n2"
+            }
+          ]
+        },
+        "action_graph": {
+          "nodes": [
+            {
+              "id": "a1"
+            }
+          ]
+        },
+        "navigation": {
+          "routes": [
+            {
+              "path": "/home"
+            }
+          ]
+        },
+        "adaptive_runtime": {
+          "a": 1
+        }
+      },
+      "serialized": "{\"bounded\":true,\"executed\":[{\"action_nodes\":1,\"adaptive\":true,\"completed\":true,\"name\":\"open_reports\",\"route\":\"/home\",\"step\":0,\"workflow_nodes\":2},{\"action_nodes\":1,\"adaptive\":true,\"completed\":true,\"name\":\"select_report\",\"route\":\"/home\",\"step\":1,\"workflow_nodes\":2},{\"action_nodes\":1,\"adaptive\":true,\"completed\":true,\"name\":\"export\",\"route\":\"/home\",\"step\":2,\"workflow_nodes\":2}],\"goal\":{\"bounded\":true,\"objective\":\"export_report\",\"steps\":[\"open_reports\",\"select_report\",\"export\"]},\"objective\":\"export_report\"}",
+      "hash": "c13426b3cca1894b3a7b363150bf9b09b5c663a2f3e4d63f505b16bfeaeb9568"
+    }
+  ],
+  "query_repository": [
+    {
+      "name": "no_key",
+      "inputs": {
+        "result": {
+          "content": {
+            "repository": {
+              "files": [
+                "a.py"
+              ],
+              "name": "repo1",
+              "tree": {
+                "x": 1
+              }
+            }
+          }
+        },
+        "key": ""
+      },
+      "serialized": "{\"repo\":{\"files\":[\"a.py\"],\"name\":\"repo1\",\"tree\":{\"x\":1}}}",
+      "hash": "ae36cd15f6e240b49a881d6f86ed571a8b58281c1428f3dda6c54df4a82f90ff"
+    },
+    {
+      "name": "with_key",
+      "inputs": {
+        "result": {
+          "content": {
+            "repository": {
+              "files": [
+                "a.py"
+              ],
+              "name": "repo1",
+              "tree": {
+                "x": 1
+              }
+            }
+          }
+        },
+        "key": "name"
+      },
+      "serialized": "{\"repo\":\"repo1\"}",
+      "hash": "702f3ddcade88731e94ac693d11608b2df276e2bf54c03b0884ee6d32f5fb60a"
+    },
+    {
+      "name": "missing_key",
+      "inputs": {
+        "result": {
+          "content": {
+            "repository": {
+              "files": [
+                "a.py"
+              ],
+              "name": "repo1",
+              "tree": {
+                "x": 1
+              }
+            }
+          }
+        },
+        "key": "absent"
+      },
+      "serialized": "{\"repo\":null}",
+      "hash": "e72fa7cd2c251b2c6c81f72ee3a46c25a7c66fdd0f27545491bf06bb64a8ed7b"
+    },
+    {
+      "name": "empty_result",
+      "inputs": {
+        "result": {},
+        "key": ""
+      },
+      "serialized": "{\"repo\":{}}",
+      "hash": "d185b4f86d057de42a24b102887eb550dfd921cb1b17a6d0af645661fac04d84"
+    },
+    {
+      "name": "null_result",
+      "inputs": {
+        "key": ""
+      },
+      "serialized": "{\"repo\":{}}",
+      "hash": "d185b4f86d057de42a24b102887eb550dfd921cb1b17a6d0af645661fac04d84"
+    },
+    {
+      "name": "content_no_repo",
+      "inputs": {
+        "result": {
+          "content": {
+            "x": 1
+          }
+        },
+        "key": ""
+      },
+      "serialized": "{\"repo\":{}}",
+      "hash": "d185b4f86d057de42a24b102887eb550dfd921cb1b17a6d0af645661fac04d84"
+    }
+  ],
+  "authenticate_runtime": [
+    {
+      "name": "default",
+      "inputs": {
+        "credentials": {},
+        "config": {}
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"method\":\"cookie_injection\",\"reason\":\"missing_page\"}",
+      "hash": "0b7118cfa1adb796ec3d45c1ff20c9ec1e3baa343e038107d973552b1d615f87"
+    },
+    {
+      "name": "form",
+      "inputs": {
+        "credentials": {
+          "username": "u"
+        },
+        "config": {
+          "method": "form_login"
+        }
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"method\":\"form_login\",\"reason\":\"missing_page\"}",
+      "hash": "c8feb19071a8854dea3f69567e45434bf8f3786b059a4961cef190a44b5fdae0"
+    },
+    {
+      "name": "token",
+      "inputs": {
+        "credentials": {
+          "tokens": [
+            1
+          ]
+        },
+        "config": {
+          "method": "  token_injection  "
+        }
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"method\":\"token_injection\",\"reason\":\"missing_page\"}",
+      "hash": "559097e4d1f6e14b1b706e1c0cd9fa8cc0d2100ec671abca8a34f9f0af5f557e"
+    },
+    {
+      "name": "null_config",
+      "inputs": {
+        "credentials": {}
+      },
+      "serialized": "{\"authenticated\":false,\"bounded\":true,\"method\":\"cookie_injection\",\"reason\":\"missing_page\"}",
+      "hash": "0b7118cfa1adb796ec3d45c1ff20c9ec1e3baa343e038107d973552b1d615f87"
+    }
+  ],
+  "save_distributed_checkpoint": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "distributed_checkpoint_simple.json",
+        "payload": {
+          "queue": [
+            {
+              "t": 1
+            }
+          ],
+          "tick": 3,
+          "bounded": true
+        },
+        "key": "s19-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWCwtaa3qGZ/ocJqvWyFfcqre3LFu7a/d5CK1Q==\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "distributed_checkpoint_unicode.json",
+        "payload": {
+          "note": "café 😀",
+          "用户": 1,
+          "bounded": true
+        },
+        "key": "s19-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWCtr7WnZX5nqaiuDPNrPOzmz3J9dDro/TzfD3uUjNk=\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "filename": "distributed_checkpoint_empty.json",
+        "payload": {},
+        "key": "s19-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qaw=\", \"payload_type\": \"session\"}"
+    }
+  ],
+  "load_distributed_checkpoint": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWCwtaa3qGZ/ocJqvWyFfcqre3LFu7a/d5CK1Q==\", \"payload_type\": \"session\"}",
+      "key": "s19-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"checkpoint\":{\"bounded\":true,\"queue\":[{\"t\":1}],\"tick\":3}}",
+      "hash": "8de8e9ddeea155f05bcc713bc08681fb614876f4e293164dc0a3eefc1ab086ad"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWCtr7WnZX5nqaiuDPNrPOzmz3J9dDro/TzfD3uUjNk=\", \"payload_type\": \"session\"}",
+      "key": "s19-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"checkpoint\":{\"bounded\":true,\"note\":\"café 😀\",\"用户\":1}}",
+      "hash": "b59dcd52143bf13046c925f42eb4b7bf19ff6f6cabb305aaa6a62830c31c8379"
+    },
+    {
+      "name": "load_empty",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qaw=\", \"payload_type\": \"session\"}",
+      "key": "s19-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"checkpoint\":{}}",
+      "hash": "fa117708e5f08849f53c6d13ad12b4cc2dfe186a679aca98fceda275b8910df9"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "s19-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"checkpoint\":{\"adaptive_memory\":{},\"bounded\":true,\"identities\":[],\"queue\":[],\"runtime_graph\":{\"edges\":[],\"nodes\":[]},\"stream_runtime\":{\"events\":[]},\"tick\":0,\"workers\":[]}}",
+      "hash": "bdebc3da97449f33266f3439d1f3f003fc15024baa78af9a1def9f7707034f15"
+    }
+  ],
+  "save_native_runtime": [
+    {
+      "name": "simple",
+      "inputs": {
+        "filename": "native_runtime_simple.json",
+        "payload": {
+          "windows": {
+            "w1": {}
+          },
+          "bounded": true
+        },
+        "key": "s19-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWC2qa+msru4aIHDa8F8bofJzM3O\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "unicode",
+      "inputs": {
+        "filename": "native_runtime_unicode.json",
+        "payload": {
+          "note": "café 😀",
+          "bounded": true
+        },
+        "key": "s19-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWCtr7WnZX5nqaiuDPNrPOzmz3LO\", \"payload_type\": \"session\"}"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "filename": "native_runtime_empty.json",
+        "payload": {},
+        "key": "s19-key-2024"
+      },
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qaw=\", \"payload_type\": \"session\"}"
+    }
+  ],
+  "load_native_runtime": [
+    {
+      "name": "load_simple",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWC2qa+msru4aIHDa8F8bofJzM3O\", \"payload_type\": \"session\"}",
+      "key": "s19-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"runtime\":{\"bounded\":true,\"windows\":{\"w1\":{}}}}",
+      "hash": "15e0e933139fc3a3264768a9e74a50e89a0059813774853479c321b66d736179"
+    },
+    {
+      "name": "load_unicode",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qVGSoKehmJqaWXKtrLChaWCtr7WnZX5nqaiuDPNrPOzmz3LO\", \"payload_type\": \"session\"}",
+      "key": "s19-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"runtime\":{\"bounded\":true,\"note\":\"café 😀\"}}",
+      "hash": "e8cbdb16b613baa12b2c40eb67b8f431efdb212c6382243a023acf12937616f2"
+    },
+    {
+      "name": "load_empty",
+      "file_content": "{\"algorithm\": \"webweavex-formula+kaalka@5.0.0\", \"bounded\": true, \"deterministic\": true, \"encrypted\": \"qaw=\", \"payload_type\": \"session\"}",
+      "key": "s19-key-2024",
+      "serialized": "{\"algorithm\":\"kaalka\",\"available\":true,\"bounded\":true,\"runtime\":{}}",
+      "hash": "cba05274cd6f5a7260e4a0974fb539104c4f4686a2a50ffb67fc39cf23e0f2f3"
+    },
+    {
+      "name": "load_missing",
+      "missing": true,
+      "key": "s19-key-2024",
+      "serialized": "{\"available\":false,\"bounded\":true,\"runtime\":{\"accessibility_trees\":{},\"bounded\":true,\"electron_state\":{},\"runtime_graphs\":{},\"terminal_streams\":{},\"windows\":{},\"workflows\":{}}}",
+      "hash": "7a056fc036ff32f8c0ae4c9fc39d3545cbcccf75573fa8c495314ba3abf487b0"
+    }
+  ]
+}

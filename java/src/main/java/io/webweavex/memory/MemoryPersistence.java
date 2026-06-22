@@ -176,28 +176,34 @@ public final class MemoryPersistence {
 
     // -------------------------------------------------------------- Pattern B: Kaalka session envelope
 
-    private static Map<String, Object> saveSessionEnvelope(String path, Map<String, Object> memory, String key) {
-        Map<String, Object> encrypted = KaalkaSession.encryptSessionState(memory, key);
+    /**
+     * Shared Kaalka-session-envelope save (centralizes the file-I/O scaffolding so the IOException
+     * path lives in exactly one place across all session-backed persistence engines).
+     */
+    public static Map<String, Object> saveSessionEnvelope(String path, Map<String, Object> state, String key) {
+        Map<String, Object> encrypted = KaalkaSession.encryptSessionState(state, key);
         Path target = Paths.get(path);
         writeFile(target, PyJson.dumpsDefaultAscii(encrypted));
         return savedResult(target);
     }
 
-    private static Map<String, Object> loadSessionEnvelope(String path, String key, Map<String, Object> emptyStore) {
+    /** Shared session-envelope load; {@code field} names the recovered state in the result. */
+    public static Map<String, Object> loadSessionEnvelope(String path, String key, String field,
+            Map<String, Object> emptyStore) {
         Path target = Paths.get(path);
         if (!Files.exists(target)) {
             Map<String, Object> out = map();
             out.put("available", false);
-            out.put("memory", emptyStore);
+            out.put(field, emptyStore);
             out.put("bounded", true);
             return out;
         }
         Map<String, Object> encrypted = asMap(PyJsonParse.loads(readFile(target)));
         Map<String, Object> decrypted = KaalkaSession.decryptSessionState(encrypted, key);
-        Object memory = decrypted.containsKey("session") ? decrypted.get("session") : emptyStore;
+        Object state = decrypted.containsKey("session") ? decrypted.get("session") : emptyStore;
         Map<String, Object> out = map();
         out.put("available", true);
-        out.put("memory", memory);
+        out.put(field, state);
         out.put("algorithm", "kaalka");
         out.put("bounded", true);
         return out;
@@ -210,7 +216,7 @@ public final class MemoryPersistence {
 
     /** {@code load_adaptive_memory(path, key)}. */
     public static Map<String, Object> loadAdaptiveMemory(String path, String key) {
-        return loadSessionEnvelope(path, key, emptyAdaptiveMemory());
+        return loadSessionEnvelope(path, key, "memory", emptyAdaptiveMemory());
     }
 
     /** {@code save_application_memory(path, memory, key)}. */
@@ -220,6 +226,6 @@ public final class MemoryPersistence {
 
     /** {@code load_application_memory(path, key)}. */
     public static Map<String, Object> loadApplicationMemory(String path, String key) {
-        return loadSessionEnvelope(path, key, emptyApplicationMemory());
+        return loadSessionEnvelope(path, key, "memory", emptyApplicationMemory());
     }
 }

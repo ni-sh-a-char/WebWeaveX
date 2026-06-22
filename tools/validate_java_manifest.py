@@ -130,6 +130,17 @@ MAPPING = {
     "build_browser_identity": ("io.webweavex.identity.IdentityRuntime", "golden_vectors_s18.json", "build_browser_identity"),
     "save_browser_identity": ("io.webweavex.identity.IdentityRuntime", "golden_vectors_s18.json", "save_browser_identity"),
     "load_browser_identity": ("io.webweavex.identity.IdentityRuntime", "golden_vectors_s18.json", "load_browser_identity"),
+    # Session 19 — clean remainder slice
+    "save_distributed_checkpoint": ("io.webweavex.distributed.DistributedCheckpoint", "golden_vectors_s19.json", "save_distributed_checkpoint"),
+    "load_distributed_checkpoint": ("io.webweavex.distributed.DistributedCheckpoint", "golden_vectors_s19.json", "load_distributed_checkpoint"),
+    "save_native_runtime": ("io.webweavex.memory.NativeRuntimePersistence", "golden_vectors_s19.json", "save_native_runtime"),
+    "load_native_runtime": ("io.webweavex.memory.NativeRuntimePersistence", "golden_vectors_s19.json", "load_native_runtime"),
+    "replay_semantic_runtime": ("io.webweavex.semantic.SemanticReplay", "golden_vectors_s19.json", "replay_semantic_runtime"),
+    "execute_runtime_objective": ("io.webweavex.application.ObjectiveExecution", "golden_vectors_s19.json", "execute_runtime_objective"),
+    "query_repository": ("io.webweavex.repository.RepositoryQuery", "golden_vectors_s19.json", "query_repository"),
+    "authenticate_runtime": ("io.webweavex.auth.AuthenticationRuntime", "golden_vectors_s19.json", "authenticate_runtime"),
+    "clone_runtime_environment": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "clone_runtime_environment"),
+    "fabricate_runtime_reality": ("io.webweavex.reconstruction.ReconstructionRuntime", "golden_vectors_s16.json", "fabricate_runtime_reality"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

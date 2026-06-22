@@ -177,7 +177,7 @@ Python ≡ Java is proven for all 21 APIs (byte-exact `stable_serialize` +
 certified (70k+ comparisons), therefore **Java ≡ JavaScript ≡ Dart** transitively.
 
 ```
-Python  =  Java  =  JavaScript  =  Dart        (80 / 128 APIs, byte-exact)
+Python  =  Java  =  JavaScript  =  Dart        (90 / 128 APIs, byte-exact)
 ```
 
 ## Reproduce
