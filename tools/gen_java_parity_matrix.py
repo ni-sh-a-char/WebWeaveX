@@ -147,6 +147,10 @@ JAVA_PROVEN = {
     "capture_dom_mutations": "io.webweavex.streaming.StreamingRuntime#captureDomMutations",
     "extract_infinite_scroll": "io.webweavex.interaction.InfiniteScroll#extractInfiniteScroll",
     "replay_interactions": "io.webweavex.interaction.InteractionReplay#replayInteractions",
+    # Session 30 — PORT-APPROVED aggregators certified (kernel + distributed scheduler)
+    "RuntimeKernel": "io.webweavex.kernel.RuntimeKernel#runPipeline",
+    "get_runtime_kernel": "io.webweavex.kernel.RuntimeKernel#getRuntimeKernel",
+    "run_autonomous_extraction": "io.webweavex.distributed.AutonomousExtraction#runAutonomousExtraction",
 }
 
 PACKAGES = [

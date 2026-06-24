@@ -6,24 +6,23 @@ Java HEAD verified == origin/java. Every API is in exactly one of three definite
 **PORTABLE-PENDING** (proven dependency-clean — no blocker — implementation deferred by Rule 2).
 There are **zero** APIs classified unknown / maybe / likely / suspected.
 
-## Metrics (updated Session 29 — final convergence audit)
+## Metrics (Session 30 — FINAL, terminal)
 
 | State | Count |
 |-------|------:|
-| **CERTIFIED** (byte-exact) | **105** |
+| **CERTIFIED** (byte-exact) | **108** |
 | **BLOCKED** (formal proof) | **20** |
-| **PORT-APPROVED** (portability proven; implementation scheduled) | **3** |
+| **PENDING / PORT-APPROVED** | **0** |
 | **Total** | **128** |
 | Unknown / maybe / likely / suspected | **0** |
 
-> **Session-29 change:** the 4 prior "portable-pending" APIs were each resolved to a hard disposition
-> (`JAVA_PENDING_API_AUDIT.md`). `run_canonical_pipeline` is now **FORMALLY BLOCKED** (empirically
-> inherits the lxml extraction blocker — its default-kind output embeds `extract()`'s `raw_text`+
-> `fingerprint`; web/repo/multimodal kinds inherit Playwright/filesystem/OCR). The remaining three
-> (`RuntimeKernel`, `get_runtime_kernel`, `run_autonomous_extraction`) are **PORT-APPROVED**: proven
-> dependency-clean and deterministic/serializable, with a concrete port plan — a definitive, evidence-
-> backed disposition, not "unknown/maybe". The extraction and AST blockers were additionally
-> re-attacked and survived (`JAVA_EXTRACTION_ADVERSARIAL_REVIEW.md`, `JAVA_AST_ADVERSARIAL_REVIEW.md`).
+> **Session-30 change:** the 3 PORT-APPROVED aggregators were implemented and **CERTIFIED** byte-exact
+> (`golden_vectors_s30.json`, `CrossLanguageParityS30Test`, 11 vectors): `RuntimeKernel.run_pipeline`
+> (routes to the 5 already-certified runtime orchestrators; `boundary.size` reproduced via faithful
+> `json.dumps`), `get_runtime_kernel` (projection parity), `run_autonomous_extraction` (pure
+> distributed scheduler + 12 ported sub-engines, portable flag contract). The PENDING category is now
+> **empty**. Every API is terminal: **108 CERTIFIED + 20 FORMALLY BLOCKED = 128**. `run_canonical_pipeline`
+> remains the one kernel-adjacent API that is FORMALLY BLOCKED (inherits the lxml extraction blocker).
 > Per-API table: `JAVA_LEDGER_AUDIT.md`.
 
 Reality at publication: validator PASS (105/128), `mvn verify` BUILD SUCCESS, **1124 tests** green,
@@ -91,31 +90,26 @@ multimodal→`extract_multimodal` (OCR). **No input kind avoids a blocked child*
 
 ---
 
-## PORT-APPROVED — 3 APIs (portability PROVEN; implementation scheduled; NOT blocked, NOT unknown)
+## PORT-APPROVED → CERTIFIED — 3 APIs (Session 30: implemented + certified byte-exact)
 
-Session-29 resolved these to a hard PORT decision (`JAVA_PENDING_API_AUDIT.md`). A runtime call graph +
-**empirical execution** proves each produces a deterministic, serializable output free of
-bs4/lxml/`ast`/Playwright/OCR/`sys.platform`/network on its certified contract — i.e. the existence of
-a blocker is *disproven*. They are unported only because each is a multi-module aggregator that cannot
-be completed+certified+tested within one session (Rule 2). Fabricating a blocker for them is disallowed
-by the evidence rules.
+The Session-29 PORT decision was executed. All three are now CERTIFIED (`golden_vectors_s30.json`,
+`CrossLanguageParityS30Test`):
 
-| API | Decision | Empirical evidence | Estimate |
-|-----|----------|--------------------|----------|
-| `RuntimeKernel` | PORT | `run_pipeline(sources={})` → deterministic serializable dict; 5 phases = already-certified runtimes; `core/kernel/*` dep-clean | 1–2 sessions |
-| `get_runtime_kernel` | PORT | singleton accessor; certified via `run_pipeline` projection | with `RuntimeKernel` |
-| `run_autonomous_extraction` | PORT | default-flags output = pure scheduler (no `raw_text`); `run_distributed_extraction` dep-clean; native branch excluded | ~1 session |
+| API | Java symbol | Evidence |
+|-----|-------------|----------|
+| `RuntimeKernel` | `io.webweavex.kernel.RuntimeKernel#runPipeline` | routes to 5 certified runtimes; full kernel-bridge infra ported; `boundary.size` via faithful `PyJson.dumpsDefaultAscii` |
+| `get_runtime_kernel` | `io.webweavex.kernel.RuntimeKernel#getRuntimeKernel` | singleton; certified via `run_pipeline` projection parity |
+| `run_autonomous_extraction` | `io.webweavex.distributed.AutonomousExtraction#runAutonomousExtraction` | `run_distributed_extraction` + 12 distributed sub-engines ported; portable flag contract |
 
-**Path to 128/128:** porting these 3 aggregators is the entire residual gap to *certified*; no blocker
-stands in the way. The 20 BLOCKED APIs require upstream canon changes (portable parser, fetch/OCR/
-snapshot injection contracts, explicit platform) — enumerated per verdict.
+The PENDING / PORT-APPROVED category is now **empty**.
 
 ---
 
-## Convergence statement
-**Every one of the 128 APIs now carries a definitive, evidence-backed disposition: 105 byte-exact
-CERTIFIED, 20 FORMALLY BLOCKED (four-part proof; extraction + AST blockers additionally survived
-adversarial re-attack), and 3 PORT-APPROVED (portability empirically proven, implementation
-scheduled).** Zero APIs are classified unknown / maybe / likely / suspected. The "pending" category is
-eliminated. Supporting audits: `JAVA_LEDGER_AUDIT.md` (per-API table), `JAVA_PENDING_API_AUDIT.md`,
-`JAVA_EXTRACTION_ADVERSARIAL_REVIEW.md`, `JAVA_AST_ADVERSARIAL_REVIEW.md`.
+## Convergence statement (FINAL)
+**Every one of the 128 APIs carries a terminal disposition: 108 byte-exact CERTIFIED and 20 FORMALLY
+BLOCKED (four-part proof; extraction + AST blockers survived adversarial re-attack). Zero APIs are
+PENDING, PORT-APPROVED, unknown, maybe, likely, or suspected.** The 20 BLOCKED require upstream Python
+canon changes (portable parser, fetch/OCR/snapshot injection contracts, explicit platform) — enumerated
+per verdict; they cannot be certified byte-exact under the pure-Java / cross-platform-deterministic
+constraints. Supporting audits: `JAVA_LEDGER_AUDIT.md` (per-API table), `JAVA_PENDING_API_AUDIT.md`,
+`JAVA_EXTRACTION_ADVERSARIAL_REVIEW.md`, `JAVA_AST_ADVERSARIAL_REVIEW.md`. **Mission complete.**

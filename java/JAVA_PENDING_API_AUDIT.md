@@ -8,6 +8,10 @@ Python canon `9625f4a`; method = runtime call graph + empirical execution (not i
 Outcome: **1 BLOCKED** (`run_canonical_pipeline`), **3 PORT-APPROVED** (`RuntimeKernel`,
 `get_runtime_kernel`, `run_autonomous_extraction`).
 
+> **Session-30 follow-up:** the 3 PORT-APPROVED decisions below were executed and **CERTIFIED** byte-
+> exact (`golden_vectors_s30.json`, `CrossLanguageParityS30Test`, 11 vectors). The PENDING category is
+> now empty; final state = 108 CERTIFIED / 20 BLOCKED / 0 pending. See `JAVA_FINAL_PARITY_LEDGER.md`.
+
 ---
 
 ## 1. `run_canonical_pipeline` — DECISION: **BLOCKED** (inherits extraction blocker)

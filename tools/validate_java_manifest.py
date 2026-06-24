@@ -162,6 +162,10 @@ MAPPING = {
     "capture_dom_mutations": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s28.json", "capture_dom_mutations"),
     "extract_infinite_scroll": ("io.webweavex.interaction.InfiniteScroll", "golden_vectors_s28.json", "extract_infinite_scroll"),
     "replay_interactions": ("io.webweavex.interaction.InteractionReplay", "golden_vectors_s28.json", "replay_interactions"),
+    # Session 30 — PORT-APPROVED aggregators certified (kernel + distributed scheduler)
+    "RuntimeKernel": ("io.webweavex.kernel.RuntimeKernel", "golden_vectors_s30.json", "RuntimeKernel"),
+    "get_runtime_kernel": ("io.webweavex.kernel.RuntimeKernel", "golden_vectors_s30.json", "get_runtime_kernel"),
+    "run_autonomous_extraction": ("io.webweavex.distributed.AutonomousExtraction", "golden_vectors_s30.json", "run_autonomous_extraction"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

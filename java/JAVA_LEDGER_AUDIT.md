@@ -1,20 +1,18 @@
 # JAVA_LEDGER_AUDIT
 
-**Per-API convergence audit of all 128 tracked public APIs (Session 29).** Generated from `PARITY_MANIFEST.json` × `gen_java_parity_matrix.JAVA_PROVEN` × `validate_java_manifest.MAPPING` × the Session-28/29 verdicts. Java HEAD == origin/java.
+**Per-API convergence ledger of all 128 tracked public APIs (Session 30 — terminal).** Generated from `PARITY_MANIFEST.json` × `gen_java_parity_matrix.JAVA_PROVEN` × `validate_java_manifest.MAPPING` × the blocker verdicts. Java HEAD == origin/java.
 
 | State | Count |
 |---|---:|
-| CERTIFIED | 105 |
+| CERTIFIED | 108 |
 | BLOCKED (formal proof) | 20 |
-| PORT-APPROVED (portable; scheduled) | 3 |
+| PENDING / PORT-APPROVED | 0 |
 | **Total** | 128 |
-
-Evidence column: for CERTIFIED = Java symbol; for BLOCKED/PORT-APPROVED = the blocker category / portability finding. Test = JUnit class. Golden vectors = resource#section (certified only).
 
 | API | Status | Evidence (symbol / category) | Test | Golden vectors |
 |-----|--------|------------------------------|------|----------------|
 | `__version__` | CERTIFIED | io.webweavex.WebWeaveX#VERSION | CrossLanguageParityS28Test | golden_vectors_s28.json#__version__ |
-| `analyze` | BLOCKED | lxml CASE-B (default branch→extract) | JAVA_EXTRACTION_FINAL_VERDICT.md | — |
+| `analyze` | BLOCKED | lxml CASE-B (default branch) | JAVA_EXTRACTION_FINAL_VERDICT.md | — |
 | `authenticate_runtime` | CERTIFIED | io.webweavex.auth.AuthenticationRuntime#authenticateRuntime | CrossLanguageParityS19Test | golden_vectors_s19.json#authenticate_runtime |
 | `build_browser_identity` | CERTIFIED | io.webweavex.identity.IdentityRuntime#buildBrowserIdentity | CrossLanguageParityS18Test | golden_vectors_s18.json#build_browser_identity |
 | `build_interaction_graph` | CERTIFIED | io.webweavex.interaction.InteractionGraph#buildInteractionGraph | CrossLanguageParityS6Test | golden_vectors_s6.json#build_interaction_graph |
@@ -64,7 +62,7 @@ Evidence column: for CERTIFIED = Java symbol; for BLOCKED/PORT-APPROVED = the bl
 | `extract_web` | BLOCKED | Playwright live render | JAVA_PLAYWRIGHT_VERDICT.md | — |
 | `fabricate_runtime_reality` | CERTIFIED | io.webweavex.reconstruction.ReconstructionRuntime#fabricateRuntimeReality | CrossLanguageParityS16Test | golden_vectors_s16.json#fabricate_runtime_reality |
 | `fingerprint` | CERTIFIED | io.webweavex.persistence.FingerprintHex#fingerprint | CrossLanguageParityS2Test | golden_vectors_s2.json#fingerprint |
-| `get_runtime_kernel` | PORT-APPROVED | portable; singleton over RuntimeKernel (est with RuntimeKernel) | JAVA_PENDING_API_AUDIT.md | — |
+| `get_runtime_kernel` | CERTIFIED | io.webweavex.kernel.RuntimeKernel#getRuntimeKernel | CrossLanguageParityS30Test | golden_vectors_s30.json#get_runtime_kernel |
 | `heal_selector` | CERTIFIED | io.webweavex.adaptive.SelectorHealing#healSelector | CrossLanguageParityS21Test | golden_vectors_s21.json#heal_selector |
 | `ingest_input` | BLOCKED | OCR (image branch) | JAVA_OCR_VERDICT.md | — |
 | `load_adaptive_memory` | CERTIFIED | io.webweavex.memory.MemoryPersistence#loadAdaptiveMemory | CrossLanguageParityS17Test | golden_vectors_s17.json#load_adaptive_memory |
@@ -99,7 +97,7 @@ Evidence column: for CERTIFIED = Java symbol; for BLOCKED/PORT-APPROVED = the bl
 | `replay_synchronized_runtime` | CERTIFIED | io.webweavex.synchronization.SyncRuntime#replaySynchronizedRuntime | CrossLanguageParityS10Test | golden_vectors_s10.json#replay_synchronized_runtime |
 | `replay_workflow_runtime` | CERTIFIED | io.webweavex.workflow.WorkflowRuntime#replayWorkflowRuntime | CrossLanguageParityS11Test | golden_vectors_s11.json#replay_workflow_runtime |
 | `run_application_cognition` | CERTIFIED | io.webweavex.application.ApplicationCognitionRuntime#runApplicationCognition | CrossLanguageParityS26Test | golden_vectors_s26.json#run_application_cognition |
-| `run_autonomous_extraction` | PORT-APPROVED | portable; pure distributed scheduler (native flag excluded) (est ~1 session) | JAVA_PENDING_API_AUDIT.md | — |
+| `run_autonomous_extraction` | CERTIFIED | io.webweavex.distributed.AutonomousExtraction#runAutonomousExtraction | CrossLanguageParityS30Test | golden_vectors_s30.json#run_autonomous_extraction |
 | `run_autonomous_workflow` | CERTIFIED | io.webweavex.workflow.WorkflowRuntime#runAutonomousWorkflow | CrossLanguageParityS11Test | golden_vectors_s11.json#run_autonomous_workflow |
 | `run_canonical_pipeline` | BLOCKED | aggregator inherits lxml/PW/OCR/fs | JAVA_PENDING_API_AUDIT.md | — |
 | `run_causality_for_extraction` | CERTIFIED | io.webweavex.causality.CausalityRuntime#runCausalityForExtraction | CrossLanguageParityS13Test | golden_vectors_s13.json#run_causality_for_extraction |
@@ -119,7 +117,7 @@ Evidence column: for CERTIFIED = Java symbol; for BLOCKED/PORT-APPROVED = the bl
 | `run_sync_for_extraction` | CERTIFIED | io.webweavex.synchronization.SyncRuntime#runSyncForExtraction | CrossLanguageParityS10Test | golden_vectors_s10.json#run_sync_for_extraction |
 | `run_synchronized_runtime` | CERTIFIED | io.webweavex.synchronization.SyncRuntime#runSynchronizedRuntime | CrossLanguageParityS10Test | golden_vectors_s10.json#run_synchronized_runtime |
 | `run_workflow_for_extraction` | CERTIFIED | io.webweavex.workflow.WorkflowRuntime#runWorkflowForExtraction | CrossLanguageParityS11Test | golden_vectors_s11.json#run_workflow_for_extraction |
-| `RuntimeKernel` | PORT-APPROVED | portable; run_pipeline serializable; 5 phases certified (est 1-2 sessions) | JAVA_PENDING_API_AUDIT.md | — |
+| `RuntimeKernel` | CERTIFIED | io.webweavex.kernel.RuntimeKernel#runPipeline | CrossLanguageParityS30Test | golden_vectors_s30.json#RuntimeKernel |
 | `save_adaptive_memory` | CERTIFIED | io.webweavex.memory.MemoryPersistence#saveAdaptiveMemory | CrossLanguageParityS17Test | golden_vectors_s17.json#save_adaptive_memory |
 | `save_application_memory` | CERTIFIED | io.webweavex.memory.MemoryPersistence#saveApplicationMemory | CrossLanguageParityS17Test | golden_vectors_s17.json#save_application_memory |
 | `save_browser_identity` | CERTIFIED | io.webweavex.identity.IdentityRuntime#saveBrowserIdentity | CrossLanguageParityS18Test | golden_vectors_s18.json#save_browser_identity |
@@ -142,6 +140,4 @@ Evidence column: for CERTIFIED = Java symbol; for BLOCKED/PORT-APPROVED = the bl
 | `validate_replay_equivalence` | CERTIFIED | io.webweavex.replay.ReplayEquivalence#validate | CrossLanguageParityS2Test | golden_vectors_s2.json#replay |
 | `version` | CERTIFIED | io.webweavex.WebWeaveX#VERSION | CrossLanguageParityS28Test | golden_vectors_s28.json#version |
 
-**Totals: 105 CERTIFIED / 20 BLOCKED / 3 PORT-APPROVED = 128. Unknown/maybe/suspected = 0.**
-
-Unclassified: none
+**Totals: 108 CERTIFIED / 20 BLOCKED / 0 PENDING = 128. Unknown/maybe/suspected = 0. Unclassified = none.**
