@@ -153,6 +153,15 @@ MAPPING = {
     "run_semantic_for_extraction": ("io.webweavex.semantic.SemanticRuntime", "golden_vectors_s25.json", "run_semantic_for_extraction"),
     # Session 26 — application cognition (portable html="" contract)
     "run_application_cognition": ("io.webweavex.application.ApplicationCognitionRuntime", "golden_vectors_s26.json", "run_application_cognition"),
+    # Session 28 — frontier-reduced portable APIs (constants, passthrough, reuse, stub-page engines)
+    "version": ("io.webweavex.WebWeaveX", "golden_vectors_s28.json", "version"),
+    "__version__": ("io.webweavex.WebWeaveX", "golden_vectors_s28.json", "__version__"),
+    "query_repo": ("io.webweavex.repository.RepositoryQuery", "golden_vectors_s28.json", "query_repo"),
+    "compile_document": ("io.webweavex.documents.DocumentSemanticIr", "golden_vectors_s28.json", "compile_document"),
+    "capture_websocket_frames": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s28.json", "capture_websocket_frames"),
+    "capture_dom_mutations": ("io.webweavex.streaming.StreamingRuntime", "golden_vectors_s28.json", "capture_dom_mutations"),
+    "extract_infinite_scroll": ("io.webweavex.interaction.InfiniteScroll", "golden_vectors_s28.json", "extract_infinite_scroll"),
+    "replay_interactions": ("io.webweavex.interaction.InteractionReplay", "golden_vectors_s28.json", "replay_interactions"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"

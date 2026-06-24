@@ -458,4 +458,140 @@ public final class StreamingRuntime {
         return payload;
     }
 
+    // ------------------------------------------------- stream capture engines (Session 28)
+    // Browser-free deterministic contract: the engines read only a page's _test_* attributes
+    // (or return empty when absent / page is null). No live Playwright involvement — verified
+    // against the canonical Python unit tests. See java/JAVA_PLAYWRIGHT_VERDICT.md.
+
+    private static final int MAX_STREAM_EVENTS = 10000;
+    private static final int MAX_FRAMES = 10000;
+    private static final int MAX_CONNECTIONS = 1000;
+    private static final int MAX_MUTATIONS = 10000;
+
+    /** Python {@code d.get(key, default)} — default only when the key is absent. */
+    private static Object gd(Map<String, Object> m, String key, Object dflt) {
+        return m.containsKey(key) ? m.get(key) : dflt;
+    }
+
+    /** Python code-point slice {@code s[:n]} (test data is BMP, well under the caps). */
+    private static String slice(String s, int n) {
+        return s.length() <= n ? s : s.substring(0, n);
+    }
+
+    /** {@code core.streaming.stream_capture_engine.make_stream_event}. */
+    public static Map<String, Object> makeStreamEvent(
+            long step, String source, String direction, String payload, String connectionId) {
+        Map<String, Object> e = map();
+        e.put("id", "stream_" + step);
+        e.put("timestamp", step);
+        e.put("source", str(source));
+        e.put("direction", str(direction));
+        e.put("payload", slice(str(payload), 10000));
+        e.put("connection_id", str(connectionId));
+        e.put("bounded", true);
+        return e;
+    }
+
+    /** {@code core.streaming.stream_capture_engine.normalize_stream_events}. */
+    public static List<Object> normalizeStreamEvents(List<Object> events) {
+        List<Object> normalized = new ArrayList<>();
+        int limit = Math.min(events.size(), MAX_STREAM_EVENTS);
+        for (int index = 0; index < limit; index++) {
+            Map<String, Object> ev = asMap(events.get(index));
+            normalized.add(makeStreamEvent(
+                    pyInt(gd(ev, "timestamp", (long) index), index),
+                    str(gd(ev, "source", "unknown")),
+                    str(gd(ev, "direction", "incoming")),
+                    str(gd(ev, "payload", "")),
+                    str(gd(ev, "connection_id", ""))));
+        }
+        normalized.sort((a, b) -> {
+            Map<String, Object> ma = asMap(a);
+            Map<String, Object> mb = asMap(b);
+            long ta = pyInt(gd(ma, "timestamp", 0L), 0);
+            long tb = pyInt(gd(mb, "timestamp", 0L), 0);
+            if (ta != tb) {
+                return Long.compare(ta, tb);
+            }
+            return cmp(str(gd(ma, "id", "")), str(gd(mb, "id", "")));
+        });
+        return normalized;
+    }
+
+    /** {@code capture_websocket_frames(page)} — deterministic stub-page contract. */
+    public static Map<String, Object> captureWebsocketFrames(StreamPage page) {
+        List<Object> events = new ArrayList<>();
+        if (page != null && page.hasTestWebsocketFrames()) {
+            List<Object> frames = page.testWebsocketFrames();
+            int limit = Math.min(frames.size(), MAX_FRAMES);
+            for (int index = 0; index < limit; index++) {
+                Map<String, Object> frame = asMap(frames.get(index));
+                events.add(makeStreamEvent(index, "websocket",
+                        str(gd(frame, "direction", "incoming")),
+                        str(gd(frame, "payload", "")),
+                        str(gd(frame, "connection_id", ""))));
+            }
+        }
+        Map<String, Object> out = map();
+        out.put("events", normalizeStreamEvents(events));
+        out.put("bounded", true);
+        return out;
+    }
+
+    /** {@code track_websocket_connections(page)} — deterministic stub-page contract. */
+    public static Map<String, Object> trackWebsocketConnections(StreamPage page) {
+        List<Object> connections = new ArrayList<>();
+        if (page != null && page.hasTestWebsocketConnections()) {
+            connections = new ArrayList<>(capped(page.testWebsocketConnections(), MAX_CONNECTIONS));
+        } else if (page != null && page.hasTestWebsocketFrames()) {
+            Map<String, Object> seen = new LinkedHashMap<>();
+            List<Object> frames = page.testWebsocketFrames();
+            int limit = Math.min(frames.size(), MAX_CONNECTIONS);
+            for (int i = 0; i < limit; i++) {
+                Map<String, Object> frame = asMap(frames.get(i));
+                String cid = str(gd(frame, "connection_id", ""));
+                if (!seen.containsKey(cid)) {
+                    Map<String, Object> c = map();
+                    c.put("connection_id", cid);
+                    c.put("url", slice(str(gd(frame, "url", "")), 2000));
+                    c.put("lifecycle", "open");
+                    seen.put(cid, c);
+                }
+            }
+            connections = new ArrayList<>(seen.values());
+            connections.sort((a, b) ->
+                    cmp(str(gd(asMap(a), "connection_id", "")), str(gd(asMap(b), "connection_id", ""))));
+        }
+        Map<String, Object> out = map();
+        out.put("connections", connections);
+        out.put("bounded", true);
+        return out;
+    }
+
+    /** {@code capture_dom_mutations(page)} — deterministic stub-page contract. */
+    public static Map<String, Object> captureDomMutations(StreamPage page) {
+        List<Object> mutations = new ArrayList<>();
+        List<Object> events = new ArrayList<>();
+        if (page != null && page.hasTestDomMutations()) {
+            mutations = new ArrayList<>(capped(page.testDomMutations(), MAX_MUTATIONS));
+        }
+        for (int index = 0; index < mutations.size(); index++) {
+            Map<String, Object> mutation = asMap(mutations.get(index));
+            events.add(makeStreamEvent(index, "dom_mutation",
+                    str(gd(mutation, "type", "mutation")),
+                    str(gd(mutation, "payload", "")),
+                    str(gd(mutation, "node_id", ""))));
+        }
+        String domSnapshot = "";
+        if (page != null && page.hasTestHtml()) {
+            domSnapshot = str(page.testHtml());
+        }
+        Map<String, Object> out = map();
+        out.put("mutations", mutations);
+        out.put("events", events);
+        out.put("dom_hash", Kaalka.computeKaalkaHash(slice(domSnapshot, 1000000)));
+        out.put("bounded", true);
+        return out;
+    }
+
 }

@@ -138,6 +138,15 @@ JAVA_PROVEN = {
     "run_semantic_for_extraction": "io.webweavex.semantic.SemanticRuntime#runSemanticForExtraction",
     # Session 26 — application cognition (portable html="" contract)
     "run_application_cognition": "io.webweavex.application.ApplicationCognitionRuntime#runApplicationCognition",
+    # Session 28 — frontier-reduced portable APIs (constants, passthrough, reuse, stub-page engines)
+    "version": "io.webweavex.WebWeaveX#VERSION",
+    "__version__": "io.webweavex.WebWeaveX#VERSION",
+    "query_repo": "io.webweavex.repository.RepositoryQuery#queryRepository",
+    "compile_document": "io.webweavex.documents.DocumentSemanticIr#compileDocumentIr",
+    "capture_websocket_frames": "io.webweavex.streaming.StreamingRuntime#captureWebsocketFrames",
+    "capture_dom_mutations": "io.webweavex.streaming.StreamingRuntime#captureDomMutations",
+    "extract_infinite_scroll": "io.webweavex.interaction.InfiniteScroll#extractInfiniteScroll",
+    "replay_interactions": "io.webweavex.interaction.InteractionReplay#replayInteractions",
 }
 
 PACKAGES = [
