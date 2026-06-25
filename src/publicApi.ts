@@ -61,6 +61,8 @@ export { buildRuntimeObjective, buildWorkflowPlan, loadWorkflowMemory, runWorkfl
 
 export const version = "2.1.0";
 
+export const __version__ = "2.1.0";
+
 export function universalExtract(path: string): Record<string, unknown> {
   const info = ingestInput(path) as Record<string, unknown>;
   const inputType = info["input_type"];
