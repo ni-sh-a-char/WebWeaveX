@@ -69,7 +69,7 @@ Mirrors the Python `core/`, JavaScript `src/`, and Dart `lib/src/` layouts:
 
 | API | Python | JS | Dart | P/JS/Dart class | Java status |
 | --- | :---: | :---: | :---: | :---: | --- |
-| `__version__` | ✓ | — | ✓ | Complete | ✅ Implemented (parity-proven) |
+| `__version__` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
 | `analyze` | ✓ | ✓ | ✓ | Partial | ⬜ Planned |
 | `authenticate_runtime` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
 | `build_browser_identity` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
@@ -196,7 +196,7 @@ Mirrors the Python `core/`, JavaScript `src/`, and Dart `lib/src/` layouts:
 | `UniversalInput` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
 | `validate_reconstructed_runtime` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
 | `validate_replay_equivalence` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
-| `version` | ✓ | — | ✓ | Complete | ✅ Implemented (parity-proven) |
+| `version` | ✓ | ✓ | ✓ | Complete | ✅ Implemented (parity-proven) |
 
 ## Implemented foundation primitives (internal, parity-proven)
 

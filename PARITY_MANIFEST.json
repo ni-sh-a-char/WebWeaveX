@@ -50,7 +50,7 @@
     {
       "api": "__version__",
       "python": true,
-      "javascript": false,
+      "javascript": true,
       "dart": true,
       "dart_symbol": "version",
       "contract_parity": true,
@@ -1550,7 +1550,7 @@
     {
       "api": "version",
       "python": true,
-      "javascript": false,
+      "javascript": true,
       "dart": true,
       "dart_symbol": "version",
       "contract_parity": true,
