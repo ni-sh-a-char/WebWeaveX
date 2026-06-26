@@ -1,0 +1,254 @@
+{
+  "source": "Python 2.1.0 canonical (session 34: parser engines, text path)",
+  "resolve_symbols": [
+    {
+      "name": "py_simple",
+      "inputs": {
+        "source": "import os\ndef main():\n    helper()\n    return 1\ndef helper():\n    pass\n"
+      },
+      "serialized": "{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"helper\",\"main\"],\"symbols\":[\"helper\",\"main\"],\"traits\":[]}",
+      "hash": "0e5f52e0b7bdf0f7ae32bc90f67bfafa9f4ca86a3b07536fcdcfb4fb2e4026d3"
+    },
+    {
+      "name": "py_class",
+      "inputs": {
+        "source": "class Foo(Base):\n    def m(self):\n        return self.x\nclass Bar:\n    pass\n"
+      },
+      "serialized": "{\"classes\":[\"Bar\",\"Foo\"],\"decorators\":[],\"exports\":[],\"functions\":[\"m\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Foo\",\"m\"],\"symbols\":[\"Bar\",\"Foo\",\"m\"],\"traits\":[]}",
+      "hash": "5e45ae717d03ae4610f7555c6833878d3f3c38165019f7c016261303a1fc53d6"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": ""
+      },
+      "serialized": "{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}",
+      "hash": "8357830bb0f55b5bb513d67722733095121e4b6ae0a5be037eea1af30ceb37de"
+    },
+    {
+      "name": "reqs",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n"
+      },
+      "serialized": "{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}",
+      "hash": "8357830bb0f55b5bb513d67722733095121e4b6ae0a5be037eea1af30ceb37de"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is not code\njust some words here\n"
+      },
+      "serialized": "{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}",
+      "hash": "8357830bb0f55b5bb513d67722733095121e4b6ae0a5be037eea1af30ceb37de"
+    },
+    {
+      "name": "js_like",
+      "inputs": {
+        "source": "function handler(req) {\n  return doWork(req);\n}\nconst x = 1;\n"
+      },
+      "serialized": "{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"handler\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"doWork\",\"handler\"],\"symbols\":[\"doWork\",\"handler\"],\"traits\":[]}",
+      "hash": "a09ac19afc862c3e8b8cfcb564cc9b70514af075f70126c8f5bd05b54b022eda"
+    }
+  ],
+  "build_call_graph": [
+    {
+      "name": "py_simple",
+      "inputs": {
+        "source": "import os\ndef main():\n    helper()\n    return 1\ndef helper():\n    pass\n"
+      },
+      "serialized": "{\"calls\":[{\"from\":\"<module>\",\"to\":\"helper\"},{\"from\":\"<module>\",\"to\":\"main\"}]}",
+      "hash": "e8ce5698571394df3086bd90b173892833fdbff368d1f600919cc1d4162f62eb"
+    },
+    {
+      "name": "py_class",
+      "inputs": {
+        "source": "class Foo(Base):\n    def m(self):\n        return self.x\nclass Bar:\n    pass\n"
+      },
+      "serialized": "{\"calls\":[{\"from\":\"<module>\",\"to\":\"Foo\"},{\"from\":\"<module>\",\"to\":\"m\"}]}",
+      "hash": "8a91351ea3f66546322fe7d62b6a02610abca303371bf2e10fc1c41253da5fbf"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": ""
+      },
+      "serialized": "{\"calls\":[]}",
+      "hash": "621d51202f38693e32078404ea1baf179547c67ef85fe7f6b3fdb79b22659a63"
+    },
+    {
+      "name": "reqs",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n"
+      },
+      "serialized": "{\"calls\":[]}",
+      "hash": "621d51202f38693e32078404ea1baf179547c67ef85fe7f6b3fdb79b22659a63"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is not code\njust some words here\n"
+      },
+      "serialized": "{\"calls\":[]}",
+      "hash": "621d51202f38693e32078404ea1baf179547c67ef85fe7f6b3fdb79b22659a63"
+    },
+    {
+      "name": "js_like",
+      "inputs": {
+        "source": "function handler(req) {\n  return doWork(req);\n}\nconst x = 1;\n"
+      },
+      "serialized": "{\"calls\":[{\"from\":\"<module>\",\"to\":\"doWork\"},{\"from\":\"<module>\",\"to\":\"handler\"}]}",
+      "hash": "a8197b20d0d3a92613cdb6d387fe9af07aa424eaa23145228565e9ba0da92076"
+    }
+  ],
+  "resolve_dependencies": [
+    {
+      "name": "reqs",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n"
+      },
+      "serialized": "{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"package_managers\":[]}",
+      "hash": "4e975fe0afe9e98f96d6db2a88e25a7640e71932b5b304f723eea4dd0588a063"
+    },
+    {
+      "name": "pkgjson",
+      "inputs": {
+        "source": "{\"dependencies\": {\"react\": \"^18\", \"next\": \"13\"}, \"devDependencies\": {\"vitest\": \"1\"}}"
+      },
+      "serialized": "{\"dependencies\":[\"next\",\"react\",\"vitest\"],\"package_managers\":[\"npm\"]}",
+      "hash": "109f15cb0f315715f1779de7d4c1ff5b6e1f2feac41026971ce58d0d0cd2f126"
+    },
+    {
+      "name": "cargo",
+      "inputs": {
+        "source": "[dependencies]\ntokio = \"1.0\"\nactix-web = \"4\"\n"
+      },
+      "serialized": "{\"dependencies\":[\"actix-web\",\"tokio\"],\"package_managers\":[\"cargo\"]}",
+      "hash": "03df4f6fb75f1f5a07fe07ccf7bf3b90c3ad60af2d8cae1390c45f32cfab39ab"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": ""
+      },
+      "serialized": "{\"dependencies\":[],\"package_managers\":[]}",
+      "hash": "071220672a56f5ccfb3106d350e9f92c3625b2180981aa5b906afdc4a53aa321"
+    },
+    {
+      "name": "py",
+      "inputs": {
+        "source": "import os\ndef main():\n    pass\n"
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"package_managers\":[]}",
+      "hash": "802cc4547d723237969a22f8c7565a8302ea35f228f5a32d276e250114a9960b"
+    }
+  ],
+  "recover_syntax": [
+    {
+      "name": "py_unbalanced",
+      "inputs": {
+        "source": "def f(\n    return 1\n",
+        "language": "python"
+      },
+      "serialized": "def f(\n    return 1\n)",
+      "hash": "4c635b6cb047a3a786131e7ae4c03de1256a206b246d44c7d835c69ae2b6e04b"
+    },
+    {
+      "name": "text",
+      "inputs": {
+        "source": "a b c",
+        "language": "text"
+      },
+      "serialized": "a b c",
+      "hash": "0e9f64031fcb2bc708b531c2a20441580425d151a38503f38592a7dd36019d3b"
+    }
+  ],
+  "enforce_budget": [
+    {
+      "name": "small",
+      "inputs": {
+        "source": "abc"
+      },
+      "serialized": "abc",
+      "hash": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    }
+  ],
+  "resolve_imports": [
+    {
+      "name": "py_simple",
+      "inputs": {
+        "symbols": {
+          "classes": [],
+          "functions": [
+            "helper",
+            "main"
+          ],
+          "methods": [
+            "helper",
+            "main"
+          ],
+          "interfaces": [],
+          "traits": [],
+          "imports": [],
+          "exports": [],
+          "decorators": [],
+          "symbols": [
+            "helper",
+            "main"
+          ]
+        }
+      },
+      "serialized": "{\"edges\":[],\"exports\":[],\"nodes\":[\"mod\"]}",
+      "hash": "21a71e9a5529457b75eb4c093e4bb9957e5052b64b8e2d6f185c9975ba56ceeb"
+    }
+  ],
+  "resolve_runtime": [
+    {
+      "name": "flask",
+      "inputs": {
+        "deps": [
+          "flask",
+          "uvicorn"
+        ],
+        "imports": [
+          "flask"
+        ]
+      },
+      "serialized": "{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\",\"uvicorn\"],\"runtimes\":[\"python\"]}",
+      "hash": "e60800769927e47d9aae20ed8e6cf15d52fd1c0ab4605dffd412d9b37566e723"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "deps": [],
+        "imports": []
+      },
+      "serialized": "{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}",
+      "hash": "e0e6cf1e8b272f3cff92a914e99be38640d69de40d21af41559fe59e7c4b57d4"
+    }
+  ],
+  "resolve_frameworks": [
+    {
+      "name": "react",
+      "inputs": {
+        "deps": [
+          "react",
+          "next"
+        ],
+        "imports": [
+          "react"
+        ]
+      },
+      "serialized": "{\"frameworks\":[\"next\",\"react\"],\"indicators\":[\"next\",\"react\"]}",
+      "hash": "126e4842e3c07203a46e2c9d33caa98e9cc647b73cfe28c0c053fdc63b23d5f5"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "deps": [],
+        "imports": []
+      },
+      "serialized": "{\"frameworks\":[],\"indicators\":[]}",
+      "hash": "422cc2a5658eaa61d6d2a40245d0d5dbdda7d7e5dcb955c3b39387f5783d89ef"
+    }
+  ]
+}
