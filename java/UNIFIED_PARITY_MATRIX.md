@@ -1,16 +1,16 @@
 # UNIFIED_PARITY_MATRIX
 
-**Session-31 cross-language convergence matrix — source-derived (PARITY_MANIFEST.json verified against branch exports; Java column from tools/gen_java_parity_matrix.JAVA_PROVEN). Python is canonical.**
+**Session-32 cross-language convergence matrix — source-derived. Python canonical.**
 
 | Lang | Surface |
 |---|---|
-| Python | 128/128 (canonical `__all__`) |
-| JavaScript | 128/128 (S31: +version/__version__) |
+| Python | 128/128 |
+| JavaScript | 128/128 |
 | Dart | 110/128 |
-| Java | 108/128 (20 formally blocked) |
+| Java | 110/128 (S32 +OCR cluster) |
 
 | API | Py | JS | Dart | Java | Status | Notes |
-|-----|----|----|------|------|--------|-------|
+|---|---|---|---|---|---|---|
 | `__version__` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `analyze` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: lxml |
 | `authenticate_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
@@ -28,7 +28,7 @@
 | `capture_websocket_frames` | ✅ | ✅ | ❌ | ✅ | PARTIAL/BLOCKED | Dart Deferred |
 | `clone_runtime_environment` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `compile_document` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
-| `compile_repository` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: AST |
+| `compile_repository` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: CPython-AST |
 | `compile_unified_runtime_ir` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `compute_global_runtime_fingerprint` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `compute_kaalka_hash` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
@@ -51,20 +51,20 @@
 | `extract_ide_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `extract_infinite_scroll` | ✅ | ✅ | ❌ | ✅ | PARTIAL/BLOCKED | Dart Deferred |
 | `extract_kubernetes_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
-| `extract_multimodal` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: OCR |
+| `extract_multimodal` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `extract_native` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: platform; Dart Deferred |
 | `extract_paginated_content` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
-| `extract_recursive` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: lxml; Dart Partial |
+| `extract_recursive` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: lxml+network; Dart Partial |
 | `extract_repo` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: lxml; Dart Partial |
-| `extract_repository` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: fs; Dart Partial |
+| `extract_repository` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: filesystem; Dart Partial |
 | `extract_runtime_streams` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `extract_telemetry_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
-| `extract_web` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: playwright; Dart Partial |
+| `extract_web` | ✅ | ✅ | ❌ | ❌ | PARTIAL/BLOCKED | Java blocked: Playwright; Dart Partial |
 | `fabricate_runtime_reality` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `fingerprint` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `get_runtime_kernel` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `heal_selector` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
-| `ingest_input` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: OCR |
+| `ingest_input` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `load_adaptive_memory` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `load_application_memory` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `load_browser_identity` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
@@ -85,8 +85,8 @@
 | `query_repository` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `query_runtime_graph` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `query_runtime_memory` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
-| `query_semantics` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: AST |
-| `reason_semantically` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: AST |
+| `query_semantics` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: CPython-AST |
+| `reason_semantically` | ✅ | ✅ | ✅ | ❌ | PARTIAL/BLOCKED | Java blocked: CPython-AST |
 | `reconstruct_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `recover_modal_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `replay_causal_runtime` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
@@ -140,4 +140,4 @@
 | `validate_replay_equivalence` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 | `version` | ✅ | ✅ | ✅ | ✅ | FULL PARITY |  |
 
-**4-way FULL PARITY: 103 / 128.** Remaining 25 have a divergence (Java blocked and/or Dart Partial/Deferred).
+**4-way FULL PARITY: 105/128.**

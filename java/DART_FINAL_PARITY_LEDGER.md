@@ -1,6 +1,6 @@
-# JAVA_FINAL_PARITY_LEDGER
+# DART_FINAL_PARITY_LEDGER
 
-**Session-32 source-derived ledger for the java branch vs canonical Python.** Byte-exact golden-vector certified; remainder formally blocked. S32: +extract_multimodal/+ingest_input (OCR frontier reduction).
+**Session-32 source-derived ledger for the dart branch vs canonical Python.** dart SDK unavailable in this env; counts from manifest.
 
 | Metric | Value |
 |---|---:|
@@ -11,21 +11,21 @@
 
 | API | Manifest class | Disposition |
 |---|---|---|
-| `analyze` | Partial | see FINAL_CONVERGENCE_LEDGER |
-| `compile_repository` | Complete | see FINAL_CONVERGENCE_LEDGER |
+| `capture_dom_mutations` | Deferred | see FINAL_CONVERGENCE_LEDGER |
+| `capture_websocket_frames` | Deferred | see FINAL_CONVERGENCE_LEDGER |
 | `crawl` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `crawl_async` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `extract` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `extract_async` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `extract_docs` | Partial | see FINAL_CONVERGENCE_LEDGER |
+| `extract_document_runtime` | Partial | see FINAL_CONVERGENCE_LEDGER |
+| `extract_infinite_scroll` | Deferred | see FINAL_CONVERGENCE_LEDGER |
 | `extract_native` | Deferred | see FINAL_CONVERGENCE_LEDGER |
 | `extract_recursive` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `extract_repo` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `extract_repository` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `extract_web` | Partial | see FINAL_CONVERGENCE_LEDGER |
-| `query_semantics` | Complete | see FINAL_CONVERGENCE_LEDGER |
-| `reason_semantically` | Complete | see FINAL_CONVERGENCE_LEDGER |
-| `run_canonical_pipeline` | Partial | see FINAL_CONVERGENCE_LEDGER |
+| `run_autonomous_extraction` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `run_native_cognition` | Deferred | see FINAL_CONVERGENCE_LEDGER |
 | `stream_extract` | Partial | see FINAL_CONVERGENCE_LEDGER |
 | `universal_extract` | Partial | see FINAL_CONVERGENCE_LEDGER |

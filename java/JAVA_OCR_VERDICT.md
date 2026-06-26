@@ -1,5 +1,18 @@
 # JAVA_OCR_VERDICT
 
+> **SUPERSEDED IN PART (Session 32 — frontier reduction).** `extract_multimodal` and `ingest_input`
+> are now **CERTIFIED byte-exact in Java** (`golden_vectors_s32.json`, `CrossLanguageParityS32Test`).
+> The blocker below assumed an OCR-runtime-*present* environment, but the canonical cross-language
+> contract treats OCR as **absent** — the JavaScript port hardcodes `pytesseract = null`
+> (`src/ocr/ocrEngine.ts`) and the canonical vectors are generated with tesseract absent, yielding the
+> deterministic `ocr_dependencies_missing` path. Under that real contract the family is portable; Java
+> reproduces it via `io.webweavex.multimodal.MultimodalRuntime`. Only `universal_extract` remains
+> pending (its repository branch pulls the filesystem repository engine). The original analysis below
+> is retained for the OCR-present case.
+
+---
+
+
 **Phase-4 audit (Session 28). Verdict: OCR-runtime REQUIRED — blocked.** Python canon `9625f4a`.
 APIs: `extract_multimodal`, `ingest_input` (image branch), `universal_extract` (image/file branch).
 

@@ -151,6 +151,9 @@ JAVA_PROVEN = {
     "RuntimeKernel": "io.webweavex.kernel.RuntimeKernel#runPipeline",
     "get_runtime_kernel": "io.webweavex.kernel.RuntimeKernel#getRuntimeKernel",
     "run_autonomous_extraction": "io.webweavex.distributed.AutonomousExtraction#runAutonomousExtraction",
+    # Session 32 — OCR cluster frontier reduction (canonical OCR-absent contract, matches JS)
+    "extract_multimodal": "io.webweavex.multimodal.MultimodalRuntime#extractMultimodal",
+    "ingest_input": "io.webweavex.multimodal.MultimodalRuntime#ingestInput",
 }
 
 PACKAGES = [

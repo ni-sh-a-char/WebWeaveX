@@ -166,6 +166,9 @@ MAPPING = {
     "RuntimeKernel": ("io.webweavex.kernel.RuntimeKernel", "golden_vectors_s30.json", "RuntimeKernel"),
     "get_runtime_kernel": ("io.webweavex.kernel.RuntimeKernel", "golden_vectors_s30.json", "get_runtime_kernel"),
     "run_autonomous_extraction": ("io.webweavex.distributed.AutonomousExtraction", "golden_vectors_s30.json", "run_autonomous_extraction"),
+    # Session 32 — OCR cluster frontier reduction (canonical OCR-absent contract, matches JS)
+    "extract_multimodal": ("io.webweavex.multimodal.MultimodalRuntime", "golden_vectors_s32.json", "extract_multimodal"),
+    "ingest_input": ("io.webweavex.multimodal.MultimodalRuntime", "golden_vectors_s32.json", "ingest_input"),
 }
 
 PROVEN_MARK = "Implemented (parity-proven)"
