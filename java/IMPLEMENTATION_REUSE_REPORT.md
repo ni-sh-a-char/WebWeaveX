@@ -15,10 +15,28 @@ already implemented elsewhere.** Source-derived.
 | **Playwright** (`extract_web`) | live Chromium | reproduced via the unavailable/stub contract | partial | **pending** — stub-page/unavailable contract |
 | **platform/fs** (`extract_native`/`run_native_cognition`/`extract_repository`) | `sys.platform`/`os.walk` | reproduced via normalized/degraded fields | partial | **pending** — platform-string + missing-file contracts |
 
+## Frontier correction (Session 33 — measured, supersedes prior estimate)
+
+`compile_repository_ir`'s **observable output is epistemic-free** (zero `uncertainty`/`entropy`/
+`epistemic`/`observed`/`inferred` fields; serialized ~3.2 KB). The ~2776-line `core.evidence` engine is
+imported but its result is fully **discarded** (the S22 `query_documents` pattern). The real
+runtime-observable closure of the AST cluster is **~1389 lines** (repository code-analysis + AST), NOT
+the ~3600-line epistemic engine. This makes the AST cluster materially more tractable than previously
+recorded.
+
 ## Reuse roadmap for Java (priority order, all PORTABLE — none impossible)
 
-1. **AST scanner** → port `src/ast/pythonAstEngine.ts` (204 L) verbatim to `io.webweavex.ast.PythonAstEngine` + the 3 tiny sub-engines (`symbol_resolution`/`control_flow`/`execution_path`, 83 L). This grounds `reason_semantically(discourse|topology)` and `query_semantics(document|graph|knowledge|unknown)` immediately (those branches already reuse certified Java engines: `DocumentSemanticIr` S22, `GraphQuery`/`OntologyQuery` S3).
-2. **repository-semantic-IR subsystem** (~3600 L, shared by the repository/runtime branch of all 3 AST APIs and by `compile_repository`) — port `build_repository_execution_ir` + the `core.evidence` epistemic engine. Largest single item; multi-session. Dart deferred this too.
+1. **AST scanner** — ✅ **DONE (S33)**: `io.webweavex.ast.PythonAstEngine` + `SemanticAstIr` ported from
+   the JS scanner (`src/ast/pythonAstEngine.ts`) + the 3 tiny sub-engines, **certified byte-exact vs
+   real CPython `ast.walk`** (`AstEngineUnitTest`, 14 vectors). Corrected two CPython-semantics
+   divergences the JS scanner had latent (`*args` exclusion; tuple-target `b,c=…` → `[]`). Reusable
+   foundation for the AST cluster.
+2. **repository code-analysis layer** (~1100 L, ~30 small modules — `build_repository_execution_ir`,
+   language/dependency/service/deployment/api/infra/execution-flow detection; **epistemic-free**) →
+   port on top of #1 to certify `query_semantics`/`reason_semantically`/`compile_repository`. Bounded,
+   multi-session; no epistemic engine needed (frontier correction above). The document/graph/knowledge
+   branches already reuse certified Java engines (`DocumentSemanticIr` S22, `GraphQuery`/`OntologyQuery`
+   S3).
 3. **HTML parser** (lxml-equivalent) → port the JS parser to unblock the 8-API lxml cluster. Large.
 4. **universal_extract** → port the file extractors (pdf/docx/archive/html_file deterministic missing-file paths) + reuse #2 for the repository branch.
 5. **network/Playwright/platform/fs** → port the regex/stub/missing-file/platform-string contracts.

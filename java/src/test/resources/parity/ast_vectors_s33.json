@@ -1,0 +1,91 @@
+{
+  "source": "Python 2.1.0 canonical (session 33: AST subsystem, real ast.walk)",
+  "parse_python_ast": [
+    {
+      "name": "empty",
+      "code": "",
+      "serialized": "{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"}",
+      "hash": "e975a65ee4a063aaf6ea920372c4705c68b1eaf97c99beeb63a7e5605f917906"
+    },
+    {
+      "name": "simple",
+      "code": "import os\ndef foo(a, b):\n    x = bar()\n    return x\nclass A(Base):\n    pass\n",
+      "serialized": "{\"assignments\":[{\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"Assign\"},\"targets\":[\"x\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"A\",\"node\":{\"end_lineno\":6,\"lineno\":5,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[\"a\",\"b\"],\"name\":\"foo\",\"node\":{\"end_lineno\":4,\"lineno\":2,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}}],\"language\":\"python\"}",
+      "hash": "853520e0e186c1c3a8aece250d27cd99ac3f660cb4f046b1b55e8434ded2a8a3"
+    },
+    {
+      "name": "mixed",
+      "code": "import os\nfrom a.b import c, d as e\ndef foo(a, b=2, *args):\n    x = bar()\n    return x\ndef baz():\n    pass\nclass A(Base):\n    def m(self):\n        return 1\ny = 5\n",
+      "serialized": "{\"assignments\":[{\"node\":{\"end_lineno\":11,\"lineno\":11,\"type\":\"Assign\"},\"targets\":[\"y\"]},{\"node\":{\"end_lineno\":4,\"lineno\":4,\"type\":\"Assign\"},\"targets\":[\"x\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"A\",\"node\":{\"end_lineno\":10,\"lineno\":8,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"baz\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[\"a\",\"b\"],\"name\":\"foo\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"m\",\"node\":{\"end_lineno\":10,\"lineno\":9,\"type\":\"FunctionDef\"}}],\"imports\":[{\"module\":\"a.b\",\"names\":[\"c\",\"d\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"ImportFrom\"}},{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}}],\"language\":\"python\"}",
+      "hash": "14f43604542e3783835bdea40eb0af30c9bab45879051ad95e93ecd38151af9e"
+    },
+    {
+      "name": "imports",
+      "code": "import os, sys\nimport json as j\nfrom typing import Any, Dict, List\n",
+      "serialized": "{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[{\"module\":\"typing\",\"names\":[\"Any\",\"Dict\",\"List\"],\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"ImportFrom\"}},{\"modules\":[\"json\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}},{\"modules\":[\"os\",\"sys\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}}],\"language\":\"python\"}",
+      "hash": "3ad74eb14006f8ebb2b492ae4ecd0622210a6ea8b034b42b62695ed750df1e2d"
+    },
+    {
+      "name": "nested",
+      "code": "def outer(p):\n    def inner(q):\n        z = q\n        return z\n    return inner\nclass C:\n    def a(self):\n        pass\n    def b(self):\n        pass\n",
+      "serialized": "{\"assignments\":[{\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"Assign\"},\"targets\":[\"z\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[],\"name\":\"C\",\"node\":{\"end_lineno\":10,\"lineno\":6,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[\"self\"],\"name\":\"a\",\"node\":{\"end_lineno\":8,\"lineno\":7,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"b\",\"node\":{\"end_lineno\":10,\"lineno\":9,\"type\":\"FunctionDef\"}},{\"args\":[\"q\"],\"name\":\"inner\",\"node\":{\"end_lineno\":4,\"lineno\":2,\"type\":\"FunctionDef\"}},{\"args\":[\"p\"],\"name\":\"outer\",\"node\":{\"end_lineno\":5,\"lineno\":1,\"type\":\"FunctionDef\"}}],\"imports\":[],\"language\":\"python\"}",
+      "hash": "ea5e8bf981fcaaf69966dc1667d70549f359566a3ff526928b0344ac4ad192fa"
+    },
+    {
+      "name": "multiline_sig",
+      "code": "def long(\n    a,\n    b,\n    c,\n):\n    return a\n",
+      "serialized": "{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[{\"args\":[\"a\",\"b\",\"c\"],\"name\":\"long\",\"node\":{\"end_lineno\":6,\"lineno\":1,\"type\":\"FunctionDef\"}}],\"imports\":[],\"language\":\"python\"}",
+      "hash": "2d46d0d6d5fba169fdfc887058efa05dc968e565d6a27ae4f763368af1f01cd9"
+    },
+    {
+      "name": "assignments",
+      "code": "a = 1\nb, c = 2, 3\nd = a + b\nclass K:\n    e = 5\n",
+      "serialized": "{\"assignments\":[{\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Assign\"},\"targets\":[\"a\"]},{\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Assign\"},\"targets\":[]},{\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"Assign\"},\"targets\":[\"d\"]},{\"node\":{\"end_lineno\":5,\"lineno\":5,\"type\":\"Assign\"},\"targets\":[\"e\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[],\"name\":\"K\",\"node\":{\"end_lineno\":5,\"lineno\":4,\"type\":\"ClassDef\"}}],\"functions\":[],\"imports\":[],\"language\":\"python\"}",
+      "hash": "478edf4f761e7068ad130612ff8577a60cdf249693942248771650a86ddacaf7"
+    }
+  ],
+  "compile_semantic_ast_ir": [
+    {
+      "name": "empty",
+      "code": "",
+      "serialized": "{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}}",
+      "hash": "b749449c60148e373cbdaf4f92454950d3470f21e7b41bb808caa80f5d2065b1"
+    },
+    {
+      "name": "simple",
+      "code": "import os\ndef foo(a, b):\n    x = bar()\n    return x\nclass A(Base):\n    pass\n",
+      "serialized": "{\"ast\":{\"assignments\":[{\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"Assign\"},\"targets\":[\"x\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"A\",\"node\":{\"end_lineno\":6,\"lineno\":5,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[\"a\",\"b\"],\"name\":\"foo\",\"node\":{\"end_lineno\":4,\"lineno\":2,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[{\"id\":\"foo\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":1,\"paths\":[[\"foo\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":2,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"A\"},{\"args\":[\"a\",\"b\"],\"kind\":\"function\",\"symbol\":\"foo\"}]}}",
+      "hash": "71d18cf9baaa7530bfc4e0d4892bbbb30ab2ec5756b2395e063167e9a0082db9"
+    },
+    {
+      "name": "mixed",
+      "code": "import os\nfrom a.b import c, d as e\ndef foo(a, b=2, *args):\n    x = bar()\n    return x\ndef baz():\n    pass\nclass A(Base):\n    def m(self):\n        return 1\ny = 5\n",
+      "serialized": "{\"ast\":{\"assignments\":[{\"node\":{\"end_lineno\":11,\"lineno\":11,\"type\":\"Assign\"},\"targets\":[\"y\"]},{\"node\":{\"end_lineno\":4,\"lineno\":4,\"type\":\"Assign\"},\"targets\":[\"x\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"A\",\"node\":{\"end_lineno\":10,\"lineno\":8,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"baz\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[\"a\",\"b\"],\"name\":\"foo\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"m\",\"node\":{\"end_lineno\":10,\"lineno\":9,\"type\":\"FunctionDef\"}}],\"imports\":[{\"module\":\"a.b\",\"names\":[\"c\",\"d\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"ImportFrom\"}},{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"baz\",\"relation\":\"possible_flow\",\"to\":\"foo\"},{\"from\":\"foo\",\"relation\":\"possible_flow\",\"to\":\"m\"}],\"nodes\":[{\"id\":\"baz\",\"type\":\"function\"},{\"id\":\"foo\",\"type\":\"function\"},{\"id\":\"m\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":3,\"paths\":[[\"baz\"],[\"foo\"],[\"m\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":4,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"A\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"baz\"},{\"args\":[\"a\",\"b\"],\"kind\":\"function\",\"symbol\":\"foo\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"m\"}]}}",
+      "hash": "26323dc1276cdc18daedf07ae85f63e5aed90477c14dee69787df23d9da348cc"
+    },
+    {
+      "name": "imports",
+      "code": "import os, sys\nimport json as j\nfrom typing import Any, Dict, List\n",
+      "serialized": "{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[{\"module\":\"typing\",\"names\":[\"Any\",\"Dict\",\"List\"],\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"ImportFrom\"}},{\"modules\":[\"json\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}},{\"modules\":[\"os\",\"sys\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}}",
+      "hash": "b5e3aa75bf7a56aaa14e563c5b42adc84d666e8269f472ad43eac04427458ff8"
+    },
+    {
+      "name": "nested",
+      "code": "def outer(p):\n    def inner(q):\n        z = q\n        return z\n    return inner\nclass C:\n    def a(self):\n        pass\n    def b(self):\n        pass\n",
+      "serialized": "{\"ast\":{\"assignments\":[{\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"Assign\"},\"targets\":[\"z\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[],\"name\":\"C\",\"node\":{\"end_lineno\":10,\"lineno\":6,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[\"self\"],\"name\":\"a\",\"node\":{\"end_lineno\":8,\"lineno\":7,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"b\",\"node\":{\"end_lineno\":10,\"lineno\":9,\"type\":\"FunctionDef\"}},{\"args\":[\"q\"],\"name\":\"inner\",\"node\":{\"end_lineno\":4,\"lineno\":2,\"type\":\"FunctionDef\"}},{\"args\":[\"p\"],\"name\":\"outer\",\"node\":{\"end_lineno\":5,\"lineno\":1,\"type\":\"FunctionDef\"}}],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"a\",\"relation\":\"possible_flow\",\"to\":\"b\"},{\"from\":\"b\",\"relation\":\"possible_flow\",\"to\":\"inner\"},{\"from\":\"inner\",\"relation\":\"possible_flow\",\"to\":\"outer\"}],\"nodes\":[{\"id\":\"a\",\"type\":\"function\"},{\"id\":\"b\",\"type\":\"function\"},{\"id\":\"inner\",\"type\":\"function\"},{\"id\":\"outer\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"a\"],[\"b\"],[\"inner\"],[\"outer\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[],\"kind\":\"class\",\"symbol\":\"C\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"a\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"b\"},{\"args\":[\"q\"],\"kind\":\"function\",\"symbol\":\"inner\"},{\"args\":[\"p\"],\"kind\":\"function\",\"symbol\":\"outer\"}]}}",
+      "hash": "4c6ef86d5f478d5c4a50e545689f192f4513b00aabb61041938fc9f1ccd850a0"
+    },
+    {
+      "name": "multiline_sig",
+      "code": "def long(\n    a,\n    b,\n    c,\n):\n    return a\n",
+      "serialized": "{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[{\"args\":[\"a\",\"b\",\"c\"],\"name\":\"long\",\"node\":{\"end_lineno\":6,\"lineno\":1,\"type\":\"FunctionDef\"}}],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[{\"id\":\"long\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":1,\"paths\":[[\"long\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":1,\"symbols\":[{\"args\":[\"a\",\"b\",\"c\"],\"kind\":\"function\",\"symbol\":\"long\"}]}}",
+      "hash": "b16d1fbe75e6cfde8843ba6527121831ddac3ef2ade812c7b6ce8db5d6ab4852"
+    },
+    {
+      "name": "assignments",
+      "code": "a = 1\nb, c = 2, 3\nd = a + b\nclass K:\n    e = 5\n",
+      "serialized": "{\"ast\":{\"assignments\":[{\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Assign\"},\"targets\":[\"a\"]},{\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Assign\"},\"targets\":[]},{\"node\":{\"end_lineno\":3,\"lineno\":3,\"type\":\"Assign\"},\"targets\":[\"d\"]},{\"node\":{\"end_lineno\":5,\"lineno\":5,\"type\":\"Assign\"},\"targets\":[\"e\"]}],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[],\"name\":\"K\",\"node\":{\"end_lineno\":5,\"lineno\":4,\"type\":\"ClassDef\"}}],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":1,\"symbols\":[{\"bases\":[],\"kind\":\"class\",\"symbol\":\"K\"}]}}",
+      "hash": "ce63a4b9cfe02326226e11a7e7be9ed224a51afa87e0113c060eadb91c898b98"
+    }
+  ]
+}
