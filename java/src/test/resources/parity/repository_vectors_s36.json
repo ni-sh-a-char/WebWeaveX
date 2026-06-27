@@ -1,0 +1,1141 @@
+{
+  "source": "Python 2.1.0 canonical (session 36: repository IR layer + public APIs)",
+  "merge_evidence": [
+    {
+      "name": "dup_sort",
+      "inputs": {
+        "parts": [
+          [
+            "b",
+            "a",
+            "a",
+            ""
+          ],
+          [
+            "c",
+            "a"
+          ]
+        ]
+      },
+      "serialized": "{\"count\":3,\"items\":[\"a\",\"b\",\"c\"]}",
+      "hash": "29bfdfab63367d6451e366eec81ff58aae9e78d5519fdac9509b9ae8a8ae368d"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "parts": [
+          []
+        ]
+      },
+      "serialized": "{\"count\":0,\"items\":[]}",
+      "hash": "c0da23c453e9762b163be9bd1d5ef930755b46dc31d2cc8b3aed2b166874cf37"
+    }
+  ],
+  "empty_confidence": [
+    {
+      "name": "const",
+      "inputs": {},
+      "serialized": "{\"basis\":[],\"deterministic\":true,\"score\":0}",
+      "hash": "5865e9b57db0977f2814e86f603982cd371461d79fa705e86c6dd352685a9607"
+    }
+  ],
+  "empty_lineage": [
+    {
+      "name": "repo",
+      "inputs": {
+        "stage": "repository_ir"
+      },
+      "serialized": "{\"depth\":1,\"stages\":[{\"stage\":\"repository_ir\"}]}",
+      "hash": "4256ac2fb05b8ccf2f7e663f68a486b019d5bc03f0efe682b128e60860d3e6ed"
+    }
+  ],
+  "empty_repository_ir": [
+    {
+      "name": "const",
+      "inputs": {},
+      "serialized": "{\"apis\":[],\"confidence\":{\"basis\":[],\"deterministic\":true,\"score\":0},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[],\"semantic_evidence\":{},\"services\":[],\"topology\":[]}",
+      "hash": "6bb7e89939eb45c7e043f3ff991b18ed1b5de2fedf4775d144b8cde7caf3322e"
+    }
+  ],
+  "resolve_runtime_dependencies": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true}",
+      "hash": "916a9392a1461a68a4ab8baf4ebd5a2333f41204e2fc81791fc82830d776c39d"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true}",
+      "hash": "06405eb27db47774c42c89813e349343fae9a45aaecf21b42456f5aac83fa0af"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[],\"parser_first\":false}",
+      "hash": "4838da164cbe6064d6c4583fb0a5762a4a815848638812d4959be2d4eae1e769"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[],\"parser_first\":false}",
+      "hash": "4838da164cbe6064d6c4583fb0a5762a4a815848638812d4959be2d4eae1e769"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[],\"parser_first\":false}",
+      "hash": "4838da164cbe6064d6c4583fb0a5762a4a815848638812d4959be2d4eae1e769"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[],\"parser_first\":false}",
+      "hash": "4838da164cbe6064d6c4583fb0a5762a4a815848638812d4959be2d4eae1e769"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true}",
+      "hash": "916a9392a1461a68a4ab8baf4ebd5a2333f41204e2fc81791fc82830d776c39d"
+    }
+  ],
+  "reconstruct_execution_flow": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]}",
+      "hash": "c00a0f63d6b7e9087f39a1eb0cccc12b53c17079bad041a276e9e709f6d87bb2"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"entrypoints\":[],\"evidence\":[],\"flow\":[]}",
+      "hash": "50af56e6882202223cd14175d78ede673bb5a93e46d97f158b178a9e2718bbfd"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"entrypoints\":[],\"evidence\":[],\"flow\":[]}",
+      "hash": "50af56e6882202223cd14175d78ede673bb5a93e46d97f158b178a9e2718bbfd"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"entrypoints\":[],\"evidence\":[],\"flow\":[]}",
+      "hash": "50af56e6882202223cd14175d78ede673bb5a93e46d97f158b178a9e2718bbfd"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]}",
+      "hash": "fbde67f6548ef302d648965f622e00eaaebeeee3159391071c1ca20727a7e916"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]}",
+      "hash": "fbde67f6548ef302d648965f622e00eaaebeeee3159391071c1ca20727a7e916"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]}",
+      "hash": "c00a0f63d6b7e9087f39a1eb0cccc12b53c17079bad041a276e9e709f6d87bb2"
+    }
+  ],
+  "infer_service_interactions": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]}",
+      "hash": "2ab042d3964f14c1e5b7b13a3dffd87556393417769523c700eaabc34846a809"
+    }
+  ],
+  "analyze_runtime_semantics": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}",
+      "hash": "26386f9bfabf00d6baabae4bcddd1fb86f7071904e0fc876e7b9078817ac454f"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}}",
+      "hash": "8f354852e0261f52dbffd9709d9cfd9fd92b850c49bcb8b0b6183d8b62a0e32d"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}",
+      "hash": "e887bcc60ff1959c490022a2085587cce7f264fe9a84dd4f13f636f07c339f1f"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}}",
+      "hash": "27d1929f6ddf6a536e31fbae6a58d8fcf8d6de35e8f6a32b4d01788b54cddeba"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}",
+      "hash": "7f36fff81931af067e5845c237b2390027b91d5605676eb12c440c0ca0365614"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"dependencies\":[],\"deterministic_inputs\":[\"lang=javascript\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}",
+      "hash": "20a299c11ef445c4eb5ab638cafbad54822a3f70ae7c45436ee6129fba70b9a6"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}",
+      "hash": "46c7041627beb6472a9eeeae18e22ec79cef6bf306d280fcc160232278555bbc"
+    }
+  ],
+  "model_execution_dependencies": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]}",
+      "hash": "3c88d7f2cf16a1d80bbf4a463c8b433d583e7b5b97e6c9ade30e47e3aed18a36"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[],\"evidence\":[]}",
+      "hash": "c24e8119b3cd837aa02f2f7f6de04be9caf62952a211bd615d5ddfe8db23fc77"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[],\"evidence\":[]}",
+      "hash": "c24e8119b3cd837aa02f2f7f6de04be9caf62952a211bd615d5ddfe8db23fc77"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[],\"evidence\":[]}",
+      "hash": "c24e8119b3cd837aa02f2f7f6de04be9caf62952a211bd615d5ddfe8db23fc77"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]}",
+      "hash": "056a1ca2a54d1e4996e22f2f946ee96eea5478e9b74de4a8a5539a3cd5255b58"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]}",
+      "hash": "056a1ca2a54d1e4996e22f2f946ee96eea5478e9b74de4a8a5539a3cd5255b58"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]}",
+      "hash": "3c88d7f2cf16a1d80bbf4a463c8b433d583e7b5b97e6c9ade30e47e3aed18a36"
+    }
+  ],
+  "reason_runtime_flow": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}}",
+      "hash": "2541719f9d133f8fd3de1cd86a8dc61153d3225e8e9e413dcf6d7e0fbfabb5e4"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"parser:dependencies\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}},\"topology\":{\"edges\":[]}}",
+      "hash": "526650d4c2dbe55caa17cadbbe6734fda5f013a2f7bfcc89001e51e834373ffc"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}}",
+      "hash": "81fd3d02f5013d785870a8d8fe6ca59cd0749023d2b3c7aabde6472d883df5da"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}},\"topology\":{\"edges\":[]}}",
+      "hash": "621826a1ae58ac1169fba06878a4c78196d2814bb050586c45a79f7698aaa8ee"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}}",
+      "hash": "a543a809d85f39ae886fa0fbdaebbe1c45ad46e4d800b561ba4b423ef3536628"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=javascript\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}}",
+      "hash": "96e7732de8dfe2163c2f3e595d363473d0d0ce800426d34a8551e376531cb6f5"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}}",
+      "hash": "135d843b1df80f013fca6835cd45457318993ee93750c5853218500d71cd81c7"
+    }
+  ],
+  "build_service_runtime_graph": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]}",
+      "hash": "e1a339ca10e1b82c13d8b9ebd6e907c3c8043456f003497cded7d02e644516c8"
+    }
+  ],
+  "detect_infra_signals": [
+    {
+      "name": "infra",
+      "inputs": {
+        "files": [
+          "docker-compose.yml",
+          "k8s/deployment.yaml",
+          "src/main.py",
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "serialized": "{\"deterministic_inputs\":[\"signals=3\"],\"evidence\":[\"infra:docker-compose\",\"infra:k8s/\",\"infra:.github/workflows\"],\"signals\":[{\"file\":\"docker-compose.yml\",\"signal\":\"docker-compose\"},{\"file\":\"k8s/deployment.yaml\",\"signal\":\"k8s/\"},{\"file\":\".github/workflows/ci.yml\",\"signal\":\".github/workflows\"}]}",
+      "hash": "0557ea4646f3d7195ced888e932af0a4206691fe548e97bdead81f7becf75254"
+    },
+    {
+      "name": "none",
+      "inputs": {
+        "files": [
+          "a.py",
+          "b.js"
+        ]
+      },
+      "serialized": "{\"deterministic_inputs\":[\"signals=0\"],\"evidence\":[],\"signals\":[]}",
+      "hash": "270d9d1b25b72e7ffbfbf207e885f5d47f0fc4c7576440c8af4bbb4b072e17f0"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "files": []
+      },
+      "serialized": "{\"deterministic_inputs\":[\"signals=0\"],\"evidence\":[],\"signals\":[]}",
+      "hash": "270d9d1b25b72e7ffbfbf207e885f5d47f0fc4c7576440c8af4bbb4b072e17f0"
+    }
+  ],
+  "model_infra_relationships": [
+    {
+      "name": "infra",
+      "inputs": {
+        "files": [
+          "docker-compose.yml",
+          "k8s/deployment.yaml",
+          "src/main.py",
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "serialized": "{\"edges\":[{\"evidence\":[\"infra:signal\"],\"from\":\"docker-compose.yml\",\"relation\":\"co_deployed\",\"to\":\"k8s/deployment.yaml\"},{\"evidence\":[\"infra:signal\"],\"from\":\"k8s/deployment.yaml\",\"relation\":\"co_deployed\",\"to\":\".github/workflows/ci.yml\"}],\"evidence\":[\"infra:docker-compose\",\"infra:k8s/\",\"infra:.github/workflows\"],\"signals\":[{\"file\":\"docker-compose.yml\",\"signal\":\"docker-compose\"},{\"file\":\"k8s/deployment.yaml\",\"signal\":\"k8s/\"},{\"file\":\".github/workflows/ci.yml\",\"signal\":\".github/workflows\"}]}",
+      "hash": "ed0412f1ff105b883b117b1d8cc9fda77886a0125ccac76bb8a432fd95614074"
+    },
+    {
+      "name": "none",
+      "inputs": {
+        "files": [
+          "a.py"
+        ]
+      },
+      "serialized": "{\"edges\":[],\"evidence\":[],\"signals\":[]}",
+      "hash": "385a92556e6f7b21161dc180b3de9e746a1060193abf2ff7429f0d7fd394ba1d"
+    }
+  ],
+  "analyze_deployment_semantics": [
+    {
+      "name": "infra",
+      "inputs": {
+        "files": [
+          "docker-compose.yml",
+          "k8s/deployment.yaml",
+          "src/main.py",
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "serialized": "{\"deployment_artifacts\":[\"docker-compose.yml\",\"k8s/deployment.yaml\",\".github/workflows/ci.yml\"],\"evidence\":[\"infra:docker-compose\",\"infra:k8s/\",\"infra:.github/workflows\",\"deploy:3\"],\"infra\":{\"edges\":[{\"evidence\":[\"infra:signal\"],\"from\":\"docker-compose.yml\",\"relation\":\"co_deployed\",\"to\":\"k8s/deployment.yaml\"},{\"evidence\":[\"infra:signal\"],\"from\":\"k8s/deployment.yaml\",\"relation\":\"co_deployed\",\"to\":\".github/workflows/ci.yml\"}],\"evidence\":[\"infra:docker-compose\",\"infra:k8s/\",\"infra:.github/workflows\"],\"signals\":[{\"file\":\"docker-compose.yml\",\"signal\":\"docker-compose\"},{\"file\":\"k8s/deployment.yaml\",\"signal\":\"k8s/\"},{\"file\":\".github/workflows/ci.yml\",\"signal\":\".github/workflows\"}]},\"semantics\":\"container_orchestration\"}",
+      "hash": "e87ded203bce67da9f99cc20206f62d5c2f3d7bebc4473d2efe85f6346fa55aa"
+    },
+    {
+      "name": "none",
+      "inputs": {
+        "files": [
+          "a.py",
+          "b.js"
+        ]
+      },
+      "serialized": "{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"}",
+      "hash": "e0d0a77eebe4d6311eb7e04323ab7c88c3b7f498e9dc22c078ffdb71d8d42ef3"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "files": []
+      },
+      "serialized": "{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"}",
+      "hash": "e0d0a77eebe4d6311eb7e04323ab7c88c3b7f498e9dc22c078ffdb71d8d42ef3"
+    }
+  ],
+  "reason_api_surface": [
+    {
+      "name": "openapi",
+      "inputs": {
+        "spec": {
+          "paths": {
+            "/users": {
+              "get": {},
+              "post": {}
+            },
+            "/items/{id}": {
+              "delete": {}
+            }
+          }
+        }
+      },
+      "serialized": "{\"deterministic_inputs\":[\"paths=3\"],\"evidence\":[\"openapi:paths\"],\"path_count\":3,\"paths\":[{\"method\":\"GET\",\"path\":\"/users\"},{\"method\":\"POST\",\"path\":\"/users\"},{\"method\":\"DELETE\",\"path\":\"/items/{id}\"}]}",
+      "hash": "d168dd1ea7da219b1a64bbd8d33027f3af9561a83dd5028bc22d75a0d7cd3b2f"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "spec": {}
+      },
+      "serialized": "{\"deterministic_inputs\":[\"paths=0\"],\"evidence\":[],\"path_count\":0,\"paths\":[]}",
+      "hash": "976ee9f7e37794927b3cc982113db6dc2fae104b358bee99e3f32837d93ecccb"
+    }
+  ],
+  "reason_api_contract": [
+    {
+      "name": "openapi",
+      "inputs": {
+        "spec": {
+          "paths": {
+            "/users": {
+              "get": {},
+              "post": {}
+            },
+            "/items/{id}": {
+              "delete": {}
+            }
+          }
+        }
+      },
+      "serialized": "{\"contract_count\":3,\"contracts\":[{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"GET\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"POST\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"DELETE\",\"path\":\"/items/{id}\"}],\"deterministic_inputs\":[\"paths=3\"],\"evidence\":[\"openapi:paths\"],\"path_count\":3,\"paths\":[{\"method\":\"GET\",\"path\":\"/users\"},{\"method\":\"POST\",\"path\":\"/users\"},{\"method\":\"DELETE\",\"path\":\"/items/{id}\"}]}",
+      "hash": "9e1d90f50b72ed9772777473dc6dbc6b085cb95b3484eade23c7b7b13df04800"
+    }
+  ],
+  "analyze_runtime_execution": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"parser_backed\":true,\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}}",
+      "hash": "362e8152e01e81c8e9f07460d7d1363c84b4c83c4c7f327a72a4e82fdc6c9524"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"parser:dependencies\"],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"parser_backed\":true,\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}}}",
+      "hash": "731e9b1e45bf8f2f95c918f262f1c71d3cee2412dca2ca0894ec20a7ca89f6f5"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"parser_backed\":false,\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}}",
+      "hash": "90c026ec307ce68a9d3d14b012890e4c66c06a50d44480eb4883ffc61ce370da"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"parser_backed\":false,\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}}}",
+      "hash": "d8b3141c1c45e469acb22b6562c60318e7361062ed3d69cf606e85af067f3632"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"parser_backed\":false,\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}}",
+      "hash": "d358ef5ed436604d6e2023d394b3f30af9a005c4291361baff07aef6c89c98cc"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"parser_backed\":false,\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=javascript\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}}",
+      "hash": "4dacaa9548643dd0efde115fabf1323752501ae8059ceec429d9165f3973b3a8"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"parser_backed\":true,\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}}}",
+      "hash": "afa6de9be1b2123ad1d91eb3996ff39914a7836262b55e56029fcc0bdc6c0043"
+    }
+  ],
+  "model_runtime_state": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"state\":\"active\",\"transitions\":[{\"from\":\"init\",\"to\":\"parsed\"}]}",
+      "hash": "a76d57bdde7dbfdbc45bfa2a00e39dbb80664c2a2796dd8de3917b5d9d58cf43"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"state\":\"active\",\"transitions\":[{\"from\":\"init\",\"to\":\"parsed\"}]}",
+      "hash": "33aacb308821e8c295b63657c1a8d5dd62dd2d047e9437480e5b62060d42946b"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"state\":\"unknown\",\"transitions\":[{\"from\":\"init\",\"to\":\"text\"}]}",
+      "hash": "25df422ca2952dc451fa12c0dc2f02eb3f6ae97d8a0a568f0a8516c1b3a71e52"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"state\":\"unknown\",\"transitions\":[{\"from\":\"init\",\"to\":\"text\"}]}",
+      "hash": "25df422ca2952dc451fa12c0dc2f02eb3f6ae97d8a0a568f0a8516c1b3a71e52"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"state\":\"unknown\",\"transitions\":[{\"from\":\"init\",\"to\":\"text\"}]}",
+      "hash": "7dcaa340d1b6dd02679d33b85e1570785f48185be19e7abd3fba7aa233c7efb7"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"dependencies\":[],\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"state\":\"unknown\",\"transitions\":[{\"from\":\"init\",\"to\":\"text\"}]}",
+      "hash": "7dcaa340d1b6dd02679d33b85e1570785f48185be19e7abd3fba7aa233c7efb7"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"state\":\"active\",\"transitions\":[{\"from\":\"init\",\"to\":\"parsed\"}]}",
+      "hash": "a76d57bdde7dbfdbc45bfa2a00e39dbb80664c2a2796dd8de3917b5d9d58cf43"
+    }
+  ],
+  "build_repository_semantic_ir": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"lang=text\",\"symbols=5\"],\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}}",
+      "hash": "d46f32d74873f50364e1ac6bfdab39c6a861b1c0215802e540124cfd644b35d8"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"lang=text\",\"symbols=0\"],\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}}",
+      "hash": "2e076c4560b161dda3dd0ab976cae02d4d1def92f27c2041e21f738fef297534"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"lang=text\",\"symbols=0\"],\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}}",
+      "hash": "b36fbf7803727a68911436a8a8c50d4ba701b7716cd18ad04a3c8416d871b8d6"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[],\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{}}",
+      "hash": "c84b9f6afe682b72b1a324a21688004af71c4f94ef8adb2729f54d967501823b"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"evidence\":[\"lang=text\",\"symbols=1\"],\"execution_flow\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":1},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"handler\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"doWork\",\"handler\"],\"symbols\":[\"doWork\",\"handler\"],\"traits\":[]}}",
+      "hash": "3873dfb655cf7444aed84d26061b11e391fabe172276e451feba03d16445c509"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"evidence\":[\"lang=javascript\",\"symbols=1\"],\"execution_flow\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"language\":\"javascript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=javascript\",\"symbols=1\"],\"grounded\":true,\"language\":\"javascript\",\"parser_required\":true,\"symbol_count\":1},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"handler\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"doWork\",\"handler\"],\"symbols\":[\"doWork\",\"handler\"],\"traits\":[]}}",
+      "hash": "67b6265ae8be75c0741215cb3fb83119ca89e91d084f32d1310c813b262e674f"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"evidence\":[\"lang=typescript\",\"symbols=5\"],\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"typescript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"grounded\":true,\"language\":\"typescript\",\"parser_required\":true,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}}",
+      "hash": "8d5d58f76a68c4e114e7348b556b0fd744afe06ecb56b169ce06cb850227c8b6"
+    }
+  ],
+  "build_repository_execution_ir": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}}",
+      "hash": "1e27b3cd090ae26e08773e4ba34bd6efd4938407854c3ef8da31cf8cc100f07d"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"execution\":{\"evidence\":[\"parser:dependencies\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}}",
+      "hash": "fe6904c6fa11d086e1b87bb7e50493cedfb9d2e665be025ba6e056306c51dc5d"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": ""
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"symbols=0\"],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}}",
+      "hash": "9150307b9b16305f5e155c5e26438b63a4fc59368e04414842c4d5a404ec5403"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{}}",
+      "hash": "a36e0a5727db77f69086f547eb5eafcc2953e9bec76daae800ece45b09817985"
+    },
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": ""
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:functions\",\"symbols=1\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":1},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"handler\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"doWork\",\"handler\"],\"symbols\":[\"doWork\",\"handler\"],\"traits\":[]}}",
+      "hash": "a8645a37a7e1c2c5ec8a63adb88d822233fa245363038298c95ad98253525add"
+    },
+    {
+      "name": "js_dot_js",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "app.js"
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=javascript\",\"parser:call_graph\",\"parser:functions\",\"symbols=1\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=javascript\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"language\":\"javascript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=javascript\",\"symbols=1\"],\"grounded\":true,\"language\":\"javascript\",\"parser_required\":true,\"symbol_count\":1},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"handler\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"doWork\",\"handler\"],\"symbols\":[\"doWork\",\"handler\"],\"traits\":[]}}",
+      "hash": "cf6eab061eade68766b24f5dedd98685d6f88aa330372008c5a6cc8d3914d5de"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"typescript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"grounded\":true,\"language\":\"typescript\",\"parser_required\":true,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}}",
+      "hash": "8c3ea7f4bede8ba0b324d6f257e618253d5fe5cae88a305d83800640b85927f4"
+    },
+    {
+      "name": "openapi",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "",
+        "openapi": true
+      },
+      "serialized": "{\"api_contracts\":{\"contract_count\":3,\"contracts\":[{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"GET\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"POST\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"DELETE\",\"path\":\"/items/{id}\"}],\"deterministic_inputs\":[\"paths=3\"],\"evidence\":[\"openapi:paths\"],\"path_count\":3,\"paths\":[{\"method\":\"GET\",\"path\":\"/users\"},{\"method\":\"POST\",\"path\":\"/users\"},{\"method\":\"DELETE\",\"path\":\"/items/{id}\"}]},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}}",
+      "hash": "af1c2430cf02fe343bb417b308c7d210f37d4b85b8aef8b828cf564e2806145f"
+    }
+  ],
+  "compile_repository_ir": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}",
+      "hash": "a78cb878cc22c584c0fb279d4fb353103f2bed3bfb7215351b5d78c3c66a55cb"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"execution\":{\"evidence\":[\"parser:dependencies\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"services\":[],\"topology\":[]}",
+      "hash": "f7b13a0e153063450fad96c998fa7ff37705402baacf23a092315c7c7768a9e8"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{}},\"apis\":[],\"confidence\":{\"basis\":[],\"deterministic\":true,\"score\":0.4},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":0,\"items\":[]},\"services\":[],\"topology\":[]}",
+      "hash": "dc66462d4383d26ec79c846ecb979ec691f61d61cd4537e13547036847751d64"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"typescript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"grounded\":true,\"language\":\"typescript\",\"parser_required\":true,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"typescript\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}",
+      "hash": "2ce6ef188d5ca5f7e4eedb65864478b9555d75278782aca3691f90ac31f20823"
+    },
+    {
+      "name": "with_files",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "",
+        "files": [
+          "docker-compose.yml",
+          "k8s/deployment.yaml",
+          "src/main.py",
+          ".github/workflows/ci.yml"
+        ]
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[\"docker-compose.yml\",\"k8s/deployment.yaml\",\".github/workflows/ci.yml\"],\"evidence\":[\"infra:docker-compose\",\"infra:k8s/\",\"infra:.github/workflows\",\"deploy:3\"],\"infra\":{\"edges\":[{\"evidence\":[\"infra:signal\"],\"from\":\"docker-compose.yml\",\"relation\":\"co_deployed\",\"to\":\"k8s/deployment.yaml\"},{\"evidence\":[\"infra:signal\"],\"from\":\"k8s/deployment.yaml\",\"relation\":\"co_deployed\",\"to\":\".github/workflows/ci.yml\"}],\"evidence\":[\"infra:docker-compose\",\"infra:k8s/\",\"infra:.github/workflows\"],\"signals\":[{\"file\":\"docker-compose.yml\",\"signal\":\"docker-compose\"},{\"file\":\"k8s/deployment.yaml\",\"signal\":\"k8s/\"},{\"file\":\".github/workflows/ci.yml\",\"signal\":\".github/workflows\"}]},\"semantics\":\"container_orchestration\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[\"docker-compose.yml\",\"k8s/deployment.yaml\"]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[\"docker-compose.yml\",\"k8s/deployment.yaml\",\".github/workflows/ci.yml\"],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[\"docker-compose.yml\",\"k8s/deployment.yaml\",\".github/workflows/ci.yml\"],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}",
+      "hash": "4787a302ddb6c1e7d49714451337b275fb027ee3da3daf95a8368f1971a909ed"
+    },
+    {
+      "name": "with_openapi",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "",
+        "openapi": true
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{\"contract_count\":3,\"contracts\":[{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"GET\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"POST\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"DELETE\",\"path\":\"/items/{id}\"}],\"deterministic_inputs\":[\"paths=3\"],\"evidence\":[\"openapi:paths\"],\"path_count\":3,\"paths\":[{\"method\":\"GET\",\"path\":\"/users\"},{\"method\":\"POST\",\"path\":\"/users\"},{\"method\":\"DELETE\",\"path\":\"/items/{id}\"}]},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"GET\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"POST\",\"path\":\"/users\"},{\"contract\":\"http\",\"evidence\":[\"openapi:paths\"],\"method\":\"DELETE\",\"path\":\"/items/{id}\"}],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}",
+      "hash": "eff940822ec6c96c54fd38b508d9df690b9fa8b1f3c8670f2fa13dc02c64c8ad"
+    }
+  ],
+  "compile_repository": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}",
+      "hash": "a78cb878cc22c584c0fb279d4fb353103f2bed3bfb7215351b5d78c3c66a55cb"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"execution\":{\"evidence\":[\"parser:dependencies\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"services\":[],\"topology\":[]}",
+      "hash": "f7b13a0e153063450fad96c998fa7ff37705402baacf23a092315c7c7768a9e8"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{}},\"apis\":[],\"confidence\":{\"basis\":[],\"deterministic\":true,\"score\":0.4},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":0,\"items\":[]},\"services\":[],\"topology\":[]}",
+      "hash": "dc66462d4383d26ec79c846ecb979ec691f61d61cd4537e13547036847751d64"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"typescript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"grounded\":true,\"language\":\"typescript\",\"parser_required\":true,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"typescript\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}",
+      "hash": "2ce6ef188d5ca5f7e4eedb65864478b9555d75278782aca3691f90ac31f20823"
+    }
+  ],
+  "query_semantics_repository": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "",
+        "target": "{'source': 'import os\\nimport sys\\ndef main():\\n    helper()\\n    return run_job"
+      },
+      "serialized": "{\"deterministic\":true,\"evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"explainable\":true,\"query_type\":\"repository\",\"result\":{\"bounded\":true,\"evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}},\"target\":\"{'source': 'import os\\\\nimport sys\\\\ndef main():\\\\n    helper()\\\\n    return run_job\"}",
+      "hash": "94c8929073626fef3c582c0420427635924f9f8ce567c02b3387de3320b60ab8"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": "",
+        "target": "{'source': 'flask==2.0\\nrequests>=2.0\\nnumpy\\n# comment\\n', 'path': ''}"
+      },
+      "serialized": "{\"deterministic\":true,\"evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"explainable\":true,\"query_type\":\"repository\",\"result\":{\"bounded\":true,\"evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"execution\":{\"evidence\":[\"parser:dependencies\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"services\":[],\"topology\":[]}},\"target\":\"{'source': 'flask==2.0\\\\nrequests>=2.0\\\\nnumpy\\\\n# comment\\\\n', 'path': ''}\"}",
+      "hash": "ac0259ecac0b1698128da8e92235b88bd5a7474c8aac8a614f26a5d19aee55bf"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": "",
+        "target": "{'source': '', 'path': ''}"
+      },
+      "serialized": "{\"deterministic\":true,\"evidence\":{\"count\":0,\"items\":[]},\"explainable\":true,\"query_type\":\"repository\",\"result\":{\"bounded\":true,\"evidence\":{\"count\":0,\"items\":[]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{}},\"apis\":[],\"confidence\":{\"basis\":[],\"deterministic\":true,\"score\":0.4},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":0,\"items\":[]},\"services\":[],\"topology\":[]}},\"target\":\"{'source': '', 'path': ''}\"}",
+      "hash": "391855bda8325571aa0964c3d8aef1ca5b77775df198652b688c23533a471faa"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts",
+        "target": "{'source': 'import os\\nimport sys\\ndef main():\\n    helper()\\n    return run_job"
+      },
+      "serialized": "{\"deterministic\":true,\"evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"explainable\":true,\"query_type\":\"repository\",\"result\":{\"bounded\":true,\"evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"typescript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"grounded\":true,\"language\":\"typescript\",\"parser_required\":true,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"typescript\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]}},\"target\":\"{'source': 'import os\\\\nimport sys\\\\ndef main():\\\\n    helper()\\\\n    return run_job\"}",
+      "hash": "a7ce1e7887faa93542260fbdf01148f80579b6cc42b0737b495589c4fc60ae2b"
+    }
+  ],
+  "reason_semantically_runtime": [
+    {
+      "name": "py_text",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": ""
+      },
+      "serialized": "{\"deterministic\":true,\"domain\":\"runtime\",\"evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=5\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]},\"state\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"state\":\"active\",\"transitions\":[{\"from\":\"init\",\"to\":\"parsed\"}]}}",
+      "hash": "3d83b46675cce0ee72712a3563efbc65bb9c21130e479571d65e425eda3b9c48"
+    },
+    {
+      "name": "reqs_text",
+      "inputs": {
+        "source": "flask==2.0\nrequests>=2.0\nnumpy\n# comment\n",
+        "path": ""
+      },
+      "serialized": "{\"deterministic\":true,\"domain\":\"runtime\",\"evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"execution\":{\"evidence\":[\"parser:dependencies\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[\"http_api\"],\"frameworks\":[\"flask\"],\"runtimes\":[\"python\"]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":3,\"items\":[\"lang=text\",\"parser:dependencies\",\"symbols=0\"]},\"services\":[],\"topology\":[]},\"state\":{\"dependencies\":[\"flask\",\"numpy\",\"requests\"],\"evidence\":[\"parser:dependencies\"],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"state\":\"active\",\"transitions\":[{\"from\":\"init\",\"to\":\"parsed\"}]}}",
+      "hash": "ececaa335dcb64184b043046865036f4c05594c6afdbf37d5ee714c820eb8115"
+    },
+    {
+      "name": "empty",
+      "inputs": {
+        "source": "",
+        "path": ""
+      },
+      "serialized": "{\"deterministic\":true,\"domain\":\"runtime\",\"evidence\":{\"count\":0,\"items\":[]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[],\"evidence\":[],\"parser_first\":false,\"runtime\":{}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{}},\"apis\":[],\"confidence\":{\"basis\":[],\"deterministic\":true,\"score\":0.4},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[],\"language\":\"text\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[],\"functions\":[],\"imports\":[],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[],\"nodes\":[]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":0,\"paths\":[]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":0,\"symbols\":[]}},\"semantic_evidence\":{\"count\":0,\"items\":[]},\"services\":[],\"topology\":[]},\"state\":{\"dependencies\":[],\"evidence\":[],\"execution\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"state\":\"unknown\",\"transitions\":[{\"from\":\"init\",\"to\":\"text\"}]}}",
+      "hash": "5c4658a3fab6a792b1d17e0f920522c3c23e6726e0166a1a65a4ea419d104f60"
+    },
+    {
+      "name": "py_as_ts",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "x.ts"
+      },
+      "serialized": "{\"deterministic\":true,\"domain\":\"runtime\",\"evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"explainable\":true,\"ir\":{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"language\":\"typescript\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=typescript\",\"symbols=5\"],\"grounded\":true,\"language\":\"typescript\",\"parser_required\":true,\"symbol_count\":5},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"typescript\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=typescript\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=5\"]},\"services\":[],\"topology\":[]},\"state\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"Worker\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"helper\"},\"step\":1},{\"call\":{\"from\":\"<module>\",\"to\":\"main\"},\"step\":2},{\"call\":{\"from\":\"<module>\",\"to\":\"run_job\"},\"step\":3},{\"call\":{\"from\":\"<module>\",\"to\":\"step\"},\"step\":4}]},\"state\":\"active\",\"transitions\":[{\"from\":\"init\",\"to\":\"parsed\"}]}}",
+      "hash": "c936c0c66d7e426ce814ee9dd151a2ead78797b02d9033906667864e760a7eed"
+    }
+  ],
+  "_python_contract_residual": [
+    {
+      "name": "py_dot_py",
+      "inputs": {
+        "source": "import os\nimport sys\ndef main():\n    helper()\n    return run_job()\ndef helper():\n    pass\ndef run_job():\n    return 1\nclass Worker(Base):\n    def step(self):\n        return self.x\n",
+        "path": "worker.py",
+        "note": "CPython ast branch — resolve_symbols + build_call_graph"
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=python\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=7\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[\"pass\"],\"deterministic_inputs\":[\"lang=python\",\"symbols=7\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[\"main\",\"run_job\"],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"main\",\"to\":\"helper\"},\"step\":0},{\"call\":{\"from\":\"main\",\"to\":\"run_job\"},\"step\":1}]},\"language\":\"python\",\"parser_grounding\":{\"applicable\":true,\"deterministic_inputs\":[\"lang=python\",\"symbols=7\"],\"grounded\":true,\"language\":\"python\",\"parser_required\":true,\"symbol_count\":7},\"runtime_dependencies\":{\"dependencies\":[\"pass\"],\"evidence\":[\"parser:dependencies\"],\"parser_first\":true},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[\"Worker\"],\"decorators\":[],\"exports\":[],\"functions\":[\"helper\",\"main\",\"run_job\",\"step\"],\"imports\":[\"os\",\"sys\"],\"interfaces\":[],\"methods\":[],\"symbols\":[\"Worker\",\"helper\",\"main\",\"run_job\",\"step\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=python\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=7\"],\"deterministic\":true,\"score\":0.8},\"dependencies\":[\"pass\"],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[\"parser:dependencies\"],\"language\":\"python\"}],\"semantic_ast\":{\"ast\":{\"assignments\":[],\"ast_grounded\":true,\"bounded\":true,\"classes\":[{\"bases\":[\"Base\"],\"name\":\"Worker\",\"node\":{\"end_lineno\":12,\"lineno\":10,\"type\":\"ClassDef\"}}],\"functions\":[{\"args\":[],\"name\":\"helper\",\"node\":{\"end_lineno\":7,\"lineno\":6,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"main\",\"node\":{\"end_lineno\":5,\"lineno\":3,\"type\":\"FunctionDef\"}},{\"args\":[],\"name\":\"run_job\",\"node\":{\"end_lineno\":9,\"lineno\":8,\"type\":\"FunctionDef\"}},{\"args\":[\"self\"],\"name\":\"step\",\"node\":{\"end_lineno\":12,\"lineno\":11,\"type\":\"FunctionDef\"}}],\"imports\":[{\"modules\":[\"os\"],\"node\":{\"end_lineno\":1,\"lineno\":1,\"type\":\"Import\"}},{\"modules\":[\"sys\"],\"node\":{\"end_lineno\":2,\"lineno\":2,\"type\":\"Import\"}}],\"language\":\"python\"},\"control_flow_graph\":{\"bounded\":true,\"deterministic\":true,\"edges\":[{\"from\":\"helper\",\"relation\":\"possible_flow\",\"to\":\"main\"},{\"from\":\"main\",\"relation\":\"possible_flow\",\"to\":\"run_job\"},{\"from\":\"run_job\",\"relation\":\"possible_flow\",\"to\":\"step\"}],\"nodes\":[{\"id\":\"helper\",\"type\":\"function\"},{\"id\":\"main\",\"type\":\"function\"},{\"id\":\"run_job\",\"type\":\"function\"},{\"id\":\"step\",\"type\":\"function\"}]},\"deterministic\":true,\"execution_paths\":{\"bounded\":true,\"path_count\":4,\"paths\":[[\"helper\"],[\"main\"],[\"run_job\"],[\"step\"]]},\"semantic_grounded\":true,\"symbols\":{\"grounded\":true,\"symbol_count\":5,\"symbols\":[{\"bases\":[\"Base\"],\"kind\":\"class\",\"symbol\":\"Worker\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"helper\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"main\"},{\"args\":[],\"kind\":\"function\",\"symbol\":\"run_job\"},{\"args\":[\"self\"],\"kind\":\"function\",\"symbol\":\"step\"}]}},\"semantic_evidence\":{\"count\":5,\"items\":[\"lang=python\",\"parser:call_graph\",\"parser:dependencies\",\"parser:functions\",\"symbols=7\"]},\"services\":[],\"topology\":[]}",
+      "hash": "b87c8bda2d6a3c9b2916394b1e4b1fcc1a84924a454262c05e53fd88af5cce89"
+    }
+  ],
+  "_invalid_python_residual": [
+    {
+      "name": "js_text",
+      "inputs": {
+        "source": "import x from 'y'\nfunction handler(req) {\n  return doWork(req)\n}\n",
+        "path": "",
+        "note": "semantic_ast: CPython SyntaxError vs S33 lenient scanner"
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"parser:call_graph\",\"parser:functions\",\"symbols=1\"],\"execution\":{\"evidence\":[\"parser:call_graph\",\"parser:functions\"],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[\"parser:functions\",\"parser:call_graph\"],\"flow\":[{\"call\":{\"from\":\"<module>\",\"to\":\"doWork\"},\"step\":0},{\"call\":{\"from\":\"<module>\",\"to\":\"handler\"},\"step\":1}]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=1\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":1},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[\"handler\"],\"imports\":[],\"interfaces\":[],\"methods\":[\"doWork\",\"handler\"],\"symbols\":[\"doWork\",\"handler\"],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"parser:call_graph\",\"parser:functions\",\"symbols=1\"],\"deterministic\":true,\"score\":0.4},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[],\"language\":\"text\"}],\"semantic_ast\":{\"deterministic\":true,\"semantic_grounded\":false},\"semantic_evidence\":{\"count\":4,\"items\":[\"lang=text\",\"parser:call_graph\",\"parser:functions\",\"symbols=1\"]},\"services\":[],\"topology\":[]}",
+      "hash": "db6cfc2167faf159672bda27a0b4428d7ad455d6fc556dbae383b3609166713c"
+    },
+    {
+      "name": "prose",
+      "inputs": {
+        "source": "this is just documentation text\nno code here\n",
+        "path": "",
+        "note": "semantic_ast: CPython SyntaxError vs S33 lenient scanner"
+      },
+      "serialized": "{\"_raw\":{\"api_contracts\":{},\"deployment\":{\"deployment_artifacts\":[],\"evidence\":[\"deploy:0\"],\"infra\":{\"edges\":[],\"evidence\":[],\"signals\":[]},\"semantics\":\"unknown\"},\"evidence\":[\"lang=text\",\"symbols=0\"],\"execution\":{\"evidence\":[],\"execution_flow\":{\"edges\":[],\"entrypoints\":[],\"evidence\":[]},\"runtime\":{\"dependencies\":[],\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"evidence\":[],\"parser_first\":false,\"runtime\":{\"api_indicators\":[],\"frameworks\":[],\"runtimes\":[]}},\"topology\":{\"edges\":[]}},\"execution_flow\":{\"entrypoints\":[],\"evidence\":[],\"flow\":[]},\"language\":\"text\",\"parser_grounding\":{\"applicable\":false,\"deterministic_inputs\":[\"lang=text\",\"symbols=0\"],\"grounded\":true,\"language\":\"text\",\"parser_required\":false,\"symbol_count\":0},\"runtime_dependencies\":{\"dependencies\":[],\"evidence\":[],\"parser_first\":false},\"service_interactions\":{\"evidence\":[],\"interactions\":[],\"service_files\":[]},\"services\":{\"edges\":[],\"evidence\":[],\"nodes\":[],\"service_files\":[]},\"symbols\":{\"classes\":[],\"decorators\":[],\"exports\":[],\"functions\":[],\"imports\":[],\"interfaces\":[],\"methods\":[],\"symbols\":[],\"traits\":[]}},\"apis\":[],\"confidence\":{\"basis\":[\"lang=text\",\"symbols=0\"],\"deterministic\":true,\"score\":0.4},\"dependencies\":[],\"deployments\":[],\"events\":[],\"execution_flows\":[],\"graph\":{\"edges\":[],\"nodes\":[]},\"infra\":[],\"lineage\":{\"depth\":1,\"stages\":[{\"stage\":\"repository_execution_ir\"}]},\"queues\":[],\"runtime_constraints\":[],\"runtimes\":[{\"evidence\":[],\"language\":\"text\"}],\"semantic_ast\":{\"deterministic\":true,\"semantic_grounded\":false},\"semantic_evidence\":{\"count\":2,\"items\":[\"lang=text\",\"symbols=0\"]},\"services\":[],\"topology\":[]}",
+      "hash": "df8def2c311514dbf10502f9d6ed2f7939f44b3ca47aac61b9540d1626510c1e"
+    }
+  ]
+}
