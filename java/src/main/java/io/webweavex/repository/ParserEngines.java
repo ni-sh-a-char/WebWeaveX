@@ -9,6 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -379,5 +380,210 @@ public final class ParserEngines {
         out.put("frameworks", sortedList(detected));
         out.put("indicators", sortedList(indicators));
         return out;
+    }
+
+    // ---------------------------------------------------------------- resolve_api_surface
+    private static final Pattern RE_ROUTE_DEC =
+            Pattern.compile("@(?:app|router)\\.(get|post|put|delete|patch)\\(['\"]([^'\"]+)");
+    private static final Pattern RE_ROUTE_VERB =
+            Pattern.compile("\\b(?:GET|POST|PUT|DELETE|PATCH)\\s+(/[^\\s'\"]+)");
+    private static final Set<String> ROUTE_DECORATORS =
+            Set.of("get", "post", "put", "delete", "patch", "route");
+
+    /** {@code core.parsers.api_resolution_engine.resolve_api_surface} — text/regex path. */
+    @SuppressWarnings("unchecked")
+    public static Map<String, Object> resolveApiSurface(String source, String language) {
+        String src = source == null ? "" : source;
+        Map<String, Object> symbols = resolveSymbols(src, language);
+        // raw routes preserves Python's mixed list (decorator strings, 2-tuples, path strings)
+        // before the `sorted(set(str(r) ...))` collapse; `rest = bool(routes)` reads this raw list.
+        List<String> raw = new ArrayList<>();
+        Object decs = symbols.get("decorators");
+        if (decs instanceof List) {
+            for (Object d : (List<Object>) decs) {
+                String dec = String.valueOf(d);
+                if (ROUTE_DECORATORS.contains(dec)) {
+                    raw.add(dec);
+                }
+            }
+        }
+        Matcher m1 = RE_ROUTE_DEC.matcher(src);
+        while (m1.find()) {
+            // Python re.findall with 2 groups yields tuples; str(tuple) -> "('g1', 'g2')".
+            // ponytail: matches CPython tuple repr for route literals (no embedded quote/backslash escaping).
+            raw.add("('" + m1.group(1) + "', '" + m1.group(2) + "')");
+        }
+        Matcher m2 = RE_ROUTE_VERB.matcher(src);
+        while (m2.find()) {
+            raw.add(m2.group(1));
+        }
+        TreeSet<String> routes = cpSet();
+        for (String r : raw) {
+            if (!r.isEmpty()) {
+                routes.add(r);
+            }
+        }
+        Map<String, Object> out = new LinkedHashMap<>();
+        out.put("routes", sortedList(routes));
+        out.put("graphql", src.toLowerCase().contains("graphql"));
+        out.put("rest", !raw.isEmpty());
+        out.put("evidence", "parser_symbols_and_patterns");
+        return out;
+    }
+
+    // ---------------------------------------------------------------- build_semantic_graph
+    private static final int MAX_GRAPH_NODES = 5000;
+    private static final int MAX_GRAPH_EDGES = 20000;
+    private static final char EK = ' '; // edge-key separator: lower than any identifier char,
+    // so codePoint compare on "from to" matches Python tuple (from, to) ordering exactly.
+
+    /** {@code core.parsers.semantic_graph_engine.build_semantic_graph}. */
+    @SuppressWarnings("unchecked")
+    public static Map<String, Object> buildSemanticGraph(Map<String, Object> parsed) {
+        Map<String, Object> symbols = asMap(parsed.get("symbols"));
+        Map<String, Object> imports = asMap(parsed.get("imports"));
+        Map<String, Object> calls = asMap(parsed.get("calls"));
+        String sourceId = firstTruthy(parsed.get("source_id"), parsed.get("language"), "module");
+
+        TreeSet<String> nodeIds = cpSet();
+        nodeIds.add(sourceId);
+        for (String key : new String[] {"classes", "functions", "interfaces", "symbols"}) {
+            Object names = symbols.get(key);
+            if (names instanceof List) {
+                for (Object n : (List<Object>) names) {
+                    nodeIds.add(String.valueOf(n));
+                }
+            }
+        }
+        for (Object e : asList(imports.get("edges"))) {
+            if (e instanceof Map) {
+                nodeIds.add(String.valueOf(((Map<String, Object>) e).getOrDefault("to", "")));
+            }
+        }
+        // edge_meta: TreeMap keyed by "from to" → sorted iteration == Python sorted(tuple keys).
+        TreeMap<String, String> edgeMeta = new TreeMap<>(Normalization::codePointCompare);
+        for (Object e : asList(imports.get("edges"))) {
+            if (e instanceof Map) {
+                Map<String, Object> ed = (Map<String, Object>) e;
+                String f = str(ed.get("from"));
+                String t = str(ed.get("to"));
+                if (!f.isEmpty() && !t.isEmpty()) {
+                    edgeMeta.put(f + EK + t, "observed");
+                }
+            }
+        }
+        for (Object e : asList(calls.get("calls"))) {
+            if (e instanceof Map) {
+                Map<String, Object> ed = (Map<String, Object>) e;
+                String f = str(ed.get("from"));
+                String t = str(ed.get("to"));
+                if (!f.isEmpty() && !t.isEmpty()) {
+                    nodeIds.add(f);
+                    nodeIds.add(t);
+                    edgeMeta.putIfAbsent(f + EK + t, "observed"); // net basis is always "observed"
+                }
+            }
+        }
+
+        List<Object> nodes = new ArrayList<>();
+        Set<String> allowed = new java.util.HashSet<>();
+        for (String nid : nodeIds) {
+            if (nid.isEmpty() || nodes.size() >= MAX_GRAPH_NODES) {
+                continue;
+            }
+            Map<String, Object> node = new LinkedHashMap<>();
+            node.put("id", nid);
+            node.put("kind", "symbol");
+            node.put("metadata", new LinkedHashMap<>());
+            nodes.add(node);
+            allowed.add(nid);
+        }
+        List<Object> edgeList = new ArrayList<>();
+        for (Map.Entry<String, String> en : edgeMeta.entrySet()) {
+            if (edgeList.size() >= MAX_GRAPH_EDGES) {
+                break;
+            }
+            int sep = en.getKey().indexOf(EK);
+            String f = en.getKey().substring(0, sep);
+            String t = en.getKey().substring(sep + 1);
+            if (allowed.contains(f) && allowed.contains(t)) {
+                Map<String, Object> meta = new LinkedHashMap<>();
+                meta.put("edge_basis", en.getValue());
+                List<Object> ev = new ArrayList<>();
+                ev.add("parser:graph");
+                meta.put("evidence", ev);
+                Map<String, Object> edge = new LinkedHashMap<>();
+                edge.put("from", f);
+                edge.put("to", t);
+                edge.put("metadata", meta);
+                edgeList.add(edge);
+            }
+        }
+        Map<String, Object> out = new LinkedHashMap<>();
+        out.put("nodes", nodes);
+        out.put("edges", edgeList);
+        out.put("max_edges", MAX_GRAPH_EDGES);
+        return out;
+    }
+
+    // ---------------------------------------------------------------- require_parser_evidence
+    private static final Set<String> GROUNDING_SUPPORTED = Set.of(
+            "python", "javascript", "typescript", "rust", "go", "java", "kotlin", "dart");
+
+    /** {@code core.parsers.formal_parser_grounding_engine.require_parser_evidence}. */
+    @SuppressWarnings("unchecked")
+    public static Map<String, Object> requireParserEvidence(Map<String, Object> parsed) {
+        String lang = firstTruthy(parsed.get("language"), null, "text").toLowerCase();
+        Map<String, Object> sym = asMap(parsed.get("symbols"));
+        Object flagsObj = parsed.get("evidence");
+        if (flagsObj == null) {
+            flagsObj = parsed.get("parser_evidence");
+        }
+        boolean flagsTruthy = flagsObj instanceof Map && !((Map<String, Object>) flagsObj).isEmpty();
+        int symbolCount = 0;
+        for (String k : new String[] {"classes", "functions", "imports", "exports", "interfaces"}) {
+            symbolCount += asList(sym.get(k)).size();
+        }
+        boolean applicable = GROUNDING_SUPPORTED.contains(lang);
+        boolean grounded = applicable ? (symbolCount > 0 || flagsTruthy) : true;
+        Map<String, Object> out = new LinkedHashMap<>();
+        out.put("language", lang);
+        out.put("applicable", applicable);
+        out.put("grounded", grounded);
+        out.put("symbol_count", symbolCount);
+        out.put("parser_required", applicable);
+        List<Object> det = new ArrayList<>();
+        det.add("lang=" + lang);
+        det.add("symbols=" + symbolCount);
+        out.put("deterministic_inputs", det);
+        return out;
+    }
+
+    // ---------------------------------------------------------------- shared helpers
+    @SuppressWarnings("unchecked")
+    private static Map<String, Object> asMap(Object o) {
+        return o instanceof Map ? (Map<String, Object>) o : new LinkedHashMap<>();
+    }
+
+    @SuppressWarnings("unchecked")
+    private static List<Object> asList(Object o) {
+        return o instanceof List ? (List<Object>) o : new ArrayList<>();
+    }
+
+    private static String str(Object o) {
+        return o == null ? "" : String.valueOf(o);
+    }
+
+    /** Python {@code str(a or b or default)} over the first truthy (non-null, non-empty) value. */
+    private static String firstTruthy(Object a, Object b, String def) {
+        String sa = a == null ? "" : String.valueOf(a);
+        if (!sa.isEmpty()) {
+            return sa;
+        }
+        String sb = b == null ? "" : String.valueOf(b);
+        if (!sb.isEmpty()) {
+            return sb;
+        }
+        return def;
     }
 }

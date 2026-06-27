@@ -46,7 +46,7 @@ engines, not CPython AST** (except `semantic_ast`, already ported).
 | Layer | Modules | Status |
 |---|---|---|
 | **AST summary** (`compile_semantic_ast_ir`) | `python_ast_engine`, `semantic_ast_ir_engine`, symbol/cfg/exec-path | ✅ **DONE (S33)** — byte-exact vs CPython |
-| **parser pipeline** (`parse_source`, text/regex path) | `parser_registry` + ~13: recover_syntax, parse_ast(bool), resolve_symbols, build_call_graph, resolve_imports, resolve_dependencies, resolve_runtime, resolve_frameworks, resolve_api_surface, build_semantic_graph, normalize_parser_output, require_parser_evidence, parser_budget | pending — regex/text engines, ~600 L |
+| **parser pipeline** (`parse_source`, text/regex path) | `parser_registry` + ~13: recover_syntax✅S34, resolve_symbols✅S34, build_call_graph✅S34, resolve_imports✅S34, resolve_dependencies✅S34, resolve_runtime✅S34, resolve_frameworks✅S34, parser_budget✅S34, **resolve_api_surface✅S35, build_semantic_graph✅S35, require_parser_evidence✅S35**; parse_ast(bool→composes S33 AST), normalize_parser_output(epistemic — DISCARDED downstream, not ported) | **pure surface DONE (S34+S35)** — 11/13 byte-exact; only parse_ast (AST) + the orchestrator composition remain |
 | **repository engines** | ~8: repository_semantic_ir, runtime_flow_reasoner (runtime_semantics + execution_dependency), service_runtime_graph (service_interaction), deployment_semantics (infra_relationship), api_contract (api_surface), execution_flow, runtime_dependency | pending — ~400 L |
 | **IR assembly** | `repository_ir` (`empty_repository_ir`/`merge_evidence`/`empty_lineage`/`empty_confidence`) + dispatch | pending — ~120 L |
 
