@@ -2,9 +2,10 @@
 
 ## Supported versions
 
-| Version | Supported |
-|---------|-----------|
-| 1.1.1   | Yes       |
+| Version | Supported          |
+|---------|--------------------|
+| 2.1.0   | Yes                |
+| < 2.0.0 | No                 |
 
 ## Reporting
 

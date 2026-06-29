@@ -5,8 +5,8 @@ Thank you for helping improve deterministic runtime extraction infrastructure.
 ## Setup
 
 ```bash
-git clone https://github.com/PIYUSH-MISHRA-00/webweavex.git
-cd webweavex
+git clone https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX
 pip install -e ".[dev,browser]"
 playwright install chromium   # optional, for browser tests
 ```
@@ -42,4 +42,4 @@ Use the PR template in `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ## Questions
 
-Open a [GitHub issue](https://github.com/PIYUSH-MISHRA-00/webweavex/issues) or see [docs/](docs/README.md).
+Open a [GitHub issue](https://github.com/ni-sh-a-char/WebWeaveX/issues) or see [docs/](docs/README.md).
