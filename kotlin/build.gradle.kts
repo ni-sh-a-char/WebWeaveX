@@ -10,7 +10,7 @@ version = "2.1.0" // synchronized with python/javascript/java/dart
 repositories { mavenCentral() }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit5"))
 }
 
 kotlin { jvmToolchain(17) }
