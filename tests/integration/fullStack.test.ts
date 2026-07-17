@@ -20,7 +20,7 @@ import { buildRuntimeGraph, queryRuntimeGraph } from "../../src/graph/runtimeGra
 
 describe("integration exports", () => {
   it("kaalka + determinism + graph utilities", () => {
-    expect(VERSION).toBe("2.1.0");
+    expect(VERSION).toBe("3.0.0");
     expect(normalizeRuntimeValue("a\r\n")).toBe("a");
     expect(computeDeterministicHash("x")).toHaveLength(64);
     expect(computeDeterministicHashPayload({ z: 1 })).toHaveLength(64);

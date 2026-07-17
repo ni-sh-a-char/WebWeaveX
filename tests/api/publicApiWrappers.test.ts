@@ -41,7 +41,7 @@ afterAll(() => {
 
 describe("publicApi convenience wrappers", () => {
   it("version is the package version", () => {
-    expect(version).toBe("2.1.0");
+    expect(version).toBe("3.0.0");
   });
 
   it("analyze: explicit edges branch and extract-derived branch", () => {

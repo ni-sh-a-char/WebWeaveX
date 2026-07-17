@@ -59,9 +59,9 @@ export { buildRuntimeObjective, buildWorkflowPlan, loadWorkflowMemory, runWorkfl
 
 /* ---- package-level convenience API (ported from webweavex/__init__.py) ---- */
 
-export const version = "2.1.0";
+export const version = "3.0.0";
 
-export const __version__ = "2.1.0";
+export const __version__ = "3.0.0";
 
 export function universalExtract(path: string): Record<string, unknown> {
   const info = ingestInput(path) as Record<string, unknown>;
