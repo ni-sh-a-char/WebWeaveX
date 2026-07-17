@@ -169,6 +169,21 @@ version = __version__  # PEP 440 public version alias
 
 
 def analyze(input_data, edges=None):
+    """Analyze a graph or extract and analyze content.
+
+    Args:
+        input_data: Input data — either a dict with 'source' for extraction,
+                    or nodes list for graph analysis.
+        edges: Optional edges list for direct graph analysis.
+
+    Returns:
+        dict: Graph analysis with node_count, edge_count, density, degree_map.
+
+    Example::
+
+        result = wwx.analyze({"source": "<html>...</html>"})
+        print(result["node_count"])
+    """
     if edges is not None:
         return analyze_graph(input_data, edges)
     result = extract(input_data)
@@ -177,14 +192,43 @@ def analyze(input_data, edges=None):
 
 
 def crawl(url: str, **kwargs):
+    """Crawl a website and discover pages.
+
+    Args:
+        url: Starting URL to crawl.
+        **kwargs: Additional crawler configuration.
+
+    Returns:
+        dict: Crawl results with visited URLs and discovered links.
+    """
     return _crawl(url, **kwargs)
 
 
 async def crawl_async(url: str, **kwargs):
+    """Async version of crawl().
+
+    Args:
+        url: Starting URL to crawl.
+        **kwargs: Additional crawler configuration.
+
+    Returns:
+        dict: Crawl results with visited URLs and discovered links.
+    """
     return await asyncio.to_thread(_crawl, url, **kwargs)
 
 
 def extract_recursive(url: str, **kwargs):
+    """Recursively extract content from a URL — crawl + extract.
+
+    Combines crawling and extraction into a single workflow.
+
+    Args:
+        url: URL to crawl and extract from.
+        **kwargs: Additional configuration.
+
+    Returns:
+        dict: Extraction results with crawl metadata.
+    """
     crawled = _crawl(url, **kwargs)
     out = extract(url)
     out["metadata"]["crawl"] = {"visited": crawled.get("visited", []), "discovered": crawled.get("discovered", [])}
@@ -194,6 +238,16 @@ def extract_recursive(url: str, **kwargs):
 
 
 def query_graph(result: dict = None, node: str = "", graph: dict = None):
+    """Query a graph for nodes, edges, or traversal paths.
+
+    Args:
+        result: Extraction result containing a graph (optional).
+        node: Starting node for traversal (optional).
+        graph: Direct graph dict with nodes/edges (optional).
+
+    Returns:
+        dict: Graph query results.
+    """
     if graph is not None:
         return query_graph_ir(graph, node=node)
     if result is None:
@@ -206,10 +260,28 @@ def query_graph(result: dict = None, node: str = "", graph: dict = None):
 
 
 def query_repo(result: dict):
+    """Extract repository information from an extraction result.
+
+    Args:
+        result: Extraction result dict.
+
+    Returns:
+        dict: Repository data.
+    """
     return result.get("content", {}).get("repository", {})
 
 
 def query_knowledge(result: dict = None, entities=None, edges=None):
+    """Query knowledge graph from extraction results or build one.
+
+    Args:
+        result: Extraction result (optional).
+        entities: Entity list for direct query (optional).
+        edges: Edge list for direct query (optional).
+
+    Returns:
+        dict: Knowledge graph data.
+    """
     if entities is not None or edges is not None:
         return query_knowledge_ir(entities or [], edges or [])
     content = result.get("content", {}) if isinstance(result, dict) else {}
@@ -220,12 +292,31 @@ def query_knowledge(result: dict = None, entities=None, edges=None):
 
 
 def query_repository(result: dict = None, source: str = "", path: str = "", **kwargs):
+    """Query repository intelligence.
+
+    Args:
+        result: Extraction result (optional).
+        source: Repository source URL (optional).
+        path: Repository path (optional).
+
+    Returns:
+        dict: Repository intelligence data.
+    """
     if result is not None and not source:
         return query_repo(result)
     return query_repository_ir(source, path, kwargs.get("files"))
 
 
 def query_documents(result: dict = None, text: str = ""):
+    """Query document intelligence.
+
+    Args:
+        result: Extraction result (optional).
+        text: Raw text to analyze (optional).
+
+    Returns:
+        dict: Document intelligence data.
+    """
     if text:
         return query_document_ir(text)
     if result is not None:
@@ -234,10 +325,27 @@ def query_documents(result: dict = None, text: str = ""):
 
 
 def compile_document(text: str):
+    """Compile a document into an intermediate representation.
+
+    Args:
+        text: Document text to compile.
+
+    Returns:
+        dict: Compiled document IR.
+    """
     return compile_document_ir(text)
 
 
 def compile_repository(source: str, path: str = "", **kwargs):
+    """Compile a repository into an intermediate representation.
+
+    Args:
+        source: Repository source string or URL.
+        path: Repository path (optional).
+
+    Returns:
+        dict: Compiled repository IR.
+    """
     return compile_repository_ir(source, path, kwargs.get("files"))
 
 
