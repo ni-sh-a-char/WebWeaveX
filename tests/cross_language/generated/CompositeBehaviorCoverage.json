@@ -1,0 +1,132 @@
+{
+  "api": "enrich_extraction",
+  "total_vectors": 19,
+  "coverage": [
+    {
+      "name": "empty",
+      "category": "empty",
+      "text_len": 0,
+      "source_url": ""
+    },
+    {
+      "name": "minimal",
+      "category": "minimal",
+      "text_len": 11,
+      "source_url": "https://example.com"
+    },
+    {
+      "name": "unicode",
+      "category": "unicode",
+      "text_len": 46,
+      "source_url": "https://unicode.example.com"
+    },
+    {
+      "name": "large",
+      "category": "large",
+      "text_len": 5400,
+      "source_url": "https://large.example.com"
+    },
+    {
+      "name": "repository_python",
+      "category": "repository",
+      "text_len": 98,
+      "source_url": "https://github.com/user/py-project"
+    },
+    {
+      "name": "mixed_repository",
+      "category": "mixed",
+      "text_len": 600,
+      "source_url": "https://github.com/org/mixed-repo"
+    },
+    {
+      "name": "document_markdown",
+      "category": "document",
+      "text_len": 492,
+      "source_url": "https://docs.example.com/guide"
+    },
+    {
+      "name": "repository_and_document",
+      "category": "repository",
+      "text_len": 446,
+      "source_url": "https://github.com/org/project"
+    },
+    {
+      "name": "nested_metadata",
+      "category": "nested",
+      "text_len": 406,
+      "source_url": "https://nested.example.com"
+    },
+    {
+      "name": "partial_metadata",
+      "category": "partial",
+      "text_len": 151,
+      "source_url": "https://partial.example.com"
+    },
+    {
+      "name": "invalid_metadata",
+      "category": "invalid",
+      "text_len": 76,
+      "source_url": "https://invalid.example.com"
+    },
+    {
+      "name": "conflicting_metadata",
+      "category": "conflicting",
+      "text_len": 197,
+      "source_url": "https://conflict.example.com"
+    },
+    {
+      "name": "graph_heavy_repository",
+      "category": "graph",
+      "text_len": 1082,
+      "source_url": "https://graph.example.com/repo"
+    },
+    {
+      "name": "semantic_heavy_repository",
+      "category": "semantic",
+      "text_len": 805,
+      "source_url": "https://semantic.example.com/repo"
+    },
+    {
+      "name": "knowledge_heavy_repository",
+      "category": "knowledge",
+      "text_len": 829,
+      "source_url": "https://knowledge.example.com/repo"
+    },
+    {
+      "name": "runtime_heavy_repository",
+      "category": "runtime",
+      "text_len": 745,
+      "source_url": "https://runtime.example.com/repo"
+    },
+    {
+      "name": "multilingual_inputs",
+      "category": "multilingual",
+      "text_len": 652,
+      "source_url": "https://polyglot.example.com"
+    },
+    {
+      "name": "large_dependency_graph",
+      "category": "large",
+      "text_len": 2005,
+      "source_url": "https://deps.example.com/large"
+    },
+    {
+      "name": "large_architecture_graph",
+      "category": "large",
+      "text_len": 3731,
+      "source_url": "https://arch.example.com/large"
+    }
+  ],
+  "summary": {
+    "category_count": 16,
+    "edge_cases": [
+      "empty",
+      "unicode",
+      "large",
+      "invalid_metadata",
+      "conflicting_metadata",
+      "large_dependency_graph",
+      "large_architecture_graph"
+    ]
+  }
+}

@@ -1,0 +1,382 @@
+[
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "empty",
+      "source_url": "",
+      "text_len": 0
+    },
+    "name": "empty",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "f241523ad635561c38c679e791c17c0e69518441031ff0b7182f3a630aa67c51"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "minimal",
+      "source_url": "https://example.com",
+      "text_len": 11
+    },
+    "name": "minimal",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "f01185ec4cd20a3ef8bd810a3ad35d2cd52275dcb524e964b5f27e7b70eb0a96"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "unicode",
+      "source_url": "https://unicode.example.com",
+      "text_len": 46
+    },
+    "name": "unicode",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "d8926a1e690fd3f97f27e189e70942e360ac55076470e094b436232c756751e9"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "large",
+      "source_url": "https://large.example.com",
+      "text_len": 5400
+    },
+    "name": "large",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "961ce8b477f18ce77fbc2c186e7c4e7235cbfe8b362639135bf0cfdff8f69e4d"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "repository",
+      "source_url": "https://github.com/user/py-project",
+      "text_len": 98
+    },
+    "name": "repository_python",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "e9ca85d89c178e12f0c273283b89e2bb399354676467ab8a24771398b32d402e"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "mixed",
+      "source_url": "https://github.com/org/mixed-repo",
+      "text_len": 600
+    },
+    "name": "mixed_repository",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "f683209d127bdb9d1948ac446756e0cd9637966aabd8f6a24d3794bb1e0f4b3c"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "document",
+      "source_url": "https://docs.example.com/guide",
+      "text_len": 492
+    },
+    "name": "document_markdown",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "a3704e983b14802000053a7d82854c744910d804fe984ae65ddbde54ea7f4804"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "repository",
+      "source_url": "https://github.com/org/project",
+      "text_len": 446
+    },
+    "name": "repository_and_document",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "46b355d8b9b34a55557830b72f8e999e1f88bac5f7bc4d70cbf6f175489f3c4e"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "nested",
+      "source_url": "https://nested.example.com",
+      "text_len": 406
+    },
+    "name": "nested_metadata",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "bd23fc41b9d4e6d7a4ddc5151ade8262a7126389b80db239ae27f35bd0f3c181"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "partial",
+      "source_url": "https://partial.example.com",
+      "text_len": 151
+    },
+    "name": "partial_metadata",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "735920f2b1300d14bd720e4febf54c8e92d4efda96f4f7aa920979fb5fe71e42"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "invalid",
+      "source_url": "https://invalid.example.com",
+      "text_len": 76
+    },
+    "name": "invalid_metadata",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "6dcc43b47e5afbd81d5bb903025ef8ff828b143d9210a69bdd71a50efb473128"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "conflicting",
+      "source_url": "https://conflict.example.com",
+      "text_len": 197
+    },
+    "name": "conflicting_metadata",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "e02f04e1f649b786b452122248b7a8cfaa6909fa7bde6aeb260d2f3f9946a745"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "graph",
+      "source_url": "https://graph.example.com/repo",
+      "text_len": 1082
+    },
+    "name": "graph_heavy_repository",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "d09463bd22f291aa086f66c58c4f56e37bf55a5f47a698b8f836b538f7107bfb"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "semantic",
+      "source_url": "https://semantic.example.com/repo",
+      "text_len": 805
+    },
+    "name": "semantic_heavy_repository",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "3dbba3e339d2fd1eda2def9f9a2b594ec94b445ad291e8964d257a68fc0588b9"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "knowledge",
+      "source_url": "https://knowledge.example.com/repo",
+      "text_len": 829
+    },
+    "name": "knowledge_heavy_repository",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "e14684856e91daef9b3a277404d7efaea0765c102e72ca814f6a76237ac79e2a"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "runtime",
+      "source_url": "https://runtime.example.com/repo",
+      "text_len": 745
+    },
+    "name": "runtime_heavy_repository",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "12c6d1b1c1955737357b8a26c5093dc875fe52886769ae7a52872de4a0a907b3"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "multilingual",
+      "source_url": "https://polyglot.example.com",
+      "text_len": 652
+    },
+    "name": "multilingual_inputs",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "13b7c6343f719f52d8c5fad147f7a31785ec62fa3cb806652055f64fe75a90d4"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "large",
+      "source_url": "https://deps.example.com/large",
+      "text_len": 2005
+    },
+    "name": "large_dependency_graph",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "d206df1071b6636af487dade8f52e1a8df7e51a671103a29faed4fba331906a9"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "category": "large",
+      "source_url": "https://arch.example.com/large",
+      "text_len": 3731
+    },
+    "name": "large_architecture_graph",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "f4ee9e89e9e066e01c82026694a9577f0005807e70fb12a60771c707419697dd"
+  }
+]

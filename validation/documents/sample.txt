@@ -1,4 +1,0 @@
-WebWeaveX document validation.
-Section A: plain text extraction.
-Section B: table-like data | col1 | col2 |
-Citation ref: DOI:10.1000/xyz

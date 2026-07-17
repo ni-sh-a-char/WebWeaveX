@@ -1,0 +1,154 @@
+[
+  {
+    "name": "empty",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "minimal",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "unicode",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "large",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "repository_python",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "mixed_repository",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "document_markdown",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "repository_and_document",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "nested_metadata",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "partial_metadata",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "invalid_metadata",
+    "python": "DIFFER",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "conflicting_metadata",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "graph_heavy_repository",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "semantic_heavy_repository",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "knowledge_heavy_repository",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "runtime_heavy_repository",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "multilingual_inputs",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "large_dependency_graph",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  },
+  {
+    "name": "large_architecture_graph",
+    "python": "MATCH",
+    "javascript": "DIFFER",
+    "dart": "MISSING",
+    "java": "MISSING",
+    "kotlin": "MISSING"
+  }
+]

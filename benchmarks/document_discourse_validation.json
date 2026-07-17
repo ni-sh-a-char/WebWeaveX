@@ -1,5 +1,0 @@
-{
-  "engine": "document_semantic_ir_engine",
-  "corpora": ["document_discourse", "document_ir", "tutorial_dependencies"],
-  "note": "See benchmark_results.json"
-}

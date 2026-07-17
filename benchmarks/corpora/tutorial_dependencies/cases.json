@@ -1,8 +1,0 @@
-{
-  "source": "instructional_flow_patterns",
-  "evaluation_criteria": "instructional_flow",
-  "cases": [
-    {"id": "u1", "input": {"text": "# Step 1\n\n## Step 2\n\nContent."}, "expected": {"min_steps": 1}},
-    {"id": "u2", "input": {"text": "No headings."}, "expected": {"min_steps": 0}}
-  ]
-}

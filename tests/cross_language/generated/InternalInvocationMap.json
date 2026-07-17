@@ -1,0 +1,36 @@
+{
+  "api": "enrich_extraction",
+  "description": "Internal composite function — maps equivalent internal function names across languages",
+  "python": {
+    "entry_point": "enrich_extraction(normalized, safe_text, source_url, merged)",
+    "build_merged": "_build_merged(text, source_url)",
+    "module": "core/extract/enrichment_engine.py",
+    "status": "IMPLEMENTED"
+  },
+  "javascript": {
+    "entry_point": "_extractCore(text, source_url) → calls enrichExtraction internally",
+    "module": "src/extract/pipeline.ts",
+    "status": "IMPLEMENTED"
+  },
+  "dart": {
+    "entry_point": "enrichExtraction(normalized, safeText, sourceUrl, merged) — stage deps not fully ported",
+    "module": "lib/src/extract/enrichment_engine.dart",
+    "status": "MISSING_DEPS",
+    "missing_deps": [
+      "extractDependenciesV2",
+      "sandboxText",
+      "enforceTextLimit",
+      "safeHtmlText"
+    ]
+  },
+  "java": {
+    "entry_point": "NOT IMPLEMENTED",
+    "module": "EnrichmentEngine.java (NOT CREATED)",
+    "status": "MISSING"
+  },
+  "kotlin": {
+    "entry_point": "NOT IMPLEMENTED",
+    "module": "EnrichmentEngine.kt (NOT CREATED)",
+    "status": "MISSING"
+  }
+}

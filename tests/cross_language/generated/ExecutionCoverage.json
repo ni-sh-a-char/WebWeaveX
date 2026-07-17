@@ -1,0 +1,75 @@
+{
+  "api": "enrich_extraction",
+  "languages": {
+    "python": {
+      "executed": 19,
+      "skipped": 0,
+      "executed_vectors": [
+        "empty",
+        "minimal",
+        "unicode",
+        "large",
+        "repository_python",
+        "mixed_repository",
+        "document_markdown",
+        "repository_and_document",
+        "nested_metadata",
+        "partial_metadata",
+        "invalid_metadata",
+        "conflicting_metadata",
+        "graph_heavy_repository",
+        "semantic_heavy_repository",
+        "knowledge_heavy_repository",
+        "runtime_heavy_repository",
+        "multilingual_inputs",
+        "large_dependency_graph",
+        "large_architecture_graph"
+      ],
+      "skipped_reason": "not implemented"
+    },
+    "javascript": {
+      "executed": 19,
+      "skipped": 0,
+      "executed_vectors": [
+        "empty",
+        "minimal",
+        "unicode",
+        "large",
+        "repository_python",
+        "mixed_repository",
+        "document_markdown",
+        "repository_and_document",
+        "nested_metadata",
+        "partial_metadata",
+        "invalid_metadata",
+        "conflicting_metadata",
+        "graph_heavy_repository",
+        "semantic_heavy_repository",
+        "knowledge_heavy_repository",
+        "runtime_heavy_repository",
+        "multilingual_inputs",
+        "large_dependency_graph",
+        "large_architecture_graph"
+      ],
+      "skipped_reason": "not implemented"
+    },
+    "dart": {
+      "executed": 0,
+      "skipped": 19,
+      "executed_vectors": [],
+      "skipped_reason": "missing stage dependencies"
+    },
+    "java": {
+      "executed": 0,
+      "skipped": 19,
+      "executed_vectors": [],
+      "skipped_reason": "missing stage dependencies"
+    },
+    "kotlin": {
+      "executed": 0,
+      "skipped": 19,
+      "executed_vectors": [],
+      "skipped_reason": "missing stage dependencies"
+    }
+  }
+}

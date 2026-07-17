@@ -1,0 +1,192 @@
+[
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "",
+      "text_len": 0
+    },
+    "name": "empty",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "f241523ad635561c38c679e791c17c0e69518441031ff0b7182f3a630aa67c51"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://example.com",
+      "text_len": 11
+    },
+    "name": "minimal",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "f01185ec4cd20a3ef8bd810a3ad35d2cd52275dcb524e964b5f27e7b70eb0a96"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://large.example.com",
+      "text_len": 2500
+    },
+    "name": "large",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "4d4f0b03e0680d3efa5cd113fb3a9d737a082dc943468266f22d46c87dfdc929"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://unicode.example.com",
+      "text_len": 68
+    },
+    "name": "unicode",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "cb6e93e212c4ee9e8c076edb1223cfeb65c684a4506ef471ce7f402d0bbc728d"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://nested.example.com",
+      "text_len": 95
+    },
+    "name": "nested",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "65d340da24d8654b89cdbf9c68237499a0a439fbb54fb69a0535d35ce538dee6"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://repo.example.com/org/project",
+      "text_len": 387
+    },
+    "name": "mixed_repo",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "13d63a6f30c7ad0e4cf2aff5c6f31ec6ccc6706bd2bd7fbc0e203b6ab45ced17"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "",
+      "text_len": 49
+    },
+    "name": "partial_metadata",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "9c7c3e8c70e994d3cfa48c8fb6ad188df66cda7bd0badfaa0a14ff1f278862d3"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://conflict.example.com",
+      "text_len": 80
+    },
+    "name": "conflicting_metadata",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "4ff0184092491a3428e42aafa3fa55b680350cbaa327ab361c1da7f5036b05c5"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://polyglot.example.com",
+      "text_len": 207
+    },
+    "name": "multiple_languages",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "b3ac506b98ea3af5b913944b88f31cdb3790be426eb4a7f02963b0298b862457"
+  },
+  {
+    "api": "enrich_extraction",
+    "input": {
+      "source_url": "https://graph.example.com",
+      "text_len": 2230
+    },
+    "name": "graph_heavy",
+    "output_keys": [
+      "code",
+      "content",
+      "dependencies",
+      "fingerprint",
+      "metadata",
+      "raw_text",
+      "relationships",
+      "source_url"
+    ],
+    "sha256": "a9b3821892f1bdb7ddc94e42a06dadc328e7bfd70ac66015aac56fd8ecd96149"
+  }
+]

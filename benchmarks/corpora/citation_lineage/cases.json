@@ -1,8 +1,0 @@
-{
-  "source": "citation_patterns",
-  "evaluation_criteria": "citation_verify",
-  "cases": [
-    {"id": "ci1", "input": {"text": "See https://example.com/doc and doi:10.1038/nature12373"}, "expected": {"verified": true}},
-    {"id": "ci2", "input": {"text": "No links here."}, "expected": {"verified": false}}
-  ]
-}
