@@ -1,9 +1,0 @@
-{
-  "modules": [
-    "core/bytecode/__init__.py",
-    "core/bytecode/semantic_bytecode_engine.py",
-    "core/bytecode/semantic_instruction_set.py",
-    "core/vm/__init__.py",
-    "core/vm/semantic_vm_engine.py"
-  ]
-}

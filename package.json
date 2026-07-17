@@ -1,6 +1,6 @@
 {
   "name": "webweavex",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Deterministic runtime cognition infrastructure for humans and AI agents — browser-native replay, reconstruction, and authenticated operational continuity.",
   "license": "Apache-2.0",
   "author": "Piyush Mishra <piyushmishra.professional@gmail.com>",

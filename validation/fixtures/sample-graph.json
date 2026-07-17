@@ -1,4 +1,0 @@
-{
-  "nodes": [{ "id": "a", "type": "state" }, { "id": "b", "type": "action" }],
-  "edges": [{ "source": "a", "target": "b", "type": "flow" }]
-}

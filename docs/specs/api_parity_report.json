@@ -1,9 +1,0 @@
-{
-  "measured_at": "2026-06-08T12:48:18.905139+00:00",
-  "python_total": 128,
-  "js_covered": 128,
-  "missing": [],
-  "duplicate_ownership": 0,
-  "conflicting_ownership": 0,
-  "all_mapped": true
-}
