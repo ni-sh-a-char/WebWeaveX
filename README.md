@@ -6,7 +6,7 @@
   <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/pub/v/webweavex?style=flat-square" alt="pub"/></a>
   <img src="https://img.shields.io/badge/Dart-3.3%2B-0175C6?style=flat-square&logo=dart&logoColor=white" alt="Dart"/>
   <img src="https://img.shields.io/badge/parity-PASS-22c55e?style=flat-square" alt="Parity"/>
-  <img src="https://img.shields.io/badge/tests-1583%20passing-22c55e?style=flat-square" alt="Tests"/>
+  <img src="https://img.shields.io/badge/tests-521%20passing-22c55e?style=flat-square" alt="Tests"/>
   <img src="https://img.shields.io/badge/coverage-97.26%25-22c55e?style=flat-square" alt="Coverage"/>
   <img src="https://img.shields.io/badge/API%20parity-105%20Complete%20%2F%200%20Missing-3b82f6?style=flat-square" alt="API parity"/>
   <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="License"/>
@@ -39,9 +39,9 @@ wrapper, not AGI hype. It is byte-for-byte parity-aligned with the Python (PyPI)
 | Branch | Role |
 |--------|------|
 | [`main`](https://github.com/ni-sh-a-char/WebWeaveX) | Ecosystem portal |
-| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | **Canonical** PyPI runtime (2.1.0) |
-| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | npm runtime (2.1.0) |
-| **`dart`** (this) | pub.dev runtime (2.1.0) |
+| [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | **Canonical** PyPI runtime (3.0.0) |
+| [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | npm runtime (3.0.0) |
+| **`dart`** (this) | pub.dev runtime (3.0.0) |
 
 Spec: [CANONICAL_RUNTIME_SPEC.md](docs/architecture/CANONICAL_RUNTIME_SPEC.md) · Matrix: [ECOSYSTEM_MATRIX.md](docs/architecture/ECOSYSTEM_MATRIX.md)
 
@@ -128,7 +128,7 @@ or add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  webweavex: ^2.1.0
+  webweavex: ^3.0.0
   kaalka: ^5.0.0
 ```
 
@@ -218,7 +218,7 @@ Future<void> main() async {
 
 WebWeaveX follows [Semantic Versioning](https://semver.org) — **MAJOR.MINOR.PATCH**.
 The version is **synchronized across all three implementations**: pub.dev, PyPI, and
-npm share the same `2.1.0`, so a given version number denotes the same certified
+npm share the same `3.0.0`, so a given version number denotes the same certified
 deterministic contract in every language. MAJOR marks a breaking change, MINOR adds
 backward-compatible capability, PATCH is a fix. The crypto substrate pin
 (`kaalka 5.0.0`) is independent of the package version.
@@ -454,7 +454,7 @@ See [`CI_VALIDATION_REPORT.md`](CERTIFICATION.md).
 | Field | Value |
 |-------|-------|
 | Package | `webweavex` |
-| Version | **2.1.0** (aligned with Python & JavaScript) |
+| Version | **3.0.0** (aligned with Python & JavaScript) |
 | License | Apache-2.0 |
 | Dry-run | `dart pub publish --dry-run` → 0 warnings (1 benign version hint) |
 
@@ -563,3 +563,5 @@ Apache 2.0 — [LICENSE](LICENSE)
 
 <p align="center"><strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable scraper.</strong></p>
 <p align="center"><strong><a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Coffee"/></a></strong></p>
+
+
