@@ -90,9 +90,8 @@ Map<String, dynamic> detectConfidenceEcho(
   return <String, dynamic>{
     'echo_detected': echo,
     'suppress': echo,
-    'collapse_to': echo
-        ? pythonRound(math.min(score.toDouble(), avgPrior), 3)
-        : score,
+    'collapse_to':
+        echo ? pythonRound(math.min(score.toDouble(), avgPrior), 3) : score,
   };
 }
 
@@ -187,7 +186,8 @@ Map<String, dynamic> modelExplanatoryDiversity(
 }
 
 /// Port of core.evidence.explanatory_fixation_engine.detect_explanatory_fixation.
-Map<String, dynamic> detectExplanatoryFixation(int alternativeCount, int depth) {
+Map<String, dynamic> detectExplanatoryFixation(
+    int alternativeCount, int depth) {
   final fixation = alternativeCount <= 1 && depth >= 2;
   return <String, dynamic>{'fixation': fixation, 'suppress': fixation};
 }
@@ -495,8 +495,7 @@ Map<String, dynamic> detectRecursiveConfidenceEcho(
   return <String, dynamic>{
     'echo_detected': echo,
     'suppress': echo,
-    'decay_to':
-        echo ? pythonRound(math.min(score.toDouble(), avg), 3) : score,
+    'decay_to': echo ? pythonRound(math.min(score.toDouble(), avg), 3) : score,
   };
 }
 

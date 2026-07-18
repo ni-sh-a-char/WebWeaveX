@@ -48,8 +48,7 @@ void main() {
       'semantic-IR Phase A.3 batch 4 — final evidence leaves (Python ≡ JS ≡ Dart)',
       () {
     final vectors = (jsonDecode(
-      File('validation/parity/semantic_ir_a3d_vectors.json')
-          .readAsStringSync(),
+      File('validation/parity/semantic_ir_a3d_vectors.json').readAsStringSync(),
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();
@@ -119,8 +118,13 @@ void main() {
     });
 
     test('justification falls back to uncertainty factors', () {
-      final r = buildJustification(<dynamic>[], <String, dynamic>{},
-          <String, dynamic>{'factors': <dynamic>['f1']}, <String, dynamic>{});
+      final r = buildJustification(
+          <dynamic>[],
+          <String, dynamic>{},
+          <String, dynamic>{
+            'factors': <dynamic>['f1']
+          },
+          <String, dynamic>{});
       expect(r['uncertainty_basis'], equals(['f1']));
       expect(r['entropy'], equals(0));
     });

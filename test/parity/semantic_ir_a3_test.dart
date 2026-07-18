@@ -77,8 +77,7 @@ void main() {
   group('semantic-IR Phase A.3 batch 1 — evidence leaves (Python ≡ JS ≡ Dart)',
       () {
     final vectors = (jsonDecode(
-      File('validation/parity/semantic_ir_a3_vectors.json')
-          .readAsStringSync(),
+      File('validation/parity/semantic_ir_a3_vectors.json').readAsStringSync(),
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();

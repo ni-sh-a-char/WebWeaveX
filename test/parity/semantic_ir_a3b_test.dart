@@ -75,12 +75,10 @@ void main() {
     'model_unsupported_scope': modelUnsupportedScope,
   };
 
-  group(
-      'semantic-IR Phase A.3 batch 2 — evidence leaves (Python ≡ JS ≡ Dart)',
+  group('semantic-IR Phase A.3 batch 2 — evidence leaves (Python ≡ JS ≡ Dart)',
       () {
     final vectors = (jsonDecode(
-      File('validation/parity/semantic_ir_a3b_vectors.json')
-          .readAsStringSync(),
+      File('validation/parity/semantic_ir_a3b_vectors.json').readAsStringSync(),
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();

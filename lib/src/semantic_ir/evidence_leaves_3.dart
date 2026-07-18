@@ -25,8 +25,7 @@ Map<String, dynamic> applyConfidenceCaps(
     'low': 0.0
   };
   final level = pyGet(fragility, 'level', 'medium');
-  final fragPenalty =
-      level is String ? (fragPenalties[level] ?? 0.12) : 0.12;
+  final fragPenalty = level is String ? (fragPenalties[level] ?? 0.12) : 0.12;
   final contradictPenalty =
       pythonRound(math.min(0.35, contradictionCount * 0.12), 3);
   final ambigPenalty = pythonRound(math.min(0.25, ambiguityCount * 0.08), 3);
@@ -73,8 +72,7 @@ Map<String, dynamic> applyConfidenceCaps(
 Map<String, dynamic> buildContradictionLattice(List<dynamic>? pairs) {
   final normalized = <List<String>>[
     for (final p in pairs ?? const <dynamic>[])
-      if (p is List && p.length >= 2)
-        <String>[pyToStr(p[0]), pyToStr(p[1])]
+      if (p is List && p.length >= 2) <String>[pyToStr(p[0]), pyToStr(p[1])]
   ];
   normalized.sort((a, b) {
     final c = a[0].compareTo(b[0]);
@@ -197,8 +195,7 @@ Map<String, dynamic> buildExplainability(dynamic parserPayload,
         pyGet(parserPayload, 'evidence', <dynamic, dynamic>{}));
     if (flags is! Map) flags = <dynamic, dynamic>{};
   }
-  final grounding =
-      pyGet(provenance, 'grounding', <dynamic, dynamic>{}) as Map;
+  final grounding = pyGet(provenance, 'grounding', <dynamic, dynamic>{}) as Map;
   final parserBasis = <String, dynamic>{
     'language': pyTruthy(parserPayload)
         ? pyGet(parserPayload as Map, 'language', 'text')
@@ -310,7 +307,8 @@ Map<String, dynamic> markInsufficiency(Map<dynamic, dynamic> bundle,
   final insufficient = (evidence as List).length < minEvidence;
   final flags = <String>[];
   if (insufficient) flags.add('insufficient_evidence');
-  if (pyTruthy(pyGet(bundle, 'ambiguities', null))) flags.add('ambiguous_claim');
+  if (pyTruthy(pyGet(bundle, 'ambiguities', null)))
+    flags.add('ambiguous_claim');
   final unique = flags.toSet().toList()..sort();
   return <String, dynamic>{
     'insufficient': insufficient,
@@ -337,8 +335,7 @@ Map<String, dynamic> modelInterpretiveDiversity(
       'id': 'infer:$k',
       'interpretation': <String, dynamic>{k as String: inferred[k]},
       'evidence': List<dynamic>.from(evidence),
-      'limitations':
-          evidence.contains(k) ? <dynamic>[] : <dynamic>['inferred'],
+      'limitations': evidence.contains(k) ? <dynamic>[] : <dynamic>['inferred'],
       'contradictions': <dynamic>[],
       'ambiguities': <dynamic>[],
       'plurality': <String, dynamic>{
@@ -385,8 +382,7 @@ Map<String, dynamic> modelNoninferableRegions(Map<dynamic, dynamic> inferred,
   if (pyTruthy(inferred) && !pyTruthy(evidence)) {
     regions.add('semantic:ungrounded_inference');
   }
-  final voids = <String>{for (final r in regions) r as String}.toList()
-    ..sort();
+  final voids = <String>{for (final r in regions) r as String}.toList()..sort();
   return <String, dynamic>{
     'noninferable_regions': voids,
     'inference_voids': voids,

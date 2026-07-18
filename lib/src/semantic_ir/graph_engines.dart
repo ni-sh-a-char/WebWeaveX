@@ -42,7 +42,8 @@ Map<String, dynamic> detectCycles(Map<dynamic, dynamic> graph,
     if (e is Map &&
         pyTruthy(pyGet(e, 'from', null)) &&
         pyTruthy(pyGet(e, 'to', null))) {
-      adj.putIfAbsent(pyToStr(e['from']), () => <String>[])
+      adj
+          .putIfAbsent(pyToStr(e['from']), () => <String>[])
           .add(pyToStr(e['to']));
     }
   }

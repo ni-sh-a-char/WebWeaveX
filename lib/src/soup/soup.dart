@@ -18,8 +18,20 @@ import '../determinism/normalization_core.dart' show codePointCompare;
 import 'html_entities.dart';
 
 const Set<String> _voidElements = {
-  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
-  'link', 'meta', 'param', 'source', 'track', 'wbr',
+  'area',
+  'base',
+  'br',
+  'col',
+  'embed',
+  'hr',
+  'img',
+  'input',
+  'link',
+  'meta',
+  'param',
+  'source',
+  'track',
+  'wbr',
 };
 
 // Python html._charref — semicolon optional, exact name charset.
@@ -217,8 +229,11 @@ class Soup extends SoupTag {
       var hidden = false;
       while (anc != null) {
         final a = anc.name;
-        if (a == 'script' || a == 'style' || a == 'template' ||
-            a == 'rt' || a == 'rp') {
+        if (a == 'script' ||
+            a == 'style' ||
+            a == 'template' ||
+            a == 'rt' ||
+            a == 'rp') {
           hidden = true;
           break;
         }
@@ -442,8 +457,8 @@ class Soup extends SoupTag {
       if (tagName == 'script' || tagName == 'style') {
         // Case-insensitive close scan without lowercasing the whole document
         // (Unicode lowercasing can change string length, e.g. U+0130).
-        final closeM =
-            RegExp('</\\s*$tagName', caseSensitive: false).firstMatch(html.substring(i));
+        final closeM = RegExp('</\\s*$tagName', caseSensitive: false)
+            .firstMatch(html.substring(i));
         final closeIdx = closeM == null ? -1 : i + closeM.start;
         final rawText = html.substring(i, closeIdx < 0 ? n : closeIdx);
         if (rawText.isNotEmpty) tag.children.add(HiddenString(rawText));

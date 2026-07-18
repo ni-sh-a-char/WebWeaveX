@@ -6,8 +6,9 @@ import 'py_compat.dart';
 
 /// Port of core.repository.api_surface_reasoning_engine.reason_api_surface.
 Map<String, dynamic> reasonApiSurface(dynamic spec) {
-  dynamic paths =
-      spec is Map ? pyGet(spec, 'paths', <dynamic, dynamic>{}) : <dynamic, dynamic>{};
+  dynamic paths = spec is Map
+      ? pyGet(spec, 'paths', <dynamic, dynamic>{})
+      : <dynamic, dynamic>{};
   if (paths is! Map) paths = <dynamic, dynamic>{};
   final endpoints = <Map<String, String>>[];
   for (final entry in paths.entries) {
@@ -24,8 +25,7 @@ Map<String, dynamic> reasonApiSurface(dynamic spec) {
   return <String, dynamic>{
     'paths': endpoints,
     'path_count': endpoints.length,
-    'evidence':
-        endpoints.isNotEmpty ? <String>['openapi:paths'] : <String>[],
+    'evidence': endpoints.isNotEmpty ? <String>['openapi:paths'] : <String>[],
     'deterministic_inputs': <String>['paths=${endpoints.length}'],
   };
 }
@@ -35,8 +35,7 @@ Map<String, dynamic> reconstructExecutionFlow(dynamic parsed) {
   final p = pyTruthy(parsed) ? parsed as Map : const <dynamic, dynamic>{};
   dynamic sym = pyGet(p, 'symbols', <dynamic, dynamic>{});
   if (!pyTruthy(sym)) sym = <dynamic, dynamic>{};
-  final funcs =
-      sym is Map ? pyGet(sym, 'functions', <dynamic>[]) : <dynamic>[];
+  final funcs = sym is Map ? pyGet(sym, 'functions', <dynamic>[]) : <dynamic>[];
   dynamic callsOuter = pyGet(p, 'calls', <dynamic, dynamic>{});
   if (!pyTruthy(callsOuter)) callsOuter = <dynamic, dynamic>{};
   dynamic calls = pyGet(callsOuter as Map, 'calls', <dynamic>[]);
@@ -149,8 +148,7 @@ Map<String, dynamic> inferServiceInteractions(
     dynamic parsed, List<dynamic> files) {
   dynamic calls = pyGet(
       pyTruthy(parsed) ? parsed as Map : const <dynamic, dynamic>{},
-      'calls',
-      <dynamic, dynamic>{});
+      'calls', <dynamic, dynamic>{});
   if (!pyTruthy(calls)) calls = <dynamic, dynamic>{};
   final callList =
       calls is Map ? pyGet(calls, 'calls', <dynamic>[]) : <dynamic>[];

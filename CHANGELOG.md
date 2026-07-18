@@ -1,3 +1,9 @@
+## 3.0.0
+
+- Production release
+- Engineering artifacts removed
+- Version updated to 3.0.0
+
 # Changelog
 
 ## [2.1.0] — 2026-06-12 — Synchronized cross-language release
@@ -228,3 +234,4 @@
 ### Security
 
 - No auth bypass, CAPTCHA defeat, or credential cracking
+

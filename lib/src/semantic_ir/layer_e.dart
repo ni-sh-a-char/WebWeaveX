@@ -15,7 +15,9 @@ import 'evidence_leaves_2.dart';
 import 'evidence_leaves_3.dart';
 import 'evidence_leaves_4.dart';
 import 'layer_d.dart'
-    show applyConfidenceCollapse, detectSemanticSpeculation,
+    show
+        applyConfidenceCollapse,
+        detectSemanticSpeculation,
         modelConceptTransitions;
 import 'pressure_engines.dart';
 import 'py_compat.dart';
@@ -138,15 +140,17 @@ Map<dynamic, dynamic> applyCognitiveHumility(Map<dynamic, dynamic> bundle) {
       : List<dynamic>.from(uncertaintiesRaw as List);
   // Python binds `observed` but the engine never reads it downstream.
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final noninferences = List<dynamic>.from(_orElse(
       pyGet(bundle, 'noninferences',
           pyGet(bundle, 'noninference_reasons', const <dynamic>[])),
       const <dynamic>[]) as List);
   dynamic fragility = _orElse(
-      pyGet(bundle, 'fragility', pyGet(bundle, 'fragile', <dynamic, dynamic>{})),
+      pyGet(
+          bundle, 'fragility', pyGet(bundle, 'fragile', <dynamic, dynamic>{})),
       <dynamic, dynamic>{});
   if (fragility is! Map) {
     fragility = modelFragility(evidence, ambiguities, uncertainties.length);
@@ -165,11 +169,13 @@ Map<dynamic, dynamic> applyCognitiveHumility(Map<dynamic, dynamic> bundle) {
   final ambPressure = computeAmbiguityPressure(ambiguities);
 
   final contradicted = _orElse(
-      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}), <dynamic, dynamic>{});
+      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{});
   final pairs = contradicted is Map
       ? (pyGet(contradicted, 'pairs', const <dynamic>[]) as List).length
       : 0;
-  final parserBasis = _orElse(pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
+  final parserBasis = _orElse(
+      pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   final parserWeak =
       (_orElse(pyGet(parserBasis, 'symbol_count', 0), 0) as num).toInt() < 1;
@@ -226,7 +232,8 @@ Map<dynamic, dynamic> applyCognitiveHumility(Map<dynamic, dynamic> bundle) {
       pyGet(refusal, 'termination_reasons', const <dynamic>[]);
   bundle['unsupported_regions'] =
       pyGet(refusal, 'unsupported_regions', const <dynamic>[]);
-  bundle['inference_voids'] = pyGet(scope, 'inference_voids', const <dynamic>[]);
+  bundle['inference_voids'] =
+      pyGet(scope, 'inference_voids', const <dynamic>[]);
   bundle['epistemic_limits'] =
       pyGet(scope, 'epistemic_limits', <dynamic, dynamic>{});
   bundle['boundaries'] = <dynamic, dynamic>{
@@ -254,16 +261,17 @@ Map<dynamic, dynamic> applyTruthPreservation(Map<dynamic, dynamic> bundle) {
       ? uncertaintiesRaw.keys.toList()
       : List<dynamic>.from(uncertaintiesRaw as List);
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final contradicted = _orElse(
       pyGet(bundle, 'contradicted',
           pyGet(bundle, 'contradictions', <dynamic, dynamic>{})),
       <dynamic, dynamic>{});
   final unstableRegions = List<dynamic>.from(_orElse(
-          pyGet(bundle, 'unstable_regions', const <dynamic>[]),
-          const <dynamic>[]) as List);
+      pyGet(bundle, 'unstable_regions', const <dynamic>[]),
+      const <dynamic>[]) as List);
   dynamic fragility = _orElse(
       pyGet(bundle, 'fragility',
           pyGet(bundle, 'semantic_fragility', <dynamic, dynamic>{})),
@@ -282,7 +290,8 @@ Map<dynamic, dynamic> applyTruthPreservation(Map<dynamic, dynamic> bundle) {
           as List;
   final reinforcement =
       detectSemanticSelfReinforcement(inferred, reconciled, evidence);
-  final entropy = modelSemanticEntropy(ambiguities, uncertainties, contradicted);
+  final entropy =
+      modelSemanticEntropy(ambiguities, uncertainties, contradicted);
   final evDecay = modelEvidenceDecay(evidence);
   final semDecay = modelSemanticDecay(
       evidence, inferred, pyGet(stabilization, 'count', 0) as int);
@@ -342,14 +351,15 @@ Map<dynamic, dynamic> applyTruthPreservation(Map<dynamic, dynamic> bundle) {
   bundle['semantic_instability'] = semInstability;
   bundle['truth_pressure'] = truthPressure;
   bundle['entropy'] = entropy;
-  bundle['truth_refusals'] = pyGet(refusal, 'truth_refusals', const <dynamic>[]);
+  bundle['truth_refusals'] =
+      pyGet(refusal, 'truth_refusals', const <dynamic>[]);
   bundle['stabilization_failures'] =
       pyGet(refusal, 'stabilization_failures', const <dynamic>[]);
   bundle['truth_boundary_failures'] =
       pyGet(refusal, 'truth_boundary_failures', const <dynamic>[]);
   bundle['termination_reasons'] = (<String>{
-    for (final x in pyGet(bundle, 'termination_reasons', const <dynamic>[])
-        as List)
+    for (final x
+        in pyGet(bundle, 'termination_reasons', const <dynamic>[]) as List)
       x as String,
     for (final x
         in pyGet(refusal, 'termination_reasons', const <dynamic>[]) as List)

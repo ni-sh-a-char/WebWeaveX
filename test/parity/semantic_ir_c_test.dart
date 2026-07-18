@@ -120,24 +120,13 @@ void main() {
     test(
         'speculation collector gathers one record per inferred key; the '
         'reconcile probe is not speculative (inferred=False default)', () {
-      final recs = collectSuppressedSpeculation(<String>[
-        'e1'
-      ], <String, dynamic>{
-        'i1': 1,
-        'i2': 2
-      }, <String, dynamic>{
-        'r': 1
-      });
+      final recs = collectSuppressedSpeculation(<String>['e1'],
+          <String, dynamic>{'i1': 1, 'i2': 2}, <String, dynamic>{'r': 1});
       expect(recs, hasLength(2));
       expect(recs.first['reason'], equals('speculative_infer:i1'));
       // continuity collector HAS a reconcile record (no inferred gate)
-      final cont = collectUnsupportedContinuity(<String>[
-        'e1'
-      ], <String, dynamic>{
-        'i1': 1
-      }, <String, dynamic>{
-        'r': 1
-      });
+      final cont = collectUnsupportedContinuity(<String>['e1'],
+          <String, dynamic>{'i1': 1}, <String, dynamic>{'r': 1});
       expect(cont, hasLength(2));
       expect(cont.last['reason'], equals('continuity:reconcile'));
     });

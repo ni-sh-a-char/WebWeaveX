@@ -41,12 +41,10 @@ Map<String, dynamic> buildRepositorySemanticIr(String? source,
     'execution_flow': reconstructExecutionFlow(parsed),
     'service_interactions':
         inferServiceInteractions(parsed, files ?? const <dynamic>[]),
-    'parser_grounding':
-        pyGet(parsed, 'parser_grounding', <dynamic, dynamic>{}),
+    'parser_grounding': pyGet(parsed, 'parser_grounding', <dynamic, dynamic>{}),
     'evidence': pyGet(
         pyGet(parsed, 'parser_grounding', <dynamic, dynamic>{}) as Map,
-        'deterministic_inputs',
-        const <dynamic>[]),
+        'deterministic_inputs', const <dynamic>[]),
   };
 }
 
@@ -62,8 +60,8 @@ Map<String, dynamic> modelExecutionDependencies(String? source,
   for (final step in pyGet(flow, 'flow', const <dynamic>[]) as List) {
     final callRaw = pyGet(step as Map, 'call', null);
     final call = callRaw is Map ? callRaw : <dynamic, dynamic>{};
-    final cur = _orElse(pyGet(call, 'callee', null),
-        _orElse(pyGet(call, 'caller', null), ''));
+    final cur = _orElse(
+        pyGet(call, 'callee', null), _orElse(pyGet(call, 'caller', null), ''));
     if (pyTruthy(prev) && pyTruthy(cur)) {
       edges.add(<String, dynamic>{
         'from': pyToStr(prev),
@@ -96,8 +94,7 @@ Map<String, dynamic> analyzeRuntimeSemantics(String? source,
     'evidence': pyGet(deps, 'evidence', const <dynamic>[]),
     'deterministic_inputs': pyGet(
         pyGet(parsed, 'parser_grounding', <dynamic, dynamic>{}) as Map,
-        'deterministic_inputs',
-        const <dynamic>[]),
+        'deterministic_inputs', const <dynamic>[]),
   };
 }
 
@@ -109,8 +106,7 @@ Map<String, dynamic> buildServiceRuntimeGraph(String? source,
       pyTruthy(source) ? parseSource(source, path) : <String, dynamic>{};
   final interactions =
       inferServiceInteractions(parsed, files ?? const <dynamic>[]);
-  final inter =
-      pyGet(interactions, 'interactions', const <dynamic>[]) as List;
+  final inter = pyGet(interactions, 'interactions', const <dynamic>[]) as List;
   final fromNodes = <dynamic>{
     for (final i in inter)
       if (pyTruthy(pyGet(i as Map, 'from', null))) pyGet(i, 'from', null)
@@ -214,10 +210,8 @@ Map<String, dynamic> modelRuntimeState(String? source, [String path = '']) {
   final parserBacked = pyTruthy(pyGet(ex, 'parser_backed', null));
   return <String, dynamic>{
     'state': parserBacked ? 'active' : 'unknown',
-    'dependencies': pyGet(
-        pyGet(ex, 'runtime', <dynamic, dynamic>{}) as Map,
-        'dependencies',
-        const <dynamic>[]),
+    'dependencies': pyGet(pyGet(ex, 'runtime', <dynamic, dynamic>{}) as Map,
+        'dependencies', const <dynamic>[]),
     'execution': pyGet(ex, 'execution', <dynamic, dynamic>{}),
     'evidence': pyGet(ex, 'evidence', const <dynamic>[]),
     'transitions': <Map<String, String>>[
@@ -236,13 +230,16 @@ Map<String, dynamic> compileRepositoryIr(
   final deps = _orElse(pyGet(raw, 'runtime_dependencies', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   final flow = _orElse(
-      pyGet(raw, 'execution', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(raw, 'execution', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final services = _orElse(
-      pyGet(raw, 'services', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(raw, 'services', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final deploy = _orElse(
-      pyGet(raw, 'deployment', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final api = _orElse(
-      pyGet(raw, 'api_contracts', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(raw, 'deployment', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final api = _orElse(pyGet(raw, 'api_contracts', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final ir = emptyRepositoryIr();
   ir['dependencies'] = pyGet(deps, 'dependencies', const <dynamic>[]);
   ir['runtimes'] = <Map<String, dynamic>>[
@@ -253,19 +250,14 @@ Map<String, dynamic> compileRepositoryIr(
   ];
   ir['execution_flows'] = pyGet(
       pyGet(flow, 'execution_flow', <dynamic, dynamic>{}) as Map,
-      'flow',
-      const <dynamic>[]);
+      'flow', const <dynamic>[]);
   ir['services'] = pyGet(services, 'nodes', const <dynamic>[]);
-  ir['topology'] = pyGet(
-      pyGet(flow, 'topology', <dynamic, dynamic>{}) as Map,
-      'edges',
-      const <dynamic>[]);
+  ir['topology'] = pyGet(pyGet(flow, 'topology', <dynamic, dynamic>{}) as Map,
+      'edges', const <dynamic>[]);
   ir['deployments'] = pyGet(deploy, 'deployment_artifacts', const <dynamic>[]);
   ir['infra'] = <dynamic>[
-    for (final s in pyGet(
-        pyGet(deploy, 'infra', <dynamic, dynamic>{}) as Map,
-        'signals',
-        const <dynamic>[]) as List)
+    for (final s in pyGet(pyGet(deploy, 'infra', <dynamic, dynamic>{}) as Map,
+        'signals', const <dynamic>[]) as List)
       if (s is Map) pyGet(s, 'file', null)
   ];
   ir['apis'] = pyGet(api, 'contracts', const <dynamic>[]);

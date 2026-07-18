@@ -24,9 +24,9 @@ dynamic _orElse(dynamic v, dynamic fallback) => pyTruthy(v) ? v : fallback;
 /// Private `_depth` helper shared (by copy) across the four civilizational
 /// engines in Python (core.evidence.*: `_depth(bundle)`).
 int _depth(Map<dynamic, dynamic> bundle) {
-  final lineage =
-      _orElse(pyGet(bundle, 'lineage', <dynamic, dynamic>{}), <dynamic, dynamic>{})
-          as Map;
+  final lineage = _orElse(
+          pyGet(bundle, 'lineage', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final stages = pyGet(lineage, 'stages', const <dynamic>[]);
   if (stages is List) return stages.length;
   return (_orElse(pyGet(lineage, 'depth', 0), 0) as num).toInt();
@@ -42,11 +42,13 @@ Map<dynamic, dynamic> applyCognitiveIntegrity(Map<dynamic, dynamic> bundle) {
           pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
       as List);
   final observed = _orElse(
-      pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final contradicted = _orElse(
       pyGet(bundle, 'contradicted', <dynamic, dynamic>{}),
       _orElse(pyGet(bundle, 'contradictions', <dynamic, dynamic>{}),
@@ -54,14 +56,16 @@ Map<dynamic, dynamic> applyCognitiveIntegrity(Map<dynamic, dynamic> bundle) {
   final pairs = contradicted is Map
       ? pyGet(contradicted, 'pairs', const <dynamic>[]) as List
       : const <dynamic>[];
-  final parserBasis = _orElse(pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
+  final parserBasis = _orElse(
+      pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   final parserDensity =
       (_orElse(pyGet(parserBasis, 'symbol_count', 0), 0) as num).toInt();
 
   final fragility =
       modelFragility(evidence, ambiguities, pairs.length, parserDensity);
-  final suppression = suppressUnsupportedInference(evidence, inferred, observed);
+  final suppression =
+      suppressUnsupportedInference(evidence, inferred, observed);
   final overreach = detectSemanticOverreach(evidence, inferred, reconciled);
   final supported = <String, dynamic>{
     'keys': <String>[for (final k in observed.keys) k as String]..sort(),
@@ -95,8 +99,8 @@ Map<dynamic, dynamic> applyCognitiveIntegrity(Map<dynamic, dynamic> bundle) {
           'max_score',
           1.0) as num)
       .toDouble();
-  final score =
-      pythonRound(math.min((pyGet(cb, 'score', 0.5) as num).toDouble(), cap), 3);
+  final score = pythonRound(
+      math.min((pyGet(cb, 'score', 0.5) as num).toDouble(), cap), 3);
   cb = <dynamic, dynamic>{
     ...cb,
     'score': score,
@@ -157,11 +161,13 @@ Map<dynamic, dynamic> applyCognitiveIntegrity(Map<dynamic, dynamic> bundle) {
 Map<dynamic, dynamic> applyFormalSemanticFoundation(
     Map<dynamic, dynamic> bundle) {
   final observed = _orElse(
-      pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final evidence = List<dynamic>.from(
       _orElse(pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
           as List);
@@ -177,7 +183,8 @@ Map<dynamic, dynamic> applyFormalSemanticFoundation(
       : const <dynamic>[];
   final lineage = _orElse(
       pyGet(bundle, 'lineage', <dynamic, dynamic>{}), <dynamic, dynamic>{});
-  final parserBasis = _orElse(pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
+  final parserBasis = _orElse(
+      pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   final parserBacked = pyTruthy(pyGet(parserBasis, 'symbol_count', 0)) ||
       pyTruthy(pyGet(parserBasis, 'flags', null));
@@ -185,7 +192,8 @@ Map<dynamic, dynamic> applyFormalSemanticFoundation(
   final lattice = buildContradictionLattice(pairs);
   final uncertainty = propagateUncertaintyMath(
       evidence.length, ambiguities.length, lattice['count'] as int);
-  final entropy = modelSemanticEntropy(ambiguities,
+  final entropy = modelSemanticEntropy(
+      ambiguities,
       List<dynamic>.from(pyGet(uncertainty, 'factors', ambiguities) as List),
       contradicted);
   final consistency = assessSemanticConsistency(observed, inferred, reconciled);
@@ -210,14 +218,16 @@ Map<dynamic, dynamic> applyFormalSemanticFoundation(
   bundle['semantic_proof'] = proof;
   bundle['deterministic_inputs'] = (<String>{
     for (final x in _orElse(
-            pyGet(bundle, 'deterministic_inputs', const <dynamic>[]),
-            const <dynamic>[]) as List)
+        pyGet(bundle, 'deterministic_inputs', const <dynamic>[]),
+        const <dynamic>[]) as List)
       x as String,
     for (final x
-        in pyGet(uncertainty, 'deterministic_inputs', const <dynamic>[]) as List)
+        in pyGet(uncertainty, 'deterministic_inputs', const <dynamic>[])
+            as List)
       x as String,
-    for (final x in pyGet(justification, 'deterministic_inputs', const <dynamic>[])
-        as List)
+    for (final x
+        in pyGet(justification, 'deterministic_inputs', const <dynamic>[])
+            as List)
       x as String,
     for (final x
         in pyGet(reasoning, 'deterministic_inputs', const <dynamic>[]) as List)
@@ -225,7 +235,8 @@ Map<dynamic, dynamic> applyFormalSemanticFoundation(
     for (final x
         in pyGet(validation, 'deterministic_inputs', const <dynamic>[]) as List)
       x as String,
-    for (final x in pyGet(proof, 'deterministic_inputs', const <dynamic>[]) as List)
+    for (final x
+        in pyGet(proof, 'deterministic_inputs', const <dynamic>[]) as List)
       x as String,
   }.toList()
     ..sort());
@@ -251,11 +262,13 @@ Map<dynamic, dynamic> applyCivilizationalEpistemicOpenness(
       ? uncertaintiesRaw.keys.toList()
       : List<dynamic>.from(uncertaintiesRaw as List);
   final observed = _orElse(
-      pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final contradicted = _orElse(
       pyGet(bundle, 'contradicted',
           pyGet(bundle, 'contradictions', <dynamic, dynamic>{})),
@@ -295,7 +308,8 @@ Map<dynamic, dynamic> applyCivilizationalEpistemicOpenness(
   final ontoDiv = modelOntologyDivergence(entities, depth);
   final explDiv = modelExplanatoryDivergence(alternatives);
 
-  final attractor = detectSemanticAttractor(depth, interpCount, evidence.length);
+  final attractor =
+      detectSemanticAttractor(depth, interpCount, evidence.length);
   final gravity =
       detectCognitiveGravityWell(score > 0.75, interpCount <= 1, depth);
   final stabilization =
@@ -313,8 +327,8 @@ Map<dynamic, dynamic> applyCivilizationalEpistemicOpenness(
   final novPres = preserveRecursiveNovelty(novelty, depth);
   final convPressure = computeRecursiveConvergencePressure(
       depth, semDiv['divergence_score'] as num);
-  final explDecay = resistExplorationDecay(
-      interpCount > 1 || ambiguities.isNotEmpty, depth);
+  final explDecay =
+      resistExplorationDecay(interpCount > 1 || ambiguities.isNotEmpty, depth);
   final novDecay = resistNoveltyDecay(novelty['novelty'] as num, depth);
 
   final antigravSem =
@@ -396,7 +410,8 @@ Map<dynamic, dynamic> applyCognitiveAntiCapture(Map<dynamic, dynamic> bundle) {
       _orElse(pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
           as List);
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final interpretiveRaw = _orElse(
       pyGet(bundle, 'interpretive_diversity', <dynamic, dynamic>{}),
       <dynamic, dynamic>{});
@@ -462,7 +477,8 @@ Map<dynamic, dynamic> applyCognitiveAntiCapture(Map<dynamic, dynamic> bundle) {
   final centralization = detectRecursiveCentralization(
       pyGet(rDecent, 'decentralized', true) as bool, depth);
 
-  final suppressed = pyGet(semMonopoly, 'suppressed', const <dynamic>[]) as List;
+  final suppressed =
+      pyGet(semMonopoly, 'suppressed', const <dynamic>[]) as List;
   final captureResistance = modelCaptureResistance(suppressed);
 
   bundle['cognitive_anti_capture'] = <String, dynamic>{
@@ -494,8 +510,10 @@ Map<dynamic, dynamic> applyCognitiveAntiCapture(Map<dynamic, dynamic> bundle) {
       pyGet(narrativeMonopoly, 'suppress', false);
   bundle['authority_concentration_suppressed'] =
       pyGet(authority, 'suppress', false);
-  bundle['hierarchy_permanence_suppressed'] = pyGet(hierarchy, 'suppress', false);
-  bundle['semantic_governance_suppressed'] = pyGet(governance, 'suppress', false);
+  bundle['hierarchy_permanence_suppressed'] =
+      pyGet(hierarchy, 'suppress', false);
+  bundle['semantic_governance_suppressed'] =
+      pyGet(governance, 'suppress', false);
   bundle['recursive_centralization_suppressed'] =
       pyGet(centralization, 'suppress', false);
   bundle['autonomy_erosion_resisted'] = pyGet(autonomyErosion, 'resist', true);
@@ -518,18 +536,20 @@ Map<dynamic, dynamic> applyEpistemicCivilizationStability(
           pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
       as List);
   final observed = _orElse(
-      pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final contradicted = _orElse(
       pyGet(bundle, 'contradicted',
           pyGet(bundle, 'contradictions', <dynamic, dynamic>{})),
       <dynamic, dynamic>{});
   final unstable = List<dynamic>.from(_orElse(
-          pyGet(bundle, 'unstable_regions', const <dynamic>[]),
-          const <dynamic>[]) as List);
+      pyGet(bundle, 'unstable_regions', const <dynamic>[]),
+      const <dynamic>[]) as List);
   final depth = _depth(bundle);
 
   final plurality =
@@ -567,7 +587,8 @@ Map<dynamic, dynamic> applyEpistemicCivilizationStability(
   final authority = diffuseAuthority(interpretations);
   final distribution = distributeInterpretations(interpretations);
 
-  final suppressed = pyGet(monoculture, 'suppressed', const <dynamic>[]) as List;
+  final suppressed =
+      pyGet(monoculture, 'suppressed', const <dynamic>[]) as List;
 
   bundle['epistemic_openness'] = openness;
   bundle['semantic_plurality'] = plurality;
@@ -578,7 +599,8 @@ Map<dynamic, dynamic> applyEpistemicCivilizationStability(
   bundle['explanatory_diversity'] = explanatory;
   bundle['semantic_monoculture_suppressed'] = suppressed;
   bundle['ontology_hardening_suppressed'] = pyGet(hardening, 'suppress', false);
-  bundle['recursive_consensus_suppressed'] = pyGet(consensus, 'suppress', false);
+  bundle['recursive_consensus_suppressed'] =
+      pyGet(consensus, 'suppress', false);
   bundle['semantic_orthodoxy_suppressed'] = pyGet(orthodoxy, 'suppress', false);
   bundle['interpretive_closure_suppressed'] = pyGet(closure, 'suppress', false);
   bundle['semantic_diversity'] = diversity;
@@ -610,9 +632,10 @@ Map<dynamic, dynamic> applyRecursiveEpistemicSovereignty(
       _orElse(pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
           as List);
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final interpretiveRaw = _orElse(
       pyGet(bundle, 'interpretive_diversity', <dynamic, dynamic>{}),
       <dynamic, dynamic>{});
@@ -668,8 +691,8 @@ Map<dynamic, dynamic> applyRecursiveEpistemicSovereignty(
       pyGet(domestication, 'suppress', false) as bool);
   final nondomInterp = resistInterpretiveDomestication(
       pyGet(domestication, 'suppress', false) as bool);
-  final nondomOnto = resistOntologyDomestication(
-      pyGet(submission, 'suppress', false) as bool);
+  final nondomOnto =
+      resistOntologyDomestication(pyGet(submission, 'suppress', false) as bool);
   final nondomExpl = resistExplanatoryDomestication(
       pyGet(bundle, 'narrative_monopoly_suppressed', false) as bool);
 
@@ -691,7 +714,8 @@ Map<dynamic, dynamic> applyRecursiveEpistemicSovereignty(
   bundle['cognitive_sovereignty'] = sovereignty;
   bundle['recursive_dependency_suppressed'] =
       pyGet(dependency, 'suppressed', const <dynamic>[]);
-  bundle['recursive_obedience_suppressed'] = pyGet(obedience, 'suppress', false);
+  bundle['recursive_obedience_suppressed'] =
+      pyGet(obedience, 'suppress', false);
   bundle['recursive_submission_suppressed'] =
       pyGet(submission, 'suppress', false);
   bundle['recursive_domestication_suppressed'] =

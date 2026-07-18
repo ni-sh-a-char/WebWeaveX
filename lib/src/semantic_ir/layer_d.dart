@@ -18,7 +18,8 @@ import 'evidence_leaves.dart';
 import 'evidence_leaves_2.dart';
 import 'evidence_leaves_3.dart'
     show detectSpeculativeCoherence, preserveEpistemicBoundaries;
-import 'evidence_leaves_4.dart' show detectSemanticDrift, modelSemanticStability;
+import 'evidence_leaves_4.dart'
+    show detectSemanticDrift, modelSemanticStability;
 import 'pressure_engines.dart'
     show computeEvidenceBoundaryPressure, computeSemanticBoundaryPressure;
 import 'py_compat.dart';
@@ -44,12 +45,13 @@ Map<String, dynamic> modelConceptTransitions(String text) {
 /// Port of core.evidence.semantic_speculation_engine.detect_semantic_speculation.
 Map<String, dynamic> detectSemanticSpeculation(List<dynamic> evidence,
     Map<dynamic, dynamic> inferred, Map<dynamic, dynamic> reconciled) {
-  final suppressed = collectSuppressedSpeculation(evidence, inferred, reconciled);
+  final suppressed =
+      collectSuppressedSpeculation(evidence, inferred, reconciled);
   return <String, dynamic>{
     'speculative': suppressed.isNotEmpty,
     'suppressed_speculation': suppressed,
-    'density': pythonRound(
-        suppressed.length / math.max(1, inferred.length + 1), 3),
+    'density':
+        pythonRound(suppressed.length / math.max(1, inferred.length + 1), 3),
   };
 }
 
@@ -127,14 +129,16 @@ Map<dynamic, dynamic> applyRealityAlignment(Map<dynamic, dynamic> bundle) {
       ? uncertaintiesRaw.keys.toList()
       : List<dynamic>.from(uncertaintiesRaw as List);
   final observed = _orElse(
-      pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final noninferable = List<dynamic>.from(_orElse(
-          pyGet(bundle, 'noninferable_regions', const <dynamic>[]),
-          const <dynamic>[]) as List);
+      pyGet(bundle, 'noninferable_regions', const <dynamic>[]),
+      const <dynamic>[]) as List);
   dynamic fragility = _orElse(
       pyGet(bundle, 'fragility',
           pyGet(bundle, 'semantic_fragility', <dynamic, dynamic>{})),
@@ -146,7 +150,8 @@ Map<dynamic, dynamic> applyRealityAlignment(Map<dynamic, dynamic> bundle) {
     };
   }
 
-  final parserBasis = _orElse(pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
+  final parserBasis = _orElse(
+      pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   final parserGrounded =
       (_orElse(pyGet(parserBasis, 'symbol_count', 0), 0) as num).toInt() > 0 ||
@@ -173,7 +178,8 @@ Map<dynamic, dynamic> applyRealityAlignment(Map<dynamic, dynamic> bundle) {
       evidence, parserGrounded, drift['drift_pressure'] as num);
   final epistemicBound = preserveEpistemicBoundaries(
       evidence, noninferable, stability['unstable_regions'] as List);
-  final stabBound = modelStabilityBoundary(stability['unstable_regions'] as List);
+  final stabBound =
+      modelStabilityBoundary(stability['unstable_regions'] as List);
   // Python computes ev_pressure but never uses it; the call is pure.
   computeEvidenceBoundaryPressure(evidence.length);
   final boundPressure = computeSemanticBoundaryPressure(
@@ -181,7 +187,8 @@ Map<dynamic, dynamic> applyRealityAlignment(Map<dynamic, dynamic> bundle) {
       drift['drift_pressure'] as num);
 
   final contradicted = _orElse(
-      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}), <dynamic, dynamic>{});
+      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{});
   final pairs = contradicted is Map
       ? (pyGet(contradicted, 'pairs', const <dynamic>[]) as List).length
       : 0;
@@ -235,8 +242,8 @@ Map<dynamic, dynamic> applyRealityAlignment(Map<dynamic, dynamic> bundle) {
     'topology': topologyLimits(topoBound),
   };
   bundle['termination_reasons'] = (<String>{
-    for (final x in pyGet(bundle, 'termination_reasons', const <dynamic>[])
-        as List)
+    for (final x
+        in pyGet(bundle, 'termination_reasons', const <dynamic>[]) as List)
       x as String,
     for (final x
         in pyGet(continuityRefusal, 'termination_reasons', const <dynamic>[])

@@ -85,8 +85,7 @@ void main() {
 
   group('semantic-IR Phase A.2 — leaf engines (Python ≡ JS ≡ Dart)', () {
     final vectors = (jsonDecode(
-      File('validation/parity/semantic_ir_a2_vectors.json')
-          .readAsStringSync(),
+      File('validation/parity/semantic_ir_a2_vectors.json').readAsStringSync(),
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();

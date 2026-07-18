@@ -62,8 +62,7 @@ Map<String, dynamic> resolveSymbols(Map<dynamic, dynamic> astIr) {
       'bases': pyGet(cls, 'bases', <dynamic>[]),
     });
   }
-  final sortedSymbols =
-      pyStableSortedBy(symbols, (s) => s['symbol'] as String);
+  final sortedSymbols = pyStableSortedBy(symbols, (s) => s['symbol'] as String);
   return <String, dynamic>{
     'symbols': sortedSymbols,
     'symbol_count': symbols.length,

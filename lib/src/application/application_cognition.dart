@@ -15,8 +15,7 @@ const int _maxWidgets = 1000;
 
 String _cap(String s, int n) => s.length > n ? s.substring(0, n) : s;
 
-List<T> _capList<T>(List<T> xs, int n) =>
-    xs.length > n ? xs.sublist(0, n) : xs;
+List<T> _capList<T>(List<T> xs, int n) => xs.length > n ? xs.sublist(0, n) : xs;
 
 String _attr(SoupTag tag, String key, [String dflt = '']) {
   final v = tag.attrs.containsKey(key) ? tag.attrs[key] : dflt;
@@ -97,8 +96,7 @@ Map<String, dynamic> extractUiSemantics(String? html) {
     final name = _attr(node, 'name');
     if (const {'search', 'text'}.contains(nodeType) &&
         name.toLowerCase().contains('search')) {
-      semantics['search_bars']!
-          .add(<String, dynamic>{'name': _cap(name, 200)});
+      semantics['search_bars']!.add(<String, dynamic>{'name': _cap(name, 200)});
     } else if (const {'select', 'checkbox', 'radio'}.contains(nodeType)) {
       semantics['filters']!.add(<String, dynamic>{
         'type': nodeType,
@@ -109,8 +107,7 @@ Map<String, dynamic> extractUiSemantics(String? html) {
   for (final _ in _capList(soup.findAll('aside'), _maxItems)) {
     semantics['sidebars']!.add(<String, dynamic>{'tag': 'aside'});
   }
-  for (final tab
-      in _capList(_findAllByAttr(soup, 'role', 'tab'), _maxItems)) {
+  for (final tab in _capList(_findAllByAttr(soup, 'role', 'tab'), _maxItems)) {
     semantics['tabs']!.add(<String, dynamic>{
       'label': _cap(tab.getText(strip: true), 200),
     });
@@ -126,8 +123,7 @@ Map<String, dynamic> buildFormRuntime(String? html) {
 
   for (final form in _capList(soup.findAll('form'), _maxForms)) {
     final inputs = <Map<String, dynamic>>[
-      for (final field
-          in form.findAll(const ['input', 'select', 'textarea']))
+      for (final field in form.findAll(const ['input', 'select', 'textarea']))
         <String, dynamic>{
           'name': _cap(_attr(field, 'name'), 200),
           'type': _cap(
@@ -165,8 +161,8 @@ Map<String, dynamic> buildDashboardRuntime(String? html) {
   final soup = Soup(html ?? '');
   final widgetRe = RegExp(r'widget|card|metric|kpi', caseSensitive: false);
   final widgets = <Map<String, dynamic>>[
-    for (final node in _capList(
-        _findAllByClass(soup, widgetRe.hasMatch), _maxWidgets))
+    for (final node
+        in _capList(_findAllByClass(soup, widgetRe.hasMatch), _maxWidgets))
       <String, dynamic>{
         'text': _cap(node.getText(strip: true), 500),
         'tag': node.name,
@@ -237,8 +233,7 @@ Map<String, dynamic> buildNavigationSemantics(String? html, String route,
       <String, dynamic>{'label': _cap(tab.getText(strip: true), 200)}
   ];
   return <String, dynamic>{
-    'menus':
-        pyStableSortedBy(menus, (m) => pyToStr(pyGet(m, 'href', ''))),
+    'menus': pyStableSortedBy(menus, (m) => pyToStr(pyGet(m, 'href', ''))),
     'breadcrumbs': breadcrumbs,
     'routes': routes,
     'spa_transitions': routes.length > 1,
@@ -259,8 +254,7 @@ Map<String, dynamic> buildApplicationState(String route,
     'route': _cap(route, 2000),
     'forms': _capList(List<dynamic>.from(forms ?? const <dynamic>[]), 500),
     'modals': _capList(List<dynamic>.from(modals ?? const <dynamic>[]), 200),
-    'widgets':
-        _capList(List<dynamic>.from(widgets ?? const <dynamic>[]), 1000),
+    'widgets': _capList(List<dynamic>.from(widgets ?? const <dynamic>[]), 1000),
     'tabs': _capList(List<dynamic>.from(tabs ?? const <dynamic>[]), 100),
     'authenticated': authenticated,
     'runtime_state':
@@ -291,8 +285,8 @@ Map<String, dynamic> buildActionGraph(List<dynamic> interactions) {
   final bounded = _capList(interactions, 10000);
   for (var index = 0; index < bounded.length; index++) {
     final action = bounded[index] as Map;
-    final actionType = pyToStr(
-        pyGet(action, 'action', pyGet(action, 'type', 'action')));
+    final actionType =
+        pyToStr(pyGet(action, 'action', pyGet(action, 'type', 'action')));
     final selector = pyToStr(pyGet(action, 'selector', ''));
     final nodeId = 'action_$index';
     nodes.add(<String, dynamic>{
@@ -312,8 +306,8 @@ Map<String, dynamic> buildActionGraph(List<dynamic> interactions) {
 }
 
 /// Port of core.application.workflow_graph_engine.build_workflow_graph.
-Map<String, dynamic> buildWorkflowGraph(List<dynamic> states,
-    List<dynamic> transitions, List<dynamic> actions) {
+Map<String, dynamic> buildWorkflowGraph(
+    List<dynamic> states, List<dynamic> transitions, List<dynamic> actions) {
   final nodes = <Map<String, dynamic>>[];
   final boundedStates = _capList(states, 5000);
   for (var index = 0; index < boundedStates.length; index++) {
@@ -407,8 +401,8 @@ Map<String, dynamic> recoverApplicationRuntime(
 
 /// Port of core.application.application_context_engine
 /// .build_application_context.
-Map<String, dynamic> buildApplicationContext(
-        String url, Map<dynamic, dynamic> state, Map<dynamic, dynamic> identity) =>
+Map<String, dynamic> buildApplicationContext(String url,
+        Map<dynamic, dynamic> state, Map<dynamic, dynamic> identity) =>
     <String, dynamic>{
       'url': url,
       'route': pyGet(state, 'route', url),
@@ -429,8 +423,8 @@ Map<dynamic, dynamic> rememberApplicationRuntime(
     'navigation_flows',
     'dashboard_structures',
   ]) {
-    merged.putIfAbsent(
-        key, () => pyGet(update, key, pyGet(merged, key, <dynamic, dynamic>{})));
+    merged.putIfAbsent(key,
+        () => pyGet(update, key, pyGet(merged, key, <dynamic, dynamic>{})));
   }
   merged.addAll(update);
   merged['bounded'] = true;
@@ -477,12 +471,10 @@ Map<String, dynamic> runApplicationCognition(String url, String html,
 
   final intent = resolveApplicationIntent(objective);
   final execution = executeRuntimeObjective(
-      objective,
-      workflow,
-      actionGraph,
-      Map<String, dynamic>.from(navigation),
-      adaptiveRuntime:
-          adaptiveRuntime == null ? null : Map<String, dynamic>.from(adaptiveRuntime));
+      objective, workflow, actionGraph, Map<String, dynamic>.from(navigation),
+      adaptiveRuntime: adaptiveRuntime == null
+          ? null
+          : Map<String, dynamic>.from(adaptiveRuntime));
 
   final recovery = recoverApplicationRuntime(html, state);
   final context = buildApplicationContext(url, state, ident);

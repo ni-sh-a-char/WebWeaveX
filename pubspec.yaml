@@ -4,7 +4,7 @@ description: >
   Deterministic web extraction, runtime replay, browser reconstruction,
   and cross-language Kaalka parity for AI agents and applications.
 
-version: 2.1.0
+version: 3.0.0
 
 homepage: https://github.com/ni-sh-a-char/WebWeaveX/tree/dart
 repository: https://github.com/ni-sh-a-char/WebWeaveX

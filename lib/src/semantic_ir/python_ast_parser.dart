@@ -151,8 +151,8 @@ Map<String, dynamic> parsePythonAst(String code) {
           if (s.trim().split(RegExp(r'\s+as\s+'))[0].trim().isNotEmpty)
             s.trim().split(RegExp(r'\s+as\s+'))[0].trim()
       ];
-      stmts.add(_ScannedStmt('ImportFrom', depth, lineno,
-          lines[idx].endLineno, <String, dynamic>{
+      stmts.add(_ScannedStmt(
+          'ImportFrom', depth, lineno, lines[idx].endLineno, <String, dynamic>{
         'module': m.group(1),
         'names': names,
       }));
@@ -168,14 +168,23 @@ Map<String, dynamic> parsePythonAst(String code) {
     if (m != null) {
       final args = <String>[
         for (final s in m.group(2)!.split(','))
-          if (s.trim().split(RegExp(r'[:=]'))[0].trim().replaceFirst(
-                      RegExp(r'^\*+'), '') !=
+          if (s
+                      .trim()
+                      .split(RegExp(r'[:=]'))[0]
+                      .trim()
+                      .replaceFirst(RegExp(r'^\*+'), '') !=
                   '' &&
-              s.trim().split(RegExp(r'[:=]'))[0].trim().replaceFirst(
-                      RegExp(r'^\*+'), '') !=
+              s
+                      .trim()
+                      .split(RegExp(r'[:=]'))[0]
+                      .trim()
+                      .replaceFirst(RegExp(r'^\*+'), '') !=
                   '/')
-            s.trim().split(RegExp(r'[:=]'))[0].trim().replaceFirst(
-                RegExp(r'^\*+'), '')
+            s
+                .trim()
+                .split(RegExp(r'[:=]'))[0]
+                .trim()
+                .replaceFirst(RegExp(r'^\*+'), '')
       ];
       stmts.add(_ScannedStmt('FunctionDef', depth, lineno,
           _blockEnd(lines, idx), <String, dynamic>{

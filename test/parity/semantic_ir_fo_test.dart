@@ -72,8 +72,7 @@ void main() {
     });
 
     test('tutorial flow falls back to sorted numbered-list steps', () {
-      final flow =
-          extractTutorialFlow('intro\n1. zebra step\n2. alpha step\n');
+      final flow = extractTutorialFlow('intro\n1. zebra step\n2. alpha step\n');
       final cb = flow['confidence_basis'] as Map;
       expect(cb['flow_evidence'], equals('numbered_list_fallback'));
       expect((flow['observed'] as Map)['steps'],

@@ -178,7 +178,8 @@ RegExp pyMultiLineRegExp(String pattern, {bool caseSensitive = true}) {
   return RegExp(buf.toString(), caseSensitive: caseSensitive);
 }
 
-List<T> pyStableSortedBy<T>(List<T> items, Comparable<dynamic> Function(T) key) {
+List<T> pyStableSortedBy<T>(
+    List<T> items, Comparable<dynamic> Function(T) key) {
   final indices = List<int>.generate(items.length, (i) => i);
   indices.sort((a, b) {
     final c = key(items[a]).compareTo(key(items[b]));

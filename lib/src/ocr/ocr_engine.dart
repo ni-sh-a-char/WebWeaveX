@@ -83,8 +83,10 @@ List<int>? _imageSize(List<int> bytes) {
       bytes[13] == 0x48 &&
       bytes[14] == 0x44 &&
       bytes[15] == 0x52) {
-    final int width = (bytes[16] << 24) | (bytes[17] << 16) | (bytes[18] << 8) | bytes[19];
-    final int height = (bytes[20] << 24) | (bytes[21] << 16) | (bytes[22] << 8) | bytes[23];
+    final int width =
+        (bytes[16] << 24) | (bytes[17] << 16) | (bytes[18] << 8) | bytes[19];
+    final int height =
+        (bytes[20] << 24) | (bytes[21] << 16) | (bytes[22] << 8) | bytes[23];
     return <int>[width, height];
   }
 
@@ -224,7 +226,8 @@ Map<String, dynamic> extractOcr(String path) {
     return <String, dynamic>{
       'available': false,
       'regions': <Map<String, dynamic>>[],
-      'reason': pyTruncate('cannot identify image file ${_pyRepr(_realPath(path))}', 200),
+      'reason': pyTruncate(
+          'cannot identify image file ${_pyRepr(_realPath(path))}', 200),
       'bounded': true,
     };
   }
@@ -278,7 +281,8 @@ Map<String, dynamic> extractOcrText(String path) {
   if (size == null) {
     return <String, dynamic>{
       'available': false,
-      'reason': pyTruncate('cannot identify image file ${_pyRepr(_realPath(path))}', 200),
+      'reason': pyTruncate(
+          'cannot identify image file ${_pyRepr(_realPath(path))}', 200),
       'bounded': true,
     };
   }

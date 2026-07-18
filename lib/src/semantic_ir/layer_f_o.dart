@@ -61,9 +61,9 @@ Map<String, dynamic> modelConceptProgression(String text) {
 
 /// Private `_lineage_depth` of the recursive-reality-integrity engine.
 int _lineageDepth(Map<dynamic, dynamic> bundle) {
-  final lineage =
-      _orElse(pyGet(bundle, 'lineage', <dynamic, dynamic>{}), <dynamic, dynamic>{})
-          as Map;
+  final lineage = _orElse(
+          pyGet(bundle, 'lineage', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
   final stages = pyGet(lineage, 'stages', const <dynamic>[]);
   if (stages is List && stages.isNotEmpty) return stages.length;
   return (_orElse(pyGet(lineage, 'depth', 0), 0) as num).toInt();
@@ -88,9 +88,10 @@ Map<dynamic, dynamic> applyRecursiveRealityIntegrity(
       ? uncertaintiesRaw.keys.toList()
       : List<dynamic>.from(uncertaintiesRaw as List);
   final inferred = _orElse(
-      pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
-  final reconciled = _orElse(
-      pyGet(bundle, 'reconciled', <dynamic, dynamic>{}), <dynamic, dynamic>{}) as Map;
+          pyGet(bundle, 'inferred', <dynamic, dynamic>{}), <dynamic, dynamic>{})
+      as Map;
+  final reconciled = _orElse(pyGet(bundle, 'reconciled', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{}) as Map;
   final contradicted = _orElse(
       pyGet(bundle, 'contradicted',
           pyGet(bundle, 'contradictions', <dynamic, dynamic>{})),
@@ -151,7 +152,8 @@ Map<dynamic, dynamic> applyRecursiveRealityIntegrity(
   final cb = _orElse(pyGet(bundle, 'confidence_basis', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   num rawScore = (pyGet(cb, 'score', 0.5) as num).toDouble();
-  final echo = detectRecursiveConfidenceEcho(rawScore, depth, const <dynamic>[]);
+  final echo =
+      detectRecursiveConfidenceEcho(rawScore, depth, const <dynamic>[]);
   if (pyTruthy(pyGet(echo, 'suppress', null))) {
     rawScore = echo['decay_to'] as num;
   }
@@ -160,7 +162,8 @@ Map<dynamic, dynamic> applyRecursiveRealityIntegrity(
       rawScore,
       fragility,
       depth,
-      pyTruthy(pyGet(closure, 'closure_detected', null)) && suppressed.isNotEmpty
+      pyTruthy(pyGet(closure, 'closure_detected', null)) &&
+              suppressed.isNotEmpty
           ? suppressed.length
           : 0,
       drift['drift_pressure'] as num,
@@ -202,13 +205,13 @@ Map<dynamic, dynamic> applyRecursiveRealityIntegrity(
     'topology': recursiveTopologyLimits(depth),
   };
   bundle['recursive_termination_reasons'] = (<String>{
-    for (final x in pyGet(
-            bundle, 'recursive_termination_reasons', const <dynamic>[])
-        as List)
+    for (final x
+        in pyGet(bundle, 'recursive_termination_reasons', const <dynamic>[])
+            as List)
       x as String,
-    for (final x in pyGet(
-            refusal, 'recursive_termination_reasons', const <dynamic>[])
-        as List)
+    for (final x
+        in pyGet(refusal, 'recursive_termination_reasons', const <dynamic>[])
+            as List)
       x as String,
   }.toList()
     ..sort());
@@ -232,14 +235,16 @@ Map<dynamic, dynamic> attachEpistemicState(Map<dynamic, dynamic> bundle) {
           pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
       as List);
   final contradicted = _orElse(
-      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}), <dynamic, dynamic>{});
+      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{});
   final pairs = contradicted is Map
       ? pyGet(contradicted, 'pairs', const <dynamic>[]) as List
       : const <dynamic>[];
   final contradicting = <String>[
     for (final p in pairs) 'contradiction:${pyToStr(p)}'
   ];
-  final parserBasis = _orElse(pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
+  final parserBasis = _orElse(
+      pyGet(bundle, 'parser_basis', <dynamic, dynamic>{}),
       <dynamic, dynamic>{}) as Map;
   final parserDensity =
       (_orElse(pyGet(parserBasis, 'symbol_count', 0), 0) as num).toInt();
@@ -333,13 +338,11 @@ Map<dynamic, dynamic> buildSemanticIntegrityObject(
   final explain = buildExplainability(parserPayload, confidence, prov);
 
   final evidenceList = pyGet(prov, 'evidence', const <dynamic>[]);
-  final traceability = buildTraceability(
-      evidenceList as List,
-      lineage,
-      <dynamic>[
-        for (final s in lineageStages ?? const <dynamic>[])
-          if (s is Map) pyGet(s, 'stage', '')
-      ]);
+  final traceability =
+      buildTraceability(evidenceList as List, lineage, <dynamic>[
+    for (final s in lineageStages ?? const <dynamic>[])
+      if (s is Map) pyGet(s, 'stage', '')
+  ]);
   final out = <dynamic, dynamic>{
     'observed': obs,
     'parsed': pf,
@@ -371,14 +374,15 @@ Map<dynamic, dynamic> buildSemanticIntegrityObject(
 /// Port of core.semantic.semantic_uncertainty_engine.apply_semantic_uncertainty.
 /// Mutates and returns `bundle`.
 Map<dynamic, dynamic> applySemanticUncertainty(Map<dynamic, dynamic> bundle) {
-  final evidence = _orElse(
-          pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
-      as List;
+  final evidence =
+      _orElse(pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
+          as List;
   final ambiguities = _orElse(
           pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
       as List;
   final contradicted = _orElse(
-      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}), <dynamic, dynamic>{});
+      pyGet(bundle, 'contradicted', <dynamic, dynamic>{}),
+      <dynamic, dynamic>{});
   final pairs = contradicted is Map
       ? pyGet(contradicted, 'pairs', const <dynamic>[]) as List
       : const <dynamic>[];
@@ -395,13 +399,9 @@ Map<dynamic, dynamic> applySemanticUncertainty(Map<dynamic, dynamic> bundle) {
 }
 
 /// Port of core.evidence.grounding_engine.structure_cognition.
-Map<dynamic, dynamic> structureCognition(
-    Map<dynamic, dynamic> observed,
-    Map<dynamic, dynamic> inferred,
-    Map<dynamic, dynamic> reconciled,
-    [dynamic parsed,
-    dynamic contradicted,
-    List<dynamic>? ambiguities]) {
+Map<dynamic, dynamic> structureCognition(Map<dynamic, dynamic> observed,
+    Map<dynamic, dynamic> inferred, Map<dynamic, dynamic> reconciled,
+    [dynamic parsed, dynamic contradicted, List<dynamic>? ambiguities]) {
   final derived = <String, dynamic>{'structure': 'cognition_bundle'};
   if (pyTruthy(parsed) && !pyDeepEq(reconciled, observed)) {
     derived['reconciliation_applied'] = true;
@@ -415,8 +415,7 @@ Map<dynamic, dynamic> structureCognition(
     final symRaw = pyGet(parsed as Map, 'symbols', null);
     final sym = symRaw is Map ? symRaw : <dynamic, dynamic>{};
     List<dynamic> bounded(dynamic v, int cap) {
-      final list =
-          List<dynamic>.from(_orElse(v, const <dynamic>[]) as List);
+      final list = List<dynamic>.from(_orElse(v, const <dynamic>[]) as List);
       return list.length > cap ? list.sublist(0, cap) : list;
     }
 
@@ -436,24 +435,23 @@ Map<dynamic, dynamic> structureCognition(
       contradicted ?? <dynamic, dynamic>{},
       derived,
       amb,
-      parsed,
-      <dynamic>[
-        <String, dynamic>{
-          'stage': 'observe',
-          'inputs': <dynamic>[],
-          'outputs': sortedKeys(observed),
-        },
-        <String, dynamic>{
-          'stage': 'infer',
-          'inputs': sortedKeys(observed),
-          'outputs': sortedKeys(inferred),
-        },
-        <String, dynamic>{
-          'stage': 'reconcile',
-          'inputs': sortedKeys(inferred),
-          'outputs': sortedKeys(reconciled),
-        },
-      ]);
+      parsed, <dynamic>[
+    <String, dynamic>{
+      'stage': 'observe',
+      'inputs': <dynamic>[],
+      'outputs': sortedKeys(observed),
+    },
+    <String, dynamic>{
+      'stage': 'infer',
+      'inputs': sortedKeys(observed),
+      'outputs': sortedKeys(inferred),
+    },
+    <String, dynamic>{
+      'stage': 'reconcile',
+      'inputs': sortedKeys(inferred),
+      'outputs': sortedKeys(reconciled),
+    },
+  ]);
   return applySemanticUncertainty(applySemanticConservatism(bundle));
 }
 
@@ -461,13 +459,13 @@ Map<dynamic, dynamic> structureCognition(
 // Phases J–L — tutorial chain
 // ---------------------------------------------------------------------------
 
-final RegExp _numberedItem =
-    pyMultiLineRegExp(r'^\s*\d+\.\s+(.+)$');
+final RegExp _numberedItem = pyMultiLineRegExp(r'^\s*\d+\.\s+(.+)$');
 
 /// Port of core.documents.tutorial_reasoning_engine.extract_tutorial_flow.
 Map<dynamic, dynamic> extractTutorialFlow(String? text) {
-  final hierarchy = pyGet(extractSections(text ?? ''), 'hierarchy',
-      const <dynamic>[]) as List;
+  final hierarchy =
+      pyGet(extractSections(text ?? ''), 'hierarchy', const <dynamic>[])
+          as List;
   var steps = <dynamic>[
     for (final h in hierarchy)
       if (pyTruthy(pyGet(h as Map, 'title', null))) pyGet(h, 'title', '')
@@ -507,10 +505,8 @@ Map<dynamic, dynamic> extractTutorialFlow(String? text) {
 /// .reconstruct_tutorial_dependencies.
 Map<dynamic, dynamic> reconstructTutorialDependencies(String text) {
   final flow = extractTutorialFlow(text);
-  final requires = pyGet(
-      pyGet(flow, 'inferred', <dynamic, dynamic>{}) as Map,
-      'requires_prior',
-      const <dynamic>[]);
+  final requires = pyGet(pyGet(flow, 'inferred', <dynamic, dynamic>{}) as Map,
+      'requires_prior', const <dynamic>[]);
   final steps = pyGet(pyGet(flow, 'reconciled', <dynamic, dynamic>{}) as Map,
       'steps', const <dynamic>[]);
   final observed = <String, dynamic>{'steps': steps};
@@ -595,20 +591,16 @@ Map<String, dynamic> compileDocumentIr(String text) {
   ir['arguments'] = pyGet(arg, 'dependencies', const <dynamic>[]);
   ir['tutorial_steps'] = pyGet(
       pyGet(raw, 'prerequisites', <dynamic, dynamic>{}) as Map,
-      'chain',
-      const <dynamic>[]);
+      'chain', const <dynamic>[]);
   ir['concept_progressions'] = pyGet(
       pyGet(raw, 'progression', <dynamic, dynamic>{}) as Map,
-      'progression',
-      const <dynamic>[]);
+      'progression', const <dynamic>[]);
   ir['instructional_flows'] = pyGet(
       pyGet(raw, 'prerequisites', <dynamic, dynamic>{}) as Map,
-      'prerequisites',
-      const <dynamic>[]);
+      'prerequisites', const <dynamic>[]);
   ir['explanation_chains'] = pyGet(
       pyGet(raw, 'dependency_graph', <dynamic, dynamic>{}) as Map,
-      'edges',
-      const <dynamic>[]);
+      'edges', const <dynamic>[]);
   ir['semantic_graph'] = pyGet(raw, 'dependency_graph', <dynamic, dynamic>{});
   // Python merge_evidence(*parts) is variadic; this call passes ONE part.
   ir['semantic_evidence'] =

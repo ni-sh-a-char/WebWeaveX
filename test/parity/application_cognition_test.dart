@@ -68,19 +68,20 @@ void main() {
       final transitions = (out['workflow'] as Map)['edges'] as List;
       expect(
           transitions.any((e) =>
-              (e as Map)['from'] == '/before' && e['to'] == 'https://x.test/now'),
+              (e as Map)['from'] == '/before' &&
+              e['to'] == 'https://x.test/now'),
           isTrue);
       expect(((out['memory'] as Map)['objectives'] as List).single,
           equals('extract_dashboard'));
     });
 
     test('form recovery injects fallback inputs for empty forms', () {
-      final out = recoverApplicationRuntime(
-          '<form action="/empty"></form>',
+      final out = recoverApplicationRuntime('<form action="/empty"></form>',
           <String, dynamic>{'route': '/r', 'modals': <dynamic>[]});
       final recovered = (out['forms_recovered'] as List).single as Map;
       expect(recovered['recovered'], isTrue);
-      expect((recovered['inputs'] as List).single,
+      expect(
+          (recovered['inputs'] as List).single,
           equals(<String, dynamic>{
             'name': 'fallback',
             'type': 'text',

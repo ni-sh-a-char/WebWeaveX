@@ -40,12 +40,10 @@ void main() {
     'refuse_unsupported_stabilization': refuseUnsupportedStabilization,
   };
 
-  group(
-      'semantic-IR Phase A.3 batch 3 — evidence leaves (Python ≡ JS ≡ Dart)',
+  group('semantic-IR Phase A.3 batch 3 — evidence leaves (Python ≡ JS ≡ Dart)',
       () {
     final vectors = (jsonDecode(
-      File('validation/parity/semantic_ir_a3c_vectors.json')
-          .readAsStringSync(),
+      File('validation/parity/semantic_ir_a3c_vectors.json').readAsStringSync(),
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();
@@ -85,8 +83,7 @@ void main() {
       expect(jsonEncode(r['weight_sum']), equals('0'));
     });
 
-    test('contradiction lattice sorts stringified pairs lexicographically',
-        () {
+    test('contradiction lattice sorts stringified pairs lexicographically', () {
       final r = buildContradictionLattice(<dynamic>[
         ['z', 'y'],
         ['a', 'b'],
@@ -104,13 +101,16 @@ void main() {
     });
 
     test('inference chain stop_at is the pre-sort first element', () {
-      final r = terminateInferenceChain(<dynamic>['r1'], <dynamic>[
+      final r = terminateInferenceChain(<dynamic>[
+        'r1'
+      ], <dynamic>[
         {'reason': 'spec1'},
         <String, dynamic>{},
         'junk',
       ]);
       expect(r['stop_at'], equals('r1'));
-      expect(r['terminated_inferences'], equals(['r1', 'spec1', 'speculative']));
+      expect(
+          r['terminated_inferences'], equals(['r1', 'spec1', 'speculative']));
     });
   });
 }

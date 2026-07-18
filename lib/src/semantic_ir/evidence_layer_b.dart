@@ -49,8 +49,7 @@ Map<String, dynamic> applyConfidenceDegradation(
   final uncPenalty = pythonRound(math.min(0.2, uncertaintyCount * 0.06), 3);
   final parserPenalty = parserWeakness ? 0.1 : 0.0;
   final degraded = pythonRound(
-      math.max(
-          0.0,
+      math.max(0.0,
           (capped['score'] as num) - specPenalty - uncPenalty - parserPenalty),
       3);
   final degradation = <String, dynamic>{
@@ -118,8 +117,7 @@ Map<String, dynamic> scoreEpistemicConfidence(
       }.toList()
         ..sort();
   final ev = sortedSet(evidence ?? const <dynamic>[]);
-  final supportingEvidence =
-      sortedSet(pyTruthy(supporting) ? supporting! : ev);
+  final supportingEvidence = sortedSet(pyTruthy(supporting) ? supporting! : ev);
   final contradictingEvidence = sortedSet(contradicting ?? const <dynamic>[]);
   final factors = sortedSet(uncertaintyFactors ?? const <dynamic>[]);
   final sufficiency = assessEvidenceSufficiency(ev);
@@ -129,8 +127,8 @@ Map<String, dynamic> scoreEpistemicConfidence(
   if (!(sufficiency['sufficient'] as bool)) {
     base = pythonRound(base * 0.4, 3);
   }
-  base = pythonRound(
-      math.max(0.0, base - contradictingEvidence.length * 0.1), 3);
+  base =
+      pythonRound(math.max(0.0, base - contradictingEvidence.length * 0.1), 3);
   base = pythonRound(
       math.min(1.0, base + math.min(0.15, parserDensity * 0.02)), 3);
   return <String, dynamic>{
@@ -146,8 +144,7 @@ Map<String, dynamic> scoreEpistemicConfidence(
     'contradicting_evidence': contradictingEvidence,
     'uncertainty_factors': factors,
     'deterministic_inputs': <String>[
-      ...(pyGet(sufficiency, 'deterministic_inputs', const <dynamic>[])
-              as List)
+      ...(pyGet(sufficiency, 'deterministic_inputs', const <dynamic>[]) as List)
           .cast<String>(),
       'support=${support['support_count']}',
       'contradict=${contradictingEvidence.length}',
@@ -171,9 +168,8 @@ Map<String, dynamic> preserveIncompleteness(Map<dynamic, dynamic> bundle) {
     unknown.addAll(pyGet(bundle, 'ambiguities', const <dynamic>[]) as List);
   }
   final contradictedRaw = pyGet(bundle, 'contradicted', <dynamic, dynamic>{});
-  final contradicted = pyTruthy(contradictedRaw)
-      ? contradictedRaw as Map
-      : <dynamic, dynamic>{};
+  final contradicted =
+      pyTruthy(contradictedRaw) ? contradictedRaw as Map : <dynamic, dynamic>{};
   if (pyTruthy(pyGet(contradicted, 'preserved', null)) ||
       pyTruthy(pyGet(contradicted, 'pairs', null))) {
     unknown.add('unresolved_contradiction');
@@ -244,8 +240,7 @@ Map<String, dynamic> _dependencyRecord(String reason) => <String, dynamic>{
 /// (+ its private `_record`).
 Map<String, dynamic> detectRecursiveDependency(
     int depth, int interpretationCount, int evidenceCount) {
-  final dependent =
-      depth >= 2 && interpretationCount <= 1 && evidenceCount < 2;
+  final dependent = depth >= 2 && interpretationCount <= 1 && evidenceCount < 2;
   return <String, dynamic>{
     'dependent': dependent,
     'suppressed': dependent
@@ -305,8 +300,7 @@ Map<String, dynamic> _attractorRecord(String reason) => <String, dynamic>{
 /// (+ its private `_record`).
 Map<String, dynamic> detectSemanticAttractor(
     int depth, int interpretationCount, int evidenceCount) {
-  final attractor =
-      depth >= 2 && interpretationCount <= 1 && evidenceCount < 2;
+  final attractor = depth >= 2 && interpretationCount <= 1 && evidenceCount < 2;
   return <String, dynamic>{
     'attractor': attractor,
     'suppressed': attractor
@@ -322,10 +316,8 @@ Map<String, dynamic> groundParser(Map<dynamic, dynamic> parsed) {
       pyGet(parsed, 'evidence', <dynamic, dynamic>{}));
   if (flags is! Map) flags = <dynamic, dynamic>{};
   final symbolsRaw = pyGet(parsed, 'symbols', null);
-  final symbols =
-      symbolsRaw is Map ? symbolsRaw : <dynamic, dynamic>{};
-  int lenOr0(dynamic v) =>
-      pyTruthy(v) ? (v as List).length : 0;
+  final symbols = symbolsRaw is Map ? symbolsRaw : <dynamic, dynamic>{};
+  int lenOr0(dynamic v) => pyTruthy(v) ? (v as List).length : 0;
   final grounding = <String, dynamic>{
     'language': pyGet(parsed, 'language', 'text'),
     'symbol_count': lenOr0(pyGet(symbols, 'classes', const <dynamic>[])) +
@@ -378,8 +370,7 @@ Map<String, dynamic> _monopolyRecord(String reason) => <String, dynamic>{
 /// (+ its private `_record`).
 Map<String, dynamic> detectSemanticMonopoly(
     int interpretationCount, int depth, int evidenceCount) {
-  final monopoly =
-      interpretationCount <= 1 && depth >= 2 && evidenceCount < 2;
+  final monopoly = interpretationCount <= 1 && depth >= 2 && evidenceCount < 2;
   return <String, dynamic>{
     'monopoly': monopoly,
     'suppressed': monopoly
@@ -421,9 +412,9 @@ Map<dynamic, dynamic> applyEpistemicRestraint(Map<dynamic, dynamic> bundle) {
   final evidence = List<dynamic>.from(
       orElse(pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
           as List);
-  final ambiguities = List<dynamic>.from(orElse(
-          pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
-      as List);
+  final ambiguities = List<dynamic>.from(
+      orElse(pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
+          as List);
   final observed = orElse(
           pyGet(bundle, 'observed', <dynamic, dynamic>{}), <dynamic, dynamic>{})
       as Map;
@@ -437,7 +428,8 @@ Map<dynamic, dynamic> applyEpistemicRestraint(Map<dynamic, dynamic> bundle) {
       orElse(pyGet(bundle, 'contradictions', <dynamic, dynamic>{}),
           <dynamic, dynamic>{}));
   final fragility = orElse(
-      pyGet(bundle, 'fragility', pyGet(bundle, 'fragile', <dynamic, dynamic>{})),
+      pyGet(
+          bundle, 'fragility', pyGet(bundle, 'fragile', <dynamic, dynamic>{})),
       <dynamic, dynamic>{});
 
   final noninf = modelNoninference(evidence, inferred, observed, reconciled);
@@ -462,8 +454,7 @@ Map<dynamic, dynamic> applyEpistemicRestraint(Map<dynamic, dynamic> bundle) {
   final refusal = refuseInference(
       pyGet(noninf, 'noninferences', const <dynamic>[]) as List,
       evidence.length);
-  final boundaries = modelSemanticBoundaries(
-      inferred,
+  final boundaries = modelSemanticBoundaries(inferred,
       pyGet(noninf['suppression_basis'] as Map, 'allowed', false) as bool);
 
   final suppressPropagation = orElse(
@@ -516,12 +507,12 @@ Map<dynamic, dynamic> applyEpistemicRestraint(Map<dynamic, dynamic> bundle) {
 /// .propagate_uncertainty. Mutates and returns `bundle`.
 Map<dynamic, dynamic> propagateUncertainty(Map<dynamic, dynamic> bundle) {
   dynamic orElse(dynamic v, dynamic fallback) => pyTruthy(v) ? v : fallback;
-  final evidence = orElse(
-          pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
-      as List;
-  final ambiguities = orElse(
-          pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
-      as List;
+  final evidence =
+      orElse(pyGet(bundle, 'evidence', const <dynamic>[]), const <dynamic>[])
+          as List;
+  final ambiguities =
+      orElse(pyGet(bundle, 'ambiguities', const <dynamic>[]), const <dynamic>[])
+          as List;
   final contradicted = orElse(
       pyGet(bundle, 'contradicted', <dynamic, dynamic>{}),
       <dynamic, dynamic>{});
@@ -672,8 +663,7 @@ Map<String, dynamic> detectUnsupportedStabilization(List<dynamic> evidence,
     suppressed.add(_stabilizationRecord('coherence_stabilization', gap));
   }
   if (inferred.length > evidence.length + 1) {
-    suppressed
-        .add(_stabilizationRecord('inference_confirming_inference', gap));
+    suppressed.add(_stabilizationRecord('inference_confirming_inference', gap));
   }
   return <String, dynamic>{
     'stabilization_detected': suppressed.isNotEmpty,

@@ -97,8 +97,8 @@ void main() {
     });
 
     test('speculation density divides by inferred size + 1', () {
-      final r = detectSemanticSpeculation(
-          <String>['e1'], <String, dynamic>{'i1': 1, 'i2': 2}, <String, dynamic>{});
+      final r = detectSemanticSpeculation(<String>['e1'],
+          <String, dynamic>{'i1': 1, 'i2': 2}, <String, dynamic>{});
       // 2 suppressed / max(1, 3) = 0.667
       expect(r['density'], equals(0.667));
       expect(r['speculative'], isTrue);

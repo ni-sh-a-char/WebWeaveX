@@ -55,7 +55,9 @@ Map<String, dynamic> assessEvidenceSufficiency(List<dynamic>? evidence,
 
 /// Port of core.evidence.narrative_hallucination_engine.detect_narrative_hallucination.
 Map<String, dynamic> detectNarrativeHallucination(
-    Map<dynamic, dynamic> inferred, List<dynamic> evidence, bool parserGrounded) {
+    Map<dynamic, dynamic> inferred,
+    List<dynamic> evidence,
+    bool parserGrounded) {
   final hallucinated =
       pyTruthy(inferred) && !parserGrounded && evidence.isEmpty;
   return <String, dynamic>{
@@ -178,8 +180,7 @@ Map<String, dynamic> modelRecursiveNovelty(
 /// Port of core.evidence.recursive_novelty_preservation_engine.preserve_recursive_novelty.
 Map<String, dynamic> preserveRecursiveNovelty(
     Map<dynamic, dynamic> novelty, int depth) {
-  final decayRisk =
-      depth >= 5 && (pyGet(novelty, 'novelty', 0) as num) < 0.15;
+  final decayRisk = depth >= 5 && (pyGet(novelty, 'novelty', 0) as num) < 0.15;
   return <String, dynamic>{
     'preserved': true,
     'decay_risk': decayRisk,
@@ -213,8 +214,8 @@ Map<String, dynamic> modelRecursiveOpennessStability(bool isOpen, int depth) =>
 /// Port of core.evidence.recursive_phase_space_engine.model_recursive_phase_space.
 Map<String, dynamic> modelRecursivePhaseSpace(
     int keyCount, int ambiguityCount, int depth) {
-  final volume = pythonRound(
-      math.min(1.0, keyCount * 0.1 + ambiguityCount * 0.08), 3);
+  final volume =
+      pythonRound(math.min(1.0, keyCount * 0.1 + ambiguityCount * 0.08), 3);
   final reduction = depth >= 4 && keyCount <= 1;
   return <String, dynamic>{
     'volume': volume,
@@ -477,8 +478,8 @@ Map<String, dynamic> modelSemanticDivergence(Map<dynamic, dynamic> observed,
 Map<String, dynamic> modelSemanticDiversity(Map<dynamic, dynamic> observed,
     Map<dynamic, dynamic> inferred, List<dynamic> ambiguities) {
   final score = pythonRound(
-      math.min(1.0,
-          (observed.length + inferred.length + ambiguities.length) * 0.1),
+      math.min(
+          1.0, (observed.length + inferred.length + ambiguities.length) * 0.1),
       3);
   return <String, dynamic>{
     'diversity_score': score,
@@ -596,8 +597,7 @@ Map<String, dynamic> detectSemanticSelfReinforcement(
 }
 
 /// Port of core.evidence.semantic_stability_limit_engine.semantic_stability_limits.
-Map<String, dynamic> semanticStabilityLimits(
-    Map<dynamic, dynamic> stability) {
+Map<String, dynamic> semanticStabilityLimits(Map<dynamic, dynamic> stability) {
   final limits =
       pyGet(stability, 'stability_limits', <dynamic, dynamic>{}) as Map;
   return <String, dynamic>{

@@ -73,8 +73,7 @@ Map<String, dynamic> scoreSemanticConfidence(
   return <String, dynamic>{
     'score': finalScore,
     'basis': <String, dynamic>{
-      'parser_density':
-          evidence.where((e) => e.startsWith('parser:')).length,
+      'parser_density': evidence.where((e) => e.startsWith('parser:')).length,
       'graph_edges': graphEdgeCount,
     },
     'evidence': evidence.toSet().toList()..sort(),
@@ -310,9 +309,9 @@ Map<String, dynamic> assessSemanticHonesty(
 /// Port of core.evidence.semantic_incompleteness_engine.model_incompleteness.
 Map<String, dynamic> modelIncompleteness(Map<dynamic, dynamic> known,
     List<dynamic>? unknown, List<dynamic>? unsupported) {
-  List<String> sortedSet(List<dynamic>? xs) =>
-      <String>{for (final x in (pyTruthy(xs) ? xs! : const <dynamic>[])) x as String}
-          .toList()
+  List<String> sortedSet(List<dynamic>? xs) => <String>{
+        for (final x in (pyTruthy(xs) ? xs! : const <dynamic>[])) x as String
+      }.toList()
         ..sort();
   return <String, dynamic>{
     'known': known,
@@ -324,8 +323,7 @@ Map<String, dynamic> modelIncompleteness(Map<dynamic, dynamic> known,
 }
 
 /// Port of core.evidence.semantic_inference_calculus.infer_from_evidence.
-Map<String, dynamic> inferFromEvidence(
-    dynamic observed, List<dynamic> evidence,
+Map<String, dynamic> inferFromEvidence(dynamic observed, List<dynamic> evidence,
     [int minEvidence = 1]) {
   final ev = <String>{
     for (final e in evidence)
@@ -335,9 +333,7 @@ Map<String, dynamic> inferFromEvidence(
   final allowed = ev.length >= minEvidence;
   final src = pyTruthy(observed) ? observed as Map : const <dynamic, dynamic>{};
   final inferred = allowed
-      ? <String, dynamic>{
-          for (final e in src.entries) e.key as String: e.value
-        }
+      ? <String, dynamic>{for (final e in src.entries) e.key as String: e.value}
       : <String, dynamic>{};
   return <String, dynamic>{
     'inferred': inferred,
@@ -358,8 +354,7 @@ Map<String, dynamic> modelSemanticInstability(List<dynamic> unstableRegions,
   final entropyVal = pyGet(entropy, 'entropy', 0) as num;
   if (entropyVal >= 0.2) regions.add('semantic:entropy_instability');
   // Python: round(int + int, 3) stays int — preserve numeric type.
-  final num rawPressure =
-      entropyVal + (evidence.length < 2 ? 0.3 : 0);
+  final num rawPressure = entropyVal + (evidence.length < 2 ? 0.3 : 0);
   final num truthPressure =
       rawPressure is int ? rawPressure : pythonRound(rawPressure, 3);
   return <String, dynamic>{
@@ -371,8 +366,8 @@ Map<String, dynamic> modelSemanticInstability(List<dynamic> unstableRegions,
 }
 
 /// Port of core.evidence.semantic_justification_engine.build_justification.
-Map<String, dynamic> buildJustification(List<dynamic> evidence,
-    dynamic lineage, Map<dynamic, dynamic> uncertainty, Map<dynamic, dynamic> entropy) {
+Map<String, dynamic> buildJustification(List<dynamic> evidence, dynamic lineage,
+    Map<dynamic, dynamic> uncertainty, Map<dynamic, dynamic> entropy) {
   final stages =
       lineage is Map ? pyGet(lineage, 'stages', <dynamic>[]) : <dynamic>[];
   final steps = <dynamic>[
@@ -526,15 +521,17 @@ Map<String, dynamic> applySemanticSelfLimitation(List<dynamic> evidence,
     'prefer_cannot_determine': true,
     'propagation_allowed': !limited,
     'reconciliation_allowed': evidence.length >= 2,
-    'expansion_allowed':
-        evidence.length >= 2 && !pyTruthy(noninferableRegions),
+    'expansion_allowed': evidence.length >= 2 && !pyTruthy(noninferableRegions),
     'limit_reasons': reasons,
   };
 }
 
 /// Port of core.evidence.semantic_stability_engine.model_semantic_stability.
-Map<String, dynamic> modelSemanticStability(List<dynamic> evidence,
-    num driftPressure, List<dynamic> unsupportedContinuity, bool parserGrounded) {
+Map<String, dynamic> modelSemanticStability(
+    List<dynamic> evidence,
+    num driftPressure,
+    List<dynamic> unsupportedContinuity,
+    bool parserGrounded) {
   final unstable = <String>[];
   if (driftPressure >= 0.2) unstable.add('semantic:drift');
   if (pyTruthy(unsupportedContinuity)) unstable.add('semantic:continuity');
@@ -545,8 +542,7 @@ Map<String, dynamic> modelSemanticStability(List<dynamic> evidence,
     'stable': stable,
     'level': stable ? 'high' : (unstable.length >= 2 ? 'low' : 'medium'),
     'unstable_regions': unstable.toSet().toList()..sort(),
-    'boundary_pressure':
-        pythonRound(math.min(1.0, unstable.length * 0.25), 3),
+    'boundary_pressure': pythonRound(math.min(1.0, unstable.length * 0.25), 3),
     'stability_limits': <String, dynamic>{
       'max_confidence': stable ? 0.85 : 0.5
     },
@@ -575,9 +571,7 @@ Map<String, dynamic> terminateStabilization(
 Map<String, dynamic> modelUncertainty(
     int evidenceCount, int ambiguityCount, int contradictionCount) {
   var uncertainty = pythonRound(
-      math.min(
-          1.0, 0.2 + ambiguityCount * 0.15 + contradictionCount * 0.2),
-      3);
+      math.min(1.0, 0.2 + ambiguityCount * 0.15 + contradictionCount * 0.2), 3);
   if (evidenceCount < 2) {
     uncertainty = pythonRound(math.min(1.0, uncertainty + 0.3), 3);
   }
@@ -600,9 +594,7 @@ Map<String, dynamic> modelUncertainty(
 Map<String, dynamic> exposeUncertaintyVisibility(List<dynamic> uncertainties,
     List<dynamic> ambiguities, num confidenceScore) {
   final pressure = pythonRound(
-      math.min(
-          1.0, uncertainties.length * 0.15 + ambiguities.length * 0.1),
-      3);
+      math.min(1.0, uncertainties.length * 0.15 + ambiguities.length * 0.1), 3);
   return <String, dynamic>{
     'visible': pyTruthy(uncertainties) || pyTruthy(ambiguities),
     'count': uncertainties.length,

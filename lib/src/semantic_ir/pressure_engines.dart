@@ -86,8 +86,10 @@ Map<String, dynamic> computeRecursiveConvergencePressure(
 Map<String, dynamic> computeRecursiveDependencyPressure(
     int depth, int interpretationCount) {
   final pressure = pythonRound(
-      math.min(1.0,
-          math.max(0, depth - 1) * 0.15 + (interpretationCount <= 1 ? 0.2 : 0.0)),
+      math.min(
+          1.0,
+          math.max(0, depth - 1) * 0.15 +
+              (interpretationCount <= 1 ? 0.2 : 0.0)),
       3);
   return <String, dynamic>{
     'pressure': pressure,
@@ -109,8 +111,7 @@ Map<String, dynamic> computeSemanticBoundaryPressure(
 /// Port of core.semantic.truth_boundary_pressure_engine.compute_truth_boundary_pressure.
 Map<String, dynamic> computeTruthBoundaryPressure(
     bool truthBounded, num entropy) {
-  final pressure =
-      pythonRound((truthBounded ? 0.0 : 0.5) + entropy * 0.3, 3);
+  final pressure = pythonRound((truthBounded ? 0.0 : 0.5) + entropy * 0.3, 3);
   return <String, dynamic>{
     'pressure': math.min(1.0, pressure),
     'violation': !truthBounded,

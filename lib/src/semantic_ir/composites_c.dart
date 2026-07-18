@@ -117,8 +117,8 @@ Map<String, dynamic> analyzeDeploymentSemantics(List<dynamic> files) {
   const keywords = <String>['docker', 'k8s', 'helm', 'deploy', 'workflow'];
   final deployFiles = <dynamic>[
     for (final f in files)
-      if (keywords.any(
-          (f as String).replaceAll(r'\', '/').toLowerCase().contains))
+      if (keywords
+          .any((f as String).replaceAll(r'\', '/').toLowerCase().contains))
         f
   ];
   return <String, dynamic>{
