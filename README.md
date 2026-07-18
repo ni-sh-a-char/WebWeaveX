@@ -1,6 +1,6 @@
-<p align="center">
+﻿<p align="center">
   <br/>
-  <img src="https://img.shields.io/badge/WebWeaveX-v2.1.0-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v2.1.0"/>
+  <img src="https://img.shields.io/badge/WebWeaveX-v3.0.0-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v3.0.0"/>
   <br/><br/>
   <strong>Production-grade deterministic runtime cognition infrastructure<br/>for humans and AI agents</strong>
   <br/>
@@ -415,7 +415,7 @@ pip install "webweavex[full]"
 
 ```bash
 python -c "import webweavex; print(webweavex.__version__)"
-# 2.1.0
+# 3.0.0
 ```
 
 ---
@@ -489,7 +489,7 @@ app = run_application_cognition(
 
 WebWeaveX follows [Semantic Versioning](https://semver.org) — **MAJOR.MINOR.PATCH**.
 The version is **synchronized across all three implementations**: PyPI, npm, and
-pub.dev share the same `2.1.0`, so a given version number denotes the same
+pub.dev share the same `3.0.0`, so a given version number denotes the same
 certified deterministic contract in every language. MAJOR marks a breaking change,
 MINOR adds backward-compatible capability, PATCH is a fix. The internal engine
 contract version (`v1_phase_14`) is independent of the package version and changes
@@ -629,7 +629,7 @@ This is **not** full machine cloning or sci-fi simulation—it is **auditable op
 |--------|--------|
 | Tests | **760+ passing** (`pytest -q`) |
 | Scoped coverage | **≥ 90%** (production packages in `pyproject.toml`) |
-| Wheel | `webweavex-2.1.0-py3-none-any.whl` |
+| Wheel | `webweavex-3.0.0-py3-none-any.whl` |
 | Replay | `validate_replay_equivalence` suite |
 | Determinism | Kaalka cross-language + fingerprint tests |
 | Playwright | Browser extraction paths (optional extra) |
