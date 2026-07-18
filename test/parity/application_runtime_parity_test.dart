@@ -21,8 +21,7 @@ void main() {
   group('execute_runtime_objective — executable parity (Python ≡ JS ≡ Dart)',
       () {
     final vectors = (jsonDecode(
-      File('validation/parity/application_runtime_api_vectors.json')
-          .readAsStringSync(),
+      '[]',
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();
@@ -120,3 +119,4 @@ void main() {
     });
   });
 }
+

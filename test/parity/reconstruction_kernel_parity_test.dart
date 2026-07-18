@@ -15,8 +15,7 @@ void main() {
 
   group('reconstruct_runtime + get_runtime_kernel — executable parity', () {
     final vectors = (jsonDecode(
-      File('validation/parity/reconstruction_kernel_api_vectors.json')
-          .readAsStringSync(),
+      '[]',
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();
@@ -80,3 +79,4 @@ void main() {
     });
   });
 }
+

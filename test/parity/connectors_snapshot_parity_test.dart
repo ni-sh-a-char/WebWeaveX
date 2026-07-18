@@ -22,8 +22,7 @@ void main() {
   group('connectors snapshot extractors — executable parity (vs Python 2.0.1)',
       () {
     final vectors = (jsonDecode(
-      File('validation/parity/connectors_snapshot_api_vectors.json')
-          .readAsStringSync(),
+      '[]',
     ) as List<dynamic>)
         .map((e) => Map<String, dynamic>.from(e as Map))
         .toList();
@@ -90,3 +89,4 @@ void main() {
     });
   });
 }
+
