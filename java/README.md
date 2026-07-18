@@ -11,7 +11,7 @@ Python  =  Java  =  JavaScript  =  Dart
 > **Status: foundation slice (in progress).** This branch builds the runtime
 > **foundation-first**. The deterministic + cryptographic bedrock — through which
 > every other subsystem hashes and serializes — is implemented and verified
-> byte-exact against canonical Python 2.1.0. Higher layers (kernel, graph, IR,
+> byte-exact against canonical Python 3.0.0. Higher layers (kernel, graph, IR,
 > query, extraction, vision, …) are tracked in
 > [`JAVA_PARITY_MATRIX.md`](JAVA_PARITY_MATRIX.md) and built in subsequent
 > sessions. No stubs or placeholders are shipped — only implemented, tested code.
@@ -72,7 +72,7 @@ mvn -Prelease verify    # additionally GPG-signs artifacts for Maven Central
   `MessageDigest`, `Base64`) — no third-party library can perturb canonical bytes.
   Jackson is a **test-only** dependency used to load golden vectors.
 
-Coordinates: `io.webweavex:webweavex:2.1.0`.
+Coordinates: `io.webweavex:webweavex:3.0.0`.
 
 ## Regenerating golden vectors
 
@@ -89,3 +89,4 @@ code faithfully mirrored from the canonical runtimes — the JDK-guaranteed
 (a pure modular cipher always round-trips, so the first candidate always
 returns), and float-format safety branches. These are intentionally retained as
 1:1 parity mirrors rather than removed to inflate the metric.
+

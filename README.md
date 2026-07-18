@@ -44,14 +44,14 @@ Python  =  Java  =  JavaScript  =  Dart
 
 | Branch | Ecosystem | Role |
 |--------|-----------|------|
-| `python` | PyPI | **Canonical** reference runtime (2.1.0) |
-| **`java`** (this) | **Maven Central** | **JVM runtime (`io.webweavex:webweavex:2.1.0`)** |
-| `javascript` | npm | JavaScript runtime (2.1.0) |
-| `dart` | pub.dev | Dart runtime (2.1.0) |
+| `python` | PyPI | **Canonical** reference runtime (3.0.0) |
+| **`java`** (this) | **Maven Central** | **JVM runtime (`io.webweavex:webweavex:3.0.0`)** |
+| `javascript` | npm | JavaScript runtime (3.0.0) |
+| `dart` | pub.dev | Dart runtime (3.0.0) |
 
 > **Status: foundation-first build, in progress.** The deterministic + cryptographic
 > bedrock — through which every other subsystem hashes and serializes — is implemented and
-> verified **byte-exact** against canonical Python 2.1.0, together with the kernel, graph,
+> verified **byte-exact** against canonical Python 3.0.0, together with the kernel, graph,
 > IR, query, memory, and reconstruction slices. Higher layers (extraction, semantic,
 > workflows, vision, OCR) are tracked in [`java/JAVA_PARITY_MATRIX.md`](java/JAVA_PARITY_MATRIX.md)
 > and built session by session. **No stubs, placeholders, or TODO implementations are
@@ -175,7 +175,7 @@ Requires **Java 17+** (built and tested on JDK 17 and 21).
 <dependency>
   <groupId>io.webweavex</groupId>
   <artifactId>webweavex</artifactId>
-  <version>2.1.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
@@ -184,14 +184,14 @@ Requires **Java 17+** (built and tested on JDK 17 and 21).
 ```kotlin
 // build.gradle.kts
 dependencies {
-    implementation("io.webweavex:webweavex:2.1.0")
+    implementation("io.webweavex:webweavex:3.0.0")
 }
 ```
 
 ```groovy
 // build.gradle
 dependencies {
-    implementation 'io.webweavex:webweavex:2.1.0'
+    implementation 'io.webweavex:webweavex:3.0.0'
 }
 ```
 
@@ -431,3 +431,4 @@ vulnerabilities per [SECURITY.md](SECURITY.md).
 Apache 2.0 — [LICENSE](LICENSE)
 
 <p align="center"><strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable scraper.</strong></p>
+

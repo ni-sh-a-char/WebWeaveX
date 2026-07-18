@@ -1,9 +1,9 @@
 # Changelog
 
-## [2.1.0] — 2026-06-12 — Synchronized cross-language release
+## [3.0.0] — 2026-06-12 — Synchronized cross-language release
 
 ### Changed
-- Synchronized version **2.1.0** across pub.dev (Dart), PyPI (Python), and npm (JavaScript).
+- Synchronized version **3.0.0** across pub.dev (Dart), PyPI (Python), and npm (JavaScript).
 - Standardized README structure across all three implementations (equivalent sections:
   Core Capabilities, Common Workflows, Supported Platforms, Versioning) and reconciled
   internal test-count metrics with the certified suite (1583 tests).
@@ -228,3 +228,4 @@
 ### Security
 
 - No auth bypass, CAPTCHA defeat, or credential cracking
+

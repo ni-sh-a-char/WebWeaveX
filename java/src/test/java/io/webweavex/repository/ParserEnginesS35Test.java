@@ -18,7 +18,7 @@ import org.junit.jupiter.api.TestFactory;
 /**
  * Session-35 parser-pipeline certification: the remaining pure, non-epistemic parser engines that feed
  * {@code compile_repository_ir}'s observable output — {@code resolveApiSurface}, {@code buildSemanticGraph},
- * {@code requireParserEvidence} — are byte-identical to Python 2.1.0 ({@code parser_vectors_s35.json}).
+ * {@code requireParserEvidence} — are byte-identical to Python 3.0.0 ({@code parser_vectors_s35.json}).
  * The epistemic {@code normalize_parser_output} is discarded downstream (FRONTIER_ANALYSIS) and not ported;
  * {@code parse_ast} composes with the S33 AST foundation later.
  */
@@ -92,3 +92,4 @@ class ParserEnginesS35Test {
         return t;
     }
 }
+

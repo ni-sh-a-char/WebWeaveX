@@ -17,7 +17,7 @@ import org.junit.jupiter.api.TestFactory;
 
 /**
  * Session-36 Repository-IR certification: the entire repository-IR layer + the three public APIs that
- * bottom out at {@code compile_repository_ir} are byte-identical to Python 2.1.0
+ * bottom out at {@code compile_repository_ir} are byte-identical to Python 3.0.0
  * ({@code repository_vectors_s36.json}) on the PORTABLE contract (every language except .py-python).
  * The {@code _python_contract_residual} section is recorded in the oracle for evidence and is NOT
  * asserted here (CPython ast branch — see JAVA_SESSION_36_CERTIFICATION.md).
@@ -179,3 +179,4 @@ class RepositoryIrS36Test {
         return spec;
     }
 }
+

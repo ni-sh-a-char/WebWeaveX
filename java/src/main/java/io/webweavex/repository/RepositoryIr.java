@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * {@code reason_semantically("runtime",…)} via {@code core.reasoning.runtime_reasoning_engine}).
  *
  * <p>Composes the S34/S35 {@link ParserEngines} (text/regex parser path) and the S33
- * {@link SemanticAstIr} (semantic_ast). Certified byte-exact vs Python 2.1.0 on the PORTABLE contract:
+ * {@link SemanticAstIr} (semantic_ast). Certified byte-exact vs Python 3.0.0 on the PORTABLE contract:
  * every language except {@code .py}-suffixed python source. {@code resolve_symbols}/{@code build_call_graph}
  * special-case only {@code language=="python"} (CPython {@code ast.walk}/{@code NodeVisitor}); all other
  * languages take the regex path. The python (.py) contract is the documented residual — see
@@ -637,3 +637,4 @@ public final class RepositoryIr {
         return r;
     }
 }
+

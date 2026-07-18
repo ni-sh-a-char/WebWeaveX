@@ -16,7 +16,7 @@ import org.junit.jupiter.api.TestFactory;
 /**
  * Session-33 AST-subsystem certification: {@link PythonAstEngine#parsePythonAst} and
  * {@link SemanticAstIr#compileSemanticAstIr} (ported from the certified JS scanner) are byte-identical
- * to canonical Python 2.1.0's real {@code ast.walk} summary ({@code ast_vectors_s33.json}) for standard
+ * to canonical Python 3.0.0's real {@code ast.walk} summary ({@code ast_vectors_s33.json}) for standard
  * source. Reusable foundation for the AST cluster (query_semantics / reason_semantically /
  * compile_repository); not itself a public manifest API.
  */
@@ -53,3 +53,4 @@ class AstEngineUnitTest {
         return t;
     }
 }
+

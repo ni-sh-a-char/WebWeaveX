@@ -17,7 +17,7 @@ import org.junit.jupiter.api.TestFactory;
 
 /**
  * Session-34 parser-engine certification: {@link ParserEngines} (text-path regex engines ported from
- * canonical Python {@code core.parsers.*}) is byte-identical to Python 2.1.0
+ * canonical Python {@code core.parsers.*}) is byte-identical to Python 3.0.0
  * ({@code parser_vectors_s34.json}). Reusable foundation of the repository IR / AST cluster.
  */
 class ParserEnginesUnitTest {
@@ -102,3 +102,4 @@ class ParserEnginesUnitTest {
         return t;
     }
 }
+
