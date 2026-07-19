@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.webweavex"
-version = "2.1.0" // synchronized with python/javascript/java/dart
+version = "3.0.0" // synchronized with python/javascript/java/dart
 
 repositories { mavenCentral() }
 
@@ -20,3 +20,4 @@ tasks.test { useJUnitPlatform() }
 publishing {
     publications { create<MavenPublication>("maven") { from(components["java"]) } }
 }
+
