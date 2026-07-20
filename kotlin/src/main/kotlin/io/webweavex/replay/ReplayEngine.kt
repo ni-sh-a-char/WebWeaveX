@@ -6,7 +6,7 @@ data class ReplaySnapshot(
     val state: Map<String, Any>,
     val fingerprint: String,
     val stepIndex: Int,
-    val timestamp: Long = System.currentTimeMillis()
+    val timestamp: Long = io.webweavex.runtime.DeterministicClock.now()
 )
 
 data class ReplayResult(

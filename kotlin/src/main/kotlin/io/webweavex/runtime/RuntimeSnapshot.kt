@@ -7,7 +7,7 @@ data class RuntimeSnapshot(
     val edges: List<Map<String, Any>>,
     val metadata: RuntimeMetadata,
     val fingerprint: String,
-    val timestamp: Long = System.currentTimeMillis()
+    val timestamp: Long = io.webweavex.runtime.DeterministicClock.now()
 ) {
     fun toMap(): Map<String, Any> = mapOf(
         "nodes" to nodes,
