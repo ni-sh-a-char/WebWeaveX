@@ -1,15 +1,33 @@
 package io.webweavex.runtime
 
 /**
- * Deterministic clock abstraction.
- * Provides stable, reproducible timestamps for fingerprinting.
- * No runtime state that changes between executions.
+ * Thread-safe deterministic clock.
+ * Uses an injected clock abstraction with no mutable global state.
+ * Supports Runtime, Replay, and Test configurations.
  */
-object DeterministicClock {
-    private var offset = 0L
+interface ClockProvider {
+    fun now(): Long
+}
 
-    fun now(): Long = 1000000000L + offset
-    fun tick() { offset++ }
-    fun reset() { offset = 0L }
-    fun snapshot(): Long = now()
+class LogicalClock(private val baseTime: Long = 1000000000L, private val increment: Long = 0) : ClockProvider {
+    override fun now(): Long = baseTime + increment
+}
+
+class ReplayClock(private val snapshots: List<Long>) : ClockProvider {
+    private var index = 0
+    override fun now(): Long = if (index < snapshots.size) snapshots[index++] else snapshots.lastOrNull() ?: 0L
+}
+
+class TestClock(private var time: Long = 1000000000L) : ClockProvider {
+    override fun now(): Long = time
+    fun advance(delta: Long) { time += delta }
+    fun set(value: Long) { time = value }
+}
+
+object DeterministicClock {
+    private val provider = java.util.concurrent.atomic.AtomicReference<ClockProvider>(LogicalClock())
+
+    fun now(): Long = provider.get().now()
+    fun setProvider(p: ClockProvider) { provider.set(p) }
+    fun reset() { provider.set(LogicalClock()) }
 }
