@@ -67,24 +67,30 @@ object WorkflowEngine {
     }
     
     private fun topologicalSort(steps: List<WorkflowStep>): List<WorkflowStep> {
-        val adj = steps.associate { it.name to it.dependsOn }
+        val stepMap = steps.associateBy { it.name }
         val inDegree = mutableMapOf<String, Int>()
-        steps.forEach { inDegree[it.name] = 0 }
-        adj.values.flatten().forEach { inDegree[it] = (inDegree[it] ?: 0) + 1 }
+        steps.forEach { inDegree[it.name] = it.dependsOn.size }
         
         val queue = ArrayDeque<String>()
-        steps.forEach { if ((inDegree[it.name] ?: 0) == 0) queue.add(it.name) }
+        steps.forEach { if (it.dependsOn.isEmpty()) queue.add(it.name) }
         
         val order = mutableListOf<String>()
+        val executed = mutableSetOf<String>()
+        
         while (queue.isNotEmpty()) {
             val node = queue.removeFirst()
+            if (node in executed) continue
             order.add(node)
-            for (dep in adj.keys.filter { adj[it]!!.contains(node) }) {
-                inDegree[dep] = inDegree[dep]!! - 1
-                if (inDegree[dep] == 0) queue.add(dep)
-            }
+            executed.add(node)
+            
+            // Find steps that depend on this node
+            steps.filter { it.dependsOn.contains(node) && it.name !in executed }
+                .forEach { step ->
+                    val remaining = step.dependsOn.count { it !in executed }
+                    if (remaining == 0) queue.add(step.name)
+                }
         }
         
-        return order.map { name -> steps.first { it.name == name } }
+        return order.mapNotNull { stepMap[it] }
     }
 }

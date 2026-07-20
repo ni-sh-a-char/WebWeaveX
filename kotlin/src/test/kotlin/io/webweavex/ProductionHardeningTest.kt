@@ -20,7 +20,7 @@ class ProductionHardeningTest {
         val t1 = DeterministicClock.now()
         val t2 = DeterministicClock.now()
         assertEquals(t1, t2)
-        DeterministicClock.tick()
+        DeterministicClock.setProvider(LogicalClock(increment = 1))
         val t3 = DeterministicClock.now()
         assertTrue(t3 > t1)
     }
@@ -68,7 +68,7 @@ class ProductionHardeningTest {
         val state = mapOf("key" to "value")
         val snap = io.webweavex.replay.ReplayEngine.createSnapshot(state, 0)
         val fp1 = snap.fingerprint
-        DeterministicClock.tick()
+        DeterministicClock.setProvider(LogicalClock(increment = 1))
         val snap2 = io.webweavex.replay.ReplayEngine.createSnapshot(state, 1)
         val fp2 = snap2.fingerprint
         assertEquals(fp1, fp2)
