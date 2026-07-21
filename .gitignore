@@ -73,3 +73,8 @@ coverage/
 _pycov/
 .venv/
 lib/
+# Dart artifacts (should not be in Python repo)
+pubspec.lock
+native.enc
+cache_store/
+.dart_tool/
