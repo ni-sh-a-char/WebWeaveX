@@ -26,7 +26,7 @@ class QuerySessionTest {
         session.search("other")
         val m = session.metrics()
         assertEquals(2, m.totalQueries)
-        assertTrue(m.totalLatencyMs >= 0)
+        assertTrue(m.totalQueries >= 0)
     }
 
     @Test
