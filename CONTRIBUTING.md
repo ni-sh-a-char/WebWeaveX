@@ -1,45 +1,66 @@
-# Contributing to WebWeaveX
+# Contributing to WebWeaveX Kotlin SDK
 
-Thank you for helping improve deterministic runtime extraction infrastructure.
+Thank you for your interest in contributing to WebWeaveX!
 
-## Setup
-
-```bash
-git clone https://github.com/PIYUSH-MISHRA-00/webweavex.git
-cd webweavex
-pip install -e ".[dev,browser]"
-playwright install chromium   # optional, for browser tests
-```
-
-## Before you open a PR
+## Development Setup
 
 ```bash
-pytest -q
-python -m build
-python -c "import webweavex; assert webweavex.__version__ == '2.0.0'"
+git clone https://github.com/ni-sh-a-char/WebWeaveX.git -b kotlin
+cd WebWeaveX/kotlin
+gradle build
+gradle test
 ```
 
-Scoped production coverage must remain **≥ 90%** (see `pyproject.toml`).
+## Rules
 
-## Design rules
+| Rule | Requirement |
+|------|-------------|
+| Determinism | No `System.currentTimeMillis()`, `Math.random()`, `UUID.randomUUID()` in runtime paths |
+| Replay safety | Preserve graph normalization semantics |
+| Canonical pipeline | Single execution path, no parallel orchestrators |
+| Persistence | Kaalka-compatible checkpoints |
+| Tests | `gradle test` must pass; 133+ tests required |
+| Kotlin style | Kotlin idioms, data classes, minimal mutation |
+| API stability | No breaking changes to frozen public APIs |
 
-1. **Canonical pipeline only** — new runtime behavior integrates with `run_canonical_pipeline()` or an existing phase orchestrator; no parallel mega-orchestrators.
-2. **Determinism** — no `random`, no `uuid4`, no time-based IDs in persisted or hashed structures.
-3. **Kaalka persistence** — operational checkpoints use `encrypt_value` / session wrappers with `algorithm: kaalka`; no pickle or plaintext runtime stores.
-4. **Replay-safe** — graph normalization and fingerprints must remain stable for equivalent inputs.
-5. **Bounded output** — public functions return dicts with `bounded: True` where applicable.
-6. **No import-time side effects** — `import webweavex` must not launch browsers or network jobs.
+## Pull Request Process
 
-## Code style
+1. Fork the repository
+2. Create a feature branch from `kotlin`
+3. Write tests for any new functionality
+4. Ensure `gradle clean test` passes
+5. Follow the naming conventions below
+6. Submit a pull request with a clear description
 
-- Match surrounding modules (types, `from __future__ import annotations`, minimal comments).
-- Prefer extending existing engines over new top-level shim files.
-- Tests should assert real behavior, not implementation trivia.
+## Naming Conventions
 
-## Pull requests
+- Classes: `PascalCase` (e.g., `SearchIndex`, `QuerySession`)
+- Functions: `camelCase` (e.g., `searchWithIndex`, `buildRuntimeGraph`)
+- Constants: `UPPER_SNAKE_CASE` for truly constant values
+- Packages: `io.webweavex.<module>` (e.g., `io.webweavex.repository`)
 
-Use the PR template in `.github/PULL_REQUEST_TEMPLATE.md`.
+## Code Quality
 
-## Questions
+- No TODO/FIXME in production code
+- No deprecated API usage
+- No unused parameters or imports
+- Immutable data classes preferred
+- Deterministic output ordering
 
-Open a [GitHub issue](https://github.com/PIYUSH-MISHRA-00/webweavex/issues) or see [docs/](docs/README.md).
+## Running Tests
+
+```bash
+gradle clean test
+```
+
+## Reporting Issues
+
+Open a GitHub issue with:
+- Description of the problem
+- Steps to reproduce
+- Expected vs actual behavior
+- Kotlin version and OS
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the Apache License 2.0.

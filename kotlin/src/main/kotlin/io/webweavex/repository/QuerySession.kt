@@ -10,15 +10,14 @@ data class QueryMetrics(
 class QuerySession(
     val graph: KnowledgeGraph,
     private val index: SearchIndex = SearchIndex.build(graph),
-    private val nodeLookup: NodeLookup = NodeLookup.build(graph)
-) {
+    ) {
     private var queryCount = 0
     private var indexedCount = 0
     private var totalLatencyMs = 0L
 
     fun search(query: String, exact: Boolean = false): QueryResult {
         val start = System.nanoTime()
-        val result = QueryEngine.searchWithIndex(query, index, nodeLookup, exact)
+        val result = QueryEngine.searchWithIndex(query, index, exact)
         val elapsed = (System.nanoTime() - start) / 1_000_000
         queryCount++
         if (result.indexed) indexedCount++

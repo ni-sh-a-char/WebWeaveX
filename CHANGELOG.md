@@ -1,32 +1,32 @@
 # Changelog
 
-All notable changes to WebWeaveX are documented here.
+All notable changes to the WebWeaveX Kotlin SDK will be documented in this file.
 
-## [2.0.0] — 2026-05-21 — Official open-source release
+## [3.0.0] - 2026-07-12
 
 ### Added
-- Universal **Runtime Kernel** (`core/kernel/`) — single orchestration substrate
-- **Unified runtime IR** — merged cognition across all phases
-- **Repository AST cognition** — Python AST + multi-language structural parsers
-- **WWX runtime language** — declarative extraction / sync / execute plans
-- Federated memory, execution sandbox, and reconstruction fabrics (Phases W–Y)
-- Professional documentation under `docs/`
-- Viral open-source README and Apache 2.0 release structure
+- RuntimeKernel with universal extraction
+- ExtractionPipeline (HTML, Markdown, JSON extraction)
+- QueryEngine with indexed search and fallback
+- QuerySession with prepared index reuse
+- SearchIndex (token, type, field inverted index)
+- NodeLookup for O(1) ID-based node resolution
+- QueryPlanner with strategy selection
+- WorkflowEngine with DAG scheduling
+- MemoryEngine with deterministic memory
+- ReplayEngine with snapshot validation
+- Fingerprint (SHA-256 deterministic hashing)
+- CanonicalSerialization (deterministic JSON)
+- DeterministicClock (LogicalClock, ReplayClock, TestClock)
+- KnowledgeGraph with entity relationships
+- RepositoryAnalyzerEngine with language detection
+- 8 typed exception classes
+- HTTP transport and Crawler
+- 133 automated tests
+- Cross-language parity verified (1012 serialization vectors, 1012 fingerprint vectors)
 
-### Changed
-- Version bumped to **2.0.0** across package and public API
-- Repository sanitized — removed audit markdown spam and 450+ generated JSON dumps
-- Test suite consolidated — **760+ tests passing**, scoped coverage **≥ 90%**
-- `pyproject.toml` production extras: `[browser]`, `[full]`, classifiers, keywords
-
-### Removed
-- Internal audit reports, phase dumps, and stale generated JSON matrix artifacts
-- Legacy V7 orchestrators, dead modules, and duplicate validation markdown at repository root
-
-### Security
-- Kaalka-mandatory persistence for operational checkpoints
-- Bounded execution sandbox — no `eval` / `exec` in production paths
-
-## [1.1.1] — Production finalization (pre-release)
-
-Kernel, unified IR, AST cognition, WWX language, and publication hardening.
+### Architecture
+- Executable specification → IR → Generator → Generated SDK → Kernel → Thin Runtime
+- Deterministic execution with no wall-clock dependency
+- Prepared index reuse for query sessions
+- DAG-based workflow scheduling with topological ordering

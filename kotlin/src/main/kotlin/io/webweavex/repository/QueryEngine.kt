@@ -21,7 +21,7 @@ object QueryEngine {
         return linearSearch(graph, query, exact)
     }
 
-    fun searchWithIndex(query: String, index: SearchIndex, lookup: NodeLookup, exact: Boolean = false): QueryResult {
+    fun searchWithIndex(query: String, index: SearchIndex, exact: Boolean = false): QueryResult {
         if (query.isBlank()) return QueryResult(emptyList(), 0, index.fingerprint, indexed = true)
         val indexedIds = index.search(query)
         if (indexedIds.isNotEmpty()) return resolveFromIndex(index, indexedIds, query)

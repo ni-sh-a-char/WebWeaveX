@@ -1,22 +1,30 @@
 # Security Policy
 
-## Supported versions
+## Reporting a Vulnerability
+
+If you discover a security vulnerability within WebWeaveX Kotlin SDK, please send an email to the maintainer. All security vulnerabilities will be promptly addressed.
+
+## Security Model
+
+| Control | Implementation |
+|---------|----------------|
+| No arbitrary eval | Deterministic execution paths only |
+| Bounded extraction | Configurable limits on all extraction |
+| Deterministic persistence | Kaalka-compatible checkpoints |
+| Deterministic clock | No wall-clock-dependent behavior |
+
+## Supported Versions
 
 | Version | Supported |
 |---------|-----------|
-| 1.1.1   | Yes       |
+| 3.0.0 | Yes |
 
-## Reporting
+## Scope
 
-Report vulnerabilities via GitHub Issues (private disclosure preferred for sensitive reports).
+This security policy applies to the Kotlin SDK (`io.webweavex:webweavex-kotlin:3.0.0`).
 
-## Guarantees
+## Out of Scope
 
-- Production execution forbids `eval`, `exec`, and arbitrary subprocess invocation
-- Persisted runtime state uses Kaalka encryption (`core.crypto.kaalka_runtime_engine`)
-- Execution sandbox enforces allowlisted actions and policy bounds
-
-## Known limitations
-
-- In-memory cache (`core/cache_engine.py`) uses integrity hashing only — not for secrets
-- Some database segment stores write plaintext JSON — migrate to Kaalka before storing sensitive data
+- Third-party dependencies (report upstream)
+- Infrastructure deployment security
+- Authentication bypass (WebWeaveX does not bypass authentication)

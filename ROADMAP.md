@@ -1,29 +1,29 @@
-# WebWeaveX Ecosystem Roadmap
+# Roadmap
 
-**Vision:** deterministic runtime cognition infrastructure for humans and AI agents across languages.
+## Current: v3.0.0 (Production Certified)
 
-## Near term
+- Complete deterministic runtime infrastructure
+- Query engine with indexed search
+- Workflow engine with DAG scheduling
+- Memory, replay, fingerprinting, serialization
+- Cross-language parity with Python, JavaScript, Dart, Java
 
-- [x] Python PyPI v2.0.0 with Kaalka v5 cross-language parity
-- [x] JavaScript npm v2.0.0 with parity vectors
-- [ ] Unified agent integration guides (humans + AI agents)
-- [ ] Parity CI matrix on every release tag
+## v3.1.0 (Planned)
 
-## Language ports
+- Deeper JVM integrations
+- Expanded connector ecosystem
+- Stronger replay guarantees
+- Larger runtime memory fabrics
 
-| Language | Branch | Goal |
-|----------|--------|------|
-| Rust | `rust` (planned) | High-performance extraction workers |
-| Go | `go` (planned) | Sidecar deployment agents |
+## v3.2.0 (Future)
 
-## Runtime cognition
+- Distributed operational cognition
+- Cross-platform build optimization
+- Additional language parity extensions
+- Performance optimization at scale
 
-- Deeper connector fabric (API, DB, K8s, telemetry)
-- Expanded replay equivalence surfaces
-- Agent-oriented runtime memory APIs (deterministic only)
+## Long-Term Vision
 
-## Non-goals
-
-- Auth bypass, CAPTCHA defeat, credential theft
-- AGI / superintelligence marketing
-- LLM wrapper SaaS positioning
+- Runtime state should be as reproducible, portable, and verifiable as source code
+- Deterministic runtime cognition infrastructure for humans and AI agents
+- Universal extraction runtime serving AI agents, repositories, enterprise pipelines
