@@ -1,10 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:webweavex/src/application/application_cognition.dart';
-import 'package:webweavex/src/crypto/hashing.dart'
-    show computeDeterministicHash;
 
 /// Application-cognition closure — run_application_cognition and its 12
 /// engines over the certified bs4-parity soup. Proven

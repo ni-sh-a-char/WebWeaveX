@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:test/test.dart';
 import 'package:webweavex/webweavex.dart'
@@ -10,11 +9,7 @@ import 'package:webweavex/webweavex.dart'
 
 /// Cross-language parity tests for canonical runtime APIs.
 /// Tests verify that Dart output matches expected behavior from Python/JS.
-void main() {
-  Map<String, dynamic>? asMap(dynamic v) =>
-      v == null ? null : Map<String, dynamic>.from(v as Map);
-
-  group('canonical runtime APIs — parity', () {
+void main() {  group('canonical runtime APIs — parity', () {
     test('compute_global_runtime_fingerprint with empty inputs', () {
       final result = computeGlobalRuntimeFingerprint(
         extraction: <String, dynamic>{},
