@@ -6,8 +6,10 @@ class SearchIndex(
     val tokenIndex: Map<String, List<String>>,
     val typeIndex: Map<String, List<String>>,
     val fieldIndex: Map<String, Map<String, List<String>>>,
+    val nodeLookup: NodeLookup,
     val fingerprint: String,
-    val size: Int = 0
+    val size: Int = 0,
+    val rebuildCount: Int = 0
 ) {
     companion object {
         fun build(graph: KnowledgeGraph): SearchIndex {
@@ -40,6 +42,7 @@ class SearchIndex(
                 tokenIndex = tokenIndex.mapValues { it.value.distinct().sorted() },
                 typeIndex = typeIndex.mapValues { it.value.distinct().sorted() },
                 fieldIndex = fieldIndex.mapValues { entry -> entry.value.mapValues { it.value.distinct().sorted() } },
+                nodeLookup = NodeLookup.build(graph),
                 fingerprint = fp,
                 size = graph.nodes.size
             )
@@ -50,9 +53,7 @@ class SearchIndex(
         val tokens = DeterministicTokenizer.tokenize(query)
         if (tokens.isEmpty()) return emptyList()
         var result = (tokenIndex[tokens[0]] ?: emptyList()).toMutableSet()
-        for (token in tokens.drop(1)) {
-            result = result.intersect(tokenIndex[token] ?: emptySet()).toMutableSet()
-        }
+        for (token in tokens.drop(1)) { result = result.intersect(tokenIndex[token] ?: emptySet()).toMutableSet() }
         return result.sorted()
     }
 
@@ -60,11 +61,11 @@ class SearchIndex(
 
     fun searchByField(field: String, value: String): List<String> = fieldIndex[field]?.get(value.lowercase())?.sorted() ?: emptyList()
 
+    fun lookupNode(id: String): KnowledgeNode? = nodeLookup.get(id)
+
     fun statistics(): Map<String, Any> = mapOf(
-        "totalNodes" to size,
-        "uniqueTokens" to tokenIndex.size,
-        "uniqueTypes" to typeIndex.size,
-        "uniqueFields" to fieldIndex.size,
-        "fingerprint" to fingerprint
+        "totalNodes" to size, "uniqueTokens" to tokenIndex.size,
+        "uniqueTypes" to typeIndex.size, "uniqueFields" to fieldIndex.size,
+        "fingerprint" to fingerprint, "rebuildCount" to rebuildCount
     )
 }
