@@ -16,19 +16,28 @@ object QueryEngine {
         if (useIndex && query.isNotBlank()) {
             val index = SearchIndex.build(graph)
             val indexedIds = index.search(query)
-            if (indexedIds.isNotEmpty()) {
-                val matches = mutableListOf<Map<String, Any>>()
-                for (id in indexedIds) {
-                    val node = index.lookupNode(id) ?: continue
-                    matches.add(mapOf("id" to node.id, "type" to node.type, "data" to node.data, "score" to computeScore(node, query)))
-                }
-                matches.sortByDescending { (it["score"] as Double) }
-                val ranking = matches.map { it["id"] as String }
-                val scoring = matches.map { run { val m = java.util.HashMap<String, Any>(); m["id"] = it["id"] ?: ""; m["score"] = it["score"] ?: 0.0; m } }
-                return QueryResult(matches, matches.size, graph.fingerprint(), ranking, scoring, true)
-            }
+            if (indexedIds.isNotEmpty()) return resolveFromIndex(index, indexedIds, query)
         }
         return linearSearch(graph, query, exact)
+    }
+
+    fun searchWithIndex(query: String, index: SearchIndex, lookup: NodeLookup, exact: Boolean = false): QueryResult {
+        if (query.isBlank()) return QueryResult(emptyList(), 0, index.fingerprint, indexed = true)
+        val indexedIds = index.search(query)
+        if (indexedIds.isNotEmpty()) return resolveFromIndex(index, indexedIds, query)
+        return QueryResult(emptyList(), 0, index.fingerprint, indexed = true)
+    }
+
+    private fun resolveFromIndex(index: SearchIndex, ids: List<String>, query: String): QueryResult {
+        val matches = mutableListOf<Map<String, Any>>()
+        for (id in ids) {
+            val node = index.lookupNode(id) ?: continue
+            matches.add(mapOf("id" to node.id, "type" to node.type, "data" to node.data, "score" to computeScore(node, query)))
+        }
+        matches.sortByDescending { (it["score"] as Double) }
+        val ranking = matches.map { it["id"] as String }
+        val scoring = matches.map { run { val m = java.util.HashMap<String, Any>(); m["id"] = it["id"] ?: ""; m["score"] = it["score"] ?: 0.0; m } }
+        return QueryResult(matches, matches.size, index.fingerprint, ranking, scoring, true)
     }
 
     private fun linearSearch(graph: KnowledgeGraph, query: String, exact: Boolean): QueryResult {
