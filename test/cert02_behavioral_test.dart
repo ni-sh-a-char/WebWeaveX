@@ -7,8 +7,12 @@ void main() {
     test('replay equivalence after serialization round-trip', () {
       final original = {
         'unified_runtime_graph': {
-          'nodes': [{'id': 'n1', 'type': 'file', 'name': 'test.dart'}],
-          'edges': [{'source': 'n1', 'target': 'n1', 'type': 'self'}]
+          'nodes': [
+            {'id': 'n1', 'type': 'file', 'name': 'test.dart'}
+          ],
+          'edges': [
+            {'source': 'n1', 'target': 'n1', 'type': 'self'}
+          ]
         }
       };
       final serialized = jsonEncode(original);
@@ -20,7 +24,9 @@ void main() {
     test('replay equivalence after stableSerialize round-trip', () {
       final original = {
         'unified_runtime_graph': {
-          'nodes': [{'id': 'n1', 'type': 'file'}],
+          'nodes': [
+            {'id': 'n1', 'type': 'file'}
+          ],
           'edges': []
         }
       };
@@ -31,8 +37,22 @@ void main() {
     });
 
     test('replay detects differing graphs', () {
-      final a = {'unified_runtime_graph': {'nodes': [{'id': 'n1'}], 'edges': []}};
-      final b = {'unified_runtime_graph': {'nodes': [{'id': 'n2'}], 'edges': []}};
+      final a = {
+        'unified_runtime_graph': {
+          'nodes': [
+            {'id': 'n1'}
+          ],
+          'edges': []
+        }
+      };
+      final b = {
+        'unified_runtime_graph': {
+          'nodes': [
+            {'id': 'n2'}
+          ],
+          'edges': []
+        }
+      };
       final result = validateReplayEquivalence(a, b);
       expect(result['equivalent'], isFalse);
     });
@@ -112,10 +132,8 @@ void main() {
         ],
         'edges': [],
       };
-      final result = queryRuntimeGraph(graph, {
-        'query_type': 'by_type',
-        'type': 'file'
-      });
+      final result =
+          queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
       expect(result, isA<Map>());
       expect(result.containsKey('results'), isTrue);
     });

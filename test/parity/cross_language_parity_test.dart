@@ -8,12 +8,16 @@ void main() {
     test('stableSerialize key ordering matches Python/JS', () {
       final data = {'z': 1, 'a': 2, 'm': 3};
       final result = stableSerialize(data);
-      final keys = RegExp(r'"(\w+)"').allMatches(result).map((m) => m.group(1)).toList();
+      final keys =
+          RegExp(r'"(\w+)"').allMatches(result).map((m) => m.group(1)).toList();
       expect(keys, equals(['a', 'm', 'z']));
     });
 
     test('stableSerialize nested objects have sorted keys', () {
-      final data = {'b': {'z': 1, 'a': 2}, 'a': 1};
+      final data = {
+        'b': {'z': 1, 'a': 2},
+        'a': 1
+      };
       final result = stableSerialize(data);
       final aIdx = result.indexOf('"a"');
       final bIdx = result.indexOf('"b"');
@@ -21,7 +25,9 @@ void main() {
     });
 
     test('stableSerialize list order preserved', () {
-      final data = {'items': [3, 1, 2]};
+      final data = {
+        'items': [3, 1, 2]
+      };
       final result = stableSerialize(data);
       expect(result, contains('[3,1,2]'));
     });
@@ -75,8 +81,20 @@ void main() {
     });
 
     test('graphFingerprint deterministic with normalized graph', () {
-      final g1 = buildRuntimeGraph({'nodes': [{'id': 'a'}, {'id': 'b'}], 'edges': []});
-      final g2 = buildRuntimeGraph({'nodes': [{'id': 'a'}, {'id': 'b'}], 'edges': []});
+      final g1 = buildRuntimeGraph({
+        'nodes': [
+          {'id': 'a'},
+          {'id': 'b'}
+        ],
+        'edges': []
+      });
+      final g2 = buildRuntimeGraph({
+        'nodes': [
+          {'id': 'a'},
+          {'id': 'b'}
+        ],
+        'edges': []
+      });
       expect(graphFingerprint(g1), equals(graphFingerprint(g2)));
     });
   });
@@ -108,7 +126,9 @@ void main() {
     test('validateReplayEquivalence on identical envelopes', () {
       final env = {
         'unified_runtime_graph': {
-          'nodes': [{'id': 'n1', 'type': 'file'}],
+          'nodes': [
+            {'id': 'n1', 'type': 'file'}
+          ],
           'edges': []
         }
       };
@@ -117,8 +137,22 @@ void main() {
     });
 
     test('validateReplayEquivalence detects differences', () {
-      final a = {'unified_runtime_graph': {'nodes': [{'id': 'n1'}], 'edges': []}};
-      final b = {'unified_runtime_graph': {'nodes': [{'id': 'n2'}], 'edges': []}};
+      final a = {
+        'unified_runtime_graph': {
+          'nodes': [
+            {'id': 'n1'}
+          ],
+          'edges': []
+        }
+      };
+      final b = {
+        'unified_runtime_graph': {
+          'nodes': [
+            {'id': 'n2'}
+          ],
+          'edges': []
+        }
+      };
       final result = validateReplayEquivalence(a, b);
       expect(result['equivalent'], isFalse);
     });
@@ -148,15 +182,22 @@ void main() {
         ],
         'edges': [],
       };
-      final result = queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
+      final result =
+          queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
       expect(result['count'], equals(1));
       final results = result['results'] as List;
       expect(results.first['id'], equals('n1'));
     });
 
     test('queryRuntimeGraph handles empty results', () {
-      final graph = {'nodes': [{'id': 'n1', 'type': 'file'}], 'edges': []};
-      final result = queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'module'});
+      final graph = {
+        'nodes': [
+          {'id': 'n1', 'type': 'file'}
+        ],
+        'edges': []
+      };
+      final result =
+          queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'module'});
       expect(result['count'], equals(0));
     });
   });

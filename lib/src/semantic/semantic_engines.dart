@@ -598,8 +598,6 @@ Map<String, dynamic> alignSemanticRuntimes({
 // semantic_diff_engine
 // ---------------------------------------------------------------------------
 
-
-
 Map<String, dynamic> diffSemanticRuntime(
   Map<String, dynamic> previous,
   Map<String, dynamic> current,

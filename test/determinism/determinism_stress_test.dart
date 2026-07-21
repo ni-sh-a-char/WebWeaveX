@@ -4,7 +4,11 @@ import 'package:webweavex/webweavex.dart';
 void main() {
   group('Determinism 1000-iteration validation', () {
     test('stableSerialize is identical across 1000 iterations', () {
-      final data = {'z': 1, 'a': 2, 'm': {'b': 3, 'a': 1}};
+      final data = {
+        'z': 1,
+        'a': 2,
+        'm': {'b': 3, 'a': 1}
+      };
       final expected = stableSerialize(data);
       for (var i = 0; i < 1000; i++) {
         expect(stableSerialize(data), equals(expected));
@@ -23,7 +27,10 @@ void main() {
 
     test('graphFingerprint is stable across 1000 iterations', () {
       final graph = RuntimeGraph(
-        nodes: [RuntimeNode(id: 'n1', type: 'file', name: 'test.dart'), RuntimeNode(id: 'n2', type: 'module', name: 'core')],
+        nodes: [
+          RuntimeNode(id: 'n1', type: 'file', name: 'test.dart'),
+          RuntimeNode(id: 'n2', type: 'module', name: 'core')
+        ],
         edges: [RuntimeEdge(source: 'n1', target: 'n2', type: 'imports')],
       );
       final expected = graphFingerprint(graph);
@@ -32,7 +39,8 @@ void main() {
       }
     });
 
-    test('computeRuntimePipelineFingerprint is stable across 1000 iterations', () {
+    test('computeRuntimePipelineFingerprint is stable across 1000 iterations',
+        () {
       final graph = RuntimeGraph(
         nodes: [RuntimeNode(id: 'n1', type: 'file', name: 'test.dart')],
         edges: [],
@@ -40,7 +48,8 @@ void main() {
       final envelope = {'pipeline_hash': 'abc', 'bounded': true};
       final expected = computeRuntimePipelineFingerprint(envelope, graph);
       for (var i = 0; i < 1000; i++) {
-        expect(computeRuntimePipelineFingerprint(envelope, graph), equals(expected));
+        expect(computeRuntimePipelineFingerprint(envelope, graph),
+            equals(expected));
       }
     });
 
@@ -59,13 +68,17 @@ void main() {
     test('validateReplayEquivalence is deterministic', () {
       final original = {
         'unified_runtime_graph': {
-          'nodes': [{'id': 'n1', 'type': 'file', 'name': 'a.dart'}],
+          'nodes': [
+            {'id': 'n1', 'type': 'file', 'name': 'a.dart'}
+          ],
           'edges': []
         }
       };
       final replayed = {
         'unified_runtime_graph': {
-          'nodes': [{'id': 'n1', 'type': 'file', 'name': 'a.dart'}],
+          'nodes': [
+            {'id': 'n1', 'type': 'file', 'name': 'a.dart'}
+          ],
           'edges': []
         }
       };
@@ -78,14 +91,17 @@ void main() {
     test('computeGlobalRuntimeFingerprint is deterministic', () {
       final envelope = {
         'unified_runtime_graph': {
-          'nodes': [{'id': 'n1', 'type': 'file'}],
+          'nodes': [
+            {'id': 'n1', 'type': 'file'}
+          ],
           'edges': []
         },
         'pipeline_hash': 'test_hash'
       };
       final expected = computeGlobalRuntimeFingerprint(extraction: envelope);
       for (var i = 0; i < 1000; i++) {
-        expect(computeGlobalRuntimeFingerprint(extraction: envelope), equals(expected));
+        expect(computeGlobalRuntimeFingerprint(extraction: envelope),
+            equals(expected));
       }
     });
   });

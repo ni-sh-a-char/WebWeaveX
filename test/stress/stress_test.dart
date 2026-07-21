@@ -23,7 +23,11 @@ void main() {
     });
 
     test('10000 canonical serializations identical', () {
-      final data = {'z': 1, 'a': 2, 'n': {'b': 3}};
+      final data = {
+        'z': 1,
+        'a': 2,
+        'n': {'b': 3}
+      };
       final expected = stableSerialize(data);
       for (var i = 0; i < 10000; i++) {
         expect(stableSerialize(data), equals(expected));
@@ -43,7 +47,8 @@ void main() {
     test('graph with 1000 nodes', () {
       final graph = buildRuntimeGraph({
         'nodes': List.generate(1000, (i) => {'id': 'n$i', 'type': 'file'}),
-        'edges': List.generate(999, (i) => {'source': 'n$i', 'target': 'n${i+1}'}),
+        'edges':
+            List.generate(999, (i) => {'source': 'n$i', 'target': 'n${i + 1}'}),
       });
       final fp = graphFingerprint(graph);
       expect(fp.length, equals(64));
@@ -78,7 +83,16 @@ void main() {
 
   group('Determinism stress', () {
     test('5000 iterations bit-identical for complex data', () {
-      final data = {'v': '3.0.0', 'n': {'a': 1, 'b': [1, 2, 3]}, 'l': [{'x': 1}]};
+      final data = {
+        'v': '3.0.0',
+        'n': {
+          'a': 1,
+          'b': [1, 2, 3]
+        },
+        'l': [
+          {'x': 1}
+        ]
+      };
       final expected = stableSerialize(data);
       for (var i = 0; i < 5000; i++) {
         expect(stableSerialize(data), equals(expected));

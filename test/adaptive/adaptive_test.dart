@@ -7,7 +7,8 @@ void main() {
       final domNodes = <Map<String, dynamic>>[
         {'tag': 'div', 'class': 'container', 'text': 'hello'},
       ];
-      final result = healSelector('.broken', domNodes, html: '<div class="container">hello</div>');
+      final result = healSelector('.broken', domNodes,
+          html: '<div class="container">hello</div>');
       expect(result, isA<Map<String, dynamic>>());
       expect(result.containsKey('bounded'), isTrue);
       expect(result.containsKey('candidates'), isTrue);
@@ -15,7 +16,8 @@ void main() {
     });
 
     test('buildSemanticAnchor creates anchor from selector and html', () {
-      final result = buildSemanticAnchor('.test-class', '<div class="test-class">hello</div>');
+      final result = buildSemanticAnchor(
+          '.test-class', '<div class="test-class">hello</div>');
       expect(result, isA<Map<String, dynamic>>());
     });
   });

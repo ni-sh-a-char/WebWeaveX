@@ -11,7 +11,8 @@ void main() {
         ],
         'edges': [],
       };
-      final result = queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
+      final result =
+          queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
       expect(result, isA<Map>());
       expect(result.containsKey('results'), isTrue);
       expect(result['count'], greaterThanOrEqualTo(1));
@@ -19,16 +20,20 @@ void main() {
 
     test('queryRuntimeGraph returns empty for non-matching type', () {
       final graph = {
-        'nodes': [{'id': 'n1', 'type': 'file', 'name': 'test.dart'}],
+        'nodes': [
+          {'id': 'n1', 'type': 'file', 'name': 'test.dart'}
+        ],
         'edges': [],
       };
-      final result = queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'module'});
+      final result =
+          queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'module'});
       expect(result['count'], equals(0));
     });
 
     test('queryRuntimeGraph handles empty graph', () {
       final graph = {'nodes': [], 'edges': []};
-      final result = queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
+      final result =
+          queryRuntimeGraph(graph, {'query_type': 'by_type', 'type': 'file'});
       expect(result['count'], equals(0));
     });
   });

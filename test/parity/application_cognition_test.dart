@@ -1,4 +1,3 @@
-
 import 'package:test/test.dart';
 import 'package:webweavex/src/application/application_cognition.dart';
 
@@ -27,7 +26,6 @@ void main() {
     test('all 13 application functions are registered', () {
       expect(registry.keys.toSet().length, equals(13));
     });
-
   });
 
   group('application cognition spot-checks', () {
@@ -64,4 +62,3 @@ void main() {
     });
   });
 }
-
