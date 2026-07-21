@@ -1,3 +1,4 @@
+import '../determinism/deep_equals.dart';
 // Native Dart port of the WebWeaveX Python `core.synchronization` runtime
 // family. Faithful, deterministic, bounded — mirrors the exact output
 // structure and key set of the Python reference so that
@@ -42,25 +43,7 @@ int _asInt(dynamic value) {
 }
 
 /// Deep structural equality matching Python `==` for JSON-shaped values.
-bool _deepEquals(dynamic a, dynamic b) {
-  if (identical(a, b)) return true;
-  if (a is Map && b is Map) {
-    if (a.length != b.length) return false;
-    for (final key in a.keys) {
-      if (!b.containsKey(key)) return false;
-      if (!_deepEquals(a[key], b[key])) return false;
-    }
-    return true;
-  }
-  if (a is List && b is List) {
-    if (a.length != b.length) return false;
-    for (var i = 0; i < a.length; i++) {
-      if (!_deepEquals(a[i], b[i])) return false;
-    }
-    return true;
-  }
-  return a == b;
-}
+
 
 // ---------------------------------------------------------------------------
 // runtime_delta_engine.py
@@ -91,7 +74,7 @@ Map<String, dynamic> buildRuntimeDelta(
 
   final keys = <String>{...prev.keys, ...cur.keys}.toList()..sort();
   for (final key in keys) {
-    if (!_deepEquals(prev[key], cur[key])) {
+    if (!deepEquals(prev[key], cur[key])) {
       changes.add(<String, dynamic>{
         'field': key,
         'from': prev[key],
@@ -221,7 +204,7 @@ Map<String, dynamic> convergeRuntimeState(
       if (entry.key == 'reality_id') continue;
       if (!merged.containsKey(entry.key)) {
         merged[entry.key] = entry.value;
-      } else if (!_deepEquals(merged[entry.key], entry.value)) {
+      } else if (!deepEquals(merged[entry.key], entry.value)) {
         merged[entry.key] = entry.value;
       }
     }
@@ -251,7 +234,7 @@ Map<String, dynamic> diffRuntimeState(
 
   final keys = <String>{...previous.keys, ...current.keys}.toList()..sort();
   for (final key in keys) {
-    if (_deepEquals(previous[key], current[key])) continue;
+    if (deepEquals(previous[key], current[key])) continue;
     final entry = <String, dynamic>{
       'field': key,
       'from': previous[key],
@@ -298,7 +281,7 @@ Map<String, dynamic> detectRuntimeDrift(
   for (final check in checks) {
     final driftType = check[0];
     final field = check[1];
-    if (!_deepEquals(baseline[field], current[field])) {
+    if (!deepEquals(baseline[field], current[field])) {
       drifts.add(<String, dynamic>{
         'type': driftType,
         'field': field,

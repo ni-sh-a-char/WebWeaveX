@@ -187,3 +187,8 @@ List<T> pyStableSortedBy<T>(
   });
   return <T>[for (final i in indices) items[i]];
 }
+
+/// Split text into lines (CRLF, LF, or CR).
+List<String> splitlines(String text) {
+  return text.split(RegExp(r'\\r\\n|\\r|\\n'));
+}

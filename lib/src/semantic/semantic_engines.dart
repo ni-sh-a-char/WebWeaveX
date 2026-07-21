@@ -9,6 +9,8 @@
 /// scope and documented as such.
 library;
 
+import '../determinism/deep_equals.dart';
+
 /// Lexicographic comparison of two string tuples (mirrors Python tuple sort).
 int _compareKeys(List<String> a, List<String> b) {
   for (var i = 0; i < a.length && i < b.length; i++) {
@@ -596,24 +598,7 @@ Map<String, dynamic> alignSemanticRuntimes({
 // semantic_diff_engine
 // ---------------------------------------------------------------------------
 
-bool _deepEquals(dynamic a, dynamic b) {
-  if (a is Map && b is Map) {
-    if (a.length != b.length) return false;
-    for (final k in a.keys) {
-      if (!b.containsKey(k)) return false;
-      if (!_deepEquals(a[k], b[k])) return false;
-    }
-    return true;
-  }
-  if (a is List && b is List) {
-    if (a.length != b.length) return false;
-    for (var i = 0; i < a.length; i++) {
-      if (!_deepEquals(a[i], b[i])) return false;
-    }
-    return true;
-  }
-  return a == b;
-}
+
 
 Map<String, dynamic> diffSemanticRuntime(
   Map<String, dynamic> previous,
@@ -644,8 +629,8 @@ Map<String, dynamic> diffSemanticRuntime(
     'entities_added': added,
     'entities_removed': removed,
     'domain_changed': prevDomain != currDomain,
-    'ontology_evolved': !_deepEquals(previous['ontology'], current['ontology']),
-    'workflow_mutated': !_deepEquals(previous['workflow'], current['workflow']),
+    'ontology_evolved': !deepEquals(previous['ontology'], current['ontology']),
+    'workflow_mutated': !deepEquals(previous['workflow'], current['workflow']),
     'bounded': true,
   };
 }

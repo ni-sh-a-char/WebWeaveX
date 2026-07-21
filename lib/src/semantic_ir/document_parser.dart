@@ -30,14 +30,14 @@ final List<List<Object>> _rolePatterns = <List<Object>>[
 
 /// Python str.splitlines() — splits on \n, \r, \r\n (and a few unicode breaks);
 /// no trailing empty element. We cover the common \n/\r/\r\n cases.
-List<String> _splitlines(String s) {
+List<String> splitlines(String s) {
   if (s.isEmpty) return <String>[];
   return s.split(RegExp(r'\r\n|\r|\n'));
 }
 
 /// Port of core.documents.rhetorical_structure_engine.extract_rhetorical_structure.
 Map<String, dynamic> extractRhetoricalStructure(String? text) {
-  final lines = _splitlines(text ?? '');
+  final lines = splitlines(text ?? '');
   final units = <Map<String, dynamic>>[];
   for (var i = 0; i < lines.length; i++) {
     final stripped = lines[i].trim();
@@ -65,7 +65,7 @@ Map<String, dynamic> extractRhetoricalStructure(String? text) {
 /// Port of core.documents.semantic_role_engine.assign_semantic_roles.
 Map<String, dynamic> assignSemanticRoles(String? text) {
   final roles = <Map<String, dynamic>>[];
-  final lines = _splitlines(text ?? '');
+  final lines = splitlines(text ?? '');
   for (var i = 0; i < lines.length; i++) {
     final ln = lines[i];
     for (final spec in _rolePatterns) {

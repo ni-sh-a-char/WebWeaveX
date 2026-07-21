@@ -14,7 +14,7 @@ import 'py_compat.dart';
 
 /// Python str.splitlines() over the common \n/\r/\r\n cases (mirrors
 /// document_parser.dart's private helper).
-List<String> _splitlines(String s) {
+List<String> splitlines(String s) {
   if (s.isEmpty) return <String>[];
   return s.split(RegExp(r'\r\n|\r|\n'));
 }
@@ -22,7 +22,7 @@ List<String> _splitlines(String s) {
 /// Port of core.documents.argument_dependency_engine.build_argument_dependencies.
 Map<String, dynamic> buildArgumentDependencies(String text) {
   final lines = <String>[
-    for (final ln in _splitlines(text))
+    for (final ln in splitlines(text))
       if (ln.trim().isNotEmpty) ln.trim()
   ];
   final claims = <Map<String, dynamic>>[

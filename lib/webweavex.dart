@@ -59,6 +59,7 @@ export 'src/determinism/dom_stabilization.dart';
 export 'src/determinism/fingerprint.dart';
 export 'src/determinism/normalization.dart';
 export 'src/determinism/stable_serialize.dart';
+export 'src/determinism/deep_equals.dart';
 export 'src/graph/runtime_graph.dart';
 export 'src/graph/runtime_graph_reconstruction.dart';
 export 'src/graph/runtime_graph_replay.dart';
