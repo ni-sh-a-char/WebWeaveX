@@ -6,7 +6,8 @@ class SearchIndex(
     val tokenIndex: Map<String, List<String>>,
     val typeIndex: Map<String, List<String>>,
     val fieldIndex: Map<String, Map<String, List<String>>>,
-    val fingerprint: String
+    val fingerprint: String,
+    val size: Int = 0
 ) {
     companion object {
         fun build(graph: KnowledgeGraph): SearchIndex {
@@ -24,23 +25,23 @@ class SearchIndex(
                         .getOrPut(value.toString().lowercase()) { mutableListOf() }
                         .add(node.id)
                 }
-                tokens.forEach { token ->
-                    tokenIndex.getOrPut(token) { mutableListOf() }.add(node.id)
-                }
+                tokens.forEach { token -> tokenIndex.getOrPut(token) { mutableListOf() }.add(node.id) }
                 typeIndex.getOrPut(node.type.lowercase()) { mutableListOf() }.add(node.id)
             }
 
             val fp = Fingerprint.compute(mapOf(
                 "tokens" to tokenIndex.keys.sorted(),
                 "types" to typeIndex.keys.sorted(),
-                "fields" to fieldIndex.keys.sorted()
+                "fields" to fieldIndex.keys.sorted(),
+                "size" to graph.nodes.size
             ))
 
             return SearchIndex(
                 tokenIndex = tokenIndex.mapValues { it.value.distinct().sorted() },
                 typeIndex = typeIndex.mapValues { it.value.distinct().sorted() },
                 fieldIndex = fieldIndex.mapValues { entry -> entry.value.mapValues { it.value.distinct().sorted() } },
-                fingerprint = fp
+                fingerprint = fp,
+                size = graph.nodes.size
             )
         }
     }
@@ -55,11 +56,15 @@ class SearchIndex(
         return result.sorted()
     }
 
-    fun searchByType(type: String): List<String> {
-        return typeIndex[type.lowercase()]?.sorted() ?: emptyList()
-    }
+    fun searchByType(type: String): List<String> = typeIndex[type.lowercase()]?.sorted() ?: emptyList()
 
-    fun searchByField(field: String, value: String): List<String> {
-        return fieldIndex[field]?.get(value.lowercase())?.sorted() ?: emptyList()
-    }
+    fun searchByField(field: String, value: String): List<String> = fieldIndex[field]?.get(value.lowercase())?.sorted() ?: emptyList()
+
+    fun statistics(): Map<String, Any> = mapOf(
+        "totalNodes" to size,
+        "uniqueTokens" to tokenIndex.size,
+        "uniqueTypes" to typeIndex.size,
+        "uniqueFields" to fieldIndex.size,
+        "fingerprint" to fingerprint
+    )
 }
