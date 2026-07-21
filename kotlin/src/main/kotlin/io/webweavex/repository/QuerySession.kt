@@ -18,7 +18,7 @@ class QuerySession(
 
     fun search(query: String, exact: Boolean = false): QueryResult {
         val start = System.nanoTime()
-        val result = QueryEngine.search(graph, query, exact, useIndex = true)
+        val result = QueryEngine.searchWithIndex(query, index, nodeLookup, exact)
         val elapsed = (System.nanoTime() - start) / 1_000_000
         queryCount++
         if (result.indexed) indexedCount++
