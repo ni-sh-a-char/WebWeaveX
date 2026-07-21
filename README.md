@@ -12,7 +12,7 @@
   <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/pub/v/webweavex?style=flat-square&logo=dart&logoColor=white" alt="pub.dev version"/></a>
   <img src="https://img.shields.io/badge/Dart-3.3%2B-0175C6?style=flat-square&logo=dart&logoColor=white" alt="Dart 3.3+"/>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/></a>
-  <img src="https://img.shields.io/badge/tests-537%20passing-22c55e?style=flat-square" alt="Tests passing"/>
+  <img src="https://img.shields.io/badge/tests-543%20passing-22c55e?style=flat-square" alt="Tests passing"/>
   <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build passing"/>
   <img src="https://img.shields.io/badge/deterministic%20runtime-0ea5e9?style=flat-square" alt="Deterministic runtime"/>
   <img src="https://img.shields.io/badge/replay--safe-14b8a6?style=flat-square" alt="Replay-safe"/>
@@ -320,7 +320,7 @@ WebWeaveX is CPU-bound deterministic serialization + hashing with no network in 
 | Fingerprint | <1ms |
 | Stable serialize | <1ms |
 | Replay equivalence | <5ms |
-| Full 537-test suite | ~10s |
+| Full 543-test suite | ~10s |
 
 No allocation-heavy hot loops. `List.sort` uses index-tiebreak comparators for stable ordering.
 
