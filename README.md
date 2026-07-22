@@ -1,4 +1,4 @@
-﻿<p align="center">
+<p align="center">
   <br/>
   <img src="https://img.shields.io/badge/WebWeaveX-v3.0.0-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="WebWeaveX v3.0.0"/>
   <br/><br/>
@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+"/>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/></a>
   <img src="https://img.shields.io/badge/tests-760%2B%20passing-22c55e?style=flat-square" alt="Tests passing"/>
-  <img src="https://img.shields.io/badge/coverage-90%25%2B%20scoped-6366f1?style=flat-square" alt="Coverage 90%+"/>
+  <img src="https://img.shields.io/badge/coverage-88%25%2B%20scoped-6366f1?style=flat-square" alt="Coverage 90%+"/>
   <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build passing"/>
   <img src="https://img.shields.io/badge/deterministic%20runtime-0ea5e9?style=flat-square" alt="Deterministic runtime"/>
   <img src="https://img.shields.io/badge/replay--safe-14b8a6?style=flat-square" alt="Replay-safe"/>

@@ -1,6 +1,22 @@
 # Changelog
 
-All notable changes to WebWeaveX are documented here.
+All notable changes
+
+## [3.0.0] — 2026-07-12 — Reference implementation certification
+
+### Changed
+- Fixed broken test suite (was 0 passing due to missing benchmarks module).
+- Removed 46 stale/duplicate files across CERT-01 through CERT-02.
+- Added 53 certification tests (determinism, reliability, platform).
+- Consolidated serialization to single canonical implementation.
+- Updated requirements.txt to sync with pyproject.toml.
+- Reference implementation certified as canonical platform specification.
+
+### Fixed
+- Schema test paths corrected (contracts/schemas/ -> core/schemas/contracts/).
+- Example version references updated (v2.0.0 -> v3.0.0).
+- README coverage badge corrected to match actual (88%+).
+ to WebWeaveX are documented here.
 
 ## [2.1.0] — 2026-06-12 — Synchronized cross-language release
 
