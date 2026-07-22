@@ -9,7 +9,8 @@ from core.extract.facades.internet_facade import *  # noqa: F403
 from core.extract.facades.knowledge_facade import *  # noqa: F403
 from core.extract.facades.repository_facade import *  # noqa: F403
 from core.extract.facades.security_facade import *  # noqa: F403
-from core.extract.facades.serializer_facade import dumps_deterministic, fingerprint_v3
+from core.serialize.deterministic_serializer import dumps_deterministic
+from core.crypto import fingerprint_v3
 from core.extract.facades.parser_facade import parse_source
 
 

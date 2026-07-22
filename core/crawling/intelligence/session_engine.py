@@ -1,6 +1,6 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 import json
-from core.utils.deterministic_serializer import dumps_deterministic
+from core.serialize.deterministic_serializer import dumps_deterministic
 
 def checkpoint_session(state: dict):
     return {"checkpoint": dumps_deterministic(state or {})}

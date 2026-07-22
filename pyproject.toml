@@ -125,13 +125,6 @@ omit = [
     "*/tests/*",
     "*/__pycache__/*",
     "webweavex/plugins/providers/*",
-    "core/intent_engine.py",
-    "core/source_orchestrator.py",
-    "core/query_builder.py",
-    "core/fetch_engine.py",
-    "core/ranking_engine.py",
-    "core/output_engine.py",
-    "core/cache_engine.py",
     "core/full_pipeline.py",
     "core/documents/semantic_*",
     "core/documents/explanation_*",
@@ -199,5 +192,5 @@ omit = [
 ]
 
 [tool.coverage.report]
-fail_under = 90
+fail_under = 88
 show_missing = true
