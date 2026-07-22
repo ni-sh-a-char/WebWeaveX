@@ -1,0 +1,17 @@
+[
+  {
+    "input": {"nodes": [{"id": "n1", "type": "file"}, {"id": "n2", "type": "module"}], "edges": [{"from": "n1", "to": "n2", "type": "imports"}]},
+    "expected_node_count": 2,
+    "expected_edge_count": 1
+  },
+  {
+    "input": {"nodes": [{"id": "n1"}], "edges": []},
+    "expected_node_count": 1,
+    "expected_edge_count": 0
+  },
+  {
+    "input": {"nodes": [], "edges": []},
+    "expected_node_count": 0,
+    "expected_edge_count": 0
+  }
+]

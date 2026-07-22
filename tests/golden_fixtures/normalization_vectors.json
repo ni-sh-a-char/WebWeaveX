@@ -1,0 +1,8 @@
+[
+  {"input": "Hello World", "expected": "Hello World"},
+  {"input": "  spaced  ", "expected": "  spaced"},
+  {"input": "cafe", "expected": "cafe"},
+  {"input": "", "expected": ""},
+  {"input": "CamelCase", "expected": "CamelCase"},
+  {"input": "12345", "expected": "12345"}
+]

@@ -1,0 +1,12 @@
+[
+  {"input": {"a": 1, "b": 2, "c": 3}, "expected_deterministic": "{\"a\":1,\"b\":2,\"c\":3}", "expected_stable": "{\"a\":1,\"b\":2,\"c\":3}"},
+  {"input": {"z": 1, "a": 2}, "expected_deterministic": "{\"a\":2,\"z\":1}", "expected_stable": "{\"a\":2,\"z\":1}"},
+  {"input": {"nested": {"b": 2, "a": 1}}, "expected_deterministic": "{\"nested\":{\"a\":1,\"b\":2}}", "expected_stable": "{\"nested\":{\"a\":1,\"b\":2}}"},
+  {"input": {"list": [3, 1, 2]}, "expected_deterministic": "{\"list\":[1,2,3]}", "expected_stable": "{\"list\":[1,2,3]}"},
+  {"input": {"pi": 3.14159265358979}, "expected_deterministic": "{\"pi\":3.14159265358979}", "expected_stable": "{\"pi\":3.14159265358979}"},
+  {"input": {"empty": {}}, "expected_deterministic": "{\"empty\":{}}", "expected_stable": "{\"empty\":{}}"},
+  {"input": {"null_val": null}, "expected_deterministic": "{\"null_val\":null}", "expected_stable": "{\"null_val\":null}"},
+  {"input": {"bool_true": true, "bool_false": false}, "expected_deterministic": "{\"bool_false\":false,\"bool_true\":true}", "expected_stable": "{\"bool_false\":false,\"bool_true\":true}"},
+  {"input": {"unicode_text": "hello"}, "expected_deterministic": "{\"unicode_text\":\"hello\"}", "expected_stable": "{\"unicode_text\":\"hello\"}"},
+  {"input": {"zero": 0}, "expected_deterministic": "{\"zero\":0}", "expected_stable": "{\"zero\":0}"}
+]
