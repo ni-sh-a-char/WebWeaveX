@@ -1,4 +1,4 @@
-"""WebWeaveX v2.0.0 — Browser extraction example."""
+"""WebWeaveX v3.0.0 — Browser extraction example."""
 
 from webweavex import extract_web
 
