@@ -12,27 +12,28 @@
   <name>WebWeaveX</name>
   <description>Deterministic runtime cognition infrastructure — Java implementation
     with byte-exact cross-language parity to the Python, JavaScript, and Dart runtimes.</description>
-  <url>https://github.com/PIYUSH-MISHRA-00/WebWeaveX</url>
+  <url>https://github.com/ni-sh-a-char/WebWeaveX</url>
 
   <licenses>
     <license>
-      <name>MIT License</name>
-      <url>https://opensource.org/licenses/MIT</url>
+      <name>The Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <developers>
     <developer>
-      <id>piyush-mishra-00</id>
+      <id>piyushmishra</id>
       <name>Piyush Mishra</name>
+      <email>piyushmishra.professional@gmail.com</email>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/PIYUSH-MISHRA-00/WebWeaveX.git</connection>
-    <developerConnection>scm:git:git@github.com:PIYUSH-MISHRA-00/WebWeaveX.git</developerConnection>
-    <url>https://github.com/PIYUSH-MISHRA-00/WebWeaveX</url>
+    <connection>scm:git:https://github.com/ni-sh-a-char/WebWeaveX.git</connection>
+    <developerConnection>scm:git:git@github.com:ni-sh-a-char/WebWeaveX.git</developerConnection>
+    <url>https://github.com/ni-sh-a-char/WebWeaveX</url>
     <tag>HEAD</tag>
   </scm>
 
