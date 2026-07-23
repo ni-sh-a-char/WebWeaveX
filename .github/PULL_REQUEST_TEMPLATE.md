@@ -1,26 +1,23 @@
 ## Summary
 
-<!-- What does this PR change and why? -->
+<!-- Brief description of changes -->
 
 ## Type
 
 - [ ] Bug fix
+- [ ] Feature
 - [ ] Documentation
-- [ ] Test coverage
-- [ ] Performance
-- [ ] Feature (pipeline-aligned)
+- [ ] Test
+- [ ] Refactoring
 
 ## Checklist
 
-- [ ] Tests added or updated (`pytest -q` passes locally)
-- [ ] Scoped production coverage remains **≥ 90%** (`python -m pytest`)
-- [ ] Determinism preserved (no `random` / `uuid4` in runtime paths)
-- [ ] Replay-safe (no breaking changes to graph normalization or fingerprints)
-- [ ] Kaalka-compatible persistence (no plaintext/pickle checkpoints)
-- [ ] No new shadow orchestrators — changes go through `run_canonical_pipeline()` or documented specialized engines
-- [ ] `import webweavex` works; `webweavex.__version__ == "2.0.0"`
-- [ ] `python -m build` succeeds
+- [ ] `./gradlew clean test` passes
+- [ ] Code follows Kotlin conventions
+- [ ] Changes are documented
+- [ ] No breaking API changes (or documented)
+- [ ] Cross-language parity verified (if applicable)
 
-## Notes for reviewers
+## Related Issues
 
-<!-- Optional: migration, limitations, benchmark numbers -->
+<!-- Link to related issues -->

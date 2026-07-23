@@ -1,36 +1,24 @@
 ---
-name: Bug report
-about: Report incorrect extraction, determinism drift, or runtime failure
-title: "[bug] "
+name: Bug Report
+about: Report a bug in the WebWeaveX Kotlin SDK
 labels: bug
-assignees: ""
 ---
 
 ## Description
 
-What went wrong?
+## Steps to Reproduce
 
-## Minimal reproduction
+## Expected Behavior
 
-```python
-# paste minimal code
-```
-
-## Expected behavior
-
-Deterministic, bounded output (include expected fingerprint or graph shape if known).
-
-## Actual behavior
+## Actual Behavior
 
 ## Environment
 
-- WebWeaveX version:
-- Python version:
+- Kotlin version:
+- JVM version:
 - OS:
-- Optional extras installed (browser / full / parsers):
+- Gradle version:
 
-## Determinism notes
+## Determinism Notes
 
-- [ ] Same input produces different `pipeline_hash` or fingerprint on rerun
-- [ ] Replay equivalence fails (`validate_replay_equivalence`)
-- [ ] Kaalka decrypt/encrypt mismatch
+<!-- If applicable, describe how determinism is affected -->

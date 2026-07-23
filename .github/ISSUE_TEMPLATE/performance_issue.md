@@ -1,33 +1,22 @@
 ---
-name: Performance issue
-about: Report slow extraction, memory growth, or graph bloat
-title: "[perf] "
+name: Performance Issue
+about: Report a performance regression or concern
 labels: performance
-assignees: ""
 ---
 
-## Operation
+## Description
 
-(e.g. `extract_web`, `extract_repository`, `run_canonical_pipeline`, memory merge)
+## Benchmark
 
-## Input scale
-
-URL / repo size / node count:
-
-## Observed metrics
-
-- Duration:
-- Peak memory (if known):
-- Graph size (nodes/edges):
+<!-- Include measurements if possible -->
 
 ## Environment
 
-- WebWeaveX version:
-- Python version:
-- Machine profile (CPU/RAM):
+- Kotlin version:
+- JVM version:
+- OS:
+- Gradle version:
 
-## Reproduction steps
+## Expected Performance
 
-```bash
-# commands used
-```
+## Actual Performance

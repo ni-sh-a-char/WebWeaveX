@@ -1,23 +1,17 @@
 ---
-name: Feature request
-about: Propose a capability that fits the canonical extraction pipeline
-title: "[feature] "
+name: Feature Request
+about: Suggest a new feature for the WebWeaveX Kotlin SDK
 labels: enhancement
-assignees: ""
 ---
 
-## Problem
+## Problem Statement
 
-What extraction or runtime gap are you solving?
+## Proposed Solution
 
-## Proposed solution
+## Alternatives Considered
 
-How should it integrate with `run_canonical_pipeline()` or an existing phase package?
+## Cross-SDK Impact
 
-## Alternatives considered
+<!-- Does this feature need to be ported to other SDKs? -->
 
-## Determinism / replay impact
-
-- [ ] Must remain replay-safe
-- [ ] Must use Kaalka for any new persistence
-- [ ] Must not introduce `random`, `uuid4`, or plaintext checkpoints
+## Additional Context
