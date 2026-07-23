@@ -13,7 +13,7 @@ Report vulnerabilities via GitHub Issues (private disclosure preferred for sensi
 ## Guarantees
 
 - Production execution forbids `eval`, `exec`, and arbitrary subprocess invocation
-- Persisted runtime state uses Kaalka encryption (`core.crypto.kaalka_runtime_engine`)
+- Persisted runtime state uses Kaalka encryption (`src/crypto/kaalkaRuntime.ts`)
 - Execution sandbox enforces allowlisted actions and policy bounds
 
 ## Known limitations
