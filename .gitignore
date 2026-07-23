@@ -58,3 +58,4 @@ cross_language_verifier/extract_*_out.json
 cross_language_verifier/sir_*.json
 cross_language_verifier/probe_*.json
 cross_language_verifier/cross_*_results.json
+cp.txt
