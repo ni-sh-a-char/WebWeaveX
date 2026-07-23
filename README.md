@@ -12,7 +12,7 @@
   <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square&logo=pypi&logoColor=white" alt="PyPI version"/></a>
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+"/>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/></a>
-  <img src="https://img.shields.io/badge/tests-760%2B%20passing-22c55e?style=flat-square" alt="Tests passing"/>
+  <img src="https://img.shields.io/badge/tests-815%20passing-22c55e?style=flat-square" alt="Tests passing"/>
   <img src="https://img.shields.io/badge/coverage-88%25%2B%20scoped-6366f1?style=flat-square" alt="Coverage 90%+"/>
   <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build passing"/>
   <img src="https://img.shields.io/badge/deterministic%20runtime-0ea5e9?style=flat-square" alt="Deterministic runtime"/>
@@ -627,7 +627,7 @@ This is **not** full machine cloning or sci-fi simulation—it is **auditable op
 
 | Metric | Value |
 |--------|--------|
-| Tests | **760+ passing** (`pytest -q`) |
+| Tests | **815 passing** (`pytest -q`) |
 | Scoped coverage | **≥ 90%** (production packages in `pyproject.toml`) |
 | Wheel | `webweavex-3.0.0-py3-none-any.whl` |
 | Replay | `validate_replay_equivalence` suite |
@@ -683,7 +683,7 @@ Contract document: [WEBWEAVEX_v2_ARCHITECTURE_LOCK_REPORT.md](WEBWEAVEX_v2_ARCHI
 WebWeaveX/
 ├── core/           # Runtime infrastructure (kernel, browser, memory, sync, …)
 ├── webweavex/      # Public Python package
-├── tests/          # 760+ tests
+├── tests/          # 815 tests
 ├── docs/           # Architecture, API, security, Kaalka, replay, validation
 ├── examples/       # Runnable scripts
 ├── validation/     # Production and real-world validators
