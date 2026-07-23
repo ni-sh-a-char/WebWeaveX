@@ -4,7 +4,7 @@
 
 | Version | Supported |
 |---------|-----------|
-| 1.1.1   | Yes       |
+| 3.0.0   | Yes       |
 
 ## Reporting
 

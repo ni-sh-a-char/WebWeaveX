@@ -12,7 +12,7 @@ Python  =  Java  =  JavaScript  =  Dart
 > runtime foundation with byte-exact cross-language parity against canonical
 > Python 3.0.0. All subsystems (determinism, Kaalka, graph, IR, replay, memory,
 > execution, reconstruction) are implemented, tested, and parity-verified.
-> [`JAVA_PARITY_MATRIX.md`](JAVA_PARITY_MATRIX.md) and built in subsequent
+> the Java parity test suite and built in subsequent
 > sessions. No stubs or placeholders are shipped — only implemented, tested code.
 
 ## What is implemented and parity-proven today

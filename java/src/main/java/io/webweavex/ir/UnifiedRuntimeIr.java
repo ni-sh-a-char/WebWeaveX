@@ -56,7 +56,7 @@ public final class UnifiedRuntimeIr {
         out.put("native", phasePayload(ph, src, "native"));
         out.put("causality", phasePayload(ph, src, "causality"));
         out.put("semantic", Py.get(ph, "semantic", Py.get(src, "semantic", Map.of())));
-        out.put("workflow", Py.get(ph, "semantic", Py.get(src, "workflow", Map.of())));
+        out.put("workflow", Py.get(ph, "workflow", Py.get(src, "workflow", Map.of())));
         out.put("synchronization", Py.get(ph, "synchronization", Py.get(src, "sync", Map.of())));
         out.put("evolution", phasePayload(ph, src, "evolution"));
         out.put("connectors", phasePayload(ph, src, "connectors"));

@@ -388,7 +388,7 @@ public final class RuntimeKernel {
         out.put("native", phasePayload(phases, sources, "native"));
         out.put("causality", phasePayload(phases, sources, "causality"));
         out.put("semantic", phases.containsKey("semantic") ? phases.get("semantic") : sources.getOrDefault("semantic", map()));
-        out.put("workflow", phases.containsKey("semantic") ? phases.get("semantic") : sources.getOrDefault("workflow", map()));
+        out.put("workflow", phases.containsKey("workflow") ? phases.get("workflow") : sources.getOrDefault("workflow", map()));
         out.put("synchronization", phases.containsKey("synchronization") ? phases.get("synchronization") : sources.getOrDefault("sync", map()));
         out.put("evolution", phasePayload(phases, sources, "evolution"));
         out.put("connectors", phasePayload(phases, sources, "connectors"));
