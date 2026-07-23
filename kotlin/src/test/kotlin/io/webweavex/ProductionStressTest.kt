@@ -265,6 +265,6 @@ class ProductionStressTest {
         System.gc()
         val after = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()
         val growth = after - before
-        assertTrue(growth < 100_000_000, "Memory grew by ${growth / 1024}KB � possible leak")
+        assertTrue(growth < 100_000_000, "Memory grew by ${growth / 1024}KB — possible leak")
     }
 }

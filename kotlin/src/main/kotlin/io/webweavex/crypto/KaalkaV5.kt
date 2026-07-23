@@ -3,7 +3,7 @@ package io.webweavex.crypto
 import java.util.Base64
 
 /**
- * Kaalka v5 deterministic encryption � faithful Kotlin implementation
+ * Kaalka v5 deterministic encryption — faithful Kotlin implementation
  * of the canonical algorithm from Python/Dart.
  *
  * Algorithm: byte-level XOR-add offset transform
