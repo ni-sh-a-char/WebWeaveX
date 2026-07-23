@@ -1,0 +1,5 @@
+{
+  "vectors": [
+    {"id": "probe-1", "encrypted": "test", "key": "test-key", "plaintext": "probe"}
+  ]
+}
