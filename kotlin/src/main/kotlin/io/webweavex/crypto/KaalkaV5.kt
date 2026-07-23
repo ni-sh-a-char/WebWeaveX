@@ -3,7 +3,7 @@ package io.webweavex.crypto
 import java.util.Base64
 
 /**
- * Kaalka v5 deterministic encryption — faithful Kotlin implementation
+ * Kaalka v5 deterministic encryption ï¿½ faithful Kotlin implementation
  * of the canonical algorithm from Python/Dart.
  *
  * Algorithm: byte-level XOR-add offset transform
@@ -73,7 +73,7 @@ object KaalkaV5 {
         val digest = java.security.MessageDigest.getInstance("SHA-256")
             .digest(normalized.toByteArray(Charsets.UTF_8))
         for (i in 0..digest.size - 3) {
-            val candidate = "${digest[i].toInt() and 0xFF % 12}:${digest[i + 1].toInt() and 0xFF % 60}:${digest[i + 2].toInt() and 0xFF % 60}"
+            val candidate = "${(digest[i].toInt() and 0xFF) % 12}:${(digest[i + 1].toInt() and 0xFF) % 60}:${(digest[i + 2].toInt() and 0xFF) % 60}"
             if (timeKeyRoundTrips(candidate)) return candidate
         }
         if (timeKeyRoundTrips(FALLBACK_TIME_KEY)) return FALLBACK_TIME_KEY

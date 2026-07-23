@@ -2,7 +2,7 @@
 
 | Version | Kotlin | JVM | Status |
 |---------|--------|-----|--------|
-| 3.0.0 | 1.9+ | 11+ | Supported |
+| 3.0.0 | 1.9+ | 17+ | Supported |
 
 ## End of Life
 
