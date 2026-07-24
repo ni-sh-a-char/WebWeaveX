@@ -25,7 +25,7 @@ publishing {
             pom {
                 name.set("WebWeaveX Kotlin SDK")
                 description.set("Deterministic runtime cognition infrastructure for humans and AI agents")
-                url.set("https://github.com/ni-sh-a-char/WebWeaveX")
+                url.set("https://ni-sh-a-char.github.io/WebWeaveX/")
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
@@ -42,7 +42,7 @@ publishing {
                 scm {
                     connection.set("scm:git:https://github.com/ni-sh-a-char/WebWeaveX.git")
                     developerConnection.set("scm:git:ssh://github.com/ni-sh-a-char/WebWeaveX.git")
-                    url.set("https://github.com/ni-sh-a-char/WebWeaveX")
+                    url.set("https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin")
                 }
             }
         }
