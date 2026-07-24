@@ -384,9 +384,8 @@ function initInstallCopy() {
   const cmd = document.getElementById('install-cmd');
   if (!cmd) return;
   cmd.addEventListener('click', () => {
-    const pkg = cmd.querySelector('.pkg');
-    if (!pkg) return;
-    navigator.clipboard.writeText(pkg.textContent.trim()).then(() => {
+    const text = cmd.textContent.replace(/\s+/g, ' ').trim();
+    navigator.clipboard.writeText(text).then(() => {
       const icon = cmd.querySelector('.copy-icon');
       if (icon) {
         icon.style.color = '#34d399';
@@ -424,9 +423,5 @@ function initCodeTypingEffect() {
     });
   }, { threshold: 0.3 });
 
-  // Only apply to the first visible code block (quick start)
-  const firstCode = document.querySelector('#quick-start .code-wrapper code');
-  if (firstCode) {
-    observer.observe(firstCode);
-  }
+  codeBlocks.forEach(code => observer.observe(code));
 }
