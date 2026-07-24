@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "webweavex"
-version = "3.0.0"
+version = "3.0.1"
 description = "Deterministic runtime cognition infrastructure for humans and AI agents"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -67,9 +67,9 @@ full = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ni-sh-a-char/WebWeaveX"
-Repository = "https://github.com/ni-sh-a-char/WebWeaveX"
-Documentation = "https://github.com/ni-sh-a-char/WebWeaveX#readme"
+Homepage = "https://ni-sh-a-char.github.io/WebWeaveX/"
+Repository = "https://github.com/ni-sh-a-char/WebWeaveX/tree/python"
+Documentation = "https://ni-sh-a-char.github.io/WebWeaveX/"
 Issues = "https://github.com/ni-sh-a-char/WebWeaveX/issues"
 Changelog = "https://github.com/ni-sh-a-char/WebWeaveX/blob/python/CHANGELOG.md"
 
