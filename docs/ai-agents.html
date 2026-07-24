@@ -14,32 +14,27 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
-  <canvas id="particles-canvas"></canvas>
+  <canvas id="bg-canvas"></canvas>
 
   <header class="navbar" id="navbar">
     <a href="index.html" class="nav-brand">
-      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#nav-grad)" stroke-width="6"/>
-        <circle cx="40" cy="45" r="10" fill="url(#nav-grad)"/>
-        <defs>
-          <linearGradient id="nav-grad" x1="0" y1="0" x2="80" y2="80">
-            <stop offset="0%" stop-color="#38bdf8"/>
-            <stop offset="50%" stop-color="#a78bfa"/>
-            <stop offset="100%" stop-color="#f43f5e"/>
-          </linearGradient>
-        </defs>
+      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none">
+        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#ng)" stroke-width="5"/>
+        <circle cx="40" cy="45" r="9" fill="url(#ng)"/>
+        <defs><linearGradient id="ng" x1="0" y1="0" x2="80" y2="80">
+          <stop offset="0%" stop-color="#60a5fa"/><stop offset="50%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#f472b6"/>
+        </linearGradient></defs>
       </svg>
       <span>WebWeave<span class="brand-gradient">X</span></span>
     </a>
     <div class="nav-controls">
-      <a href="index.html" class="btn-secondary" style="padding: 8px 18px; font-size: 0.85rem;">&#8592; Documentation</a>
-      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
-        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-        </svg>
+      <a href="index.html" class="btn-secondary" style="padding:8px 18px;font-size:0.85rem;">&#8592; Docs</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <svg class="theme-icon-dark" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="theme-icon-light" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
       </button>
       <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-github">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         <span>Star</span>
       </a>
     </div>
@@ -49,72 +44,55 @@
     <aside class="sidebar">
       <div class="sidebar-group">
         <div class="sidebar-title">AI Agent Guide</div>
-        <a href="#why-ai-agents-need-webweavex" class="sidebar-link active">Why AI Agents Need WebWeaveX</a>
-        <a href="#agent-workflow-cycle" class="sidebar-link">Agent Workflow Cycle</a>
-        <a href="#system-prompt" class="sidebar-link">System Prompt Template</a>
-        <a href="#langchain-recipe" class="sidebar-link">LangChain Recipe</a>
-        <a href="#tool-calling-pattern" class="sidebar-link">Tool Calling Pattern</a>
+        <a href="#why" class="sidebar-link active">Why AI Agents Need WebWeaveX</a>
+        <a href="#workflow" class="sidebar-link">Agent Workflow Cycle</a>
+        <a href="#prompt" class="sidebar-link">System Prompt Template</a>
+        <a href="#langchain" class="sidebar-link">LangChain Recipe</a>
+        <a href="#pattern" class="sidebar-link">Tool Calling Pattern</a>
       </div>
     </aside>
 
     <main class="main-content">
-      <div class="hero-badge-pill">AI Agent Integration Guide</div>
-      <h1 class="hero-title" style="text-align: left; font-size: 2.5rem;">AI Agent Integration<br><span class="brand-gradient">Runtime Cognition for Autonomous Agents</span></h1>
-      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 40px; max-width: 700px;">
-        WebWeaveX serves as the deterministic operational substrate for autonomous LLM agents. Compact IR graphs, session continuity via Kaalka v5, and deterministic hash verification for every tool call.
-      </p>
+      <section class="hero-banner" style="padding-bottom:40px;">
+        <div class="hero-badge-pill">AI Agent Integration Guide</div>
+        <h1 class="hero-title" style="text-align:left;font-size:2.6rem;">AI Agent Integration<br><span class="brand-gradient">Runtime Cognition for Autonomous Agents</span></h1>
+        <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:24px;max-width:700px;">
+          Compact IR graphs, session continuity via Kaalka v5, and deterministic hash verification for every tool call.
+        </p>
+      </section>
 
-      <section id="why-ai-agents-need-webweavex" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="why" class="reveal">
         <h2>Why AI Agents Need WebWeaveX</h2>
-        <div class="grid-3" style="margin-top: 16px;">
-          <div class="feature-card">
-            <div class="card-icon">&#x1f4c8;</div>
-            <h3 class="card-title">Compact IR Graphs</h3>
-            <p class="card-desc">Replaces 500KB dirty HTML blobs with 15KB structured IR graphs optimized for LLM context windows.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x1f510;</div>
-            <h3 class="card-title">Kaalka Session Continuity</h3>
-            <p class="card-desc">Persists authenticated session states across tool calls without re-authenticating.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x2705;</div>
-            <h3 class="card-title">Deterministic Hashes</h3>
-            <p class="card-desc">SHA-256 state digests let agents verify action success with mathematical certainty.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x1f504;</div>
-            <h3 class="card-title">Replay Proofs</h3>
-            <p class="card-desc">Verify topological equivalence between before/after states after any action.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x1f6e1;&#xfe0f;</div>
-            <h3 class="card-title">Sandbox Execution</h3>
-            <p class="card-desc">Only allowlisted state transitions are executed. No arbitrary code eval or shell commands.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x1f310;</div>
-            <h3 class="card-title">Cross-Language</h3>
-            <p class="card-desc">Same deterministic output whether the agent calls Python, JS, Dart, Java, or Kotlin SDK.</p>
-          </div>
+        <div class="grid-3" style="margin-top:16px;">
+          <div class="feature-card"><div class="card-icon">&#x1f4c8;</div><h3 class="card-title">Compact IR Graphs</h3><p class="card-desc">500KB HTML blobs become 15KB structured IR graphs for LLM context windows.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x1f510;</div><h3 class="card-title">Session Continuity</h3><p class="card-desc">Persists authenticated state across tool calls without re-authenticating.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x2705;</div><h3 class="card-title">Deterministic Hashes</h3><p class="card-desc">SHA-256 state digests verify action success with mathematical certainty.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x1f504;</div><h3 class="card-title">Replay Proofs</h3><p class="card-desc">Verify topological equivalence between before/after states.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x1f6e1;&#xfe0f;</div><h3 class="card-title">Sandbox Execution</h3><p class="card-desc">Only allowlisted transitions are executed. No arbitrary code eval.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x1f310;</div><h3 class="card-title">Cross-Language</h3><p class="card-desc">Same output whether calling Python, JS, Dart, Java, or Kotlin.</p></div>
         </div>
       </section>
 
-      <section id="agent-workflow-cycle" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="workflow" class="reveal">
         <h2>Universal Agent Workflow Cycle</h2>
         <div class="mermaid-box">
           <pre class="mermaid">
 flowchart TD
-    A[1. Ingest &amp; Extract Target Source] --> B[2. Cognize IR Graph &amp; State Hash]
-    B --> C[3. Execute Allowlisted Action Sandbox]
-    C --> D[4. Verify Deterministic Pipeline Hash]
-    D -->|Match| E[5. Advance Workflow Tick]
-    D -->|Mismatch| F[6. Alert &amp; Rollback]
-          </pre>
+    A[1. Ingest &amp; Extract] --> B[2. Cognize IR Graph]
+    B --> C[3. Execute Action]
+    C --> D[4. Verify Hash]
+    D -->|Match| E[5. Advance Tick]
+    D -->|Mismatch| F[6. Alert &amp; Rollback]</pre>
         </div>
       </section>
 
-      <section id="system-prompt" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="prompt" class="reveal">
         <h2>Recommended System Prompt</h2>
         <div class="code-wrapper">
           <div class="code-header"><span>system_prompt.md</span><button class="copy-btn">Copy</button></div>
@@ -122,15 +100,17 @@ flowchart TD
 When interacting with target applications:
 
 1. Always parse inputs via `run_canonical_pipeline(UniversalInput(...))`.
-2. Inspect the resulting `graph.nodes` and `fingerprint` to locate interactive elements.
-3. Pass `encrypted_session` in subsequent calls to maintain session state.
-4. Compare `pipeline_hash` before and after execution to verify state transitions.
-5. Only execute allowlisted state transitions defined in the policy contract.
-6. If `pipeline_hash` diverges unexpectedly, halt and report the anomaly.</code></pre>
+2. Inspect `graph.nodes` and `fingerprint` to locate interactive elements.
+3. Pass `encrypted_session` in subsequent calls to maintain state.
+4. Compare `pipeline_hash` before and after execution to verify transitions.
+5. Only execute allowlisted state transitions.
+6. If hash diverges, halt and report the anomaly.</code></pre>
         </div>
       </section>
 
-      <section id="langchain-recipe" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="langchain" class="reveal">
         <h2>LangChain Integration Recipe</h2>
         <div class="code-wrapper">
           <div class="code-header"><span>webweavex_tool.py</span><button class="copy-btn">Copy</button></div>
@@ -139,7 +119,7 @@ from webweavex import UniversalInput, run_canonical_pipeline
 
 @tool
 def inspect_runtime_surface(url: str, session_token: str = None) -> dict:
-    """Inspect a web application's runtime surface and return deterministic state."""
+    """Inspect a web app's runtime surface."""
     input_data = UniversalInput(
         source=url,
         source_type="web",
@@ -155,14 +135,15 @@ def inspect_runtime_surface(url: str, session_token: str = None) -> dict:
         </div>
       </section>
 
-      <section id="tool-calling-pattern" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="pattern" class="reveal">
         <h2>Tool Calling Pattern</h2>
-        <p>A typical agent loop using WebWeaveX for multi-step authenticated workflows:</p>
         <div class="code-wrapper">
           <div class="code-header"><span>agent_loop.py</span><button class="copy-btn">Copy</button></div>
           <pre><code>from webweavex import UniversalInput, run_canonical_pipeline
 
-# Step 1: Initial extraction
+# Initial extraction
 initial = run_canonical_pipeline(UniversalInput(
     source="https://app.example.com",
     source_type="web",
@@ -170,10 +151,9 @@ initial = run_canonical_pipeline(UniversalInput(
 ))
 baseline_hash = initial.pipeline_hash
 
-# Step 2: Agent performs actions (clicks, form fills, etc.)
-# ... agent logic here ...
+# Agent performs actions...
 
-# Step 3: Re-extract and verify
+# Re-extract and verify
 after = run_canonical_pipeline(UniversalInput(
     source="https://app.example.com",
     source_type="web",
@@ -181,18 +161,14 @@ after = run_canonical_pipeline(UniversalInput(
     previous_session=initial.encrypted_session
 ))
 
-# Step 4: Verify deterministic state transition
 if after.pipeline_hash != baseline_hash:
-    print(f"State changed: {baseline_hash[:16]} -> {after.pipeline_hash[:16]}")
-    print(f"Nodes: {len(after.graph.nodes)} | Edges: {len(after.graph.edges)}")
-else:
-    print("No state change detected.")</code></pre>
+    print(f"State changed: {baseline_hash[:16]} -> {after.pipeline_hash[:16]}")</code></pre>
         </div>
       </section>
 
-      <hr class="divider">
-      <footer style="padding: 32px 0; text-align: center; color: var(--text-dim); font-size: 0.85rem;">
-        <p>WebWeaveX v3.0.0 &middot; Apache License 2.0 &middot; <a href="index.html" style="color: var(--accent-blue);">Back to Documentation</a></p>
+      <hr class="section-divider">
+      <footer style="padding:32px 0;text-align:center;color:var(--text-dim);font-size:0.85rem;">
+        <p>WebWeaveX v3.0.0 &middot; Apache 2.0 &middot; <a href="index.html">Back to Docs</a></p>
       </footer>
     </main>
   </div>
