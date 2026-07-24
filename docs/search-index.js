@@ -8,19 +8,19 @@ window.SEARCH_INDEX = [
   {
     title: "What WebWeaveX Actually Is",
     keywords: "definition concepts runtime cognition operational substrate session continuation normalization kaalka",
-    url: "#what-is-webweavex",
+    url: "#what-is",
     excerpt: "Deep dive into runtime cognition, graph normalization, and operational substrate."
   },
   {
     title: "Why Traditional Tools Fail",
     keywords: "failure scrapers static html authenticated session determinism replay",
-    url: "#why-traditional-tools-fail",
+    url: "#comparison",
     excerpt: "Comparison table showing why traditional scrapers fail and how WebWeaveX solves it."
   },
   {
     title: "Humans and AI Agents",
     keywords: "human engineers ai agents dual consumption langchain autogpt crewai",
-    url: "#humans-and-ai-agents",
+    url: "#audiences",
     excerpt: "Designed for both human engineers and autonomous AI agents."
   },
   {
@@ -74,7 +74,7 @@ window.SEARCH_INDEX = [
   {
     title: "Ecosystem Roadmap",
     keywords: "roadmap v3.1.0 rust go telemetry opentelemetry upcoming planned",
-    url: "#ecosystem-roadmap",
+    url: "#roadmap",
     excerpt: "Upcoming features: Rust worker, Go sidecar, telemetry connectors."
   },
   {
@@ -84,27 +84,21 @@ window.SEARCH_INDEX = [
     excerpt: "How to contribute, report issues, and support the project."
   },
   {
-    title: "License & Citation",
-    keywords: "license apache 2.0 citation bibtex academic research cite",
-    url: "#license--citation",
-    excerpt: "Apache License 2.0 and academic citation information."
-  },
-  {
     title: "Kaalka v5 Parity",
     keywords: "kaalka v5 cross language parity deterministic hash sha-256 aes encryption key derivation",
-    url: "#kaalka-parity",
+    url: "#kaalka",
     excerpt: "How identical Kaalka v5 encryption is achieved across all 5 SDK languages."
   },
   {
     title: "Memory Fabric",
     keywords: "federated memory fabric tick indexed deterministic memory graph merge",
-    url: "#memory-fabric",
+    url: "#memory",
     excerpt: "How multi-turn execution histories are merged into a deterministic memory graph."
   },
   {
     title: "Replay & Reconstruction",
     keywords: "replay reconstruction deterministic equivalence topological proof IR intermediate representation",
-    url: "#replay-reconstruction",
+    url: "#replay",
     excerpt: "How WebWeaveX proves topological equivalence and reconstructs state from IR."
   }
 ];
