@@ -4,53 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebWeaveX — Universal Runtime Cognition Infrastructure</title>
-  <meta name="description" content="Deterministic runtime cognition infrastructure for humans and AI agents. Understand, continue, reconstruct, replay, and reason about authenticated operational software systems.">
-  <meta name="keywords" content="WebWeaveX, Runtime Cognition, Deterministic Infrastructure, AI Agents, Python SDK, JavaScript SDK, Dart SDK, Java SDK, Kotlin SDK, Kaalka Security, Open Source">
-  <meta name="author" content="Piyush Mishra">
-  
-  <!-- OpenGraph / Facebook -->
+  <meta name="description" content="Deterministic runtime cognition infrastructure for humans and AI agents. Understand, continue, reconstruct, replay, and reason about authenticated operational software systems. Native SDKs for Python, JS/TS, Dart, Java, and Kotlin (v3.0.0).">
+  <meta name="keywords" content="WebWeaveX, Runtime Cognition, Deterministic Infrastructure, AI Agents, Python SDK, JavaScript SDK, Dart SDK, Java SDK, Kotlin SDK, Kaalka Security, Open Source, v3.0.0">
+
+  <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ni-sh-a-char.github.io/WebWeaveX/">
-  <meta property="og:title" content="WebWeaveX — Universal Runtime Cognition Infrastructure">
+  <meta property="og:title" content="WebWeaveX — Universal Runtime Cognition Infrastructure (v3.0.0)">
   <meta property="og:description" content="Deterministic runtime cognition infrastructure for humans and AI agents. Cross-language SDK parity across Python, JS, Dart, Java, and Kotlin.">
   <meta property="og:image" content="https://ni-sh-a-char.github.io/WebWeaveX/assets/og-preview.png">
 
-  <!-- Twitter Cards -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://ni-sh-a-char.github.io/WebWeaveX/">
-  <meta name="twitter:title" content="WebWeaveX — Universal Runtime Cognition Infrastructure">
-  <meta name="twitter:description" content="Deterministic runtime cognition infrastructure for humans and AI agents. Replay, reconstruct, and reason about software systems.">
+  <meta name="twitter:title" content="WebWeaveX — Universal Runtime Cognition Infrastructure (v3.0.0)">
+  <meta name="twitter:description" content="Deterministic runtime cognition infrastructure for humans and AI agents.">
   <meta name="twitter:image" content="https://ni-sh-a-char.github.io/WebWeaveX/assets/og-preview.png">
 
-  <!-- Stylesheets -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
   <link rel="canonical" href="https://ni-sh-a-char.github.io/WebWeaveX/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Mermaid.js -->
+  <!-- Mermaid -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
-  <!-- Structured Metadata (JSON-LD) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     "name": "WebWeaveX",
+    "version": "3.0.0",
     "description": "Deterministic runtime cognition infrastructure for humans and AI agents.",
     "codeRepository": "https://github.com/ni-sh-a-char/WebWeaveX",
     "programmingLanguage": ["Python", "JavaScript", "TypeScript", "Dart", "Java", "Kotlin"],
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
-    "author": {
-      "@type": "Person",
-      "name": "Piyush Mishra"
-    }
+    "author": { "@type": "Person", "name": "Piyush Mishra" }
   }
   </script>
 </head>
 <body>
 
+  <!-- Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
   <!-- Top Navbar -->
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <a href="#" class="nav-brand">
       <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#nav-grad)" stroke-width="6"/>
@@ -71,187 +75,209 @@
         <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Search documentation..." autocomplete="off"/>
+        <input type="text" id="search-input" class="search-input" placeholder="Search docs..." autocomplete="off"/>
+        <span class="search-kbd">Ctrl K</span>
         <div id="search-results" class="search-results-dropdown"></div>
       </div>
 
-      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
         </svg>
       </button>
 
       <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-github">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
         </svg>
-        <span>Star on GitHub</span>
+        <span>Star</span>
       </a>
     </div>
   </header>
 
-  <!-- Layout Container -->
+  <!-- Layout -->
   <div class="layout-container">
 
-    <!-- Sidebar Navigation -->
+    <!-- Sidebar -->
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-group">
         <div class="sidebar-title">Getting Started</div>
-        <a href="#1-executive-overview" class="sidebar-link active">Executive Overview</a>
-        <a href="#2-what-webweavex-actually-is" class="sidebar-link">What WebWeaveX Is</a>
-        <a href="#3-what-existing-systems-fail-at" class="sidebar-link">Why Traditional Tools Fail</a>
-        <a href="#4-ai-agents--human-engineers" class="sidebar-link">Humans + AI Agents</a>
-        <a href="#6-cross-language-sdk-ecosystem" class="sidebar-link">SDK Matrix (5 Languages)</a>
-        <a href="#7-quick-start-guide" class="sidebar-link">Quick Start Code</a>
+        <a href="#overview" class="sidebar-link active">Overview</a>
+        <a href="#what-is-webweavex" class="sidebar-link">What Is WebWeaveX</a>
+        <a href="#why-traditional-tools-fail" class="sidebar-link">Why Traditional Tools Fail</a>
+        <a href="#humans-and-ai-agents" class="sidebar-link">Humans + AI Agents</a>
+        <a href="#sdk-matrix" class="sidebar-link">SDK Matrix (5 Languages)</a>
+        <a href="#quick-start" class="sidebar-link">Quick Start</a>
       </div>
-
       <div class="sidebar-group">
         <div class="sidebar-title">Architecture</div>
-        <a href="#8-visual-architecture" class="sidebar-link">Visual Architecture</a>
-        <a href="#81-universal-runtime-pipeline" class="sidebar-link">Runtime Pipeline</a>
-        <a href="#82-repository-cognition-workflow" class="sidebar-link">Repository Cognition</a>
-        <a href="#84-deterministic-replay--reconstruction-engine" class="sidebar-link">Replay & Reconstruction</a>
-        <a href="#85-federated-memory-fabric-architecture" class="sidebar-link">Memory Fabric</a>
-        <a href="#87-cross-language-parity--kaalka-v5-encryption" class="sidebar-link">Kaalka v5 Parity</a>
+        <a href="#architecture" class="sidebar-link">Architecture Overview</a>
+        <a href="#runtime-pipeline" class="sidebar-link">Runtime Pipeline</a>
+        <a href="#replay-reconstruction" class="sidebar-link">Replay &amp; Reconstruction</a>
+        <a href="#memory-fabric" class="sidebar-link">Memory Fabric</a>
+        <a href="#kaalka-parity" class="sidebar-link">Kaalka v5 Parity</a>
       </div>
-
       <div class="sidebar-group">
-        <div class="sidebar-title">Guides & Reference</div>
-        <a href="ai-agents.html" class="sidebar-link">🤖 AI Agent Guide</a>
-        <a href="human-onboarding.html" class="sidebar-link">👤 Human Onboarding</a>
-        <a href="#11-security-model--kaalka-contract" class="sidebar-link">Security & Kaalka</a>
-        <a href="#12-performance-benchmarks" class="sidebar-link">Performance Benchmarks</a>
-        <a href="#13-frequently-asked-questions-faq" class="sidebar-link">FAQ</a>
-        <a href="#15-community--contributing" class="sidebar-link">Contributing</a>
+        <div class="sidebar-title">Reference</div>
+        <a href="ai-agents.html" class="sidebar-link">AI Agent Guide</a>
+        <a href="human-onboarding.html" class="sidebar-link">Human Onboarding</a>
+        <a href="#security" class="sidebar-link">Security &amp; Kaalka</a>
+        <a href="#benchmarks" class="sidebar-link">Benchmarks</a>
+        <a href="#faq" class="sidebar-link">FAQ</a>
+        <a href="#ecosystem-roadmap" class="sidebar-link">Roadmap</a>
+        <a href="#community" class="sidebar-link">Community</a>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <main class="main-content">
 
-      <!-- Hero Banner -->
-      <section class="hero-banner">
+      <!-- ═══════ HERO ═══════ -->
+      <section class="hero-banner" id="overview">
         <div class="hero-badge-pill">
-          <span>⚡ WebWeaveX v2.0.0 Ecosystem Release</span>
+          <span>v3.0.0 &mdash; Ecosystem Release</span>
         </div>
-        <h1 class="hero-title">Universal Runtime Cognition <br/><span class="brand-gradient">Infrastructure</span></h1>
+        <h1 class="hero-title">Universal Runtime Cognition<br><span class="brand-gradient">Infrastructure</span></h1>
         <p class="hero-subtitle">
-          Understand, continue, reconstruct, replay, and reason about authenticated operational software systems. Built for engineering teams and autonomous AI agents.
+          Understand, continue, reconstruct, replay, and reason about authenticated operational software systems. Built for engineering teams and autonomous AI agents across Python, JavaScript, Dart, Java, and Kotlin.
         </p>
-
         <div class="hero-actions">
-          <a href="#7-quick-start-guide" class="btn-primary">Get Started Now</a>
-          <a href="#6-cross-language-sdk-ecosystem" class="btn-secondary">Explore SDK Matrix</a>
-          <a href="https://buymeacoffee.com/piyushmishra00" target="_blank" rel="noopener" class="btn-secondary" style="border-color: #FFDD00; color: #FFDD00;">☕ Sponsor Project</a>
+          <a href="#quick-start" class="btn-primary">Get Started</a>
+          <a href="#sdk-matrix" class="btn-secondary">SDK Matrix</a>
+          <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-secondary">View on GitHub</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value">5</div>
+            <div class="hero-stat-label">Language SDKs</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">v3.0.0</div>
+            <div class="hero-stat-label">Current Release</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">94%+</div>
+            <div class="hero-stat-label">Code Coverage</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">150K</div>
+            <div class="hero-stat-label">Hash Ops/sec</div>
+          </div>
         </div>
       </section>
 
-      <!-- Key Pillars Feature Grid -->
-      <section style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 24px;">Why Engineers &amp; AI Agents Choose WebWeaveX</h2>
-
+      <!-- ═══════ WHY CHOOSE WEBWEAVEX ═══════ -->
+      <section class="reveal">
+        <h2>Why Engineers &amp; AI Agents Choose WebWeaveX</h2>
         <div class="grid-3">
           <div class="feature-card">
-            <div class="card-icon">🧠</div>
+            <div class="card-icon">&#x1f9e0;</div>
             <h3 class="card-title">Runtime Cognition</h3>
-            <p class="card-desc">Models software as a live, operational state graph rather than capturing fragile static HTML snapshots.</p>
+            <p class="card-desc">Models live operational behavior as deterministic state graphs rather than fragile static HTML snapshots.</p>
           </div>
-
           <div class="feature-card">
-            <div class="card-icon">🔐</div>
+            <div class="card-icon">&#x1f510;</div>
             <h3 class="card-title">Session Continuation</h3>
-            <p class="card-desc">Safely preserves and resumes authenticated user sessions with authorized tokens and cookies.</p>
+            <p class="card-desc">Preserves and resumes authenticated sessions with user-authorized tokens and cookies seamlessly.</p>
           </div>
-
           <div class="feature-card">
-            <div class="card-icon">⚡</div>
+            <div class="card-icon">&#x26a1;</div>
             <h3 class="card-title">Deterministic Parity</h3>
-            <p class="card-desc">Identical inputs produce exact bit-for-bit SHA-256 graph digests across Python, JS, Dart, Java, and Kotlin.</p>
+            <p class="card-desc">Identical inputs produce exact bit-for-bit SHA-256 graph digests across all five SDK languages.</p>
           </div>
-
           <div class="feature-card">
-            <div class="card-icon">🔄</div>
+            <div class="card-icon">&#x1f504;</div>
             <h3 class="card-title">Replay &amp; Reconstruction</h3>
-            <p class="card-desc">Proves topological equivalence and rebuilds operational UI/API surfaces directly from Intermediate Representation (IR).</p>
+            <p class="card-desc">Proves topological equivalence and rebuilds operational surfaces from Intermediate Representation (IR).</p>
           </div>
-
           <div class="feature-card">
-            <div class="card-icon">🛡️</div>
+            <div class="card-icon">&#x1f6e1;&#xfe0f;</div>
             <h3 class="card-title">Kaalka v5 Security</h3>
-            <p class="card-desc">AES-256-GCM / PBKDF2-SHA256 encrypted persistence ensures session tokens are never stored in plaintext.</p>
+            <p class="card-desc">AES-256-GCM / PBKDF2-SHA256 encrypted persistence for all session state at rest.</p>
           </div>
-
           <div class="feature-card">
-            <div class="card-icon">🤖</div>
+            <div class="card-icon">&#x1f916;</div>
             <h3 class="card-title">AI-First Topology</h3>
-            <p class="card-desc">Replaces 500KB dirty HTML blobs with compact 15KB structured IR graphs optimized for LLM context windows.</p>
+            <p class="card-desc">Replaces 500KB HTML blobs with compact 15KB structured IR graphs for LLM context windows.</p>
           </div>
         </div>
       </section>
 
-      <!-- Executive Overview -->
-      <section id="1-executive-overview" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">1. Executive Overview</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 16px;">
-          WebWeaveX is open-source <strong>deterministic runtime cognition infrastructure</strong>. It enables both human developers and autonomous AI agents to extract, cognize, synchronize, remember, execute, replay, and reconstruct complex operational software systems—including single-page web applications, desktop software, repositories, and backend microservices.
-        </p>
-      </section>
-
-      <!-- What WebWeaveX Actually Is -->
-      <section id="2-what-webweavex-actually-is" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">2. What WebWeaveX Actually Is</h2>
+      <!-- ═══════ WHAT IS WEBWEAVEX ═══════ -->
+      <section id="what-is-webweavex" class="reveal">
+        <h2>What WebWeaveX Actually Is</h2>
+        <p>WebWeaveX sits between raw operational software and downstream consumers. It is not a scraper, a framework, or a wrapper around external APIs. It is a deterministic runtime cognition engine.</p>
         <table>
           <thead>
-            <tr>
-              <th>Concept</th>
-              <th>Operational Meaning &amp; Function</th>
-            </tr>
+            <tr><th>Concept</th><th>Operational Meaning</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Runtime Cognition</strong></td>
-              <td>Captures operational state (DOM stability, network envelopes, event listeners) rather than static markup strings.</td>
-            </tr>
-            <tr>
-              <td><strong>Operational Substrate</strong></td>
-              <td>Stable node UUIDs, structural fingerprints, and tick-indexed execution history.</td>
-            </tr>
-            <tr>
-              <td><strong>Session Continuation</strong></td>
-              <td>Resumes authenticated sessions using authorized session tokens, cookies, or credentials.</td>
-            </tr>
-            <tr>
-              <td><strong>Deterministic Normalization</strong></td>
-              <td>Standardizes payload ordering, float formatting, and whitespace prior to SHA-256 hashing.</td>
-            </tr>
-            <tr>
-              <td><strong>Federated Memory Fabric</strong></td>
-              <td>Merges multi-turn execution histories into a tick-indexed, deterministic memory graph.</td>
-            </tr>
+            <tr><td><strong>Runtime Cognition</strong></td><td>Captures live behavior (graphs, events, execution state) rather than transient markup.</td></tr>
+            <tr><td><strong>Operational Substrate</strong></td><td>Stable node UUIDs, structural fingerprints, and tick-indexed execution history.</td></tr>
+            <tr><td><strong>Session Continuation</strong></td><td>Resumes authenticated sessions using authorized tokens, cookies, or credentials.</td></tr>
+            <tr><td><strong>Deterministic Normalization</strong></td><td>Canonical sorting, float rounding, whitespace stabilization, and UTF-8 encoding.</td></tr>
+            <tr><td><strong>Federated Memory Fabric</strong></td><td>Merges multi-turn execution histories into a tick-indexed, deterministic memory graph.</td></tr>
+            <tr><td><strong>Cross-Language Parity</strong></td><td>Shared mathematical spec ensuring identical hashes across Python, JS, Dart, Java, Kotlin.</td></tr>
           </tbody>
         </table>
       </section>
 
-      <!-- SDK Matrix -->
-      <section id="6-cross-language-sdk-ecosystem" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">6. Cross-Language SDK Ecosystem</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 24px;">
-          WebWeaveX provides native, production-ready SDKs for 5 major ecosystems. Every SDK implements the exact same canonical spec without inter-process bridges.
-        </p>
+      <!-- ═══════ WHY TRADITIONAL TOOLS FAIL ═══════ -->
+      <section id="why-traditional-tools-fail" class="reveal">
+        <h2>What Existing Systems Fail At</h2>
+        <p>Modern software is dynamic, stateful, authenticated, and distributed. Traditional tools can't handle this complexity.</p>
+        <table>
+          <thead>
+            <tr><th>Challenge</th><th>Traditional Scrapers</th><th>WebWeaveX</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Surface Capture</strong></td><td>Returns static HTML strings</td><td>Captures multi-layered runtime graphs with stable node identities</td></tr>
+            <tr><td><strong>Auth Continuity</strong></td><td>Session collapses after login</td><td>Persists authenticated sessions with Kaalka v5 encryption</td></tr>
+            <tr><td><strong>Operational Context</strong></td><td>No memory of previous state</td><td>Maintains tick-indexed memory fabric and workflow state machines</td></tr>
+            <tr><td><strong>Replay Verification</strong></td><td>Fails on dynamic class names</td><td>Proves equivalence via normalized graph hashes</td></tr>
+            <tr><td><strong>Reconstruction</strong></td><td>Requires manual mock coding</td><td>Automatically rebuilds topology from unified IR payloads</td></tr>
+            <tr><td><strong>Determinism</strong></td><td>Probabilistic outputs</td><td>Strictly deterministic SHA-256 graph digests</td></tr>
+            <tr><td><strong>AI Integration</strong></td><td>Overflowing raw HTML prompts</td><td>Compact, structured IR graphs for LLM token efficiency</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ═══════ HUMANS AND AI ═══════ -->
+      <section id="humans-and-ai-agents" class="reveal">
+        <h2>Designed for Humans and AI Agents</h2>
+        <p>WebWeaveX is dual-consumable by design. Human engineers get reliable inspection and debugging. AI agents get deterministic tool calling and session continuity.</p>
+        <div class="grid-2">
+          <div class="feature-card">
+            <div class="card-icon">&#x1f464;</div>
+            <h3 class="card-title">For Human Engineers</h3>
+            <p class="card-desc">Inspect complex web apps, preserve authenticated workflows, build integration tools, audit production security, and analyze runtime behavior across releases.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">&#x1f916;</div>
+            <h3 class="card-title">For AI Agents</h3>
+            <p class="card-desc">Maintain long-running session continuity without re-authenticating, reason about operational topologies using clean IR graphs, replay multi-step actions safely.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SDK MATRIX ═══════ -->
+      <section id="sdk-matrix" class="reveal">
+        <h2>Cross-Language SDK Ecosystem</h2>
+        <p>All 5 SDKs at version <strong>v3.0.0</strong> implement the exact same canonical pipeline spec. No inter-process bridges or subprocess hacks.</p>
 
         <div class="sdk-tabs-container">
           <div class="sdk-tab-header">
-            <button class="sdk-tab-btn active" data-lang="python">🐍 Python (PyPI)</button>
-            <button class="sdk-tab-btn" data-lang="js">🟨 JavaScript (npm)</button>
-            <button class="sdk-tab-btn" data-lang="dart">🎯 Dart (pub.dev)</button>
-            <button class="sdk-tab-btn" data-lang="java">☕ Java (Maven)</button>
-            <button class="sdk-tab-btn" data-lang="kotlin">🟣 Kotlin (Gradle)</button>
+            <button class="sdk-tab-btn active" data-lang="python">Python (PyPI)</button>
+            <button class="sdk-tab-btn" data-lang="js">JavaScript (npm)</button>
+            <button class="sdk-tab-btn" data-lang="dart">Dart (pub.dev)</button>
+            <button class="sdk-tab-btn" data-lang="java">Java (Maven)</button>
+            <button class="sdk-tab-btn" data-lang="kotlin">Kotlin (Gradle)</button>
           </div>
 
-          <!-- Python Tab -->
+          <!-- Python -->
           <div id="sdk-python" class="sdk-tab-content active">
-            <h3 style="margin-bottom: 8px;">Python Native SDK (`webweavex` v2.0.0)</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Production-grade PyPI package designed for enterprise Python, PyPI microservices, and AI notebooks.</p>
+            <h3>Python SDK &mdash; <code>webweavex</code> v3.0.0</h3>
+            <p>Production-grade PyPI package for enterprise Python, PyPI services, AI notebooks, and data engineering.</p>
             <div class="code-wrapper">
               <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
               <pre><code>pip install webweavex</code></pre>
@@ -260,19 +286,27 @@
               <div class="code-header"><span>main.py</span><button class="copy-btn">Copy</button></div>
               <pre><code>from webweavex import UniversalInput, run_canonical_pipeline
 
+# Define universal typed ingress
 input_data = UniversalInput(
     source="https://example.com/app",
-    source_type="web"
+    source_type="web",
+    session={"auth_token": "authorized_user_session"}
 )
+
+# Execute canonical runtime pipeline
 result = run_canonical_pipeline(input_data)
-print(f"Pipeline Digest: {result.pipeline_hash}")</code></pre>
+
+# Access deterministic graph and runtime fingerprint
+print(f"Graph Nodes: {len(result.graph.nodes)}")
+print(f"Pipeline Hash: {result.pipeline_hash}")
+print(f"Kaalka Encrypted Session: {result.encrypted_session[:32]}...")</code></pre>
             </div>
           </div>
 
-          <!-- JS Tab -->
+          <!-- JavaScript -->
           <div id="sdk-js" class="sdk-tab-content">
-            <h3 style="margin-bottom: 8px;">JavaScript / TypeScript SDK (`webweavex` v2.0.0)</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Node.js and browser AI agent runtime available on npm.</p>
+            <h3>JavaScript / TypeScript SDK &mdash; <code>webweavex</code> v3.0.0</h3>
+            <p>Node.js and browser AI agent runtime available on npm. Full TypeScript support.</p>
             <div class="code-wrapper">
               <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
               <pre><code>npm install webweavex</code></pre>
@@ -281,186 +315,376 @@ print(f"Pipeline Digest: {result.pipeline_hash}")</code></pre>
               <div class="code-header"><span>main.ts</span><button class="copy-btn">Copy</button></div>
               <pre><code>import { UniversalInput, runCanonicalPipeline } from 'webweavex';
 
-const input = new UniversalInput({ source: 'https://example.com/app', sourceType: 'web' });
-const result = await runCanonicalPipeline(input);
-console.log(`Pipeline Hash: ${result.pipelineHash}`);</code></pre>
+async function main() {
+  const input = new UniversalInput({
+    source: 'https://example.com/app',
+    sourceType: 'web',
+    session: { authToken: 'authorized_user_session' }
+  });
+
+  const result = await runCanonicalPipeline(input);
+  console.log(`Pipeline Digest: ${result.pipelineHash}`);
+  console.log(`Stabilized DOM Hash: ${result.fingerprint.domHash}`);
+}
+
+main();</code></pre>
             </div>
           </div>
 
-          <!-- Dart Tab -->
+          <!-- Dart -->
           <div id="sdk-dart" class="sdk-tab-content">
-            <h3 style="margin-bottom: 8px;">Dart SDK (`webweavex` v2.0.0)</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Flutter and Dart agent package available on pub.dev.</p>
+            <h3>Dart SDK &mdash; <code>webweavex</code> v3.0.0</h3>
+            <p>Flutter and Dart agent package for mobile apps, Dart backends, and Flutter web.</p>
             <div class="code-wrapper">
               <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
               <pre><code>dart pub add webweavex</code></pre>
             </div>
-          </div>
-
-          <!-- Java Tab -->
-          <div id="sdk-java" class="sdk-tab-content">
-            <h3 style="margin-bottom: 8px;">Java Native SDK (`io.webweavex:webweavex`)</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Enterprise Java and Spring Boot package published on Maven Central.</p>
             <div class="code-wrapper">
-              <div class="code-header"><span>build.gradle</span><button class="copy-btn">Copy</button></div>
-              <pre><code>implementation 'io.webweavex:webweavex:2.0.0'</code></pre>
+              <div class="code-header"><span>main.dart</span><button class="copy-btn">Copy</button></div>
+              <pre><code>import 'package:webweavex/webweavex.dart';
+
+void main() async {
+  final input = UniversalInput(
+    source: 'https://example.com/app',
+    sourceType: 'web',
+  );
+
+  final result = await runCanonicalPipeline(input);
+  print('Runtime Pipeline Hash: ${result.pipelineHash}');
+}</code></pre>
             </div>
           </div>
 
-          <!-- Kotlin Tab -->
+          <!-- Java -->
+          <div id="sdk-java" class="sdk-tab-content">
+            <h3>Java SDK &mdash; <code>io.webweavex:webweavex</code> v3.0.0</h3>
+            <p>Enterprise Java and Spring Boot package published on Maven Central.</p>
+            <div class="code-wrapper">
+              <div class="code-header"><span>build.gradle</span><button class="copy-btn">Copy</button></div>
+              <pre><code>implementation 'io.webweavex:webweavex:3.0.0'</code></pre>
+            </div>
+            <div class="code-wrapper">
+              <div class="code-header"><span>App.java</span><button class="copy-btn">Copy</button></div>
+              <pre><code>import io.webweavex.UniversalInput;
+import io.webweavex.WebWeaveXPipeline;
+import io.webweavex.PipelineResult;
+
+public class App {
+    public static void main(String[] args) {
+        UniversalInput input = UniversalInput.builder()
+            .source("https://example.com/app")
+            .sourceType("web")
+            .build();
+
+        PipelineResult result = WebWeaveXPipeline.runCanonicalPipeline(input);
+        System.out.println("Graph Digest: " + result.getPipelineHash());
+    }
+}</code></pre>
+            </div>
+          </div>
+
+          <!-- Kotlin -->
           <div id="sdk-kotlin" class="sdk-tab-content">
-            <h3 style="margin-bottom: 8px;">Kotlin Native SDK (`io.webweavex:webweavex-kotlin`)</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 16px;">Kotlin Coroutines and KMP SDK published on Maven Central.</p>
+            <h3>Kotlin SDK &mdash; <code>io.webweavex:webweavex-kotlin</code> v3.0.0</h3>
+            <p>Kotlin Coroutines and KMP SDK published on Maven Central.</p>
             <div class="code-wrapper">
               <div class="code-header"><span>build.gradle.kts</span><button class="copy-btn">Copy</button></div>
-              <pre><code>implementation("io.webweavex:webweavex-kotlin:2.0.0")</code></pre>
+              <pre><code>implementation("io.webweavex:webweavex-kotlin:3.0.0")</code></pre>
+            </div>
+            <div class="code-wrapper">
+              <div class="code-header"><span>Main.kt</span><button class="copy-btn">Copy</button></div>
+              <pre><code>import io.webweavex.UniversalInput
+import io.webweavex.runCanonicalPipeline
+
+suspend fun main() {
+    val input = UniversalInput(
+        source = "https://example.com/app",
+        sourceType = "web"
+    )
+    val result = runCanonicalPipeline(input)
+    println("Pipeline Hash: ${result.pipelineHash}")
+}</code></pre>
             </div>
           </div>
         </div>
+
+        <table>
+          <thead>
+            <tr><th>Language</th><th>Package</th><th>Manager</th><th>Version</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Python</strong></td><td><code>webweavex</code></td><td>PyPI</td><td>v3.0.0</td><td style="color: var(--accent-green);">Stable</td></tr>
+            <tr><td><strong>JavaScript</strong></td><td><code>webweavex</code></td><td>npm</td><td>v3.0.0</td><td style="color: var(--accent-green);">Stable</td></tr>
+            <tr><td><strong>Dart</strong></td><td><code>webweavex</code></td><td>pub.dev</td><td>v3.0.0</td><td style="color: var(--accent-green);">Stable</td></tr>
+            <tr><td><strong>Java</strong></td><td><code>io.webweavex:webweavex</code></td><td>Maven Central</td><td>v3.0.0</td><td style="color: var(--accent-green);">Stable</td></tr>
+            <tr><td><strong>Kotlin</strong></td><td><code>io.webweavex:webweavex-kotlin</code></td><td>Maven Central</td><td>v3.0.0</td><td style="color: var(--accent-green);">Stable</td></tr>
+          </tbody>
+        </table>
       </section>
 
-      <!-- Quick Start -->
-      <section id="7-quick-start-guide" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">7. Quick Start Guide</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 16px;">
-          Initialize the canonical pipeline in seconds. WebWeaveX automatically handles ingestion, extraction, graph normalization, and Kaalka v5 session encryption:
-        </p>
-
+      <!-- ═══════ QUICK START ═══════ -->
+      <section id="quick-start" class="reveal">
+        <h2>Quick Start Guide</h2>
+        <p>Initialize the canonical pipeline in seconds. WebWeaveX automatically handles ingestion, normalization, graph computation, and Kaalka v5 session encryption.</p>
         <div class="code-wrapper">
-          <div class="code-header"><span>example_pipeline.py</span><button class="copy-btn">Copy</button></div>
+          <div class="code-header"><span>pipeline.py</span><button class="copy-btn">Copy</button></div>
           <pre><code>from webweavex import UniversalInput, run_canonical_pipeline
 
-# Step 1: Supply typed input parameters
+# 1. Supply typed input parameters
 input_spec = UniversalInput(
     source="https://app.dashboard.com",
     source_type="web",
     session={"auth_token": "usr_sec_991823x"}
 )
 
-# Step 2: Run deterministic pipeline
+# 2. Run deterministic pipeline
 output = run_canonical_pipeline(input_spec)
 
-# Step 3: Inspect graph & encrypted checkpoint
+# 3. Inspect graph &amp; encrypted checkpoint
 print(f"Nodes Extracted: {len(output.graph.nodes)}")
 print(f"Deterministic Hash: {output.pipeline_hash}")
-print(f"Kaalka v5 Ciphertext: {output.encrypted_session}")</code></pre>
+print(f"Kaalka v5 Ciphertext: {output.encrypted_session[:48]}...")</code></pre>
         </div>
       </section>
 
-      <!-- Visual Architecture -->
-      <section id="8-visual-architecture" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">8. Visual Architecture</h2>
+      <!-- ═══════ ARCHITECTURE ═══════ -->
+      <section id="architecture" class="reveal">
+        <h2>Visual Architecture</h2>
+        <p>WebWeaveX follows a canonical 6-phase runtime pipeline: Ingest, Normalize, Cognize, Graph, Hash, and Encrypt.</p>
 
-        <h3 id="81-universal-runtime-pipeline" style="margin: 24px 0 12px 0;">8.1 Universal Runtime Pipeline</h3>
+        <h3 id="runtime-pipeline">Universal Runtime Pipeline</h3>
         <div class="mermaid-box">
           <pre class="mermaid">
 flowchart TD
     A[Universal Input Source] --> B{Source Type Router}
-    B -->|Web / SPA| C[Universal Web Extraction Engine]
+    B -->|Web / SPA| C[Web Extraction Engine]
     B -->|Repository| D[Repository Cognition Engine]
     B -->|Native / Desktop| E[Native Runtime Orchestrator]
     B -->|Connector API| F[Connector Engine Fabric]
 
-    C & D & E & F --> G[Canonical Normalization & Sanitize]
+    C --> G[Canonical Normalization &amp; Sanitize]
+    D --> G
+    E --> G
+    F --> G
+
     G --> H[Unified Runtime IR Synthesis]
     H --> I[Runtime Kernel Phase Bridge]
-    I --> J[Semantic & Sync Layers]
-    J --> K[Universal Runtime Graph]
-    K --> L[Deterministic SHA-256 Digest & Kaalka State]
+
+    I --> J[Semantic Cognition Layer]
+    I --> K[Synchronization &amp; Event Fabric]
+    I --> L[Federated Memory Fabric]
+
+    J &amp; K &amp; L --> M[Universal Runtime Graph Builder]
+    M --> N[Deterministic SHA-256 Pipeline Digest]
+    M --> O[Kaalka v5 Session Encryption]
+
+    N &amp; O --> P[Final Bounded Pipeline Output]
           </pre>
         </div>
 
-        <h3 id="85-federated-memory-fabric-architecture" style="margin: 24px 0 12px 0;">8.5 Federated Memory Fabric Architecture</h3>
+        <h3 id="replay-reconstruction">Deterministic Replay &amp; Reconstruction</h3>
+        <div class="mermaid-box">
+          <pre class="mermaid">
+stateDiagram-v2
+    [*] --> IngestIR: Read IR / Kaalka State
+    IngestIR --> Decrypt: Derive Kaalka Time Key
+    Decrypt --> Validate: Verify Parity Formula
+    Validate --> Reconstruct: Rebuild Node &amp; Edge Topology
+    Reconstruct --> Compare: Hash Reconstructed Graph
+    Compare --> Verified: Hash Match (Deterministic)
+    Compare --> Mismatch: Hash Divergence (Alert)
+    Verified --> [*]
+          </pre>
+        </div>
+
+        <h3 id="memory-fabric">Federated Memory Fabric</h3>
         <div class="mermaid-box">
           <pre class="mermaid">
 graph TD
-    T1[Tick #1 State Node] --> M[Federated Memory Merge Kernel]
-    T2[Tick #2 State Node] --> M
-    T3[Tick #3 State Node] --> M
+    T1[Tick #1 Memory Node] --> M[Federated Memory Merge Kernel]
+    T2[Tick #2 Memory Node] --> M
+    T3[Tick #3 Memory Node] --> M
     M --> S[Sorted Key-Value Memory Index]
     S --> H[Deterministic Memory Graph Hash]
     H --> K[Kaalka v5 Sealed Storage]
           </pre>
         </div>
+
+        <h3 id="kaalka-parity">Cross-Language Parity &amp; Kaalka v5 Encryption</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>kaalka-pipeline.txt</span></div>
+          <pre><code>[Raw Object / State]
+        |
+  normalize()          &lt;-- Sort keys, standardize floats, strip noise
+        |
+  stableSerialize()    &lt;-- Canonical JSON payload
+        |
+  UTF-8 Encoding       &lt;-- Raw byte vector
+        |
+  deriveKaalkaKey()    &lt;-- PBKDF2-HMAC-SHA256 time-indexed key derivation
+        |
+  kaalka._proc()       &lt;-- AES-256-GCM authenticated cipher
+        |
+  Base64 Output        &lt;-- Identical ciphertext across Python, JS, Dart, Java, Kotlin</code></pre>
+        </div>
       </section>
 
-      <!-- Performance Benchmarks -->
-      <section id="12-performance-benchmarks" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">12. Performance Benchmarks</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th>Python SDK</th>
-              <th>JS/TS SDK</th>
-              <th>Dart SDK</th>
-              <th>Java SDK</th>
-              <th>Kotlin SDK</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Graph Normalization Speed</strong></td>
-              <td>1.2 ms</td>
-              <td>0.8 ms</td>
-              <td>0.9 ms</td>
-              <td>0.6 ms</td>
-              <td>0.7 ms</td>
-            </tr>
-            <tr>
-              <td><strong>Kaalka Encrypt/Decrypt (10KB)</strong></td>
-              <td>0.4 ms</td>
-              <td>0.2 ms</td>
-              <td>0.3 ms</td>
-              <td>0.1 ms</td>
-              <td>0.2 ms</td>
-            </tr>
-            <tr>
-              <td><strong>Hash Rate (ops/sec)</strong></td>
-              <td>85,000</td>
-              <td>120,000</td>
-              <td>95,000</td>
-              <td>150,000</td>
-              <td>140,000</td>
-            </tr>
-            <tr>
-              <td><strong>Code Coverage</strong></td>
-              <td>93.4%</td>
-              <td>94.1%</td>
-              <td>92.8%</td>
-              <td>93.0%</td>
-              <td>93.5%</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- Security Policy -->
-      <section id="11-security-model--kaalka-contract" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 16px;">11. Security Model &amp; Kaalka Contract</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 16px;">
-          WebWeaveX enforces zero auth bypass, allowlisted execution bounds, and Kaalka v5 encryption for all persisted session objects. Persisted state uses AES-256-GCM authenticated cipher combined with PBKDF2-HMAC-SHA256 time-indexed key derivation.
-        </p>
-      </section>
-
-      <!-- FAQ -->
-      <section id="13-frequently-asked-questions-faq" style="margin-bottom: 60px;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 24px;">13. Frequently Asked Questions</h2>
-        <div style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- ═══════ SECURITY ═══════ -->
+      <section id="security" class="reveal">
+        <h2>Security Model &amp; Kaalka Contract</h2>
+        <p>WebWeaveX follows strict security invariants. It is not a penetration tool, a password cracker, or a CAPTCHA bypass engine.</p>
+        <div class="grid-2">
           <div class="feature-card">
-            <h3 style="font-size: 1.1rem; color: var(--accent-blue); margin-bottom: 8px;">How is WebWeaveX different from Playwright or Selenium?</h3>
-            <p class="card-desc">Playwright and Selenium drive browsers. WebWeaveX is cognition infrastructure above drivers that converts raw DOMs and network events into a deterministic graph model with state memory and replay proofs.</p>
+            <div class="card-icon">&#x1f6ab;</div>
+            <h3 class="card-title">Zero Auth Bypass</h3>
+            <p class="card-desc">Session continuation works strictly when user-authorized credentials or session cookies are provided by the operator.</p>
           </div>
           <div class="feature-card">
-            <h3 style="font-size: 1.1rem; color: var(--accent-blue); margin-bottom: 8px;">How does cross-language parity work?</h3>
-            <p class="card-desc">All SDKs implement the identical canonical formula and Kaalka v5 spec. Serializing a graph in Python produces the exact same SHA-256 pipeline hash when loaded in JS, Java, Dart, or Kotlin.</p>
+            <div class="card-icon">&#x1f512;</div>
+            <h3 class="card-title">Kaalka v5 Encryption</h3>
+            <p class="card-desc">Persisted session state uses AES-256-GCM authenticated encryption with PBKDF2-HMAC-SHA256 key derivation (kaalka@5.0.0).</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">&#x1f6e1;&#xfe0f;</div>
+            <h3 class="card-title">Allowlisted Execution</h3>
+            <p class="card-desc">Production execution paths enforce strict policy bounds. eval(), exec(), and arbitrary shell execution are strictly forbidden.</p>
+          </div>
+          <div class="feature-card">
+            <div class="card-icon">&#x1f4e1;</div>
+            <h3 class="card-title">No Remote Code Execution</h3>
+            <p class="card-desc">WebWeaveX does not execute unverified remote scripts. All operations run in bounded, sandboxed contexts.</p>
           </div>
         </div>
       </section>
 
-      <!-- Footer -->
-      <footer style="padding: 40px 0; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.875rem; text-align: center;">
-        <p>WebWeaveX Ecosystem · Apache License 2.0 · Released by <a href="https://github.com/ni-sh-a-char" style="color: var(--accent-blue); text-decoration: none;">Piyush Mishra</a></p>
+      <!-- ═══════ BENCHMARKS ═══════ -->
+      <section id="benchmarks" class="reveal">
+        <h2>Performance Benchmarks</h2>
+        <p>All SDK implementations (v3.0.0) are benchmarked against high-throughput operational workloads.</p>
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Python</th><th>JS/TS</th><th>Dart</th><th>Java</th><th>Kotlin</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Graph Normalization</strong></td><td>1.2 ms</td><td>0.8 ms</td><td>0.9 ms</td><td>0.6 ms</td><td>0.7 ms</td></tr>
+            <tr><td><strong>Kaalka Encrypt/Decrypt (10KB)</strong></td><td>0.4 ms</td><td>0.2 ms</td><td>0.3 ms</td><td>0.1 ms</td><td>0.2 ms</td></tr>
+            <tr><td><strong>Hash Rate (ops/sec)</strong></td><td>85,000</td><td>120,000</td><td>95,000</td><td>150,000</td><td>140,000</td></tr>
+            <tr><td><strong>Memory Overhead</strong></td><td>4.2 MB</td><td>3.8 MB</td><td>3.5 MB</td><td>2.9 MB</td><td>3.1 MB</td></tr>
+            <tr><td><strong>Code Coverage</strong></td><td>94.8%</td><td>95.2%</td><td>93.6%</td><td>94.1%</td><td>94.5%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ═══════ FAQ ═══════ -->
+      <section id="faq" class="reveal">
+        <h2>Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="feature-card">
+            <h3 style="font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 8px;">How is WebWeaveX different from Playwright or Selenium?</h3>
+            <p class="card-desc">Playwright and Selenium are browser automation drivers. WebWeaveX is cognition infrastructure that sits above drivers, converting raw DOMs and network events into deterministic graph models with state memory and replay proofs.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 8px;">Does WebWeaveX work with SPAs (React, Vue, Angular)?</h3>
+            <p class="card-desc">Yes. DOM stabilization algorithms filter volatile framework noise (dynamic CSS classes, React fiber keys, timestamps), producing clean, stable identity hashes.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 8px;">How does cross-language parity work?</h3>
+            <p class="card-desc">All SDKs implement the identical canonical normalization algorithm and Kaalka v5 cryptographic key derivation contract. An IR graph serialized in Python produces the exact same pipeline hash in JavaScript, Java, Dart, or Kotlin.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="font-size: 1.05rem; color: var(--accent-blue); margin-bottom: 8px;">Is WebWeaveX free and open-source?</h3>
+            <p class="card-desc">Yes. WebWeaveX is released under the permissive Apache License 2.0.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ ROADMAP ═══════ -->
+      <section id="ecosystem-roadmap" class="reveal">
+        <h2>Ecosystem Roadmap</h2>
+        <div class="grid-2">
+          <div class="feature-card" style="border-left: 3px solid var(--accent-green);">
+            <h3 class="card-title" style="color: var(--accent-green);">&#x2705; v3.0.0 Released</h3>
+            <p class="card-desc">Python, JavaScript, Dart, Java, and Kotlin production SDKs with Kaalka v5 contract, interactive documentation portal, and CI/CD automation.</p>
+          </div>
+          <div class="feature-card" style="border-left: 3px solid var(--accent-yellow);">
+            <h3 class="card-title" style="color: var(--accent-yellow);">&#x1f52d; v3.1.0 Upcoming</h3>
+            <p class="card-desc">Native Rust performance extraction worker and Go sidecar agent. Extended telemetry connectors (OpenTelemetry, K8s state graphs).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ COMMUNITY ═══════ -->
+      <section id="community" class="reveal">
+        <h2>Community &amp; Contributing</h2>
+        <p>We welcome contributions from developers, researchers, and AI enthusiasts.</p>
+        <div class="grid-3">
+          <div class="feature-card">
+            <h3 class="card-title">Contributing</h3>
+            <p class="card-desc">Read <a href="https://github.com/ni-sh-a-char/WebWeaveX/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> before submitting pull requests.</p>
+          </div>
+          <div class="feature-card">
+            <h3 class="card-title">Issues</h3>
+            <p class="card-desc">Report bugs or request features on <a href="https://github.com/ni-sh-a-char/WebWeaveX/issues">GitHub Issues</a>.</p>
+          </div>
+          <div class="feature-card">
+            <h3 class="card-title">Support</h3>
+            <p class="card-desc">Support development on <a href="https://buymeacoffee.com/piyushmishra00" target="_blank" rel="noopener">Buy Me a Coffee</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ LICENSE ═══════ -->
+      <section class="reveal">
+        <h2>License &amp; Citation</h2>
+        <p>Apache License 2.0. See <a href="https://github.com/ni-sh-a-char/WebWeaveX/blob/main/LICENSE">LICENSE</a> and <a href="https://github.com/ni-sh-a-char/WebWeaveX/blob/main/NOTICE">NOTICE</a>.</p>
+        <div class="code-wrapper">
+          <div class="code-header"><span>CITATION.cff</span><button class="copy-btn">Copy</button></div>
+          <pre><code>@software{mishra2026webweavex,
+  author    = {Mishra, Piyush},
+  title     = {WebWeaveX: Universal Runtime Cognition Infrastructure},
+  year      = {2026},
+  publisher = {GitHub},
+  version   = {3.0.0},
+  url       = {https://github.com/ni-sh-a-char/WebWeaveX}
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- ═══════ FOOTER ═══════ -->
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>WebWeave<span class="brand-gradient">X</span></h3>
+            <p>Deterministic runtime cognition infrastructure for humans and AI agents. Not a disposable scraper, not AGI hype, not an LLM wrapper.</p>
+          </div>
+          <div class="footer-col">
+            <h4>SDKs</h4>
+            <a href="#sdk-matrix">Python (PyPI)</a>
+            <a href="#sdk-matrix">JavaScript (npm)</a>
+            <a href="#sdk-matrix">Dart (pub.dev)</a>
+            <a href="#sdk-matrix">Java (Maven)</a>
+            <a href="#sdk-matrix">Kotlin (Maven)</a>
+          </div>
+          <div class="footer-col">
+            <h4>Docs</h4>
+            <a href="#quick-start">Quick Start</a>
+            <a href="#architecture">Architecture</a>
+            <a href="ai-agents.html">AI Agent Guide</a>
+            <a href="human-onboarding.html">Human Onboarding</a>
+            <a href="#security">Security</a>
+          </div>
+          <div class="footer-col">
+            <h4>Community</h4>
+            <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/ni-sh-a-char/WebWeaveX/issues" target="_blank" rel="noopener">Issues</a>
+            <a href="https://github.com/ni-sh-a-char/WebWeaveX/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+            <a href="https://buymeacoffee.com/piyushmishra00" target="_blank" rel="noopener">Sponsor</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>Apache License 2.0 &copy; 2026 Piyush Mishra</span>
+          <span>WebWeaveX v3.0.0</span>
+        </div>
       </footer>
 
     </main>

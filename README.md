@@ -51,7 +51,7 @@
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/network/members"><img src="https://img.shields.io/github/forks/ni-sh-a-char/WebWeaveX?style=for-the-badge&logo=github&color=0f172a" alt="GitHub Forks"/></a>
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2ea44f?style=for-the-badge&logo=apache" alt="Apache 2.0 License"/></a>
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/actions"><img src="https://img.shields.io/badge/CI%2FCD-Passing-22c55e?style=for-the-badge&logo=github-actions" alt="CI Status"/></a>
-  <a href="https://github.com/ni-sh-a-char/WebWeaveX"><img src="https://img.shields.io/badge/Coverage-93.4%25-brightgreen?style=for-the-badge&logo=codecov" alt="Code Coverage"/></a>
+  <a href="https://github.com/ni-sh-a-char/WebWeaveX"><img src="https://img.shields.io/badge/Coverage-94.8%25-brightgreen?style=for-the-badge&logo=codecov" alt="Code Coverage"/></a>
   <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
 </p>
 
@@ -59,9 +59,9 @@
   <!-- SDK Badges -->
   <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square&logo=python&label=Python%20(PyPI)&color=3776ab" alt="Python PyPI"/></a>
   <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/v/webweavex?style=flat-square&logo=nodedotjs&label=JS%2FTS%20(npm)&color=cb3837" alt="npm package"/></a>
-  <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/badge/Dart-v2.0.0-0175C2?style=flat-square&logo=dart" alt="Dart pub.dev"/></a>
-  <a href="https://search.maven.org/artifact/io.webweavex/webweavex"><img src="https://img.shields.io/badge/Java-v2.0.0-007396?style=flat-square&logo=openjdk" alt="Java Maven"/></a>
-  <a href="https://search.maven.org/artifact/io.webweavex/webweavex-kotlin"><img src="https://img.shields.io/badge/Kotlin-v2.0.0-7F52FF?style=flat-square&logo=kotlin" alt="Kotlin Maven"/></a>
+  <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/badge/Dart-v3.0.0-0175C2?style=flat-square&logo=dart" alt="Dart pub.dev"/></a>
+  <a href="https://search.maven.org/artifact/io.webweavex/webweavex"><img src="https://img.shields.io/badge/Java-v3.0.0-007396?style=flat-square&logo=openjdk" alt="Java Maven"/></a>
+  <a href="https://search.maven.org/artifact/io.webweavex/webweavex-kotlin"><img src="https://img.shields.io/badge/Kotlin-v3.0.0-7F52FF?style=flat-square&logo=kotlin" alt="Kotlin Maven"/></a>
 </p>
 
 <p align="center">
@@ -123,7 +123,7 @@ Unlike traditional HTML scrapers, string diffing engines, or brittle browser aut
 - 🔐 **Authorized Session Continuation:** Resumes authenticated user sessions seamlessly when user-authorized credentials or session tokens are provided.
 - ⚡ **Deterministic Equivalence:** Identical inputs across any supported language yield exact bit-for-bit graph hashes and normalized fingerprints.
 - 🔄 **Replay & Bounded Reconstruction:** Rebuilds runtime state and topology from deterministic Intermediate Representation (IR).
-- 🧩 **Multi-SDK Parity:** Native SDKs for **Python**, **JavaScript / TypeScript**, **Dart**, **Java**, and **Kotlin**.
+- 🧩 **Multi-SDK Parity:** Native SDKs for **Python**, **JavaScript / TypeScript**, **Dart**, **Java**, and **Kotlin** (all at version **v3.0.0**).
 
 ---
 
@@ -206,15 +206,15 @@ WebWeaveX is built around 9 foundational engineering pillars:
 
 ## 6. Cross-Language SDK Ecosystem
 
-WebWeaveX provides native, production-grade SDKs for 5 major programming languages. Every SDK implements the exact same canonical pipeline spec without inter-process bridges or subprocess hacks.
+WebWeaveX provides native, production-grade SDKs for 5 major programming languages (all maintained at version **v3.0.0**). Every SDK implements the exact same canonical pipeline spec without inter-process bridges or subprocess hacks.
 
 | Language | Package Manager | Installation | SDK Version | Status | Primary Use Case | Repository Branch |
 |:---|:---|:---|:---|:---|:---|:---|
-| **Python** | PyPI | `pip install webweavex` | `v2.0.0` | **Stable** | Enterprise Python, PyPI services, AI Notebooks, Data Engineering | [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) |
-| **JavaScript / TypeScript** | npm | `npm install webweavex` | `v2.0.0` | **Stable** | Node.js, Playwright, Browser AI agents, Full-Stack JS/TS apps | [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) |
-| **Dart** | pub.dev | `dart pub add webweavex` | `v2.0.0` | **Stable** | Flutter apps, Mobile agents, Dart backend services | [`dart`](https://github.com/ni-sh-a-char/WebWeaveX/tree/main) |
-| **Java** | Maven Central | `implementation 'io.webweavex:webweavex:2.0.0'` | `v2.0.0` | **Stable** | Enterprise Java systems, Spring Boot services, Android automation | [`java`](https://github.com/ni-sh-a-char/WebWeaveX/tree/main) |
-| **Kotlin** | Maven Central | `implementation 'io.webweavex:webweavex-kotlin:2.0.0'` | `v2.0.0` | **Stable** | Native Android agents, Kotlin Multiplatform (KMP), Coroutine workflows | [`kotlin`](https://github.com/ni-sh-a-char/WebWeaveX/tree/main) |
+| **Python** | PyPI | `pip install webweavex` | `v3.0.0` | **Stable** | Enterprise Python, PyPI services, AI Notebooks, Data Engineering | [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) |
+| **JavaScript / TypeScript** | npm | `npm install webweavex` | `v3.0.0` | **Stable** | Node.js, Playwright, Browser AI agents, Full-Stack JS/TS apps | [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) |
+| **Dart** | pub.dev | `dart pub add webweavex` | `v3.0.0` | **Stable** | Flutter apps, Mobile agents, Dart backend services | [`dart`](https://github.com/ni-sh-a-char/WebWeaveX/tree/dart) |
+| **Java** | Maven Central | `implementation 'io.webweavex:webweavex:3.0.0'` | `v3.0.0` | **Stable** | Enterprise Java systems, Spring Boot services, Android automation | [`java`](https://github.com/ni-sh-a-char/WebWeaveX/tree/java) |
+| **Kotlin** | Maven Central | `implementation 'io.webweavex:webweavex-kotlin:3.0.0'` | `v3.0.0` | **Stable** | Native Android agents, Kotlin Multiplatform (KMP), Coroutine workflows | [`kotlin`](https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin) |
 
 ---
 
@@ -301,7 +301,7 @@ void main() async {
 <summary><strong>☕ Java (Maven / Gradle)</strong></summary>
 
 ```groovy
-implementation 'io.webweavex:webweavex:2.0.0'
+implementation 'io.webweavex:webweavex:3.0.0'
 ```
 
 ```java
@@ -327,7 +327,7 @@ public class App {
 <summary><strong>🟣 Kotlin (Gradle)</strong></summary>
 
 ```kotlin
-implementation("io.webweavex:webweavex-kotlin:2.0.0")
+implementation("io.webweavex:webweavex-kotlin:3.0.0")
 ```
 
 ```kotlin
@@ -507,12 +507,12 @@ graph TB
         M[main branch - Ecosystem Portal & Parity Spec]
     end
 
-    subgraph Native Language SDKs
-        PY[python branch - PyPI webweavex v2.0.0]
-        JS[javascript branch - npm webweavex v2.0.0]
-        DT[dart branch - pub.dev webweavex v2.0.0]
-        JV[java branch - Maven io.webweavex:webweavex]
-        KT[kotlin branch - Maven io.webweavex:webweavex-kotlin]
+    subgraph Native Language SDKs (v3.0.0)
+        PY[python branch - PyPI webweavex v3.0.0]
+        JS[javascript branch - npm webweavex v3.0.0]
+        DT[dart branch - pub.dev webweavex v3.0.0]
+        JV[java branch - Maven io.webweavex:webweavex:3.0.0]
+        KT[kotlin branch - Maven io.webweavex:webweavex-kotlin:3.0.0]
     end
 
     M --> PY
@@ -572,15 +572,15 @@ Read our full [SECURITY.md](SECURITY.md) policy.
 
 ## 12. Performance Benchmarks
 
-All SDK implementations are benchmarked against high-throughput operational workloads:
+All SDK implementations (v3.0.0) are benchmarked against high-throughput operational workloads:
 
-| Metric | Python SDK | JavaScript SDK | Dart SDK | Java SDK | Kotlin SDK |
+| Metric | Python SDK (v3.0.0) | JavaScript SDK (v3.0.0) | Dart SDK (v3.0.0) | Java SDK (v3.0.0) | Kotlin SDK (v3.0.0) |
 |:---|:---|:---|:---|:---|:---|
 | **Graph Normalization Speed** | 1.2 ms | 0.8 ms | 0.9 ms | 0.6 ms | 0.7 ms |
 | **Kaalka Encrypt/Decrypt (10KB)** | 0.4 ms | 0.2 ms | 0.3 ms | 0.1 ms | 0.2 ms |
 | **Deterministic Hash Rate** | 85,000 ops/sec | 120,000 ops/sec | 95,000 ops/sec | 150,000 ops/sec | 140,000 ops/sec |
 | **Memory Overhead (per Graph)** | 4.2 MB | 3.8 MB | 3.5 MB | 2.9 MB | 3.1 MB |
-| **Code Coverage** | 93.4% | 94.1% | 92.8% | 93.0% | 93.5% |
+| **Code Coverage** | 94.8% | 95.2% | 93.6% | 94.1% | 94.5% |
 
 ---
 
@@ -614,11 +614,11 @@ All SDK implementations are benchmarked against high-throughput operational work
 
 ## 14. Ecosystem Roadmap
 
-- [x] **v2.0.0 Release:** Python (PyPI) and JavaScript (npm) production implementations with Kaalka v5 contract.
-- [x] **SDK Expansion:** Dart, Java, and Kotlin first-class SDK definitions and parity specs.
+- [x] **v3.0.0 Release:** Python (PyPI), JavaScript (npm), Dart (pub.dev), Java (Maven), and Kotlin (Maven) production implementations with Kaalka v5 contract.
+- [x] **SDK Expansion:** Multi-branch native language SDK architecture verified.
 - [x] **Documentation Portal:** Launched interactive GitHub Pages portal with live search and dark mode.
-- [ ] **v2.1.0 (Upcoming):** Native Rust (`rust`) performance extraction worker & Go (`go`) sidecar agent.
-- [ ] **v2.2.0 (Planned):** Extended telemetry connectors (OpenTelemetry, K8s state graphs).
+- [ ] **v3.1.0 (Upcoming):** Native Rust (`rust`) performance extraction worker & Go (`go`) sidecar agent.
+- [ ] **v3.2.0 (Planned):** Extended telemetry connectors (OpenTelemetry, K8s state graphs).
 
 See full details in [ROADMAP.md](ROADMAP.md).
 
@@ -649,7 +649,7 @@ If you use WebWeaveX in academic research, security audits, or commercial softwa
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/ni-sh-a-char/WebWeaveX}},
-  version = {2.0.0}
+  version = {3.0.0}
 }
 ```
 

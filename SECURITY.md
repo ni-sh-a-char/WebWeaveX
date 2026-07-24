@@ -4,8 +4,8 @@
 
 | Version | Supported | Security Maintenance |
 |:---|:---|:---|
-| **v2.0.0** | ✅ Yes | Full Security Maintenance & Patching |
-| < 2.0.0 | ❌ No | Deprecated |
+| **v3.0.0** | ✅ Yes | Full Security Maintenance & Patching |
+| < 3.0.0 | ❌ No | Deprecated |
 
 ---
 
