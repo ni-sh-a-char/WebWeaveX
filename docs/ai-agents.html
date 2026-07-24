@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Guide — WebWeaveX Documentation</title>
+  <meta name="description" content="Dedicated integration guide for autonomous AI agents using WebWeaveX runtime cognition infrastructure.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://ni-sh-a-char.github.io/WebWeaveX/ai-agents.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#nav-grad)" stroke-width="6"/>
+        <circle cx="40" cy="45" r="10" fill="url(#nav-grad)"/>
+        <defs>
+          <linearGradient id="nav-grad" x1="0" y1="0" x2="80" y2="80">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="50%" stop-color="#a78bfa"/>
+            <stop offset="100%" stop-color="#f43f5e"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>WebWeave<span class="brand-gradient">X</span></span>
+    </a>
+    <div class="nav-controls">
+      <a href="index.html" class="btn-secondary" style="padding: 6px 16px; font-size: 0.85rem;">← Main Documentation</a>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <div class="sidebar-title">AI Agent Guide</div>
+        <a href="#why-ai-agents-need-webweavex" class="sidebar-link active">Why AI Agents Need WebWeaveX</a>
+        <a href="#universal-agent-workflow-cycle" class="sidebar-link">Agent Workflow Cycle</a>
+        <a href="#system-prompt" class="sidebar-link">Recommended System Prompt</a>
+        <a href="#langchain-recipe" class="sidebar-link">LangChain Recipe</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="hero-badge-pill">🤖 Dedicated AI Agent Guide</div>
+      <h1 class="hero-title" style="text-align: left; font-size: 2.5rem;">AI Agent Integration &amp; Runtime Cognition</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 32px;">
+        WebWeaveX serves as the deterministic operational substrate for autonomous LLM agents (LangChain, AutoGPT, CrewAI, Claude Computer Use).
+      </p>
+
+      <section id="why-ai-agents-need-webweavex" style="margin-bottom: 40px;">
+        <h2>1. Why AI Agents Need WebWeaveX</h2>
+        <div class="grid-3" style="margin-top: 16px;">
+          <div class="feature-card">
+            <h3 style="color: var(--accent-blue);">Compact IR Graph</h3>
+            <p class="card-desc">Replaces 500KB dirty HTML blobs with 15KB structured IR graphs optimized for context windows.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color: var(--accent-purple);">Kaalka Session Continuity</h3>
+            <p class="card-desc">Persists authenticated session states across tool calls without re-authenticating.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color: var(--accent-green);">Deterministic Hashes</h3>
+            <p class="card-desc">SHA-256 state digests allow agents to verify action success with mathematical certainty.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="universal-agent-workflow-cycle" style="margin-bottom: 40px;">
+        <h2>2. Universal Agent Workflow Cycle</h2>
+        <div class="mermaid-box">
+          <pre class="mermaid">
+flowchart TD
+    A[1. Ingest & Extract Target Source] --> B[2. Cognize IR Graph & State Hash]
+    B --> C[3. Execute Allowlisted Action Sandbox]
+    C --> D[4. Verify Deterministic Pipeline Hash]
+          </pre>
+        </div>
+      </section>
+
+      <section id="system-prompt" style="margin-bottom: 40px;">
+        <h2>3. Recommended System Prompt</h2>
+        <div class="code-wrapper">
+          <div class="code-header"><span>system_prompt.md</span><button class="copy-btn">Copy</button></div>
+          <pre><code>You are an autonomous operational software agent powered by WebWeaveX.
+1. Always parse inputs via `run_canonical_pipeline(UniversalInput(...))`.
+2. Inspect `graph.nodes` for stable deterministic element IDs.
+3. Pass `encrypted_session` in subsequent calls to maintain session state.
+4. Compare `pipeline_hash` before and after actions to verify state transitions.</code></pre>
+        </div>
+      </section>
+
+      <section id="langchain-recipe" style="margin-bottom: 40px;">
+        <h2>4. LangChain Integration Recipe</h2>
+        <div class="code-wrapper">
+          <div class="code-header"><span>webweavex_tool.py</span><button class="copy-btn">Copy</button></div>
+          <pre><code>from langchain.tools import tool
+from webweavex import UniversalInput, run_canonical_pipeline
+
+@tool
+def inspect_runtime_surface(url: str, session_token: str = None) -> dict:
+    input_data = UniversalInput(source=url, sourceType="web", session={"auth_token": session_token})
+    result = run_canonical_pipeline(input_data)
+    return {
+        "pipeline_hash": result.pipeline_hash,
+        "nodes": [n.node_id for n in result.graph.nodes[:15]],
+        "encrypted_session": result.encrypted_session
+    }</code></pre>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

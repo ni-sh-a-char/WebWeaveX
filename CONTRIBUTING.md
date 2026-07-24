@@ -1,45 +1,50 @@
 # Contributing to WebWeaveX
 
-Thank you for helping improve deterministic runtime extraction infrastructure.
+Thank you for contributing to **WebWeaveX**, the universal runtime cognition infrastructure for humans and AI agents.
 
-## Setup
+---
+
+## 1. Quick Setup
 
 ```bash
-git clone https://github.com/PIYUSH-MISHRA-00/webweavex.git
-cd webweavex
+git clone https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX
 pip install -e ".[dev,browser]"
-playwright install chromium   # optional, for browser tests
+playwright install chromium   # Optional for browser runtime tests
 ```
 
-## Before you open a PR
+---
+
+## 2. Pre-PR Checklist
+
+Before opening a pull request:
 
 ```bash
+# 1. Run unit test suite
 pytest -q
-python -m build
+
+# 2. Verify import & version
 python -c "import webweavex; assert webweavex.__version__ == '2.0.0'"
+
+# 3. Test package build
+python -m build
 ```
 
-Scoped production coverage must remain **≥ 90%** (see `pyproject.toml`).
+- Scoped production coverage must remain **≥ 90%**.
+- All cross-language parity tests must pass.
 
-## Design rules
+---
 
-1. **Canonical pipeline only** — new runtime behavior integrates with `run_canonical_pipeline()` or an existing phase orchestrator; no parallel mega-orchestrators.
-2. **Determinism** — no `random`, no `uuid4`, no time-based IDs in persisted or hashed structures.
-3. **Kaalka persistence** — operational checkpoints use `encrypt_value` / session wrappers with `algorithm: kaalka`; no pickle or plaintext runtime stores.
-4. **Replay-safe** — graph normalization and fingerprints must remain stable for equivalent inputs.
-5. **Bounded output** — public functions return dicts with `bounded: True` where applicable.
-6. **No import-time side effects** — `import webweavex` must not launch browsers or network jobs.
+## 3. Core Architectural Invariants
 
-## Code style
+1. **Canonical Pipeline Only:** All runtime cognition behaviors must route through `run_canonical_pipeline()` or an explicit phase orchestrator. No parallel shadow orchestrators.
+2. **Determinism:** No `random`, `uuid4`, or wall-clock timestamps in persisted or hashed data structures.
+3. **Kaalka v5 Persistence:** Operational checkpoints must use Kaalka v5 AES-256-GCM encryption (`algorithm: kaalka`). Plaintext or pickle persistence is forbidden.
+4. **Replay Equivalence:** Identical inputs must yield identical SHA-256 graph hashes across Python, JavaScript, Dart, Java, and Kotlin.
+5. **No Side Effects on Import:** `import webweavex` must not launch background network connections or browser instances.
 
-- Match surrounding modules (types, `from __future__ import annotations`, minimal comments).
-- Prefer extending existing engines over new top-level shim files.
-- Tests should assert real behavior, not implementation trivia.
+---
 
-## Pull requests
+## 4. Submitting Pull Requests
 
-Use the PR template in `.github/PULL_REQUEST_TEMPLATE.md`.
-
-## Questions
-
-Open a [GitHub issue](https://github.com/PIYUSH-MISHRA-00/webweavex/issues) or see [docs/](docs/README.md).
+Please fill out the PR template in `.github/PULL_REQUEST_TEMPLATE.md` with complete details.
