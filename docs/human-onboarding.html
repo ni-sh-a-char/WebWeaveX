@@ -14,32 +14,27 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
-  <canvas id="particles-canvas"></canvas>
+  <canvas id="bg-canvas"></canvas>
 
   <header class="navbar" id="navbar">
     <a href="index.html" class="nav-brand">
-      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#nav-grad)" stroke-width="6"/>
-        <circle cx="40" cy="45" r="10" fill="url(#nav-grad)"/>
-        <defs>
-          <linearGradient id="nav-grad" x1="0" y1="0" x2="80" y2="80">
-            <stop offset="0%" stop-color="#38bdf8"/>
-            <stop offset="50%" stop-color="#a78bfa"/>
-            <stop offset="100%" stop-color="#f43f5e"/>
-          </linearGradient>
-        </defs>
+      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none">
+        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#ng)" stroke-width="5"/>
+        <circle cx="40" cy="45" r="9" fill="url(#ng)"/>
+        <defs><linearGradient id="ng" x1="0" y1="0" x2="80" y2="80">
+          <stop offset="0%" stop-color="#60a5fa"/><stop offset="50%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#f472b6"/>
+        </linearGradient></defs>
       </svg>
       <span>WebWeave<span class="brand-gradient">X</span></span>
     </a>
     <div class="nav-controls">
-      <a href="index.html" class="btn-secondary" style="padding: 8px 18px; font-size: 0.85rem;">&#8592; Documentation</a>
-      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
-        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-        </svg>
+      <a href="index.html" class="btn-secondary" style="padding:8px 18px;font-size:0.85rem;">&#8592; Docs</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <svg class="theme-icon-dark" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="theme-icon-light" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
       </button>
       <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-github">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         <span>Star</span>
       </a>
     </div>
@@ -49,114 +44,90 @@
     <aside class="sidebar">
       <div class="sidebar-group">
         <div class="sidebar-title">Human Onboarding</div>
-        <a href="#onboarding-paths" class="sidebar-link active">Onboarding Paths</a>
+        <a href="#paths" class="sidebar-link active">Onboarding Paths</a>
         <a href="#tutorials" class="sidebar-link">Tutorials</a>
-        <a href="#migration-guide" class="sidebar-link">Migration Guide</a>
+        <a href="#migration" class="sidebar-link">Migration Guide</a>
         <a href="#troubleshooting" class="sidebar-link">Troubleshooting</a>
       </div>
     </aside>
 
     <main class="main-content">
-      <div class="hero-badge-pill">Human Developer Guide</div>
-      <h1 class="hero-title" style="text-align: left; font-size: 2.5rem;">Human Developer<br><span class="brand-gradient">Onboarding Guide</span></h1>
-      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 40px; max-width: 700px;">
-        Build reliable automation, audit production software security, and analyze runtime state across software releases. From beginner to enterprise security.
-      </p>
+      <section class="hero-banner" style="padding-bottom:40px;">
+        <div class="hero-badge-pill">Human Developer Guide</div>
+        <h1 class="hero-title" style="text-align:left;font-size:2.6rem;">Human Developer<br><span class="brand-gradient">Onboarding Guide</span></h1>
+        <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:24px;max-width:700px;">
+          Build reliable automation, audit production security, and analyze runtime state across software releases.
+        </p>
+      </section>
 
-      <section id="onboarding-paths" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="paths" class="reveal">
         <h2>Onboarding Paths</h2>
-        <div class="grid-3" style="margin-top: 16px;">
-          <div class="feature-card">
-            <div class="card-icon">&#x1f331;</div>
-            <h3 class="card-title">Beginner</h3>
-            <p class="card-desc">Master <code>UniversalInput</code>, <code>run_canonical_pipeline()</code>, and graph extraction basics.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x26a1;</div>
-            <h3 class="card-title">Intermediate</h3>
-            <p class="card-desc">Authenticated session continuation, Kaalka session management, and DOM stabilization.</p>
-          </div>
-          <div class="feature-card">
-            <div class="card-icon">&#x1f52c;</div>
-            <h3 class="card-title">Enterprise / Security</h3>
-            <p class="card-desc">State diffing across deployments, cross-language replay proofs, and policy enforcement.</p>
-          </div>
+        <div class="grid-3" style="margin-top:16px;">
+          <div class="feature-card"><div class="card-icon">&#x1f331;</div><h3 class="card-title">Beginner</h3><p class="card-desc">Master <code>UniversalInput</code>, <code>run_canonical_pipeline()</code>, and graph extraction.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x26a1;</div><h3 class="card-title">Intermediate</h3><p class="card-desc">Authenticated session continuation, Kaalka management, DOM stabilization.</p></div>
+          <div class="feature-card"><div class="card-icon">&#x1f52c;</div><h3 class="card-title">Enterprise / Security</h3><p class="card-desc">State diffing across deployments, replay proofs, policy enforcement.</p></div>
         </div>
       </section>
 
-      <section id="tutorials" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="tutorials" class="reveal">
         <h2>Deployment State Diffing Tutorial</h2>
-        <p>Compare staging and production environments using deterministic graph hashes to detect structural drift.</p>
+        <p>Compare staging and production using deterministic graph hashes to detect structural drift.</p>
         <div class="code-wrapper">
           <div class="code-header"><span>diff_audit.py</span><button class="copy-btn">Copy</button></div>
           <pre><code>from webweavex import UniversalInput, run_canonical_pipeline
 
 def audit_deployment_diff(staging_url: str, production_url: str):
-    """Compare two deployment environments using deterministic graph hashes."""
     staging = run_canonical_pipeline(UniversalInput(source=staging_url, sourceType="web"))
     prod = run_canonical_pipeline(UniversalInput(source=production_url, sourceType="web"))
 
     if staging.pipeline_hash == prod.pipeline_hash:
-        print("Staging and Production topologies are mathematically EQUIVALENT.")
-        print(f"  Graph Hash: {staging.pipeline_hash}")
+        print("Staging and Production are mathematically EQUIVALENT.")
+        print(f"  Hash: {staging.pipeline_hash}")
     else:
-        print("Structural divergence detected between Staging and Production!")
-        print(f"  Staging Hash:  {staging.pipeline_hash}")
-        print(f"  Production Hash: {prod.pipeline_hash}")
-        print(f"  Staging Nodes: {len(staging.graph.nodes)}")
-        print(f"  Production Nodes: {len(prod.graph.nodes)}")
+        print("Structural divergence detected!")
+        print(f"  Staging:  {staging.pipeline_hash}")
+        print(f"  Production: {prod.pipeline_hash}")
 
-# Usage
-audit_deployment_diff(
-    "https://staging.example.com",
-    "https://app.example.com"
-)</code></pre>
+audit_deployment_diff("https://staging.example.com", "https://app.example.com")</code></pre>
         </div>
       </section>
 
-      <section id="migration-guide" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="migration" class="reveal">
         <h2>Migration Matrix</h2>
-        <p>Migrating from legacy scrapers to WebWeaveX deterministic runtime cognition:</p>
         <table>
-          <thead>
-            <tr><th>Feature</th><th>Legacy Scrapers</th><th>WebWeaveX Substrate</th></tr>
-          </thead>
+          <thead><tr><th>Feature</th><th>Legacy Scrapers</th><th>WebWeaveX</th></tr></thead>
           <tbody>
             <tr><td><strong>Element Selection</strong></td><td>Fragile CSS Selectors</td><td>Deterministic Node UUIDs</td></tr>
-            <tr><td><strong>Auth Continuity</strong></td><td>Re-login on every run</td><td>Kaalka v5 Encrypted Session Persistence</td></tr>
-            <tr><td><strong>Output Verification</strong></td><td>String diffing</td><td>Exact SHA-256 State Hash Verification</td></tr>
-            <tr><td><strong>SPA Support</strong></td><td>Breaks on dynamic content</td><td>DOM Stabilization &amp; Framework Noise Filtering</td></tr>
-            <tr><td><strong>Replay</strong></td><td>Not possible</td><td>Topological Equivalence Proofs from IR</td></tr>
+            <tr><td><strong>Auth Continuity</strong></td><td>Re-login every run</td><td>Kaalka v5 Encrypted Persistence</td></tr>
+            <tr><td><strong>Output Verification</strong></td><td>String diffing</td><td>SHA-256 State Hash Verification</td></tr>
+            <tr><td><strong>SPA Support</strong></td><td>Breaks on dynamic content</td><td>DOM Stabilization</td></tr>
+            <tr><td><strong>Replay</strong></td><td>Not possible</td><td>Topological Equivalence Proofs</td></tr>
             <tr><td><strong>Cross-Language</strong></td><td>Language-specific hacks</td><td>Identical Parity Across 5 SDKs</td></tr>
           </tbody>
         </table>
       </section>
 
-      <section id="troubleshooting" class="reveal" style="margin-bottom: 48px;">
+      <div class="section-divider"></div>
+
+      <section id="troubleshooting" class="reveal">
         <h2>Troubleshooting</h2>
         <div class="grid-2">
-          <div class="feature-card">
-            <h3 class="card-title" style="color: var(--accent-orange);">Hash Mismatch After Update</h3>
-            <p class="card-desc">If pipeline hash changes unexpectedly after a code update, verify that all SDK versions match v3.0.0 and Kaalka key derivation parameters are identical.</p>
-          </div>
-          <div class="feature-card">
-            <h3 class="card-title" style="color: var(--accent-orange);">Session Expiry</h3>
-            <p class="card-desc">Encrypted sessions expire based on the Kaalka time-indexed key. Re-initialize with fresh authorized credentials if session continuity fails.</p>
-          </div>
-          <div class="feature-card">
-            <h3 class="card-title" style="color: var(--accent-orange);">DOM Volatility</h3>
-            <p class="card-desc">If graph nodes change between runs, check for framework-generated volatile attributes (React keys, Vue UIDs) that the stabilizer should filter.</p>
-          </div>
-          <div class="feature-card">
-            <h3 class="card-title" style="color: var(--accent-orange);">Memory Overhead</h3>
-            <p class="card-desc">Large DOM trees can increase memory. Use <code>max_depth</code> parameter in <code>UniversalInput</code> to limit graph traversal depth.</p>
-          </div>
+          <div class="feature-card"><h3 class="card-title" style="color:var(--accent-orange);">Hash Mismatch</h3><p class="card-desc">Verify all SDK versions match v3.0.0 and Kaalka key derivation parameters are identical.</p></div>
+          <div class="feature-card"><h3 class="card-title" style="color:var(--accent-orange);">Session Expiry</h3><p class="card-desc">Encrypted sessions expire based on Kaalka time-indexed key. Re-initialize with fresh credentials.</p></div>
+          <div class="feature-card"><h3 class="card-title" style="color:var(--accent-orange);">DOM Volatility</h3><p class="card-desc">Check for framework-generated volatile attributes (React keys, Vue UIDs) that the stabilizer should filter.</p></div>
+          <div class="feature-card"><h3 class="card-title" style="color:var(--accent-orange);">Memory Overhead</h3><p class="card-desc">Use <code>max_depth</code> parameter in <code>UniversalInput</code> to limit graph traversal depth.</p></div>
         </div>
       </section>
 
-      <hr class="divider">
-      <footer style="padding: 32px 0; text-align: center; color: var(--text-dim); font-size: 0.85rem;">
-        <p>WebWeaveX v3.0.0 &middot; Apache License 2.0 &middot; <a href="index.html" style="color: var(--accent-blue);">Back to Documentation</a></p>
+      <hr class="section-divider">
+      <footer style="padding:32px 0;text-align:center;color:var(--text-dim);font-size:0.85rem;">
+        <p>WebWeaveX v3.0.0 &middot; Apache 2.0 &middot; <a href="index.html">Back to Docs</a></p>
       </footer>
     </main>
   </div>
