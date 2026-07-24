@@ -150,6 +150,13 @@
                 <id>sign-artifacts</id>
                 <phase>verify</phase>
                 <goals><goal>sign</goal></goals>
+                <configuration>
+                  <keyname>5EE190B469A5A4E4</keyname>
+                  <gpgArguments>
+                    <argument>--pinentry-mode</argument>
+                    <argument>loopback</argument>
+                  </gpgArguments>
+                </configuration>
               </execution>
             </executions>
           </plugin>
