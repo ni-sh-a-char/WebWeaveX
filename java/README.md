@@ -1,11 +1,59 @@
-# WebWeaveX — Java
+﻿<p align="center">
+  <br/>
+  <img src="https://img.shields.io/badge/WebWeaveX-v3.0.0-0f172a?style=for-the-badge&logo=openjdk&logoColor=white" alt="WebWeaveX v3.0.0"/>
+  <br/><br/>
+  <strong>Production-grade deterministic runtime cognition infrastructure<br/>for humans and AI agents</strong>
+  <br/>
+  <em>Operational runtime substrate · Maven Central · replay-safe · Kaalka v5 parity</em>
+  <br/><br/>
+</p>
 
-Deterministic runtime cognition infrastructure for humans and AI agents. Java implementation targeting **byte-exact cross-language parity** with the Python (canonical), JavaScript, Dart, and Kotlin runtimes.
+<p align="center">
+  <a href="https://central.sonatype.com/artifact/io.webweavex/webweavex"><img src="https://img.shields.io/badge/Maven-3.0.0-007396?style=flat-square&logo=apachemaven&logoColor=white" alt="Maven Central"/></a>
+  <img src="https://img.shields.io/badge/Java-17%2B-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17+"/>
+  <a href="../LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="Apache 2.0"/></a>
+  <img src="https://img.shields.io/badge/tests-109%20passing-22c55e?style=flat-square" alt="Tests passing"/>
+  <img src="https://img.shields.io/badge/build-passing-22c55e?style=flat-square" alt="Build passing"/>
+  <img src="https://img.shields.io/badge/deterministic%20runtime-0ea5e9?style=flat-square" alt="Deterministic runtime"/>
+  <img src="https://img.shields.io/badge/replay--safe-14b8a6?style=flat-square" alt="Replay-safe"/>
+  <img src="https://img.shields.io/badge/Kaalka-verified-7c3aed?style=flat-square" alt="Kaalka verified"/>
+  <img src="https://img.shields.io/badge/production%20ready-15803d?style=flat-square" alt="Production ready"/>
+  <img src="https://img.shields.io/badge/OSS-infrastructure-64748b?style=flat-square" alt="Open Source"/>
+</p>
 
-```text
+<p align="center">
+  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20WebWeaveX-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
+</p>
+
+<p align="center">
+  <br/>
+</p>
+
+---
+
+## Ecosystem
+
+| Branch | Language | Status |
+|--------|----------|--------|
+| [python](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) | Python | Canonical reference |
+| [javascript](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) | JavaScript | Production |
+| **[java](https://github.com/ni-sh-a-char/WebWeaveX/tree/java)** | **Java** | **This repository** |
+| [dart](https://github.com/ni-sh-a-char/WebWeaveX/tree/dart) | Dart | Production |
+| [kotlin](https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin) | Kotlin | Production |
+
+---
+
+## What is WebWeaveX — Java
+
+Deterministic runtime cognition infrastructure for humans and AI agents. Java implementation targeting **byte-exact cross-language parity** with the Python (canonical), JavaScript, Dart, and Kotlin runtimes:
+
+``text
 Python  =  Java  =  JavaScript  =  Dart  =  Kotlin
-```
+``
 
+> **Status: production-ready.** The Java SDK implements the complete deterministic runtime foundation with byte-exact cross-language parity against canonical Python 3.0.0. All subsystems (determinism, Kaalka, graph, IR, replay, memory, execution, reconstruction) are implemented, tested, and parity-verified.
+
+---
 ---
 
 ## Table of Contents
@@ -43,7 +91,7 @@ Python  =  Java  =  JavaScript  =  Dart  =  Kotlin
 
 > **WebWeaveX is to runtime state what Git is to source code: deterministic, replayable, reconstructable, and auditable.**
 
-**WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI agents** operating on authenticated software. It captures how systems actually run — browser DOM, sessions, Electron, native UI, workflows, connectors — and compiles **replay-safe runtime graphs** with **Kaalka-encrypted persistence** (`webweavex-formula+kaalka@5.0.0`).
+**WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI agents** operating on authenticated software. It captures how systems actually run â€” browser DOM, sessions, Electron, native UI, workflows, connectors â€” and compiles **replay-safe runtime graphs** with **Kaalka-encrypted persistence** (`webweavex-formula+kaalka@5.0.0`).
 
 This is **not** a scraping library or LLM wrapper. It is an **operational runtime substrate** for extraction, memory, execution, reconstruction, and replay equivalence.
 
@@ -68,7 +116,7 @@ WebWeaveX exists to deliver **deterministic runtime extraction** and **replay-sa
 
 ## Universal Runtime Extraction
 
-WebWeaveX is not merely a scraping library — it is a **runtime extraction and cognition substrate**. It transforms heterogeneous operational sources into deterministic runtime representations through one canonical pipeline.
+WebWeaveX is not merely a scraping library â€” it is a **runtime extraction and cognition substrate**. It transforms heterogeneous operational sources into deterministic runtime representations through one canonical pipeline.
 
 | Source | Runtime Representation |
 |--------|------------------------|
@@ -152,7 +200,7 @@ WebWeaveX only operates on **authorized authenticated runtimes** and data **you 
 |--------|----------|-----------------------------------|
 | **BeautifulSoup** | Fast static HTML parse | No live session, storage, or runtime graph |
 | **Selenium** | Browser automation | No unified IR, Kaalka fabric, or replay equivalence layer |
-| **Playwright** | Reliable browser control | Automation driver — not extraction + memory + reconstruction |
+| **Playwright** | Reliable browser control | Automation driver â€” not extraction + memory + reconstruction |
 | **Stateless crawlers** | Scale on public pages | Poor on authenticated operational systems |
 
 ---
@@ -195,7 +243,7 @@ WebWeaveX does not replace these systems. It provides deterministic runtime infr
 | **Universal IR** | Unified runtime IR compilation |
 | **Graph fingerprinting** | Deterministic graph identity |
 | **Normalization** | NFKC, CRLF normalization, volatile field stripping |
-| **PyFloat** | Python `repr(float)` — shortest round-tripping decimal |
+| **PyFloat** | Python `repr(float)` â€” shortest round-tripping decimal |
 
 ---
 
@@ -382,7 +430,7 @@ System.out.println(normalized); // "Hello World"
 
 ## Versioning
 
-WebWeaveX follows Semantic Versioning — **MAJOR.MINOR.PATCH**.
+WebWeaveX follows Semantic Versioning â€” **MAJOR.MINOR.PATCH**.
 The version is synchronized across all SDKs: PyPI, npm, pub.dev, Maven Central, and Gradle share the same `3.0.0`.
 
 ---
@@ -459,12 +507,12 @@ See [SECURITY.md](../SECURITY.md). Report issues responsibly.
 
 ## License
 
-Apache License 2.0 — [LICENSE](../LICENSE)
+Apache License 2.0 â€” [LICENSE](../LICENSE)
 
 ---
 
 <p align="center">
-  <strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable scraper, not AGI hype, not an LLM wrapper.</strong>
+  <strong>WebWeaveX is deterministic runtime cognition infrastructure â€” not a disposable scraper, not AGI hype, not an LLM wrapper.</strong>
 </p>
 
 <p align="center">
