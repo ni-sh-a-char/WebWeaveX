@@ -6,10 +6,10 @@ description: >
 
 version: 3.0.0
 
-homepage: https://github.com/ni-sh-a-char/WebWeaveX/tree/dart
-repository: https://github.com/ni-sh-a-char/WebWeaveX
+homepage: https://ni-sh-a-char.github.io/WebWeaveX/
+repository: https://github.com/ni-sh-a-char/WebWeaveX/tree/dart
 issue_tracker: https://github.com/ni-sh-a-char/WebWeaveX/issues
-documentation: https://github.com/ni-sh-a-char/WebWeaveX/tree/dart#readme
+documentation: https://ni-sh-a-char.github.io/WebWeaveX/
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
