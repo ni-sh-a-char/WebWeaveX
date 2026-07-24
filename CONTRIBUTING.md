@@ -23,15 +23,15 @@ Before opening a pull request:
 # 1. Run unit test suite
 pytest -q
 
-# 2. Verify import & version
-python -c "import webweavex; assert webweavex.__version__ == '2.0.0'"
+# 2. Verify import & version v3.0.0
+python -c "import webweavex; assert webweavex.__version__ == '3.0.0'"
 
 # 3. Test package build
 python -m build
 ```
 
 - Scoped production coverage must remain **≥ 90%**.
-- All cross-language parity tests must pass.
+- All cross-language parity tests must pass across Python, JavaScript, Dart, Java, and Kotlin specs.
 
 ---
 

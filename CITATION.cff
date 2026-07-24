@@ -4,5 +4,6 @@ message: "If you use this software, please cite it."
 authors:
   - family-names: Mishra
     given-names: Piyush
-repository-code: "https://github.com/ni-sh-a-char/webweavex"
+repository-code: "https://github.com/ni-sh-a-char/WebWeaveX"
 license: Apache-2.0
+version: 3.0.0
