@@ -1,22 +1,26 @@
-# Security Policy
+# Security Policy & Kaalka v5 Security Contract
 
-## Supported versions
+## Supported Versions
 
-| Version | Supported |
-|---------|-----------|
-| 1.1.1   | Yes       |
+| Version | Supported | Security Maintenance |
+|:---|:---|:---|
+| **v2.0.0** | ✅ Yes | Full Security Maintenance & Patching |
+| < 2.0.0 | ❌ No | Deprecated |
 
-## Reporting
+---
 
-Report vulnerabilities via GitHub Issues (private disclosure preferred for sensitive reports).
+## Security Guarantees & Invariants
 
-## Guarantees
+1. **Zero Auth Bypass:** WebWeaveX does not attempt to bypass login screens, crack authentication passwords, or defeat CAPTCHAs. Session continuation is supported **strictly when user-authorized credentials or session cookies are provided by the system operator**.
+2. **Kaalka v5 Encrypted State:** All operational checkpoints, session tokens, and memory fabric data stored at rest are encrypted using `Kaalka v5` (AES-256-GCM authenticated cipher with PBKDF2-HMAC-SHA256 time-indexed key derivation).
+3. **Allowlisted Execution Sandbox:** Production execution paths enforce strict policy bounds. Functions like `eval()`, `exec()`, or arbitrary shell execution are strictly forbidden in production code.
 
-- Production execution forbids `eval`, `exec`, and arbitrary subprocess invocation
-- Persisted runtime state uses Kaalka encryption (`core.crypto.kaalka_runtime_engine`)
-- Execution sandbox enforces allowlisted actions and policy bounds
+---
 
-## Known limitations
+## Reporting Vulnerabilities
 
-- In-memory cache (`core/cache_engine.py`) uses integrity hashing only — not for secrets
-- Some database segment stores write plaintext JSON — migrate to Kaalka before storing sensitive data
+If you discover a potential security vulnerability within WebWeaveX, please report it privately:
+
+1. Email responsible disclosure reports to: `piyushmishra.dev@gmail.com` or submit a private security advisory on GitHub.
+2. Include steps to reproduce, affected version(s), and system details.
+3. We will acknowledge receipt within 24 hours and provide a patch timeframe within 72 hours.

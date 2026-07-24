@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human Onboarding Guide — WebWeaveX Documentation</title>
+  <meta name="description" content="Engineering onboarding, tutorials, state diffing, and migration guide for human developers using WebWeaveX.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://ni-sh-a-char.github.io/WebWeaveX/human-onboarding.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#nav-grad)" stroke-width="6"/>
+        <circle cx="40" cy="45" r="10" fill="url(#nav-grad)"/>
+        <defs>
+          <linearGradient id="nav-grad" x1="0" y1="0" x2="80" y2="80">
+            <stop offset="0%" stop-color="#38bdf8"/>
+            <stop offset="50%" stop-color="#a78bfa"/>
+            <stop offset="100%" stop-color="#f43f5e"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>WebWeave<span class="brand-gradient">X</span></span>
+    </a>
+    <div class="nav-controls">
+      <a href="index.html" class="btn-secondary" style="padding: 6px 16px; font-size: 0.85rem;">← Main Documentation</a>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <div class="sidebar-title">Human Onboarding</div>
+        <a href="#onboarding-paths" class="sidebar-link active">Onboarding Paths</a>
+        <a href="#tutorials" class="sidebar-link">Step-by-Step Tutorials</a>
+        <a href="#migration-guide" class="sidebar-link">Migration Guide</a>
+        <a href="#troubleshooting" class="sidebar-link">Troubleshooting</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="hero-badge-pill">👤 Human Onboarding Guide</div>
+      <h1 class="hero-title" style="text-align: left; font-size: 2.5rem;">Human Developer &amp; Operations Guide</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 32px;">
+        Build reliable automation, audit production software security, and analyze runtime state across software releases.
+      </p>
+
+      <section id="onboarding-paths" style="margin-bottom: 40px;">
+        <h2>1. Onboarding Paths</h2>
+        <div class="grid-3" style="margin-top: 16px;">
+          <div class="feature-card">
+            <h3 style="color: var(--accent-blue);">🔰 Beginner</h3>
+            <p class="card-desc">Master `UniversalInput`, `run_canonical_pipeline()`, and graph extraction.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color: var(--accent-purple);">⚡ Intermediate</h3>
+            <p class="card-desc">Authenticated continuation, Kaalka session management, and DOM stabilization.</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color: var(--accent-pink);">🔬 Enterprise / Security</h3>
+            <p class="card-desc">State diffing across deployments, cross-language replay proofs, and policy bounds.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tutorials" style="margin-bottom: 40px;">
+        <h2>2. Deployment State Diffing Tutorial</h2>
+        <div class="code-wrapper">
+          <div class="code-header"><span>diff_audit.py</span><button class="copy-btn">Copy</button></div>
+          <pre><code>from webweavex import UniversalInput, run_canonical_pipeline
+
+def audit_deployment_diff(staging_url: str, production_url: str):
+    staging = run_canonical_pipeline(UniversalInput(source=staging_url, sourceType="web"))
+    prod = run_canonical_pipeline(UniversalInput(source=production_url, sourceType="web"))
+    
+    if staging.pipeline_hash == prod.pipeline_hash:
+        print("✅ Staging and Production topologies are mathematically EQUIVALENT!")
+    else:
+        print("⚠️ Structural divergence detected between Staging and Production!")</code></pre>
+        </div>
+      </section>
+
+      <section id="migration-guide" style="margin-bottom: 40px;">
+        <h2>3. Migration Matrix</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Legacy Scrapers</th>
+              <th>WebWeaveX Substrate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Element Selection</strong></td>
+              <td>Fragile CSS Selectors</td>
+              <td>Deterministic Node UUIDs</td>
+            </tr>
+            <tr>
+              <td><strong>Auth Continuity</strong></td>
+              <td>Re-login on every script run</td>
+              <td>Kaalka v5 Encrypted Session Persistence</td>
+            </tr>
+            <tr>
+              <td><strong>Output Verification</strong></td>
+              <td>String diffing</td>
+              <td>Exact SHA-256 State Hash Verification</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
