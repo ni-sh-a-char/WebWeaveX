@@ -37,6 +37,13 @@
   <!-- Background Canvas -->
   <canvas id="bg-canvas"></canvas>
 
+  <!-- Floating Orbs -->
+  <div class="floating-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
   <!-- ═══ Navbar ═══ -->
   <header class="navbar" id="navbar">
     <a href="#" class="nav-brand">
@@ -105,10 +112,26 @@
 
       <!-- ═══ HERO ═══ -->
       <section class="hero-banner" id="overview">
+        <!-- 3D Rotating Logo -->
+        <div class="hero-3d-logo">
+          <div class="hex-spinner">
+            <div class="hex-face">
+              <svg viewBox="0 0 80 80" fill="none">
+                <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#hero-g)" stroke-width="4"/>
+                <circle cx="40" cy="45" r="9" fill="url(#hero-g)"/>
+                <path d="M40 15 V32 M40 48 V65 M20 30 L32 36 M48 44 L60 50 M60 30 L48 36 M32 44 L20 50" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <defs><linearGradient id="hero-g" x1="0" y1="0" x2="80" y2="80">
+                  <stop offset="0%" stop-color="#60a5fa"/><stop offset="50%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#f472b6"/>
+                </linearGradient></defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-badge-pill">
           <span>v3.0.0 Ecosystem Release</span>
         </div>
-        <h1 class="hero-title">Universal Runtime Cognition<br><span class="brand-gradient">Infrastructure</span></h1>
+        <h1 class="hero-title">Universal Runtime Cognition<br><span class="gradient-text-animated">Infrastructure</span></h1>
         <p class="hero-subtitle">
           Understand, continue, reconstruct, replay, and reason about authenticated operational software systems. Built for engineering teams and autonomous AI agents.
         </p>
@@ -117,11 +140,24 @@
           <a href="#sdk-matrix" class="btn-secondary">Explore SDKs</a>
           <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
         </div>
-        <div class="hero-install-cmd" id="install-cmd" title="Click to copy">
-          <span class="prompt">$</span>
-          <span class="pkg">pip install webweavex</span>
-          <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+
+        <!-- Live Terminal -->
+        <div class="hero-terminal">
+          <div class="hero-terminal-bar">
+            <div class="hero-terminal-dot red"></div>
+            <div class="hero-terminal-dot yellow"></div>
+            <div class="hero-terminal-dot green"></div>
+            <span class="hero-terminal-title">webweavex &mdash; terminal</span>
+          </div>
+          <div class="hero-terminal-body">
+            <div><span class="prompt">$</span> <span class="cmd">pip install webweavex</span></div>
+            <div class="output">Successfully installed webweavex-3.0.0</div>
+            <div style="margin-top:8px"><span class="prompt">$</span> <span class="cmd">python -c "from webweavex import *; print(run_canonical_pipeline(UniversalInput(source='https://example.com', source_type='web')).pipeline_hash[:32])"</span></div>
+            <div class="hash">a3f8c2e1b9d4...7x2k</div>
+            <div><span class="prompt">$</span> <span class="cursor"></span></div>
+          </div>
         </div>
+
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-value" data-count="5">0</div>
