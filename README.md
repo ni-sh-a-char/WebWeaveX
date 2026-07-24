@@ -1,434 +1,472 @@
-<p align="center">
-  <strong>WebWeaveX — Java</strong><br/>
-  <strong>Deterministic runtime cognition infrastructure<br/>for humans and AI agents</strong>
-</p>
+# WebWeaveX — Java
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-17%2B-007396?style=flat-square&logo=openjdk&logoColor=white" alt="Java 17+"/>
-  <img src="https://img.shields.io/badge/build-Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white" alt="Maven"/>
-  <img src="https://img.shields.io/badge/Maven%20Central-io.webweavex%3Awebweavex-blue?style=flat-square" alt="Maven Central"/>
-  <img src="https://img.shields.io/badge/parity-PASS-22c55e?style=flat-square" alt="Parity"/>
-  <img src="https://img.shields.io/badge/tests-1169%20passing-22c55e?style=flat-square" alt="Tests"/>
-  <img src="https://img.shields.io/badge/coverage-96.69%25%20instruction-22c55e?style=flat-square" alt="Coverage"/>
-  <img src="https://img.shields.io/badge/API%20parity-110%20%2F%20128%20proven-3b82f6?style=flat-square" alt="API parity"/>
-  <img src="https://img.shields.io/badge/License-Apache%202.0-2EA44F?style=flat-square" alt="License"/>
-</p>
+Deterministic runtime cognition infrastructure for humans and AI agents. Java implementation targeting **byte-exact cross-language parity** with the Python (canonical), JavaScript, Dart, and Kotlin runtimes.
+
+```text
+Python  =  Java  =  JavaScript  =  Dart  =  Kotlin
+```
 
 ---
 
-## Contents
+## Table of Contents
 
-- [Overview](#overview) · [Why WebWeaveX](#why-webweavex) · [What it is NOT](#what-webweavex-is-not)
-- [Architecture](#architecture) · [Package structure](#package-structure) · [Installation](#installation)
-- [Quick start](#quick-start) · [Maven usage](#maven-usage) · [Gradle usage](#gradle-usage)
-- [API examples](#api-examples) · [Cross-language parity](#cross-language-parity) · [Implementation matrix](#implementation-matrix)
-- [Build & test](#build--test) · [Coverage](#coverage) · [CI/CD](#cicd)
-- [Governance](#governance) · [Branch policy](#branch-policy) · [Certification status](#certification-status)
-- [Roadmap](#roadmap) · [Security](#security) · [License](#license)
+- [What is WebWeaveX?](#what-is-webweavex)
+- [Universal Runtime Extraction](#universal-runtime-extraction)
+- [Web Extraction Without Fragility](#web-extraction-without-fragility)
+- [Humans and AI agents](#humans-and-ai-agents)
+- [Why AI Agents Need WebWeaveX](#why-ai-agents-need-webweavex)
+- [Why deterministic runtime infrastructure matters](#why-deterministic-runtime-infrastructure-matters)
+- [What WebWeaveX is NOT](#what-webweavex-is-not)
+- [Why existing systems fail](#why-existing-systems-fail)
+- [How WebWeaveX Differs](#how-webweavex-differs)
+- [Runtime Cognition Infrastructure](#runtime-cognition-infrastructure)
+- [Core capabilities](#core-capabilities)
+- [Runtime lifecycle](#runtime-lifecycle)
+- [Cross-language determinism](#cross-language-determinism)
+- [Architecture](#architecture)
+- [Quick start](#quick-start)
+- [Common workflows](#common-workflows)
+- [Supported platforms](#supported-platforms)
+- [Versioning](#versioning)
+- [Determinism](#determinism)
+- [Performance](#performance)
+- [Comparison](#comparison)
+- [FAQ](#faq)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Security](#security)
+- [License](#license)
 
 ---
 
-## Overview
+## What is WebWeaveX?
 
-**WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI
-agents** to understand, continue, reconstruct, replay, and reason about **authenticated
-operational software systems**.
+> **WebWeaveX is to runtime state what Git is to source code: deterministic, replayable, reconstructable, and auditable.**
 
-This **`java`** branch is the native **JVM / Maven Central** implementation. It targets
-**byte-exact cross-language parity** with the canonical Python runtime (and, transitively,
-the JavaScript and Dart runtimes):
+**WebWeaveX** is **deterministic runtime cognition infrastructure** for **humans and AI agents** operating on authenticated software. It captures how systems actually run — browser DOM, sessions, Electron, native UI, workflows, connectors — and compiles **replay-safe runtime graphs** with **Kaalka-encrypted persistence** (`webweavex-formula+kaalka@5.0.0`).
 
-```
-Python  =  Java  =  JavaScript  =  Dart
-```
+This is **not** a scraping library or LLM wrapper. It is an **operational runtime substrate** for extraction, memory, execution, reconstruction, and replay equivalence.
 
-| Branch | Ecosystem | Role |
-|--------|-----------|------|
-| `python` | PyPI | **Canonical** reference runtime (3.0.0) |
-| **`java`** (this) | **Maven Central** | **JVM runtime (`io.webweavex:webweavex:3.0.0`)** |
-| `javascript` | npm | JavaScript runtime (3.0.0) |
-| `dart` | pub.dev | Dart runtime (3.0.0) |
+### Why it exists
 
-> **Status: foundation-first build, in progress.** The deterministic + cryptographic
-> bedrock — through which every other subsystem hashes and serializes — is implemented and
-> verified **byte-exact** against canonical Python 3.0.0, together with the kernel, graph,
-> IR, query, memory, and reconstruction slices. Higher layers (extraction, semantic,
-> workflows, vision, OCR) are tracked in [`java/JAVA_PARITY_MATRIX.md`](java/JAVA_PARITY_MATRIX.md)
-> and built session by session. **No stubs, placeholders, or TODO implementations are
-> shipped** — only implemented, parity-proven code (see [Branch policy](#branch-policy)).
+Modern systems are **authenticated**, **stateful**, **runtime-driven**, **SPA-based**, **Electron-based**, **synchronized**, and **operationally dynamic**. Operators need continuity across runs, not another HTML snapshot.
 
-### Humans and AI agents
+Traditional extraction fails because it is:
+
+| Failure mode | Consequence |
+|--------------|-------------|
+| HTML-only parsing | Misses hydration, storage, IPC, native UI |
+| Stateless requests | Loses session and workflow continuity |
+| No authenticated persistence | Re-login and drift between runs |
+| No replay contract | Cannot prove equivalence after rebuild |
+| No reconstruction | Cannot rebuild operational topology from IR |
+| Weak SPA/Electron support | Unstable IDs, routes, and storage break diffs |
+
+WebWeaveX exists to deliver **deterministic runtime extraction** and **replay-safe operational reconstruction** through one **canonical pipeline**.
+
+---
+
+## Universal Runtime Extraction
+
+WebWeaveX is not merely a scraping library — it is a **runtime extraction and cognition substrate**. It transforms heterogeneous operational sources into deterministic runtime representations through one canonical pipeline.
+
+| Source | Runtime Representation |
+|--------|------------------------|
+| Websites | Runtime graph |
+| SPAs | Stabilized runtime state |
+| Browser sessions | Replay-safe artifacts |
+| APIs | Operational topology |
+| Documents | Unified IR |
+| Repositories | Dependency intelligence |
+| Runtime systems | Memory fabric |
+
+Every source converges on the same bounded, hashable, replayable runtime IR.
+
+---
+
+## Web Extraction Without Fragility
+
+| Extraction Challenge | Traditional Approach | WebWeaveX |
+|----------------------|----------------------|-----------|
+| SPA instability | Re-scrape repeatedly | Runtime stabilization |
+| Authenticated workflows | Start over | Runtime continuation |
+| Session portability | Manual export | Encrypted runtime persistence |
+| Validation | Manual inspection | Replay equivalence |
+| Recovery | Re-run workflow | Runtime reconstruction |
+
+---
+
+## Humans and AI agents
+
+**WebWeaveX is designed for both humans and AI agents.**
 
 | Audience | Use |
 |----------|-----|
-| **Engineers** | Deterministic extraction, session continuation, replay audits on the JVM |
-| **AI agents** | Replay-safe memory, graph identity, operational continuity — every output is a hashable, diffable IR |
+| **Engineers** | Inspect authenticated systems, preserve workflows, audit runtime behavior |
+| **AI agents** | Maintain continuity, deterministic state, replay-safe memory, environment reconstruction |
 
 ---
 
-## Why WebWeaveX
+## Why AI Agents Need WebWeaveX
 
-Traditional tools capture HTML, not **operational runtime state**. WebWeaveX provides
-canonical serialization, Kaalka-sealed sessions, replay equivalence, and reconstruction
-identities so that **how software runs** — not just what HTML was returned — becomes a
-first-class, reproducible artifact, byte-identical across four languages.
+| Agent Failure Mode | Operational Impact | WebWeaveX Capability |
+|--------------------|--------------------|----------------------|
+| Lost browser state | Re-authentication | Runtime continuation |
+| Lost workflow context | Restart execution | Runtime memory fabric |
+| DOM instability | Broken selectors | DOM stabilization |
+| Replay drift | Non-repeatable behavior | Replay equivalence |
+| Session expiration | Lost progress | Encrypted persistence |
+| Workflow interruption | Incomplete execution | Runtime reconstruction |
 
-| Problem | With WebWeaveX |
-|---------|----------------|
-| Ephemeral runtime state | Stabilized runtime graphs + fingerprints |
-| Auth drift | Encrypted session continuation (authorized credentials only) |
-| Nondeterministic replays | `validateReplayEquivalence` |
-| Lost operational context | Runtime graphs + memory fabric |
-| Cross-language drift | Byte-identical Kaalka hashes across Python · Java · JS · Dart |
+---
+
+## Why deterministic runtime infrastructure matters
+
+| Problem | Without substrate | With WebWeaveX |
+|---------|-------------------|----------------|
+| LLMs lose state | Re-plan from scratch each turn | Stable runtime memory + graph identity |
+| Browser agents lose auth | Re-login drift | Authorized session continuation (Kaalka) |
+| Workflows go nondeterministic | Unauditable actions | Replay equivalence + fingerprints |
+| Operational systems are opaque | HTML-only views | Runtime cognition IR + reconstruction |
+| Cross-run reasoning breaks | Ephemeral DOM | Stabilized hashes + parity-validated crypto |
+
+---
 
 ## What WebWeaveX is NOT
 
-| Not | Reality |
-|-----|---------|
-| Scraper / crawler | Operational runtime substrate |
-| AGI product | Bounded, deterministic pipelines |
-| Auth / CAPTCHA bypass | No credential cracking — authorized session material only |
-| LLM wrapper | Native Java library, JDK-only deterministic core |
+| Category | Clarification |
+|----------|----------------|
+| **Auth bypass tooling** | Does not defeat MFA, CAPTCHA, or login controls |
+| **Malware or exploit infrastructure** | Not designed for unauthorized access |
+| **Credential theft tooling** | Does not harvest secrets you do not already hold |
+| **An LLM wrapper** | Core path is deterministic; optional plugins fail safe |
+| **A chatbot** | Infrastructure library, not conversational AI |
+
+WebWeaveX only operates on **authorized authenticated runtimes** and data **you explicitly provide**.
+
+---
+
+## Why existing systems fail
+
+| System | Strength | Limitation for operational runtime |
+|--------|----------|-----------------------------------|
+| **BeautifulSoup** | Fast static HTML parse | No live session, storage, or runtime graph |
+| **Selenium** | Browser automation | No unified IR, Kaalka fabric, or replay equivalence layer |
+| **Playwright** | Reliable browser control | Automation driver — not extraction + memory + reconstruction |
+| **Stateless crawlers** | Scale on public pages | Poor on authenticated operational systems |
+
+---
+
+## How WebWeaveX Differs
+
+| Tool | Primary Focus |
+|------|---------------|
+| Playwright | Browser automation |
+| Scrapy | Crawling |
+| BeautifulSoup | HTML parsing |
+| **WebWeaveX Java** | **Deterministic runtime cognition infrastructure** |
+
+WebWeaveX does not replace these systems. It provides deterministic runtime infrastructure that can sit beneath them.
+
+---
+
+## Runtime Cognition Infrastructure
+
+> Infrastructure that captures, stabilizes, fingerprints, reconstructs, and continues operational runtime state through deterministic contracts.
+
+| Category | Focus |
+|----------|-------|
+| Browser automation | Execute actions |
+| Web scraping | Extract content |
+| Agent orchestration | Coordinate reasoning |
+| **Runtime cognition infrastructure** | **Preserve operational runtime state** |
+
+---
+
+## Core capabilities
+
+| Capability | Description |
+|------------|-------------|
+| **Kaalka v5 crypto** | Cross-language verified deterministic encryption |
+| **Deterministic hashing** | SHA-256 over stable-serialized values |
+| **Stable serialization** | Canonical JSON with sorted keys, Python-compatible |
+| **Runtime graph** | Canonical node/edge ordering with fingerprints |
+| **ReplayEquivalence** | 3-check validation (graph hash, global fingerprint, browser identity) |
+| **Universal IR** | Unified runtime IR compilation |
+| **Graph fingerprinting** | Deterministic graph identity |
+| **Normalization** | NFKC, CRLF normalization, volatile field stripping |
+| **PyFloat** | Python `repr(float)` — shortest round-tripping decimal |
+
+---
+
+## Runtime lifecycle
+
+```text
+Capture -> Normalize -> Fingerprint -> Graph -> Memory -> Replay Validation -> Reconstruction -> Continuation
+```
+
+---
+
+## Cross-language determinism
+
+| Contract | Verified |
+|----------|----------|
+| Kaalka hashing | byte-identical Java <=> Python <=> Dart <=> JavaScript <=> Kotlin |
+| Global runtime fingerprint | byte-identical across SDKs |
+| Runtime graph structure | structurally equal |
+| Encrypted value persistence | byte-identical across SDKs |
 
 ---
 
 ## Architecture
 
 ```text
-Input → Canonical pipeline → Graph + Memory → Replay check → Reconstruction
-              ↓
-     Normalization + Kaalka v5 cipher (deterministic core)
+Input -> Canonical Pipeline -> Graph + Memory -> Replay Check -> Reconstruction
+                 |
+        Normalization + Kaalka v5
 ```
 
-The deterministic core is the contract everything else hashes through:
+Layered source layout (`java/src/main/java/io/webweavex/`):
 
-```
-normalizeRuntimeValue → stableSerialize → UTF-8 → deriveKaalkaTimeKey → Kaalka v5 proc → base64
-```
-
-| Layer | Mechanism |
-|-------|-----------|
-| Unicode | NFKC (`java.text.Normalizer`, matching CPython `unicodedata`) + CRLF→LF + trailing-whitespace strip |
-| Objects | Code-point-sorted keys, volatile-field strip, numeric canonicalization |
-| Floats | Python `repr(float)` (shortest round-trip; positional/scientific thresholds) |
-| Crypto | Kaalka v5 byte cipher + SHA-256 + base64 (`MessageDigest`, `Base64` — JDK only) |
-| Graph | Deterministically sorted nodes/edges, `graphFingerprint` |
-
-The deterministic core depends on the **JDK alone** — no third-party library can perturb
-canonical bytes. Jackson is a **test-only** dependency used to load golden vectors.
-
----
-
-## Package structure
-
-```
-io.webweavex
-├── crypto          Hashing, Kaalka, KaalkaV5Proc, TimeKey          [implemented]
-├── determinism     Normalization, PyFloat, CanonicalJson, PyJson,  [implemented]
-│                   Py, PyRepr, PyRound, StableSerialize, GlobalRuntimeFingerprint
-├── kernel          UniversalInput                                  [implemented]
-├── graph           RuntimeGraph, GraphEntropy, GraphInvariants,    [implemented]
-│                   GraphReconstruction, TopologyProof, SemanticGraphValidator …
-├── ir              UnifiedRuntimeIr, MultimodalIr, SemanticGraphIr,[implemented]
-│                   KnowledgeIr, IrBase
-├── knowledge       OntologyReconciliation, ContradictionLattice,   [implemented]
-│                   SemanticIdentity, OntologyConflict
-├── query           GraphQuery, OntologyQuery, TopologyReasoning     [implemented]
-├── memory          RuntimeMemory, MemoryQuery, MemorySearch         [implemented]
-├── persistence     FingerprintHex                                  [implemented]
-├── reconstruction  RuntimeReconstruction, RuntimeValidation,        [implemented]
-│                   MemoryReconstruction, BrowserReconstruction
-├── replay          ReplayEquivalence                               [implemented]
-├── connectors      Database/Api/Stream/Telemetry/Container/Ide/    [implemented]
-│                   Kubernetes runtime extraction (snapshot→envelope)
-├── documents       DocumentRuntime (extract_document_runtime)      [implemented]
-├── interaction     Pagination, InteractionGraph, PageView          [implemented]
-├── session         EncryptedSessionStore (save/load session)       [implemented]
-├── execution       ExecutionRuntime (sandbox/action/replay/        [implemented]
-│                   simulate/run + ~20 engines)
-├── synchronization SyncRuntime (delta/replay/run/save/load +       [implemented]
-│                   ~18 engines)
-├── workflow        WorkflowRuntime (objective/plan/run/replay/     [implemented]
-│                   save/load + ~15 engines)
-├── evolution       EvolutionRuntime (evolution/selector/run/save/  [implemented]
-│                   load + ~17 engines)
-├── causality       CausalityRuntime (run/replay/run-for-extract/   [implemented]
-│                   save/load + ~18 engines)
-├── streaming       StreamingRuntime (stream timeline/replay +      [implemented]
-│                   live runtime run/save/load, connector reuse)
-└── … extraction(HTML) · semantic · vision · ocr · …               [planned]
-```
-
-Full target layout (mirrors Python `core/`, JS `src/`, Dart `lib/src/`) and per-API status:
-[`java/JAVA_PARITY_MATRIX.md`](java/JAVA_PARITY_MATRIX.md).
-
----
-
-## Installation
-
-WebWeaveX is published to **Maven Central** under coordinates `io.webweavex:webweavex`.
-Requires **Java 17+** (built and tested on JDK 17 and 21).
-
-### Maven usage
-
-```xml
-<dependency>
-  <groupId>io.webweavex</groupId>
-  <artifactId>webweavex</artifactId>
-  <version>3.0.0</version>
-</dependency>
-```
-
-### Gradle usage
-
-```kotlin
-// build.gradle.kts
-dependencies {
-    implementation("io.webweavex:webweavex:3.0.0")
-}
-```
-
-```groovy
-// build.gradle
-dependencies {
-    implementation 'io.webweavex:webweavex:3.0.0'
-}
-```
+| Layer | Packages |
+|-------|----------|
+| determinism | Normalization, StableSerialize, CanonicalJson, PyFloat, PyJson |
+| crypto | Hashing, KaalkaV5Proc, TimeKey, Kaalka |
+| kernel | UniversalInput, RuntimeKernel |
+| graph | RuntimeGraph, GraphConsistency, GraphEntropy |
+| ir | UnifiedRuntimeIr, MultimodalIr |
+| replay | ReplayEquivalence |
+| persistence | FingerprintHex |
+| semantic | SemanticRuntime |
+| synchronization | SyncRuntime |
+| memory | RuntimeMemory |
+| execution | ExecutionRuntime |
+| reconstruction | ReconstructionRuntime |
+| connectors | Connectors, ApiConnectors, DatabaseConnectors |
+| interaction | Pagination, ScrollPage, ReplayPage |
+| fetch | HttpTransport, JavaNetTransport, Crawler |
 
 ---
 
 ## Quick start
 
+### Maven
+
+```xml
+<dependency>
+    <groupId>io.webweavex</groupId>
+    <artifactId>webweavex</artifactId>
+    <version>3.0.0</version>
+</dependency>
+```
+
+### Gradle
+
+```groovy
+implementation 'io.webweavex:webweavex:3.0.0'
+```
+
+### First program
+
 ```java
+import io.webweavex.determinism.StableSerialize;
 import io.webweavex.crypto.Kaalka;
 import io.webweavex.graph.RuntimeGraph;
-import io.webweavex.determinism.GlobalRuntimeFingerprint;
 
 import java.util.Map;
+import java.util.List;
 
 public class QuickStart {
     public static void main(String[] args) {
-        // Deterministic content hash — byte-identical to Python/JS/Dart.
-        String hash = Kaalka.computeKaalkaHash(Map.of("status", "ok"));
+        // Deterministic serialization
+        String serialized = StableSerialize.stableSerialize(Map.of("version", "3.0.0", "type", "test"));
+        System.out.println(serialized);
 
-        // Build a deterministically sorted, fingerprinted runtime graph.
-        var graph = RuntimeGraph.buildParityRuntimeGraph(
-                Map.of("session", Map.of("authenticated", true)));
-        String fp = RuntimeGraph.graphFingerprint(graph);
+        // Deterministic hashing
+        String hash = Kaalka.computeKaalkaHash(Map.of("key", "value"));
+        System.out.println("Hash: " + hash);
 
-        System.out.println(hash);
-        System.out.println(fp);
+        // Runtime graph
+        Map<String, Object> graph = RuntimeGraph.buildParityRuntimeGraph(Map.of(
+            "nodes", List.of(Map.of("id", "n1", "type", "file")),
+            "edges", List.of()
+        ));
+        System.out.println("Fingerprint: " + RuntimeGraph.graphFingerprint(graph));
     }
 }
 ```
 
 ---
 
-## API examples
+## Common workflows
 
-### Deterministic hashing & encryption (Kaalka)
-
-```java
-String hash = Kaalka.computeKaalkaHash(Map.of("k", "v"));     // compute_kaalka_hash
-String enc  = Kaalka.encryptValue(Map.of("secret", 1), "key"); // encrypt_value
-Object dec  = Kaalka.decryptValue(enc, "key");                 // decrypt_value
-```
-
-### Runtime graph, unified IR & global fingerprint
+### Serialize deterministic data
 
 ```java
-var graph = RuntimeGraph.buildParityRuntimeGraph(payload);     // build_runtime_graph
-var ir    = UnifiedRuntimeIr.compile(envelope);                // compile_unified_runtime_ir
-String f  = GlobalRuntimeFingerprint.compute(envelope);        // compute_global_runtime_fingerprint
+import io.webweavex.determinism.StableSerialize;
+String serialized = StableSerialize.stableSerialize(Map.of("key", "value", "number", 42));
+System.out.println(serialized);
 ```
 
-### Runtime memory fabric
+### Build runtime graph
 
 ```java
-var memory = RuntimeMemory.build(runtimeHistory, lineage, semanticRelations); // build_runtime_memory
-var hit    = MemoryQuery.queryRuntimeMemory(memory, "semantic", "a");         // query_runtime_memory
-var found  = MemorySearch.searchRuntimeMemory(memory, "term");                // search_runtime_memory
+import io.webweavex.graph.RuntimeGraph;
+Map<String, Object> graph = RuntimeGraph.buildParityRuntimeGraph(Map.of(
+    "nodes", List.of(Map.of("id", "n1", "type", "file"), Map.of("id", "n2", "type", "module")),
+    "edges", List.of(Map.of("source", "n1", "target", "n2", "type", "imports"))
+));
+System.out.println(RuntimeGraph.graphFingerprint(graph));
 ```
 
-### Query engines
+### Validate replay equivalence
 
 ```java
-var g = GraphQuery.queryGraph(graph, "node-id");               // query_graph
-var k = OntologyQuery.queryKnowledge(entities, edges);         // query_knowledge
-var r = GraphQuery.queryRuntimeGraph(runtimeGraph, "node-id"); // query_runtime_graph
+import io.webweavex.replay.ReplayEquivalence;
+Map<String, Object> original = Map.of("unified_runtime_graph", graph);
+Map<String, Object> replayed = Map.of("unified_runtime_graph", graph);
+Map<String, Object> result = ReplayEquivalence.validate(original, replayed);
+System.out.println(result.get("equivalent")); // true
 ```
 
-### Replay equivalence & reconstruction
+### Kaalka encryption
 
 ```java
-var report  = ReplayEquivalence.validate(envelope, clone);             // validate_replay_equivalence
-var rebuilt = RuntimeReconstruction.reconstructRuntime(envelope);      // reconstruct_runtime
-var ok      = RuntimeValidation.validateReconstructedRuntime(rebuilt); // validate_reconstructed_runtime
+import io.webweavex.crypto.Kaalka;
+Map<String, Object> encrypted = Kaalka.encryptValueEnvelope(Map.of("secret", "data"), "my-key");
+String ciphertext = (String) encrypted.get("encrypted");
+Map<String, Object> decrypted = Kaalka.decryptValueEnvelope(ciphertext, "my-key");
+System.out.println(decrypted.get("decrypted"));
+```
+
+### Runtime graph fingerprinting
+
+```java
+import io.webweavex.graph.RuntimeGraph;
+Map<String, Object> graph = RuntimeGraph.buildParityRuntimeGraph(Map.of(
+    "nodes", List.of(Map.of("id", "n1")),
+    "edges", List.of()
+));
+String fingerprint = RuntimeGraph.graphFingerprint(graph);
+System.out.println("Fingerprint: " + fingerprint);
+```
+
+### Canonical JSON
+
+```java
+import io.webweavex.determinism.CanonicalJson;
+String json = CanonicalJson.canonicalJsonEncode(Map.of("b", 2, "a", 1));
+System.out.println(json); // {"a":1,"b":2}
+```
+
+### Normalization
+
+```java
+import io.webweavex.determinism.Normalization;
+String normalized = Normalization.normalizeRuntimeValue("  Hello World  ");
+System.out.println(normalized); // "Hello World"
 ```
 
 ---
 
-## Cross-language parity
+## Supported platforms
 
-`io.webweavex.parity.CrossLanguageParity*Test` loads golden vectors generated from a
-materialized **canonical Python branch** (`tools/gen_java_parity_vectors*.py`) and asserts
-Java is **byte-identical** to Python for canonical serialization, SHA-256/Kaalka hashes,
-NFKC/CRLF normalization, code-point key ordering, `repr(float)`, and the kernel / graph /
-IR / query / memory / reconstruction slices.
-
-Because **Python ≡ JavaScript ≡ Dart** is already certified (70k+ byte-identical
-comparisons), proving **Java ≡ Python** proves **Java ≡ JS ≡ Dart** for those APIs.
-
-```bash
-cd java
-mvn -B -ntp test -Dtest='CrossLanguageParity*Test'
-python ../tools/validate_java_manifest.py   # manifest governance gate
-```
-
-Single source of truth for the 128-API surface: [`PARITY_MANIFEST.json`](PARITY_MANIFEST.json).
+| Aspect | Detail |
+|--------|--------|
+| Runtime | Java **17+** |
+| Build | Maven 3.6+ or Gradle 7.6+ |
+| Install | `io.webweavex:webweavex:3.0.0` |
+| Dependencies | Zero external runtime dependencies |
 
 ---
 
-## Implementation matrix
+## Versioning
 
-| Metric | Value |
-| --- | --- |
-| Total tracked public APIs (Python/JS/Dart) | **128** |
-| Java implemented (parity-proven) | **110** |
-| Java planned | 31 |
-| Parity tests | **1169 passing**, 0 failures, 0 errors |
-| Instruction coverage (JaCoCo) | **96.69 %** |
-
-Proven APIs today (110) span the determinism + crypto foundation, kernel/graph/IR,
-query/memory/reconstruction, the connector-runtime extraction family
-(`extract_database/api/runtime_streams/telemetry/container/ide/kubernetes_runtime`),
-the document/interaction layer (`extract_document_runtime`, `extract_paginated_content`,
-`build_interaction_graph`), and the session-crypto cluster (`encrypt_session_state`,
-`decrypt_session_state`, `save_encrypted_session`, `load_encrypted_session`).
-
-Per-API classification (Complete / Partial / Deferred · Java status):
-[`java/JAVA_PARITY_MATRIX.md`](java/JAVA_PARITY_MATRIX.md).
+WebWeaveX follows Semantic Versioning — **MAJOR.MINOR.PATCH**.
+The version is synchronized across all SDKs: PyPI, npm, pub.dev, Maven Central, and Gradle share the same `3.0.0`.
 
 ---
 
-## Build & test
+## Determinism
 
-```bash
-cd java
-mvn clean verify         # compile, test, JaCoCo coverage, jar + sources + javadoc
-mvn -Prelease verify     # additionally GPG-signs artifacts for Maven Central
-```
-
-- **Java 17+** (CI matrix: JDK 17 and 21).
-- Deterministic core uses the **JDK alone** (`java.text.Normalizer`, `MessageDigest`,
-  `Base64`). Jackson is a **test-only** dependency (loads golden vectors).
-
-### Regenerating golden vectors
-
-```bash
-# from a materialized canonical Python-branch checkout (so `core` is importable)
-python tools/gen_java_parity_vectors.py java/src/test/resources/parity/golden_vectors.json
-```
+| Mechanism | Role |
+|-----------|------|
+| `Normalization` | NFKC, CRLF normalization, volatile field stripping |
+| `StableSerialize` | Canonical JSON with sorted keys |
+| `Hashing.computeDeterministicHash` | SHA-256 deterministic hash |
+| `RuntimeGraph.graphFingerprint` | Deterministic graph identity |
+| `ReplayEquivalence.validate` | Graph + fingerprint + browser identity checks |
+| `Kaalka.encryptValue` | Deterministic encryption |
 
 ---
 
-## Coverage
+## Performance
 
-JaCoCo: **95.68 % instruction**. The uncovered remainder is unreachable defensive code
-faithfully mirrored from the canonical runtimes (JDK-guaranteed `NoSuchAlgorithmException`
-catches, the modular-cipher time-key fallback that always round-trips, float-format safety
-branches). These are retained as 1:1 parity mirrors rather than removed to inflate the
-metric — see [`java/COVERAGE_EXCEPTION_REPORT.md`](java/COVERAGE_EXCEPTION_REPORT.md).
-
----
-
-## CI/CD
-
-GitHub Actions gate every push and PR touching `java/**`, `tools/**`, or
-`PARITY_MANIFEST.json`:
-
-| Workflow | Gate |
-|----------|------|
-| [`java-build.yml`](.github/workflows/java-build.yml) | `mvn clean verify` on JDK 17 + 21, coverage artifact upload |
-| [`java-parity.yml`](.github/workflows/java-parity.yml) | `CrossLanguageParity*Test` + `validate_java_manifest.py` |
-| [`parity-regression.yml`](.github/workflows/parity-regression.yml) | Coverage floor (94 %) + proven-API floor (110) + manifest drift |
+| Operation | Notes |
+|-----------|-------|
+| Serialization | Zero external dependencies, JDK-only |
+| Hashing | SHA-256 via `java.security.MessageDigest` |
+| Kaalka | Byte-level cipher, zero allocations in hot path |
+| Graph fingerprint | SHA-256 over normalized graph |
+| Replay validation | 3-check comparison |
 
 ---
 
-## Governance
+## Comparison
 
-| Document | Purpose |
-|----------|---------|
-| [LICENSE](LICENSE) | Apache-2.0 |
-| [GOVERNANCE.md](GOVERNANCE.md) | Decision-making model |
-| [MAINTAINERS.md](MAINTAINERS.md) | Current maintainers |
-| [CODEOWNERS](CODEOWNERS) | Review ownership |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution workflow |
-| [RELEASE.md](RELEASE.md) | Release process |
-| [SECURITY.md](SECURITY.md) | Vulnerability reporting |
-| [ROADMAP.md](ROADMAP.md) | Direction |
-| [JAVA_BRANCH_POLICY.md](JAVA_BRANCH_POLICY.md) | Maven-first branch rules |
-
-Branch governance validator: `python tools/validate_java_manifest.py` (fails on manifest
-drift, missing/extra source vs. matrix, undocumented or untested proven APIs, or any
-foreign-ecosystem reference in this README).
+| Tool | Primary Focus |
+|------|---------------|
+| Playwright | Browser automation |
+| Scrapy | Crawling |
+| BeautifulSoup | HTML parsing |
+| **WebWeaveX Java** | **Deterministic runtime cognition infrastructure** |
 
 ---
 
-## Branch policy
+## FAQ
 
-This branch is **Maven-first**. Python remains the canonical implementation. The full rules
-are in [`JAVA_BRANCH_POLICY.md`](JAVA_BRANCH_POLICY.md); in short:
+**What is Kaalka?**
+Kaalka is a deterministic cryptographic persistence substrate. Kaalka v5 provides byte-identical encrypted values across Python, JavaScript, Dart, Kotlin, and Java.
 
-- No feature lands in Java without **Python parity vectors**.
-- No API is marked complete without **parity proof**.
-- **No stubs. No placeholders. No TODO implementations.**
+**Why deterministic?**
+Determinism enables audit, replay proofs, cross-run diffing, and agent continuity.
 
-See also the cleanup record: [`JAVA_BRANCH_AUDIT.md`](JAVA_BRANCH_AUDIT.md) ·
-[`JAVA_CLEANUP_REPORT.md`](JAVA_CLEANUP_REPORT.md).
+**Does this replace Playwright?**
+No. WebWeaveX provides deterministic runtime infrastructure. Playwright provides browser automation.
 
----
-
-## Certification status
-
-Each session ships a certification artifact with evidence:
-[`java/SESSION_3_CERTIFICATION.md`](java/SESSION_3_CERTIFICATION.md) /
-[`.json`](java/SESSION_3_CERTIFICATION.json),
-[`java/foundation_certification.json`](java/foundation_certification.json), and the
-branch-level [`JAVA_BRANCH_CERTIFICATION.md`](JAVA_BRANCH_CERTIFICATION.md). Every claim is
-regenerated by execution (`mvn verify` + the manifest validator); nothing passes on the
-strength of a report alone.
+**Can AI agents use this?**
+Yes. Every output is a bounded, deterministic, evidence-carrying IR that agents can hash, diff, replay, and reason over.
 
 ---
 
 ## Roadmap
 
-Dependency-driven session order (see [`java/JAVA_PARITY_MATRIX.md`](java/JAVA_PARITY_MATRIX.md)
-and [ROADMAP.md](ROADMAP.md)):
+See [ROADMAP.md](../ROADMAP.md).
 
-1. Extraction (HTML / document / repository) + `universal_extract`
-2. Repository extraction
-3. Document extraction
-4. Semantic extraction (evidence layers, parsers)
-5. Workflow layer
-6. Vision
-7. OCR
+---
 
-Each new API ships implemented-from-Python-canon, with golden vectors, parity tests, a
-matrix entry, and a governance-validator update — never as a placeholder.
+## Contributing
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md).
 
 ---
 
 ## Security
 
-Authorized session material only — no credential cracking, no CAPTCHA/auth bypass. Report
-vulnerabilities per [SECURITY.md](SECURITY.md).
+See [SECURITY.md](../SECURITY.md). Report issues responsibly.
 
 ---
 
 ## License
 
-Apache 2.0 — [LICENSE](LICENSE)
+Apache License 2.0 — [LICENSE](../LICENSE)
 
-<p align="center"><strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable scraper.</strong></p>
+---
 
+<p align="center">
+  <strong>WebWeaveX is deterministic runtime cognition infrastructure — not a disposable scraper, not AGI hype, not an LLM wrapper.</strong>
+</p>
+
+<p align="center">
+  <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-piyushmishra00-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
+</p>
