@@ -364,16 +364,13 @@ void main() async {
 
           <div id="sdk-java" class="sdk-tab-content">
             <h3>Java SDK &mdash; <code>io.github.piyush-mishra-00:webweavex</code> v3.0.0</h3>
-            <p><span class="pill pill-amber">Source only</span> Not yet on Maven Central. Build and install locally from the <code>java</code> branch.</p>
+            <p><span class="pill pill-green">Published</span> On Maven Central with jar, sources, javadoc and GPG signatures. Note the groupId is <code>io.github.piyush-mishra-00</code>, not <code>io.webweavex</code>.</p>
             <div class="code-wrapper">
-              <div class="code-header"><span>Terminal &mdash; build from source</span><button class="copy-btn">Copy</button></div>
-              <pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
-cd WebWeaveX/java
-mvn clean install    # installs io.github.piyush-mishra-00:webweavex:3.0.0
-                     # into your local ~/.m2 repository</code></pre>
+              <div class="code-header"><span>build.gradle</span><button class="copy-btn">Copy</button></div>
+              <pre><code>implementation 'io.github.piyush-mishra-00:webweavex:3.0.0'</code></pre>
             </div>
             <div class="code-wrapper">
-              <div class="code-header"><span>pom.xml &mdash; after local install</span><button class="copy-btn">Copy</button></div>
+              <div class="code-header"><span>pom.xml</span><button class="copy-btn">Copy</button></div>
               <pre><code>&lt;dependency&gt;
   &lt;groupId&gt;io.github.piyush-mishra-00&lt;/groupId&gt;
   &lt;artifactId&gt;webweavex&lt;/artifactId&gt;
@@ -383,11 +380,25 @@ mvn clean install    # installs io.github.piyush-mishra-00:webweavex:3.0.0
             <div class="code-wrapper">
               <div class="code-header"><span>App.java</span><button class="copy-btn">Copy</button></div>
               <pre><code>import io.webweavex.WebWeaveX;
+import io.webweavex.crypto.Hashing;
+import io.webweavex.determinism.StableSerialize;
+import io.webweavex.replay.ReplayEquivalence;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        // Version facade — byte-exact with webweavex.__version__ (Python)
-        System.out.println("WebWeaveX " + WebWeaveX.VERSION);
+        System.out.println("WebWeaveX Java SDK v" + WebWeaveX.VERSION);
+
+        Map&lt;String, Object&gt; data = new LinkedHashMap&lt;&gt;();
+        data.put("b", 2);
+        data.put("a", 1);
+
+        String canonical = StableSerialize.stableSerialize(data);
+        String hash      = Hashing.computeDeterministicHash(data);
+
+        Map&lt;String, Object&gt; env = Map.of("browser_ir", Map.of("runtime_identity", "test"));
+        Map&lt;String, Object&gt; r   = ReplayEquivalence.validate(env, new LinkedHashMap&lt;&gt;(env));
+        System.out.println("equivalent=" + r.get("equivalent"));
     }
 }</code></pre>
             </div>
@@ -433,11 +444,11 @@ fun main() {
             <tr><td><strong>Python</strong></td><td><a href="https://pypi.org/project/webweavex/" target="_blank" rel="noopener">PyPI</a></td><td><code>webweavex</code></td><td>3.0.1</td><td><span class="pill pill-green">Published</span></td></tr>
             <tr><td><strong>JavaScript / TS</strong></td><td><a href="https://www.npmjs.com/package/webweavex" target="_blank" rel="noopener">npm</a></td><td><code>webweavex</code></td><td>3.0.0</td><td><span class="pill pill-green">Published</span></td></tr>
             <tr><td><strong>Dart / Flutter</strong></td><td><a href="https://pub.dev/packages/webweavex" target="_blank" rel="noopener">pub.dev</a></td><td><code>webweavex</code></td><td>3.0.0</td><td><span class="pill pill-green">Published</span></td></tr>
-            <tr><td><strong>Java</strong></td><td>Maven Central</td><td><code>io.github.piyush-mishra-00:webweavex</code></td><td>3.0.0</td><td><span class="pill pill-amber">Source only</span></td></tr>
+            <tr><td><strong>Java</strong></td><td><a href="https://central.sonatype.com/artifact/io.github.piyush-mishra-00/webweavex" target="_blank" rel="noopener">Maven Central</a></td><td><code>io.github.piyush-mishra-00:webweavex</code></td><td>3.0.0</td><td><span class="pill pill-green">Published</span></td></tr>
             <tr><td><strong>Kotlin</strong></td><td><a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin/kotlin/dist" target="_blank" rel="noopener">GitHub (branch)</a></td><td><code>webweavex-kotlin-3.0.0.jar</code></td><td>3.0.0</td><td><span class="pill pill-blue">Direct JAR</span></td></tr>
           </tbody>
         </table>
-        <p class="note-box"><strong>Note on the JVM SDKs.</strong> Java and Kotlin are <em>not</em> yet published to Maven Central. Java installs via <code>mvn install</code> from the <code>java</code> branch; Kotlin ships as a prebuilt JAR in the <code>kotlin</code> branch. Maven Central publication is tracked on the <a href="#roadmap">roadmap</a>.</p>
+        <p class="note-box"><strong>Note on the JVM SDKs.</strong> <strong>Java is on Maven Central</strong> as <code>io.github.piyush-mishra-00:webweavex:3.0.0</code> &mdash; the <code>io.webweavex</code> groupId in older docs is wrong and returns 404. <strong>Kotlin is not published</strong>; it ships as a prebuilt JAR in the <code>kotlin</code> branch. Kotlin Maven Central publication is tracked on the <a href="#roadmap">roadmap</a>.</p>
       </section>
 
       <div class="section-divider"></div>

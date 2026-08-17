@@ -60,7 +60,7 @@
   <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square&logo=python&label=Python%20(PyPI)&color=3776ab" alt="Python PyPI"/></a>
   <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/v/webweavex?style=flat-square&logo=nodedotjs&label=JS%2FTS%20(npm)&color=cb3837" alt="npm package"/></a>
   <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/pub/v/webweavex?style=flat-square&logo=dart&label=Dart%20(pub.dev)&color=0175C2" alt="Dart pub.dev"/></a>
-  <a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/java"><img src="https://img.shields.io/badge/Java-v3.0.0%20(source%20build)-007396?style=flat-square&logo=openjdk" alt="Java source build"/></a>
+  <a href="https://central.sonatype.com/artifact/io.github.piyush-mishra-00/webweavex"><img src="https://img.shields.io/maven-central/v/io.github.piyush-mishra-00/webweavex?style=flat-square&logo=openjdk&label=Java%20(Maven%20Central)&color=007396" alt="Java Maven Central"/></a>
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin/kotlin/dist"><img src="https://img.shields.io/badge/Kotlin-v3.0.0%20(direct%20JAR)-7F52FF?style=flat-square&logo=kotlin" alt="Kotlin JAR"/></a>
 </p>
 
@@ -213,7 +213,7 @@ WebWeaveX provides native, production-grade SDKs for 5 major programming languag
 | **Python** | PyPI | `pip install webweavex` | `v3.0.0` | **Stable** | Enterprise Python, PyPI services, AI Notebooks, Data Engineering | [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) |
 | **JavaScript / TypeScript** | npm | `npm install webweavex` | `v3.0.0` | **Stable** | Node.js, Playwright, Browser AI agents, Full-Stack JS/TS apps | [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) |
 | **Dart** | pub.dev | `dart pub add webweavex` | `v3.0.0` | **Stable** | Flutter apps, Mobile agents, Dart backend services | [`dart`](https://github.com/ni-sh-a-char/WebWeaveX/tree/dart) |
-| **Java** | Source build | `mvn clean install` from `java` branch | `v3.0.0` | **Source only** | Enterprise Java systems, Spring Boot services, Android automation | [`java`](https://github.com/ni-sh-a-char/WebWeaveX/tree/java) |
+| **Java** | Maven Central | `io.github.piyush-mishra-00:webweavex:3.0.0` | `v3.0.0` | **Stable** | Enterprise Java systems, Spring Boot services, Android automation | [`java`](https://github.com/ni-sh-a-char/WebWeaveX/tree/java) |
 | **Kotlin** | Direct JAR | `implementation(files("webweavex-kotlin-3.0.0.jar"))` | `v3.0.0` | **Direct JAR** | Native Android agents, Kotlin Multiplatform (KMP), Coroutine workflows | [`kotlin`](https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin) |
 
 ---
@@ -301,18 +301,31 @@ void main() async {
 <summary><strong>☕ Java (Maven / Gradle)</strong></summary>
 
 ```groovy
-// Not on Maven Central — build from the `java` branch first:
-//   git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git && cd WebWeaveX/java && mvn clean install
-implementation 'io.github.piyush-mishra-00:webweavex:3.0.0'  // requires mavenLocal()
+// Maven Central — note the groupId is io.github.piyush-mishra-00, NOT io.webweavex
+implementation 'io.github.piyush-mishra-00:webweavex:3.0.0'
 ```
 
 ```java
 import io.webweavex.WebWeaveX;
+import io.webweavex.crypto.Hashing;
+import io.webweavex.determinism.StableSerialize;
+import io.webweavex.replay.ReplayEquivalence;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        // Version facade — byte-exact with Python's webweavex.__version__
-        System.out.println("WebWeaveX " + WebWeaveX.VERSION);   // 3.0.0
+        System.out.println("WebWeaveX Java SDK v" + WebWeaveX.VERSION);
+
+        Map<String, Object> data = new LinkedHashMap<>();
+        data.put("b", 2);
+        data.put("a", 1);
+
+        String canonical = StableSerialize.stableSerialize(data);
+        String hash      = Hashing.computeDeterministicHash(data);
+
+        Map<String, Object> env = Map.of("browser_ir", Map.of("runtime_identity", "test"));
+        Map<String, Object> r   = ReplayEquivalence.validate(env, new LinkedHashMap<>(env));
+        System.out.println("equivalent=" + r.get("equivalent"));
     }
 }
 ```
@@ -509,7 +522,7 @@ graph TB
         PY[python branch - PyPI webweavex v3.0.0]
         JS[javascript branch - npm webweavex v3.0.0]
         DT[dart branch - pub.dev webweavex v3.0.0]
-        JV[java branch - source build io.github.piyush-mishra-00:webweavex:3.0.0]
+        JV[java branch - Maven Central io.github.piyush-mishra-00:webweavex:3.0.0]
         KT[kotlin branch - direct JAR webweavex-kotlin-3.0.0.jar]
     end
 

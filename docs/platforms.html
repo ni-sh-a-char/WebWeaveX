@@ -68,9 +68,9 @@
         <div class="hero-badge-pill">Platform &amp; Distribution Guide</div>
         <h1 class="hero-title" style="text-align:left;font-size:2.6rem;">Platforms &amp;<br><span class="brand-gradient">Installation</span></h1>
         <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:8px;max-width:760px;">
-          WebWeaveX ships five SDKs. Three are published to public package registries; two JVM SDKs are distributed
-          from this repository. Every coordinate on this page was verified against the live registry, and every code
-          sample uses an API that actually exists in the shipped artifact.
+          WebWeaveX ships five SDKs. Four are published to public package registries; the Kotlin SDK is
+          distributed as a prebuilt JAR from this repository. Every coordinate on this page was verified against
+          the live registry, and every code sample uses an API that actually exists in the shipped artifact.
         </p>
       </section>
 
@@ -110,11 +110,11 @@
             </tr>
             <tr>
               <td><strong>Java</strong></td>
-              <td>Maven Central</td>
+              <td><a href="https://central.sonatype.com/artifact/io.github.piyush-mishra-00/webweavex" target="_blank" rel="noopener">Maven Central</a></td>
               <td><code>io.github.piyush-mishra-00:webweavex</code></td>
               <td>3.0.0</td>
-              <td><code>mvn clean install</code> from source</td>
-              <td><span class="pill pill-amber">Source only</span></td>
+              <td><code>implementation 'io.github.piyush-mishra-00:webweavex:3.0.0'</code></td>
+              <td><span class="pill pill-green">Published</span></td>
             </tr>
             <tr>
               <td><strong>Kotlin</strong></td>
@@ -128,11 +128,12 @@
         </table>
 
         <p class="note-box">
-          <strong>Honest status on the JVM SDKs.</strong> Older documentation advertised
-          <code>io.webweavex:webweavex:3.0.0</code> and <code>io.webweavex:webweavex-kotlin:3.0.0</code> on Maven Central.
-          Neither coordinate resolves &mdash; a Maven Central search for <code>webweavex</code> and for the groupId
-          <code>io.github.piyush-mishra-00</code> both return zero artifacts. Use the source build (Java) or the
-          prebuilt JAR (Kotlin) documented below. Maven Central publication is a roadmap item, not a shipped fact.
+          <strong>Status of the JVM SDKs.</strong> <strong>Java is published to Maven Central</strong> as
+          <code>io.github.piyush-mishra-00:webweavex:3.0.0</code> (jar, sources, javadoc, GPG-signed, released
+          24 July 2026). The older <code>io.webweavex:webweavex</code> coordinate found in some documentation is
+          wrong &mdash; that groupId returns 404. <strong>Kotlin is not on Maven Central</strong>; no
+          <code>webweavex-kotlin</code> artifact exists under any groupId. Use the prebuilt JAR from the
+          <code>kotlin</code> branch, documented below.
         </p>
       </section>
 
@@ -151,7 +152,7 @@
             <tr><td><code>python</code></td><td><code>webweavex/</code> package + <code>core/</code> engines</td><td><code>pyproject.toml</code></td></tr>
             <tr><td><code>javascript</code></td><td><code>src/</code> TypeScript sources</td><td><code>package.json</code> (tsup)</td></tr>
             <tr><td><code>dart</code></td><td><code>lib/webweavex.dart</code> + <code>lib/src/</code></td><td><code>pubspec.yaml</code></td></tr>
-            <tr><td><code>java</code></td><td><code>java/src/main/java/io/webweavex/</code></td><td><code>java/pom.xml</code></td></tr>
+            <tr><td><code>java</code></td><td><code>java/src/main/java/io/webweavex/</code></td><td><code>java/pom.xml</code> (published to Central)</td></tr>
             <tr><td><code>kotlin</code></td><td><code>kotlin/src/</code> + <code>kotlin/dist/*.jar</code></td><td><code>kotlin/build.gradle.kts</code></td></tr>
           </tbody>
         </table>
@@ -402,22 +403,20 @@ final modal = recoverModalRuntime(state);</code></pre>
 
       <!-- ══════════ JAVA ══════════ -->
       <section id="java">
-        <h2>Java &mdash; Maven <span class="pill pill-amber">Source only</span></h2>
-        <p class="note-box" style="border-left-color:var(--accent-amber);">
-          <strong>Not on Maven Central.</strong> <code>io.webweavex:webweavex:3.0.0</code> does not resolve.
-          The project's own <code>pom.xml</code> declares groupId <code>io.github.piyush-mishra-00</code>, and neither
-          that groupId nor the artifact name is present on Central. Build and install it locally as shown below.
+        <h2>Java &mdash; Maven Central <span class="pill pill-green">Published</span></h2>
+        <p>
+          Published to Maven Central on 24 July 2026 with jar, sources, javadoc and GPG signatures.
+          The artifact is <strong>374 KB</strong> containing <strong>102 classes</strong> across 32 packages.
         </p>
 
-        <h3>1. Build and install to your local repository</h3>
-        <div class="code-wrapper">
-          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
-          <pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
-cd WebWeaveX/java
-mvn clean install</code></pre>
+        <div class="note-box" style="border-left-color:var(--accent-blue);background:color-mix(in srgb, var(--accent-blue) 8%, transparent);">
+          <strong>Mind the groupId.</strong> The coordinate is
+          <code>io.github.piyush-mishra-00</code>, <em>not</em> <code>io.webweavex</code>. Older documentation
+          advertised <code>io.webweavex:webweavex</code>, which does not exist &mdash; that groupId returns 404 on
+          Maven Central. If your build fails to resolve, this is almost certainly why.
         </div>
 
-        <h3>2. Declare the dependency</h3>
+        <h3>1. Declare the dependency</h3>
         <div class="code-wrapper">
           <div class="code-header"><span>pom.xml</span><button class="copy-btn">Copy</button></div>
           <pre><code>&lt;dependency&gt;
@@ -429,34 +428,88 @@ mvn clean install</code></pre>
 
         <div class="code-wrapper">
           <div class="code-header"><span>build.gradle.kts</span><button class="copy-btn">Copy</button></div>
-          <pre><code>repositories {
-    mavenLocal()   // required — the artifact is installed locally
-    mavenCentral()
-}
-
-dependencies {
+          <pre><code>dependencies {
     implementation("io.github.piyush-mishra-00:webweavex:3.0.0")
 }</code></pre>
         </div>
 
-        <h3>3. Use it</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>build.gradle (Groovy)</span><button class="copy-btn">Copy</button></div>
+          <pre><code>implementation 'io.github.piyush-mishra-00:webweavex:3.0.0'</code></pre>
+        </div>
+
+        <h3>2. Use it &mdash; determinism, fingerprint, graph, replay</h3>
+        <p>
+          This is the <code>RealWorldValidation</code> example that ships inside the published artifact
+          (<code>io.webweavex.examples</code>), so it is guaranteed to compile against 3.0.0.
+        </p>
         <div class="code-wrapper">
           <div class="code-header"><span>App.java</span><button class="copy-btn">Copy</button></div>
           <pre><code>import io.webweavex.WebWeaveX;
+import io.webweavex.crypto.Hashing;
+import io.webweavex.determinism.GlobalRuntimeFingerprint;
+import io.webweavex.determinism.StableSerialize;
+import io.webweavex.graph.RuntimeGraph;
+import io.webweavex.replay.ReplayEquivalence;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        // Version facade, byte-exact with Python's webweavex.__version__
-        System.out.println("WebWeaveX " + WebWeaveX.VERSION);   // 3.0.0
+        System.out.println("WebWeaveX Java SDK v" + WebWeaveX.VERSION);
+
+        // 1. Deterministic canonical serialization
+        Map&lt;String, Object&gt; data = new LinkedHashMap&lt;&gt;();
+        data.put("b", 2);
+        data.put("a", 1);
+        String canonical = StableSerialize.stableSerialize(data);
+        String hash      = Hashing.computeDeterministicHash(data);
+
+        // 2. Global runtime fingerprint
+        String fp = GlobalRuntimeFingerprint.compute(new HashMap&lt;&gt;());
+
+        // 3. Graph normalization
+        Map&lt;String, Object&gt; graph = RuntimeGraph.normalizeRuntimeGraph(
+            Map.of("nodes", List.of(Map.of("id", "1")), "edges", List.of()));
+
+        // 4. Replay equivalence
+        Map&lt;String, Object&gt; env = Map.of("browser_ir", Map.of("runtime_identity", "test"));
+        Map&lt;String, Object&gt; r   = ReplayEquivalence.validate(env, new LinkedHashMap&lt;&gt;(env));
+        System.out.println("equivalent=" + r.get("equivalent"));
     }
 }</code></pre>
+        </div>
+
+        <h3>3. Runtime kernel pipeline</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>Pipeline.java</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import io.webweavex.kernel.RuntimeKernel;
+import io.webweavex.kernel.UniversalInput;
+import java.util.Map;
+
+UniversalInput input = UniversalInput.of("https://example.com")
+        .sourceType("web")
+        .tick(0L)
+        .build();
+
+RuntimeKernel kernel = RuntimeKernel.getRuntimeKernel("web");
+Map&lt;String, Object&gt; result = kernel.runPipeline(input.toDict(), 0L);</code></pre>
+        </div>
+
+        <h3>Building from source instead</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX/java
+mvn clean install</code></pre>
         </div>
 
         <p>
           The Java tree mirrors the Python engine package-for-package under <code>io.webweavex.*</code> &mdash;
           <code>adaptive</code>, <code>application</code>, <code>ast</code>, <code>auth</code>, <code>causality</code>,
-          <code>distributed</code> and more. Parity against the Python golden vectors is enforced in CI by the
-          <code>java-parity</code> and <code>parity-regression</code> workflows on the <code>java</code> branch.
+          <code>connectors</code>, <code>determinism</code>, <code>distributed</code>, <code>graph</code>,
+          <code>kernel</code>, <code>memory</code>, <code>replay</code>, <code>repository</code> and more.
+          Parity against the Python golden vectors is enforced in CI by the <code>java-parity</code> and
+          <code>parity-regression</code> workflows on the <code>java</code> branch.
         </p>
       </section>
 
@@ -602,8 +655,8 @@ fun main() {
           <tbody>
             <tr>
               <td><code>Could not find io.webweavex:webweavex:3.0.0</code></td>
-              <td>Artifact is not on Maven Central</td>
-              <td>Build from the <code>java</code> branch with <code>mvn clean install</code> and use groupId <code>io.github.piyush-mishra-00</code> with <code>mavenLocal()</code></td>
+              <td>Wrong groupId &mdash; <code>io.webweavex</code> does not exist on Maven Central</td>
+              <td>Use <code>io.github.piyush-mishra-00:webweavex:3.0.0</code>. It is published; no local build or <code>mavenLocal()</code> needed.</td>
             </tr>
             <tr>
               <td><code>Unresolved reference: WebWeaveX</code> (Kotlin)</td>

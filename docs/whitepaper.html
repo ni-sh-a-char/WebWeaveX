@@ -242,7 +242,7 @@
       <li>Python &mdash; PyPI</li>
       <li>JavaScript / TypeScript &mdash; npm</li>
       <li>Dart / Flutter &mdash; pub.dev</li>
-      <li>Java &mdash; Maven (source build)</li>
+      <li>Java &mdash; Maven Central</li>
       <li>Kotlin &mdash; prebuilt JAR</li>
     </ol>
   </li>
@@ -280,7 +280,7 @@
     <tr><td>Python</td><td>PyPI &mdash; <code>webweavex</code></td><td>3.0.1</td><td><span class="pill p-green">Published</span></td></tr>
     <tr><td>JavaScript / TypeScript</td><td>npm &mdash; <code>webweavex</code></td><td>3.0.0</td><td><span class="pill p-green">Published</span></td></tr>
     <tr><td>Dart / Flutter</td><td>pub.dev &mdash; <code>webweavex</code></td><td>3.0.0</td><td><span class="pill p-green">Published</span></td></tr>
-    <tr><td>Java</td><td>Source build from <code>java</code> branch</td><td>3.0.0</td><td><span class="pill p-amber">Source only</span></td></tr>
+    <tr><td>Java</td><td>Maven Central &mdash; <code>io.github.piyush-mishra-00:webweavex</code></td><td>3.0.0</td><td><span class="pill p-green">Published</span></td></tr>
     <tr><td>Kotlin</td><td>Prebuilt JAR in <code>kotlin</code> branch</td><td>3.0.0</td><td><span class="pill p-blue">Direct JAR</span></td></tr>
   </tbody>
 </table>
@@ -528,7 +528,7 @@
     <tr>
       <td><strong>Java</strong></td><td>Maven Central</td>
       <td><code>io.github.piyush-mishra-00:webweavex</code></td><td>3.0.0</td>
-      <td><span class="pill p-amber">Source only</span></td>
+      <td><span class="pill p-green">Published</span></td>
     </tr>
     <tr>
       <td><strong>Kotlin</strong></td><td>GitHub (<code>kotlin</code> branch)</td>
@@ -545,15 +545,23 @@
     <tr><td>PyPI</td><td>0.1.0, 1.0.1, 1.0.2, 1.0.3, 2.0.0, 2.0.1, 2.1.0, <strong>3.0.1</strong></td></tr>
     <tr><td>npm</td><td>0.1.0, 2.0.0, 2.0.1, 2.1.0, <strong>3.0.0</strong></td></tr>
     <tr><td>pub.dev</td><td>0.1.0, 0.1.1, 2.1.0, <strong>3.0.0</strong></td></tr>
+    <tr><td>Maven Central</td><td>0.1.0, <strong>3.0.0</strong> (groupId <code>io.github.piyush-mishra-00</code>)</td></tr>
   </tbody>
 </table>
 
 <div class="callout">
-  <strong>Correction to previously published claims.</strong> Earlier README badges and documentation advertised
-  <code>io.webweavex:webweavex:3.0.0</code> and <code>io.webweavex:webweavex-kotlin:3.0.0</code> as available on
-  Maven Central. Neither coordinate resolves. A Maven Central search for <code>webweavex</code> returns zero
-  artifacts, as does a search for the groupId <code>io.github.piyush-mishra-00</code> declared in the project's own
-  <code>pom.xml</code>. The badges were static images, not live registry queries, so they never reflected reality.
+  <strong>Correction to previously published claims.</strong> Earlier README badges advertised
+  <code>io.webweavex:webweavex:3.0.0</code> and <code>io.webweavex:webweavex-kotlin:3.0.0</code>. Both of those
+  coordinates are wrong &mdash; the <code>io.webweavex</code> groupId returns 404 on Maven Central.
+  <br><br>
+  The Java SDK <em>is</em> published, under the groupId declared in the project&rsquo;s own <code>pom.xml</code>:
+  <code>io.github.piyush-mishra-00:webweavex:3.0.0</code>, released 24 July 2026 with jar, sources, javadoc and
+  GPG signatures. Note that the <code>search.maven.org</code> Solr index does not return this artifact; the
+  authoritative check is the repository itself at
+  <code>repo1.maven.org/maven2/io/github/piyush-mishra-00/webweavex/</code>.
+  <br><br>
+  The Kotlin SDK is <em>not</em> published &mdash; no <code>webweavex-kotlin</code> artifact exists under any
+  groupId on Central. It ships as a prebuilt JAR from the <code>kotlin</code> branch.
   <br><br>
   Additionally, the bundled <code>kotlin/dist/README.md</code> documents
   <code>WebWeaveX.extract("https://example.com")</code>. No class <code>io.webweavex.WebWeaveX</code> exists in the
@@ -719,16 +727,18 @@ void main() {
 </div>
 
 <div class="section">
-<h3>8d. Java &mdash; Maven <span class="pill p-amber">Source only</span></h3>
+<h3>8d. Java &mdash; Maven Central <span class="pill p-green">Published</span></h3>
 
-<div class="callout">
-  <strong>Not on Maven Central.</strong> <code>io.webweavex:webweavex:3.0.0</code> does not resolve. Build and
-  install locally as shown. Note the real groupId is <code>io.github.piyush-mishra-00</code>.
+<p>
+  Published to Maven Central on 24 July 2026: jar, sources, javadoc and GPG signatures. The artifact is
+  374 KB with 102 classes across 32 packages.
+</p>
+
+<div class="callout info">
+  <strong>Mind the groupId.</strong> It is <code>io.github.piyush-mishra-00</code>, not
+  <code>io.webweavex</code>. The latter appears in older documentation and returns 404. If your build cannot
+  resolve the dependency, this is almost certainly the cause.
 </div>
-
-<pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
-cd WebWeaveX/java
-mvn clean install</code></pre>
 
 <pre><code>&lt;dependency&gt;
   &lt;groupId&gt;io.github.piyush-mishra-00&lt;/groupId&gt;
@@ -737,21 +747,56 @@ mvn clean install</code></pre>
 &lt;/dependency&gt;</code></pre>
 
 <pre><code>// build.gradle.kts
-repositories {
-    mavenLocal()      // required — artifact installed locally
-    mavenCentral()
-}
 dependencies {
     implementation("io.github.piyush-mishra-00:webweavex:3.0.0")
 }</code></pre>
 
+<h4>Usage &mdash; the example that ships inside the artifact</h4>
 <pre><code>import io.webweavex.WebWeaveX;
+import io.webweavex.crypto.Hashing;
+import io.webweavex.determinism.GlobalRuntimeFingerprint;
+import io.webweavex.determinism.StableSerialize;
+import io.webweavex.graph.RuntimeGraph;
+import io.webweavex.replay.ReplayEquivalence;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("WebWeaveX " + WebWeaveX.VERSION);   // 3.0.0
+        System.out.println("WebWeaveX Java SDK v" + WebWeaveX.VERSION);
+
+        Map&lt;String, Object&gt; data = new LinkedHashMap&lt;&gt;();
+        data.put("b", 2);
+        data.put("a", 1);
+        String canonical = StableSerialize.stableSerialize(data);
+        String hash      = Hashing.computeDeterministicHash(data);
+
+        String fp = GlobalRuntimeFingerprint.compute(new HashMap&lt;&gt;());
+
+        Map&lt;String, Object&gt; graph = RuntimeGraph.normalizeRuntimeGraph(
+            Map.of("nodes", List.of(Map.of("id", "1")), "edges", List.of()));
+
+        Map&lt;String, Object&gt; env = Map.of("browser_ir", Map.of("runtime_identity", "test"));
+        Map&lt;String, Object&gt; r   = ReplayEquivalence.validate(env, new LinkedHashMap&lt;&gt;(env));
+        System.out.println("equivalent=" + r.get("equivalent"));
     }
 }</code></pre>
+
+<h4>Runtime kernel pipeline</h4>
+<pre><code>import io.webweavex.kernel.RuntimeKernel;
+import io.webweavex.kernel.UniversalInput;
+
+UniversalInput input = UniversalInput.of("https://example.com")
+        .sourceType("web")
+        .tick(0L)
+        .build();
+
+RuntimeKernel kernel = RuntimeKernel.getRuntimeKernel("web");
+Map&lt;String, Object&gt; result = kernel.runPipeline(input.toDict(), 0L);</code></pre>
+
+<h4>Building from source instead</h4>
+<pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX/java
+mvn clean install</code></pre>
 
 <p>
   The Java tree mirrors the Python engine package-for-package under <code>io.webweavex.*</code> &mdash;
@@ -955,14 +1000,14 @@ git clone -b python https://github.com/ni-sh-a-char/WebWeaveX.git</code></pre>
   <thead><tr><th>Gap</th><th>Impact</th><th>Suggested resolution</th></tr></thead>
   <tbody>
     <tr>
-      <td>Java and Kotlin are not on Maven Central</td>
-      <td>JVM adoption requires a manual source build or JAR download &mdash; the single biggest friction point in the project</td>
-      <td>Publish via Sonatype OSSRH under <code>io.github.piyush-mishra-00</code>, matching the existing <code>pom.xml</code></td>
+      <td>Kotlin is not on Maven Central</td>
+      <td>Kotlin adoption requires a manual JAR download, unlike the other four SDKs</td>
+      <td>Publish <code>webweavex-kotlin</code> via Sonatype under <code>io.github.piyush-mishra-00</code> &mdash; the same path already used successfully for the Java artifact</td>
     </tr>
     <tr>
-      <td>Static badges in README advertise unpublished Maven artifacts</td>
-      <td>Users hit unresolvable dependencies and lose trust</td>
-      <td>Replace with live shields.io registry queries, or remove until published</td>
+      <td>README badges used the wrong Maven groupId (<code>io.webweavex</code>)</td>
+      <td>Users hit unresolvable dependencies for an artifact that does exist &mdash; under a different coordinate</td>
+      <td>Corrected to <code>io.github.piyush-mishra-00</code>; use live shields.io Maven queries so the badge tracks reality</td>
     </tr>
     <tr>
       <td><code>kotlin/dist/README.md</code> documents a non-existent <code>WebWeaveX</code> class</td>
@@ -994,7 +1039,7 @@ git clone -b python https://github.com/ni-sh-a-char/WebWeaveX.git</code></pre>
 
 <h3>Direction</h3>
 <ul>
-  <li>Maven Central publication for both JVM SDKs</li>
+  <li>Maven Central publication for the Kotlin SDK (Java is already published)</li>
   <li>Live, registry-backed badges across all documentation</li>
   <li>Refreshed 3.0.x benchmark and coverage reporting</li>
   <li>Expanded connector fabric and distributed extraction coverage</li>
@@ -1025,6 +1070,7 @@ Version 3.0.0, 2026. https://github.com/ni-sh-a-char/WebWeaveX</code></pre>
     <tr><td><strong>PyPI</strong></td><td>https://pypi.org/project/webweavex/</td></tr>
     <tr><td><strong>npm</strong></td><td>https://www.npmjs.com/package/webweavex</td></tr>
     <tr><td><strong>pub.dev</strong></td><td>https://pub.dev/packages/webweavex</td></tr>
+    <tr><td><strong>Maven Central</strong></td><td>https://central.sonatype.com/artifact/io.github.piyush-mishra-00/webweavex</td></tr>
     <tr><td><strong>Issues</strong></td><td>https://github.com/ni-sh-a-char/WebWeaveX/issues</td></tr>
     <tr><td><strong>Security</strong></td><td>See <code>SECURITY.md</code> &mdash; report privately, not as a public issue</td></tr>
     <tr><td><strong>Support the project</strong></td><td>https://buymeacoffee.com/piyushmishra00</td></tr>
