@@ -1079,33 +1079,221 @@ section h2:hover::after {
 }
 
 /* ═══ Mobile ═══ */
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — app-like behaviour across every screen size
+   Breakpoints: 1200 · 900 (drawer) · 640 · 400
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Nothing may push the page sideways ── */
+html, body { max-width: 100%; }
+.main-content, .layout-container, section { min-width: 0; }
+
+/* Anchor targets must clear the fixed navbar */
+[id] { scroll-margin-top: calc(var(--header-height) + 14px); }
+
+/* The brand mark must never be squeezed out by the controls */
+.nav-brand { min-width: 0; flex-shrink: 1; }
+.nav-logo-icon { flex-shrink: 0; }
+.nav-brand > span { white-space: nowrap; }
+.nav-controls { flex-shrink: 0; }
+
+/* Long unbroken strings (coordinates, URLs, hashes) wrap instead of overflowing */
+p, li, td, th, h1, h2, h3, .card-desc { overflow-wrap: break-word; }
+
+/* Wide tables scroll inside themselves (wrapper injected by app.js) */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0;
+  border-radius: var(--radius-md);
+}
+.table-scroll > table { margin: 0; min-width: 560px; }
+.table-scroll::-webkit-scrollbar { height: 8px; }
+.table-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-default); border-radius: 4px;
+}
+
+/* Code and diagrams scroll rather than clip */
+.code-wrapper pre, .mermaid-box, .hero-terminal-body { max-width: 100%; overflow-x: auto; }
+.sdk-tab-header { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.sdk-tab-header::-webkit-scrollbar { display: none; }
+
+/* Media never overflows its column */
+img, svg, canvas, video { max-width: 100%; height: auto; }
+
+/* ── Drawer backdrop (mobile nav) ── */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 18, 0.66);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  z-index: 85;
+}
+.sidebar-backdrop.visible { opacity: 1; visibility: visible; }
+
+/* Hamburger — shown only once the drawer is in play */
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.mobile-menu-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+/* ═══ ≤1200px — tighten the shell ═══ */
+@media (max-width: 1200px) {
+  .main-content { padding: 0 36px 72px 36px; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══ ≤900px — sidebar becomes a drawer ═══ */
 @media (max-width: 900px) {
+  .navbar { padding: 0 16px; gap: 10px; }
+  .mobile-menu-btn { display: flex; }
+
+  /* .layout-container's z-index:1 traps the sidebar in a stacking context
+     below the body-level backdrop. Drop it so the drawer sits above. */
+  .layout-container { z-index: auto; }
+
   .sidebar {
+    width: min(82vw, 320px);
     transform: translateX(-100%);
     transition: transform var(--transition-normal);
     z-index: 90;
     background: var(--bg-primary);
     border-right: 1px solid var(--border-default);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    padding-bottom: calc(28px + env(safe-area-inset-bottom));
+    overscroll-behavior: contain;
   }
   .sidebar.open { transform: translateX(0); }
-  .main-content { margin-left: 0; padding: 0 20px 48px 20px; }
+
+  .main-content {
+    margin-left: 0;
+    padding: 0 20px 56px 20px;
+    max-width: 100%;
+  }
+
+  .hero-banner { padding: 56px 4px 48px; }
   .hero-title { font-size: 2.4rem; letter-spacing: -1px; }
   .hero-subtitle { font-size: 1rem; }
   .hero-stats { gap: 28px; flex-wrap: wrap; }
   .hero-stat-value { font-size: 1.6rem; }
-  .search-box { width: 180px; }
+  .hero-3d-logo { transform: scale(0.85); }
+
+  .search-box { width: 150px; }
   .search-kbd { display: none; }
+  .btn-github span { display: none; }
+
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .btn-github span { display: none; }
   section h2 { font-size: 1.6rem; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
 }
-@media (max-width: 600px) {
-  .hero-title { font-size: 1.9rem; }
-  .hero-actions { flex-direction: column; }
+
+/* ═══ ≤640px — phones ═══ */
+@media (max-width: 640px) {
+  .navbar { padding: 0 12px; }
+  /* Search collapses; Ctrl-K / the drawer cover navigation here */
+  .search-box { display: none; }
+
+  .main-content { padding: 0 16px 48px 16px; }
+  .hero-banner { padding: 40px 0 40px; }
+  .hero-title { font-size: 1.95rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary { width: 100%; text-align: center; }
   .hero-install-cmd { font-size: 0.78rem; padding: 8px 14px; }
-  .grid-3 { grid-template-columns: 1fr; }
+  .hero-stats { gap: 20px 28px; justify-content: space-around; }
+  .hero-3d-logo { transform: scale(0.72); }
+
   .footer-grid { grid-template-columns: 1fr; }
+  section h2 { font-size: 1.4rem; }
+  section { margin-bottom: 40px; }
+
+  .code-wrapper pre { font-size: 0.78rem; }
+  th, td { padding: 10px 14px; font-size: 0.82rem; }
+  .mermaid-box { padding: 16px; }
+
+  /* Comfortable tap targets */
+  .sidebar-link { padding: 11px 14px; font-size: 0.9rem; }
+  .copy-btn, .theme-toggle-btn, .btn-github { min-height: 40px; }
+}
+
+/* ═══ ≤480px — icon-only brand, like an app's title bar ═══ */
+@media (max-width: 480px) {
+  .nav-brand > span { display: none; }
+  .nav-logo-icon { width: 30px; height: 30px; }
+  .nav-controls { gap: 8px; }
+}
+
+/* ═══ ≤400px — small phones ═══ */
+@media (max-width: 400px) {
+  .main-content { padding: 0 13px 40px 13px; }
+  .hero-title { font-size: 1.7rem; letter-spacing: -0.5px; }
+  .hero-3d-logo { display: none; }
+  .hero-stats { gap: 16px 20px; }
+  .hero-stat-value { font-size: 1.35rem; }
+  .code-wrapper pre { font-size: 0.72rem; }
+  .table-scroll > table { min-width: 460px; }
+}
+
+/* ═══ Landscape phones — reclaim vertical space ═══ */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero-banner { padding: 28px 0 28px; }
+  .hero-3d-logo { display: none; }
+  .sidebar { padding-top: 16px; }
+}
+
+/* ═══ Notch / safe-area support ═══ */
+@supports (padding: env(safe-area-inset-left)) {
+  .navbar {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  @media (max-width: 900px) {
+    .main-content {
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
+  }
+}
+
+/* ═══ Coarse pointers (touch) — no hover-only affordances ═══ */
+@media (hover: none) {
+  .copy-btn { opacity: 1; }
+  tr:hover td { background: transparent; }
+}
+
+/* ═══ Respect reduced-motion ═══ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══ Print ═══ */
+@media print {
+  .navbar, .sidebar, .sidebar-backdrop, #bg-canvas,
+  .floating-orbs, .mobile-menu-btn { display: none !important; }
+  .main-content { margin: 0; padding: 0; max-width: 100%; }
+  body { background: #fff; }
 }
 
 /* ═══ Status pills & note boxes ═══ */

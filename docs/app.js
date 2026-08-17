@@ -16,7 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimatedCounters();
   initInstallCopy();
   initCodeTypingEffect();
+  initResponsiveTables();
 });
+
+// ═══ Wrap wide tables so they scroll instead of clipping on small screens ═══
+function initResponsiveTables() {
+  document.querySelectorAll('main table').forEach(table => {
+    if (table.parentElement.classList.contains('table-scroll')) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    table.parentNode.insertBefore(wrap, table);
+    wrap.appendChild(table);
+  });
+}
 
 // ═══ Theme Toggle with Icon Swap ═══
 function initThemeToggle() {
@@ -120,36 +132,52 @@ function initSearchEngine() {
 
 // ═══ Mobile Sidebar ═══
 function initSidebarToggle() {
-  const sidebar = document.getElementById('sidebar');
+  // .sidebar, not #sidebar — the secondary pages don't carry the id.
+  const sidebar = document.querySelector('.sidebar');
   if (!sidebar) return;
 
   let mobileBtn = document.getElementById('mobile-menu-btn');
   if (!mobileBtn) {
     mobileBtn = document.createElement('button');
     mobileBtn.id = 'mobile-menu-btn';
+    mobileBtn.className = 'mobile-menu-btn';
+    mobileBtn.setAttribute('aria-label', 'Open navigation');
+    mobileBtn.setAttribute('aria-expanded', 'false');
     mobileBtn.innerHTML = `<svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>`;
-    mobileBtn.style.cssText = 'display:none;background:none;border:1px solid var(--border-default);color:var(--text-primary);padding:8px;border-radius:10px;cursor:pointer;transition:all 0.2s;';
     const nav = document.querySelector('.nav-controls');
     if (nav) nav.prepend(mobileBtn);
   }
 
-  function checkMobile() {
-    if (window.innerWidth <= 900) {
-      mobileBtn.style.display = 'flex';
-    } else {
-      mobileBtn.style.display = 'none';
-      sidebar.classList.remove('open');
-    }
+  let backdrop = document.querySelector('.sidebar-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'sidebar-backdrop';
+    document.body.appendChild(backdrop);
   }
 
-  mobileBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
-  window.addEventListener('resize', checkMobile);
-  checkMobile();
+  const setOpen = (open) => {
+    sidebar.classList.toggle('open', open);
+    backdrop.classList.toggle('visible', open);
+    mobileBtn.setAttribute('aria-expanded', String(open));
+    // Lock the page behind the drawer so only the drawer scrolls.
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  mobileBtn.addEventListener('click', () => setOpen(!sidebar.classList.contains('open')));
+  backdrop.addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
 
   sidebar.querySelectorAll('.sidebar-link').forEach(link => {
     link.addEventListener('click', () => {
-      if (window.innerWidth <= 900) sidebar.classList.remove('open');
+      if (window.innerWidth <= 900) setOpen(false);
     });
+  });
+
+  // Leaving mobile width must never strand the page in a locked state.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setOpen(false);
   });
 }
 
