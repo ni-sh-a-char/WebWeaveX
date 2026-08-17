@@ -86,6 +86,7 @@
         <a href="#comparison" class="sidebar-link">Comparison</a>
         <a href="#audiences" class="sidebar-link">Humans + AI Agents</a>
         <a href="#sdk-matrix" class="sidebar-link">SDK Matrix</a>
+        <a href="platforms.html" class="sidebar-link">Platforms &amp; Install</a>
         <a href="#quick-start" class="sidebar-link">Quick Start</a>
       </div>
       <div class="sidebar-group">
@@ -104,6 +105,7 @@
         <a href="#faq" class="sidebar-link">FAQ</a>
         <a href="#roadmap" class="sidebar-link">Roadmap</a>
         <a href="#community" class="sidebar-link">Community</a>
+        <a href="WebWeaveX-Whitepaper.pdf" class="sidebar-link">Whitepaper (PDF)</a>
       </div>
     </aside>
 
@@ -137,8 +139,9 @@
         </p>
         <div class="hero-actions">
           <a href="#quick-start" class="btn-primary">Get Started</a>
-          <a href="#sdk-matrix" class="btn-secondary">Explore SDKs</a>
+          <a href="platforms.html" class="btn-secondary">Install</a>
           <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-secondary">GitHub</a>
+          <a href="WebWeaveX-Whitepaper.pdf" class="btn-secondary">Whitepaper PDF</a>
         </div>
 
         <!-- Live Terminal -->
@@ -151,7 +154,7 @@
           </div>
           <div class="hero-terminal-body">
             <div><span class="prompt">$</span> <span class="cmd">pip install webweavex</span></div>
-            <div class="output">Successfully installed webweavex-3.0.0</div>
+            <div class="output">Successfully installed webweavex-3.0.1</div>
             <div style="margin-top:8px"><span class="prompt">$</span> <span class="cmd">python -c "from webweavex import *; print(run_canonical_pipeline(UniversalInput(source='https://example.com', source_type='web')).pipeline_hash[:32])"</span></div>
             <div class="hash">a3f8c2e1b9d4...7x2k</div>
             <div><span class="prompt">$</span> <span class="cursor"></span></div>
@@ -293,7 +296,7 @@
           </div>
 
           <div id="sdk-python" class="sdk-tab-content active">
-            <h3>Python SDK &mdash; <code>webweavex</code> v3.0.0</h3>
+            <h3>Python SDK &mdash; <code>webweavex</code> v3.0.1</h3>
             <p>Production-grade PyPI package for enterprise Python, AI notebooks, and data engineering.</p>
             <div class="code-wrapper">
               <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
@@ -360,25 +363,31 @@ void main() async {
           </div>
 
           <div id="sdk-java" class="sdk-tab-content">
-            <h3>Java SDK &mdash; <code>io.webweavex:webweavex</code> v3.0.0</h3>
-            <p>Enterprise Java and Spring Boot package on Maven Central.</p>
+            <h3>Java SDK &mdash; <code>io.github.piyush-mishra-00:webweavex</code> v3.0.0</h3>
+            <p><span class="pill pill-amber">Source only</span> Not yet on Maven Central. Build and install locally from the <code>java</code> branch.</p>
             <div class="code-wrapper">
-              <div class="code-header"><span>build.gradle</span><button class="copy-btn">Copy</button></div>
-              <pre><code>implementation 'io.webweavex:webweavex:3.0.0'</code></pre>
+              <div class="code-header"><span>Terminal &mdash; build from source</span><button class="copy-btn">Copy</button></div>
+              <pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX/java
+mvn clean install    # installs io.github.piyush-mishra-00:webweavex:3.0.0
+                     # into your local ~/.m2 repository</code></pre>
+            </div>
+            <div class="code-wrapper">
+              <div class="code-header"><span>pom.xml &mdash; after local install</span><button class="copy-btn">Copy</button></div>
+              <pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.github.piyush-mishra-00&lt;/groupId&gt;
+  &lt;artifactId&gt;webweavex&lt;/artifactId&gt;
+  &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
             </div>
             <div class="code-wrapper">
               <div class="code-header"><span>App.java</span><button class="copy-btn">Copy</button></div>
-              <pre><code>import io.webweavex.UniversalInput;
-import io.webweavex.WebWeaveXPipeline;
+              <pre><code>import io.webweavex.WebWeaveX;
 
 public class App {
     public static void main(String[] args) {
-        UniversalInput input = UniversalInput.builder()
-            .source("https://example.com/app")
-            .sourceType("web")
-            .build();
-        PipelineResult result = WebWeaveXPipeline.runCanonicalPipeline(input);
-        System.out.println("Hash: " + result.getPipelineHash());
+        // Version facade — byte-exact with webweavex.__version__ (Python)
+        System.out.println("WebWeaveX " + WebWeaveX.VERSION);
     }
 }</code></pre>
             </div>
@@ -386,38 +395,49 @@ public class App {
 
           <div id="sdk-kotlin" class="sdk-tab-content">
             <h3>Kotlin SDK &mdash; <code>webweavex-kotlin</code> v3.0.0</h3>
-            <p>Kotlin Coroutines and KMP SDK on Maven Central.</p>
+            <p><span class="pill pill-amber">Direct JAR</span> Not on Maven Central. A prebuilt, ready-to-use JAR ships in the <code>kotlin</code> branch of this repository.</p>
+            <div class="code-wrapper">
+              <div class="code-header"><span>Terminal &mdash; download the JAR</span><button class="copy-btn">Copy</button></div>
+              <pre><code>curl -L -o webweavex-kotlin-3.0.0.jar \
+  https://github.com/ni-sh-a-char/WebWeaveX/raw/kotlin/kotlin/dist/webweavex-kotlin-3.0.0.jar</code></pre>
+            </div>
             <div class="code-wrapper">
               <div class="code-header"><span>build.gradle.kts</span><button class="copy-btn">Copy</button></div>
-              <pre><code>implementation("io.webweavex:webweavex-kotlin:3.0.0")</code></pre>
+              <pre><code>dependencies {
+    implementation(files("libs/webweavex-kotlin-3.0.0.jar"))
+}</code></pre>
             </div>
             <div class="code-wrapper">
               <div class="code-header"><span>Main.kt</span><button class="copy-btn">Copy</button></div>
-              <pre><code>import io.webweavex.UniversalInput
-import io.webweavex.runCanonicalPipeline
+              <pre><code>import io.webweavex.runtime.RuntimeKernel
+import io.webweavex.runtime.UniversalInput
+import io.webweavex.fingerprint.Fingerprint
 
-suspend fun main() {
-    val input = UniversalInput(
-        source = "https://example.com/app",
-        sourceType = "web"
-    )
-    val result = runCanonicalPipeline(input)
-    println("Pipeline Hash: ${result.pipelineHash}")
+fun main() {
+    val kernel = RuntimeKernel()
+    val input  = UniversalInput("https://example.com")
+
+    val output = kernel.extract(input)
+    println("Version:     ${kernel.version}")
+    println("Fingerprint: ${Fingerprint.compute(input.toMap())}")
 }</code></pre>
             </div>
           </div>
         </div>
 
+        <h3>Verified Platform Availability</h3>
+        <p>Every row below was checked against the live package registry. <a href="platforms.html">Full install &amp; usage guide &rarr;</a></p>
         <table>
-          <thead><tr><th>Language</th><th>Package</th><th>Manager</th><th>Version</th><th>Status</th></tr></thead>
+          <thead><tr><th>Language</th><th>Registry</th><th>Coordinates</th><th>Version</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td><strong>Python</strong></td><td><code>webweavex</code></td><td>PyPI</td><td>v3.0.0</td><td style="color:var(--accent-green)">Stable</td></tr>
-            <tr><td><strong>JavaScript</strong></td><td><code>webweavex</code></td><td>npm</td><td>v3.0.0</td><td style="color:var(--accent-green)">Stable</td></tr>
-            <tr><td><strong>Dart</strong></td><td><code>webweavex</code></td><td>pub.dev</td><td>v3.0.0</td><td style="color:var(--accent-green)">Stable</td></tr>
-            <tr><td><strong>Java</strong></td><td><code>io.webweavex:webweavex</code></td><td>Maven Central</td><td>v3.0.0</td><td style="color:var(--accent-green)">Stable</td></tr>
-            <tr><td><strong>Kotlin</strong></td><td><code>io.webweavex:webweavex-kotlin</code></td><td>Maven Central</td><td>v3.0.0</td><td style="color:var(--accent-green)">Stable</td></tr>
+            <tr><td><strong>Python</strong></td><td><a href="https://pypi.org/project/webweavex/" target="_blank" rel="noopener">PyPI</a></td><td><code>webweavex</code></td><td>3.0.1</td><td><span class="pill pill-green">Published</span></td></tr>
+            <tr><td><strong>JavaScript / TS</strong></td><td><a href="https://www.npmjs.com/package/webweavex" target="_blank" rel="noopener">npm</a></td><td><code>webweavex</code></td><td>3.0.0</td><td><span class="pill pill-green">Published</span></td></tr>
+            <tr><td><strong>Dart / Flutter</strong></td><td><a href="https://pub.dev/packages/webweavex" target="_blank" rel="noopener">pub.dev</a></td><td><code>webweavex</code></td><td>3.0.0</td><td><span class="pill pill-green">Published</span></td></tr>
+            <tr><td><strong>Java</strong></td><td>Maven Central</td><td><code>io.github.piyush-mishra-00:webweavex</code></td><td>3.0.0</td><td><span class="pill pill-amber">Source only</span></td></tr>
+            <tr><td><strong>Kotlin</strong></td><td><a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin/kotlin/dist" target="_blank" rel="noopener">GitHub (branch)</a></td><td><code>webweavex-kotlin-3.0.0.jar</code></td><td>3.0.0</td><td><span class="pill pill-blue">Direct JAR</span></td></tr>
           </tbody>
         </table>
+        <p class="note-box"><strong>Note on the JVM SDKs.</strong> Java and Kotlin are <em>not</em> yet published to Maven Central. Java installs via <code>mvn install</code> from the <code>java</code> branch; Kotlin ships as a prebuilt JAR in the <code>kotlin</code> branch. Maven Central publication is tracked on the <a href="#roadmap">roadmap</a>.</p>
       </section>
 
       <div class="section-divider"></div>

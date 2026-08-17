@@ -51,7 +51,7 @@
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/network/members"><img src="https://img.shields.io/github/forks/ni-sh-a-char/WebWeaveX?style=for-the-badge&logo=github&color=0f172a" alt="GitHub Forks"/></a>
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-2ea44f?style=for-the-badge&logo=apache" alt="Apache 2.0 License"/></a>
   <a href="https://github.com/ni-sh-a-char/WebWeaveX/actions"><img src="https://img.shields.io/badge/CI%2FCD-Passing-22c55e?style=for-the-badge&logo=github-actions" alt="CI Status"/></a>
-  <a href="https://github.com/ni-sh-a-char/WebWeaveX"><img src="https://img.shields.io/badge/Coverage-94.8%25-brightgreen?style=for-the-badge&logo=codecov" alt="Code Coverage"/></a>
+  <a href="https://github.com/ni-sh-a-char/WebWeaveX/actions"><img src="https://img.shields.io/github/actions/workflow/status/ni-sh-a-char/WebWeaveX/ci.yml?style=for-the-badge&logo=github-actions&label=CI" alt="CI"/></a>
   <a href="https://buymeacoffee.com/piyushmishra00"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"/></a>
 </p>
 
@@ -59,9 +59,9 @@
   <!-- SDK Badges -->
   <a href="https://pypi.org/project/webweavex/"><img src="https://img.shields.io/pypi/v/webweavex?style=flat-square&logo=python&label=Python%20(PyPI)&color=3776ab" alt="Python PyPI"/></a>
   <a href="https://www.npmjs.com/package/webweavex"><img src="https://img.shields.io/npm/v/webweavex?style=flat-square&logo=nodedotjs&label=JS%2FTS%20(npm)&color=cb3837" alt="npm package"/></a>
-  <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/badge/Dart-v3.0.0-0175C2?style=flat-square&logo=dart" alt="Dart pub.dev"/></a>
-  <a href="https://search.maven.org/artifact/io.webweavex/webweavex"><img src="https://img.shields.io/badge/Java-v3.0.0-007396?style=flat-square&logo=openjdk" alt="Java Maven"/></a>
-  <a href="https://search.maven.org/artifact/io.webweavex/webweavex-kotlin"><img src="https://img.shields.io/badge/Kotlin-v3.0.0-7F52FF?style=flat-square&logo=kotlin" alt="Kotlin Maven"/></a>
+  <a href="https://pub.dev/packages/webweavex"><img src="https://img.shields.io/pub/v/webweavex?style=flat-square&logo=dart&label=Dart%20(pub.dev)&color=0175C2" alt="Dart pub.dev"/></a>
+  <a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/java"><img src="https://img.shields.io/badge/Java-v3.0.0%20(source%20build)-007396?style=flat-square&logo=openjdk" alt="Java source build"/></a>
+  <a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin/kotlin/dist"><img src="https://img.shields.io/badge/Kotlin-v3.0.0%20(direct%20JAR)-7F52FF?style=flat-square&logo=kotlin" alt="Kotlin JAR"/></a>
 </p>
 
 <p align="center">
@@ -213,8 +213,8 @@ WebWeaveX provides native, production-grade SDKs for 5 major programming languag
 | **Python** | PyPI | `pip install webweavex` | `v3.0.0` | **Stable** | Enterprise Python, PyPI services, AI Notebooks, Data Engineering | [`python`](https://github.com/ni-sh-a-char/WebWeaveX/tree/python) |
 | **JavaScript / TypeScript** | npm | `npm install webweavex` | `v3.0.0` | **Stable** | Node.js, Playwright, Browser AI agents, Full-Stack JS/TS apps | [`javascript`](https://github.com/ni-sh-a-char/WebWeaveX/tree/javascript) |
 | **Dart** | pub.dev | `dart pub add webweavex` | `v3.0.0` | **Stable** | Flutter apps, Mobile agents, Dart backend services | [`dart`](https://github.com/ni-sh-a-char/WebWeaveX/tree/dart) |
-| **Java** | Maven Central | `implementation 'io.webweavex:webweavex:3.0.0'` | `v3.0.0` | **Stable** | Enterprise Java systems, Spring Boot services, Android automation | [`java`](https://github.com/ni-sh-a-char/WebWeaveX/tree/java) |
-| **Kotlin** | Maven Central | `implementation 'io.webweavex:webweavex-kotlin:3.0.0'` | `v3.0.0` | **Stable** | Native Android agents, Kotlin Multiplatform (KMP), Coroutine workflows | [`kotlin`](https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin) |
+| **Java** | Source build | `mvn clean install` from `java` branch | `v3.0.0` | **Source only** | Enterprise Java systems, Spring Boot services, Android automation | [`java`](https://github.com/ni-sh-a-char/WebWeaveX/tree/java) |
+| **Kotlin** | Direct JAR | `implementation(files("webweavex-kotlin-3.0.0.jar"))` | `v3.0.0` | **Direct JAR** | Native Android agents, Kotlin Multiplatform (KMP), Coroutine workflows | [`kotlin`](https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin) |
 
 ---
 
@@ -301,23 +301,18 @@ void main() async {
 <summary><strong>☕ Java (Maven / Gradle)</strong></summary>
 
 ```groovy
-implementation 'io.webweavex:webweavex:3.0.0'
+// Not on Maven Central — build from the `java` branch first:
+//   git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git && cd WebWeaveX/java && mvn clean install
+implementation 'io.github.piyush-mishra-00:webweavex:3.0.0'  // requires mavenLocal()
 ```
 
 ```java
-import io.webweavex.UniversalInput;
-import io.webweavex.WebWeaveXPipeline;
-import io.webweavex.PipelineResult;
+import io.webweavex.WebWeaveX;
 
 public class App {
     public static void main(String[] args) {
-        UniversalInput input = UniversalInput.builder()
-            .source("https://example.com/app")
-            .sourceType("web")
-            .build();
-
-        PipelineResult result = WebWeaveXPipeline.runCanonicalPipeline(input);
-        System.out.println("Graph Digest: " + result.getPipelineHash());
+        // Version facade — byte-exact with Python's webweavex.__version__
+        System.out.println("WebWeaveX " + WebWeaveX.VERSION);   // 3.0.0
     }
 }
 ```
@@ -327,20 +322,23 @@ public class App {
 <summary><strong>🟣 Kotlin (Gradle)</strong></summary>
 
 ```kotlin
-implementation("io.webweavex:webweavex-kotlin:3.0.0")
+// Not on Maven Central — download the prebuilt JAR from the `kotlin` branch:
+//   kotlin/dist/webweavex-kotlin-3.0.0.jar
+implementation(files("libs/webweavex-kotlin-3.0.0.jar"))
 ```
 
 ```kotlin
-import io.webweavex.UniversalInput
-import io.webweavex.runCanonicalPipeline
+import io.webweavex.runtime.RuntimeKernel
+import io.webweavex.runtime.UniversalInput
+import io.webweavex.fingerprint.Fingerprint
 
-suspend fun main() {
-    val input = UniversalInput(
-        source = "https://example.com/app",
-        sourceType = "web"
-    )
-    val result = runCanonicalPipeline(input)
-    println("Pipeline Hash: ${result.pipelineHash}")
+fun main() {
+    val kernel = RuntimeKernel()
+    val input  = UniversalInput("https://example.com")
+    val output = kernel.extract(input)
+
+    println("Version:     ${kernel.version}")
+    println("Fingerprint: ${Fingerprint.compute(input.toMap())}")
 }
 ```
 </details>
@@ -511,8 +509,8 @@ graph TB
         PY[python branch - PyPI webweavex v3.0.0]
         JS[javascript branch - npm webweavex v3.0.0]
         DT[dart branch - pub.dev webweavex v3.0.0]
-        JV[java branch - Maven io.webweavex:webweavex:3.0.0]
-        KT[kotlin branch - Maven io.webweavex:webweavex-kotlin:3.0.0]
+        JV[java branch - source build io.github.piyush-mishra-00:webweavex:3.0.0]
+        KT[kotlin branch - direct JAR webweavex-kotlin-3.0.0.jar]
     end
 
     M --> PY

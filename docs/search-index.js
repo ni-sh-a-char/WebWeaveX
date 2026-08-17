@@ -1,5 +1,41 @@
 window.SEARCH_INDEX = [
   {
+    title: "Platforms & Installation",
+    keywords: "install installation pypi pip npm node pub.dev dart flutter maven java kotlin jar gradle registry availability coordinates",
+    url: "platforms.html",
+    excerpt: "Verified install and usage guide for every SDK: PyPI, npm, pub.dev, Maven and the Kotlin JAR."
+  },
+  {
+    title: "Python — pip install webweavex",
+    keywords: "python pypi pip install extras playwright browser ocr llm full 3.0.1",
+    url: "platforms.html#python",
+    excerpt: "pip install webweavex — reference implementation, Python 3.10+, v3.0.1."
+  },
+  {
+    title: "JavaScript / TypeScript — npm install webweavex",
+    keywords: "javascript typescript npm pnpm yarn node esm commonjs 3.0.0",
+    url: "platforms.html#js",
+    excerpt: "npm install webweavex — dual ESM/CJS build with TypeScript declarations, Node 18+."
+  },
+  {
+    title: "Dart / Flutter — dart pub add webweavex",
+    keywords: "dart flutter pub.dev pubspec soup mobile 3.0.0",
+    url: "platforms.html#dart",
+    excerpt: "dart pub add webweavex — pure Dart with a BeautifulSoup-parity HTML engine."
+  },
+  {
+    title: "Java — build from source",
+    keywords: "java maven pom gradle mavenlocal io.github.piyush-mishra-00 spring boot jvm",
+    url: "platforms.html#java",
+    excerpt: "Not on Maven Central — build with mvn clean install from the java branch."
+  },
+  {
+    title: "Kotlin — prebuilt JAR",
+    keywords: "kotlin jar gradle android kmp runtimekernel extractionpipeline dist download",
+    url: "platforms.html#kotlin",
+    excerpt: "Download webweavex-kotlin-3.0.0.jar from the kotlin branch and add it with implementation(files(...))."
+  },
+  {
     title: "Overview",
     keywords: "overview executive introduction what is webweavex",
     url: "#overview",

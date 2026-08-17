@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WebWeaveX — Technical Whitepaper &amp; Complete Reference</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+
+  :root {
+    --ink:       #0f172a;
+    --ink-soft:  #334155;
+    --ink-dim:   #64748b;
+    --rule:      #cbd5e1;
+    --rule-soft: #e2e8f0;
+    --blue:      #2563eb;
+    --purple:    #7c3aed;
+    --green:     #15803d;
+    --amber:     #b45309;
+    --code-bg:   #f1f5f9;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10.2pt;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  code, pre, .mono { font-family: "Consolas", "JetBrains Mono", "Courier New", monospace; }
+
+  /* ── Cover ── */
+  .cover {
+    height: 247mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: always;
+    text-align: center;
+  }
+  .cover-mark { margin-bottom: 26px; }
+  .cover h1 {
+    font-size: 40pt;
+    line-height: 1.05;
+    margin: 0 0 6px 0;
+    letter-spacing: -1.5px;
+    font-weight: 800;
+  }
+  .cover .x { color: var(--purple); }
+  .cover .tagline {
+    font-size: 12.5pt;
+    color: var(--ink-soft);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .cover .lede {
+    font-size: 11.5pt;
+    color: var(--ink-soft);
+    max-width: 132mm;
+    margin: 0 auto 34px auto;
+    line-height: 1.7;
+  }
+  .cover-rule {
+    width: 62mm; height: 3px; margin: 0 auto 34px auto;
+    background: linear-gradient(90deg, var(--blue), var(--purple), #db2777);
+  }
+  .cover-meta {
+    font-size: 9.4pt; color: var(--ink-dim); line-height: 1.9;
+  }
+  .cover-meta strong { color: var(--ink); }
+
+  /* ── Typography ── */
+  h2 {
+    font-size: 17pt;
+    margin: 26px 0 10px 0;
+    padding-bottom: 7px;
+    border-bottom: 2px solid var(--rule);
+    page-break-after: avoid;
+    letter-spacing: -0.4px;
+  }
+  h3 {
+    font-size: 12.4pt;
+    margin: 18px 0 7px 0;
+    color: var(--ink);
+    page-break-after: avoid;
+  }
+  h4 {
+    font-size: 10.6pt;
+    margin: 14px 0 5px 0;
+    color: var(--ink-soft);
+    page-break-after: avoid;
+  }
+  p { margin: 0 0 9px 0; }
+  ul, ol { margin: 0 0 10px 0; padding-left: 19px; }
+  li { margin-bottom: 4px; }
+  a { color: var(--blue); text-decoration: none; }
+
+  .section { page-break-before: always; }
+
+  /* ── Tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px 0;
+    font-size: 8.9pt;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #f8fafc;
+    text-align: left;
+    padding: 7px 9px;
+    border-bottom: 2px solid var(--rule);
+    font-size: 8.2pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ink-soft);
+  }
+  td {
+    padding: 7px 9px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #fcfdfe; }
+
+  /* ── Code ── */
+  pre {
+    background: var(--code-bg);
+    border-left: 3px solid var(--purple);
+    border-radius: 3px;
+    padding: 10px 13px;
+    font-size: 8.4pt;
+    line-height: 1.55;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 8px 0 12px 0;
+    page-break-inside: avoid;
+  }
+  code { background: var(--code-bg); padding: 1px 4px; border-radius: 3px; font-size: 8.8pt; }
+  pre code { background: none; padding: 0; font-size: inherit; }
+
+  /* ── Components ── */
+  .pill {
+    display: inline-block; padding: 1px 8px; border-radius: 10px;
+    font-size: 7.4pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.4px; border: 1px solid currentColor; white-space: nowrap;
+  }
+  .p-green { color: var(--green); background: #f0fdf4; }
+  .p-amber { color: var(--amber); background: #fffbeb; }
+  .p-blue  { color: var(--blue);  background: #eff6ff; }
+
+  .callout {
+    border-left: 3px solid var(--amber);
+    background: #fffbeb;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 9.4pt;
+    page-break-inside: avoid;
+  }
+  .callout.info { border-left-color: var(--blue); background: #eff6ff; }
+  .callout strong { color: var(--ink); }
+
+  .toc { font-size: 10pt; }
+  .toc ol { padding-left: 22px; }
+  .toc li { margin-bottom: 5px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card {
+    border: 1px solid var(--rule-soft); border-radius: 5px;
+    padding: 11px 13px; page-break-inside: avoid;
+  }
+  .card h4 { margin-top: 0; color: var(--purple); }
+  .card p { font-size: 9.2pt; margin-bottom: 0; color: var(--ink-soft); }
+
+  .footer-note {
+    margin-top: 30px; padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    font-size: 8.6pt; color: var(--ink-dim); text-align: center;
+  }
+  .ascii {
+    font-size: 7.6pt; line-height: 1.35; background: var(--code-bg);
+    padding: 12px; border-radius: 4px; border-left: 3px solid var(--blue);
+    page-break-inside: avoid; white-space: pre;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ COVER ══════════════ -->
+<div class="cover">
+  <div class="cover-mark">
+    <svg width="96" height="96" viewBox="0 0 80 80" fill="none">
+      <defs><linearGradient id="cg" x1="0" y1="0" x2="80" y2="80">
+        <stop offset="0%" stop-color="#2563eb"/><stop offset="50%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#db2777"/>
+      </linearGradient></defs>
+      <polygon points="40,4 74,24 74,64 40,84 6,64 6,24" fill="none" stroke="url(#cg)" stroke-width="4"/>
+      <circle cx="40" cy="44" r="9" fill="url(#cg)"/>
+      <path d="M40 14 V31 M40 47 V64 M20 29 L32 35 M48 43 L60 49 M60 29 L48 35 M32 43 L20 49"
+            stroke="#7c3aed" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+    </svg>
+  </div>
+
+  <h1>WebWeave<span class="x">X</span></h1>
+  <div class="tagline">Universal Runtime Cognition Infrastructure</div>
+  <div class="cover-rule"></div>
+
+  <p class="lede">
+    Deterministic runtime cognition for humans and AI agents. Understand, continue,
+    reconstruct, replay, and reason about authenticated operational software systems &mdash;
+    with bit-for-bit identical results across five language SDKs.
+  </p>
+
+  <div class="cover-meta">
+    <div><strong>Technical Whitepaper &amp; Complete Reference</strong></div>
+    <div>Version 3.0.0 &middot; Python SDK 3.0.1</div>
+    <div>Apache License 2.0</div>
+    <div style="margin-top:12px;">Author: Piyush Mishra &middot; ni_sh_a.char</div>
+    <div>github.com/ni-sh-a-char/WebWeaveX</div>
+    <div style="margin-top:12px;">Registry availability verified 17 August 2026</div>
+  </div>
+</div>
+
+<!-- ══════════════ TOC ══════════════ -->
+<h2>Contents</h2>
+<div class="toc">
+<ol>
+  <li>Executive Summary</li>
+  <li>The Problem: Why Runtime State Is Hard</li>
+  <li>What WebWeaveX Is</li>
+  <li>Core Concepts &amp; Architecture</li>
+  <li>The Determinism Contract</li>
+  <li>Kaalka v5 Security Model</li>
+  <li>Platform Availability &mdash; Verified Matrix</li>
+  <li>Installation &amp; Usage by Platform
+    <ol style="list-style-type:lower-alpha;">
+      <li>Python &mdash; PyPI</li>
+      <li>JavaScript / TypeScript &mdash; npm</li>
+      <li>Dart / Flutter &mdash; pub.dev</li>
+      <li>Java &mdash; Maven (source build)</li>
+      <li>Kotlin &mdash; prebuilt JAR</li>
+    </ol>
+  </li>
+  <li>Cross-Language Parity Verification</li>
+  <li>Use Cases</li>
+  <li>Repository Layout &amp; Contributing</li>
+  <li>Known Gaps &amp; Roadmap</li>
+  <li>License, Citation &amp; Contact</li>
+</ol>
+</div>
+
+<!-- ══════════════ 1 ══════════════ -->
+<div class="section">
+<h2>1. Executive Summary</h2>
+
+<p>
+  <strong>WebWeaveX</strong> is deterministic runtime cognition infrastructure. It captures what a running
+  software system <em>is doing</em> &mdash; its DOM event surfaces, network envelopes, state machines and
+  execution history &mdash; and turns that into a canonical, graph-structured model with a stable
+  cryptographic identity.
+</p>
+
+<p>
+  The core claim is narrow and testable: <strong>the same input produces the same bytes, and therefore the
+  same SHA-256 digest, in every supported language</strong>. That property is what makes the rest possible.
+  Once runtime state has a stable identity you can diff it, prove two runs equivalent, persist and resume
+  it, merge histories across sessions, and hand a compact representation to an LLM instead of a
+  half-megabyte of HTML.
+</p>
+
+<h3>What ships today</h3>
+<table>
+  <thead><tr><th>SDK</th><th>Distribution</th><th>Version</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>Python</td><td>PyPI &mdash; <code>webweavex</code></td><td>3.0.1</td><td><span class="pill p-green">Published</span></td></tr>
+    <tr><td>JavaScript / TypeScript</td><td>npm &mdash; <code>webweavex</code></td><td>3.0.0</td><td><span class="pill p-green">Published</span></td></tr>
+    <tr><td>Dart / Flutter</td><td>pub.dev &mdash; <code>webweavex</code></td><td>3.0.0</td><td><span class="pill p-green">Published</span></td></tr>
+    <tr><td>Java</td><td>Source build from <code>java</code> branch</td><td>3.0.0</td><td><span class="pill p-amber">Source only</span></td></tr>
+    <tr><td>Kotlin</td><td>Prebuilt JAR in <code>kotlin</code> branch</td><td>3.0.0</td><td><span class="pill p-blue">Direct JAR</span></td></tr>
+  </tbody>
+</table>
+
+<h3>Who it is for</h3>
+<div class="grid2">
+  <div class="card">
+    <h4>Human engineers</h4>
+    <p>Inspect complex authenticated web apps, preserve login workflows across runs, audit runtime behaviour
+       between releases, and build integration tooling against a stable model instead of brittle selectors.</p>
+  </div>
+  <div class="card">
+    <h4>AI agents</h4>
+    <p>Hold long-running session continuity without re-authenticating, reason over compact IR graphs that fit
+       a context window, and verify every tool call against a deterministic hash rather than trusting a screenshot.</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════ 2 ══════════════ -->
+<div class="section">
+<h2>2. The Problem: Why Runtime State Is Hard</h2>
+
+<p>
+  Modern software is dynamic, stateful, authenticated and distributed. The tools most teams reach for were
+  designed for none of those properties.
+</p>
+
+<table>
+  <thead><tr><th>Challenge</th><th>Traditional scrapers &amp; LLM wrappers</th><th>WebWeaveX</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Surface capture</strong></td><td>Returns a static HTML string; structure is implicit and re-derived every time</td><td>Captures a layered runtime graph with stable node identities</td></tr>
+    <tr><td><strong>Auth continuity</strong></td><td>Session collapses the moment the process exits</td><td>Persists authenticated session state as an encrypted, resumable envelope</td></tr>
+    <tr><td><strong>Operational context</strong></td><td>No memory of prior state; every run starts cold</td><td>Tick-indexed memory fabric merges histories across runs</td></tr>
+    <tr><td><strong>Replay verification</strong></td><td>Breaks on hashed CSS class names and generated IDs</td><td>Proves equivalence over normalized graph hashes</td></tr>
+    <tr><td><strong>Reconstruction</strong></td><td>Requires hand-written mocks and fixtures</td><td>Rebuilds topology from a unified intermediate representation</td></tr>
+    <tr><td><strong>Determinism</strong></td><td>Output varies run to run; diffs are noise</td><td>Byte-stable canonical serialization, SHA-256 identity</td></tr>
+    <tr><td><strong>AI integration</strong></td><td>Overflows the context window with raw markup</td><td>Compact structured IR sized for prompting</td></tr>
+  </tbody>
+</table>
+
+<h3>The determinism problem, concretely</h3>
+<p>
+  Two runs of the same page rarely produce identical bytes. Object key order varies by language and runtime.
+  Floating-point values serialize differently in Python, JavaScript and the JVM. Timestamps, nonces, session
+  IDs, memory addresses and generated class names all leak into output. Whitespace differs by parser.
+</p>
+<p>
+  Any one of these makes a hash useless. WebWeaveX addresses them as a single normalization layer applied
+  before any hashing or encryption occurs &mdash; and then holds every SDK to the same layer.
+</p>
+</div>
+
+<!-- ══════════════ 3 ══════════════ -->
+<div class="section">
+<h2>3. What WebWeaveX Is</h2>
+
+<p>
+  WebWeaveX sits between raw operational software (browsers, SPAs, desktop apps, microservices, repositories)
+  and downstream consumers (engineering tools, auditing suites, AI agents).
+</p>
+
+<table>
+  <thead><tr><th>Concept</th><th>Operational meaning</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Runtime cognition infrastructure</strong></td><td>Captures live behaviour &mdash; graphs, events, execution state &mdash; rather than transient markup snapshots.</td></tr>
+    <tr><td><strong>Operational runtime substrate</strong></td><td>Provides stable node identities, structural fingerprints, and tick-indexed execution history for a live session.</td></tr>
+    <tr><td><strong>Authenticated session continuation</strong></td><td>Resumes an authenticated session from a user-authorized token, cookie jar or credential envelope.</td></tr>
+    <tr><td><strong>Deterministic extraction engine</strong></td><td>Standardizes DOM trees, network envelopes and state payloads into canonical UTF-8 JSON before hashing or encryption.</td></tr>
+    <tr><td><strong>Replay &amp; reconstruction</strong></td><td>Proves topological equivalence between two runs, and rebuilds state from the intermediate representation.</td></tr>
+    <tr><td><strong>Federated memory fabric</strong></td><td>Merges multi-turn execution histories into a deterministic key-value / graph memory layer.</td></tr>
+    <tr><td><strong>Cross-language SDK parity</strong></td><td>A shared mathematical spec so Python, JavaScript, Dart, Java and Kotlin compute identical digests.</td></tr>
+  </tbody>
+</table>
+
+<div class="callout info">
+  <strong>What it is not.</strong> WebWeaveX is not a scraper, not a browser-automation framework, and not an
+  LLM wrapper. It does not decide <em>what</em> to extract or <em>why</em>. It gives whatever does make those
+  decisions a stable, verifiable substrate to work against.
+</div>
+</div>
+
+<!-- ══════════════ 4 ══════════════ -->
+<div class="section">
+<h2>4. Core Concepts &amp; Architecture</h2>
+
+<h3>The canonical pipeline</h3>
+<p>Every input, regardless of source type, flows through the same six phases.</p>
+
+<div class="ascii">  Universal Input  (web | repository | native | connector | document)
+         |
+         v
+  [1] INGEST        source-type router selects the extraction engine
+         |
+         v
+  [2] NORMALIZE     volatile keys stripped, keys sorted, floats
+                    canonicalized, whitespace collapsed, UTF-8
+         |
+         v
+  [3] COGNIZE       semantic / causal / workflow engines annotate
+                    the raw capture with operational meaning
+         |
+         v
+  [4] GRAPH         runtime graph built: stable node ids + edges
+         |
+         v
+  [5] HASH          SHA-256 over canonical bytes -> pipeline_hash
+         |
+         v
+  [6] ENCRYPT       Kaalka v5 envelope for session state at rest
+         |
+         v
+  Pipeline Output   graph + pipeline_hash + encrypted_session</div>
+
+<h3>Subsystems</h3>
+<table>
+  <thead><tr><th>Subsystem</th><th>Responsibility</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Extraction engines</strong></td><td>Web/SPA, repository, native runtime, multimodal, and document extraction. Each produces the same IR shape.</td></tr>
+    <tr><td><strong>Determinism layer</strong></td><td>Canonical JSON, normalization, stable serialization, Python-compatible float representation. The foundation everything else rests on.</td></tr>
+    <tr><td><strong>Runtime graph</strong></td><td>Builds and queries the node/edge model; computes graph fingerprints and lineage.</td></tr>
+    <tr><td><strong>Replay engine</strong></td><td>Validates equivalence between runs at the state, graph, memory, DOM and fingerprint levels independently.</td></tr>
+    <tr><td><strong>Reconstruction engine</strong></td><td>Rebuilds runtime, graph, browser and memory state from a stored IR or envelope.</td></tr>
+    <tr><td><strong>Memory fabric</strong></td><td>Builds, merges, queries, replicates and persists runtime memory with a stable memory hash and verifiable lineage.</td></tr>
+    <tr><td><strong>Adaptive layer</strong></td><td>Selector healing, semantic anchors, modal recovery, infinite-scroll recovery, layout resilience &mdash; the parts that absorb real-world drift.</td></tr>
+    <tr><td><strong>Kaalka v5 crypto</strong></td><td>Encrypted persistence for session and memory state, portable across all five SDKs.</td></tr>
+    <tr><td><strong>Workflow &amp; synchronization</strong></td><td>Objective planning, workflow replay, runtime deltas, synchronized multi-source runtimes.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════ 5 ══════════════ -->
+<div class="section">
+<h2>5. The Determinism Contract</h2>
+
+<p>
+  Determinism is the product. Everything else &mdash; replay, reconstruction, memory merging, cross-language
+  parity &mdash; is a consequence of it. The contract has four layers, applied in order.
+</p>
+
+<table>
+  <thead><tr><th>#</th><th>Layer</th><th>Guarantee</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>Normalization</strong></td><td>Volatile runtime keys (timestamps, nonces, addresses, generated ids) are stripped against a shared <code>VOLATILE_RUNTIME_KEYS</code> set. Whitespace is collapsed. Structure is made order-independent.</td></tr>
+    <tr><td>2</td><td><strong>Canonical JSON</strong></td><td>Keys sorted with a stable comparator, no insignificant whitespace, UTF-8 encoding, and Python-compatible float <code>repr</code> so <code>0.1 + 0.2</code> serializes identically on every runtime.</td></tr>
+    <tr><td>3</td><td><strong>Stable serialization</strong></td><td>A single <code>StableSerialize</code> implementation per SDK, byte-certified against the Python reference, producing the exact input to the hash function.</td></tr>
+    <tr><td>4</td><td><strong>Fingerprint</strong></td><td>SHA-256 over those canonical bytes. Identical inputs yield identical digests in Python, JavaScript, Dart, Java and Kotlin.</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Why float representation matters.</strong> JavaScript's <code>JSON.stringify(0.1+0.2)</code> and Python's
+  <code>repr(0.1+0.2)</code> agree, but the JVM's default <code>Double.toString</code> does not. The Kotlin and Java
+  SDKs therefore ship a dedicated <code>PyFloat</code> port rather than using platform defaults. This kind of
+  detail is where cross-language determinism is actually won or lost.
+</div>
+
+<h3>Replay equivalence</h3>
+<p>Equivalence is checked at several independent levels, so a failure localizes to a subsystem:</p>
+<ul>
+  <li><code>validate_replay_equivalence</code> &mdash; overall run equivalence</li>
+  <li><code>validateGraphReplayEquivalence</code> &mdash; graph topology only</li>
+  <li><code>validateMemoryReplayEquivalence</code> &mdash; memory fabric only</li>
+  <li><code>validateDomReplayEquivalence</code> &mdash; DOM surface only</li>
+  <li><code>validateFingerprintReplayEquivalence</code> &mdash; digest only</li>
+</ul>
+</div>
+
+<!-- ══════════════ 6 ══════════════ -->
+<div class="section">
+<h2>6. Kaalka v5 Security Model</h2>
+
+<p>
+  Kaalka v5 is the encryption contract for state at rest. Its job is to make a captured session portable and
+  resumable without leaving credentials sitting in plaintext on disk, and to do so in a format every SDK can
+  read.
+</p>
+
+<h3>What is protected</h3>
+<table>
+  <thead><tr><th>Artifact</th><th>Protection</th></tr></thead>
+  <tbody>
+    <tr><td>Session state (tokens, cookies, auth envelopes)</td><td>Encrypted before persistence via <code>encrypt_session_state</code> / <code>save_encrypted_session</code></td></tr>
+    <tr><td>Runtime memory</td><td>Encrypted envelope via <code>saveRuntimeMemory</code>, verifiable lineage on load</td></tr>
+    <tr><td>Individual values</td><td><code>encrypt_value</code> / <code>decrypt_value</code> for field-level protection</td></tr>
+    <tr><td>Integrity</td><td><code>compute_kaalka_hash</code> binds the envelope to a digest</td></tr>
+  </tbody>
+</table>
+
+<h3>Operating principles</h3>
+<ul>
+  <li><strong>Authorization is the caller's responsibility.</strong> WebWeaveX continues sessions the operator
+      already legitimately holds. It does not acquire credentials, defeat authentication, or bypass access control.</li>
+  <li><strong>Encryption applies to state at rest.</strong> Transport security remains the responsibility of the
+      surrounding application.</li>
+  <li><strong>Envelopes are portable.</strong> A session encrypted by the Python SDK is readable by the Kotlin SDK,
+      because the key-derivation and cipher spec are shared, not reimplemented per language.</li>
+  <li><strong>Normalization precedes encryption.</strong> Volatile fields are stripped first, so an envelope does not
+      accidentally pin a run to a wall-clock timestamp.</li>
+</ul>
+
+<div class="callout">
+  <strong>Responsible use.</strong> Session continuation is a powerful capability. Use it only against systems you
+  own or are explicitly authorized to test. Persisted envelopes contain live credentials in encrypted form &mdash;
+  treat the key material and the envelope with the same care you would treat the credentials themselves, and keep
+  both out of version control.
+</div>
+
+<h3>Reporting vulnerabilities</h3>
+<p>
+  Security issues should be reported privately through the process in <code>SECURITY.md</code> in the repository
+  rather than opened as public issues.
+</p>
+</div>
+
+<!-- ══════════════ 7 ══════════════ -->
+<div class="section">
+<h2>7. Platform Availability &mdash; Verified Matrix</h2>
+
+<p>
+  Every row below was checked directly against the live package registry API on 17 August 2026. This section
+  supersedes any badge or table that disagrees with it.
+</p>
+
+<table>
+  <thead>
+    <tr><th>SDK</th><th>Registry</th><th>Coordinates</th><th>Latest</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Python</strong></td><td>PyPI</td>
+      <td><code>webweavex</code></td><td>3.0.1</td>
+      <td><span class="pill p-green">Published</span></td>
+    </tr>
+    <tr>
+      <td><strong>JavaScript / TS</strong></td><td>npm</td>
+      <td><code>webweavex</code></td><td>3.0.0</td>
+      <td><span class="pill p-green">Published</span></td>
+    </tr>
+    <tr>
+      <td><strong>Dart / Flutter</strong></td><td>pub.dev</td>
+      <td><code>webweavex</code></td><td>3.0.0</td>
+      <td><span class="pill p-green">Published</span></td>
+    </tr>
+    <tr>
+      <td><strong>Java</strong></td><td>Maven Central</td>
+      <td><code>io.github.piyush-mishra-00:webweavex</code></td><td>3.0.0</td>
+      <td><span class="pill p-amber">Source only</span></td>
+    </tr>
+    <tr>
+      <td><strong>Kotlin</strong></td><td>GitHub (<code>kotlin</code> branch)</td>
+      <td><code>webweavex-kotlin-3.0.0.jar</code></td><td>3.0.0</td>
+      <td><span class="pill p-blue">Direct JAR</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Published version history</h3>
+<table>
+  <thead><tr><th>Registry</th><th>Released versions</th></tr></thead>
+  <tbody>
+    <tr><td>PyPI</td><td>0.1.0, 1.0.1, 1.0.2, 1.0.3, 2.0.0, 2.0.1, 2.1.0, <strong>3.0.1</strong></td></tr>
+    <tr><td>npm</td><td>0.1.0, 2.0.0, 2.0.1, 2.1.0, <strong>3.0.0</strong></td></tr>
+    <tr><td>pub.dev</td><td>0.1.0, 0.1.1, 2.1.0, <strong>3.0.0</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Correction to previously published claims.</strong> Earlier README badges and documentation advertised
+  <code>io.webweavex:webweavex:3.0.0</code> and <code>io.webweavex:webweavex-kotlin:3.0.0</code> as available on
+  Maven Central. Neither coordinate resolves. A Maven Central search for <code>webweavex</code> returns zero
+  artifacts, as does a search for the groupId <code>io.github.piyush-mishra-00</code> declared in the project's own
+  <code>pom.xml</code>. The badges were static images, not live registry queries, so they never reflected reality.
+  <br><br>
+  Additionally, the bundled <code>kotlin/dist/README.md</code> documents
+  <code>WebWeaveX.extract("https://example.com")</code>. No class <code>io.webweavex.WebWeaveX</code> exists in the
+  shipped JAR; that snippet does not compile. The correct entry points are documented in section 8e.
+</div>
+</div>
+
+<!-- ══════════════ 8 ══════════════ -->
+<div class="section">
+<h2>8. Installation &amp; Usage by Platform</h2>
+
+<h3>8a. Python &mdash; PyPI <span class="pill p-green">Published</span></h3>
+<p>Reference implementation. Requires Python 3.10+. Latest published version 3.0.1.</p>
+
+<pre><code>pip install webweavex
+
+# with browser automation
+pip install "webweavex[browser]"
+python -m playwright install chromium
+
+# everything
+pip install "webweavex[full]"</code></pre>
+
+<h4>Canonical pipeline</h4>
+<pre><code>from webweavex import UniversalInput, run_canonical_pipeline
+
+spec = UniversalInput(
+    source="https://example.com",
+    source_type="web",
+)
+
+result = run_canonical_pipeline(spec)
+print(result.pipeline_hash)   # deterministic SHA-256 digest</code></pre>
+
+<h4>Extraction</h4>
+<pre><code>from webweavex import (
+    extract, extract_async, extract_repo, extract_docs,
+    extract_web, extract_repository, extract_multimodal,
+)
+
+doc   = extract("https://example.com")
+repo  = extract_repository("./my-project")   # codebase knowledge graph
+media = extract_multimodal("./report.pdf")</code></pre>
+
+<h4>Graph, fingerprint and replay</h4>
+<pre><code>from webweavex import (
+    build_runtime_graph, query_runtime_graph,
+    compute_global_runtime_fingerprint,
+    validate_replay_equivalence,
+)
+
+graph = build_runtime_graph([ir_a, ir_b])
+nodes = query_runtime_graph(graph, {"type": "element"})
+fp    = compute_global_runtime_fingerprint(graph)
+
+assert validate_replay_equivalence(run_one, run_two)</code></pre>
+
+<h4>Session persistence with Kaalka v5</h4>
+<pre><code>from webweavex import (
+    encrypt_session_state, decrypt_session_state,
+    save_encrypted_session, load_encrypted_session,
+)
+
+blob = encrypt_session_state({"auth_token": "..."})
+save_encrypted_session("session.enc", blob)
+
+restored = decrypt_session_state(load_encrypted_session("session.enc"))</code></pre>
+
+<h4>Optional extras</h4>
+<table>
+  <thead><tr><th>Extra</th><th>Pulls in</th></tr></thead>
+  <tbody>
+    <tr><td><code>browser</code></td><td>playwright &ge; 1.40</td></tr>
+    <tr><td><code>parsers</code></td><td>tree-sitter-languages</td></tr>
+    <tr><td><code>ocr</code></td><td>pytesseract, Pillow</td></tr>
+    <tr><td><code>ingestion</code></td><td>python-docx, pytesseract, Pillow</td></tr>
+    <tr><td><code>llm</code></td><td>groq</td></tr>
+    <tr><td><code>full</code></td><td>all of the above</td></tr>
+    <tr><td><code>dev</code></td><td>pytest, pytest-cov, build</td></tr>
+  </tbody>
+</table>
+<p style="font-size:9.2pt;color:var(--ink-dim);">
+  Base dependencies, always installed: <code>requests</code>, <code>httpx</code>, <code>beautifulsoup4</code>,
+  <code>lxml</code>, <code>markdownify</code>, <code>pypdf</code>. The top-level package re-exports
+  <strong>173 names</strong>; import from <code>webweavex</code> only &mdash; <code>core.*</code> is internal.
+</p>
+</div>
+
+<div class="section">
+<h3>8b. JavaScript / TypeScript &mdash; npm <span class="pill p-green">Published</span></h3>
+<p>Dual ESM + CommonJS build with bundled type declarations. Requires Node.js 18+.</p>
+
+<pre><code>npm install webweavex     # or: pnpm add webweavex / yarn add webweavex</code></pre>
+
+<h4>Canonical pipeline</h4>
+<pre><code>import { UniversalInput, runCanonicalPipeline, VERSION } from "webweavex";
+
+const input = new UniversalInput({
+  source: "https://example.com",
+  sourceType: "web",
+});
+
+const result = await runCanonicalPipeline(input);
+console.log(VERSION, result.pipelineHash);</code></pre>
+
+<h4>Authenticated session continuity</h4>
+<pre><code>import {
+  createRuntimeSession, persistRuntimeSession,
+  restoreRuntimeSession, extractWithSession,
+} from "webweavex";
+
+const session = await createRuntimeSession({ source: "https://app.example.com" });
+await persistRuntimeSession(session, "session.enc");
+
+// later — resume without re-authenticating
+const resumed = await restoreRuntimeSession("session.enc");
+const page    = await extractWithSession("https://app.example.com/dashboard", resumed);</code></pre>
+
+<h4>Determinism, replay, reconstruction</h4>
+<pre><code>import {
+  computeStableDomHash, computeSpaFingerprint,
+  validateReplayEquivalence, reconstructRuntime,
+} from "webweavex";
+
+const domHash = computeStableDomHash(html);
+const equal   = validateReplayEquivalence(runA, runB);
+const rebuilt = reconstructRuntime(intermediateRepresentation);</code></pre>
+
+<h4>Memory fabric</h4>
+<pre><code>import {
+  buildRuntimeMemory, mergeRuntimeMemories,
+  queryRuntimeMemory, saveRuntimeMemory,
+} from "webweavex";
+
+const mem    = buildRuntimeMemory(extractions);
+const merged = mergeRuntimeMemories([mem, priorMemory]);
+await saveRuntimeMemory(merged, "memory.enc");</code></pre>
+
+<h3>8c. Dart / Flutter &mdash; pub.dev <span class="pill p-green">Published</span></h3>
+<p>
+  Pure Dart, including a BeautifulSoup-parity HTML engine, so it runs on Flutter mobile, Dart server and Dart
+  CLI with no native bridge.
+</p>
+
+<pre><code>dart pub add webweavex        # or: flutter pub add webweavex</code></pre>
+
+<pre><code>import 'package:webweavex/webweavex.dart';
+
+void main() {
+  // Python-aligned canonical entry points
+  final fp      = computeGlobalRuntimeFingerprint(graph);
+  final ok      = validateReplayEquivalence(runA, runB);
+  final rebuilt = reconstructRuntime(ir);
+
+  // Bundled Soup engine
+  final soup     = Soup(htmlString);
+  final semantic = extractSemanticHtml(htmlString);
+
+  // Adaptive layer
+  final healed = healSelector(brokenSelector, dom);
+  final anchor = buildSemanticAnchor(element);
+}</code></pre>
+</div>
+
+<div class="section">
+<h3>8d. Java &mdash; Maven <span class="pill p-amber">Source only</span></h3>
+
+<div class="callout">
+  <strong>Not on Maven Central.</strong> <code>io.webweavex:webweavex:3.0.0</code> does not resolve. Build and
+  install locally as shown. Note the real groupId is <code>io.github.piyush-mishra-00</code>.
+</div>
+
+<pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX/java
+mvn clean install</code></pre>
+
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.github.piyush-mishra-00&lt;/groupId&gt;
+  &lt;artifactId&gt;webweavex&lt;/artifactId&gt;
+  &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+
+<pre><code>// build.gradle.kts
+repositories {
+    mavenLocal()      // required — artifact installed locally
+    mavenCentral()
+}
+dependencies {
+    implementation("io.github.piyush-mishra-00:webweavex:3.0.0")
+}</code></pre>
+
+<pre><code>import io.webweavex.WebWeaveX;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("WebWeaveX " + WebWeaveX.VERSION);   // 3.0.0
+    }
+}</code></pre>
+
+<p>
+  The Java tree mirrors the Python engine package-for-package under <code>io.webweavex.*</code> &mdash;
+  <code>adaptive</code>, <code>application</code>, <code>ast</code>, <code>auth</code>, <code>causality</code>,
+  <code>distributed</code> and others. Parity against the Python golden vectors is enforced in CI by the
+  <code>java-parity</code> and <code>parity-regression</code> workflows.
+</p>
+
+<h3>8e. Kotlin &mdash; Prebuilt JAR <span class="pill p-blue">Direct JAR</span></h3>
+<p>
+  A compiled JAR ships at <code>kotlin/dist/webweavex-kotlin-3.0.0.jar</code> on the <code>kotlin</code> branch:
+  220 KB, 76 public classes under <code>io.webweavex.*</code>.
+</p>
+
+<pre><code>mkdir -p libs
+curl -L -o libs/webweavex-kotlin-3.0.0.jar \
+  https://github.com/ni-sh-a-char/WebWeaveX/raw/kotlin/kotlin/dist/webweavex-kotlin-3.0.0.jar</code></pre>
+
+<pre><code>// build.gradle.kts
+dependencies {
+    implementation(files("libs/webweavex-kotlin-3.0.0.jar"))
+}</code></pre>
+
+<h4>Correct usage &mdash; verified against the shipped JAR</h4>
+<pre><code>import io.webweavex.runtime.RuntimeKernel
+import io.webweavex.runtime.UniversalInput
+import io.webweavex.extract.ExtractionPipeline
+import io.webweavex.fingerprint.Fingerprint
+
+fun main() {
+    val kernel = RuntimeKernel()
+    val input  = UniversalInput("https://example.com")
+    val output = kernel.extract(input)
+
+    println("version:      ${kernel.version}")
+    println("capabilities: ${kernel.capabilities}")
+    println("fingerprint:  ${Fingerprint.compute(input.toMap())}")
+
+    val result = ExtractionPipeline.extractText(htmlString, "html")
+}</code></pre>
+
+<h4>Shipped packages</h4>
+<table>
+  <thead><tr><th>Package</th><th>Key types</th></tr></thead>
+  <tbody>
+    <tr><td><code>io.webweavex.runtime</code></td><td>RuntimeKernel, UniversalInput, UniversalOutput, RuntimeNode, RuntimeEdge, DeterministicClock, ReplayClock, LogicalClock</td></tr>
+    <tr><td><code>io.webweavex.extract</code></td><td>ExtractionPipeline, HtmlExtractor, JsonExtractor, MarkdownExtractor</td></tr>
+    <tr><td><code>io.webweavex.determinism</code></td><td>CanonicalJson, Normalization, StableSerialize, PyFloat, PyJson</td></tr>
+    <tr><td><code>io.webweavex.crypto</code></td><td>KaalkaV5</td></tr>
+    <tr><td><code>io.webweavex.replay</code></td><td>ReplayEngine, ReplayEquivalence, ReplaySnapshot, ReplayResult</td></tr>
+    <tr><td><code>io.webweavex.memory</code></td><td>MemoryEngine, MemoryStore, MemorySnapshot, MemoryEntry</td></tr>
+    <tr><td><code>io.webweavex.repository</code></td><td>RepositoryAnalyzer, KnowledgeGraph, QueryEngine, SearchIndex, LanguageDetector</td></tr>
+    <tr><td><code>io.webweavex.graph</code></td><td>RuntimeGraph</td></tr>
+    <tr><td><code>io.webweavex.workflow</code></td><td>WorkflowEngine, WorkflowStep, WorkflowResult</td></tr>
+    <tr><td><code>io.webweavex.fetch</code></td><td>Crawler, HttpTransport, JavaNetTransport</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════ 9 ══════════════ -->
+<div class="section">
+<h2>9. Cross-Language Parity Verification</h2>
+
+<p>
+  Parity is not asserted, it is tested. Python generates golden vectors; each other SDK replays them through a
+  reflective harness and compares digests.
+</p>
+
+<div class="ascii">  Python reference implementation
+         |
+         | emits golden_vectors.json  (api name -> input -> expected sha256)
+         v
+  +------+-------+--------+--------+
+  |      |       |        |        |
+  JS    Dart   Java    Kotlin
+  |      |       |        |
+  |      |    JavaVerify  KotlinVerify
+  |      |       |        |
+  |      |       +--------+
+  |      |            |
+  |      |            v
+  |      |    reflectively invoke each API,
+  |      |    canonicalize via StableSerialize,
+  |      |    sha256, compare to vector digest
+  |      |            |
+  +------+------------+
+               |
+               v
+     report MATCH / DIFFER / MISSING per API</div>
+
+<p>
+  The JVM harnesses resolve each API by fully-qualified class name from a shared index. Kotlin ports live at the
+  same <code>io.webweavex.*</code> FQCN as their verified Java counterparts, so the same index file drives both.
+</p>
+
+<table>
+  <thead><tr><th>Branch</th><th>CI workflows</th></tr></thead>
+  <tbody>
+    <tr><td><code>python</code></td><td><code>ci.yml</code></td></tr>
+    <tr><td><code>javascript</code></td><td><code>ci</code>, <code>benchmark</code>, <code>nightly</code>, <code>provenance</code>, <code>publish</code>, <code>release</code>, <code>security</code></td></tr>
+    <tr><td><code>dart</code></td><td><code>dart.yml</code></td></tr>
+    <tr><td><code>java</code></td><td><code>java-build</code>, <code>java-parity</code>, <code>parity-regression</code></td></tr>
+    <tr><td><code>kotlin</code></td><td><code>ci.yml</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════ 10 ══════════════ -->
+<div class="section">
+<h2>10. Use Cases</h2>
+
+<div class="grid2">
+  <div class="card">
+    <h4>Agent session continuity</h4>
+    <p>An autonomous agent authenticates once, persists an encrypted envelope, and resumes across process
+       restarts &mdash; without re-running a login flow or storing raw credentials.</p>
+  </div>
+  <div class="card">
+    <h4>Regression detection on live apps</h4>
+    <p>Capture a fingerprint per release. A changed digest localizes to graph, DOM, memory or state via the
+       per-level equivalence checks, instead of a screenshot diff nobody trusts.</p>
+  </div>
+  <div class="card">
+    <h4>Context compression for LLMs</h4>
+    <p>Replace a large raw HTML payload with a structured IR graph that carries the operational meaning and
+       fits comfortably in a prompt.</p>
+  </div>
+  <div class="card">
+    <h4>Repository cognition</h4>
+    <p><code>extract_repository</code> builds a queryable knowledge graph of a codebase &mdash; language
+       detection, symbol lookup, planned queries &mdash; for code-aware agents.</p>
+  </div>
+  <div class="card">
+    <h4>Deterministic test fixtures</h4>
+    <p>Record a runtime once, reconstruct it from IR in CI. No live network, no flake, byte-identical every run.</p>
+  </div>
+  <div class="card">
+    <h4>Cross-stack verification</h4>
+    <p>A Python backend and a Flutter client can independently compute the same fingerprint for the same state
+       and compare, without shipping a shared binary.</p>
+  </div>
+</div>
+
+<h3>Selector drift &mdash; a concrete example</h3>
+<p>
+  A deploy renames a hashed CSS class and a recorded selector breaks. The adaptive layer resolves the element by
+  semantic anchor rather than the literal selector, and records the healed mapping in adaptive memory so the next
+  run starts from the repaired state.
+</p>
+<pre><code>from webweavex import heal_selector, save_adaptive_memory
+
+healed = heal_selector(broken_selector, dom)
+save_adaptive_memory("adaptive.enc", {"selector": healed})</code></pre>
+</div>
+
+<!-- ══════════════ 11 ══════════════ -->
+<div class="section">
+<h2>11. Repository Layout &amp; Contributing</h2>
+
+<p>
+  The repository uses long-lived per-language branches. <code>main</code> carries documentation and the public
+  site only &mdash; a clone of <code>main</code> contains <em>no</em> SDK source, which surprises most first-time
+  contributors.
+</p>
+
+<table>
+  <thead><tr><th>Branch</th><th>Contents</th><th>Build entry point</th></tr></thead>
+  <tbody>
+    <tr><td><code>main</code></td><td>Docs portal, README, public site</td><td>&mdash;</td></tr>
+    <tr><td><code>python</code></td><td><code>webweavex/</code> package + <code>core/</code> engines</td><td><code>pyproject.toml</code></td></tr>
+    <tr><td><code>javascript</code></td><td><code>src/</code> TypeScript sources</td><td><code>package.json</code> (tsup)</td></tr>
+    <tr><td><code>dart</code></td><td><code>lib/webweavex.dart</code> + <code>lib/src/</code></td><td><code>pubspec.yaml</code></td></tr>
+    <tr><td><code>java</code></td><td><code>java/src/main/java/io/webweavex/</code></td><td><code>java/pom.xml</code></td></tr>
+    <tr><td><code>kotlin</code></td><td><code>kotlin/src/</code> + <code>kotlin/dist/*.jar</code></td><td><code>kotlin/build.gradle.kts</code></td></tr>
+  </tbody>
+</table>
+
+<pre><code># work on a specific SDK
+git clone -b python https://github.com/ni-sh-a-char/WebWeaveX.git</code></pre>
+
+<h3>Contribution rules that actually matter here</h3>
+<ul>
+  <li><strong>Never break determinism.</strong> A change that alters canonical bytes changes every published
+      fingerprint. If output must change, it is a major version.</li>
+  <li><strong>Parity is a cross-branch concern.</strong> Adding an API to one SDK without porting and
+      vector-certifying it in the others creates silent divergence.</li>
+  <li><strong>No wall-clock or randomness in canonical paths.</strong> Use the injected clock providers
+      (<code>DeterministicClock</code>, <code>ReplayClock</code>) so replay stays reproducible.</li>
+  <li>Standard project documents apply: <code>CONTRIBUTING.md</code>, <code>CODE_OF_CONDUCT.md</code>,
+      <code>SECURITY.md</code>, <code>ROADMAP.md</code>.</li>
+</ul>
+</div>
+
+<!-- ══════════════ 12 ══════════════ -->
+<div class="section">
+<h2>12. Known Gaps &amp; Roadmap</h2>
+
+<p>An honest list of what is not done. These are the highest-value contribution targets.</p>
+
+<table>
+  <thead><tr><th>Gap</th><th>Impact</th><th>Suggested resolution</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Java and Kotlin are not on Maven Central</td>
+      <td>JVM adoption requires a manual source build or JAR download &mdash; the single biggest friction point in the project</td>
+      <td>Publish via Sonatype OSSRH under <code>io.github.piyush-mishra-00</code>, matching the existing <code>pom.xml</code></td>
+    </tr>
+    <tr>
+      <td>Static badges in README advertise unpublished Maven artifacts</td>
+      <td>Users hit unresolvable dependencies and lose trust</td>
+      <td>Replace with live shields.io registry queries, or remove until published</td>
+    </tr>
+    <tr>
+      <td><code>kotlin/dist/README.md</code> documents a non-existent <code>WebWeaveX</code> class</td>
+      <td>Copy-pasted quick-start does not compile</td>
+      <td>Update to <code>RuntimeKernel</code> / <code>ExtractionPipeline</code> (corrected in section 8e)</td>
+    </tr>
+    <tr>
+      <td>Python is 3.0.1 while other SDKs are 3.0.0</td>
+      <td>Minor version-reporting confusion; determinism is unaffected</td>
+      <td>Align patch versions at the next coordinated release</td>
+    </tr>
+    <tr>
+      <td>Published benchmark figures are labelled v2.0.0</td>
+      <td>Performance claims lag the current release</td>
+      <td>Re-run the benchmark suite against 3.0.x and republish</td>
+    </tr>
+    <tr>
+      <td>Coverage percentages are asserted in docs, not emitted by CI</td>
+      <td>Unverifiable quality claim</td>
+      <td>Wire a coverage reporter and use its live badge</td>
+    </tr>
+    <tr>
+      <td>No repository description or topics on GitHub</td>
+      <td>Poor discoverability in GitHub search</td>
+      <td>Set the description and add topics (deterministic, ai-agents, replay, runtime, web-extraction)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Direction</h3>
+<ul>
+  <li>Maven Central publication for both JVM SDKs</li>
+  <li>Live, registry-backed badges across all documentation</li>
+  <li>Refreshed 3.0.x benchmark and coverage reporting</li>
+  <li>Expanded connector fabric and distributed extraction coverage</li>
+</ul>
+</div>
+
+<!-- ══════════════ 13 ══════════════ -->
+<div class="section">
+<h2>13. License, Citation &amp; Contact</h2>
+
+<h3>License</h3>
+<p>
+  WebWeaveX is released under the <strong>Apache License 2.0</strong>. You may use, modify and distribute it,
+  including commercially, provided you retain the license and notice files and state significant changes. The
+  license includes an express patent grant.
+</p>
+
+<h3>Citation</h3>
+<p>The repository ships a <code>CITATION.cff</code>. For academic use:</p>
+<pre><code>Mishra, Piyush. WebWeaveX: Universal Runtime Cognition Infrastructure.
+Version 3.0.0, 2026. https://github.com/ni-sh-a-char/WebWeaveX</code></pre>
+
+<h3>Links</h3>
+<table>
+  <tbody>
+    <tr><td><strong>Documentation</strong></td><td>https://ni-sh-a-char.github.io/WebWeaveX/</td></tr>
+    <tr><td><strong>Repository</strong></td><td>https://github.com/ni-sh-a-char/WebWeaveX</td></tr>
+    <tr><td><strong>PyPI</strong></td><td>https://pypi.org/project/webweavex/</td></tr>
+    <tr><td><strong>npm</strong></td><td>https://www.npmjs.com/package/webweavex</td></tr>
+    <tr><td><strong>pub.dev</strong></td><td>https://pub.dev/packages/webweavex</td></tr>
+    <tr><td><strong>Issues</strong></td><td>https://github.com/ni-sh-a-char/WebWeaveX/issues</td></tr>
+    <tr><td><strong>Security</strong></td><td>See <code>SECURITY.md</code> &mdash; report privately, not as a public issue</td></tr>
+    <tr><td><strong>Support the project</strong></td><td>https://buymeacoffee.com/piyushmishra00</td></tr>
+  </tbody>
+</table>
+
+<div class="footer-note">
+  WebWeaveX &middot; Universal Runtime Cognition Infrastructure &middot; Apache 2.0<br>
+  Technical Whitepaper &amp; Complete Reference &middot; Registry availability verified 17 August 2026<br>
+  Every code sample in this document was checked against the shipped artifact it describes.
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platforms &amp; Installation — WebWeaveX</title>
+  <meta name="description" content="Verified installation and usage guide for WebWeaveX across PyPI, npm, pub.dev, Maven/Java and the Kotlin JAR. Real, registry-checked coordinates and working code for every platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://ni-sh-a-char.github.io/WebWeaveX/platforms.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo-icon" viewBox="0 0 80 80" fill="none">
+        <polygon points="40,5 75,25 75,65 40,85 5,65 5,25" fill="none" stroke="url(#ng)" stroke-width="5"/>
+        <circle cx="40" cy="45" r="9" fill="url(#ng)"/>
+        <defs><linearGradient id="ng" x1="0" y1="0" x2="80" y2="80">
+          <stop offset="0%" stop-color="#60a5fa"/><stop offset="50%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#f472b6"/>
+        </linearGradient></defs>
+      </svg>
+      <span>WebWeave<span class="brand-gradient">X</span></span>
+    </a>
+    <div class="nav-controls">
+      <a href="index.html" class="btn-secondary" style="padding:8px 18px;font-size:0.85rem;">&#8592; Docs</a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <svg class="theme-icon-dark" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg class="theme-icon-light" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+      <a href="https://github.com/ni-sh-a-char/WebWeaveX" target="_blank" rel="noopener" class="btn-github">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span>Star</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="layout-container">
+    <aside class="sidebar">
+      <div class="sidebar-group">
+        <div class="sidebar-title">Availability</div>
+        <a href="#matrix" class="sidebar-link active">Verified Matrix</a>
+        <a href="#branches" class="sidebar-link">Repository Layout</a>
+      </div>
+      <div class="sidebar-group">
+        <div class="sidebar-title">Install &amp; Use</div>
+        <a href="#python" class="sidebar-link">Python &mdash; PyPI</a>
+        <a href="#js" class="sidebar-link">JavaScript &mdash; npm</a>
+        <a href="#dart" class="sidebar-link">Dart &mdash; pub.dev</a>
+        <a href="#java" class="sidebar-link">Java &mdash; Maven</a>
+        <a href="#kotlin" class="sidebar-link">Kotlin &mdash; JAR</a>
+      </div>
+      <div class="sidebar-group">
+        <div class="sidebar-title">Reference</div>
+        <a href="#parity" class="sidebar-link">Cross-Language Parity</a>
+        <a href="#extras" class="sidebar-link">Python Extras</a>
+        <a href="#troubleshoot" class="sidebar-link">Troubleshooting</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <section class="hero-banner" style="padding-bottom:40px;">
+        <div class="hero-badge-pill">Platform &amp; Distribution Guide</div>
+        <h1 class="hero-title" style="text-align:left;font-size:2.6rem;">Platforms &amp;<br><span class="brand-gradient">Installation</span></h1>
+        <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:8px;max-width:760px;">
+          WebWeaveX ships five SDKs. Three are published to public package registries; two JVM SDKs are distributed
+          from this repository. Every coordinate on this page was verified against the live registry, and every code
+          sample uses an API that actually exists in the shipped artifact.
+        </p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section id="matrix">
+        <h2>Verified Availability Matrix</h2>
+        <p>Checked against each registry's public API. Click a registry to view the live listing.</p>
+        <table>
+          <thead>
+            <tr><th>SDK</th><th>Registry</th><th>Coordinates</th><th>Latest</th><th>Install</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Python</strong></td>
+              <td><a href="https://pypi.org/project/webweavex/" target="_blank" rel="noopener">PyPI</a></td>
+              <td><code>webweavex</code></td>
+              <td>3.0.1</td>
+              <td><code>pip install webweavex</code></td>
+              <td><span class="pill pill-green">Published</span></td>
+            </tr>
+            <tr>
+              <td><strong>JavaScript / TypeScript</strong></td>
+              <td><a href="https://www.npmjs.com/package/webweavex" target="_blank" rel="noopener">npm</a></td>
+              <td><code>webweavex</code></td>
+              <td>3.0.0</td>
+              <td><code>npm install webweavex</code></td>
+              <td><span class="pill pill-green">Published</span></td>
+            </tr>
+            <tr>
+              <td><strong>Dart / Flutter</strong></td>
+              <td><a href="https://pub.dev/packages/webweavex" target="_blank" rel="noopener">pub.dev</a></td>
+              <td><code>webweavex</code></td>
+              <td>3.0.0</td>
+              <td><code>dart pub add webweavex</code></td>
+              <td><span class="pill pill-green">Published</span></td>
+            </tr>
+            <tr>
+              <td><strong>Java</strong></td>
+              <td>Maven Central</td>
+              <td><code>io.github.piyush-mishra-00:webweavex</code></td>
+              <td>3.0.0</td>
+              <td><code>mvn clean install</code> from source</td>
+              <td><span class="pill pill-amber">Source only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Kotlin</strong></td>
+              <td><a href="https://github.com/ni-sh-a-char/WebWeaveX/tree/kotlin/kotlin/dist" target="_blank" rel="noopener">GitHub branch</a></td>
+              <td><code>webweavex-kotlin-3.0.0.jar</code></td>
+              <td>3.0.0</td>
+              <td>Download JAR &rarr; <code>implementation(files(...))</code></td>
+              <td><span class="pill pill-blue">Direct JAR</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note-box">
+          <strong>Honest status on the JVM SDKs.</strong> Older documentation advertised
+          <code>io.webweavex:webweavex:3.0.0</code> and <code>io.webweavex:webweavex-kotlin:3.0.0</code> on Maven Central.
+          Neither coordinate resolves &mdash; a Maven Central search for <code>webweavex</code> and for the groupId
+          <code>io.github.piyush-mishra-00</code> both return zero artifacts. Use the source build (Java) or the
+          prebuilt JAR (Kotlin) documented below. Maven Central publication is a roadmap item, not a shipped fact.
+        </p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section id="branches">
+        <h2>Repository Layout</h2>
+        <p>
+          The <code>main</code> branch holds documentation and this site. Each SDK lives on its own long-lived branch,
+          so a clone of <code>main</code> contains no SDK source. Use <code>git clone -b &lt;branch&gt;</code> to fetch one.
+        </p>
+        <table>
+          <thead><tr><th>Branch</th><th>Contents</th><th>Build entry point</th></tr></thead>
+          <tbody>
+            <tr><td><code>main</code></td><td>Docs portal, README, this site</td><td>&mdash;</td></tr>
+            <tr><td><code>python</code></td><td><code>webweavex/</code> package + <code>core/</code> engines</td><td><code>pyproject.toml</code></td></tr>
+            <tr><td><code>javascript</code></td><td><code>src/</code> TypeScript sources</td><td><code>package.json</code> (tsup)</td></tr>
+            <tr><td><code>dart</code></td><td><code>lib/webweavex.dart</code> + <code>lib/src/</code></td><td><code>pubspec.yaml</code></td></tr>
+            <tr><td><code>java</code></td><td><code>java/src/main/java/io/webweavex/</code></td><td><code>java/pom.xml</code></td></tr>
+            <tr><td><code>kotlin</code></td><td><code>kotlin/src/</code> + <code>kotlin/dist/*.jar</code></td><td><code>kotlin/build.gradle.kts</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ══════════ PYTHON ══════════ -->
+      <section id="python">
+        <h2>Python &mdash; PyPI <span class="pill pill-green">Published</span></h2>
+        <p>
+          The Python SDK is the reference implementation. Every other SDK is certified byte-for-byte against it.
+          Requires <strong>Python 3.10+</strong>. Latest published version: <strong>3.0.1</strong>.
+        </p>
+
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>pip install webweavex
+
+# with browser automation (Playwright)
+pip install "webweavex[browser]"
+python -m playwright install chromium
+
+# everything
+pip install "webweavex[full]"</code></pre>
+        </div>
+
+        <h3>Canonical pipeline</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>pipeline.py</span><button class="copy-btn">Copy</button></div>
+          <pre><code>from webweavex import UniversalInput, run_canonical_pipeline
+
+spec = UniversalInput(
+    source="https://example.com",
+    source_type="web",
+)
+
+result = run_canonical_pipeline(spec)
+print(result.pipeline_hash)   # deterministic SHA-256 digest</code></pre>
+        </div>
+
+        <h3>Extraction helpers</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>extract.py</span><button class="copy-btn">Copy</button></div>
+          <pre><code>from webweavex import (
+    extract, extract_async, extract_repo, extract_docs,
+    extract_web, extract_repository, extract_multimodal,
+)
+
+# Generic entry point
+doc = extract("https://example.com")
+
+# Repository cognition — builds a knowledge graph of a codebase
+repo = extract_repository("./my-project")
+
+# Multimodal (images, PDFs, documents)
+media = extract_multimodal("./report.pdf")</code></pre>
+        </div>
+
+        <h3>Runtime graph &amp; replay</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>graph_replay.py</span><button class="copy-btn">Copy</button></div>
+          <pre><code>from webweavex import (
+    build_runtime_graph, query_runtime_graph,
+    compute_global_runtime_fingerprint,
+    validate_replay_equivalence,
+)
+
+graph = build_runtime_graph([ir_a, ir_b])
+nodes = query_runtime_graph(graph, {"type": "element"})
+
+fp = compute_global_runtime_fingerprint(graph)
+
+# Prove two runs are topologically identical
+assert validate_replay_equivalence(run_one, run_two)</code></pre>
+        </div>
+
+        <h3>Kaalka v5 encryption &amp; session persistence</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>session.py</span><button class="copy-btn">Copy</button></div>
+          <pre><code>from webweavex import (
+    encrypt_value, decrypt_value,
+    encrypt_session_state, decrypt_session_state,
+    save_encrypted_session, load_encrypted_session,
+    compute_kaalka_hash, fingerprint,
+)
+
+blob = encrypt_session_state({"auth_token": "..."})
+save_encrypted_session("session.enc", blob)
+
+restored = decrypt_session_state(load_encrypted_session("session.enc"))</code></pre>
+        </div>
+
+        <p class="note-box">
+          <strong>Import surface.</strong> <code>webweavex/__init__.py</code> re-exports
+          <strong>173 names</strong> in <code>__all__</code> from the internal <code>core.*</code> engine packages.
+          Import from the top-level <code>webweavex</code> package only &mdash; <code>core.*</code> is internal and unstable.
+        </p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ══════════ JAVASCRIPT ══════════ -->
+      <section id="js">
+        <h2>JavaScript / TypeScript &mdash; npm <span class="pill pill-green">Published</span></h2>
+        <p>
+          Dual ESM + CommonJS build with bundled TypeScript declarations. Requires <strong>Node.js 18+</strong>.
+          Latest published version: <strong>3.0.0</strong>.
+        </p>
+
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>npm install webweavex
+# or
+pnpm add webweavex
+yarn add webweavex</code></pre>
+        </div>
+
+        <h3>Canonical pipeline</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>pipeline.ts</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import { UniversalInput, runCanonicalPipeline, VERSION } from "webweavex";
+
+const input = new UniversalInput({
+  source: "https://example.com",
+  sourceType: "web",
+});
+
+const result = await runCanonicalPipeline(input);
+console.log(VERSION, result.pipelineHash);</code></pre>
+        </div>
+
+        <h3>Browser &amp; authenticated runtime</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>browser.ts</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import {
+  extractWeb, renderPage, captureRuntime,
+  createRuntimeSession, persistRuntimeSession, restoreRuntimeSession,
+  continueAuthenticatedRuntime, extractWithSession,
+  detectSpaFramework, stabilizeSpaDom,
+} from "webweavex";
+
+const session = await createRuntimeSession({ source: "https://app.example.com" });
+await persistRuntimeSession(session, "session.enc");
+
+// Later — resume without re-authenticating
+const resumed = await restoreRuntimeSession("session.enc");
+const page    = await extractWithSession("https://app.example.com/dashboard", resumed);</code></pre>
+        </div>
+
+        <h3>Determinism, replay &amp; reconstruction</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>replay.ts</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import {
+  computeGlobalRuntimeFingerprint,
+  computeStableDomHash, computeSpaFingerprint,
+  validateReplayEquivalence, replayRuntimeState,
+  reconstructRuntime, rebuildExecutionGraph,
+} from "webweavex";
+
+const domHash = computeStableDomHash(html);
+const equal   = validateReplayEquivalence(runA, runB);
+const rebuilt = reconstructRuntime(intermediateRepresentation);</code></pre>
+        </div>
+
+        <h3>Memory fabric</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>memory.ts</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import {
+  buildRuntimeMemory, mergeRuntimeMemories, queryRuntimeMemory,
+  saveRuntimeMemory, loadRuntimeMemory, stableMemoryHash,
+} from "webweavex";
+
+const mem    = buildRuntimeMemory(extractions);
+const merged = mergeRuntimeMemories([mem, priorMemory]);
+await saveRuntimeMemory(merged, "memory.enc");</code></pre>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ══════════ DART ══════════ -->
+      <section id="dart">
+        <h2>Dart / Flutter &mdash; pub.dev <span class="pill pill-green">Published</span></h2>
+        <p>
+          Pure-Dart implementation including a BeautifulSoup-parity HTML engine, so it runs on Flutter mobile,
+          Dart server, and Dart CLI with no native bridge. Latest published version: <strong>3.0.0</strong>.
+        </p>
+
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>dart pub add webweavex
+# Flutter
+flutter pub add webweavex</code></pre>
+        </div>
+
+        <h3>Canonical, Python-aligned API</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>main.dart</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import 'package:webweavex/webweavex.dart';
+
+void main() {
+  // Python-aligned canonical entry points
+  final fp = computeGlobalRuntimeFingerprint(graph);
+  final ok = validateReplayEquivalence(runA, runB);
+  final rebuilt = reconstructRuntime(ir);
+
+  print('fingerprint: $fp  replay-equivalent: $ok');
+}</code></pre>
+        </div>
+
+        <h3>HTML extraction with the bundled Soup engine</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>extract.dart</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import 'package:webweavex/webweavex.dart';
+
+void main() {
+  final soup = Soup(htmlString);
+
+  final semantic = extractSemanticHtml(htmlString);
+  final content  = extractSemanticContent(htmlString);
+
+  // Ingestion auto-detects the input kind
+  final kind = detectInputType(source);
+  final data = ingestInput(source);
+}</code></pre>
+        </div>
+
+        <h3>Adaptive &amp; interaction engines</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>adaptive.dart</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import 'package:webweavex/webweavex.dart';
+
+// Repair a selector that drifted between releases
+final healed = healSelector(brokenSelector, dom);
+final anchor = buildSemanticAnchor(element);
+
+// Replay a recorded interaction sequence
+replayInteractions(recordedEvents);
+
+// Pagination and modal recovery
+final pages = extractPaginatedContent(config);
+final modal = recoverModalRuntime(state);</code></pre>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ══════════ JAVA ══════════ -->
+      <section id="java">
+        <h2>Java &mdash; Maven <span class="pill pill-amber">Source only</span></h2>
+        <p class="note-box" style="border-left-color:var(--accent-amber);">
+          <strong>Not on Maven Central.</strong> <code>io.webweavex:webweavex:3.0.0</code> does not resolve.
+          The project's own <code>pom.xml</code> declares groupId <code>io.github.piyush-mishra-00</code>, and neither
+          that groupId nor the artifact name is present on Central. Build and install it locally as shown below.
+        </p>
+
+        <h3>1. Build and install to your local repository</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>git clone -b java https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX/java
+mvn clean install</code></pre>
+        </div>
+
+        <h3>2. Declare the dependency</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>pom.xml</span><button class="copy-btn">Copy</button></div>
+          <pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.github.piyush-mishra-00&lt;/groupId&gt;
+  &lt;artifactId&gt;webweavex&lt;/artifactId&gt;
+  &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+        </div>
+
+        <div class="code-wrapper">
+          <div class="code-header"><span>build.gradle.kts</span><button class="copy-btn">Copy</button></div>
+          <pre><code>repositories {
+    mavenLocal()   // required — the artifact is installed locally
+    mavenCentral()
+}
+
+dependencies {
+    implementation("io.github.piyush-mishra-00:webweavex:3.0.0")
+}</code></pre>
+        </div>
+
+        <h3>3. Use it</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>App.java</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import io.webweavex.WebWeaveX;
+
+public class App {
+    public static void main(String[] args) {
+        // Version facade, byte-exact with Python's webweavex.__version__
+        System.out.println("WebWeaveX " + WebWeaveX.VERSION);   // 3.0.0
+    }
+}</code></pre>
+        </div>
+
+        <p>
+          The Java tree mirrors the Python engine package-for-package under <code>io.webweavex.*</code> &mdash;
+          <code>adaptive</code>, <code>application</code>, <code>ast</code>, <code>auth</code>, <code>causality</code>,
+          <code>distributed</code> and more. Parity against the Python golden vectors is enforced in CI by the
+          <code>java-parity</code> and <code>parity-regression</code> workflows on the <code>java</code> branch.
+        </p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ══════════ KOTLIN ══════════ -->
+      <section id="kotlin">
+        <h2>Kotlin &mdash; Prebuilt JAR <span class="pill pill-blue">Direct JAR</span></h2>
+        <p>
+          A compiled, ready-to-use JAR ships in the repository at
+          <code>kotlin/dist/webweavex-kotlin-3.0.0.jar</code> on the <code>kotlin</code> branch.
+          It is <strong>220 KB</strong> and contains <strong>76 public classes</strong> under <code>io.webweavex.*</code>.
+          No Maven Central coordinate resolves &mdash; use the JAR directly.
+        </p>
+
+        <h3>1. Download the JAR</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>mkdir -p libs
+curl -L -o libs/webweavex-kotlin-3.0.0.jar \
+  https://github.com/ni-sh-a-char/WebWeaveX/raw/kotlin/kotlin/dist/webweavex-kotlin-3.0.0.jar</code></pre>
+        </div>
+
+        <h3>2. Add it to your build</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>build.gradle.kts</span><button class="copy-btn">Copy</button></div>
+          <pre><code>dependencies {
+    implementation(files("libs/webweavex-kotlin-3.0.0.jar"))
+}</code></pre>
+        </div>
+
+        <h3>3. Or build from source</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+          <pre><code>git clone -b kotlin https://github.com/ni-sh-a-char/WebWeaveX.git
+cd WebWeaveX/kotlin
+./gradlew build</code></pre>
+        </div>
+
+        <h3>4. Use it</h3>
+        <div class="code-wrapper">
+          <div class="code-header"><span>Main.kt</span><button class="copy-btn">Copy</button></div>
+          <pre><code>import io.webweavex.runtime.RuntimeKernel
+import io.webweavex.runtime.UniversalInput
+import io.webweavex.extract.ExtractionPipeline
+import io.webweavex.fingerprint.Fingerprint
+import io.webweavex.crypto.KaalkaV5
+
+fun main() {
+    // Runtime kernel — extract() returns a UniversalOutput
+    val kernel = RuntimeKernel()
+    val input  = UniversalInput("https://example.com")
+    val output = kernel.extract(input)
+
+    println("version:      ${kernel.version}")
+    println("capabilities: ${kernel.capabilities}")
+
+    // Deterministic fingerprint, byte-exact with Python/JS/Dart
+    println("fingerprint:  ${Fingerprint.compute(input.toMap())}")
+
+    // Direct text extraction
+    val result = ExtractionPipeline.extractText(htmlString, "html")
+}</code></pre>
+        </div>
+
+        <p class="note-box">
+          <strong>Correction to the bundled JAR README.</strong> The <code>kotlin/dist/README.md</code> in the repo
+          shows <code>WebWeaveX.extract("https://example.com")</code>. There is <em>no</em> <code>io.webweavex.WebWeaveX</code>
+          class in the shipped JAR &mdash; that snippet will not compile. Use
+          <code>io.webweavex.runtime.RuntimeKernel</code> or <code>io.webweavex.extract.ExtractionPipeline</code>
+          as shown above.
+        </p>
+
+        <h3>Shipped Kotlin packages</h3>
+        <table>
+          <thead><tr><th>Package</th><th>Key types</th></tr></thead>
+          <tbody>
+            <tr><td><code>io.webweavex.runtime</code></td><td><code>RuntimeKernel</code>, <code>UniversalInput</code>, <code>UniversalOutput</code>, <code>RuntimeNode</code>, <code>RuntimeEdge</code>, <code>DeterministicClock</code>, <code>ReplayClock</code></td></tr>
+            <tr><td><code>io.webweavex.extract</code></td><td><code>ExtractionPipeline</code>, <code>HtmlExtractor</code>, <code>JsonExtractor</code>, <code>MarkdownExtractor</code></td></tr>
+            <tr><td><code>io.webweavex.determinism</code></td><td><code>CanonicalJson</code>, <code>Normalization</code>, <code>StableSerialize</code>, <code>PyFloat</code>, <code>PyJson</code></td></tr>
+            <tr><td><code>io.webweavex.crypto</code></td><td><code>KaalkaV5</code></td></tr>
+            <tr><td><code>io.webweavex.replay</code></td><td><code>ReplayEngine</code>, <code>ReplayEquivalence</code>, <code>ReplaySnapshot</code></td></tr>
+            <tr><td><code>io.webweavex.memory</code></td><td><code>MemoryEngine</code>, <code>MemoryStore</code>, <code>MemorySnapshot</code></td></tr>
+            <tr><td><code>io.webweavex.repository</code></td><td><code>RepositoryAnalyzer</code>, <code>KnowledgeGraph</code>, <code>QueryEngine</code>, <code>SearchIndex</code></td></tr>
+            <tr><td><code>io.webweavex.graph</code></td><td><code>RuntimeGraph</code></td></tr>
+            <tr><td><code>io.webweavex.workflow</code></td><td><code>WorkflowEngine</code>, <code>WorkflowStep</code>, <code>WorkflowResult</code></td></tr>
+            <tr><td><code>io.webweavex.fetch</code></td><td><code>Crawler</code>, <code>HttpTransport</code>, <code>JavaNetTransport</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="section-divider">
+
+      <section id="parity">
+        <h2>Cross-Language Parity</h2>
+        <p>
+          The determinism contract is what makes the five SDKs interchangeable: the same input must produce the same
+          canonical bytes, and therefore the same SHA-256 digest, in every language.
+        </p>
+        <table>
+          <thead><tr><th>Layer</th><th>Guarantee</th></tr></thead>
+          <tbody>
+            <tr><td>Canonical JSON</td><td>Sorted keys, Python-compatible float repr, UTF-8, no insignificant whitespace</td></tr>
+            <tr><td>Normalization</td><td>Volatile keys stripped, stable key ordering, whitespace collapsed</td></tr>
+            <tr><td>Fingerprint</td><td>SHA-256 over canonical bytes &mdash; identical across all five SDKs</td></tr>
+            <tr><td>Kaalka v5</td><td>Shared key-derivation and cipher spec, portable encrypted envelopes</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Parity is verified by reflective harnesses that replay Python-generated golden vectors through each runtime:
+          <code>JavaVerify</code> on the <code>java</code> branch and <code>KotlinVerify</code> on the <code>kotlin</code>
+          branch each hash their result with <code>StableSerialize</code> and compare against the Python vector digest,
+          reporting MATCH / DIFFER / MISSING per API.
+        </p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section id="extras">
+        <h2>Python Optional Extras</h2>
+        <p>Install only what you need &mdash; the base package stays lean.</p>
+        <table>
+          <thead><tr><th>Extra</th><th>Command</th><th>Pulls in</th></tr></thead>
+          <tbody>
+            <tr><td><code>browser</code></td><td><code>pip install "webweavex[browser]"</code></td><td>Playwright &ge;1.40</td></tr>
+            <tr><td><code>parsers</code></td><td><code>pip install "webweavex[parsers]"</code></td><td>tree-sitter-languages</td></tr>
+            <tr><td><code>ocr</code></td><td><code>pip install "webweavex[ocr]"</code></td><td>pytesseract, Pillow</td></tr>
+            <tr><td><code>ingestion</code></td><td><code>pip install "webweavex[ingestion]"</code></td><td>python-docx, pytesseract, Pillow</td></tr>
+            <tr><td><code>llm</code></td><td><code>pip install "webweavex[llm]"</code></td><td>groq</td></tr>
+            <tr><td><code>full</code></td><td><code>pip install "webweavex[full]"</code></td><td>All of the above</td></tr>
+            <tr><td><code>dev</code></td><td><code>pip install "webweavex[dev]"</code></td><td>pytest, pytest-cov, build</td></tr>
+          </tbody>
+        </table>
+        <p>Base dependencies, always installed: <code>requests</code>, <code>httpx</code>, <code>beautifulsoup4</code>, <code>lxml</code>, <code>markdownify</code>, <code>pypdf</code>.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section id="troubleshoot">
+        <h2>Troubleshooting</h2>
+        <table>
+          <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>Could not find io.webweavex:webweavex:3.0.0</code></td>
+              <td>Artifact is not on Maven Central</td>
+              <td>Build from the <code>java</code> branch with <code>mvn clean install</code> and use groupId <code>io.github.piyush-mishra-00</code> with <code>mavenLocal()</code></td>
+            </tr>
+            <tr>
+              <td><code>Unresolved reference: WebWeaveX</code> (Kotlin)</td>
+              <td>The bundled JAR README documents a class that does not exist</td>
+              <td>Use <code>io.webweavex.runtime.RuntimeKernel</code> or <code>io.webweavex.extract.ExtractionPipeline</code></td>
+            </tr>
+            <tr>
+              <td>Cloning the repo yields no SDK source</td>
+              <td><code>main</code> is docs-only</td>
+              <td><code>git clone -b python|javascript|dart|java|kotlin ...</code></td>
+            </tr>
+            <tr>
+              <td><code>ModuleNotFoundError: playwright</code></td>
+              <td>Browser extra not installed</td>
+              <td><code>pip install "webweavex[browser]" &amp;&amp; python -m playwright install chromium</code></td>
+            </tr>
+            <tr>
+              <td>Python reports <code>3.0.1</code>, other SDKs report <code>3.0.0</code></td>
+              <td>Python shipped a patch release; the determinism contract is unchanged</td>
+              <td>No action needed &mdash; hashes remain parity-compatible</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr class="section-divider">
+      <footer style="padding:32px 0;text-align:center;color:var(--text-dim);font-size:0.85rem;">
+        <p>WebWeaveX &middot; Apache 2.0 &middot; <a href="index.html">Back to Docs</a></p>
+        <p style="margin-top:6px;">Registry availability last verified 17 August 2026.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

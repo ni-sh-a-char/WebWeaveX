@@ -1107,3 +1107,30 @@ section h2:hover::after {
   .grid-3 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ═══ Status pills & note boxes ═══ */
+.pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.pill-green { color: var(--accent-green); background: color-mix(in srgb, var(--accent-green) 12%, transparent); }
+.pill-amber { color: var(--accent-amber); background: color-mix(in srgb, var(--accent-amber) 12%, transparent); }
+.pill-blue  { color: var(--accent-blue);  background: color-mix(in srgb, var(--accent-blue) 12%, transparent); }
+
+.note-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent-amber);
+  border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--accent-amber) 8%, transparent);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
